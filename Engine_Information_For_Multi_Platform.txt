@@ -1,0 +1,3 @@
+The _3DMA files are in little endian format. So for different platforms, they might not be able to read the files.
+
+RTTI needs to be enabled for the entity component system to work.

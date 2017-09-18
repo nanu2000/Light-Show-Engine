@@ -21,19 +21,9 @@ void FixedUpdatingSystem::initialize(Scene & scene, Settings & settings, Physics
 	systems->guiResizingInfo.updateInformation();
 }
 
-void FixedUpdatingSystem::update(const Time & time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap & directionalLightDepthMap)
+
+bool FixedUpdatingSystem::updateGUI(const std::vector<Scene::GameObject>& gameObjects, const Time & time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap & directionalLightDepthMap)
 {
-
-	if (areVitalsNull())
-	{
-		return;
-	}
-
-
-	const std::vector<Scene::GameObject>& gameObjects = *currentScene->getAllGameObjects();
-
-
-
 
 
 	bool isPauseMenuShowing = false;
@@ -48,7 +38,7 @@ void FixedUpdatingSystem::update(const Time & time, PointLightShadowMap& pointLi
 		}
 	}
 
-	
+
 
 
 	if (!isPauseMenuShowing)
@@ -65,10 +55,56 @@ void FixedUpdatingSystem::update(const Time & time, PointLightShadowMap& pointLi
 	else
 	{
 		SDL_ShowCursor(SDL_ENABLE);
+	}
+
+
+	for (unsigned int i = 0; i < gameObjects.size(); i++)
+	{
+		const int32_t& entity = gameObjects[i].id;
+
+
+		if (currentScene->isEntityActive(entity))
+		{
+			if (EntityStats * stats = currentScene->getComponent<EntityStats>(entity))
+			{
+				if (EntityStatsDisplayer * disp = currentScene->getComponent<EntityStatsDisplayer>(entity))
+				{
+					systems->entityStatsDisplayerSystem.update(*disp, *stats, systems->guiResizingInfo);
+				}
+			}
+
+			if (DisplayStatistics * stats = currentScene->getComponent<DisplayStatistics>(entity))
+			{
+				systems->displayStatisticsSystem.update(*stats, time, systems->guiResizingInfo);
+			}
+
+
+		}
+	}
+
+	return isPauseMenuShowing;
+
+
+
+}
+
+void FixedUpdatingSystem::update(const Time & time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap & directionalLightDepthMap)
+{
+
+	if (areVitalsNull())
+	{
 		return;
 	}
 
 
+	const std::vector<Scene::GameObject>& gameObjects = *currentScene->getAllGameObjects();
+
+
+	bool isPauseMenuShowing = updateGUI(gameObjects, time, pointLightDepthMap, directionalLightDepthMap);
+
+	if (isPauseMenuShowing) {
+		return;
+	}
 
 
 	currentScene->performOperationsOnAllOfType<CollisionMesh>
@@ -106,23 +142,9 @@ void FixedUpdatingSystem::update(const Time & time, PointLightShadowMap& pointLi
 	{	
 		const int32_t& entity = gameObjects[i].id;
 
-
-
-
+		
 		if (currentScene->isEntityActive(entity))
 		{
-			if (EntityStats * stats = currentScene->getComponent<EntityStats>(entity))
-			{
-				if (EntityStatsDisplayer * disp = currentScene->getComponent<EntityStatsDisplayer>(entity))
-				{
-					systems->entityStatsDisplayerSystem.update(*disp, *stats, systems->guiResizingInfo);
-				}
-			}
-
-			if (DisplayStatistics * stats = currentScene->getComponent<DisplayStatistics>(entity))
-			{
-				systems->displayStatisticsSystem.update(*stats, time, systems->guiResizingInfo);
-			}
 
 			if (TestEnemyAI * ai = currentScene->getComponent<TestEnemyAI>(entity))
 			{
@@ -139,15 +161,12 @@ void FixedUpdatingSystem::update(const Time & time, PointLightShadowMap& pointLi
 			if (ThirdPersonCamera * thisCamera = currentScene->getComponent<ThirdPersonCamera>(entity))
 			{
 
-				if (!isPauseMenuShowing)
-				{
-					systems->thirdPersonCameraSystem.update(*thisCamera);
+				systems->thirdPersonCameraSystem.update(*thisCamera);
 				
 
-					if (ThirdPersonCameraControllerTest * thisCameraController = currentScene->getComponent<ThirdPersonCameraControllerTest>(entity))
-					{
-						thisCameraController->update(thisCamera);
-					}
+				if (ThirdPersonCameraControllerTest * thisCameraController = currentScene->getComponent<ThirdPersonCameraControllerTest>(entity))
+				{
+					thisCameraController->update(thisCamera);
 				}
 
 				if (thisCamera->isActive())
@@ -162,10 +181,7 @@ void FixedUpdatingSystem::update(const Time & time, PointLightShadowMap& pointLi
 
 			if (FirstPersonCamera * thisCamera = currentScene->getComponent<FirstPersonCamera>(entity))
 			{
-				if (!isPauseMenuShowing)
-				{
-					systems->firstPersonCameraSystem.update(*thisCamera);
-				}
+				systems->firstPersonCameraSystem.update(*thisCamera);
 
 				if (thisCamera->isActive())
 				{
@@ -234,6 +250,7 @@ void FixedUpdatingSystem::handleBackEndMsg(BackEndMessages msg)
 		break;
 	}
 }
+
 
 void FixedUpdatingSystem::updateShadowMaps(PointLightShadowMap & pointLightDepthMap, DirectionalLightShadowMap & directionalLightDepthMap, Camera& currentCamera)
 {

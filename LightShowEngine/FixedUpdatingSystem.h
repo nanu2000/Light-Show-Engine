@@ -35,6 +35,8 @@ public:
 private:
 	
 
+	//Updates GUI (Will be called even if the game is paused) will return true if the game is paused
+	bool updateGUI(const std::vector<Scene::GameObject>& gameObjects, const Time & time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap & directionalLightDepthMap);
 
 	//Updates the shadow maps and sets the current shadows light position.
 	void updateShadowMaps	(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap & directionalLightDepthMap, Camera& currentCamera);

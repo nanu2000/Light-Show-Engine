@@ -1,4 +1,17 @@
 # Light-Show-Engine
-The source code of my game/graphics engine! A lot of this is really well written, although there are a few things I will need to change when I create a game from it.
+LightShow is a 3D framework created with the purpose of flexibility, scalability, and simplicity.
 
-NOTE: Indenting may show up incorrectly on github.
+## Features
+3D skeletal animation.
+Directional shadow mapping
+Runtime GLSL modifications
+Physics, Collision, Callbacks and Triggers
+Audio and music support
+Text rendering and custom binary file importer and exporter (with byte order swapping for big endian systems)
+Phong shading
+Point lights
+Diffuse shading
+Directional lights
+Omnidirectional shadow mapping
+Particle systems with instanced rendering
+Bone Colliders (updates scale, position and rotation of a collision object according to a bone)

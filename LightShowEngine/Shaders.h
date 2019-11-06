@@ -8,7 +8,6 @@ namespace Shaders
 	const std::string		MAX_LIGHT_TAG				= "/*MAL*/";	
 	const std::string		SHADOW_INTENSITY_TAG		= "/*SI*/";
 	const std::string		SHADOW_FILTERING_TAG		= "/*SF*/";
-	const std::string		SHADOW_FILTER_DISTANCE_TAG	= "/*SFD*/";
 
 
 	enum class SHADER_TYPE
@@ -81,8 +80,8 @@ namespace Shaders
 		MaterialAmbient				= 29,
 		MaterialSpecular			= 30,
 		MaterialShininess			= 31,
-		OpacityControl				= 32,
-		UNIFORM_NAME_COUNT			= 33
+		TimeMS						= 33,
+		UNIFORM_NAME_COUNT			= 34
 
 	};
 
@@ -120,7 +119,7 @@ namespace Shaders
 		"material.ambient",
 		"material.specular",
 		"material.shininess",
-		"opacityControl"
+		"timeMS"
 	};
 
 	enum class AttribName

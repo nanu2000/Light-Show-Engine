@@ -42,24 +42,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
-    <IncludePath>..\EngineLibraries+Includes\include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\EngineLibraries+Includes\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>include;$(IncludePath)</IncludePath>
+    <LibraryPath>lib\x86;$(LibraryPath)</LibraryPath>
     <OutDir>..\Debug\</OutDir>
     <IntDir>..\Debug\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
-    <IncludePath>..\EngineLibraries+Includes\include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\EngineLibraries+Includes\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>include;$(IncludePath)</IncludePath>
+    <LibraryPath>lib\x86;$(LibraryPath)</LibraryPath>
     <OutDir>..\Release\</OutDir>
     <IntDir>..\Release\</IntDir>
+    <ReferencePath>..\EngineLibraries+Includes\lib\x86\SDL_LIB;$(ReferencePath)</ReferencePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Richie\Documents\Visual Studio 2015\Projects\LightShowEngine\EngineLibraries+Includes\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
@@ -72,10 +73,15 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Richie\Documents\Visual Studio 2015\Projects\LightShowEngine\EngineLibraries+Includes\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL_LIB/SDL2.lib;SDL_LIB/SDL2main.lib;SDL_LIB/SDL2_image.lib;SDL_LIB/SDL2_mixer.lib;opengl32.lib;glu32.lib;OpenGL/glew32.lib;BulletPhysics_Lib/BulletCollision.lib;BulletPhysics_Lib/BulletDynamics.lib;BulletPhysics_Lib/LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
+    <PreBuildEvent>
+      <Command>xcopy /y /d  "package\*" "$(OutDir)"
+xcopy /y /d /s  "Assets\*" "$(OutDir)Assets\"
+xcopy /y /d /s  "LICENSES\*" "$(OutDir)LICENSES\"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -84,7 +90,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\Users\Richie\Documents\Visual Studio 2015\Projects\LightShowEngine\EngineLibraries+Includes\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
@@ -100,10 +106,16 @@
       <GenerateDebugInformation>No</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Users\Richie\Documents\Visual Studio 2015\Projects\LightShowEngine\EngineLibraries+Includes\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL_LIB/SDL2.lib;SDL_LIB/SDL2main.lib;SDL_LIB/SDL2_image.lib;SDL_LIB/SDL2_mixer.lib;opengl32.lib;glu32.lib;OpenGL/glew32.lib;BulletPhysics_Lib/BulletCollision.lib;BulletPhysics_Lib/BulletDynamics.lib;BulletPhysics_Lib/LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
+      <ProgramDatabaseFile />
     </Link>
+    <PreBuildEvent>
+      <Command>xcopy /y /d  "package\*" "$(OutDir)"
+xcopy /y /d /s  "Assets\*" "$(OutDir)Assets\"
+xcopy /y /d /s  "LICENSES\*" "$(OutDir)LICENSES\"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />

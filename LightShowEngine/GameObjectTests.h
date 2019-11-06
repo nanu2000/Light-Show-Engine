@@ -88,7 +88,7 @@ public:
     void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
-    _3DM::AnimatedModel model = _3DM::AnimatedModel("p/player.3DMA");
+    _3DM::AnimatedModel model = _3DM::AnimatedModel("Assets/Models/Player/player.3DMA");
 
     DefaultShader textShader;
 
@@ -111,7 +111,7 @@ public:
     void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
-    _3DM::AnimatedModel model = _3DM::AnimatedModel("p/player.3DMA");
+    _3DM::AnimatedModel model = _3DM::AnimatedModel("Assets/Models/Player/player.3DMA");
 
     EntityTransform transform;
     TestEnemyAI ai;
@@ -128,7 +128,7 @@ public:
     void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
-    _3DM::Model model = _3DM::Model("assets/models/cube.3DM");
+    _3DM::Model model = _3DM::Model("Assets/models/cube.3DM");
     CollisionMesh collisionMesh;
     Material material;
     LitShader shader;

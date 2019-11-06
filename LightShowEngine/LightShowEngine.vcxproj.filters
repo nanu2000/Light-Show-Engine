@@ -433,6 +433,18 @@
     <ClInclude Include="ModelBase.h">
       <Filter>Source Files\Engine\Rendering\Model</Filter>
     </ClInclude>
+    <ClInclude Include="DayNightCycleSystem.h">
+      <Filter>Source Files\Game\Systems\SubSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyBox.h">
+      <Filter>Source Files\Game\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyBoxSystem.h">
+      <Filter>Source Files\Game\Systems\SubSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>Source Files\Engine\Rendering\Shapes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -622,6 +634,18 @@
     </None>
     <None Include="Assets\Shaders\ParticleShader.v">
       <Filter>Source Files\Game\Shaders\Particles</Filter>
+    </None>
+    <None Include="Assets\Shaders\FloorShader.f">
+      <Filter>Source Files\Game\Shaders\NotAnimated\Lit</Filter>
+    </None>
+    <None Include="Assets\Shaders\SkyBox.f">
+      <Filter>Source Files\Game\Shaders\NotAnimated\Unlit</Filter>
+    </None>
+    <None Include="Assets\Shaders\SkyBox.v">
+      <Filter>Source Files\Game\Shaders\NotAnimated\Unlit</Filter>
+    </None>
+    <None Include=".clang-format">
+      <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
 </Project>

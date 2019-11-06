@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -14,19 +14,19 @@
     <ProjectGuid>{09F4B261-FF16-4FE6-9D44-3973D9E3A17E}</ProjectGuid>
     <RootNamespace>LightShowEngine</RootNamespace>
     <ProjectName>LightShowEngine</ProjectName>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -42,20 +42,24 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
-    <IncludePath>D:\Users\Richie\Documents\Visual Studio 2015\Projects\LightShowEngine\EngineLibraries+Includes\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Users\Richie\Documents\Visual Studio 2015\Projects\LightShowEngine\EngineLibraries+Includes\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Richie\Documents\Visual Studio 2015\Projects\LightShowEngine\EngineLibraries+Includes\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Richie\Documents\Visual Studio 2015\Projects\LightShowEngine\EngineLibraries+Includes\lib\x86;$(LibraryPath)</LibraryPath>
+    <OutDir>..\Debug\</OutDir>
+    <IntDir>..\Debug\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
-    <IncludePath>D:\Users\Richie\Documents\Visual Studio 2015\Projects\LightShowEngine\EngineLibraries+Includes\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Users\Richie\Documents\Visual Studio 2015\Projects\LightShowEngine\EngineLibraries+Includes\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Richie\Documents\Visual Studio 2015\Projects\LightShowEngine\EngineLibraries+Includes\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Richie\Documents\Visual Studio 2015\Projects\LightShowEngine\EngineLibraries+Includes\lib\x86;$(LibraryPath)</LibraryPath>
+    <OutDir>..\Release\</OutDir>
+    <IntDir>..\Release\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\Users\Richie\Documents\Visual Studio 2015\Projects\LightShowEngine\EngineLibraries+Includes\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Richie\Documents\Visual Studio 2015\Projects\LightShowEngine\EngineLibraries+Includes\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
@@ -68,7 +72,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Users\Richie\Documents\Visual Studio 2015\Projects\LightShowEngine\EngineLibraries+Includes\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Richie\Documents\Visual Studio 2015\Projects\LightShowEngine\EngineLibraries+Includes\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL_LIB/SDL2.lib;SDL_LIB/SDL2main.lib;SDL_LIB/SDL2_image.lib;SDL_LIB/SDL2_mixer.lib;opengl32.lib;glu32.lib;OpenGL/glew32.lib;BulletPhysics_Lib/BulletCollision.lib;BulletPhysics_Lib/BulletDynamics.lib;BulletPhysics_Lib/LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
@@ -96,7 +100,7 @@
       <GenerateDebugInformation>No</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>D:\Users\Richie\Documents\Visual Studio 2015\Projects\LightShowEngine\EngineLibraries+Includes\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Richie\Documents\Visual Studio 2015\Projects\LightShowEngine\EngineLibraries+Includes\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL_LIB/SDL2.lib;SDL_LIB/SDL2main.lib;SDL_LIB/SDL2_image.lib;SDL_LIB/SDL2_mixer.lib;opengl32.lib;glu32.lib;OpenGL/glew32.lib;BulletPhysics_Lib/BulletCollision.lib;BulletPhysics_Lib/BulletDynamics.lib;BulletPhysics_Lib/LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
@@ -153,6 +157,8 @@
     <ClInclude Include="BoneCollisionMeshSystem.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ControllerRayCollision.h" />
+    <ClInclude Include="Cube.h" />
+    <ClInclude Include="DayNightCycleSystem.h" />
     <ClInclude Include="DisplayStatisticsSystem.h" />
     <ClInclude Include="EnemyController.h" />
     <ClInclude Include="EnemyControllerSystem.h" />
@@ -170,6 +176,8 @@
     <ClInclude Include="PauseMenuSystem.h" />
     <ClInclude Include="PlayerCameraHandler.h" />
     <ClInclude Include="PlayerCameraHandlingSystem.h" />
+    <ClInclude Include="SkyBox.h" />
+    <ClInclude Include="SkyBoxSystem.h" />
     <ClInclude Include="SubSystems.h" />
     <ClInclude Include="TestEnemyAI.h" />
     <ClInclude Include="ThirdPersonCameraControllerTest.h" />
@@ -235,6 +243,7 @@
     <ClInclude Include="WorldSettings.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".clang-format" />
     <None Include="Assets\Shaders\AnimatedLit.v" />
     <None Include="Assets\Shaders\BasicAnimated.f" />
     <None Include="Assets\Shaders\BasicAnimated.v" />
@@ -245,6 +254,7 @@
     <None Include="Assets\Shaders\DiffuseColor.f" />
     <None Include="Assets\Shaders\DirectionalLightShadowMapAnimated.v" />
     <None Include="Assets\Shaders\empty.f" />
+    <None Include="Assets\Shaders\FloorShader.f" />
     <None Include="Assets\Shaders\GUIShader.f" />
     <None Include="Assets\Shaders\GUIShader.v" />
     <None Include="Assets\Shaders\lit.v" />
@@ -255,6 +265,8 @@
     <None Include="Assets\Shaders\PointLightDepthMap.f" />
     <None Include="Assets\Shaders\PointLightDepthMap.g" />
     <None Include="Assets\Shaders\PointLightDepthMapAnimated.v" />
+    <None Include="Assets\Shaders\SkyBox.f" />
+    <None Include="Assets\Shaders\SkyBox.v" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

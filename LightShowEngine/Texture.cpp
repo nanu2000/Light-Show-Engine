@@ -192,21 +192,20 @@ Texture& TextureHandler::getTexture(std::string filePath,
 GLuint TextureHandler::createCubeMap(const std::string identifier, const std::vector<std::string>& faces) {
 
     std::map<std::string, GLuint>::iterator itr;
-    
+
     for (itr = cubeMaps.begin(); itr != cubeMaps.end(); ++itr) {
 
         if (itr->first == identifier) {
             DBG_LOG("Cubmap identifier %s exists, returning.\n", itr->first.c_str());
             return itr->second;
         }
-        
     }
 
     unsigned int textureID;
     glGenTextures(1, &textureID);
 
     cubeMaps.insert({ identifier, textureID });
-    
+
     glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
 
     for (unsigned int i = 0; i < faces.size(); i++) {

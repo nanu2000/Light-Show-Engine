@@ -5,51 +5,39 @@
 class Scene;
 
 //Inside a namespace because there is a global static that is needed.
-namespace Important
-{
-	static int32_t nextType = 0;
+namespace Important {
+static int32_t nextType = 0;
 }
 
-class ComponentInterface
-{
+class ComponentInterface {
 public:
-	virtual int32_t getType	() const = 0;
-	int32_t getEntityID		() const { return entityID; }
-	void setEntityID(int32_t id) { entityID = id; }
+    virtual int32_t getType() const = 0;
+    int32_t getEntityID() const { return entityID; }
+    void setEntityID(int32_t id) { entityID = id; }
 
-	inline bool isActive	() const		{ return active; }
-	inline void setActive	(bool isActive) { active = isActive; }
+    inline bool isActive() const { return active; }
+    inline void setActive(bool isActive) { active = isActive; }
 
 private:
+    bool active      = true;
+    int32_t ID       = -1;
+    int32_t entityID = -1;
 
-	bool active			= true;
-	int32_t ID			= -1;
-	int32_t entityID	= -1;
-
-	friend Scene;
+    friend Scene;
 };
-
 
 template <class T>
-class Component : public ComponentInterface
-{
+class Component : public ComponentInterface {
 public:
-
-	int32_t getType() const { return T::type; }
+    int32_t getType() const { return T::type; }
 
 private:
+    static int32_t type;
 
-	static int32_t type;
-	
-	friend Scene;
+    friend Scene;
 };
-
 
 template <typename T>
 int32_t Component<T>::type(Important::nextType++);
-
-
-
-
 
 #endif // !COMPONENT_H

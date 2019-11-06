@@ -1,12 +1,11 @@
 #ifndef ENTITY_TRANSFORM
 #define ENTITY_TRANSFORM
-#include "Transform.h"
 #include "Component.h"
+#include "Transform.h"
 
-class EntityTransform : public Component<EntityTransform>
-{
+class EntityTransform : public Component<EntityTransform> {
 public:
-	Transform transform;
+    Transform transform;
 };
 
 #endif

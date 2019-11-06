@@ -1,21 +1,21 @@
 #ifndef MODEL_INTERFACE_H
 #define MODEL_INTERFACE_H
 
-class ModelBase
-{
+#include "Transform.h"
+
+class ModelBase {
 public:
-	virtual void renderSingleMesh(unsigned int index, ShaderBase & shader) = 0;
-	virtual void renderAll(ShaderBase & shader) = 0;
-	virtual void initialize(ShaderBase& shader) = 0;
+    virtual void renderSingleMesh(unsigned int index, ShaderBase& shader) = 0;
+    virtual void renderAll(ShaderBase& shader)                            = 0;
+    virtual void initialize(ShaderBase& shader)                           = 0;
 
-	virtual ~ModelBase() {}
-	bool isAnimatedModel() { return animatedModel; }
+    virtual ~ModelBase() {}
+    bool isAnimatedModel() { return animatedModel; }
 
-	Transform transform;
+    Transform transform;
+
 protected:
-	bool animatedModel = false;
-
+    bool animatedModel = false;
 };
-
 
 #endif

@@ -3,38 +3,30 @@
 
 #include "SubSystems.h"
 
-class SystemBase
-{
+class SystemBase {
 
 public:
+    virtual void initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& systems) = 0;
 
-	virtual void initialize		(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& systems) = 0;
+    void setScene(Scene& scene) { currentScene = &scene; }
+    void setCurrentSettings(Settings& settings) { currentSettings = &settings; }
+    void setPhysicsWorld(PhysicsWorld& world) { physicsWorld = &world; }
 
-	void setScene				(Scene			& scene		)	{ currentScene		= &scene;		}
-	void setCurrentSettings		(Settings		& settings	)	{ currentSettings	= &settings;	}
-	void setPhysicsWorld		(PhysicsWorld	& world		)	{ physicsWorld		= &world;		}
-
-	bool areVitalsNull()
-	{
-		if (!currentScene || !physicsWorld || !currentSettings ||!systems)
-		{
-			DBG_LOG("Please Initialize Before Executing System!\n");
-			return true;
-		}
-		return false;
-	}
+    bool areVitalsNull() {
+        if (!currentScene || !physicsWorld || !currentSettings || !systems) {
+            DBG_LOG("Please Initialize Before Executing System!\n");
+            return true;
+        }
+        return false;
+    }
 
 protected:
+    SubSystems* systems;
 
-
-	SubSystems* systems;
-
-	//Vitals
-	PhysicsWorld * physicsWorld		= nullptr;
-	Settings	 * currentSettings	= nullptr;
-	Scene		 * currentScene		= nullptr;
-
+    //Vitals
+    PhysicsWorld* physicsWorld = nullptr;
+    Settings* currentSettings  = nullptr;
+    Scene* currentScene        = nullptr;
 };
-
 
 #endif // !SYSTEM_BASE

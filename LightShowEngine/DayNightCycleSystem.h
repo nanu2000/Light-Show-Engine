@@ -2,90 +2,71 @@
 #define DAY_NIGHT_CYCLE_SYSTEM_H
 
 #include "DebugDrawer.h"
-#include "Lights.h"
 #include "HelpingHand.h"
+#include "Lights.h"
 #include "Time.h"
 
 class DayNightCycleSystem {
 
 public:
-	void initialize()
-	{
-		debugDrawer.setDebugMode(btIDebugDraw::DBG_DrawWireframe);
-		debugDrawer.initialize();
+    void initialize() {
+        debugDrawer.setDebugMode(btIDebugDraw::DBG_DrawWireframe);
+        debugDrawer.initialize();
 
+        nightLightDiffuse = glm::vec3(.1f, .13f, .16f);
+        dayLightDiffuse   = glm::vec3(.7f, .73f, .74f);
+    }
 
+    void update(DirectionalLight& light, const Time& time) {
 
-		nightLightDiffuse = glm::vec3(.1f, .13f, .16f);
-		dayLightDiffuse = glm::vec3(.7f, .73f, .74f);
-	
-	}
+        float speed = 1.0f;
 
-	void update(DirectionalLight& light, const Time& time)
-	{
+        currentRotation = currentRotation + GameInfo::deltaTime * speed;
+        currentRotation = glm::mod(currentRotation, 360.f);
 
+        if (currentRotation >= 90 && currentRotation < 270) {
 
-		float speed = 1.0f;
+            sunDown         = !sunDown;
+            currentRotation = 270;
+            DBG_LOG("sundown %i\n", sunDown);
 
-		currentRotation = currentRotation + GameInfo::deltaTime * speed;
-		currentRotation = glm::mod(currentRotation, 360.f);
+            if (sunDown) {
+                light.diffuse = nightLightDiffuse;
 
+            } else {
+                light.diffuse = dayLightDiffuse;
+            }
+        }
 
-		if (currentRotation >= 90 && currentRotation < 270) {
+        float rotRadians = glm::radians(currentRotation);
 
-			sunDown = !sunDown;
-			currentRotation = 270;
-			DBG_LOG("sundown %i\n", sunDown);
+        glm::vec3 dir = hh::sphericalToCartisean(rotRadians, glm::radians(170.f), 1);
 
-			if (sunDown) {
-				light.diffuse = nightLightDiffuse;
+        currentDirection = glm::vec3(dir.y, dir.x, dir.z);
+        light.direction  = currentDirection;
+    }
 
-			}
-			else {
-				light.diffuse = dayLightDiffuse;
-			}
+    void render(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix) {
 
-		}
+        btVector3 linePos = btVector3(0, 10, 0);
+        float distance    = 5;
 
+        debugDrawer.drawLine(linePos, (btVector3(currentDirection.x, currentDirection.y, currentDirection.z) * distance) + linePos, btVector3(255, 255, 255));
 
-		float rotRadians = glm::radians(currentRotation);
-
-		glm::vec3 dir = hh::sphericalToCartisean(rotRadians, glm::radians(170.f), 1);
-
-		currentDirection = glm::vec3(dir.y, dir.x, dir.z);
-		light.direction = currentDirection;
-
-	}
-
-	void render(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix)
-	{
-
-		btVector3 linePos = btVector3(0, 10, 0);
-		float distance = 5;
-
-		debugDrawer.drawLine(linePos, (btVector3(currentDirection.x, currentDirection.y, currentDirection.z) * distance) + linePos, btVector3(255, 255, 255));
-
-		debugDrawer.render(projectionMatrix, viewMatrix);
-
-	}
-
+        debugDrawer.render(projectionMatrix, viewMatrix);
+    }
 
 private:
+    DebugDrawer debugDrawer;
 
+    glm::vec3 currentDirection;
 
-	DebugDrawer debugDrawer;
+    float currentRotation = 270;
 
-	glm::vec3 currentDirection;
+    bool sunDown = false;
 
-	float currentRotation = 270;
-
-	bool sunDown = false;
-
-	glm::vec3 nightLightDiffuse;
-	glm::vec3 dayLightDiffuse;
-
-
+    glm::vec3 nightLightDiffuse;
+    glm::vec3 dayLightDiffuse;
 };
-
 
 #endif

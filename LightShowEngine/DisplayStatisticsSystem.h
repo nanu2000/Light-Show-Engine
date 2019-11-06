@@ -2,40 +2,30 @@
 #ifndef DISPLAY_STATISTICS_SYSTEM_H
 #define DISPLAY_STATISTICS_SYSTEM_H
 
-
 #include "DisplayStatistics.h"
 
-class DisplayStatisticsSystem
-{
+class DisplayStatisticsSystem {
 
 public:
+    void update(DisplayStatistics& ds, const Time& time, GUIResizingInformation& guiInfo) {
 
+        float unit = guiInfo.getWidthUnit();
 
-	void update(DisplayStatistics & ds, const Time& time, GUIResizingInformation & guiInfo)
-	{
+        if (ds.lastUnit != unit) {
+            ds.guiString.setPosition(glm::ivec2(guiInfo.getLeftScreenPosition() + unit * 64.0f, guiInfo.getTopScreenPosition() - unit * 64.0f));
 
-		float unit = guiInfo.getWidthUnit();
+            ds.guiString.setScale(glm::fvec2(unit, unit));
 
-		if (ds.lastUnit != unit)
-		{
-			ds.guiString.setPosition(glm::ivec2(guiInfo.getLeftScreenPosition() + unit * 64.0f, guiInfo.getTopScreenPosition() - unit * 64.0f));
+            ds.lastUnit = unit;
+        }
 
-			ds.guiString.setScale(glm::fvec2(unit, unit));
+        ds.guiString.setString(
+            std::to_string(time.getMSPF()));
+    }
 
-			ds.lastUnit = unit;
-		}
-
-
-		ds.guiString.setString
-			(
-				std::to_string(time.getMSPF())
-				);
-	}
-
-	void render(ShaderBase& shader, DisplayStatistics & ds)
-	{
-		ds.guiString.render(shader);
-	}
+    void render(ShaderBase& shader, DisplayStatistics& ds) {
+        ds.guiString.render(shader);
+    }
 };
 
 #endif

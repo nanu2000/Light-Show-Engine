@@ -3,7 +3,6 @@
 uniform vec4 colorIn;
 out vec4 color;
 
-void main()
-{
+void main() {
     color = colorIn;
-} 
+}

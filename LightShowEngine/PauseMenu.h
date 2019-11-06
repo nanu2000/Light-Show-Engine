@@ -5,32 +5,25 @@
 #include "GuiButton.h"
 #include "GuiString.h"
 
-class PauseMenu : public Component<PauseMenu>
-{
+class PauseMenu : public Component<PauseMenu> {
 
 public:
+    bool isShowing() const {
+        return showing;
+    }
 
-	bool isShowing() const 
-	{ 
-		return showing; 
-	}
-
-	void initialize(TextMap& map, Texture& textImage)
-	{
-		str.initialize(map, textImage);
-		resumeButton.initialize(TextureLocator::getService().getTexture("assets/images/accept.png", GL_NEAREST));
-	}
+    void initialize(TextMap& map, Texture& textImage) {
+        str.initialize(map, textImage);
+        resumeButton.initialize(TextureLocator::getService().getTexture("assets/images/accept.png", GL_NEAREST));
+    }
 
 private:
-		
-	GuiString str = GuiString(10);
-	GuiButton resumeButton;
-	bool showing = false;
-	float lastUnit = 0.0f;
+    GuiString str = GuiString(10);
+    GuiButton resumeButton;
+    bool showing   = false;
+    float lastUnit = 0.0f;
 
-	friend class PauseMenuSystem;
-
+    friend class PauseMenuSystem;
 };
-
 
 #endif

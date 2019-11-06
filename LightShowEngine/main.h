@@ -4,9 +4,3 @@
 #include "Application.h"
 
 #endif
-
-
-
-
-
-

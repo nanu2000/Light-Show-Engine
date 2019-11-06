@@ -1,184 +1,148 @@
 #ifndef GAME_OBJECT_TESTS
 #define GAME_OBJECT_TESTS
-#include "Scene.h"
-#include "Material.h"
-#include "CollisionMesh.h"
-#include "PlayerController.h"
-#include "LitShader.h"
-#include "Lights.h"
-#include "DebuggingController.h"
-#include "ThirdPersonCameraControllerTest.h"
-#include "Settings.h"
-#include "FountainParticleEmitter.h"
-#include "TextMap.h"
-#include "GuiString.h"
-#include "DisplayStatistics.h"
-#include "ThirdPersonCamera.h"
-#include "UserControls.h"
-#include "PlayerCameraHandler.h"
 #include "BoneCollisionMesh.h"
+#include "CollisionMesh.h"
+#include "DebuggingController.h"
+#include "DisplayStatistics.h"
 #include "EnemyController.h"
-#include "GlobalInformation.h"
-#include "TestEnemyAI.h"
-#include "EntityTransform.h"
 #include "EntityStats.h"
-#include "entityStatsDisplayer.h"
+#include "EntityTransform.h"
+#include "FountainParticleEmitter.h"
+#include "GlobalInformation.h"
 #include "GuiSprite.h"
+#include "GuiString.h"
+#include "Lights.h"
+#include "LitShader.h"
+#include "Material.h"
 #include "PauseMenu.h"
+#include "PlayerCameraHandler.h"
+#include "PlayerController.h"
+#include "Scene.h"
+#include "Settings.h"
 #include "SkyBox.h"
+#include "TestEnemyAI.h"
+#include "TextMap.h"
+#include "ThirdPersonCamera.h"
+#include "ThirdPersonCameraControllerTest.h"
+#include "UserControls.h"
+#include "entityStatsDisplayer.h"
 
-class EntityWrapper 
-{
+class EntityWrapper {
 public:
+    struct EntityVitals {
+        Settings* currentSettings    = nullptr;
+        Scene* scene                 = nullptr;
+        PhysicsWorld* thisWorld      = nullptr;
+        WorldSettings* worldSettings = nullptr;
+        TextMap* map                 = nullptr;
 
-	struct EntityVitals 
-	{
-		Settings		* currentSettings	= nullptr;
-		Scene			* scene				= nullptr;
-		PhysicsWorld	* thisWorld			= nullptr;
-		WorldSettings	* worldSettings		= nullptr;
-		TextMap			* map				= nullptr;
+        bool checkForNulls() { return currentSettings && scene && thisWorld && worldSettings && map; }
+    };
 
-		bool checkForNulls() { return currentSettings && scene && thisWorld && worldSettings && map; }
-	};
+    virtual void initialize(EntityVitals& vitals) {}
 
-	virtual void initialize(EntityVitals& vitals) {}
-
-	virtual ~EntityWrapper() {}
-	
+    virtual ~EntityWrapper() {}
 };
 
-class LightTest : public EntityWrapper
-{
+class LightTest : public EntityWrapper {
 
 public:
-
-	void initialize(EntityWrapper::EntityVitals& vitals);
+    void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
-	std::vector<PointLight> lights = std::vector<PointLight>(4);
-	DirectionalLight	directionalLight;
-	SkyBox skyBox;
-	DefaultShader		skyBoxShader;
-
-
+    std::vector<PointLight> lights = std::vector<PointLight>(4);
+    DirectionalLight directionalLight;
+    SkyBox skyBox;
+    DefaultShader skyBoxShader;
 };
 
-class ParticleTest : public EntityWrapper
-{
+class ParticleTest : public EntityWrapper {
 
 public:
-
-	void initialize(EntityWrapper::EntityVitals& vitals);
+    void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
-
-	Particles				particles = Particles(100);
-	DefaultShader			particleShader;
-	FountainParticleEmitter particleTest;
-
+    Particles particles = Particles(100);
+    DefaultShader particleShader;
+    FountainParticleEmitter particleTest;
 };
 
-class Player : public EntityWrapper
-{
+class Player : public EntityWrapper {
 
 public:
+    void initialize(EntityWrapper::EntityVitals& vitals);
 
-	void initialize(EntityWrapper::EntityVitals& vitals);
-	
 private:
+    DisplayStatistics statDisplayer;
+    DefaultShader textShader;
 
-	DisplayStatistics	statDisplayer;
-	DefaultShader		textShader;
-
-	ThirdPersonCamera	camera;
-	DebuggingController dbgController;
-	UserControls		userControls;
-	ThirdPersonCameraControllerTest	cameraController;
-
+    ThirdPersonCamera camera;
+    DebuggingController dbgController;
+    UserControls userControls;
+    ThirdPersonCameraControllerTest cameraController;
 };
 
-class PlayerTestObject : public EntityWrapper
-{
+class PlayerTestObject : public EntityWrapper {
 
 public:
+    void initialize(EntityWrapper::EntityVitals& vitals);
 
-	void initialize(EntityWrapper::EntityVitals& vitals);
-	
 private:
+    _3DM::AnimatedModel model = _3DM::AnimatedModel("p/player.3DMA");
 
-	_3DM::AnimatedModel model = _3DM::AnimatedModel("p/player.3DMA");
+    DefaultShader textShader;
 
-	DefaultShader		textShader;
+    PauseMenu menu;
 
-	PauseMenu			menu;
+    EntityStatsDisplayer statsDisplayer;
+    EntityStats stats;
 
-	
-	EntityStatsDisplayer statsDisplayer;
-	EntityStats			stats;
-
-	PlayerCameraHandler cameraHandler;
-	CollisionMesh		collisionMesh;
-	PlayerController	testController = PlayerController(glm::vec3(0,-2,0));
-	SimpleMaterial		material;
-	LitShader			shader;
-	BoneCollisionMesh	bCollisionMesh;
-
-
+    PlayerCameraHandler cameraHandler;
+    CollisionMesh collisionMesh;
+    PlayerController testController = PlayerController(glm::vec3(0, -2, 0));
+    SimpleMaterial material;
+    LitShader shader;
+    BoneCollisionMesh bCollisionMesh;
 };
 
-class EnemyTestObject : public EntityWrapper
-{
+class EnemyTestObject : public EntityWrapper {
 
 public:
-
-	void initialize(EntityWrapper::EntityVitals& vitals);
+    void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
+    _3DM::AnimatedModel model = _3DM::AnimatedModel("p/player.3DMA");
 
-	_3DM::AnimatedModel model = _3DM::AnimatedModel("p/player.3DMA");
-
-	EntityTransform		transform;
-	TestEnemyAI			ai;
-	GlobalInformation	info;
-	EnemyController		controller = EnemyController(glm::vec3(0, -2, 0));
-	CollisionMesh		collisionMesh;
-	SimpleMaterial		material;
-	LitShader			shader;
-
-
+    EntityTransform transform;
+    TestEnemyAI ai;
+    GlobalInformation info;
+    EnemyController controller = EnemyController(glm::vec3(0, -2, 0));
+    CollisionMesh collisionMesh;
+    SimpleMaterial material;
+    LitShader shader;
 };
 
+class CubeTrigger : public EntityWrapper {
 
-class CubeTrigger : public EntityWrapper
-{
-	
 public:
-
-	void initialize(EntityWrapper::EntityVitals& vitals);
+    void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
-
-	_3DM::Model			model = _3DM::Model("assets/models/cube.3DM");
-	CollisionMesh		collisionMesh;
-	Material			material;
-	LitShader			shader;
-
+    _3DM::Model model = _3DM::Model("assets/models/cube.3DM");
+    CollisionMesh collisionMesh;
+    Material material;
+    LitShader shader;
 };
 
-class FloorObject : public EntityWrapper
-{
+class FloorObject : public EntityWrapper {
 public:
-
-	void initialize(EntityWrapper::EntityVitals& vitals);
+    void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
-
-	_3DM::Model model = _3DM::Model("Assets/Models/testlevel.3DM");
-	CollisionMesh collisionMesh;
-	Material floorMaterial;
-	LitShader shader;
-
+    _3DM::Model model = _3DM::Model("Assets/Models/testlevel.3DM");
+    CollisionMesh collisionMesh;
+    Material floorMaterial;
+    LitShader shader;
 };
 
 #endif

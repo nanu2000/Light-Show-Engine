@@ -1,39 +1,36 @@
 #ifndef SUB_SYSTEMS_H
 #define SUB_SYSTEMS_H
 
-#include "PauseMenuSystem.h"
-#include "EntityStatsDisplayerSystem.h"
-#include "DisplayStatisticsSystem.h"
-#include "ThirdPersonCameraSystem.h"
-#include "FirstPersonCameraSystem.h"
-#include "PlayerCameraHandlingSystem.h"
 #include "BoneCollisionMeshSystem.h"
-#include "EnemyControllerSystem.h"
-#include "PlayerControllerSystem.h"
 #include "DayNightCycleSystem.h"
+#include "DisplayStatisticsSystem.h"
+#include "EnemyControllerSystem.h"
+#include "EntityStatsDisplayerSystem.h"
+#include "FirstPersonCameraSystem.h"
+#include "PauseMenuSystem.h"
+#include "PlayerCameraHandlingSystem.h"
+#include "PlayerControllerSystem.h"
 #include "SkyBoxSystem.h"
+#include "ThirdPersonCameraSystem.h"
 
-struct SubSystems
-{
-	PauseMenuSystem				pauseMenuSystem;
-	EntityStatsDisplayerSystem	entityStatsDisplayerSystem;
-	DisplayStatisticsSystem		displayStatisticsSystem;
+struct SubSystems {
+    PauseMenuSystem pauseMenuSystem;
+    EntityStatsDisplayerSystem entityStatsDisplayerSystem;
+    DisplayStatisticsSystem displayStatisticsSystem;
 
-	GUIResizingInformation guiResizingInfo;
+    GUIResizingInformation guiResizingInfo;
 
-	PlayerControllerSystem playerControllerSystem;
-	EnemyControllerSystem  enemyControllerSystem;
+    PlayerControllerSystem playerControllerSystem;
+    EnemyControllerSystem enemyControllerSystem;
 
-	PlayerCameraHandlingSystem playerCameraHandlingSystem;
+    PlayerCameraHandlingSystem playerCameraHandlingSystem;
 
-	FirstPersonCameraSystem firstPersonCameraSystem;
-	ThirdPersonCameraSystem thirdPersonCameraSystem;
-	BoneCollisionMeshSystem boneCollisionMeshSystem;
+    FirstPersonCameraSystem firstPersonCameraSystem;
+    ThirdPersonCameraSystem thirdPersonCameraSystem;
+    BoneCollisionMeshSystem boneCollisionMeshSystem;
 
-	DayNightCycleSystem dayNightCycleSystem;
-	SkyBoxSystem skyBoxSystem;
-
+    DayNightCycleSystem dayNightCycleSystem;
+    SkyBoxSystem skyBoxSystem;
 };
-
 
 #endif

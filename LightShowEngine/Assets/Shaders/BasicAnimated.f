@@ -7,9 +7,6 @@ out vec4 color;
 uniform sampler2D texture_diffuse1;
 //uniform sampler2D texture_specular1;
 
-
-
-
 //The format of my engine specifies the textures as
 //
 // texture_TYPEi
@@ -20,7 +17,6 @@ uniform sampler2D texture_diffuse1;
 //
 // texture_normals1, texture_normals2, texture_normals3, and so on.
 
-void main()
-{    
+void main() {
     color = vec4(texture(texture_diffuse1, textureCoords_o));
 }

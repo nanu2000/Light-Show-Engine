@@ -1,82 +1,66 @@
 #ifndef _INPUT_H
 #define _INPUT_H
-#include <SDL/SDL.h>
-#include "UniqueVectors.h"
 #include "GameInfo.h"
+#include "UniqueVectors.h"
 #include "glm/vec2.hpp"
+#include <SDL/SDL.h>
 
-
-enum class MOUSE_BUTTON : int8_t
-{
-	LeftButton,
-	RightButton,
-	MiddleButton
+enum class MOUSE_BUTTON : int8_t {
+    LeftButton,
+    RightButton,
+    MiddleButton
 };
 
-
-class Input
-{
+class Input {
 
 public:
+    Input();
 
-	Input();
+    virtual bool mousePressedOnce(MOUSE_BUTTON);
 
-	virtual bool mousePressedOnce	(MOUSE_BUTTON);
+    virtual bool isKeyDown(const SDL_Keycode& keycode);
 
-	virtual bool isKeyDown			(const SDL_Keycode & keycode);
+    virtual bool keyPressedOnce(const SDL_Keycode& keycode);
 
-	virtual bool keyPressedOnce		(const SDL_Keycode & keycode);
+    virtual bool getMouseButton(MOUSE_BUTTON);
 
-	virtual bool getMouseButton		(MOUSE_BUTTON);
-	
-	virtual void handleEvents				(SDL_Event & sdlEventSystem, SDL_EventType t);
+    virtual void handleEvents(SDL_Event& sdlEventSystem, SDL_EventType t);
 
-	virtual glm::ivec2 getMousePosition () const;
-	virtual glm::ivec2	getMouseDelta() const;
-						
+    virtual glm::ivec2 getMousePosition() const;
+    virtual glm::ivec2 getMouseDelta() const;
+
 private:
+    bool keys[SDL_NUM_SCANCODES];
 
-	bool keys[SDL_NUM_SCANCODES];
+    glm::ivec2 mousePosition;
 
+    bool mouseArray[3];
 
-	glm::ivec2 mousePosition;
-	
-	bool mouseArray	[3];
+    bool hitOnce[3];
 
-	bool hitOnce	[3];
+    bool pressed[3];
 
-	bool pressed	[3];
-
-	UniqueVec2<int> mouseLastPosition;
-
+    UniqueVec2<int> mouseLastPosition;
 };
 
-
-
-
-
-class NullInput : public Input
-{
+class NullInput : public Input {
 
 public:
-	
-	NullInput();
+    NullInput();
 
-	void handleEvents(SDL_Event & sdlEventSystem, SDL_EventType t)				override;
+    void handleEvents(SDL_Event& sdlEventSystem, SDL_EventType t) override;
 
-	bool isKeyDown		 (const SDL_Keycode & keycode)	override;
+    bool isKeyDown(const SDL_Keycode& keycode) override;
 
+    bool getMouseButton(MOUSE_BUTTON) override;
 
-	bool getMouseButton	 (MOUSE_BUTTON)	override;
+    bool keyPressedOnce(const SDL_Keycode& keycode) override;
 
-	bool keyPressedOnce	 (const SDL_Keycode & keycode)	override;
-	
-	bool mousePressedOnce(MOUSE_BUTTON)	override;
+    bool mousePressedOnce(MOUSE_BUTTON) override;
 
-	virtual glm::ivec2 getMouseDelta() const			override;
-	
-	glm::ivec2 getMousePosition() const			override;
+    virtual glm::ivec2 getMouseDelta() const override;
 
+    glm::ivec2 getMousePosition() const override;
 };
 
 #endif

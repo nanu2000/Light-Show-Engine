@@ -6,8 +6,8 @@
 #include <SDL/SDL_opengl.h>
 
 #include <algorithm>
-#include <string>
 #include <map>
+#include <string>
 
 #include "Debug.h"
 #include "HelpingHand.h"
@@ -42,7 +42,7 @@ public:
     // exist.
     Texture& getTexture(std::string filePath, GLint filtering = GL_LINEAR, bool repeatTexture = false);
 
-    GLuint TextureHandler::createCubeMap(const std::string identifier,  const std::vector<std::string>& faces);
+    GLuint TextureHandler::createCubeMap(const std::string identifier, const std::vector<std::string>& faces);
 
     ~TextureHandler();
 

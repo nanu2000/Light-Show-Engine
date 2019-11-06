@@ -1,32 +1,27 @@
 #ifndef TEXT_MAP_H
 #define TEXT_MAP_H
 #include "Glyph.h"
-#include <vector>
-#include "Texture.h"
 #include "Serialization.h"
+#include "Texture.h"
+#include <vector>
 
-class TextMap
-{
+class TextMap {
 
 public:
+    void createMap(const std::string& textDatMapLocation);
 
-	void createMap(const std::string& textDatMapLocation);
+    const Glyph* const getGlyph(const char& key);
 
-	const Glyph * const getGlyph(const char & key);
-
-	uint32_t getMaxPixelHeightOfAllGlyphs()
-	{
-		return maxPixelHeight;
-	}
+    uint32_t getMaxPixelHeightOfAllGlyphs() {
+        return maxPixelHeight;
+    }
 
 private:
+    bool isBigEndianness = false;
 
-	bool isBigEndianness = false;
+    uint32_t maxPixelHeight = 0;
 
-	uint32_t maxPixelHeight = 0;
-
-	std::vector<Glyph> map;
-
+    std::vector<Glyph> map;
 };
 
 #endif // !TEXT_MAP_H

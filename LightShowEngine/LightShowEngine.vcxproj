@@ -53,7 +53,7 @@
     <LibraryPath>lib\x86;$(LibraryPath)</LibraryPath>
     <OutDir>..\Release\</OutDir>
     <IntDir>..\Release\</IntDir>
-    <ReferencePath>..\EngineLibraries+Includes\lib\x86\SDL_LIB;$(ReferencePath)</ReferencePath>
+    <ReferencePath>$(ReferencePath)</ReferencePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

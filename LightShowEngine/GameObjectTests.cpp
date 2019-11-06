@@ -316,6 +316,8 @@ void LightTest::initialize(EntityWrapper::EntityVitals& vitals)
 	});
 	skyBox.supplyMap(m);
 
+    skyBoxShader = DefaultShader("Assets/Shaders/SkyBox.v", "Assets/Shaders/SkyBox.f", SHADER_TYPE::Default);
+
 	vitals.scene->addComponent(id, skyBoxShader);
 	vitals.scene->addComponent(id, skyBox);
 	vitals.scene->addComponent(id, directionalLight);

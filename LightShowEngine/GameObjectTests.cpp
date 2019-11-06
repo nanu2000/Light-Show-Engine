@@ -306,7 +306,7 @@ void LightTest::initialize(EntityWrapper::EntityVitals& vitals)
 		vitals.scene->addComponent(id, lights[i]);
 	}
 
-	GLuint m = TextureLocator::getService().createCubeMap(std::vector<std::string>{
+	GLuint m = TextureLocator::getService().createCubeMap("skybox", std::vector<std::string>{
 		"Assets/Images/cubeMaps/skybox/right.png",
 			"Assets/Images/cubeMaps/skybox/left.png",
 			"Assets/Images/cubeMaps/skybox/top.png",
@@ -314,11 +314,7 @@ void LightTest::initialize(EntityWrapper::EntityVitals& vitals)
 			"Assets/Images/cubeMaps/skybox/front.png",
 			"Assets/Images/cubeMaps/skybox/back.png"
 	});
-
 	skyBox.supplyMap(m);
-
-	skyBoxShader = DefaultShader("Assets/Shaders/SkyBox.v", "Assets/Shaders/SkyBox.f", SHADER_TYPE::Default);
-
 
 	vitals.scene->addComponent(id, skyBoxShader);
 	vitals.scene->addComponent(id, skyBox);

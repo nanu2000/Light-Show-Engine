@@ -23,15 +23,18 @@ This application uses two other projects for 3D model and font atlas file creati
 ### Prerequisites
 Required:
 
-Microsoft Windows 10
-
-[Visual Studio 2019 16.4 preview 1](https://visualstudio.microsoft.com/vs/preview/)
+* Microsoft Windows 10
+* [Visual Studio 2019 16.4 preview 1](https://visualstudio.microsoft.com/vs/preview/)
 
 Optional:
-
-[Clang Power Tools for Visual Studio](https://www.clangpowertools.com/)
+* [Clang Power Tools for Visual Studio](https://www.clangpowertools.com/)
 
 ### Installing
 1. Git clone the repository or download and extract project
 2. Open the Visual Studio project file with Visual Studio
 3. Build project. Exe files will be generated in ../debug or ../release depending on target.
+
+## Built With
+* Bullet Physics
+* SDL2
+* OpenGL

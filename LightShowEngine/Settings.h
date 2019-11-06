@@ -14,8 +14,6 @@ public:
 
 	const float				MIN_SHADOW_INTENSITY			= 0.5f;
 	const float				MAX_SHADOW_INTENSITY			= 7;
-	const float				MIN_FILTER_DISTANCE				= 0.1f;
-	const float				MAX_FILTER_DISTANCE				= 10;
 
 
 
@@ -43,25 +41,15 @@ public:
 		}
 	}
 
-	void setShadowFilterDistance		(float distance)
-	{
-		if (distance > MIN_FILTER_DISTANCE && distance <= MAX_FILTER_DISTANCE)
-		{
-			shadowFilterDistance = distance;
-		}
-	}
-
 	unsigned short	getLightsPerEntity		() const { return amountOfLightsPerEntity;	}
 	unsigned short	getShadowFilterAmount	() const { return shadowFilteringAmount;	}
 	float			getShadowIntensity		() const { return shadowIntesity;			}
-	float			getShadowFilterDistance	() const { return shadowFilterDistance;		}
 
 private:
 
-	unsigned short	amountOfLightsPerEntity = 5;
-	unsigned short	shadowFilteringAmount	= 15;
+	unsigned short	amountOfLightsPerEntity = 10;
+	unsigned short	shadowFilteringAmount	= 4;
 	float			shadowIntesity			= 1.f;
-	float			shadowFilterDistance	= 1.f;
 
 
 };

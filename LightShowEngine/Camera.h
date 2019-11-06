@@ -43,7 +43,7 @@ protected:
 	float currentFOV = 70.0f;
 
 	float nearPlane = .5f;
-	float farPlane = 100.0f;
+	float farPlane = 300.0f;
 
 	int currentWidthOfWindow = 0;
 	int currentHeightOfWindow = 0;

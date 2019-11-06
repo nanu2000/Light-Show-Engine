@@ -4,6 +4,7 @@
 #include <string>		//Included for the std::string object
 #include <fstream>		//Used for file streams
 #include <sstream>		//used for string streams
+#include <vector>
 #include <GL/glew.h>	// Include glew to get all the required OpenGL headers
 #include <glm/vec3.hpp>
 #include "Shaders.h"

@@ -130,11 +130,4 @@ void LitShader::updateTagValues(const Settings& currentSettings, std::string & f
 			fragmentCode
 			);
 
-	updateTagValue
-		(
-			Shaders::SHADOW_FILTER_DISTANCE_TAG,
-			std::to_string(currentSettings.getShadowFilterDistance()),
-			fragmentCode
-			);
-
 }

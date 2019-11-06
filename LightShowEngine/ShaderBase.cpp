@@ -165,8 +165,6 @@ void ShaderBase::createProgram(const std::string& vShaderCode, const std::string
 		glDeleteShader(geometry);
 		glDetachShader(this->programID, geometry);
 	}
-
-
 }
 
 void ShaderBase::useProgram()

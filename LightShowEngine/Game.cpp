@@ -69,7 +69,7 @@ void Game::initialize(Time * time, Messenger<BackEndMessages> * backEndMessaging
 	(
 		[&world = physicsWorld](BoneCollisionMesh& bmesh)
 		{
-
+	
 			bmesh.iterateThroughColliders
 			(
 				[&](CollisionMesh& mesh, int32_t id)
@@ -140,7 +140,7 @@ void Game::render()
 
 	glViewport(0, 0, GameInfo::getWindowWidth(), GameInfo::getWindowHeight());
 
-	renderingSystem.render(pointLightDepthMap, directionalLightDepthMap);
+	renderingSystem.render(pointLightDepthMap, directionalLightDepthMap, *currentTime);
 	
 }
 
@@ -154,21 +154,20 @@ void Game::renderOmnidirectionalDepthMap()
 
 		glBindFramebuffer(GL_FRAMEBUFFER, pointLightDepthMap.getFBO());
 		glClear(GL_DEPTH_BUFFER_BIT);
-		renderingSystem.render(pointLightDepthMap, directionalLightDepthMap);
+		renderingSystem.render(pointLightDepthMap, directionalLightDepthMap, *currentTime);
 	}	
 }
 
 void Game::renderDirectionalDepthMap()
 {
 	ShaderBase::setShaderTask(SHADER_TASK::Directional_Depth_Task);
-				
 	if (directionalLightDepthMap.isActive())
 	{
 		glViewport(0, 0, directionalLightDepthMap.getDepthMapWidth(), directionalLightDepthMap.getDepthMapHeight());
 
 		glBindFramebuffer(GL_FRAMEBUFFER, directionalLightDepthMap.getFBO());
 		glClear(GL_DEPTH_BUFFER_BIT);
-		renderingSystem.render(pointLightDepthMap, directionalLightDepthMap);
+		renderingSystem.render(pointLightDepthMap, directionalLightDepthMap, *currentTime);
 	}	
 }
 

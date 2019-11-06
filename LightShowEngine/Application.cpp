@@ -102,10 +102,12 @@ void Application::initializeSDL()
 	SDL_GL_SetAttribute		(SDL_GL_MULTISAMPLEBUFFERS,		1);
 	SDL_GL_SetAttribute		(SDL_GL_MULTISAMPLESAMPLES,		4);
 	SDL_GL_SetAttribute		(SDL_GL_DOUBLEBUFFER,			1);
-	SDL_GL_SetAttribute		(SDL_GL_GREEN_SIZE,				4);
+
 	SDL_GL_SetAttribute		(SDL_GL_ALPHA_SIZE,				4);
-	SDL_GL_SetAttribute		(SDL_GL_BLUE_SIZE,				4);
 	SDL_GL_SetAttribute		(SDL_GL_RED_SIZE,				4);
+	SDL_GL_SetAttribute		(SDL_GL_GREEN_SIZE,				4);
+	SDL_GL_SetAttribute		(SDL_GL_BLUE_SIZE,				4);
+	SDL_GL_SetAttribute		(SDL_GL_DEPTH_SIZE,				24);
 
 
 	gameWindow.initialize();
@@ -143,7 +145,7 @@ void Application::initializeGL()
 
 	//For back face culling
 	glEnable(GL_CULL_FACE);
-	glFrontFace(GL_CCW);
+	glCullFace(GL_BACK);
 }
 
 void Application::initialize()

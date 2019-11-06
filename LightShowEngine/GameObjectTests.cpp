@@ -75,7 +75,7 @@ void PlayerTestObject::initialize(EntityWrapper::EntityVitals& vitals)
 			SHADER_TYPE::Default
 			);
 
-	material.shininess = 1.f;
+	material.shininess = 64.f;
 
 	model.setAnimationClip(0);
 
@@ -152,7 +152,7 @@ void EnemyTestObject::initialize(EntityWrapper::EntityVitals& vitals)
 		SHADER_TYPE::Default
 	);
 
-	material.shininess = 1.f;
+	material.shininess = 16.f;
 
 	model.setAnimationClip(0);
 
@@ -238,10 +238,12 @@ void FloorObject::initialize(EntityWrapper::EntityVitals& vitals)
 	(
 		*vitals.currentSettings,
 		"Assets/Shaders/lit.v",
-		"Assets/Shaders/PhongDiffuseSpecular.f",
+		"Assets/Shaders/FloorShader.f",
 		SHADER_TYPE::Default
 	);
-				
+
+	floorMaterial.shininess = 128.f;
+
 	collisionMesh.initializeModelShape
 	(
 		btTransform(btQuaternion(btVector3(1,0,0),glm::radians(0.0f)), btVector3(0, 0, 0)),
@@ -257,7 +259,7 @@ void FloorObject::initialize(EntityWrapper::EntityVitals& vitals)
 	collisionMesh.getShape()->setLocalScaling(btVector3(1,1,1));
 	model.setMeshMatrix(0, glm::mat4());
 	
-	vitals.scene->addComponent(id, cubeMaterial);
+	vitals.scene->addComponent(id, floorMaterial);
 	vitals.scene->addComponent(id, model);
 	vitals.scene->addComponent(id, shader);
 	vitals.scene->addComponent(id, collisionMesh);
@@ -276,13 +278,14 @@ void LightTest::initialize(EntityWrapper::EntityVitals& vitals)
 
 
 	directionalLight.setActive(true);
-	directionalLight.diffuse	= glm::vec3(.59f,	.6f,	.63f);
-	directionalLight.specular	= glm::vec3(.62f,	.6f,	.55f);
-	directionalLight.direction	= glm::vec3(-.1f,	-1.f,	-.5f);
+	directionalLight.diffuse	= glm::vec3(.8f,	.83f,	.86f);	//diffuse set in daynightcycle
+	directionalLight.specular	= glm::vec3(1.f,	1.f,	1.f);
+	directionalLight.direction	= glm::vec3(0.f,	-1.f,	0.f);
+	directionalLight.ambient	= glm::vec3(0.1f,	0.1f,	0.1f);
 
-	const int lightRange = 20;
-	const int lightRangeMinY = 0;
-	const int lightRangeMaxY = 5;
+	const int lightRange = 10;
+	const int lightRangeMinY = 5;
+	const int lightRangeMaxY = 10;
 
 	for (unsigned int i = 0; i < vitals.currentSettings->getLightsPerEntity() && i < lights.size(); i++)
 	{
@@ -303,5 +306,21 @@ void LightTest::initialize(EntityWrapper::EntityVitals& vitals)
 		vitals.scene->addComponent(id, lights[i]);
 	}
 
+	GLuint m = TextureLocator::getService().createCubeMap(std::vector<std::string>{
+		"Assets/Images/cubeMaps/skybox/right.png",
+			"Assets/Images/cubeMaps/skybox/left.png",
+			"Assets/Images/cubeMaps/skybox/top.png",
+			"Assets/Images/cubeMaps/skybox/bottom.png",
+			"Assets/Images/cubeMaps/skybox/front.png",
+			"Assets/Images/cubeMaps/skybox/back.png"
+	});
+
+	skyBox.supplyMap(m);
+
+	skyBoxShader = DefaultShader("Assets/Shaders/SkyBox.v", "Assets/Shaders/SkyBox.f", SHADER_TYPE::Default);
+
+
+	vitals.scene->addComponent(id, skyBoxShader);
+	vitals.scene->addComponent(id, skyBox);
 	vitals.scene->addComponent(id, directionalLight);
 }

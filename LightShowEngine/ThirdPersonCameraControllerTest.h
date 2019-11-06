@@ -20,6 +20,7 @@ public:
 		camera->rotation.y += InputLocator::getService().getMouseDelta().x * cameraSpeed;
 
 		camera->rotation.z -= InputLocator::getService().getMouseDelta().y * cameraSpeed;
+
 		
 		float cameraMaxPitch = 70.0f;
 
@@ -46,7 +47,7 @@ public:
 
 private:
 
-	const float cameraSpeed = 5 * GameInfo::deltaTime;
+	const float cameraSpeed = 10 * GameInfo::deltaTime;
 
 
 };

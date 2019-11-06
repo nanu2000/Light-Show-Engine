@@ -95,11 +95,8 @@ private:
 	short			AUDIO_FORMAT	= AUDIO_U8;			//Audio Format signed 8-bit samples, in system byte order. Same as AUDIO_S16SYS
 	
 	const glm::vec4	SCREEN_COLOR	=
-	glm::vec4(.5f, .5f, .5f, .5f);						//The default color of the screen.
+	glm::vec4(.8f, .9f, .95f, 1.f);						//The default color of the screen.
 
-	const char*	WINDOW_TITLE		=
-	"LightShow Engine. A work in progress by Richie.";	//The Window Title
-	
 	/***********************************************
 	*Everything below is used for testing purposes.*
 	************************************************/

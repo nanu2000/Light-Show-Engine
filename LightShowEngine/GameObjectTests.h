@@ -25,6 +25,7 @@
 #include "entityStatsDisplayer.h"
 #include "GuiSprite.h"
 #include "PauseMenu.h"
+#include "SkyBox.h"
 
 class EntityWrapper 
 {
@@ -57,6 +58,8 @@ public:
 private:
 	std::vector<PointLight> lights = std::vector<PointLight>(4);
 	DirectionalLight	directionalLight;
+	SkyBox skyBox;
+	DefaultShader		skyBoxShader;
 
 
 };
@@ -173,7 +176,7 @@ private:
 
 	_3DM::Model model = _3DM::Model("Assets/Models/testlevel.3DM");
 	CollisionMesh collisionMesh;
-	Material cubeMaterial;
+	Material floorMaterial;
 	LitShader shader;
 
 };

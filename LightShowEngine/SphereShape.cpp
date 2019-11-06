@@ -1,68 +1,62 @@
 #include "SphereShape.h"
 
-SphereShape SphereShape::createSphere(int radius, int stacks, int slices)
+void SphereShape::createSphere(int radius, int stacks, int slices)
 {
-	SphereShape newShape;
+	int ind = 0;
+	int i, j;
+	for (i = 0; i <= stacks; i++) {
+		double lat0 = glm::pi<float>() * (-0.5 + (double)(i - 1) / stacks);
+		double z0 = sin(lat0);
+		double zr0 = cos(lat0);
 
-	      int i, j;
-	      for (i = 0; i <= stacks; i++) {
-	          double lat0 = glm::pi<float>() * (-0.5 + (double)(i - 1) / stacks);
-	          double z0 = sin(lat0);
-	          double zr0 = cos(lat0);
+		double lat1 = glm::pi<float>() * (-0.5 + (double)i / stacks);
+		double z1 = sin(lat1);
+		double zr1 = cos(lat1);
 
-	          double lat1 = glm::pi<float>() * (-0.5 + (double)i / stacks);
-	          double z1 = sin(lat1);
-	          double zr1 = cos(lat1);
+		for (j = 0; j <= slices; j++) {
+			double lng = 2 * glm::pi<float>() * (double)(j - 1) / slices;
+			double x = cos(lng);
+			double y = sin(lng);
 
-	          glBegin(GL_QUAD_STRIP);
-	          for (j = 0; j <= slices; j++) {
-	              double lng = 2 * glm::pi<float>() * (double)(j - 1) / slices;
-	              double x = cos(lng);
-	              double y = sin(lng);
-
-				  newShape.vertices.push_back(glm::vec3(x * zr0, y * zr0, z0));
-				  newShape.vertices.push_back(glm::vec3(x * zr1, y * zr1, z1));
+			vertices.push_back(glm::vec3(radius * x * zr1, radius * y * zr1, radius * z1));
+			vertices.push_back(glm::vec3(radius * x * zr0, radius * y * zr0, radius * z0));
 	
 		}
-	          glEnd();
 	
 	}
 
+	GLuint posAttrib = Shaders::getAttribLocation(Shaders::AttribName::Position);
 
 
-	glGenVertexArrays(1, &newShape.VAOID);
-	glBindVertexArray(newShape.VAOID);
-	glGenBuffers(1, &newShape.vertID);
-	glGenBuffers(1, &newShape.indID);
+	glGenVertexArrays(1, &VAOID);
+	glGenBuffers(1, &vertID);
 
-	glBindBuffer(GL_ARRAY_BUFFER, newShape.vertID);
-	glBufferData(GL_ARRAY_BUFFER, newShape.vertices.size() * sizeof(glm::vec3), &newShape.vertices[0], GL_STATIC_DRAW);
+	glBindVertexArray(VAOID);
+	glBindBuffer(GL_ARRAY_BUFFER, vertID);
 
-	glBindBuffer(GL_ARRAY_BUFFER, newShape.indID);
-	glBufferData(GL_ARRAY_BUFFER, newShape.indices.size() * sizeof(unsigned int), &newShape.indices[0], GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), &vertices[0], GL_STATIC_DRAW);
+	
+	glEnableVertexAttribArray(posAttrib);
+	glVertexAttribPointer(posAttrib, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	
 
 
-
-	return newShape;
 }
 
-void SphereShape::drawSphere(ShaderBase & shader)
+void SphereShape::drawSphere(ShaderBase& shader)
 {
+	DBG_LOG("rendering");
+	GLuint transformLoc = Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::ModelMatrix);
+	GLuint posAttrib = Shaders::getAttribLocation(Shaders::AttribName::Position);
+
 	glBindVertexArray(VAOID);
-	GLuint transformLoc = glGetUniformLocation(shader.getProgramID(), "model");
 
 	glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(glm::mat4()));
 
-	GLint posAttrib = glGetAttribLocation(shader.getProgramID(), "position");
-
-
-	glEnableVertexAttribArray(posAttrib);
-
-	glVertexAttribPointer(posAttrib, 3, GL_FLOAT, GL_FALSE, 0, 0);
-
-	glBindBuffer(GL_ARRAY_BUFFER, indID);
-
 	glBindBuffer(GL_ARRAY_BUFFER, vertID);
 
-	glDrawArrays(GL_LINE_STRIP, 0, vertices.size());
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, vertices.size());
+
+
+	glBindVertexArray(0);
 }

@@ -52,7 +52,7 @@ void DebugDrawer::initialize()
 }
 
 
-void    DebugDrawer::drawLine(const btVector3& from, const btVector3& to, const btVector3&)
+void    DebugDrawer::drawLine(const btVector3& from, const btVector3& to, const btVector3& color)
 {
 
 	if(currentAmountOfLines + 1 < currentMaxAmountOfVertices)

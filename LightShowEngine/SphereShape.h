@@ -6,18 +6,17 @@
 #include "glm/vec3.hpp"
 #include <vector>
 #include "glm/gtc/type_ptr.hpp"
+#include "Shaders.h"
 
 
 class SphereShape
 {
 public:
-	SphereShape createSphere(int radius, int stacks, int slices);
+	void createSphere(int radius, int stacks, int slices);
 	void drawSphere(ShaderBase& shader);
 private:
 	std::vector<glm::vec3> vertices;
-	std::vector<unsigned int> indices;
 	GLuint VAOID;
-	GLuint indID;
 	GLuint vertID;
 
 };

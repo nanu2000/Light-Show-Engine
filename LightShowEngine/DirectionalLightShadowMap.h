@@ -42,9 +42,9 @@ public:
 
 private:
 
-	//4096 is amazing quality.
-	unsigned int DEPTH_MAP_WIDTH	= 2048;
-	unsigned int DEPTH_MAP_HEIGHT	= 2048;
+	//4096 is amazing quality. Best quality would use multiple maps and csm
+	unsigned int DEPTH_MAP_WIDTH	= 4096;
+	unsigned int DEPTH_MAP_HEIGHT	= 4096;
 
 
 	//This floating point value will be added to two of the light direction vector's axes. 
@@ -63,7 +63,7 @@ private:
 
 	void updateDepthMapResolution();
 
-	OrthographicBounds bounds{ -25, 25, -25, 25, -50, 50};
+	OrthographicBounds bounds{ -40.0f, 40.0f, -40.0f, 40.0f, -150.0f, 150.0f};	//TODO: better ? makes shadow map cover more distance
 
 	glm::vec3 lightDirection = glm::vec3(0.0001f, -1.f, 0);
 	

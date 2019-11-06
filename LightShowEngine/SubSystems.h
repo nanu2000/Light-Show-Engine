@@ -10,6 +10,8 @@
 #include "BoneCollisionMeshSystem.h"
 #include "EnemyControllerSystem.h"
 #include "PlayerControllerSystem.h"
+#include "DayNightCycleSystem.h"
+#include "SkyBoxSystem.h"
 
 struct SubSystems
 {
@@ -27,6 +29,9 @@ struct SubSystems
 	FirstPersonCameraSystem firstPersonCameraSystem;
 	ThirdPersonCameraSystem thirdPersonCameraSystem;
 	BoneCollisionMeshSystem boneCollisionMeshSystem;
+
+	DayNightCycleSystem dayNightCycleSystem;
+	SkyBoxSystem skyBoxSystem;
 
 };
 

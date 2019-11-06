@@ -67,7 +67,7 @@ private:
 	const float fallMovementDamping			= 2;
 	const float halfLengthOfRay				= 2.f;
 	const float playerGravityImpulse		= -GameInfo::deltaTime * 19;
-	const float speed						= GameInfo::deltaTime * 65;
+	const float speed						= GameInfo::deltaTime * 100;
 	const float jumpVelocity				= 11;
 	const float jumpEnabledWithinMagnitude	= 1;
 	const float colliderWidthAndDepth		= .4f;

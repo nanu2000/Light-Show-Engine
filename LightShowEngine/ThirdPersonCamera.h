@@ -23,7 +23,7 @@ public:
 private:
 
 	glm::vec3 targetPosition;
-	float cameraDistance = 20;
+	float cameraDistance = 12;
 
 	friend class ThirdPersonCameraSystem;
 };

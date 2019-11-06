@@ -17,7 +17,7 @@ public:
 
 private:
 
-	glm::vec3 cameraTargetOffset		= glm::vec3(0, 3, 0);
+	glm::vec3 cameraTargetOffset		= glm::vec3(0, 2.5f, 0);
 	float cameraYInterpolationSpeed		= 5;
 
 };

@@ -58,7 +58,7 @@ void DirectionalLightShadowMap::updateDepthMapResolution()
 		(
 			GL_TEXTURE_2D,
 			0,
-			GL_DEPTH_COMPONENT16,
+			GL_DEPTH_COMPONENT24, // GL_DEPTH_COMPONENT16, GL_DEPTH_COMPONENT32 also should work but 24 is a good inbetween
 			DEPTH_MAP_WIDTH,
 			DEPTH_MAP_HEIGHT,
 			0,

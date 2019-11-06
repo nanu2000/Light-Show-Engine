@@ -19,6 +19,7 @@ void FixedUpdatingSystem::initialize(Scene & scene, Settings & settings, Physics
 	}
 
 	systems->guiResizingInfo.updateInformation();
+	systems->dayNightCycleSystem.initialize();
 }
 
 
@@ -106,6 +107,17 @@ void FixedUpdatingSystem::update(const Time & time, PointLightShadowMap& pointLi
 		return;
 	}
 
+	currentScene->performOperationsOnAllOfType<DirectionalLight>
+		(
+			[&](DirectionalLight& light)
+			{
+				
+				systems->dayNightCycleSystem.update(light, time);
+
+				//light.direction = dir;
+				return false;
+			}
+	);
 
 	currentScene->performOperationsOnAllOfType<CollisionMesh>
 	(

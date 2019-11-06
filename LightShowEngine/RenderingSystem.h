@@ -14,6 +14,7 @@
 #include "GuiSprite.h"
 #include "GuiButton.h"
 
+
 using _3DM::AnimatedModel;
 using _3DM::Model;
 
@@ -23,7 +24,7 @@ class RenderingSystem : public SystemBase
 public:
 
 	void initialize		(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& systems) override;
-	void render			(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap & directionalLightDepthMap);
+	void render			(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap & directionalLightDepthMap, Time& currentTime);
 
 private:
 
@@ -40,7 +41,7 @@ private:
 	//or a fountain particle system pointer
 	ParticleEmitter * getParticleEmitter(int32_t entity);
 
-	void renderParticles(Particles& particles, Camera & currentCamera);
+	void renderParticles(Particles& particles, Camera & currentCamera, Time & currentTime);
 	
 	void initializeLights(LitShader & litShader);
 	void initializeModels(ShaderBase & shader, const int32_t& entity);
@@ -48,7 +49,7 @@ private:
 
 	//Prepares and retrieves the first shader found in scene that is associated with entity.
 	//**Does use program.
-	ShaderBase * prepareShader(const int32_t & entity, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap & directionalLightDepthMap, Camera & currentCamera);
+	ShaderBase * prepareShader(const int32_t & entity, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap & directionalLightDepthMap, Camera & currentCamera, Time & currentTime);
 
 	void renderSingleModel(ShaderBase& shader, ModelBase & model)
 	{
@@ -60,56 +61,17 @@ private:
 		model.renderAll(shader);	
 	}
 		
-	void supplyLitShaderUniforms		(ShaderBase & shader, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap & directionalLightDepthMap, Camera & currentCamera);
+	void supplyLitShaderUniforms		(ShaderBase & shader, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap & directionalLightDepthMap, Camera & currentCamera, Time & currentTime);
 
-	void supplyDefaultShaderUniforms	(ShaderBase& shader, Camera & currentCamera);
+	void supplyDefaultShaderUniforms	(ShaderBase& shader, Camera & currentCamera, Time & currentTime);
 
-	void supplyParticleShaderUniforms	(ShaderBase& particleShader, Camera & currentCamera);
+	void supplyParticleShaderUniforms	(ShaderBase& particleShader, Camera & currentCamera, Time & currentTime);
 
 	void addModelToProperRenderVector(ModelBase& model, const int32_t& entity, std::vector<RenderModel>& transparent, std::vector<RenderModel>& notTransparent);
 
 	void renderTransparentModel(ShaderBase& shader, ModelBase & model)
 	{
-		float f = 0.75;
-		float alpha = .5f;
-
-		glEnable(GL_CULL_FACE);
-		glCullFace(GL_FRONT);
-		glDepthFunc(GL_ALWAYS);			
-		
-		glUniform1f
-		(
-			Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::OpacityControl),
-			f * alpha
-		);
-
-		renderSingleModel(shader, model);
-		
-		glCullFace(GL_BACK);
-		glDepthFunc(GL_NOTEQUAL);
-
-		glUniform1f
-		(
-			Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::OpacityControl),
-			(alpha - f * alpha) / (1.0f- f* alpha)
-		);
-
-		renderSingleModel(shader, model);
-
-
-		glDepthFunc(GL_LEQUAL);
-		
-		glUniform1f
-		(
-			Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::OpacityControl),
-			f * alpha
-		);
-		renderSingleModel(shader, model);
-
-
-		glDepthFunc(GL_LESS);
-
-		glEnable(GL_CULL_FACE);
+	
 	
 	}
 

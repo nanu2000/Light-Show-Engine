@@ -10,7 +10,8 @@ public:
     {
         glDepthFunc(GL_LEQUAL);
         glCullFace(GL_FRONT);
-        skybox.getCube()->render(shader, camera, skybox.getCubeMap());
+        glBindTexture(GL_TEXTURE_CUBE_MAP, skybox.getCubeMap());
+        skybox.getCube()->render(shader, camera);
         glCullFace(GL_BACK);
         glDepthFunc(GL_LESS);
     }

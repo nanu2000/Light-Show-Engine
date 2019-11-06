@@ -43,8 +43,6 @@ struct PointLight {
 
 uniform PointLight pointLights[AMOUNT_OF_POINT_LIGHTS];
 
-uniform float opacityControl;
-
 uniform DirectionalLight directionalLight;
 
 
@@ -149,7 +147,7 @@ void main()
        result += CalcPointLight(pointLights[i], norm, fragPosition_o, viewDir, pointLightShadow);    
 	}	
 
-    color = vec4(result, opacityControl);
+    color = vec4(result, 1.0);
 }
 
 vec3 CalcDirLight(DirectionalLight light, vec3 normal, vec3 viewDir)

@@ -178,12 +178,9 @@ vec3 CalcDirLight(DirectionalLight light, vec3 normal, vec3 viewDir)
     // Combine results
     vec3 ambient  = light.ambient  * vec3(texture(material.texture_diffuse1, textureCoords_o));
     vec3 diffuse  = light.diffuse  * diff * vec3(texture(material.texture_diffuse1, textureCoords_o));
-    vec3 specular = light.specular * spec * vec3(texture(material.texture_specular1, textureCoords_o));
+    vec3 specular = .04f * light.specular * spec;
 
-
-
-
-	return (ambient + (1.0 - directionalShadowCalculation(fragmentPositionLightSpace_o)) * (diffuse + specular));    
+	return (ambient + (1.0 - directionalShadowCalculation(fragmentPositionLightSpace_o)) * ( diffuse + specular));    
 
 }  
 
@@ -202,7 +199,7 @@ vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir, f
     // Combine results
     vec3 ambient  = light.ambient  * vec3(texture(material.texture_diffuse1, textureCoords_o));
     vec3 diffuse  = light.diffuse  * diff * vec3(texture(material.texture_diffuse1, textureCoords_o));
-    vec3 specular = light.specular * spec * vec3(texture(material.texture_specular1, textureCoords_o));
+    vec3 specular = light.specular * spec;
     ambient  *= attenuation;
     diffuse  *= attenuation;
     specular *= attenuation;

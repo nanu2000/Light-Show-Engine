@@ -1,6 +1,8 @@
 # Light-Show-Engine
 LightShow is a 3D boilerplate created with the purpose of flexibility, scalability, and simplicity.
 
+Currently this project only works with Microsoft Windows 10
+
 This application uses two other projects for 3D model and font atlas file creation that are currently private.
 
 ## Features

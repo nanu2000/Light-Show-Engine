@@ -1,8 +1,7 @@
 # Light-Show-Engine
 LightShow is a 3D boilerplate created with the purpose of flexibility, scalability, and simplicity.
-Old, but an update is coming soon.
 
-Application uses two other projects for 3D model and font atlas file creation that are currently private.
+This application uses two other projects for 3D model and font atlas file creation that are currently private.
 
 ## Features
 * 3D skeletal animation
@@ -23,9 +22,13 @@ Application uses two other projects for 3D model and font atlas file creation th
 
 ### Prerequisites
 Required:
+
+Microsoft Windows 10
+
 [Visual Studio 2019 16.4 preview 1](https://visualstudio.microsoft.com/vs/preview/)
 
 Optional:
+
 [Clang Power Tools for Visual Studio](https://www.clangpowertools.com/)
 
 ### Installing

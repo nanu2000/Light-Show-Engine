@@ -78,7 +78,7 @@ enum class UniformName {
 
 };
 
-static const char* UniformNames[] = {
+static const char* UniformNames[34] = {
     "material.texture_diffuse",
     "material.texture_specular",
     "material.texture_normals",

@@ -3,7 +3,7 @@
 #include "GameInfo.h"
 #include "UniqueVectors.h"
 #include "glm/vec2.hpp"
-#include <SDL/SDL.h>
+#include <SDL.h>
 
 enum class MOUSE_BUTTON : int8_t {
     LeftButton,
@@ -32,13 +32,13 @@ public:
 private:
     bool keys[SDL_NUM_SCANCODES];
 
-    glm::ivec2 mousePosition;
+    glm::ivec2 mousePosition = glm::ivec2(0,0);
 
-    bool mouseArray[3];
+    bool mouseArray[3] = {false, false, false};
 
-    bool hitOnce[3];
+    bool hitOnce[3] = { false, false, false };
 
-    bool pressed[3];
+    bool pressed[3] = { false, false, false };
 
     UniqueVec2<int> mouseLastPosition;
 };

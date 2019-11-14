@@ -15,13 +15,19 @@ void Quad::RenderQuad(
 
     float yPositionCalculated = spriteOrientationInPixels.y / texture.getHeight();
 
-    glm::mat4 modelMatrix;
+    glm::mat4 modelMatrix = glm::mat4(1.0f);
+
+    int ww = GameInfo::getWindowWidth();
+    int wh = GameInfo::getWindowHeight();
+
+    glm::vec3 tv = glm::vec3(
+        (positionInPixels.x) / GameInfo::getWindowWidth(),
+        (positionInPixels.y) / GameInfo::getWindowHeight(),
+        0.0f);
+
     modelMatrix = glm::translate(
         modelMatrix,
-        glm::vec3(
-            (positionInPixels.x) / GameInfo::getWindowWidth(),
-            (positionInPixels.y) / GameInfo::getWindowHeight(),
-            0.0f));
+        tv);
     modelMatrix = glm::scale(modelMatrix, glm::vec3(scaleInPixels.x / GameInfo::getWindowWidth(), scaleInPixels.y / GameInfo::getWindowHeight(), 1.0f));
 
     GLfloat quadVertices[20] = {

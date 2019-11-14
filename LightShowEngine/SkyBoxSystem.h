@@ -14,6 +14,6 @@ public:
         glCullFace(GL_BACK);
         glDepthFunc(GL_LESS);
     }
-    void update(SkyBox& skybox) {}
+   // void update(SkyBox& skybox) {}
 };
 #endif

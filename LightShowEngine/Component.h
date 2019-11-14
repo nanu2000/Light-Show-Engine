@@ -6,7 +6,7 @@ class Scene;
 
 //Inside a namespace because there is a global static that is needed.
 namespace Important {
-static int32_t nextType = 0;
+extern int32_t nextType;
 }
 
 class ComponentInterface {
@@ -30,14 +30,13 @@ template <class T>
 class Component : public ComponentInterface {
 public:
     int32_t getType() const { return T::type; }
+    static int32_t type;
 
 private:
-    static int32_t type;
 
     friend Scene;
 };
 
-template <typename T>
-int32_t Component<T>::type(Important::nextType++);
-
+template <class T>
+int32_t Component<T>::type = (Important::nextType++);
 #endif // !COMPONENT_H

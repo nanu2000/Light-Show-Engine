@@ -25,8 +25,8 @@ public:
 
 private:
     struct RenderModel {
-        ShaderBase* shader;
-        ModelBase* model;
+        ShaderBase* shader = nullptr;
+        ModelBase* model = nullptr;
         bool isLitShader = false;
     };
 

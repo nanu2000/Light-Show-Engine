@@ -9,11 +9,10 @@ const std::string SHADOW_INTENSITY_TAG = "/*SI*/";
 const std::string SHADOW_FILTERING_TAG = "/*SF*/";
 
 enum class SHADER_TYPE {
-    Default          = 0,
-    TransparentModel = 1,
-    Particle         = 2,
-    GUI              = 3,
-    SHADER_TYPE_MAX  = 4
+    Default         = 0,
+    Particle        = 1,
+    GUI             = 2,
+    SHADER_TYPE_MAX = 3
 };
 
 enum SHADER_TASK {
@@ -131,7 +130,7 @@ enum class AttribName {
 
 static const char* getUniformName(const UniformName& name) {
     if (name < UniformName::UNIFORM_NAME_COUNT) {
-        return UniformNames[static_cast<int>(name)];
+        return UniformNames[static_cast<int32_t>(name)];
     }
     return "NA";
 }

@@ -67,7 +67,6 @@ public:
 
     void render(ShaderBase& shader, Camera& camera) {
         GLuint transformLoc = Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::ModelMatrix);
-        GLuint posAttrib    = Shaders::getAttribLocation(Shaders::AttribName::Position);
 
         glm::mat4 view = glm::mat4(glm::mat3(*camera.getViewMatrix()));
 

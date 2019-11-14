@@ -2,7 +2,7 @@
 #define PLAYER_CONTROLLER_H
 #include "Component.h"
 #include "GameInfo.h"
-#include <SDL/SDL_keycode.h>
+#include <SDL_keycode.h>
 #include <glm/geometric.hpp>
 
 //The state resembles the players movement and the current animation that should play along with it
@@ -75,11 +75,11 @@ private:
     bool performJump          = false;
     bool jumping              = false;
     bool rotateAwayFromCamera = false;
-    glm::vec3 lastTouchedPosition;
-    glm::vec3 offsetFromCollider;
-    glm::vec3 rayNormal;
-    btVector3 currentSlopeIntensity;
-    PLAYER_ANIMATION_STATE currentState;
+    glm::vec3 lastTouchedPosition = glm::vec3(0.0f, 0.0f, 0.0f);
+    glm::vec3 offsetFromCollider = glm::vec3(0.0f, 0.0f, 0.0f);
+    glm::vec3 rayNormal = glm::vec3(0.0f, 0.0f, 0.0f);
+    btVector3 currentSlopeIntensity = btVector3(0.0f, 0.0f, 0.0f);
+    PLAYER_ANIMATION_STATE currentState = PLAYER_ANIMATION_STATE::Idle;
 
     //Friend the system for this component
     friend class PlayerControllerSystem;

@@ -1,6 +1,6 @@
 #ifndef GAME_INFO_H
 #define GAME_INFO_H
-#include "Bullet\LinearMath\btTransform.h"
+#include "LinearMath/btTransform.h"
 #include "glm/vec3.hpp"
 #include "glm/vec4.hpp"
 #include <string>

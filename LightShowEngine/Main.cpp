@@ -1,6 +1,11 @@
 #include "main.h"
 
-int main(int argc, char* argv[]) {
+#ifdef main
+#undef main
+#endif // main
+
+
+int main() {
     Application thisApplication; //the application
 
     thisApplication.run();

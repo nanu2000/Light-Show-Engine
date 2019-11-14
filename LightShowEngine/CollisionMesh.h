@@ -1,12 +1,13 @@
 #ifndef COLLISION_MESH_H
 #define COLLISION_MESH_H
 #include "AnimatedModel.h"
-#include "Bullet/btBulletDynamicsCommon.h"
+#include "btBulletDynamicsCommon.h"
 #include "CollisionTag.h"
 #include "Component.h"
 #include "HelpingHand.h"
 #include "Model.h"
 #include "Transform.h"
+
 
 class CollisionMesh : public Component<CollisionMesh> {
 
@@ -17,9 +18,9 @@ public:
         const btTransform& transformation,
         const T& shape,
         float mass,
-        const CollisionTag& usrTag = CollisionTag(),
+        const CollisionTag usrTag = CollisionTag(),
         bool trigger               = false,
-        btVector3& localInertia    = btVector3(0, 0, 0),
+        btVector3 localInertia    = btVector3(0, 0, 0),
         float friction             = 0,
         float restitution          = 0,
         bool kinematic             = false) {
@@ -58,9 +59,9 @@ public:
         _3DM::Model& model,
         unsigned int meshIndex,
         float mass,
-        CollisionTag& usrTag    = CollisionTag(),
+        CollisionTag usrTag    = CollisionTag(),
         bool trigger            = false,
-        btVector3& localInertia = btVector3(0, 0, 0),
+        btVector3 localInertia = btVector3(0, 0, 0),
         float friction          = 0,
         float restitution       = 0,
         bool kinematic          = false);
@@ -69,9 +70,9 @@ public:
         const btTransform& transformation,
         _3DM::Model& model,
         float mass,
-        CollisionTag& usrTag    = CollisionTag(),
+        CollisionTag usrTag    = CollisionTag(),
         bool trigger            = false,
-        btVector3& localInertia = btVector3(0, 0, 0),
+        btVector3 localInertia = btVector3(0, 0, 0),
         float friction          = 0,
         float restitution       = 0,
         bool kinematic          = false);
@@ -81,9 +82,9 @@ public:
         _3DM::AnimatedModel& model,
         unsigned int meshIndex,
         float mass,
-        CollisionTag& usrTag    = CollisionTag(),
+        CollisionTag usrTag    = CollisionTag(),
         bool trigger            = false,
-        btVector3& localInertia = btVector3(0, 0, 0),
+        btVector3 localInertia = btVector3(0, 0, 0),
         float friction          = 0,
         float restitution       = 0,
         bool kinematic          = false);
@@ -92,9 +93,9 @@ public:
         const btTransform& transformation,
         _3DM::AnimatedModel& model,
         float mass,
-        CollisionTag& usrTag    = CollisionTag(),
+        CollisionTag usrTag    = CollisionTag(),
         bool trigger            = false,
-        btVector3& localInertia = btVector3(0, 0, 0),
+        btVector3 localInertia = btVector3(0, 0, 0),
         float friction          = 0,
         float restitution       = 0,
         bool kinematic          = false);

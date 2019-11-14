@@ -34,11 +34,8 @@ bool Input::keyPressedOnce(const SDL_Keycode& keycode) {
 Input::Input() {
     SDL_PumpEvents();
 
-    for (int i = 0; i < 3; ++i) {
-        mouseArray[i] = false;
-        hitOnce[i]    = false;
-        pressed[i]    = false;
-    }
+    //set all keys as false
+    std::fill_n(keys, SDL_NUM_SCANCODES, false);
 }
 
 void Input::handleEvents(SDL_Event& sdlEventSystem, SDL_EventType t) {

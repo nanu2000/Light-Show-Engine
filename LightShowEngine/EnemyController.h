@@ -3,7 +3,7 @@
 
 #include "Component.h"
 #include "GameInfo.h"
-#include <SDL/SDL_keycode.h>
+#include <SDL_keycode.h>
 #include <glm/geometric.hpp>
 
 enum class ENEMY_ANIMATION_STATE : uint8_t {
@@ -91,7 +91,7 @@ private:
     glm::vec3 offsetFromCollider;
     glm::vec3 rayNormal;
     btVector3 currentSlopeIntensity;
-    ENEMY_ANIMATION_STATE currentState;
+    ENEMY_ANIMATION_STATE currentState = ENEMY_ANIMATION_STATE::Idle;
     ENEMY_ROTATION currentRotation = ENEMY_ROTATION::Towards_Target;
 
     //Friend the system for this component

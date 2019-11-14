@@ -12,7 +12,7 @@ public:
     const float MIN_SHADOW_INTENSITY = 0.5f;
     const float MAX_SHADOW_INTENSITY = 7;
 
-    void setAmountOfLightsPerEntity(unsigned int amount) {
+    void setAmountOfLightsPerEntity(unsigned short amount) {
         if (amount > MIN_AMOUNT_LIGHTS_PER_ENTITY && amount <= MAX_AMOUNT_LIGHTS_PER_ENTITY) {
             amountOfLightsPerEntity = amount;
         }

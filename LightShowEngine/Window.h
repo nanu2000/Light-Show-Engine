@@ -4,7 +4,7 @@
 #include "GameInfo.h"
 #include "Messenger.h"
 #include <GL/glew.h>
-#include <SDL/SDL.h>
+#include <SDL.h>
 #include <glm/vec2.hpp>
 #include <string>
 

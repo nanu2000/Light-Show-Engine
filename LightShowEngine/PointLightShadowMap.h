@@ -69,8 +69,8 @@ private:
     bool lightSupplied = false;
 
     glm::mat4 getShadowTransformation(const glm::vec3& eye, const glm::vec3& up);
-    GLuint depthMapFBO = -1;
-    GLuint depthCubeMap;
+    GLuint depthMapFBO = 0;
+    GLuint depthCubeMap = 0;
     glm::mat4 shadowTransforms[6];
 
     glm::vec3 lightPosition;

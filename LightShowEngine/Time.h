@@ -2,7 +2,7 @@
 #define TIME_H
 class Application;
 
-#include <SDL\SDL.h>
+#include <SDL.h>
 
 class Time {
 

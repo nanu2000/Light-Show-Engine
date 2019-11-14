@@ -15,8 +15,8 @@ struct Particle {
     float lifeTime = 0;
     float weight   = 0;
     float size     = 1;
-    glm::vec3 position;
-    glm::vec3 speed;
+    glm::vec3 position = glm::vec3(0.0f,0.0f,0.0f);
+    glm::vec3 speed = glm::vec3(0.0f,0.0f,0.0f);
     glm::vec4 color = glm::vec4(1, 1, 1, 1);
 };
 

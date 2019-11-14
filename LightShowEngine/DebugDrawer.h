@@ -4,7 +4,7 @@
 
 #include "GameInfo.h"
 #include "ShaderBase.h"
-#include <Bullet/LinearMath/btIDebugDraw.h>
+#include <LinearMath/btIDebugDraw.h>
 #include <glm/gtc/type_ptr.hpp>
 #include <vector>
 
@@ -33,17 +33,19 @@ public:
 private:
     ShaderBase thisShader;
 
+    glm::mat4 identitym = glm::mat4(1.0f);
+
     std::vector<glm::vec3> lineVertices;
 
     int currentDebugMode                    = 0;
     unsigned int currentMaxAmountOfVertices = 0;
     unsigned int currentAmountOfLines       = 0;
 
-    GLuint VAO;
-    GLuint vertID;
+    GLuint VAO = 0;
+    GLuint vertID = 0;
 
-    GLint positionAttribute;
-    GLint projectionLocation;
-    GLint viewLocation;
+    GLint positionAttribute = 0;
+    GLint projectionLocation = 0;
+    GLint viewLocation = 0;
 };
 #endif

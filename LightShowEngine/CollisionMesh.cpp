@@ -5,9 +5,9 @@ void CollisionMesh::initializeMeshShape(
     _3DM::Model& model,
     unsigned int meshIndex,
     float mass,
-    CollisionTag& usrTag,
+    CollisionTag usrTag,
     bool trigger,
-    btVector3& localInertia,
+    btVector3 localInertia,
     float friction,
     float restitution,
     bool kinematic) {
@@ -49,9 +49,9 @@ void CollisionMesh::initializeModelShape(
     const btTransform& transformation,
     _3DM::Model& model,
     float mass,
-    CollisionTag& usrTag,
+    CollisionTag usrTag,
     bool trigger,
-    btVector3& localInertia,
+    btVector3 localInertia,
     float friction,
     float restitution,
     bool kinematic) {
@@ -70,7 +70,8 @@ void CollisionMesh::initializeModelShape(
 
     thisShape = new btBvhTriangleMeshShape(thisMesh, true);
 
-    thisShape->calculateLocalInertia(mass, localInertia);
+    // Concave inertia not supported
+    // thisShape->calculateLocalInertia(mass, localInertia);
 
     thisMotionState = new btDefaultMotionState(transformation);
 
@@ -90,7 +91,7 @@ void CollisionMesh::initializeModelShape(
     setKinematic(kinematic);
 }
 
-void CollisionMesh::initializeMeshShape(const btTransform& transformation, _3DM::AnimatedModel& model, unsigned int meshIndex, float mass, CollisionTag& usrTag, bool trigger, btVector3& localInertia, float friction, float restitution, bool kinematic) {
+void CollisionMesh::initializeMeshShape(const btTransform& transformation, _3DM::AnimatedModel& model, unsigned int meshIndex, float mass, CollisionTag usrTag, bool trigger, btVector3 localInertia, float friction, float restitution, bool kinematic) {
     isMesh = true;
 
     //this allocates memory
@@ -125,7 +126,7 @@ void CollisionMesh::initializeMeshShape(const btTransform& transformation, _3DM:
     setKinematic(kinematic);
 }
 
-void CollisionMesh::initializeModelShape(const btTransform& transformation, _3DM::AnimatedModel& model, float mass, CollisionTag& usrTag, bool trigger, btVector3& localInertia, float friction, float restitution, bool kinematic) {
+void CollisionMesh::initializeModelShape(const btTransform& transformation, _3DM::AnimatedModel& model, float mass, CollisionTag usrTag, bool trigger, btVector3 localInertia, float friction, float restitution, bool kinematic) {
     isMesh = true;
 
     //this allocates memory
@@ -246,16 +247,16 @@ btTriangleMesh* CollisionMesh::createTriangleModelCollider(_3DM::AnimatedModel* 
 
     for (unsigned int i = 0; i < model->amountOfMeshes(); i++) {
         std::vector<uint32_t>* indices = model->getMeshIndices(i);
-        std::vector<glm::vec3>* verts  = model->getMeshVertices(i);
+        std::vector<glm::vec3>* verts = model->getMeshVertices(i);
 
-        for (unsigned int i = 0; i < indices->size(); i += 3) {
-            for (unsigned int j = 0; j < 3; j++) {
+        for (unsigned int j = 0; j < indices->size(); j += 3) {
+            for (unsigned int k = 0; k < 3; k++) {
 
-                int index      = indices->at(i + j);
+                int index = indices->at(j + k);
                 glm::vec3& vec = verts->at(index);
-                vertexPos[j].setX(vec.x);
-                vertexPos[j].setY(vec.y);
-                vertexPos[j].setZ(vec.z);
+                vertexPos[k].setX(vec.x);
+                vertexPos[k].setY(vec.y);
+                vertexPos[k].setZ(vec.z);
             }
 
             tempMesh->addTriangle(vertexPos[0], vertexPos[1], vertexPos[2], true);
@@ -310,14 +311,14 @@ btTriangleMesh* CollisionMesh::createTriangleModelCollider(_3DM::Model* model) {
         std::vector<uint32_t>* indices = model->getMeshIndices(i);
         std::vector<glm::vec3>* verts  = model->getMeshVertices(i);
 
-        for (unsigned int i = 0; i < indices->size(); i += 3) {
-            for (unsigned int j = 0; j < 3; j++) {
+        for (unsigned int j = 0; j < indices->size(); j += 3) {
+            for (unsigned int k = 0; k < 3; k++) {
 
-                int index      = indices->at(i + j);
+                int index      = indices->at(j + k);
                 glm::vec3& vec = verts->at(index);
-                vertexPos[j].setX(vec.x);
-                vertexPos[j].setY(vec.y);
-                vertexPos[j].setZ(vec.z);
+                vertexPos[k].setX(vec.x);
+                vertexPos[k].setY(vec.y);
+                vertexPos[k].setZ(vec.z);
             }
 
             tempMesh->addTriangle(vertexPos[0], vertexPos[1], vertexPos[2], true);

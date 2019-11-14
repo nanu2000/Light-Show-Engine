@@ -39,7 +39,7 @@ public:
         bool checkForNulls() { return currentSettings && scene && thisWorld && worldSettings && map; }
     };
 
-    virtual void initialize(EntityVitals& vitals) {}
+    virtual void initialize(EntityVitals& vitals) = 0;
 
     virtual ~EntityWrapper() {}
 };
@@ -88,7 +88,7 @@ public:
     void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
-    _3DM::AnimatedModel model = _3DM::AnimatedModel("Assets/Models/Player/player.3DMA");
+    _3DM::AnimatedModel model = _3DM::AnimatedModel("assets/Models/Player/player.3DMA");
 
     DefaultShader textShader;
 
@@ -111,7 +111,7 @@ public:
     void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
-    _3DM::AnimatedModel model = _3DM::AnimatedModel("Assets/Models/Player/player.3DMA");
+    _3DM::AnimatedModel model = _3DM::AnimatedModel("assets/Models/Player/player.3DMA");
 
     EntityTransform transform;
     TestEnemyAI ai;
@@ -128,7 +128,7 @@ public:
     void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
-    _3DM::Model model = _3DM::Model("Assets/models/cube.3DM");
+    _3DM::Model model = _3DM::Model("assets/Models/cube.3DM");
     CollisionMesh collisionMesh;
     Material material;
     LitShader shader;
@@ -139,7 +139,7 @@ public:
     void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
-    _3DM::Model model = _3DM::Model("Assets/Models/testlevel.3DM");
+    _3DM::Model model = _3DM::Model("assets/Models/testlevel.3DM");
     CollisionMesh collisionMesh;
     Material floorMaterial;
     LitShader shader;

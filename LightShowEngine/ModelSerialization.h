@@ -1,7 +1,7 @@
 #ifndef MODEL_SERIALIZATION
 #define MODEL_SERIALIZATION
 
-#include <SDL\SDL_endian.h>
+#include <SDL_endian.h>
 
 #include "AnimatedModel.h"
 #include "Model.h"

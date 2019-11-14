@@ -18,10 +18,10 @@ public:
         const glm::vec2& scaleInPixels);
 
 private:
-    GLint positionAttribLocation;
-    GLint textureCoordsAttribLocation;
+    GLint positionAttribLocation = 0;
+    GLint textureCoordsAttribLocation = 0;
 
     GLuint quadVAO = 0;
-    GLuint quadVBO;
+    GLuint quadVBO = 0;
 };
 #endif

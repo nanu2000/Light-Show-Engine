@@ -30,8 +30,8 @@ struct Channel {
 	*An animation contains the channels for the animation, the duration, the ticks per second and the transformations needed to animate the bones.*
 	***********************************************************************************************************************************************/
 struct Animation {
-    float duration; //the duration of the animation in ticks
-    float ticksPerSecond; //ticks per second of this animation
+    float duration = 0.0f; //the duration of the animation in ticks
+    float ticksPerSecond = 0.0f; //ticks per second of this animation
 
     BoneNode rootBone; //the root bone node of the animation.
 

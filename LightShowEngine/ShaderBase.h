@@ -54,7 +54,7 @@ protected:
     int getCode(const std::string& vertexPath, const std::string& fragmentPath, const std::string& geometryPath, std::string& vertexCode, std::string& fragmentCode, std::string& geometryCode);
     void createProgram(const std::string& vShaderCode, const std::string& fShaderCode, const std::string& gShaderCode);
 
-    GLint programID;
+    GLint programID = -1;
 
     std::string vertexFilePath;
     std::string fragmentFilePath;

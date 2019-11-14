@@ -3,7 +3,7 @@
 
 #include "DebugDrawer.h"
 #include "HelpingHand.h" //included for clearing a vector of pointers.
-#include <SDL/SDL_mixer.h> //Included for audio
+#include <SDL_mixer.h> //Included for audio
 #include <algorithm> //included for sorting
 #include <vector> //included for the audio libraries
 

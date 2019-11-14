@@ -1,11 +1,11 @@
 #ifndef PHYSICS_WORLD_H
 #define PHYSICS_WORLD_H
 
-#include "Bullet/btBulletDynamicsCommon.h"
+#include "btBulletDynamicsCommon.h"
 #include "CollisionMesh.h"
 #include "CollisionTag.h"
 #include "DebugDrawer.h"
-#include <Bullet/LinearMath/btIDebugDraw.h>
+#include <LinearMath/btIDebugDraw.h>
 
 class PhysicsWorld {
 

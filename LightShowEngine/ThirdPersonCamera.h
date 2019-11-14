@@ -9,7 +9,7 @@ public:
     ~ThirdPersonCamera() {}
 
     glm::vec3 getTargetPosition() const { return targetPosition; }
-    void setTargetPosition(const glm::vec3& position) { targetPosition = position; }
+    void setTargetPosition(const glm::vec3& p) { targetPosition = p; }
     void setCameraDistance(float distance) { cameraDistance = distance; }
 
     float getCameraDistance() const { return cameraDistance; }

@@ -1,6 +1,6 @@
 #ifndef HELPING_HAND_H
 #define HELPING_HAND_H
-#include <Bullet/LinearMath/btTransform.h>
+#include <LinearMath/btTransform.h>
 #include <glm/gtc/quaternion.hpp>
 #include <glm/vec3.hpp>
 #include <vector>

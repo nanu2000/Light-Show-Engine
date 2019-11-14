@@ -67,8 +67,8 @@ public:
     }
 
 protected:
-    glm::vec2 position;
-    glm::vec2 scale;
+    glm::vec2 position = glm::vec2(0.0f, 0.0f);
+    glm::vec2 scale = glm::vec2(0.0f, 0.0f);
 
     float spriteXStart = 0;
     float spriteYStart = 0;

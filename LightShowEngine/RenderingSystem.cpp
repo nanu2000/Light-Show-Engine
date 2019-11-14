@@ -426,10 +426,6 @@ void RenderingSystem::addModelToProperRenderVector(
 
         if (thisShader->getShaderType() == SHADER_TYPE::Default) {
             shaderCanBeUsed = true;
-            isTransparent   = false;
-        } else if (thisShader->getShaderType() == SHADER_TYPE::TransparentModel) {
-            shaderCanBeUsed = true;
-            isTransparent   = true;
         }
 
         if (shaderCanBeUsed) {
@@ -438,11 +434,7 @@ void RenderingSystem::addModelToProperRenderVector(
             renderModel.shader      = thisShader;
             renderModel.isLitShader = isLit;
 
-            if (isTransparent) {
-                transparent.push_back(renderModel);
-            } else {
-                notTransparent.push_back(renderModel);
-            }
+            notTransparent.push_back(renderModel);
         }
     }
 }

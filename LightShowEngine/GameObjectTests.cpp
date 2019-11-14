@@ -8,9 +8,9 @@ void ParticleTest::initialize(EntityWrapper::EntityVitals& vitals) {
 
     int32_t id = vitals.scene->generateGameObject();
 
-    particles.initializeTexture(TextureLocator::getService().getTexture("Assets/Particles/fluffParticle.png"));
+    particles.initializeTexture(TextureLocator::getService().getTexture("assets/Particles/fluffParticle.png"));
 
-    particleShader = DefaultShader("Assets/Shaders/ParticleShader.v", "Assets/Shaders/ParticleShader.f", SHADER_TYPE::Particle);
+    particleShader = DefaultShader("assets/Shaders/ParticleShader.v", "assets/Shaders/ParticleShader.f", SHADER_TYPE::Particle);
 
     particleTest.initialize(*vitals.worldSettings);
 
@@ -39,9 +39,9 @@ void Player::initialize(EntityWrapper::EntityVitals& vitals) {
 
     int32_t id = vitals.scene->generateGameObject();
 
-    textShader = DefaultShader("Assets/Shaders/GUIShader.v", "Assets/Shaders/GUIShader.f", SHADER_TYPE::GUI);
+    textShader = DefaultShader("assets/Shaders/GUIShader.v", "assets/Shaders/GUIShader.f", SHADER_TYPE::GUI);
 
-    statDisplayer.initialize(*vitals.map, TextureLocator::getService().getTexture("Assets/Fonts/CourierNew.png", GL_NEAREST));
+    statDisplayer.initialize(*vitals.map, TextureLocator::getService().getTexture("assets/Fonts/CourierNew.png", GL_NEAREST));
 
     vitals.scene->addComponent(id, cameraController);
     vitals.scene->addComponent(id, camera);
@@ -61,8 +61,8 @@ void PlayerTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
 
     shader = LitShader(
         *vitals.currentSettings,
-        "Assets/Shaders/AnimatedLit.v",
-        "Assets/Shaders/PhongDiffuseSpecular.f",
+        "assets/Shaders/AnimatedLit.v",
+        "assets/Shaders/PhongDiffuseSpecular.f",
         SHADER_TYPE::Default);
 
     material.shininess = 64.f;
@@ -79,7 +79,7 @@ void PlayerTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
         0.0f,
         0.f);
 
-    textShader = DefaultShader("Assets/Shaders/GUIShader.v", "Assets/Shaders/GUIShader.f", SHADER_TYPE::GUI);
+    textShader = DefaultShader("assets/Shaders/GUIShader.v", "assets/Shaders/GUIShader.f", SHADER_TYPE::GUI);
 
     for (unsigned int i = 0; i < 30; i++) {
         bCollisionMesh.addCollider(i, id, COLLISION_TAGS::Player);
@@ -89,7 +89,7 @@ void PlayerTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
     collisionMesh.getRigidBody()->updateInertiaTensor();
 
     for (unsigned int i = 0; i < model.amountOfMeshes(); i++) {
-        model.setMeshMatrix(i, glm::mat4());
+        model.setMeshMatrix(i, glm::mat4(1.f));
     }
 
     menu.initialize(*vitals.map, TextureLocator::getService().getTexture("Assets/Fonts/CourierNew.png", GL_NEAREST));
@@ -120,8 +120,8 @@ void EnemyTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
 
     shader = LitShader(
         *vitals.currentSettings,
-        "Assets/Shaders/AnimatedLit.v",
-        "Assets/Shaders/PhongDiffuseSpecular.f",
+        "assets/Shaders/AnimatedLit.v",
+        "assets/Shaders/PhongDiffuseSpecular.f",
         SHADER_TYPE::Default);
 
     material.shininess = 16.f;
@@ -142,7 +142,7 @@ void EnemyTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
     collisionMesh.getRigidBody()->updateInertiaTensor();
 
     for (unsigned int i = 0; i < model.amountOfMeshes(); i++) {
-        model.setMeshMatrix(i, glm::mat4());
+        model.setMeshMatrix(i, glm::mat4(1.f));
     }
 
     vitals.scene->addComponent(id, transform);
@@ -165,8 +165,8 @@ void CubeTrigger::initialize(EntityWrapper::EntityVitals& vitals) {
 
     shader = LitShader(
         *vitals.currentSettings,
-        "Assets/Shaders/lit.v",
-        "Assets/Shaders/PhongColor.f",
+        "assets/Shaders/lit.v",
+        "assets/Shaders/PhongColor.f",
         SHADER_TYPE::Default);
 
     collisionMesh.initialize(
@@ -194,8 +194,8 @@ void FloorObject::initialize(EntityWrapper::EntityVitals& vitals) {
 
     shader = LitShader(
         *vitals.currentSettings,
-        "Assets/Shaders/lit.v",
-        "Assets/Shaders/FloorShader.f",
+        "assets/Shaders/lit.v",
+        "assets/Shaders/FloorShader.f",
         SHADER_TYPE::Default);
 
     floorMaterial.shininess = 128.f;
@@ -211,7 +211,8 @@ void FloorObject::initialize(EntityWrapper::EntityVitals& vitals) {
         1);
 
     collisionMesh.getShape()->setLocalScaling(btVector3(1, 1, 1));
-    model.setMeshMatrix(0, glm::mat4());
+
+    DBG_LOG("%i", model.amountOfMeshes());
 
     vitals.scene->addComponent(id, floorMaterial);
     vitals.scene->addComponent(id, model);
@@ -256,7 +257,7 @@ void LightTest::initialize(EntityWrapper::EntityVitals& vitals) {
     GLuint m = TextureLocator::getService().createCubeMap("skybox", std::vector<std::string> { "Assets/Images/cubeMaps/skybox/right.png", "Assets/Images/cubeMaps/skybox/left.png", "Assets/Images/cubeMaps/skybox/top.png", "Assets/Images/cubeMaps/skybox/bottom.png", "Assets/Images/cubeMaps/skybox/front.png", "Assets/Images/cubeMaps/skybox/back.png" });
     skyBox.supplyMap(m);
 
-    skyBoxShader = DefaultShader("Assets/Shaders/SkyBox.v", "Assets/Shaders/SkyBox.f", SHADER_TYPE::Default);
+    skyBoxShader = DefaultShader("assets/Shaders/SkyBox.v", "Assets/Shaders/SkyBox.f", SHADER_TYPE::Default);
 
     vitals.scene->addComponent(id, skyBoxShader);
     vitals.scene->addComponent(id, skyBox);

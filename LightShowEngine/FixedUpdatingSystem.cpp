@@ -258,19 +258,19 @@ void FixedUpdatingSystem::updateCollision(const int32_t& entity, CollisionMesh& 
                 for (unsigned int i = 0; i < GI.size(); i++) {
                     GI[i]->setPlayersPosition(animatedModel->transform.position);
                 }
-            } else if (EnemyController* controller = currentScene->getComponent<EnemyController>(entity)) {
+            } else if (EnemyController* eController = currentScene->getComponent<EnemyController>(entity)) {
                 if (GlobalInformation* globalInfo = currentScene->getComponent<GlobalInformation>(entity)) {
                     if (TestEnemyAI* ai = currentScene->getComponent<TestEnemyAI>(entity)) {
                         if (EntityTransform* et = currentScene->getComponent<EntityTransform>(entity)) {
 
-                            systems->enemyControllerSystem.update(InputLocator::getService(), *et, collisionMesh, *physicsWorld, *globalInfo, *controller, *userControls, *ai);
+                            systems->enemyControllerSystem.update(InputLocator::getService(), *et, collisionMesh, *physicsWorld, *globalInfo, *eController, *userControls, *ai);
 
                             animatedModel->transform = et->transform;
                         }
                     }
                 }
 
-                animatedModel->setAnimationClip(controller->getAnimationStateUint());
+                animatedModel->setAnimationClip(eController->getAnimationStateUint());
             }
         }
 

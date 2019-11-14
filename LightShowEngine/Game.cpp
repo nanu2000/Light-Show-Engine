@@ -37,13 +37,13 @@ void Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSy
 
     std::vector<EntityWrapper*> entities;
 
-    entities.push_back(&enemyObject);
-    entities.push_back(&playerTest);
+    entities.push_back(&playerObject);
     entities.push_back(&lightTest);
     entities.push_back(&floor);
     entities.push_back(&cube);
     entities.push_back(&particles);
-    entities.push_back(&playerObject);
+    entities.push_back(&enemyObject);
+    entities.push_back(&playerTest);
 
     for (unsigned int i = 0; i < entities.size(); i++) {
         entities[i]->initialize(vitals);

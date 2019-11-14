@@ -3,7 +3,7 @@
 #include "Component.h"
 #include "HelpingHand.h"
 #include "glm/vec3.hpp"
-#include <Bullet\btBulletCollisionCommon.h>
+#include <btBulletCollisionCommon.h>
 typedef btCollisionWorld::AllHitsRayResultCallback RayResultCallback;
 
 class RayCaster : public Component<RayCaster> {

@@ -1,7 +1,7 @@
 #ifndef USER_CONTROLS_H
 #define USER_CONTROLS_H
 #include "Component.h"
-#include <SDL/SDL_keycode.h>
+#include <SDL_keycode.h>
 
 class UserControls : public Component<UserControls> {
 

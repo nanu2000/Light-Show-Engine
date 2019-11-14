@@ -11,6 +11,7 @@ class Messenger {
 public:
     void AddMessage(const T& message) {
         if (numberOfCurrentMessages < GameInfo::DEFAULT_MESSAGE_CAPACITY) {
+            DBG_LOG("Current messages at capacity (Messenger.h)");
             messageList.at(numberOfCurrentMessages) = message;
         } else {
             messageList.push_back(message);
@@ -46,7 +47,7 @@ public:
     }
 
 private:
-    int numberOfCurrentMessages;
+    int numberOfCurrentMessages = 0;
     std::vector<T> messageList = std::vector<T>(GameInfo::DEFAULT_MESSAGE_CAPACITY);
 };
 

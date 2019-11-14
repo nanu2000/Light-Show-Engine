@@ -26,12 +26,12 @@ void DebugDrawer::render(const glm::mat4& projectionMatrix, const glm::mat4& vie
 }
 
 void DebugDrawer::initialize() {
-    thisShader = ShaderBase("Assets/Shaders/Color.v", "Assets/Shaders/Color.f", SHADER_TYPE::Default);
+    thisShader = ShaderBase("assets/Shaders/Color.v", "assets/Shaders/Color.f", SHADER_TYPE::Default);
 
     thisShader.useProgram();
 
     glUniform4fv(Shaders::getUniformLocation(thisShader.getProgramID(), Shaders::UniformName::Color), 1, &GameInfo::DEBUG_COLOR[0]);
-    glUniformMatrix4fv(Shaders::getUniformLocation(thisShader.getProgramID(), Shaders::UniformName::ModelMatrix), 1, GL_FALSE, glm::value_ptr(glm::mat4()));
+    glUniformMatrix4fv(Shaders::getUniformLocation(thisShader.getProgramID(), Shaders::UniformName::ModelMatrix), 1, GL_FALSE, glm::value_ptr(identitym));
     projectionLocation = Shaders::getUniformLocation(thisShader.getProgramID(), Shaders::UniformName::ProjectionMatrix);
     viewLocation       = Shaders::getUniformLocation(thisShader.getProgramID(), Shaders::UniformName::ViewMatrix);
     positionAttribute  = Shaders::getAttribLocation(Shaders::AttribName::Position);

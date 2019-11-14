@@ -1,9 +1,9 @@
 #ifndef _TEXTURE_H
 #define _TEXTURE_H
 
-#include <GL\glew.h>
-#include <SDL/SDL_image.h>
-#include <SDL/SDL_opengl.h>
+#include <GL/glew.h>
+#include <SDL_image.h>
+#include <SDL_opengl.h>
 
 #include <algorithm>
 #include <map>

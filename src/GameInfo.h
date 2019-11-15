@@ -49,13 +49,13 @@ const unsigned int MAX_COLLISION_TRIGGERS_AT_ONCE = 5;
 const unsigned short DEFAULT_MESSAGE_CAPACITY = 10;
 
 //DeltaTime for physics calculations and accurate updating
-const float deltaTime = 1.f / 60.f;
+const float deltaTime = 1.f / 30.f;
 
 //Max amount of substeps
-const short PHYSICS_MAX_SUBSTEPS = 120;
+const short PHYSICS_MAX_SUBSTEPS = 1;
 
 //The physics timestep
-const float PHYSICS_TIME_STEP = 1.0f / PHYSICS_MAX_SUBSTEPS;
+const float PHYSICS_TIME_STEP = deltaTime;
 
 //Default Window Title
 const std::string WINDOW_TITLE = "Prototype #1 (Hopefully the last)";

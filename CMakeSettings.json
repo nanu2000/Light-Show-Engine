@@ -556,7 +556,7 @@
         },
         {
           "name": "USE_MSVC_DISABLE_RTTI",
-          "value": "False",
+          "value": "True",
           "type": "BOOL"
         },
         {
@@ -591,7 +591,7 @@
         },
         {
           "name": "USE_DOUBLE_PRECISION",
-          "value": "True",
+          "value": "False",
           "type": "BOOL"
         },
         {
@@ -714,7 +714,7 @@
         },
         {
           "name": "USE_MSVC_DISABLE_RTTI",
-          "value": "False",
+          "value": "True",
           "type": "BOOL"
         },
         {
@@ -749,7 +749,7 @@
         },
         {
           "name": "USE_DOUBLE_PRECISION",
-          "value": "True",
+          "value": "False",
           "type": "BOOL"
         },
         {

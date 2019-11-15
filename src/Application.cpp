@@ -145,6 +145,11 @@ void Application::initialize() {
 
 void Application::fixedUpdate() {
 
+    thisGame.fixedUpdate();
+}
+
+void Application::render() {
+
     SDL_PumpEvents();
 
     while (SDL_PollEvent(&sdlEventSystem)) {
@@ -156,11 +161,6 @@ void Application::fixedUpdate() {
             break;
         }
     }
-
-    thisGame.fixedUpdate();
-}
-
-void Application::render() {
 
     thisGame.render();
 

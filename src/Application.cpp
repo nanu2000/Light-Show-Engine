@@ -77,9 +77,10 @@ void Application::initializeSDL() {
         DBG_LOG("There was an issue initializing SDL.\n");
     }
 
+    gameWindow.initialize();
+
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, 1);
     SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
     SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
@@ -90,14 +91,14 @@ void Application::initializeSDL() {
     SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 4);
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 
-    gameWindow.initialize();
-
     SDL_SetWindowMinimumSize(gameWindow.getWindow(), GameInfo::MIN_WINDOW_WIDTH, GameInfo::MIN_WINDOW_HEIGHT);
 
     GameInfo::setMousePosition(GameInfo::getWindowWidth() / 2, GameInfo::getWindowHeight() / 2);
 }
 
 void Application::initializeGL() {
+
+    glewExperimental = GL_TRUE;
 
     glClearColor //sets the color of the screen.
         (
@@ -106,8 +107,6 @@ void Application::initializeGL() {
             SCREEN_COLOR.z, //blue
             SCREEN_COLOR.w //alpha
         );
-
-    glewExperimental = GL_TRUE;
 
     GLenum err = glewInit();
 

@@ -25,7 +25,7 @@ void Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSy
 
     initializeShaders();
 
-    map.createMap("Assets/Fonts/CourierNew.FontDat");
+    map.createMap("assets/Fonts/CourierNew.FontDat");
 
     EntityWrapper::EntityVitals vitals;
 

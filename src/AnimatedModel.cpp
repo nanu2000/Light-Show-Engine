@@ -331,7 +331,7 @@ void _3DM::AnimatedModel::updateBoneTree(const float& timeInTicks, _3DM::BoneNod
                 timeInTicks,
                 animationClips.at(currentAnimationClip).endTime - animationClips.at(currentAnimationClip).startTime);
 
-        if (isnan(currentTime)) {
+        if (std::isnan(currentTime)) {
             currentTime = 0;
         }
 
@@ -410,7 +410,7 @@ void _3DM::AnimatedModel::blendBoneTree(const float& lastAnimationTime, _3DM::Bo
                 lastAnimationTime,
                 animationClips.at(blendinglastAnimationClip).endTime - animationClips.at(blendinglastAnimationClip).startTime);
 
-        if (isnan(currentTime)) {
+        if (std::isnan(currentTime)) {
             currentTime = 0;
         }
 

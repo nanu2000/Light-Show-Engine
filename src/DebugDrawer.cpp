@@ -60,5 +60,5 @@ void DebugDrawer::setDebugMode(int debugMode) {
 }
 
 void DebugDrawer::reportErrorWarning(const char* warningString) {
-    printf(warningString);
+    printf("%s", warningString);
 }

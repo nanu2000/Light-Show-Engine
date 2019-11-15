@@ -293,7 +293,7 @@ void MusicHandler::addMusicWithoutChecking(const std::string& location) {
     } else {
 #ifdef DEBUG
         printf("Music clip is null, could not Add.\nMusic file location is \"");
-        printf(location.c_str());
+        printf("%s", location.c_str());
         printf("\"\nFreeing Allocated Memory.\n");
 #endif
 

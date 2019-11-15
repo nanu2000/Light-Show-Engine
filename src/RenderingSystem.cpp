@@ -39,8 +39,8 @@ void RenderingSystem::initialize(Scene& scene,
 }
 
 void RenderingSystem::initializeLights(LitShader& litShader) {
-    std::vector<PointLight*>& pointLights             = currentScene->getAllComponentsOfType<PointLight>();
-    std::vector<DirectionalLight*>& directionalLights = currentScene->getAllComponentsOfType<DirectionalLight>();
+    const std::vector<PointLight*>& pointLights             = currentScene->getAllComponentsOfType<PointLight>();
+    const std::vector<DirectionalLight*>& directionalLights = currentScene->getAllComponentsOfType<DirectionalLight>();
 
     litShader.useProgram();
     for (unsigned int i = 0; i < directionalLights.size(); i++) {
@@ -86,17 +86,17 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap,
 
     const std::vector<Scene::GameObject>& gameObjects = *currentScene->getAllGameObjects();
 
-    std::vector<LitShader*>& litShaders = currentScene->getAllComponentsOfType<LitShader>();
+    const std::vector<LitShader*>& litShaders = currentScene->getAllComponentsOfType<LitShader>();
 
     for (unsigned int i = 0; i < litShaders.size(); i++) {
         initializeLights(*litShaders.at(i));
     }
 
-    std::vector<AnimatedModel*>& animatedModels = currentScene->getAllComponentsOfType<AnimatedModel>();
-    std::vector<Model*>& models                 = currentScene->getAllComponentsOfType<Model>();
+    const std::vector<AnimatedModel*>& animatedModels = currentScene->getAllComponentsOfType<AnimatedModel>();
+    const std::vector<Model*>& models                 = currentScene->getAllComponentsOfType<Model>();
 
-    std::vector<Particles*>& particles                  = currentScene->getAllComponentsOfType<Particles>();
-    std::vector<DebuggingController*>& debugControllers = currentScene->getAllComponentsOfType<DebuggingController>();
+    const std::vector<Particles*>& particles                  = currentScene->getAllComponentsOfType<Particles>();
+    const std::vector<DebuggingController*>& debugControllers = currentScene->getAllComponentsOfType<DebuggingController>();
 
     Camera* currentCamera = nullptr;
 

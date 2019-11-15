@@ -1,6 +1,7 @@
 #ifndef HELPING_HAND_H
 #define HELPING_HAND_H
 #include <LinearMath/btTransform.h>
+#include <algorithm>
 #include <glm/gtc/quaternion.hpp>
 #include <glm/vec3.hpp>
 #include <vector>

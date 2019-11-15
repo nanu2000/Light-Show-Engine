@@ -226,7 +226,7 @@ void FixedUpdatingSystem::updateCollision(const int32_t& entity, CollisionMesh& 
                     systems->playerControllerSystem.update(InputLocator::getService(), model->transform, collisionMesh, *physicsWorld, *controller, *currentCamera, *userControls);
                 }
 
-                std::vector<GlobalInformation*>& GI = currentScene->getAllComponentsOfType<GlobalInformation>();
+                const std::vector<GlobalInformation*>& GI = currentScene->getAllComponentsOfType<GlobalInformation>();
 
                 for (unsigned int i = 0; i < GI.size(); i++) {
                     GI[i]->setPlayersPosition(model->transform.position);
@@ -253,7 +253,7 @@ void FixedUpdatingSystem::updateCollision(const int32_t& entity, CollisionMesh& 
 
                 animatedModel->setAnimationClip(controller->getAnimationStateUint());
 
-                std::vector<GlobalInformation*>& GI = currentScene->getAllComponentsOfType<GlobalInformation>();
+                const std::vector<GlobalInformation*>& GI = currentScene->getAllComponentsOfType<GlobalInformation>();
 
                 for (unsigned int i = 0; i < GI.size(); i++) {
                     GI[i]->setPlayersPosition(animatedModel->transform.position);

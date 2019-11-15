@@ -42,7 +42,7 @@ public:
     // exist.
     Texture& getTexture(std::string filePath, GLint filtering = GL_LINEAR, bool repeatTexture = false);
 
-    GLuint TextureHandler::createCubeMap(const std::string identifier, const std::vector<std::string>& faces);
+    GLuint createCubeMap(const std::string identifier, const std::vector<std::string>& faces);
 
     ~TextureHandler();
 

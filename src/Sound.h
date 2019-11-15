@@ -115,4 +115,4 @@ private:
     Music* currentlyPlaying       = nullptr;
 };
 
-#endif _SOUND_H
+#endif //_SOUND_H

@@ -109,7 +109,11 @@ void Application::initializeGL() {
 
     glewExperimental = GL_TRUE;
 
-    glewInit();
+    GLenum err = glewInit();
+
+    if (err != GLEW_OK) {
+        DBG_LOG("engine init error (glew): %s\n", glewGetErrorString(err));
+    }
 
     glLineWidth(1.5f);
 

@@ -9,10 +9,10 @@ PointLightShadowMap::PointLightShadowMap() {
 void PointLightShadowMap::initialize() {
 
     depthMapShader = ShaderBase(
-        "Assets/Shaders/PointLightDepthMapAnimated.v",
-        "Assets/Shaders/PointLightDepthMap.f",
+        "assets/Shaders/PointLightDepthMapAnimated.v",
+        "assets/Shaders/PointLightDepthMap.f",
         SHADER_TYPE::Default,
-        "Assets/Shaders/PointLightDepthMap.g");
+        "assets/Shaders/PointLightDepthMap.g");
 
     glGenFramebuffers(1, &depthMapFBO);
 

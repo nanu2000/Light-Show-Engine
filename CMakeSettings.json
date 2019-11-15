@@ -139,6 +139,56 @@
           "name": "SDL_IMAGE_LIB_DIR",
           "value": "/usr/lib/x86_64-linux-gnu",
           "type": "PATH"
+        },
+        {
+          "name": "CMAKE_CXX_FLAGS_RELWITHDEBINFO",
+          "value": "-O2 -g -DNDEBUG",
+          "type": "STRING"
+        },
+        {
+          "name": "CMAKE_CXX_FLAGS_RELEASE",
+          "value": "-O3 -DNDEBUG",
+          "type": "STRING"
+        },
+        {
+          "name": "CMAKE_CXX_FLAGS_MINSIZEREL",
+          "value": "-Os -DNDEBUG",
+          "type": "STRING"
+        },
+        {
+          "name": "CMAKE_CXX_FLAGS_DEBUG",
+          "value": "-g",
+          "type": "STRING"
+        },
+        {
+          "name": "CMAKE_CXX_FLAGS",
+          "value": "-m64",
+          "type": "STRING"
+        },
+        {
+          "name": "CMAKE_C_FLAGS_RELWITHDEBINFO",
+          "value": "-O2 -g -DNDEBUG",
+          "type": "STRING"
+        },
+        {
+          "name": "CMAKE_C_FLAGS_RELEASE",
+          "value": "-O3 -DNDEBUG",
+          "type": "STRING"
+        },
+        {
+          "name": "CMAKE_C_FLAGS_MINSIZEREL",
+          "value": "-Os -DNDEBUG",
+          "type": "STRING"
+        },
+        {
+          "name": "CMAKE_C_FLAGS_DEBUG",
+          "value": "-g",
+          "type": "STRING"
+        },
+        {
+          "name": "CMAKE_C_FLAGS",
+          "value": "-m64",
+          "type": "STRING"
         }
       ]
     },

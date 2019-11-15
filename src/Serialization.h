@@ -1,6 +1,7 @@
 #ifndef SERIALIZATION_H
 #define SERIALIZATION_H
 
+#include <algorithm>
 #include <fstream>
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -17,6 +18,13 @@ typedef uint16_t TwoBytes;
 typedef uint8_t Byte;
 
 const Byte SIZE_OF_FLOAT = 4;
+
+//Swaps byte order for serialization.
+template <typename T>
+void swapEndian(T* objp) {
+    Byte* memoryLocation = reinterpret_cast<Byte*>(objp);
+    std::reverse(memoryLocation, memoryLocation + sizeof(T));
+}
 
 template <typename T>
 void writeBytes(T& variableToSerialize, const unsigned short& amountOfBytes, std::ofstream& oStream) {
@@ -38,13 +46,6 @@ bool isBigEndian();
 void writeBytes(const char* cStr, const unsigned short& amountOfBytes, std::ofstream& oStream);
 
 void readBytes(const char* cStr, const unsigned short& amountOfBytes, std::ifstream& iStream);
-
-//Swaps byte order for serialization.
-template <typename T>
-void swapEndian(T* objp) {
-    Byte* memoryLocation = reinterpret_cast<Byte*>(objp);
-    std::reverse(memoryLocation, memoryLocation + sizeof(T));
-}
 
 }
 

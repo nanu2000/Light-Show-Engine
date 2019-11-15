@@ -15,8 +15,8 @@ void DirectionalLightShadowMap::updateDepthMap(const glm::vec3& camerPosition) {
 
 void DirectionalLightShadowMap::initialize() {
     depthMapShader = ShaderBase(
-        "Assets/Shaders/DirectionalLightShadowMapAnimated.v",
-        "Assets/Shaders/empty.f",
+        "assets/Shaders/DirectionalLightShadowMapAnimated.v",
+        "assets/Shaders/empty.f",
         SHADER_TYPE::Default);
 
     glGenFramebuffers(1, &depthMapFBO);

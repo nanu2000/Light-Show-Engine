@@ -61,7 +61,7 @@ public:
 
     template <typename T, typename func>
     void performOperationsOnAllOfType(func function) {
-        std::vector<T*>& type = getAllComponentsOfType<T>();
+        const std::vector<T*>& type = getAllComponentsOfType<T>();
         for (unsigned int i = 0; i < type.size(); i++) {
             if (function(*type[i])) {
                 return;

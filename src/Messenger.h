@@ -34,7 +34,7 @@ public:
 
         for (int i = 0; i < numberOfCurrentMessages; i++) {
             if (messageList[i] == msg) {
-                hh::moveItemToBack(> messageList, i);
+                hh::moveItemToBack(messageList, i);
                 numberOfCurrentMessages--;
                 return true;
             }
@@ -48,7 +48,7 @@ public:
 
 private:
     int numberOfCurrentMessages = 0;
-    std::vector<T> messageList = std::vector<T>(GameInfo::DEFAULT_MESSAGE_CAPACITY);
+    std::vector<T> messageList  = std::vector<T>(GameInfo::DEFAULT_MESSAGE_CAPACITY);
 };
 
 #endif // !MESSENGER_H

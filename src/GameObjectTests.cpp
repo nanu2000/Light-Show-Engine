@@ -92,8 +92,8 @@ void PlayerTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
         model.setMeshMatrix(i, glm::mat4(1.f));
     }
 
-    menu.initialize(*vitals.map, TextureLocator::getService().getTexture("Assets/Fonts/CourierNew.png", GL_NEAREST));
-    statsDisplayer.initialize(*vitals.map, TextureLocator::getService().getTexture("Assets/Fonts/CourierNew.png", GL_NEAREST));
+    menu.initialize(*vitals.map, TextureLocator::getService().getTexture("assets/Fonts/CourierNew.png", GL_NEAREST));
+    statsDisplayer.initialize(*vitals.map, TextureLocator::getService().getTexture("assets/Fonts/CourierNew.png", GL_NEAREST));
 
     vitals.scene->addComponent(id, menu);
 
@@ -254,10 +254,10 @@ void LightTest::initialize(EntityWrapper::EntityVitals& vitals) {
         vitals.scene->addComponent(id, lights[i]);
     }
 
-    GLuint m = TextureLocator::getService().createCubeMap("skybox", std::vector<std::string> { "Assets/Images/cubeMaps/skybox/right.png", "Assets/Images/cubeMaps/skybox/left.png", "Assets/Images/cubeMaps/skybox/top.png", "Assets/Images/cubeMaps/skybox/bottom.png", "Assets/Images/cubeMaps/skybox/front.png", "Assets/Images/cubeMaps/skybox/back.png" });
+    GLuint m = TextureLocator::getService().createCubeMap("skybox", std::vector<std::string> { "assets/Images/cubeMaps/skybox/right.png", "assets/Images/cubeMaps/skybox/left.png", "assets/Images/cubeMaps/skybox/top.png", "assets/Images/cubeMaps/skybox/bottom.png", "assets/Images/cubeMaps/skybox/front.png", "assets/Images/cubeMaps/skybox/back.png" });
     skyBox.supplyMap(m);
 
-    skyBoxShader = DefaultShader("assets/Shaders/SkyBox.v", "Assets/Shaders/SkyBox.f", SHADER_TYPE::Default);
+    skyBoxShader = DefaultShader("assets/Shaders/SkyBox.v", "assets/Shaders/SkyBox.f", SHADER_TYPE::Default);
 
     vitals.scene->addComponent(id, skyBoxShader);
     vitals.scene->addComponent(id, skyBox);

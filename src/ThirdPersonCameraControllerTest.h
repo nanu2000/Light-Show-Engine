@@ -1,9 +1,9 @@
 #ifndef CAMERA_CONTROLLER_H
 #define CAMERA_CONTROLLER_H
+#include "Camera.h"
 #include "Component.h"
 #include "Locator.h"
 #include "ThirdPersonCamera.h"
-#include "camera.h"
 
 class ThirdPersonCameraControllerTest : public Component<ThirdPersonCameraControllerTest> {
 public:

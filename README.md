@@ -122,6 +122,11 @@ Should be something like that. You will probably have to provide certain variabl
 * Lots of trial and error. Building this first try with no errors seems unlikely.
 
 ## Built With
-* Bullet Physics
+* Bullet3
 * SDL2
+* SDL_Mixer
+* SDL_Image
 * OpenGL
+* GLM
+* GLew
+* GameNetworkingSockets

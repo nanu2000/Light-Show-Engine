@@ -1,4 +1,4 @@
-# Light-Show-Engine
+# Light-Show-Boilerplate
 LightShow is a 3D boilerplate created with the purpose of flexibility, scalability, and simplicity.
 
 Currently this project only works with Microsoft Windows 10

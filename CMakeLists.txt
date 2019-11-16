@@ -19,6 +19,7 @@ elseif(CMAKE_SIZEOF_VOID_P EQUAL 4)
    set(ARCHITECTURE "86")
 endif()
 
+set(USE_DEBUG_TOOLS true)
 
 if(CMAKE_BUILD_TYPE MATCHES Debug)
     set("BUILD_TYPE" "Debug")
@@ -26,6 +27,10 @@ elseif(CMAKE_BUILD_TYPE MATCHES RelWithDebInfo)
     set("BUILD_TYPE" "Release")
 elseif(CMAKE_BUILD_TYPE MATCHES Release)
     set("BUILD_TYPE" "Release")
+    set(USE_DEBUG_TOOLS false)
+elseif(CMAKE_BUILD_TYPE MATCHES MinSizeRel)
+    set("BUILD_TYPE" "Release")
+    set(USE_DEBUG_TOOLS false)
 endif()
 
 file(GLOB SOURCE_FILES
@@ -33,8 +38,15 @@ file(GLOB SOURCE_FILES
     "src/*.cpp"
 )
 
-add_executable(main ${SOURCE_FILES})
-
+if(USE_DEBUG_TOOLS)
+    add_executable(main ${SOURCE_FILES})
+else()
+    if(WIN32)
+        add_executable(main WIN32 ${SOURCE_FILES})
+    else()
+        add_executable(main ${SOURCE_FILES})
+    endif()
+endif()
 
 # SDL2
 find_package(SDL2 REQUIRED)

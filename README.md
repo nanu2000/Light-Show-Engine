@@ -109,7 +109,7 @@ mv libGameNetworkingSockets.so /usr/lib/x86_64-linux-gnu
 #### With that, you should have a dev environment running on Microsoft Visual Studio capable of compiling and debugging for Windows, and Linux. 
 
 ### Building on Linux (standalone)
-I haven't tested building only on linux, however it should be easier to setup. Install everything mentioned [above](https://github.com/nanu2000/Light-Show-Engine#installing)
+I haven't tested building only on linux, however it should be easier to setup. Install everything mentioned [above](#configure-linux-machine-for-development)
 * Git clone --recursive
 * run cmake
 * run make

@@ -88,7 +88,7 @@ public:
     void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
-    _3DM::AnimatedModel model = _3DM::AnimatedModel("assets/Models/Player/player.3DMA");
+    _3DM::AnimatedModel model = _3DM::AnimatedModel("assets/Models/player/player.3DMA");
 
     DefaultShader textShader;
 

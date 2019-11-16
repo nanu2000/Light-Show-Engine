@@ -10,7 +10,7 @@
 
 class PointLightShadowMap {
 public:
-    PointLightShadowMap();
+    PointLightShadowMap() {};
 
     const float FOV = glm::radians(90.0f);
 
@@ -36,7 +36,6 @@ public:
     void updateDepthMap();
 
 private:
-    float aspect;
     void updateDepthMapResolution() {
 
         if (DEPTH_MAP_HEIGHT > 0 && DEPTH_MAP_WIDTH > 0) {
@@ -56,29 +55,37 @@ private:
                     GL_FLOAT,
                     NULL);
             }
+
         } else {
             DBG_LOG("The Depth Map Resolution Needs To Be Greater Than 0.\n");
         }
     }
+
+    glm::mat4 getShadowTransformation(const glm::vec3& eye, const glm::vec3& up);
+
+    glm::mat4 shadowTransforms[6] = {
+        glm::mat4(1.0f),
+        glm::mat4(1.0f),
+        glm::mat4(1.0f),
+        glm::mat4(1.0f),
+        glm::mat4(1.0f),
+        glm::mat4(1.0f)
+    };
+
     //1024 is amazing / great quality
     unsigned int DEPTH_MAP_WIDTH  = 512;
     unsigned int DEPTH_MAP_HEIGHT = 512;
 
-    ShaderBase depthMapShader;
-
-    bool lightSupplied = false;
-
-    glm::mat4 getShadowTransformation(const glm::vec3& eye, const glm::vec3& up);
-    GLuint depthMapFBO = 0;
+    bool lightSupplied  = false;
+    GLfloat nearPlane   = .10f;
+    GLfloat farPlane    = 50.0f;
+    GLfloat aspect      = 1.0f;
+    GLuint depthMapFBO  = 0;
     GLuint depthCubeMap = 0;
-    glm::mat4 shadowTransforms[6];
 
-    glm::vec3 lightPosition;
-
-    GLfloat nearPlane;
-    GLfloat farPlane;
-
-    glm::mat4 shadowProjection;
+    ShaderBase depthMapShader;
+    glm::vec3 lightPosition    = glm::vec3(0, 6, 0);
+    glm::mat4 shadowProjection = glm::perspective(FOV, aspect, nearPlane, farPlane);
 };
 
 #endif // !DEPTH_MAP_H

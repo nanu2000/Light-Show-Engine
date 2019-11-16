@@ -77,19 +77,9 @@ void Application::initializeSDL() {
         DBG_LOG("There was an issue initializing SDL.\n");
     }
 
+    glewExperimental = GL_TRUE;
+
     gameWindow.initialize();
-
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
-    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-
-    SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 4);
-    SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 4);
-    SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 4);
-    SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 4);
-    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 
     SDL_SetWindowMinimumSize(gameWindow.getWindow(), GameInfo::MIN_WINDOW_WIDTH, GameInfo::MIN_WINDOW_HEIGHT);
 
@@ -97,8 +87,6 @@ void Application::initializeSDL() {
 }
 
 void Application::initializeGL() {
-
-    glewExperimental = GL_TRUE;
 
     glClearColor //sets the color of the screen.
         (
@@ -121,9 +109,16 @@ void Application::initializeGL() {
 
     glEnable(GL_DEPTH_TEST);
 
+    glEnable(GL_MULTISAMPLE);
+
     //For back face culling
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
+
+    GLenum glError = glGetError();
+    if (glError != GL_NO_ERROR) {
+        DBG_LOG("GL Error: %i", SDL_Error);
+    }
 }
 
 void Application::initialize() {

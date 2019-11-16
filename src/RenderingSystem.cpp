@@ -322,38 +322,28 @@ void RenderingSystem::supplyLitShaderUniforms(
     supplyDefaultShaderUniforms(shader, currentCamera, currentTime);
 
     glActiveTexture(GL_TEXTURE0 + Shaders::DEPTH_MAP_LOCATION_OMNIDIRECTIONAL);
-    glUniform1i(Shaders::getUniformLocation(shader.getProgramID(),
-                                            Shaders::UniformName::PointShadowMap),
-                Shaders::DEPTH_MAP_LOCATION_OMNIDIRECTIONAL);
-    glUniform1ui(Shaders::getUniformLocation(shader.getProgramID(),
-                                             Shaders::UniformName::TimeMS),
-                 GLuint(currentTime.sinceStartMS()));
+    glUniform1i(Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::PointShadowMap), Shaders::DEPTH_MAP_LOCATION_OMNIDIRECTIONAL);
+
+    //glUniform1i(Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::TimeMS), currentTime.sinceStartMS32());
 
     if (pointLightDepthMap.isActive()) {
-        glUniform1f(Shaders::getUniformLocation(shader.getProgramID(),
-                                                Shaders::UniformName::FarPlane),
-                    pointLightDepthMap.getFarPlane());
+        glUniform1f(Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::FarPlane), pointLightDepthMap.getFarPlane());
 
-        glUniform3fv(Shaders::getUniformLocation(
-                         shader.getProgramID(), Shaders::UniformName::LightPosition),
-                     1,
-                     &pointLightDepthMap.getCurrentLightPosition()[0]);
+        glUniform3fv(Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::LightPosition), 1, &pointLightDepthMap.getCurrentLightPosition()[0]);
 
         glBindTexture(GL_TEXTURE_CUBE_MAP, pointLightDepthMap.getCubeMap());
+
     } else {
         glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
     }
 
-    glUniformMatrix4fv(
-        Shaders::getUniformLocation(shader.getProgramID(),
-                                    Shaders::UniformName::LightSpaceMatrix),
-        1,
-        GL_FALSE,
-        glm::value_ptr(*directionalLightDepthMap.getLightSpaceMatrix()));
-    glUniform1i(
-        Shaders::getUniformLocation(shader.getProgramID(),
-                                    Shaders::UniformName::DirectionalShadowMap),
-        Shaders::DEPTH_MAP_LOCATION_DIRECTIONAL);
+    glUniformMatrix4fv(Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::LightSpaceMatrix),
+                       1,
+                       GL_FALSE,
+                       glm::value_ptr(*directionalLightDepthMap.getLightSpaceMatrix()));
+
+    glUniform1i(Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::DirectionalShadowMap),
+                Shaders::DEPTH_MAP_LOCATION_DIRECTIONAL);
 
     glActiveTexture(GL_TEXTURE0 + Shaders::DEPTH_MAP_LOCATION_DIRECTIONAL);
     glBindTexture(GL_TEXTURE_2D, directionalLightDepthMap.getDepthMap());

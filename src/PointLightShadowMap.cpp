@@ -1,11 +1,5 @@
 #include "PointLightShadowMap.h"
 
-PointLightShadowMap::PointLightShadowMap() {
-    lightPosition = glm::vec3(0, 6, 0);
-    nearPlane     = .10f;
-    farPlane      = 50.0f;
-}
-
 void PointLightShadowMap::initialize() {
 
     depthMapShader = ShaderBase(
@@ -14,11 +8,16 @@ void PointLightShadowMap::initialize() {
         SHADER_TYPE::Default,
         "assets/Shaders/PointLightDepthMap.g");
 
-    glGenFramebuffers(1, &depthMapFBO);
-
     glGenTextures(1, &depthCubeMap);
 
+    glGenFramebuffers(1, &depthMapFBO);
+
+    glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
+
     updateDepthMapResolution();
+
+    //Needs to be called after updateDepthMapResolution
+    glFramebufferTexture(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, depthCubeMap, 0);
 
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -26,15 +25,15 @@ void PointLightShadowMap::initialize() {
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 
-    glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
-    glFramebufferTexture(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, depthCubeMap, 0);
-
     glDrawBuffer(GL_NONE);
     glReadBuffer(GL_NONE);
 
-    if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE) {
-        DBG_LOG("The FrameBuffer Was Not Created Succesfully!! (PointLightShadowMap.cpp)");
+    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+
+    if (status != GL_FRAMEBUFFER_COMPLETE) {
+        DBG_LOG("The FrameBuffer Was Not Created Succesfully!! Status: %i (PointLightShadowMap.cpp)", status);
     }
+
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 

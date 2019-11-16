@@ -13,17 +13,22 @@ public:
     double getFPS() const {
         return 1.0 / (currentMSPF / 1000.0);
     }
-    uint32_t sinceStartMS() const {
+    uint64_t sinceStartMS32() const {
         return SDL_GetTicks();
     }
+    uint64_t sinceStartMS() const {
+        return timeSinceStart;
+    }
     double sinceStartSD() const {
-        return SDL_GetTicks() / 1000.0;
+        return timeSinceStart / 1000.0;
     }
     float sinceStartSF() const {
-        return SDL_GetTicks() / 1000.0f;
+        return sinceStartMS32() / 1000.0f;
     }
 
 private:
+    uint64_t timeSinceStart = 0;
+
     double currentMSPF = 0;
 
     struct TimeData {

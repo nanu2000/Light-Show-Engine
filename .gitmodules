@@ -1,0 +1,15 @@
+[submodule "lib/glew"]
+	path = lib/glew
+	url = https://github.com/omniavinco/glew-cmake
+[submodule "lib/glm"]
+	path = lib/glm
+	url = https://github.com/g-truc/glm
+[submodule "lib/bullet"]
+	path = lib/bullet
+	url = https://github.com/bulletphysics/bullet3
+[submodule "lib/gamenetworksockets"]
+	path = lib/gamenetworksockets
+	url = https://github.com/ValveSoftware/GameNetworkingSockets
+[submodule "lib/protobuf"]
+	path = lib/protobuf
+	url = https://github.com/protocolbuffers/protobuf

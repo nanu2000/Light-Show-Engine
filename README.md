@@ -6,19 +6,18 @@ Currently this project only works with Microsoft Windows 10
 This application uses two other projects for 3D model and font atlas file creation that are currently private.
 
 ## Features
-* 3D skeletal animation
-* Directional shadow mapping
-* Runtime GLSL modifications
+* 3D skeletal Animation
+* Directional Shadow Mapping
+* Omnidirectional Shadow Mapping
 * Physics, Collision, Callbacks and Triggers
-* Audio and music support
+* Audio and Music Support
 * Text rendering
 * Phong shading
 * Point lights
-* Diffuse shading
 * Directional lights
-* Omnidirectional shadow mapping
-* Particle systems with instanced rendering
+* Particle Systems via Instanced Rendering
 * Bone Colliders (updates scale, position and rotation of a collision object according to a bone)
+* Entity Component System structure
 
 ## Getting Started
 

@@ -113,7 +113,8 @@ I haven't tested building only on linux, however it should be easier to setup. I
 * Git clone --recursive
 * run cmake
 * run make
-Should be something like that.
+
+Should be something like that. You will probably have to provide certain variables in the CMake config to make this work.
 
 ## Debuging
 * Double check CMakeSettings like SDL2_DIR and GNS_LIB_DIR, they should both point to their library directories.

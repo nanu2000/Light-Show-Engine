@@ -1,7 +1,5 @@
 # Light-Show-Boilerplate
-LightShow is a 3D boilerplate created with the purpose of flexibility, scalability, and simplicity.
-
-Currently this project only works with Microsoft Windows 10
+LightShow is a 3D boilerplate created for my own projects with the purpose of flexibility, scalability, and simplicity.
 
 This application uses two other projects for 3D model and font atlas file creation that are currently private.
 

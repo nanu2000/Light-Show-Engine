@@ -100,7 +100,7 @@ void PlayerTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
     vitals.scene->addComponent(id, textShader);
     vitals.scene->addComponent(id, statsDisplayer);
     vitals.scene->addComponent(id, stats);
-    // vitals.scene->addComponent(id, bCollisionMesh);
+    vitals.scene->addComponent(id, bCollisionMesh);
     vitals.scene->addComponent(id, cameraHandler);
     vitals.scene->addComponent(id, model);
     vitals.scene->addComponent(id, shader);
@@ -234,7 +234,7 @@ void LightTest::initialize(EntityWrapper::EntityVitals& vitals) {
     directionalLight.direction = glm::vec3(0.f, -1.f, 0.f);
     directionalLight.ambient   = glm::vec3(0.1f, 0.1f, 0.1f);
 
-    const int lightRange     = 10;
+    const int lightRange     = 5;
     const int lightRangeMinY = 4;
     const int lightRangeMaxY = 8;
 

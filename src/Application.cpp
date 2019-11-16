@@ -79,6 +79,17 @@ void Application::initializeSDL() {
 
     glewExperimental = GL_TRUE;
 
+    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 0);
+    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 0);
+    SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 4);
+    SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 4);
+    SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 4);
+    SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 4);
+    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+
     gameWindow.initialize();
 
     SDL_SetWindowMinimumSize(gameWindow.getWindow(), GameInfo::MIN_WINDOW_WIDTH, GameInfo::MIN_WINDOW_HEIGHT);
@@ -108,8 +119,6 @@ void Application::initializeGL() {
     glEnable(GL_BLEND);
 
     glEnable(GL_DEPTH_TEST);
-
-    glEnable(GL_MULTISAMPLE);
 
     //For back face culling
     glEnable(GL_CULL_FACE);

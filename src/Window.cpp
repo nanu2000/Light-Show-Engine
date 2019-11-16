@@ -6,14 +6,6 @@ Window::~Window() {
 }
 void Window::initialize() {
 
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 0);
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 0);
-    SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 4);
-    SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 4);
-    SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 4);
-    SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 4);
-    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
-
     gameWindow = SDL_CreateWindow //create game window
         (
             windowTitle.c_str(), //Sets title of the applications window
@@ -27,9 +19,6 @@ void Window::initialize() {
     glViewport(0, 0, width, height); //openGL camera viewport
 
     glContext = SDL_GL_CreateContext(gameWindow);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, 1);
 }
 
 void Window::handleEvents(SDL_Event& eventSystem, SDL_WindowEventID windowEvent, Messenger<BackEndMessages>& msgr) {

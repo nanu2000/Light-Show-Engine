@@ -14,7 +14,7 @@ public:
 
     void initialize(TextMap& map, Texture& textImage) {
         str.initialize(map, textImage);
-        resumeButton.initialize(TextureLocator::getService().getTexture("assets/images/accept.png", GL_NEAREST));
+        resumeButton.initialize(TextureLocator::getService().getTexture("assets/Images/Accept.png", GL_NEAREST));
     }
 
 private:

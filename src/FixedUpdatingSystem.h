@@ -26,7 +26,7 @@ public:
 
     void fixedUpdate(const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
 
-    void handleBackEndMsg(BackEndMessages msg);
+    void handleBackEndMessage(BackEndMessages msg);
 
 private:
     //Updates GUI (Will be called even if the game is paused) will return true if the game is paused
@@ -39,10 +39,10 @@ private:
     void updateCollision(const int32_t& entity, CollisionMesh& collisionMesh);
 
     //checks to see if an entity is colliding with another entity.
-    void findTriggers(const CollisionTag& thisTag);
+    void updateCollisionTriggers(const CollisionTag& thisTag);
 
     //executes any logic regarding collisions.
-    void executeTriggers(const CollisionTag& thisTag, const CollisionTag& otherTag);
+    void handleCollisionTrigger(const CollisionTag& thisTag, const CollisionTag& otherTag);
 };
 
 #endif

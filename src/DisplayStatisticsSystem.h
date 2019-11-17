@@ -7,7 +7,7 @@
 class DisplayStatisticsSystem {
 
 public:
-    void update(DisplayStatistics& ds, const Time& time, GUIResizingInformation& guiInfo) {
+    void fixedUpdate(DisplayStatistics& ds, const Time& time, GUIResizingInformation& guiInfo) {
 
         float unit = guiInfo.getWidthUnit();
 

@@ -29,7 +29,7 @@ PhysicsWorld::~PhysicsWorld() {
     delete broadphase;
 }
 
-void PhysicsWorld::update() {
+void PhysicsWorld::fixedUpdate() {
 
     if (!thisWorld) {
         DBG_LOG("The Physics World Has Not Been Initialized, Please Initialize Before Updating. (PhysicsWorld.cpp update())\n");

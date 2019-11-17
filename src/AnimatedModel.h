@@ -56,7 +56,7 @@ public:
 		*	Other   *
 		*************/
 
-    void updateAnimation();
+    void fixedUpdateAnimation();
     void renderAll(ShaderBase& shader);
     void renderSingleMesh(unsigned int index, ShaderBase& shader);
     void removeKeyframes(unsigned int channelIndex);

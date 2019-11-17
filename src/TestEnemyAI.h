@@ -32,7 +32,7 @@ public:
         fieldOfViewPreCos = cos(glm::radians(fieldOfView));
     }
 
-    void update(GlobalInformation& globalInfo, Input& input, EntityTransform& entityTransform) {
+    void fixedUpdate(GlobalInformation& globalInfo, Input& input, EntityTransform& entityTransform) {
 
         glm::vec3 rot = glm::normalize(entityTransform.transform.rotation * glm::vec3(0, 1, 0));
 

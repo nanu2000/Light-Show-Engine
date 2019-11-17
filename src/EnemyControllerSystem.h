@@ -11,7 +11,6 @@
 #include "RayCaster.h"
 #include "TestEnemyAI.h"
 #include "ThirdPersonCamera.h"
-#include "UserControls.h"
 
 namespace ENEMY_CTRLR_NS {
 const unsigned int AMOUNT_OF_RAYS  = 4;
@@ -26,32 +25,32 @@ public:
         assert(ENEMY_CTRLR_NS::AMOUNT_OF_RAYS == 4);
     }
 
-    void update(Input& input, EntityTransform& modelsTransform, CollisionMesh& mesh, PhysicsWorld& world, const GlobalInformation& globalInformation, EnemyController& playerController, const UserControls& userControls, const TestEnemyAI& ai);
+    void update(Input& input, EntityTransform& modelsTransform, CollisionMesh& mesh, PhysicsWorld& world, const GlobalInformation& globalInformation, EnemyController& enemyController, const TestEnemyAI& ai);
 
 private:
     RayCaster rayCast[ENEMY_CTRLR_NS::AMOUNT_OF_RAYS];
 
     void performJump(CollisionMesh& collisionMesh, float jumpVelocity);
 
-    void calculateMovment(Input& input, const glm::quat& rotation, const glm::vec3& playersPosition, CollisionMesh& collisionMesh, EnemyController& playerController, const UserControls& userControls, const TestEnemyAI& ai);
+    void calculateMovment(Input& input, const glm::quat& rotation, const glm::vec3& playersPosition, CollisionMesh& collisionMesh, EnemyController& enemyController, const TestEnemyAI& ai);
 
-    void handleRayHit(EnemyController& playerController, CollisionMesh& collisionMesh, float closest);
+    void handleRayHit(EnemyController& enemyController, CollisionMesh& collisionMesh, float closest);
 
-    int getLowestRayHitIndex(const RayCaster& rayResults, EnemyController& playerController);
+    int getLowestRayHitIndex(const RayCaster& rayResults, EnemyController& enemyController);
 
-    ControllerRayCollision getLowestRayHitForAllRays(EnemyController& playerController);
+    ControllerRayCollision getLowestRayHitForAllRays(EnemyController& enemyController);
 
-    void executeRayTesting(EnemyController& playerController, CollisionMesh& collisionMesh, const Transform& meshTransform, PhysicsWorld& world);
+    void executeRayTesting(EnemyController& enemyController, CollisionMesh& collisionMesh, const Transform& meshTransform, PhysicsWorld& world);
 
     glm::vec3 getSlopeSpeed(float sensitivity, const glm::vec3& rayNormal) { return rayNormal * sensitivity * GameInfo::fixedDeltaTime; }
 
-    int getCurrentSlopeSpeedIndex(const glm::vec3& rayNormal, const EnemyController& playerController);
+    int getCurrentSlopeSpeedIndex(const glm::vec3& rayNormal, const EnemyController& enemyController);
 
-    void performCommands(CollisionMesh& collisionMesh, EnemyController& playerController);
+    void performCommands(CollisionMesh& collisionMesh, EnemyController& enemyController);
 
-    void applyForces(CollisionMesh& collisionMesh, EnemyController& playerController);
+    void applyForces(CollisionMesh& collisionMesh, EnemyController& enemyController);
 
-    void applyNewTransform(CollisionMesh& mesh, const glm::vec3& playersPosition, EnemyController& playerController, Transform& oldTransform, const TestEnemyAI& ai);
+    void applyNewTransform(CollisionMesh& mesh, const glm::vec3& playersPosition, EnemyController& enemyController, Transform& oldTransform, const TestEnemyAI& ai);
 };
 
 #endif

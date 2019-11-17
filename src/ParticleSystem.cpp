@@ -94,7 +94,7 @@ void ParticleEmitter::renderParticles(ShaderBase& shader, Particles& particlesWr
     }
 }
 
-void ParticleEmitter::mainUpdateParticles(Particles& particlesWrapper) {
+void ParticleEmitter::mainFixedUpdateParticles(Particles& particlesWrapper) {
     if (areVitalsNull()) {
         return;
     }
@@ -141,13 +141,13 @@ void ParticleEmitter::performParticleCalculations(Particle& p) {
     p.position += p.speed * GameInfo::fixedDeltaTime;
 }
 
-void ParticleEmitter::updateParticles(int amountPerSecond, Particles& particlesWrapper) {
+void ParticleEmitter::fixedUpdateParticles(int amountPerSecond, Particles& particlesWrapper) {
     particlesPerSecond = amountPerSecond;
-    mainUpdateParticles(particlesWrapper);
+    mainFixedUpdateParticles(particlesWrapper);
 }
 
-void ParticleEmitter::updateParticles(Particles& particlesWrapper) {
-    mainUpdateParticles(particlesWrapper);
+void ParticleEmitter::fixedUpdateParticles(Particles& particlesWrapper) {
+    mainFixedUpdateParticles(particlesWrapper);
 }
 
 void ParticleEmitter::setWorldSettings(const WorldSettings& worldSettings) {

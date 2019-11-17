@@ -12,12 +12,12 @@
 #include <vector>
 
 struct Particle {
-    float lifeTime = 0;
-    float weight   = 0;
-    float size     = 1;
-    glm::vec3 position = glm::vec3(0.0f,0.0f,0.0f);
-    glm::vec3 speed = glm::vec3(0.0f,0.0f,0.0f);
-    glm::vec4 color = glm::vec4(1, 1, 1, 1);
+    float lifeTime     = 0;
+    float weight       = 0;
+    float size         = 1;
+    glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f);
+    glm::vec3 speed    = glm::vec3(0.0f, 0.0f, 0.0f);
+    glm::vec4 color    = glm::vec4(1, 1, 1, 1);
 };
 
 class Particles : public Component<Particles> {
@@ -56,8 +56,8 @@ public:
 
     void initialize(const WorldSettings& worldSettings);
     void renderParticles(ShaderBase& shader, Particles& particlesWrapper);
-    void updateParticles(int amountPerSecond, Particles& particlesWrapper);
-    void updateParticles(Particles& particlesWrapper);
+    void fixedUpdateParticles(int amountPerSecond, Particles& particlesWrapper);
+    void fixedUpdateParticles(Particles& particlesWrapper);
 
     unsigned int getParticlesPerSecond() { return particlesPerSecond; }
 
@@ -84,7 +84,7 @@ private:
     float newparticles              = 0;
     int renderingSize               = 0;
 
-    void mainUpdateParticles(Particles& particlesWrapper);
+    void mainFixedUpdateParticles(Particles& particlesWrapper);
     virtual void setParticleToDefault(Particle& p);
     virtual void performParticleCalculations(Particle& p);
 

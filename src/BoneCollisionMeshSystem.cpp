@@ -1,6 +1,6 @@
 #include "BoneCollisionMeshSystem.h"
 
-void BoneCollisionMeshSystem::update(BoneCollisionMesh& mesh, const _3DM::AnimatedModel& animatedModel) {
+void BoneCollisionMeshSystem::fixedUpdate(BoneCollisionMesh& mesh, const _3DM::AnimatedModel& animatedModel) {
     mesh.iterateThroughColliders(
         [&](CollisionMesh& currentCollider, int32_t boneID) {
             glm::mat4 transformation = glm::mat4(1.0f);
@@ -12,7 +12,7 @@ void BoneCollisionMeshSystem::update(BoneCollisionMesh& mesh, const _3DM::Animat
 
             transformation = glm::translate(transformation * animatedModel.getBoneTransformationWithoutOffset(boneID), mesh.getColliderOffset(boneID));
 
-            newTransform.setFromOpenGLMatrix((btScalar*) glm::value_ptr(transformation));
+            newTransform.setFromOpenGLMatrix((btScalar*)glm::value_ptr(transformation));
 
             currentCollider.getMotionState()->setWorldTransform(newTransform);
         });

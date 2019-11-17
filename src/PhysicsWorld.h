@@ -16,7 +16,7 @@ public:
 
     ~PhysicsWorld();
 
-    void update();
+    void fixedUpdate();
 
     void setDebugMode(btIDebugDraw::DebugDrawModes mode);
 

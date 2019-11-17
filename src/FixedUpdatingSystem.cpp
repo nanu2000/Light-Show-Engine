@@ -1,5 +1,6 @@
 #include "FixedUpdatingSystem.h"
 
+//Called in Game.cpp
 void FixedUpdatingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& ssystems) {
     currentScene    = &scene;
     currentSettings = &settings;
@@ -14,53 +15,31 @@ void FixedUpdatingSystem::initialize(Scene& scene, Settings& settings, PhysicsWo
     systems->dayNightCycleSystem.initialize();
 }
 
-bool FixedUpdatingSystem::updateGUI(const std::vector<Scene::Entity>& entities, const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
+//Called in Game.cpp
+void FixedUpdatingSystem::handleBackEndMessage(BackEndMessages msg) {
 
-    bool isPauseMenuShowing = false;
+    switch (msg) {
 
-    if (UserControls* userControls = currentScene->getFirstActiveComponentOfType<UserControls>()) {
-        if (PauseMenu* menu = currentScene->getFirstActiveComponentOfType<PauseMenu>()) {
+    case BackEndMessages::REFRESH_CAMERA:
 
-            systems->pauseMenuSystem.update(InputLocator::getService(), *menu, systems->guiResizingInfo, *userControls);
-            isPauseMenuShowing = menu->showing();
+        if (ThirdPersonCamera* camera = currentScene->getFirstActiveComponentOfType<ThirdPersonCamera>()) {
+            systems->thirdPersonCameraSystem.refreshCamera(*camera);
+            DBG_LOG("Camera Refreshed Succesfully\n");
         }
+
+        systems->guiResizingInfo.updateInformation();
+
+        break;
+
+    case BackEndMessages::NULL_MESSAGE:
+    case BackEndMessages::MESSAGES_END:
+    default:
+        DBG_LOG("NULL or Unknown Message Passed as Argument (FixedUpdatingSystem::handleBackEndMsg)\n");
+        break;
     }
-
-    if (isPauseMenuShowing) {
-
-        SDL_ShowCursor(SDL_ENABLE);
-
-    } else {
-
-        //Update Physics
-        physicsWorld->update();
-
-        SDL_ShowCursor(SDL_DISABLE);
-
-        GameInfo::setMousePosition(GameInfo::getWindowWidth() / 2, GameInfo::getWindowHeight() / 2);
-    }
-
-    for (unsigned int i = 0; i < entities.size(); i++) {
-        const int32_t& entity = entities[i].id;
-
-        if (!currentScene->isEntityActive(entity)) {
-            continue;
-        }
-
-        if (EntityStats* stats = currentScene->getComponent<EntityStats>(entity)) {
-            if (EntityStatsDisplayer* disp = currentScene->getComponent<EntityStatsDisplayer>(entity)) {
-                systems->EntityStatsDisplayerSystem.update(*disp, *stats, systems->guiResizingInfo);
-            }
-        }
-
-        if (DisplayStatistics* stats = currentScene->getComponent<DisplayStatistics>(entity)) {
-            systems->displayStatisticsSystem.update(*stats, time, systems->guiResizingInfo);
-        }
-    }
-
-    return isPauseMenuShowing;
 }
 
+//Called in Game.cpp
 void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
 
     if (areVitalsNull()) {
@@ -72,30 +51,48 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
     bool isPauseMenuShowing = updateGUI(entities, time, pointLightDepthMap, directionalLightDepthMap);
 
     if (isPauseMenuShowing) {
-        return;
+
+        SDL_ShowCursor(SDL_ENABLE);
+        return; //stop updating.
+
+    } else {
+
+        //Update Physics
+        physicsWorld->fixedUpdate();
+
+        SDL_ShowCursor(SDL_DISABLE);
+
+        GameInfo::setMousePosition(GameInfo::getWindowWidth() / 2, GameInfo::getWindowHeight() / 2);
     }
 
+    //Run day night cycle
     currentScene->performOperationsOnAllOfType<DirectionalLight>(
         [&](DirectionalLight& light) {
-            systems->dayNightCycleSystem.update(light, time);
+            systems->dayNightCycleSystem.fixedUpdate(light, time);
             return false;
         });
 
+    //Update collision for meshes
     currentScene->performOperationsOnAllOfType<CollisionMesh>(
         [&](CollisionMesh& mesh) {
             updateCollision(mesh.getEntityID(), mesh);
+            //update triggers
+            updateCollisionTriggers(*mesh.getTag());
             return false;
         });
 
+    //updateBoneCollisionMeshes
     currentScene->performOperationsOnAllOfType<BoneCollisionMesh>(
         [&](BoneCollisionMesh& mesh) {
+            //Update position of colliders
             if (_3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(mesh.getEntityID())) {
-                systems->boneCollisionMeshSystem.update(mesh, *animatedModel);
+                systems->boneCollisionMeshSystem.fixedUpdate(mesh, *animatedModel);
             }
 
+            //Update collision for boneCollisionMeshes
             const std::vector<const CollisionTag*>& collisionTags = *mesh.getCollisionTags();
             for (unsigned int i = 0; i < collisionTags.size(); i++) {
-                findTriggers(*collisionTags[i]);
+                updateCollisionTriggers(*collisionTags[i]);
             }
 
             return false;
@@ -110,9 +107,8 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
 
         if (TestEnemyAI* ai = currentScene->getComponent<TestEnemyAI>(entity)) {
             if (EntityTransform* et = currentScene->getComponent<EntityTransform>(entity)) {
-
                 if (GlobalInformation* info = currentScene->getComponent<GlobalInformation>(entity)) {
-                    ai->update(*info, InputLocator::getService(), *et);
+                    ai->fixedUpdate(*info, InputLocator::getService(), *et);
                 }
             }
         }
@@ -127,7 +123,7 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
 
         if (Particles* p = currentScene->getComponent<Particles>(entity)) {
             if (ParticleEmitter* pe = currentScene->getComponent<FountainParticleEmitter>(entity)) {
-                pe->updateParticles(*p);
+                pe->fixedUpdateParticles(*p);
             }
         }
 
@@ -139,34 +135,49 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
         }
 
         if (_3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(entity)) {
-            animatedModel->updateAnimation();
+            animatedModel->fixedUpdateAnimation();
         }
     }
 }
 
-void FixedUpdatingSystem::handleBackEndMsg(BackEndMessages msg) {
-    switch (msg) {
+//Updates GUI.
+//returns true if the pause menu is showing.
+bool FixedUpdatingSystem::updateGUI(const std::vector<Scene::Entity>& entities, const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
 
-    case REFRESH_CAMERA:
+    bool isPauseMenuShowing = false;
 
-        if (ThirdPersonCamera* camera = currentScene->getFirstActiveComponentOfType<ThirdPersonCamera>()) {
-            systems->thirdPersonCameraSystem.refreshCamera(*camera);
-            DBG_LOG("Camera Refreshed Succesfully\n");
+    if (UserControls* userControls = currentScene->getFirstActiveComponentOfType<UserControls>()) {
+        if (PauseMenu* menu = currentScene->getFirstActiveComponentOfType<PauseMenu>()) {
+
+            isPauseMenuShowing = menu->showing();
+        }
+    }
+
+    for (unsigned int i = 0; i < entities.size(); i++) {
+        const int32_t& entity = entities[i].id;
+
+        if (!currentScene->isEntityActive(entity)) {
+            continue;
         }
 
-        systems->guiResizingInfo.updateInformation();
+        if (EntityStats* stats = currentScene->getComponent<EntityStats>(entity)) {
+            if (EntityStatsDisplayer* disp = currentScene->getComponent<EntityStatsDisplayer>(entity)) {
+                systems->EntityStatsDisplayerSystem.fixedUpdate(*disp, *stats, systems->guiResizingInfo);
+            }
+        }
 
-        break;
-
-    case NULL_MESSAGE:
-    case MESSAGES_END:
-    default:
-        DBG_LOG("NULL or Unknown Message Passed as Argument (FixedUpdatingSystem::handleBackEndMsg)\n");
-        break;
+        if (DisplayStatistics* stats = currentScene->getComponent<DisplayStatistics>(entity)) {
+            systems->displayStatisticsSystem.fixedUpdate(*stats, time, systems->guiResizingInfo);
+        }
     }
+
+    return isPauseMenuShowing;
 }
 
+//Provides info for the shadow maps such as the lights' positions
 void FixedUpdatingSystem::updateShadowMaps(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Camera& currentCamera) {
+
+    //Assume no shadows are active
     pointLightDepthMap.setShadowActive(false);
     directionalLightDepthMap.setShadowActive(false);
 
@@ -176,7 +187,7 @@ void FixedUpdatingSystem::updateShadowMaps(PointLightShadowMap& pointLightDepthM
                 directionalLightDepthMap.setCurrentLightDirection(light.direction);
                 directionalLightDepthMap.updateDepthMap(currentCamera.position);
                 directionalLightDepthMap.setShadowActive(true);
-                return true;
+                return true; //perform on first light
             }
             return false;
         });
@@ -187,83 +198,65 @@ void FixedUpdatingSystem::updateShadowMaps(PointLightShadowMap& pointLightDepthM
                 pointLightDepthMap.setCurrentLightPosition(light.position);
                 pointLightDepthMap.setShadowActive(true);
                 pointLightDepthMap.updateDepthMap();
-                return true;
+                return true; //perform on first light
             }
             return false;
         });
 }
+
+//Set transforms of models to collision transforms
 void FixedUpdatingSystem::updateCollision(const int32_t& entity, CollisionMesh& collisionMesh) {
-    _3DM::AnimatedModel* animatedModel   = currentScene->getComponent<_3DM::AnimatedModel>(entity);
-    ThirdPersonCamera* thirdPersonCamera = currentScene->getFirstActiveComponentOfType<ThirdPersonCamera>(); //currentScene->getFirstActiveComponentType is a semi costly function. Maybe move it and pass it as a function argument
+
+    _3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(entity);
+    UserControls* userControls         = currentScene->getFirstActiveComponentOfType<UserControls>();
 
     if (_3DM::Model* model = currentScene->getComponent<_3DM::Model>(entity)) {
         model->transform = collisionMesh.getTransformation();
-
-        if (UserControls* userControls = currentScene->getFirstActiveComponentOfType<UserControls>()) {
-            if (PlayerController* controller = currentScene->getComponent<PlayerController>(entity)) {
-                if (thirdPersonCamera) {
-                    systems->playerControllerSystem.fixedUpdate(InputLocator::getService(), model->transform, collisionMesh, *physicsWorld, *controller, *thirdPersonCamera, *userControls);
-                }
-
-                const std::vector<GlobalInformation*>& GI = currentScene->getAllComponentsOfType<GlobalInformation>();
-
-                for (unsigned int i = 0; i < GI.size(); i++) {
-                    GI[i]->setPlayersPosition(model->transform.position);
-                }
-            }
-        }
     }
+
     if (animatedModel) {
 
-        if (UserControls* userControls = currentScene->getFirstActiveComponentOfType<UserControls>()) {
-            if (PlayerController* controller = currentScene->getComponent<PlayerController>(entity)) {
-                //currentScene->getFirstActiveComponentType is a semi costly function. Maybe move it and pass it as a function argument
-                if (thirdPersonCamera) {
-                    systems->playerControllerSystem.fixedUpdate(InputLocator::getService(), animatedModel->transform, collisionMesh, *physicsWorld, *controller, *thirdPersonCamera, *userControls);
-                }
+        PlayerController* controller = currentScene->getComponent<PlayerController>(entity);
+        //run player controller and update models animation
+        if (controller && userControls) {
+
+            if (ThirdPersonCamera* camera = currentScene->getFirstActiveComponentOfType<ThirdPersonCamera>()) {
+
+                systems->playerControllerSystem.fixedUpdate(InputLocator::getService(), animatedModel->transform, collisionMesh, *physicsWorld, *controller, *camera, *userControls);
 
                 animatedModel->setAnimationClip(controller->getAnimationStateUint());
 
                 const std::vector<GlobalInformation*>& GI = currentScene->getAllComponentsOfType<GlobalInformation>();
 
+                //Update all globalinfo instances telling them where the players at.
+                //This could be done in a better way but right not it's not a big deal.
                 for (unsigned int i = 0; i < GI.size(); i++) {
                     GI[i]->setPlayersPosition(animatedModel->transform.position);
                 }
-            } else if (EnemyController* eController = currentScene->getComponent<EnemyController>(entity)) {
-                if (GlobalInformation* globalInfo = currentScene->getComponent<GlobalInformation>(entity)) {
-                    if (TestEnemyAI* ai = currentScene->getComponent<TestEnemyAI>(entity)) {
-                        if (EntityTransform* et = currentScene->getComponent<EntityTransform>(entity)) {
+            }
 
-                            systems->enemyControllerSystem.update(InputLocator::getService(), *et, collisionMesh, *physicsWorld, *globalInfo, *eController, *userControls, *ai);
+        } else if (EnemyController* eController = currentScene->getComponent<EnemyController>(entity)) {
 
-                            animatedModel->transform = et->transform;
-                        }
-                    }
-                }
+            //run enemy controller and update models animation
 
+            //3 prereqs for enemyctrlr sys
+            GlobalInformation* globalInfo = currentScene->getComponent<GlobalInformation>(entity);
+            TestEnemyAI* ai               = currentScene->getComponent<TestEnemyAI>(entity);
+            EntityTransform* et           = currentScene->getComponent<EntityTransform>(entity);
+
+            if (globalInfo && ai && et) {
+
+                systems->enemyControllerSystem.update(InputLocator::getService(), *et, collisionMesh, *physicsWorld, *globalInfo, *eController, *ai);
+
+                animatedModel->transform = et->transform;
                 animatedModel->setAnimationClip(eController->getAnimationStateUint());
             }
         }
     }
-
-    findTriggers(*collisionMesh.getTag());
 }
 
-void FixedUpdatingSystem::executeTriggers(const CollisionTag& thisTag, const CollisionTag& otherTag) {
-    if (otherTag.entity != TAG_ENTITY_UNDEFINED && currentScene->isEntityActive(otherTag.entity)) {
-        if (otherTag.tagName == COLLISION_TAGS::TestCollisionTag && thisTag.tagName == COLLISION_TAGS::Player) {
-            DBG_LOG(
-                "The %s entity collided with the %s Entity %i\n",
-                GET_COLLISION_TAG_NAME(COLLISION_TAGS::Player),
-                GET_COLLISION_TAG_NAME(COLLISION_TAGS::TestCollisionTag),
-                SDL_GetTicks());
-
-            currentScene->setEntityActive(otherTag.entity, false);
-        }
-    }
-}
-
-void FixedUpdatingSystem::findTriggers(const CollisionTag& thisTag) {
+//Checks for collision tag, if it exists then it will execute triggers on any objects colliding
+void FixedUpdatingSystem::updateCollisionTriggers(const CollisionTag& thisTag) {
     if (thisTag.tagName == COLLISION_TAGS::TAG_EMPTY) {
         return;
     }
@@ -272,6 +265,24 @@ void FixedUpdatingSystem::findTriggers(const CollisionTag& thisTag) {
     const CollisionTag* other                = nullptr;
 
     for (unsigned int i = 0; i < thisTag.collidingWith.size() && (other = others[i]); i++) {
-        executeTriggers(thisTag, *other);
+        handleCollisionTrigger(thisTag, *other);
+    }
+}
+
+void FixedUpdatingSystem::handleCollisionTrigger(const CollisionTag& thisTag, const CollisionTag& otherTag) {
+
+    if (otherTag.entity == TAG_ENTITY_UNDEFINED || !currentScene->isEntityActive(otherTag.entity)) {
+        return;
+    }
+
+    //Just a test
+    if (otherTag.tagName == COLLISION_TAGS::TestCollisionTag && thisTag.tagName == COLLISION_TAGS::Player) {
+        DBG_LOG(
+            "The %s entity collided with the %s Entity %i\n",
+            GET_COLLISION_TAG_NAME(COLLISION_TAGS::Player),
+            GET_COLLISION_TAG_NAME(COLLISION_TAGS::TestCollisionTag),
+            SDL_GetTicks());
+
+        currentScene->setEntityActive(otherTag.entity, false);
     }
 }

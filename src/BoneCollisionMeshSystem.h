@@ -5,7 +5,7 @@
 
 class BoneCollisionMeshSystem {
 public:
-    void update(BoneCollisionMesh& mesh, const _3DM::AnimatedModel& animatedModel);
+    void fixedUpdate(BoneCollisionMesh& mesh, const _3DM::AnimatedModel& animatedModel);
 };
 
 #endif

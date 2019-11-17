@@ -207,7 +207,7 @@ void _3DM::AnimatedModel::setBoneMatrix(const glm::mat4& transformation, unsigne
 
 *Will update the animation accordingly. the value 'time' is expected to be a constantly increasing value.*
 **********************************************************************************************************/
-void _3DM::AnimatedModel::updateAnimation() {
+void _3DM::AnimatedModel::fixedUpdateAnimation() {
     if (currentAnimationClip != lastAnimationClip) {
         blendingLastFrameTime     = timeSinceAnimationStarted;
         blendinglastAnimationClip = lastAnimationClip;

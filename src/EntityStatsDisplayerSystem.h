@@ -6,7 +6,7 @@
 class EntityStatsDisplayerSystem {
 
 public:
-    void update(EntityStatsDisplayer& displayer, const EntityStats& stats, GUIResizingInformation& guiInfo) {
+    void fixedUpdate(EntityStatsDisplayer& displayer, const EntityStats& stats, GUIResizingInformation& guiInfo) {
         float unit = guiInfo.getWidthUnit();
 
         if (displayer.lastUnit != unit) {

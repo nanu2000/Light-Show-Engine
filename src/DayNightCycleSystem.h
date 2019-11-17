@@ -17,7 +17,7 @@ public:
         dayLightDiffuse   = glm::vec3(.7f, .73f, .74f);
     }
 
-    void update(DirectionalLight& light, const Time& time) {
+    void fixedUpdate(DirectionalLight& light, const Time& time) {
 
         float speed = 1.0f;
 

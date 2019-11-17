@@ -84,7 +84,7 @@ void Game::initializeShaders() {
 void Game::readBackendEventQueue() {
     BackEndMessages msg;
     while (backEndMessages->getMessagesThenRemove(msg)) {
-        fixedUpdatingSystem.handleBackEndMsg(msg);
+        fixedUpdatingSystem.handleBackEndMessage(msg);
     }
 }
 

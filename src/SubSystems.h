@@ -15,7 +15,7 @@
 
 struct SubSystems {
     PauseMenuSystem pauseMenuSystem;
-    EntityStatsDisplayerSystem entityStatsDisplayerSystem;
+    EntityStatsDisplayerSystem EntityStatsDisplayerSystem;
     DisplayStatisticsSystem displayStatisticsSystem;
 
     GUIResizingInformation guiResizingInfo;

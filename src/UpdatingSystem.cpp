@@ -25,7 +25,7 @@ void UpdatingSystem::update() {
         return;
     }
 
-    const std::vector<Scene::GameObject>& entities = *currentScene->getAllGameObjects();
+    const std::vector<Scene::Entity>& entities = *currentScene->getAllEntities();
 
     for (unsigned int i = 0; i < entities.size(); i++) {
         if (!entities.at(i).isActive) {

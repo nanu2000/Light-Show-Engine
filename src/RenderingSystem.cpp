@@ -9,7 +9,7 @@ void RenderingSystem::initialize(Scene& scene,
     physicsWorld    = &world;
     systems         = &ssystems;
 
-    const std::vector<Scene::GameObject>& entities = *currentScene->getAllGameObjects();
+    const std::vector<Scene::Entity>& entities = *currentScene->getAllEntities();
 
     for (unsigned int i = 0; i < entities.size(); i++) {
         const int32_t& entity = entities[i].id;
@@ -84,7 +84,7 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap,
         return;
     }
 
-    const std::vector<Scene::GameObject>& gameObjects = *currentScene->getAllGameObjects();
+    const std::vector<Scene::Entity>& entities = *currentScene->getAllEntities();
 
     const std::vector<LitShader*>& litShaders = currentScene->getAllComponentsOfType<LitShader>();
 
@@ -210,8 +210,8 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap,
 
     // Render Particles and GUI
     if (ShaderBase::getShaderTask() == SHADER_TASK::Normal_Render_Task) {
-        for (unsigned int i = 0; i < gameObjects.size(); i++) {
-            const int32_t& entity = gameObjects[i].id;
+        for (unsigned int i = 0; i < entities.size(); i++) {
+            const int32_t& entity = entities[i].id;
 
             SkyBox* skyBox      = currentScene->getComponent<SkyBox>(entity);
             DefaultShader* shdr = currentScene->getComponent<DefaultShader>(entity);
@@ -227,14 +227,14 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap,
             renderParticles(*particles[i], *currentCamera, currentTime);
         }
 
-        for (unsigned int i = 0; i < gameObjects.size(); i++) {
-            const int32_t& entity = gameObjects[i].id;
-            if (DefaultShader* shader = currentScene->getComponent<DefaultShader>(gameObjects[i].id)) {
+        for (unsigned int i = 0; i < entities.size(); i++) {
+            const int32_t& entity = entities[i].id;
+            if (DefaultShader* shader = currentScene->getComponent<DefaultShader>(entities[i].id)) {
                 if (shader->getShaderType() == SHADER_TYPE::GUI) {
                     if (EntityStats* stats = currentScene->getComponent<EntityStats>(entity)) {
                         if (EntityStatsDisplayer* disp = currentScene->getComponent<EntityStatsDisplayer>(entity)) {
                             shader->useProgram();
-                            systems->entityStatsDisplayerSystem.render(*disp, *shader);
+                            systems->EntityStatsDisplayerSystem.render(*disp, *shader);
                         }
                     }
 
@@ -243,7 +243,7 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap,
                         systems->displayStatisticsSystem.render(*shader, *stats);
                     }
 
-                    if (PauseMenu* menu = currentScene->getComponent<PauseMenu>(gameObjects[i].id)) {
+                    if (PauseMenu* menu = currentScene->getComponent<PauseMenu>(entities[i].id)) {
                         shader->useProgram();
                         systems->pauseMenuSystem.render(*shader, *menu);
                     }

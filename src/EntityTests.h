@@ -1,11 +1,12 @@
-#ifndef GAME_OBJECT_TESTS
-#define GAME_OBJECT_TESTS
+#ifndef ENTITY_TESTS
+#define ENTITY_TESTS
 #include "BoneCollisionMesh.h"
 #include "CollisionMesh.h"
 #include "DebuggingController.h"
 #include "DisplayStatistics.h"
 #include "EnemyController.h"
 #include "EntityStats.h"
+#include "EntityStatsDisplayer.h"
 #include "EntityTransform.h"
 #include "FountainParticleEmitter.h"
 #include "GlobalInformation.h"
@@ -25,7 +26,6 @@
 #include "ThirdPersonCamera.h"
 #include "ThirdPersonCameraControllerTest.h"
 #include "UserControls.h"
-#include "entityStatsDisplayer.h"
 
 class EntityWrapper {
 public:

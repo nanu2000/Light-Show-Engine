@@ -1,7 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 #include "FixedUpdatingSystem.h"
-#include "GameObjectTests.h"
+#include "EntityTests.h"
 #include "Messenger.h"
 #include "RenderingSystem.h"
 #include "UpdatingSystem.h"
@@ -54,7 +54,7 @@ private:
 
     TextMap map;
 
-    const std::vector<Scene::GameObject>* AllGameObjects;
+    const std::vector<Scene::Entity>* Allentity;
 };
 
 #endif

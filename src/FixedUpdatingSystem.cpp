@@ -6,9 +6,6 @@ void FixedUpdatingSystem::initialize(Scene& scene, Settings& settings, PhysicsWo
     physicsWorld    = &world;
     systems         = &ssystems;
 
-    if (FirstPersonCamera* camera = currentScene->getFirstActiveComponentOfType<FirstPersonCamera>()) {
-        systems->firstPersonCameraSystem.initializeCamera(*camera);
-    }
     if (ThirdPersonCamera* camera = currentScene->getFirstActiveComponentOfType<ThirdPersonCamera>()) {
         systems->thirdPersonCameraSystem.initializeCamera(*camera);
     }
@@ -17,7 +14,7 @@ void FixedUpdatingSystem::initialize(Scene& scene, Settings& settings, PhysicsWo
     systems->dayNightCycleSystem.initialize();
 }
 
-bool FixedUpdatingSystem::updateGUI(const std::vector<Scene::GameObject>& gameObjects, const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
+bool FixedUpdatingSystem::updateGUI(const std::vector<Scene::Entity>& entities, const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
 
     bool isPauseMenuShowing = false;
 
@@ -43,19 +40,21 @@ bool FixedUpdatingSystem::updateGUI(const std::vector<Scene::GameObject>& gameOb
         GameInfo::setMousePosition(GameInfo::getWindowWidth() / 2, GameInfo::getWindowHeight() / 2);
     }
 
-    for (unsigned int i = 0; i < gameObjects.size(); i++) {
-        const int32_t& entity = gameObjects[i].id;
+    for (unsigned int i = 0; i < entities.size(); i++) {
+        const int32_t& entity = entities[i].id;
 
-        if (currentScene->isEntityActive(entity)) {
-            if (EntityStats* stats = currentScene->getComponent<EntityStats>(entity)) {
-                if (EntityStatsDisplayer* disp = currentScene->getComponent<EntityStatsDisplayer>(entity)) {
-                    systems->entityStatsDisplayerSystem.update(*disp, *stats, systems->guiResizingInfo);
-                }
-            }
+        if (!currentScene->isEntityActive(entity)) {
+            continue;
+        }
 
-            if (DisplayStatistics* stats = currentScene->getComponent<DisplayStatistics>(entity)) {
-                systems->displayStatisticsSystem.update(*stats, time, systems->guiResizingInfo);
+        if (EntityStats* stats = currentScene->getComponent<EntityStats>(entity)) {
+            if (EntityStatsDisplayer* disp = currentScene->getComponent<EntityStatsDisplayer>(entity)) {
+                systems->EntityStatsDisplayerSystem.update(*disp, *stats, systems->guiResizingInfo);
             }
+        }
+
+        if (DisplayStatistics* stats = currentScene->getComponent<DisplayStatistics>(entity)) {
+            systems->displayStatisticsSystem.update(*stats, time, systems->guiResizingInfo);
         }
     }
 
@@ -68,9 +67,9 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
         return;
     }
 
-    const std::vector<Scene::GameObject>& gameObjects = *currentScene->getAllGameObjects();
+    const std::vector<Scene::Entity>& entities = *currentScene->getAllEntities();
 
-    bool isPauseMenuShowing = updateGUI(gameObjects, time, pointLightDepthMap, directionalLightDepthMap);
+    bool isPauseMenuShowing = updateGUI(entities, time, pointLightDepthMap, directionalLightDepthMap);
 
     if (isPauseMenuShowing) {
         return;
@@ -79,8 +78,6 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
     currentScene->performOperationsOnAllOfType<DirectionalLight>(
         [&](DirectionalLight& light) {
             systems->dayNightCycleSystem.update(light, time);
-
-            //light.direction = dir;
             return false;
         });
 
@@ -97,7 +94,6 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
             }
 
             const std::vector<const CollisionTag*>& collisionTags = *mesh.getCollisionTags();
-
             for (unsigned int i = 0; i < collisionTags.size(); i++) {
                 findTriggers(*collisionTags[i]);
             }
@@ -105,44 +101,45 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
             return false;
         });
 
-    for (unsigned int i = 0; i < gameObjects.size(); i++) {
-        const int32_t& entity = gameObjects[i].id;
+    for (unsigned int i = 0; i < entities.size(); i++) {
+        const int32_t& entity = entities[i].id;
 
-        if (currentScene->isEntityActive(entity)) {
+        if (!currentScene->isEntityActive(entity)) {
+            continue;
+        }
 
-            if (TestEnemyAI* ai = currentScene->getComponent<TestEnemyAI>(entity)) {
-                if (EntityTransform* et = currentScene->getComponent<EntityTransform>(entity)) {
+        if (TestEnemyAI* ai = currentScene->getComponent<TestEnemyAI>(entity)) {
+            if (EntityTransform* et = currentScene->getComponent<EntityTransform>(entity)) {
 
-                    if (GlobalInformation* info = currentScene->getComponent<GlobalInformation>(entity)) {
-                        ai->update(*info, InputLocator::getService(), *et);
-                    }
+                if (GlobalInformation* info = currentScene->getComponent<GlobalInformation>(entity)) {
+                    ai->update(*info, InputLocator::getService(), *et);
                 }
             }
+        }
 
-            if (ThirdPersonCamera* thisCamera = currentScene->getComponent<ThirdPersonCamera>(entity)) {
+        if (ThirdPersonCamera* thisCamera = currentScene->getComponent<ThirdPersonCamera>(entity)) {
 
-                if (thisCamera->isActive()) {
-                    //only needs to update fixed- saves memory & barely makes a difference.
-                    updateShadowMaps(pointLightDepthMap, directionalLightDepthMap, *thisCamera);
-                }
+            if (thisCamera->isActive()) {
+                //only needs to update fixed- saves memory & barely makes a difference.
+                updateShadowMaps(pointLightDepthMap, directionalLightDepthMap, *thisCamera);
             }
+        }
 
-            if (Particles* p = currentScene->getComponent<Particles>(entity)) {
-                if (ParticleEmitter* pe = currentScene->getComponent<FountainParticleEmitter>(entity)) {
-                    pe->updateParticles(*p);
-                }
+        if (Particles* p = currentScene->getComponent<Particles>(entity)) {
+            if (ParticleEmitter* pe = currentScene->getComponent<FountainParticleEmitter>(entity)) {
+                pe->updateParticles(*p);
             }
+        }
 
-            if (DebuggingController* dbgCtrlr = currentScene->getComponent<DebuggingController>(entity)) {
-                Input& thisInput = InputLocator::getService();
+        if (DebuggingController* dbgCtrlr = currentScene->getComponent<DebuggingController>(entity)) {
+            Input& thisInput = InputLocator::getService();
 
-                dbgCtrlr->controlWireframeDebugDraw(thisInput);
-                dbgCtrlr->controlPhysicsDebugDraw(thisInput, *physicsWorld);
-            }
+            dbgCtrlr->controlWireframeDebugDraw(thisInput);
+            dbgCtrlr->controlPhysicsDebugDraw(thisInput, *physicsWorld);
+        }
 
-            if (_3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(entity)) {
-                animatedModel->updateAnimation();
-            }
+        if (_3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(entity)) {
+            animatedModel->updateAnimation();
         }
     }
 }
@@ -152,10 +149,6 @@ void FixedUpdatingSystem::handleBackEndMsg(BackEndMessages msg) {
 
     case REFRESH_CAMERA:
 
-        if (FirstPersonCamera* camera = currentScene->getFirstActiveComponentOfType<FirstPersonCamera>()) {
-            systems->firstPersonCameraSystem.refreshCamera(*camera);
-            DBG_LOG("Camera Refreshed Succesfully\n");
-        }
         if (ThirdPersonCamera* camera = currentScene->getFirstActiveComponentOfType<ThirdPersonCamera>()) {
             systems->thirdPersonCameraSystem.refreshCamera(*camera);
             DBG_LOG("Camera Refreshed Succesfully\n");
@@ -210,8 +203,6 @@ void FixedUpdatingSystem::updateCollision(const int32_t& entity, CollisionMesh& 
             if (PlayerController* controller = currentScene->getComponent<PlayerController>(entity)) {
                 if (thirdPersonCamera) {
                     systems->playerControllerSystem.fixedUpdate(InputLocator::getService(), model->transform, collisionMesh, *physicsWorld, *controller, *thirdPersonCamera, *userControls);
-                } else if (FirstPersonCamera* currentCamera = currentScene->getFirstActiveComponentOfType<FirstPersonCamera>()) {
-                    systems->playerControllerSystem.fixedUpdate(InputLocator::getService(), model->transform, collisionMesh, *physicsWorld, *controller, *currentCamera, *userControls);
                 }
 
                 const std::vector<GlobalInformation*>& GI = currentScene->getAllComponentsOfType<GlobalInformation>();
@@ -229,8 +220,6 @@ void FixedUpdatingSystem::updateCollision(const int32_t& entity, CollisionMesh& 
                 //currentScene->getFirstActiveComponentType is a semi costly function. Maybe move it and pass it as a function argument
                 if (thirdPersonCamera) {
                     systems->playerControllerSystem.fixedUpdate(InputLocator::getService(), animatedModel->transform, collisionMesh, *physicsWorld, *controller, *thirdPersonCamera, *userControls);
-                } else if (FirstPersonCamera* currentCamera = currentScene->getFirstActiveComponentOfType<FirstPersonCamera>()) {
-                    systems->playerControllerSystem.fixedUpdate(InputLocator::getService(), animatedModel->transform, collisionMesh, *physicsWorld, *controller, *currentCamera, *userControls);
                 }
 
                 animatedModel->setAnimationClip(controller->getAnimationStateUint());

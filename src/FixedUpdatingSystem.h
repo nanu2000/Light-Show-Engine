@@ -4,6 +4,7 @@
 #include "DebuggingController.h"
 #include "DirectionalLightShadowMap.h"
 #include "DisplayStatistics.h"
+#include "EntityStatsDisplayer.h"
 #include "FountainParticleEmitter.h"
 #include "GUIResizingInfo.h"
 #include "GlobalInformation.h"
@@ -17,7 +18,6 @@
 #include "SystemBase.h"
 #include "ThirdPersonCamera.h"
 #include "ThirdPersonCameraControllerTest.h"
-#include "entityStatsDisplayer.h"
 
 class FixedUpdatingSystem : public SystemBase {
 
@@ -30,7 +30,7 @@ public:
 
 private:
     //Updates GUI (Will be called even if the game is paused) will return true if the game is paused
-    bool updateGUI(const std::vector<Scene::GameObject>& gameObjects, const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
+    bool updateGUI(const std::vector<Scene::Entity>& entities, const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
 
     //Updates the shadow maps and sets the current shadows light position.
     void updateShadowMaps(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Camera& currentCamera);

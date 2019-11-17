@@ -1,7 +1,7 @@
 #ifndef ENTITY_STATS_DISPLAYER_SYSTEM_H
 #define ENTITY_STATS_DISPLAYER_SYSTEM_H
 
-#include "entityStatsDisplayer.h"
+#include "EntityStatsDisplayer.h"
 
 class EntityStatsDisplayerSystem {
 

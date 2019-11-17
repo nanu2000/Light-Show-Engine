@@ -1,4 +1,4 @@
-#include "GameObjectTests.h"
+#include "EntityTests.h"
 
 void ParticleTest::initialize(EntityWrapper::EntityVitals& vitals) {
     if (vitals.checkForNulls() == false) {
@@ -6,7 +6,7 @@ void ParticleTest::initialize(EntityWrapper::EntityVitals& vitals) {
         return;
     }
 
-    int32_t id = vitals.scene->generateGameObject();
+    int32_t id = vitals.scene->generateEntity();
 
     particles.initializeTexture(TextureLocator::getService().getTexture("assets/Particles/fluffParticle.png"));
 
@@ -37,7 +37,7 @@ void Player::initialize(EntityWrapper::EntityVitals& vitals) {
         return;
     }
 
-    int32_t id = vitals.scene->generateGameObject();
+    int32_t id = vitals.scene->generateEntity();
 
     textShader = DefaultShader("assets/Shaders/GUIShader.v", "assets/Shaders/GUIShader.f", SHADER_TYPE::GUI);
 
@@ -57,7 +57,7 @@ void PlayerTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
         return;
     }
 
-    int32_t id = vitals.scene->generateGameObject();
+    int32_t id = vitals.scene->generateEntity();
 
     shader = LitShader(
         *vitals.currentSettings,
@@ -116,7 +116,7 @@ void EnemyTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
         return;
     }
 
-    int32_t id = vitals.scene->generateGameObject();
+    int32_t id = vitals.scene->generateEntity();
 
     shader = LitShader(
         *vitals.currentSettings,
@@ -161,7 +161,7 @@ void CubeTrigger::initialize(EntityWrapper::EntityVitals& vitals) {
         return;
     }
 
-    int32_t id = vitals.scene->generateGameObject();
+    int32_t id = vitals.scene->generateEntity();
 
     shader = LitShader(
         *vitals.currentSettings,
@@ -190,7 +190,7 @@ void FloorObject::initialize(EntityWrapper::EntityVitals& vitals) {
         return;
     }
 
-    int32_t id = vitals.scene->generateGameObject();
+    int32_t id = vitals.scene->generateEntity();
 
     shader = LitShader(
         *vitals.currentSettings,
@@ -226,7 +226,7 @@ void LightTest::initialize(EntityWrapper::EntityVitals& vitals) {
         return;
     }
 
-    int32_t id = vitals.scene->generateGameObject();
+    int32_t id = vitals.scene->generateEntity();
 
     directionalLight.setActive(true);
     directionalLight.diffuse   = glm::vec3(.8f, .83f, .86f); //diffuse set in daynightcycle

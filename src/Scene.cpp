@@ -2,39 +2,39 @@
 
 bool Scene::isEntityActive(const int32_t& id) {
 
-    if (binarySearchForGameObject(id) == false) {
+    if (binarySearchForEntity(id) == false) {
         DBG_LOG("Entity not found (Scene.h isEntityActive())\n");
         return false;
     }
-    return gameObjects.at(id).isActive;
+    return entities.at(id).isActive;
 }
 
 void Scene::setEntityActive(const int32_t& id, bool t) {
 
-    if (binarySearchForGameObject(id) == false) {
+    if (binarySearchForEntity(id) == false) {
         DBG_LOG("Entity not found (Scene.h setEntityActive())\n");
         return;
     }
 
-    gameObjects.at(id).isActive = t;
+    entities.at(id).isActive = t;
 }
 
-int32_t Scene::generateGameObject() {
-    GameObject newObject;
+int32_t Scene::generateEntity() {
+    Entity newObject;
 
-    newObject.id       = static_cast<int32_t>(gameObjects.size());
+    newObject.id       = static_cast<int32_t>(entities.size());
     newObject.isActive = true;
 
-    gameObjects.push_back(newObject);
+    entities.push_back(newObject);
 
-    std::sort(gameObjects.begin(), gameObjects.end(), [](Scene::GameObject& g1, Scene::GameObject& g2) { return g1.id < g2.id; });
+    std::sort(entities.begin(), entities.end(), [](Scene::Entity& g1, Scene::Entity& g2) { return g1.id < g2.id; });
 
     return newObject.id;
 }
 
 void Scene::addComponent(const int32_t& objectID, ComponentInterface& component) {
 
-    if (binarySearchForGameObject(objectID) == false) {
+    if (binarySearchForEntity(objectID) == false) {
         return; //error
     }
 
@@ -46,8 +46,8 @@ void Scene::addComponent(const int32_t& objectID, ComponentInterface& component)
     std::sort(components.begin(), components.end(), [](ComponentInterface* g1, ComponentInterface* g2) { return g1->getType() < g2->getType(); });
 }
 
-const std::vector<Scene::GameObject>* const Scene::getAllGameObjects() const {
-    return &gameObjects;
+const std::vector<Scene::Entity>* const Scene::getAllEntities() const {
+    return &entities;
 }
 
 int Scene::binarySearchForComponent(int32_t type, int32_t entityID) {
@@ -121,19 +121,19 @@ int Scene::binarySearchForComponent(int32_t type) {
 }
 
 //Checks if an entity with the id given exists
-bool Scene::binarySearchForGameObject(int32_t id) {
+bool Scene::binarySearchForEntity(int32_t id) {
 
-    //Binary search the sorted gameObject Vector
+    //Binary search the sorted Entity Vector
     unsigned int mid   = 0;
     unsigned int left  = 0;
-    unsigned int right = gameObjects.size();
+    unsigned int right = entities.size();
 
     while (left < right) {
         mid = left + (right - left) / 2;
 
-        if (id > gameObjects.at(mid).id) {
+        if (id > entities.at(mid).id) {
             left = mid + 1;
-        } else if (id < gameObjects.at(mid).id) {
+        } else if (id < entities.at(mid).id) {
             right = mid;
         } else {
             return true;

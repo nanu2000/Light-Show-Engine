@@ -8,7 +8,7 @@
 
 class Scene {
 public:
-    struct GameObject {
+    struct Entity {
         int32_t id;
         bool isActive = true;
     };
@@ -16,15 +16,15 @@ public:
     bool isEntityActive(const int32_t& id);
     void setEntityActive(const int32_t& id, bool t);
 
-    int32_t generateGameObject();
+    int32_t generateEntity();
 
     void addComponent(const int32_t& objectID, ComponentInterface& component);
 
     template <class T>
     T* getComponent(const int32_t& objectID) {
 
-        if (binarySearchForGameObject(objectID) == false) {
-            return nullptr; //error, gameObject does not exist
+        if (binarySearchForEntity(objectID) == false) {
+            return nullptr; //error, Entity does not exist
         }
 
         int index = binarySearchForComponent(T::type, objectID);
@@ -87,20 +87,20 @@ public:
         return returnVector;
     }
 
-    const std::vector<GameObject>* const getAllGameObjects() const;
+    const std::vector<Entity>* const getAllEntities() const;
 
 private:
     //Returns the first found assosiated component's index in an entity. Returns -1 on failure
-    int binarySearchForComponent(int32_t type, int32_t objectID);
+    int binarySearchForComponent(int32_t type, int32_t entityID);
 
     //Returns the first found component's index (not assosiated with peticular entity). Returns -1 on failure
     int binarySearchForComponent(int32_t type);
 
     //Returns true if the entity exists.
-    bool binarySearchForGameObject(int32_t id);
+    bool binarySearchForEntity(int32_t id);
 
     std::vector<ComponentInterface*> components;
-    std::vector<GameObject> gameObjects;
+    std::vector<Entity> entities;
 };
 
 #endif

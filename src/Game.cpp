@@ -49,7 +49,7 @@ void Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSy
         entities[i]->initialize(vitals);
     }
 
-    AllGameObjects = currentScene.getAllGameObjects();
+    Allentity = currentScene.getAllEntities();
 
     currentScene.performOperationsOnAllOfType<CollisionMesh>(
         [& world = physicsWorld](const CollisionMesh& mesh) {

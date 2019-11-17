@@ -351,9 +351,9 @@ void EnemyControllerSystem::applyNewTransform(CollisionMesh& mesh, const glm::ve
                     playerController.targetRotation,
                     0));
 
-            oldTransform.rotation = glm::slerp(oldTransform.rotation, newRot, GameInfo::deltaTime * 3.0f);
+            oldTransform.rotation = glm::slerp(oldTransform.rotation, newRot, GameInfo::fixedDeltaTime * 3.0f);
 
-            playerController.changeDirectionCooldown -= GameInfo::deltaTime;
+            playerController.changeDirectionCooldown -= GameInfo::fixedDeltaTime;
         }
 
         break;

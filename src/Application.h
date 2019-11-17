@@ -48,9 +48,11 @@ private:
 	* Private Member Functions *
 	****************************/
 
-    void fixedUpdate(); //For Important Fixed Updating
+    void fixedUpdate(); //For Fixed updating - generally physics. Capped to run at GameInfo::fixedDeltaTime
 
-    void render(); //For Important Rendering
+    void update(); //For updating- generally user input or ai
+
+    void render(); //For Rendering
 
     void initialize(); //For Important Initializing
 

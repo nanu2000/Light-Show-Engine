@@ -8,8 +8,8 @@
 class PauseMenu : public Component<PauseMenu> {
 
 public:
-    bool isShowing() const {
-        return showing;
+    bool showing() const {
+        return isShowing;
     }
 
     void initialize(TextMap& map, Texture& textImage) {
@@ -20,7 +20,7 @@ public:
 private:
     GuiString str = GuiString(10);
     GuiButton resumeButton;
-    bool showing   = false;
+    bool isShowing = false;
     float lastUnit = 0.0f;
 
     friend class PauseMenuSystem;

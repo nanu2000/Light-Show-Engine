@@ -24,7 +24,7 @@ class FixedUpdatingSystem : public SystemBase {
 public:
     void initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& systems) override;
 
-    void update(const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
+    void fixedUpdate(const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
 
     void handleBackEndMsg(BackEndMessages msg);
 

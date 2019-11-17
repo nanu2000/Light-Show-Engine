@@ -20,24 +20,24 @@ public:
         }
 
         if (input.keyPressedOnce(userControls.getGuiControlPauseMenuKey())) {
-            menu.showing = !menu.showing;
+            menu.isShowing = !menu.isShowing;
         }
 
         menu.resumeButton.update(input);
 
-        if (menu.showing) {
+        if (menu.isShowing) {
 
             menu.resumeButton.onButtonClickedOnce(
-                [& showing = menu.showing](MOUSE_BUTTON buttonPressed) {
+                [& isShowing = menu.isShowing](MOUSE_BUTTON buttonPressed) {
                     if (buttonPressed == MOUSE_BUTTON::LeftButton) {
-                        showing = false;
+                        isShowing = false;
                     }
                 });
         }
     }
 
     void render(ShaderBase& shader, PauseMenu& menu) {
-        if (menu.showing) {
+        if (menu.isShowing) {
             menu.resumeButton.render(shader);
             menu.str.render(shader, "Paused\n:D");
 

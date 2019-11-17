@@ -66,6 +66,7 @@ void Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSy
             return false;
         });
 
+    fixedUpdatingSystem.initialize(currentScene, currentSettings, physicsWorld, subSystems);
     updatingSystem.initialize(currentScene, currentSettings, physicsWorld, subSystems);
     renderingSystem.initialize(currentScene, currentSettings, physicsWorld, subSystems);
 }
@@ -80,6 +81,13 @@ void Game::initializeShaders() {
     ShaderBase::setShaderTaskShader(SHADER_TASK::Omnidirectional_Depth_Task, pointLightDepthMap.getDepthMapShader());
 }
 
+void Game::readBackendEventQueue() {
+    BackEndMessages msg;
+    while (backEndMessages->getMessagesThenRemove(msg)) {
+        fixedUpdatingSystem.handleBackEndMsg(msg);
+    }
+}
+
 void Game::fixedUpdate() {
     if (areVitalsNull()) {
         return;
@@ -88,14 +96,11 @@ void Game::fixedUpdate() {
     //Event Queue
     readBackendEventQueue();
 
-    updatingSystem.update(*currentTime, pointLightDepthMap, directionalLightDepthMap);
+    fixedUpdatingSystem.fixedUpdate(*currentTime, pointLightDepthMap, directionalLightDepthMap);
 }
 
-void Game::readBackendEventQueue() {
-    BackEndMessages msg;
-    while (backEndMessages->getMessagesThenRemove(msg)) {
-        updatingSystem.handleBackEndMsg(msg);
-    }
+void Game::update() {
+    updatingSystem.update();
 }
 
 void Game::render() {

@@ -32,7 +32,7 @@ public:
 private:
     bool keys[SDL_NUM_SCANCODES];
 
-    glm::ivec2 mousePosition = glm::ivec2(0,0);
+    glm::ivec2 mousePosition = glm::ivec2(0, 0);
 
     bool mouseArray[3] = {false, false, false};
 

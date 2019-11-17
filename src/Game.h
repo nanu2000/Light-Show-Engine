@@ -4,6 +4,7 @@
 #include "GameObjectTests.h"
 #include "Messenger.h"
 #include "RenderingSystem.h"
+#include "UpdatingSystem.h"
 
 class Game {
 
@@ -13,6 +14,7 @@ public:
 
     void fixedUpdate();
     void render();
+    void update();
     void uninitialize();
 
 private:
@@ -35,7 +37,8 @@ private:
     PointLightShadowMap pointLightDepthMap;
     DirectionalLightShadowMap directionalLightDepthMap;
 
-    FixedUpdatingSystem updatingSystem;
+    UpdatingSystem updatingSystem;
+    FixedUpdatingSystem fixedUpdatingSystem;
     RenderingSystem renderingSystem;
     SubSystems subSystems;
 

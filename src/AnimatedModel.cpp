@@ -223,7 +223,7 @@ void _3DM::AnimatedModel::updateAnimation() {
             &modelsAnimation.rootBone, //the root bone node
             glm::mat4(1.0f) //an Identity matrix, since the root bone node has no parents.
         );
-        currentBlendingTime += GameInfo::deltaTime;
+        currentBlendingTime += GameInfo::fixedDeltaTime;
     } else {
         //if this doesn't work, then maybe you did not initialize the model, or its not the right format.
         updateBoneTree(
@@ -232,7 +232,7 @@ void _3DM::AnimatedModel::updateAnimation() {
             glm::mat4(1.0f) //an Identity matrix, since the root bone node has no parents.
         );
 
-        timeSinceAnimationStarted += GameInfo::deltaTime;
+        timeSinceAnimationStarted += GameInfo::fixedDeltaTime;
     }
 }
 

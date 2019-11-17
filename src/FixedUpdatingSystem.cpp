@@ -23,23 +23,24 @@ bool FixedUpdatingSystem::updateGUI(const std::vector<Scene::GameObject>& gameOb
 
     if (UserControls* userControls = currentScene->getFirstActiveComponentOfType<UserControls>()) {
         if (PauseMenu* menu = currentScene->getFirstActiveComponentOfType<PauseMenu>()) {
-            systems->pauseMenuSystem.update(InputLocator::getService(), *menu, systems->guiResizingInfo, *userControls);
 
-            isPauseMenuShowing = menu->isShowing();
+            systems->pauseMenuSystem.update(InputLocator::getService(), *menu, systems->guiResizingInfo, *userControls);
+            isPauseMenuShowing = menu->showing();
         }
     }
 
-    if (!isPauseMenuShowing) {
-        //Set Mouse to center of screen for gameplay
+    if (isPauseMenuShowing) {
+
+        SDL_ShowCursor(SDL_ENABLE);
+
+    } else {
+
+        //Update Physics
+        physicsWorld->update();
 
         SDL_ShowCursor(SDL_DISABLE);
 
         GameInfo::setMousePosition(GameInfo::getWindowWidth() / 2, GameInfo::getWindowHeight() / 2);
-
-        //Update Physics
-        physicsWorld->update();
-    } else {
-        SDL_ShowCursor(SDL_ENABLE);
     }
 
     for (unsigned int i = 0; i < gameObjects.size(); i++) {
@@ -61,7 +62,7 @@ bool FixedUpdatingSystem::updateGUI(const std::vector<Scene::GameObject>& gameOb
     return isPauseMenuShowing;
 }
 
-void FixedUpdatingSystem::update(const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
+void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
 
     if (areVitalsNull()) {
         return;
@@ -120,21 +121,8 @@ void FixedUpdatingSystem::update(const Time& time, PointLightShadowMap& pointLig
 
             if (ThirdPersonCamera* thisCamera = currentScene->getComponent<ThirdPersonCamera>(entity)) {
 
-                systems->thirdPersonCameraSystem.update(*thisCamera);
-
-                if (ThirdPersonCameraControllerTest* thisCameraController = currentScene->getComponent<ThirdPersonCameraControllerTest>(entity)) {
-                    thisCameraController->update(thisCamera);
-                }
-
                 if (thisCamera->isActive()) {
-                    updateShadowMaps(pointLightDepthMap, directionalLightDepthMap, *thisCamera);
-                }
-            }
-
-            if (FirstPersonCamera* thisCamera = currentScene->getComponent<FirstPersonCamera>(entity)) {
-                systems->firstPersonCameraSystem.update(*thisCamera);
-
-                if (thisCamera->isActive()) {
+                    //only needs to update fixed- saves memory & barely makes a difference.
                     updateShadowMaps(pointLightDepthMap, directionalLightDepthMap, *thisCamera);
                 }
             }
@@ -221,9 +209,9 @@ void FixedUpdatingSystem::updateCollision(const int32_t& entity, CollisionMesh& 
         if (UserControls* userControls = currentScene->getFirstActiveComponentOfType<UserControls>()) {
             if (PlayerController* controller = currentScene->getComponent<PlayerController>(entity)) {
                 if (thirdPersonCamera) {
-                    systems->playerControllerSystem.update(InputLocator::getService(), model->transform, collisionMesh, *physicsWorld, *controller, *thirdPersonCamera, *userControls);
+                    systems->playerControllerSystem.fixedUpdate(InputLocator::getService(), model->transform, collisionMesh, *physicsWorld, *controller, *thirdPersonCamera, *userControls);
                 } else if (FirstPersonCamera* currentCamera = currentScene->getFirstActiveComponentOfType<FirstPersonCamera>()) {
-                    systems->playerControllerSystem.update(InputLocator::getService(), model->transform, collisionMesh, *physicsWorld, *controller, *currentCamera, *userControls);
+                    systems->playerControllerSystem.fixedUpdate(InputLocator::getService(), model->transform, collisionMesh, *physicsWorld, *controller, *currentCamera, *userControls);
                 }
 
                 const std::vector<GlobalInformation*>& GI = currentScene->getAllComponentsOfType<GlobalInformation>();
@@ -233,12 +221,6 @@ void FixedUpdatingSystem::updateCollision(const int32_t& entity, CollisionMesh& 
                 }
             }
         }
-
-        if (thirdPersonCamera) {
-            if (PlayerCameraHandler* playerCameraHandler = currentScene->getComponent<PlayerCameraHandler>(entity)) {
-                systems->playerCameraHandlingSystem.setThirdPersonCameraTargetPosition(*playerCameraHandler, model->transform, *thirdPersonCamera);
-            }
-        }
     }
     if (animatedModel) {
 
@@ -246,9 +228,9 @@ void FixedUpdatingSystem::updateCollision(const int32_t& entity, CollisionMesh& 
             if (PlayerController* controller = currentScene->getComponent<PlayerController>(entity)) {
                 //currentScene->getFirstActiveComponentType is a semi costly function. Maybe move it and pass it as a function argument
                 if (thirdPersonCamera) {
-                    systems->playerControllerSystem.update(InputLocator::getService(), animatedModel->transform, collisionMesh, *physicsWorld, *controller, *thirdPersonCamera, *userControls);
+                    systems->playerControllerSystem.fixedUpdate(InputLocator::getService(), animatedModel->transform, collisionMesh, *physicsWorld, *controller, *thirdPersonCamera, *userControls);
                 } else if (FirstPersonCamera* currentCamera = currentScene->getFirstActiveComponentOfType<FirstPersonCamera>()) {
-                    systems->playerControllerSystem.update(InputLocator::getService(), animatedModel->transform, collisionMesh, *physicsWorld, *controller, *currentCamera, *userControls);
+                    systems->playerControllerSystem.fixedUpdate(InputLocator::getService(), animatedModel->transform, collisionMesh, *physicsWorld, *controller, *currentCamera, *userControls);
                 }
 
                 animatedModel->setAnimationClip(controller->getAnimationStateUint());
@@ -271,12 +253,6 @@ void FixedUpdatingSystem::updateCollision(const int32_t& entity, CollisionMesh& 
                 }
 
                 animatedModel->setAnimationClip(eController->getAnimationStateUint());
-            }
-        }
-
-        if (thirdPersonCamera) {
-            if (PlayerCameraHandler* playerCameraHandler = currentScene->getComponent<PlayerCameraHandler>(entity)) {
-                systems->playerCameraHandlingSystem.setThirdPersonCameraTargetPosition(*playerCameraHandler, animatedModel->transform, *thirdPersonCamera);
             }
         }
     }

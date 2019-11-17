@@ -36,7 +36,7 @@ void PhysicsWorld::update() {
         return;
     }
 
-    thisWorld->stepSimulation(GameInfo::deltaTime, GameInfo::PHYSICS_MAX_SUBSTEPS, GameInfo::PHYSICS_TIME_STEP);
+    thisWorld->stepSimulation(GameInfo::fixedDeltaTime, GameInfo::PHYSICS_MAX_SUBSTEPS, GameInfo::PHYSICS_TIME_STEP);
 
     for (int i = 0; i < thisWorld->getDispatcher()->getNumManifolds(); i++) {
         btPersistentManifold* contactManifold = thisWorld->getDispatcher()->getManifoldByIndexInternal(i);

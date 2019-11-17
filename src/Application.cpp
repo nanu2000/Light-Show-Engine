@@ -22,7 +22,7 @@ void GameInfo::setMousePosition(int xPos, int yPos) {
 void Application::run() {
     unsigned long now  = SDL_GetTicks(); //milliseconds passed
     unsigned long last = now; //last known amount of milliseconds passed since last update
-    double accumulator = GameInfo::deltaTime; // GameInfo::deltaTime;	//fixed timestep accumulator
+    double accumulator = GameInfo::fixedDeltaTime; // GameInfo::fixedDeltaTime;	//fixed timestep accumulator
     double frameTime   = 0;
 
     initialize(); //initialize the application
@@ -40,23 +40,29 @@ void Application::run() {
 
         last = now;
 
+        PrivateGameInfo::deltaTime = static_cast<float>(frameTime * 10);
+
         if (frameTime > 0.25) {
             frameTime = 0.25;
         }
 
         accumulator += frameTime;
 
+        //Set deltatime
+
         /*******************************************************
 		* Inside this loop is where fixed updating is executed *
 		********************************************************/
-        while (accumulator >= GameInfo::deltaTime) {
+        while (accumulator >= GameInfo::fixedDeltaTime) {
             fixedUpdate();
 
-            currentTime.timeSinceStart += static_cast<uint64_t>(GameInfo::deltaTime * 1000);
+            currentTime.timeSinceStart += static_cast<uint64_t>(GameInfo::fixedDeltaTime) * 1000;
 
-            accumulator -= GameInfo::deltaTime;
+            accumulator -= GameInfo::fixedDeltaTime;
         }
 
+        //must be called before render.
+        update();
         render();
 
         currentTime.updateMSPF();
@@ -157,6 +163,13 @@ void Application::fixedUpdate() {
 
 void Application::render() {
 
+    thisGame.render();
+
+    SDL_GL_SwapWindow(gameWindow.getWindow());
+}
+
+void Application::update() {
+
     SDL_PumpEvents();
 
     while (SDL_PollEvent(&sdlEventSystem)) {
@@ -169,9 +182,7 @@ void Application::render() {
         }
     }
 
-    thisGame.render();
-
-    SDL_GL_SwapWindow(gameWindow.getWindow());
+    thisGame.update();
 }
 
 void Application::uninitialize() {

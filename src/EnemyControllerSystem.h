@@ -43,7 +43,7 @@ private:
 
     void executeRayTesting(EnemyController& playerController, CollisionMesh& collisionMesh, const Transform& meshTransform, PhysicsWorld& world);
 
-    glm::vec3 getSlopeSpeed(float sensitivity, const glm::vec3& rayNormal) { return rayNormal * sensitivity * GameInfo::deltaTime; }
+    glm::vec3 getSlopeSpeed(float sensitivity, const glm::vec3& rayNormal) { return rayNormal * sensitivity * GameInfo::fixedDeltaTime; }
 
     int getCurrentSlopeSpeedIndex(const glm::vec3& rayNormal, const EnemyController& playerController);
 

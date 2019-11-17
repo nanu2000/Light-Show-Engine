@@ -13,9 +13,10 @@ public:
             return;
         }
 
-        camera->rotation.y += InputLocator::getService().getMouseDelta().x * cameraSpeed;
+        float dt = GameInfo::getDeltaTime();
 
-        camera->rotation.z -= InputLocator::getService().getMouseDelta().y * cameraSpeed;
+        camera->rotation.y += InputLocator::getService().getMouseDelta().x * dt * cameraSpeed;
+        camera->rotation.z -= InputLocator::getService().getMouseDelta().y * dt * cameraSpeed;
 
         float cameraMaxPitch = 70.0f;
 
@@ -27,15 +28,15 @@ public:
 
         if (InputLocator::getService().isKeyDown(SDLK_o)) //use UserControls class for this type of thing
         {
-            camera->setCameraDistance(camera->getCameraDistance() + cameraSpeed);
+            camera->setCameraDistance(camera->getCameraDistance() + cameraSpeed * dt);
         }
         if (InputLocator::getService().isKeyDown(SDLK_l)) {
-            camera->setCameraDistance(camera->getCameraDistance() - cameraSpeed);
+            camera->setCameraDistance(camera->getCameraDistance() - cameraSpeed * dt);
         }
     }
 
 private:
-    const float cameraSpeed = 10 * GameInfo::deltaTime;
+    const float cameraSpeed = 2.f;
 };
 
 #endif

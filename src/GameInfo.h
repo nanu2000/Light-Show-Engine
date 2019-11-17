@@ -30,6 +30,11 @@ static const char* GET_COLLISION_TAG_NAME(const COLLISION_TAGS& cTag) {
 
 const int8_t TAG_ENTITY_UNDEFINED = -1;
 
+//deltaTime for physics calculations and accurate updating
+namespace PrivateGameInfo {
+extern float deltaTime;
+};
+
 namespace GameInfo {
 
 /*For Screen Resolution Dependent Images / text, use this formula.
@@ -48,14 +53,16 @@ const unsigned int MAX_COLLISION_TRIGGERS_AT_ONCE = 5;
 //The Default Messenger Capacity.
 const unsigned short DEFAULT_MESSAGE_CAPACITY = 10;
 
-//DeltaTime for physics calculations and accurate updating
-const float deltaTime = 1.f / 30.f;
+//fixedDeltaTime for physics calculations and accurate updating
+const float fixedDeltaTime = 1.f / 30.f;
+
+extern float getDeltaTime();
 
 //Max amount of substeps
 const short PHYSICS_MAX_SUBSTEPS = 1;
 
 //The physics timestep
-const float PHYSICS_TIME_STEP = deltaTime;
+const float PHYSICS_TIME_STEP = fixedDeltaTime;
 
 //Default Window Title
 const std::string WINDOW_TITLE = "Prototype #1 (Hopefully the last)";

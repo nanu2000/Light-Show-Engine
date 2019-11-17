@@ -102,9 +102,9 @@ void ParticleEmitter::mainUpdateParticles(Particles& particlesWrapper) {
     std::vector<Particle>& particles = *particlesWrapper.getParticles();
 
     for (int i = 0; i < renderingSize; i++) {
-        particles[i].lifeTime -= GameInfo::deltaTime;
+        particles[i].lifeTime -= GameInfo::fixedDeltaTime;
 
-        if (particles[i].lifeTime <= GameInfo::deltaTime) {
+        if (particles[i].lifeTime <= GameInfo::fixedDeltaTime) {
             hh::swapVal(particles[i], particles[renderingSize - 1]);
             renderingSize--;
         } else {
@@ -114,12 +114,12 @@ void ParticleEmitter::mainUpdateParticles(Particles& particlesWrapper) {
 
     float pps = 1.0f / particlesPerSecond;
 
-    newparticles += GameInfo::deltaTime;
+    newparticles += GameInfo::fixedDeltaTime;
 
     while (newparticles > pps) {
         if (renderingSize <= static_cast<int>(particles.size())) {
             setParticleToDefault(particles[renderingSize]);
-            particles[renderingSize].lifeTime -= GameInfo::deltaTime;
+            particles[renderingSize].lifeTime -= GameInfo::fixedDeltaTime;
             renderingSize++;
             newparticles -= pps;
 
@@ -137,8 +137,8 @@ void ParticleEmitter::setParticleToDefault(Particle& p) {
 }
 
 void ParticleEmitter::performParticleCalculations(Particle& p) {
-    p.speed += currentWorldSettings->getGravity() * GameInfo::deltaTime * 0.5f;
-    p.position += p.speed * GameInfo::deltaTime;
+    p.speed += currentWorldSettings->getGravity() * GameInfo::fixedDeltaTime * 0.5f;
+    p.position += p.speed * GameInfo::fixedDeltaTime;
 }
 
 void ParticleEmitter::updateParticles(int amountPerSecond, Particles& particlesWrapper) {

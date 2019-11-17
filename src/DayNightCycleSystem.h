@@ -21,7 +21,7 @@ public:
 
         float speed = 1.0f;
 
-        currentRotation = currentRotation + GameInfo::deltaTime * speed;
+        currentRotation = currentRotation + GameInfo::fixedDeltaTime * speed;
         currentRotation = glm::mod(currentRotation, 360.f);
 
         if (currentRotation >= 90 && currentRotation < 270) {

@@ -15,7 +15,7 @@ public:
             = hh::lerp(
                 camera.getTargetPosition().y,
                 modelsTransform.position.y + playerController.getCameraTargetOffset()->y,
-                glm::clamp(GameInfo::deltaTime * playerController.getYinterpolationSpeed(), 0.0f, 1.0f));
+                glm::clamp(GameInfo::getDeltaTime() * playerController.getYinterpolationSpeed(), 0.0f, 1.0f));
 
         camera.setTargetPosition(
             glm::vec3(

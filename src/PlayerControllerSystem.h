@@ -23,7 +23,8 @@ public:
         assert(PLR_CTRLR_NS::AMOUNT_OF_RAYS == 4);
     }
 
-    void update(Input& input, Transform& modelsTransform, CollisionMesh& mesh, PhysicsWorld& world, PlayerController& playerController, Camera& camera, const UserControls& userControls);
+    void update(Transform& modelsTransform, PlayerController& playerController, Camera& camera);
+    void fixedUpdate(Input& input, Transform& modelsTransform, CollisionMesh& mesh, PhysicsWorld& world, PlayerController& playerController, Camera& camera, const UserControls& userControls);
 
 private:
     RayCaster rayCast[PLR_CTRLR_NS::AMOUNT_OF_RAYS];
@@ -40,7 +41,7 @@ private:
 
     void executeRayTesting(PlayerController& playerController, CollisionMesh& collisionMesh, const Transform& meshTransform, PhysicsWorld& world);
 
-    glm::vec3 getSlopeSpeed(float sensitivity, const glm::vec3& rayNormal) { return rayNormal * sensitivity * GameInfo::deltaTime; }
+    glm::vec3 getSlopeSpeed(float sensitivity, const glm::vec3& rayNormal) { return rayNormal * sensitivity * GameInfo::fixedDeltaTime; }
 
     int getCurrentSlopeSpeedIndex(const glm::vec3& rayNormal, const PlayerController& playerController);
 
@@ -49,6 +50,8 @@ private:
     void applyForces(CollisionMesh& collisionMesh, PlayerController& playerController);
 
     void applyNewTransform(CollisionMesh& mesh, const glm::vec3& cameraForward, const PlayerController& playerController, Transform& oldTransform);
+
+    void applyNewRotation(const glm::vec3& cameraForward, const PlayerController& playerController, Transform& oldTransform);
 };
 
 #endif

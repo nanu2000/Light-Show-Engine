@@ -201,13 +201,16 @@ void PlayerControllerSystem::executeRayTesting(PlayerController& playerControlle
     }
 }
 
-void PlayerControllerSystem::applyNewTransform(CollisionMesh& mesh, const glm::vec3& cameraForward, const PlayerController& playerController, Transform& oldTransform) {
+void PlayerControllerSystem::applyNewTransform(CollisionMesh& mesh, const glm::vec3& cameraForward, const PlayerController& playerController, Transform& currentTransform) {
 
-    oldTransform.position = mesh.getPosition() + playerController.offsetFromCollider;
+    currentTransform.position = mesh.getPosition() + playerController.offsetFromCollider;
+    applyNewRotation(cameraForward, playerController, currentTransform);
+}
 
+void PlayerControllerSystem::applyNewRotation(const glm::vec3& cameraForward, const PlayerController& playerController, Transform& currentTransform) {
     if (playerController.rotateAwayFromCamera == false) {
 
-        oldTransform.rotation
+        currentTransform.rotation
             = glm::quat(
                 glm::vec3(
                     glm::radians(-90.0f),
@@ -216,7 +219,7 @@ void PlayerControllerSystem::applyNewTransform(CollisionMesh& mesh, const glm::v
     }
 }
 
-void PlayerControllerSystem::update(Input& input, Transform& modelsTransform, CollisionMesh& mesh, PhysicsWorld& world, PlayerController& playerController, Camera& camera, const UserControls& userControls) {
+void PlayerControllerSystem::fixedUpdate(Input& input, Transform& modelsTransform, CollisionMesh& mesh, PhysicsWorld& world, PlayerController& playerController, Camera& camera, const UserControls& userControls) {
 
     mesh.activateRigidBody(true);
 
@@ -236,5 +239,12 @@ void PlayerControllerSystem::update(Input& input, Transform& modelsTransform, Co
 
     /////////////////Transform Model Orientation according to collision mesh and camera.
     applyNewTransform(mesh, camera.getForward(), playerController, modelsTransform);
+    ///////////////////
+}
+
+void PlayerControllerSystem::update(Transform& modelsTransform, PlayerController& playerController, Camera& camera) {
+
+    /////////////////Transform Model Orientation according to collision mesh and camera.
+    applyNewRotation(camera.getForward(), playerController, modelsTransform);
     ///////////////////
 }

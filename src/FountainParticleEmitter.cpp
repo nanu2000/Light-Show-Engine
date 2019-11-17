@@ -14,9 +14,9 @@ void FountainParticleEmitter::setParticleToDefault(Particle& p) {
 }
 
 void FountainParticleEmitter::performParticleCalculations(Particle& p) {
-    p.speed += (currentWorldSettings->getWind() + currentWorldSettings->getGravity() + glm::vec3(0, -p.weight, 0)) * GameInfo::deltaTime * 0.5f;
-    p.position += p.speed * GameInfo::deltaTime;
-    p.speed.y -= GameInfo::deltaTime * fountainPull;
-    p.color.a -= GameInfo::deltaTime / defaultLifeTime * defaultColor.a;
-    p.size += GameInfo::deltaTime * endScale;
+    p.speed += (currentWorldSettings->getWind() + currentWorldSettings->getGravity() + glm::vec3(0, -p.weight, 0)) * GameInfo::fixedDeltaTime * 0.5f;
+    p.position += p.speed * GameInfo::fixedDeltaTime;
+    p.speed.y -= GameInfo::fixedDeltaTime * fountainPull;
+    p.color.a -= GameInfo::fixedDeltaTime / defaultLifeTime * defaultColor.a;
+    p.size += GameInfo::fixedDeltaTime * endScale;
 }

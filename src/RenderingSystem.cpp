@@ -87,124 +87,69 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap,
     const std::vector<Scene::Entity>& entities = *currentScene->getAllEntities();
 
     const std::vector<LitShader*>& litShaders = currentScene->getAllComponentsOfType<LitShader>();
-
     for (unsigned int i = 0; i < litShaders.size(); i++) {
         initializeLights(*litShaders.at(i));
     }
 
-    const std::vector<AnimatedModel*>& animatedModels = currentScene->getAllComponentsOfType<AnimatedModel>();
-    const std::vector<Model*>& models                 = currentScene->getAllComponentsOfType<Model>();
-
+    const std::vector<AnimatedModel*>& animatedModels         = currentScene->getAllComponentsOfType<AnimatedModel>();
+    const std::vector<Model*>& models                         = currentScene->getAllComponentsOfType<Model>();
     const std::vector<Particles*>& particles                  = currentScene->getAllComponentsOfType<Particles>();
     const std::vector<DebuggingController*>& debugControllers = currentScene->getAllComponentsOfType<DebuggingController>();
 
     Camera* currentCamera = nullptr;
 
-    currentCamera = currentScene->getFirstActiveComponentOfType<FirstPersonCamera>();
+    currentCamera = currentScene->getFirstActiveComponentOfType<ThirdPersonCamera>();
 
     if (!currentCamera) {
-        currentCamera = currentScene->getFirstActiveComponentOfType<ThirdPersonCamera>();
+        return;
     }
 
-    if (currentCamera) {
-        // Execute debug drawing if enabled
-        if (ShaderBase::getShaderTask() == SHADER_TASK::Normal_Render_Task) {
-            for (unsigned int i = 0; i < debugControllers.size(); i++) {
-                debugControllers[i]->executeDebugRendering(
-                    *physicsWorld,
-                    *currentCamera->getViewMatrix(),
-                    *currentCamera->getProjectionMatrix());
-            }
+    // Execute debug drawing if enabled
+    if (ShaderBase::getShaderTask() == SHADER_TASK::Normal_Render_Task) {
 
-            systems->dayNightCycleSystem.render(
-                *currentCamera->getViewMatrix(), *currentCamera->getProjectionMatrix());
+        for (unsigned int i = 0; i < debugControllers.size(); i++) {
+            debugControllers[i]->executeDebugRendering(*physicsWorld, *currentCamera->getViewMatrix(), *currentCamera->getProjectionMatrix());
         }
 
-        std::vector<RenderModel> nonTransparentModels;
-        std::vector<RenderModel> transparentModels;
+        systems->dayNightCycleSystem.render(*currentCamera->getViewMatrix(), *currentCamera->getProjectionMatrix());
+    }
 
-        for (unsigned int i = 0; i < animatedModels.size(); i++) {
-            const int32_t& entity = animatedModels[i]->getEntityID();
+    for (unsigned int i = 0; i < entities.size(); i++) {
+        const int32_t entity = entities[i].id;
 
-            if (currentScene->isEntityActive(entity)) {
-                addModelToProperRenderVector(
-                    *animatedModels[i], entity, transparentModels, nonTransparentModels);
-            }
+        if (!currentScene->isEntityActive(entity)) {
+            continue;
         }
 
-        for (unsigned int i = 0; i < models.size(); i++) {
-            const int32_t& entity = models[i]->getEntityID();
-            if (currentScene->isEntityActive(entity)) {
-                addModelToProperRenderVector(
-                    *models[i], entity, transparentModels, nonTransparentModels);
-            }
+        ModelBase* modelToRender = nullptr;
+        bool isAnimated          = false;
+
+        if (_3DM::Model* model = currentScene->getComponent<_3DM::Model>(entity)) {
+            modelToRender = model;
+
+        } else if (_3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(entity)) {
+            modelToRender = animatedModel;
+            isAnimated    = true;
         }
 
-        for (unsigned int i = 0; i < nonTransparentModels.size(); i++) {
-            RenderModel& model = nonTransparentModels[i];
-
-            model.shader->useProgram();
-
-            if (model.isLitShader) {
-                supplyLitShaderUniforms(*model.shader,
-                                        pointLightDepthMap,
-                                        directionalLightDepthMap,
-                                        *currentCamera,
-                                        currentTime);
-            } else {
-                supplyDefaultShaderUniforms(*model.shader, *currentCamera, currentTime);
-            }
-
-            renderSingleModel(*model.shader, *model.model);
+        if (!modelToRender) {
+            continue;
         }
-        if (transparentModels.empty() == false) {
-            // Sort from farthest to nearest
+        if (LitShader* shdr = currentScene->getComponent<LitShader>(entity)) {
 
-            sort(transparentModels.begin(),
-                 transparentModels.end(),
-                 [&](const RenderModel& a, const RenderModel& b) -> bool {
-                     return glm::distance(a.model->transform.position,
-                                          currentCamera->position)
-                         > glm::distance(b.model->transform.position,
-                                         currentCamera->position);
-                 });
+            shdr->useProgram();
+            supplyLitShaderUniforms(*shdr, pointLightDepthMap, directionalLightDepthMap, *currentCamera, currentTime);
+            glUniform1i(Shaders::getUniformLocation(shdr->getProgramID(), Shaders::UniformName::IsModelAnimated), isAnimated);
 
-            for (unsigned int i = 0; i < transparentModels.size(); i++) {
-                RenderModel& model = transparentModels[i];
+            modelToRender->renderAll(*shdr);
+        } else if (DefaultShader* dshdr = currentScene->getComponent<DefaultShader>(entity)) {
 
-                model.shader->useProgram();
+            dshdr->useProgram();
+            supplyDefaultShaderUniforms(*dshdr, *currentCamera, currentTime);
 
-                if (model.isLitShader) {
-                    supplyLitShaderUniforms(*model.shader,
-                                            pointLightDepthMap,
-                                            directionalLightDepthMap,
-                                            *currentCamera,
-                                            currentTime);
-                } else {
-                    supplyDefaultShaderUniforms(
-                        *model.shader, *currentCamera, currentTime);
-                }
+            glUniform1i(Shaders::getUniformLocation(dshdr->getProgramID(), Shaders::UniformName::IsModelAnimated), isAnimated);
 
-                renderTransparentModel(*model.shader, *model.model);
-            }
-            for (unsigned int i = 0; i < nonTransparentModels.size(); i++) {
-                RenderModel& model = nonTransparentModels[i];
-
-                model.shader->useProgram();
-
-                if (model.isLitShader) {
-                    supplyLitShaderUniforms(*model.shader,
-                                            pointLightDepthMap,
-                                            directionalLightDepthMap,
-                                            *currentCamera,
-                                            currentTime);
-                } else {
-                    supplyDefaultShaderUniforms(
-                        *model.shader, *currentCamera, currentTime);
-                }
-
-                renderSingleModel(*model.shader, *model.model);
-            }
+            modelToRender->renderAll(*dshdr);
         }
     }
 
@@ -391,40 +336,4 @@ void RenderingSystem::supplyParticleShaderUniforms(ShaderBase& particleShader,
                        1,
                        GL_FALSE,
                        glm::value_ptr(*currentCamera.getProjectionMatrix()));
-}
-
-void RenderingSystem::addModelToProperRenderVector(
-    ModelBase& model,
-    const int32_t& entity,
-    std::vector<RenderModel>& transparent,
-    std::vector<RenderModel>& notTransparent) {
-    ShaderBase* thisShader;
-
-    bool isLit = false;
-
-    if (thisShader = currentScene->getComponent<DefaultShader>(entity)) {
-        isLit = false;
-    }
-
-    if (thisShader = currentScene->getComponent<LitShader>(entity)) {
-        isLit = true;
-    }
-
-    if (thisShader) {
-        bool shaderCanBeUsed = false;
-        bool isTransparent   = false;
-
-        if (thisShader->getShaderType() == SHADER_TYPE::Default) {
-            shaderCanBeUsed = true;
-        }
-
-        if (shaderCanBeUsed) {
-            RenderModel renderModel;
-            renderModel.model       = &model;
-            renderModel.shader      = thisShader;
-            renderModel.isLitShader = isLit;
-
-            notTransparent.push_back(renderModel);
-        }
-    }
 }

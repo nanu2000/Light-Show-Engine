@@ -24,12 +24,6 @@ public:
     void render(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Time& currentTime);
 
 private:
-    struct RenderModel {
-        ShaderBase* shader = nullptr;
-        ModelBase* model = nullptr;
-        bool isLitShader = false;
-    };
-
     //This function searches for any particle systems that may exist.
     //As of 4/17/2016, there is only one particle system implemented, so it will only return either a nullptr,
     //or a fountain particle system pointer
@@ -44,22 +38,10 @@ private:
     //**Does use program.
     ShaderBase* prepareShader(const int32_t& entity, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Camera& currentCamera, Time& currentTime);
 
-    void renderSingleModel(ShaderBase& shader, ModelBase& model) {
-        glUniform1i(
-            Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::IsModelAnimated),
-            model.isAnimatedModel());
-        model.renderAll(shader);
-    }
-
     void supplyLitShaderUniforms(ShaderBase& shader, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Camera& currentCamera, Time& currentTime);
 
     void supplyDefaultShaderUniforms(ShaderBase& shader, Camera& currentCamera, Time& currentTime);
 
     void supplyParticleShaderUniforms(ShaderBase& particleShader, Camera& currentCamera, Time& currentTime);
-
-    void addModelToProperRenderVector(ModelBase& model, const int32_t& entity, std::vector<RenderModel>& transparent, std::vector<RenderModel>& notTransparent);
-
-    void renderTransparentModel(ShaderBase& shader, ModelBase& model) {
-    }
 };
 #endif

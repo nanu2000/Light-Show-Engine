@@ -202,7 +202,7 @@ void FloorObject::initialize(EntityWrapper::EntityVitals& vitals) {
 
     collisionMesh.initializeModelShape(
         btTransform(btQuaternion(btVector3(1, 0, 0), glm::radians(0.0f)), btVector3(0, 0, 0)),
-        model,
+        cm,
         0,
         CollisionTag(),
         false,

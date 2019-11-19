@@ -140,6 +140,7 @@ public:
 
 private:
     _3DM::Model model = _3DM::Model("assets/Models/testlevel.3DM");
+    _3DM::Model cm    = _3DM::Model("assets/Models/testlevel_cm.3DM");
     CollisionMesh collisionMesh;
     Material floorMaterial;
     LitShader shader;

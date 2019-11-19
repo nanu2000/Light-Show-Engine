@@ -29,6 +29,9 @@ private:
     //or a fountain particle system pointer
     ParticleEmitter* getParticleEmitter(int32_t entity);
 
+    void renderDebugging(Camera& currentCamera);
+    void renderModels(const std::vector<Scene::Entity>& entities, Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
+    void renderOthers(const std::vector<Scene::Entity>& entities, Camera& currentCamera, Time& currentTime);
     void renderParticles(Particles& particles, Camera& currentCamera, Time& currentTime);
 
     void initializeLights(LitShader& litShader);

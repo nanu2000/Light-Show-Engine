@@ -46,7 +46,7 @@ public:
         light.direction  = currentDirection;
     }
 
-    void render(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix) {
+    void debugRender(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix) {
 
         btVector3 linePos = btVector3(0, 10, 0);
         float distance    = 5;

@@ -1,9 +1,7 @@
 #include "RenderingSystem.h"
 
-void RenderingSystem::initialize(Scene& scene,
-                                 Settings& settings,
-                                 PhysicsWorld& world,
-                                 SubSystems& ssystems) {
+void RenderingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& ssystems) {
+
     currentScene    = &scene;
     currentSettings = &settings;
     physicsWorld    = &world;
@@ -39,22 +37,27 @@ void RenderingSystem::initialize(Scene& scene,
 }
 
 void RenderingSystem::initializeLights(LitShader& litShader) {
-    const std::vector<PointLight*>& pointLights             = currentScene->getAllComponentsOfType<PointLight>();
-    const std::vector<DirectionalLight*>& directionalLights = currentScene->getAllComponentsOfType<DirectionalLight>();
+    const std::vector<PointLight*>& pointLights = currentScene->getAllComponentsOfType<PointLight>();
+
+    //Right now I'm only using 1 dir light
+    const DirectionalLight* directionalLight = currentScene->getFirstActiveComponentOfType<DirectionalLight>();
 
     litShader.useProgram();
-    for (unsigned int i = 0; i < directionalLights.size(); i++) {
-        if (directionalLights[i]->isActive()) {
-            litShader.setDirectionalLight(*directionalLights[i]);
-        }
+
+    if (directionalLight) {
+        litShader.setDirectionalLight(*directionalLight);
     }
 
+    //We use point index because the light might not be active.
     int pointIndex = 0;
+
     for (unsigned int i = 0; i < pointLights.size(); i++) {
         if (pointLights[i]->isActive()) {
             if (pointIndex < currentSettings->getLightsPerEntity()) {
                 litShader.setPointLight(*currentSettings, *pointLights[i], pointIndex);
                 pointIndex++;
+            } else {
+                break;
             }
         }
     }
@@ -69,50 +72,53 @@ void RenderingSystem::initializeModels(ShaderBase& shader, const int32_t& entity
     }
 }
 
-void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap,
-                             DirectionalLightShadowMap& directionalLightDepthMap,
-                             Time& currentTime) {
+void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Time& currentTime) {
+
     /******************************************|
     |*		The Current Rendering Order		  *|
     |*----------------------------------------*|
     |*First, render All Opaque Objects.		  *|
-    |*Second, render All Transparent Objects. *|
     |*Last, Render All GUI Objects.			  *|
     |******************************************/
 
     if (areVitalsNull() == true) {
+        DBG_LOG("Vitals are null (RenderingSystem.cpp)\n");
         return;
     }
 
-    const std::vector<Scene::Entity>& entities = *currentScene->getAllEntities();
-
-    const std::vector<LitShader*>& litShaders = currentScene->getAllComponentsOfType<LitShader>();
-    for (unsigned int i = 0; i < litShaders.size(); i++) {
-        initializeLights(*litShaders.at(i));
-    }
-
-    const std::vector<AnimatedModel*>& animatedModels         = currentScene->getAllComponentsOfType<AnimatedModel>();
-    const std::vector<Model*>& models                         = currentScene->getAllComponentsOfType<Model>();
-    const std::vector<Particles*>& particles                  = currentScene->getAllComponentsOfType<Particles>();
-    const std::vector<DebuggingController*>& debugControllers = currentScene->getAllComponentsOfType<DebuggingController>();
-
-    Camera* currentCamera = nullptr;
-
-    currentCamera = currentScene->getFirstActiveComponentOfType<ThirdPersonCamera>();
+    Camera* currentCamera = currentScene->getFirstActiveComponentOfType<ThirdPersonCamera>();
 
     if (!currentCamera) {
         return;
     }
 
+    const std::vector<Scene::Entity>& entities = *currentScene->getAllEntities();
+    const std::vector<LitShader*>& litShaders  = currentScene->getAllComponentsOfType<LitShader>();
+
+    for (unsigned int i = 0; i < litShaders.size(); i++) {
+        initializeLights(*litShaders.at(i));
+    }
+
+    renderDebugging(*currentCamera);
+    renderModels(entities, *currentCamera, currentTime, pointLightDepthMap, directionalLightDepthMap);
+    renderOthers(entities, *currentCamera, currentTime);
+}
+
+void RenderingSystem::renderDebugging(Camera& currentCamera) {
     // Execute debug drawing if enabled
     if (ShaderBase::getShaderTask() == SHADER_TASK::Normal_Render_Task) {
 
+        const std::vector<DebuggingController*>& debugControllers = currentScene->getAllComponentsOfType<DebuggingController>();
+
         for (unsigned int i = 0; i < debugControllers.size(); i++) {
-            debugControllers[i]->executeDebugRendering(*physicsWorld, *currentCamera->getViewMatrix(), *currentCamera->getProjectionMatrix());
+            debugControllers[i]->executeDebugRendering(*physicsWorld, *currentCamera.getViewMatrix(), *currentCamera.getProjectionMatrix());
         }
 
-        systems->dayNightCycleSystem.render(*currentCamera->getViewMatrix(), *currentCamera->getProjectionMatrix());
+        systems->dayNightCycleSystem.debugRender(*currentCamera.getViewMatrix(), *currentCamera.getProjectionMatrix());
     }
+}
+
+void RenderingSystem::renderModels(const std::vector<Scene::Entity>& entities, Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
 
     for (unsigned int i = 0; i < entities.size(); i++) {
         const int32_t entity = entities[i].id;
@@ -138,61 +144,71 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap,
         if (LitShader* shdr = currentScene->getComponent<LitShader>(entity)) {
 
             shdr->useProgram();
-            supplyLitShaderUniforms(*shdr, pointLightDepthMap, directionalLightDepthMap, *currentCamera, currentTime);
+            supplyLitShaderUniforms(*shdr, pointLightDepthMap, directionalLightDepthMap, currentCamera, currentTime);
             glUniform1i(Shaders::getUniformLocation(shdr->getProgramID(), Shaders::UniformName::IsModelAnimated), isAnimated);
 
             modelToRender->renderAll(*shdr);
         } else if (DefaultShader* dshdr = currentScene->getComponent<DefaultShader>(entity)) {
 
             dshdr->useProgram();
-            supplyDefaultShaderUniforms(*dshdr, *currentCamera, currentTime);
+            supplyDefaultShaderUniforms(*dshdr, currentCamera, currentTime);
 
             glUniform1i(Shaders::getUniformLocation(dshdr->getProgramID(), Shaders::UniformName::IsModelAnimated), isAnimated);
 
             modelToRender->renderAll(*dshdr);
         }
     }
+}
+
+void RenderingSystem::renderOthers(const std::vector<Scene::Entity>& entities, Camera& currentCamera, Time& currentTime) {
 
     // Render Particles and GUI
     if (ShaderBase::getShaderTask() == SHADER_TASK::Normal_Render_Task) {
+
+        const std::vector<Particles*>& particles = currentScene->getAllComponentsOfType<Particles>();
+
         for (unsigned int i = 0; i < entities.size(); i++) {
             const int32_t& entity = entities[i].id;
 
             SkyBox* skyBox      = currentScene->getComponent<SkyBox>(entity);
             DefaultShader* shdr = currentScene->getComponent<DefaultShader>(entity);
 
-            if (skyBox && shdr) {
-                shdr->useProgram();
-                supplyDefaultShaderUniforms(*shdr, *currentCamera, currentTime);
-                systems->skyBoxSystem.render(*skyBox, *currentCamera, *shdr);
+            if (!skyBox || !shdr) {
+                continue;
             }
+
+            shdr->useProgram();
+            supplyDefaultShaderUniforms(*shdr, currentCamera, currentTime);
+            systems->skyBoxSystem.render(*skyBox, currentCamera, *shdr);
         }
 
         for (unsigned int i = 0; i < particles.size(); i++) {
-            renderParticles(*particles[i], *currentCamera, currentTime);
+            renderParticles(*particles[i], currentCamera, currentTime);
         }
 
         for (unsigned int i = 0; i < entities.size(); i++) {
             const int32_t& entity = entities[i].id;
-            if (DefaultShader* shader = currentScene->getComponent<DefaultShader>(entities[i].id)) {
-                if (shader->getShaderType() == SHADER_TYPE::GUI) {
-                    if (EntityStats* stats = currentScene->getComponent<EntityStats>(entity)) {
-                        if (EntityStatsDisplayer* disp = currentScene->getComponent<EntityStatsDisplayer>(entity)) {
-                            shader->useProgram();
-                            systems->EntityStatsDisplayerSystem.render(*disp, *shader);
-                        }
-                    }
+            DefaultShader* shader = currentScene->getComponent<DefaultShader>(entities[i].id);
 
-                    if (DisplayStatistics* stats = currentScene->getComponent<DisplayStatistics>(entity)) {
-                        shader->useProgram();
-                        systems->displayStatisticsSystem.render(*shader, *stats);
-                    }
+            if (!shader || shader->getShaderType() != SHADER_TYPE::GUI) {
+                continue;
+            }
 
-                    if (PauseMenu* menu = currentScene->getComponent<PauseMenu>(entities[i].id)) {
-                        shader->useProgram();
-                        systems->pauseMenuSystem.render(*shader, *menu);
-                    }
+            if (EntityStats* stats = currentScene->getComponent<EntityStats>(entity)) {
+                if (EntityStatsDisplayer* disp = currentScene->getComponent<EntityStatsDisplayer>(entity)) {
+                    shader->useProgram();
+                    systems->EntityStatsDisplayerSystem.render(*disp, *shader);
                 }
+            }
+
+            if (DisplayStatistics* stats = currentScene->getComponent<DisplayStatistics>(entity)) {
+                shader->useProgram();
+                systems->displayStatisticsSystem.render(*shader, *stats);
+            }
+
+            if (PauseMenu* menu = currentScene->getComponent<PauseMenu>(entities[i].id)) {
+                shader->useProgram();
+                systems->pauseMenuSystem.render(*shader, *menu);
             }
         }
     }

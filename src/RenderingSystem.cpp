@@ -7,36 +7,34 @@ void RenderingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld&
     physicsWorld    = &world;
     systems         = &ssystems;
 
-    const std::vector<Scene::Entity>& entities = *currentScene->getAllEntities();
-
-    for (unsigned int i = 0; i < entities.size(); i++) {
-        const int32_t& entity = entities[i].id;
-
-        if (SkyBox* skyBox = currentScene->getComponent<SkyBox>(entity)) {
+    currentScene->loopEntities([&](Scene::Entity& entity) {
+        if (SkyBox* skyBox = currentScene->getComponent<SkyBox>(entity.id)) {
             systems->skyBoxSystem.init(*skyBox);
         }
-        if (LitShader* shader = currentScene->getComponent<LitShader>(entity)) {
+        if (LitShader* shader = currentScene->getComponent<LitShader>(entity.id)) {
             initializeLights(*shader);
 
-            initializeModels(*shader, entity);
+            initializeModels(*shader, entity.id);
 
-            if (Material* mat = currentScene->getComponent<Material>(entity)) {
+            if (Material* mat = currentScene->getComponent<Material>(entity.id)) {
                 shader->setMaterial(*mat);
             }
-            if (SimpleMaterial* mat = currentScene->getComponent<SimpleMaterial>(entity)) {
+            if (SimpleMaterial* mat = currentScene->getComponent<SimpleMaterial>(entity.id)) {
                 shader->setSimpleMaterial(*mat);
             }
         }
 
-        if (DefaultShader* shader = currentScene->getComponent<DefaultShader>(entity)) {
+        if (DefaultShader* shader = currentScene->getComponent<DefaultShader>(entity.id)) {
             if (shader->getShaderType() == SHADER_TYPE::Default) {
-                initializeModels(*shader, entity);
+                initializeModels(*shader, entity.id);
             }
         }
-    }
+        return false;
+    });
 }
 
 void RenderingSystem::initializeLights(LitShader& litShader) {
+
     const std::vector<PointLight*>& pointLights = currentScene->getAllComponentsOfType<PointLight>();
 
     //Right now I'm only using 1 dir light
@@ -92,16 +90,15 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
         return;
     }
 
-    const std::vector<Scene::Entity>& entities = *currentScene->getAllEntities();
-    const std::vector<LitShader*>& litShaders  = currentScene->getAllComponentsOfType<LitShader>();
+    const std::vector<LitShader*>& litShaders = currentScene->getAllComponentsOfType<LitShader>();
 
     for (unsigned int i = 0; i < litShaders.size(); i++) {
         initializeLights(*litShaders.at(i));
     }
 
     renderDebugging(*currentCamera);
-    renderModels(entities, *currentCamera, currentTime, pointLightDepthMap, directionalLightDepthMap);
-    renderOthers(entities, *currentCamera, currentTime);
+    renderModels(*currentCamera, currentTime, pointLightDepthMap, directionalLightDepthMap);
+    renderOthers(*currentCamera, currentTime);
 }
 
 void RenderingSystem::renderDebugging(Camera& currentCamera) {
@@ -118,37 +115,36 @@ void RenderingSystem::renderDebugging(Camera& currentCamera) {
     }
 }
 
-void RenderingSystem::renderModels(const std::vector<Scene::Entity>& entities, Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
+void RenderingSystem::renderModels(Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
 
-    for (unsigned int i = 0; i < entities.size(); i++) {
-        const int32_t entity = entities[i].id;
-
-        if (!currentScene->isEntityActive(entity)) {
-            continue;
+    currentScene->loopEntities([&](Scene::Entity& entity) {
+        if (!entity.isActive) {
+            return false;
         }
 
         ModelBase* modelToRender = nullptr;
         bool isAnimated          = false;
 
-        if (_3DM::Model* model = currentScene->getComponent<_3DM::Model>(entity)) {
+        if (_3DM::Model* model = currentScene->getComponent<_3DM::Model>(entity.id)) {
             modelToRender = model;
 
-        } else if (_3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(entity)) {
+        } else if (_3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(entity.id)) {
             modelToRender = animatedModel;
             isAnimated    = true;
         }
 
         if (!modelToRender) {
-            continue;
+            return false;
         }
-        if (LitShader* shdr = currentScene->getComponent<LitShader>(entity)) {
+
+        if (LitShader* shdr = currentScene->getComponent<LitShader>(entity.id)) {
 
             shdr->useProgram();
             supplyLitShaderUniforms(*shdr, pointLightDepthMap, directionalLightDepthMap, currentCamera, currentTime);
             glUniform1i(Shaders::getUniformLocation(shdr->getProgramID(), Shaders::UniformName::IsModelAnimated), isAnimated);
 
             modelToRender->renderAll(*shdr);
-        } else if (DefaultShader* dshdr = currentScene->getComponent<DefaultShader>(entity)) {
+        } else if (DefaultShader* dshdr = currentScene->getComponent<DefaultShader>(entity.id)) {
 
             dshdr->useProgram();
             supplyDefaultShaderUniforms(*dshdr, currentCamera, currentTime);
@@ -157,60 +153,63 @@ void RenderingSystem::renderModels(const std::vector<Scene::Entity>& entities, C
 
             modelToRender->renderAll(*dshdr);
         }
-    }
+
+        return false;
+    });
 }
 
-void RenderingSystem::renderOthers(const std::vector<Scene::Entity>& entities, Camera& currentCamera, Time& currentTime) {
+void RenderingSystem::renderOthers(Camera& currentCamera, Time& currentTime) {
 
     // Render Particles and GUI
     if (ShaderBase::getShaderTask() == SHADER_TASK::Normal_Render_Task) {
 
         const std::vector<Particles*>& particles = currentScene->getAllComponentsOfType<Particles>();
 
-        for (unsigned int i = 0; i < entities.size(); i++) {
-            const int32_t& entity = entities[i].id;
-
-            SkyBox* skyBox      = currentScene->getComponent<SkyBox>(entity);
-            DefaultShader* shdr = currentScene->getComponent<DefaultShader>(entity);
+        currentScene->loopEntities([&](Scene::Entity& entity) {
+            SkyBox* skyBox      = currentScene->getComponent<SkyBox>(entity.id);
+            DefaultShader* shdr = currentScene->getComponent<DefaultShader>(entity.id);
 
             if (!skyBox || !shdr) {
-                continue;
+                return false;
             }
 
             shdr->useProgram();
             supplyDefaultShaderUniforms(*shdr, currentCamera, currentTime);
             systems->skyBoxSystem.render(*skyBox, currentCamera, *shdr);
-        }
+
+            return false;
+        });
 
         for (unsigned int i = 0; i < particles.size(); i++) {
             renderParticles(*particles[i], currentCamera, currentTime);
         }
 
-        for (unsigned int i = 0; i < entities.size(); i++) {
-            const int32_t& entity = entities[i].id;
-            DefaultShader* shader = currentScene->getComponent<DefaultShader>(entities[i].id);
+        currentScene->loopEntities([&](Scene::Entity& entity) {
+            DefaultShader* shader = currentScene->getComponent<DefaultShader>(entity.id);
 
             if (!shader || shader->getShaderType() != SHADER_TYPE::GUI) {
-                continue;
+                return false;
             }
 
-            if (EntityStats* stats = currentScene->getComponent<EntityStats>(entity)) {
-                if (EntityStatsDisplayer* disp = currentScene->getComponent<EntityStatsDisplayer>(entity)) {
+            if (EntityStats* stats = currentScene->getComponent<EntityStats>(entity.id)) {
+                if (EntityStatsDisplayer* disp = currentScene->getComponent<EntityStatsDisplayer>(entity.id)) {
                     shader->useProgram();
                     systems->EntityStatsDisplayerSystem.render(*disp, *shader);
                 }
             }
 
-            if (DisplayStatistics* stats = currentScene->getComponent<DisplayStatistics>(entity)) {
+            if (DisplayStatistics* stats = currentScene->getComponent<DisplayStatistics>(entity.id)) {
                 shader->useProgram();
                 systems->displayStatisticsSystem.render(*shader, *stats);
             }
 
-            if (PauseMenu* menu = currentScene->getComponent<PauseMenu>(entities[i].id)) {
+            if (PauseMenu* menu = currentScene->getComponent<PauseMenu>(entity.id)) {
                 shader->useProgram();
                 systems->pauseMenuSystem.render(*shader, *menu);
             }
-        }
+
+            return false;
+        });
     }
 }
 

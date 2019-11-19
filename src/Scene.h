@@ -59,11 +59,27 @@ public:
         }
     }
 
+    //Loop through all components of type and pass to a lambda.
+    //returning false in lambda will result in a 'continue' like response.
+    //returning true in lambda will end loop.
     template <typename T, typename func>
     void performOperationsOnAllOfType(func function) {
         const std::vector<T*>& type = getAllComponentsOfType<T>();
         for (unsigned int i = 0; i < type.size(); i++) {
             if (function(*type[i])) {
+                return;
+            }
+        }
+    }
+
+    //Loop through all entities and pass to a lambda.
+    //returning false in lambda will result in a 'continue' like response.
+    //returning true in lambda will end loop.
+    template <typename func>
+    void loopEntities(func function) {
+
+        for (unsigned int i = 0; i < entities.size(); i++) {
+            if (function(entities.at(i))) {
                 return;
             }
         }

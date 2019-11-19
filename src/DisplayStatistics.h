@@ -4,6 +4,7 @@
 #include "GUIResizingInfo.h"
 #include "GuiString.h"
 #include "Time.h"
+#include <numeric>
 
 class DisplayStatistics : public Component<DisplayStatistics> {
 
@@ -13,9 +14,15 @@ public:
     }
 
 private:
-    GuiString guiString = GuiString(3);
+    GuiString guiString = GuiString(20);
 
     float lastUnit = 0;
+
+    const float updateInterval = 1.f; //update every second
+    float currentInterval      = 0.f;
+    std::string currentFPS     = "0";
+    std::string currentMSPF    = "0";
+    std::vector<int> fpsAVG;
 
     friend class DisplayStatisticsSystem;
 };

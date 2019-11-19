@@ -32,9 +32,9 @@ private:
     double currentMSPF = 0;
 
     struct TimeData {
-        Uint64 then;
-        Uint64 now;
-        Uint64 frequency;
+        Uint64 then      = 0;
+        Uint64 now       = 0;
+        Uint64 frequency = 0;
     };
 
     TimeData timeData;

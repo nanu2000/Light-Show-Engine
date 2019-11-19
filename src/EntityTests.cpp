@@ -24,7 +24,7 @@ void ParticleTest::initialize(EntityWrapper::EntityVitals& vitals) {
     particleTest.setFountainVerticalForce(15);
 
     particleTest.emmisionPosition = glm::vec3(15, 2, -2);
-    particleTest.setDefaultColor(glm::vec4(.15f, .15f, .15f, 1.5f));
+    particleTest.setDefaultColor(glm::vec4(.15f, .15f, .15f, .5f));
 
     vitals.scene->addComponent(id, particles);
     vitals.scene->addComponent(id, particleTest);
@@ -98,8 +98,8 @@ void PlayerTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
     vitals.scene->addComponent(id, menu);
 
     vitals.scene->addComponent(id, textShader);
-    vitals.scene->addComponent(id, statsDisplayer);
-    vitals.scene->addComponent(id, stats);
+    //vitals.scene->addComponent(id, statsDisplayer);
+    // vitals.scene->addComponent(id, stats);
     vitals.scene->addComponent(id, bCollisionMesh);
     vitals.scene->addComponent(id, cameraHandler);
     vitals.scene->addComponent(id, model);

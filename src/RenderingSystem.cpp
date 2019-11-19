@@ -13,7 +13,6 @@ void RenderingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld&
         }
         if (LitShader* shader = currentScene->getComponent<LitShader>(entity.id)) {
             initializeLights(*shader);
-
             initializeModels(*shader, entity.id);
 
             if (Material* mat = currentScene->getComponent<Material>(entity.id)) {

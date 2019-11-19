@@ -32,6 +32,8 @@ void Application::run() {
 	***********************************/
 
     currentTime.timeSinceStart = SDL_GetTicks();
+    currentTime.updateMSPF();
+
     while (isRunning) {
 
         now = SDL_GetTicks();

@@ -46,9 +46,7 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
         return;
     }
 
-    const std::vector<Scene::Entity>& entities = *currentScene->getAllEntities();
-
-    bool isPauseMenuShowing = updateGUI(entities, time, pointLightDepthMap, directionalLightDepthMap);
+    bool isPauseMenuShowing = updateGUI(time, pointLightDepthMap, directionalLightDepthMap);
 
     if (isPauseMenuShowing) {
 
@@ -98,22 +96,20 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
             return false;
         });
 
-    for (unsigned int i = 0; i < entities.size(); i++) {
-        const int32_t& entity = entities[i].id;
-
-        if (!currentScene->isEntityActive(entity)) {
-            continue;
+    currentScene->loopEntities([&](const Scene::Entity& entity) {
+        if (!entity.isActive) {
+            return false;
         }
 
-        if (TestEnemyAI* ai = currentScene->getComponent<TestEnemyAI>(entity)) {
-            if (EntityTransform* et = currentScene->getComponent<EntityTransform>(entity)) {
-                if (GlobalInformation* info = currentScene->getComponent<GlobalInformation>(entity)) {
+        if (TestEnemyAI* ai = currentScene->getComponent<TestEnemyAI>(entity.id)) {
+            if (EntityTransform* et = currentScene->getComponent<EntityTransform>(entity.id)) {
+                if (GlobalInformation* info = currentScene->getComponent<GlobalInformation>(entity.id)) {
                     ai->fixedUpdate(*info, InputLocator::getService(), *et);
                 }
             }
         }
 
-        if (ThirdPersonCamera* thisCamera = currentScene->getComponent<ThirdPersonCamera>(entity)) {
+        if (ThirdPersonCamera* thisCamera = currentScene->getComponent<ThirdPersonCamera>(entity.id)) {
 
             if (thisCamera->isActive()) {
                 //only needs to update fixed- saves memory & barely makes a difference.
@@ -121,28 +117,30 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
             }
         }
 
-        if (Particles* p = currentScene->getComponent<Particles>(entity)) {
-            if (ParticleEmitter* pe = currentScene->getComponent<FountainParticleEmitter>(entity)) {
+        if (Particles* p = currentScene->getComponent<Particles>(entity.id)) {
+            if (ParticleEmitter* pe = currentScene->getComponent<FountainParticleEmitter>(entity.id)) {
                 pe->fixedUpdateParticles(*p);
             }
         }
 
-        if (DebuggingController* dbgCtrlr = currentScene->getComponent<DebuggingController>(entity)) {
+        if (DebuggingController* dbgCtrlr = currentScene->getComponent<DebuggingController>(entity.id)) {
             Input& thisInput = InputLocator::getService();
 
             dbgCtrlr->controlWireframeDebugDraw(thisInput);
             dbgCtrlr->controlPhysicsDebugDraw(thisInput, *physicsWorld);
         }
 
-        if (_3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(entity)) {
+        if (_3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(entity.id)) {
             animatedModel->fixedUpdateAnimation();
         }
-    }
+
+        return false;
+    });
 }
 
 //Updates GUI.
 //returns true if the pause menu is showing.
-bool FixedUpdatingSystem::updateGUI(const std::vector<Scene::Entity>& entities, const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
+bool FixedUpdatingSystem::updateGUI(const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
 
     bool isPauseMenuShowing = false;
 
@@ -153,23 +151,23 @@ bool FixedUpdatingSystem::updateGUI(const std::vector<Scene::Entity>& entities, 
         }
     }
 
-    for (unsigned int i = 0; i < entities.size(); i++) {
-        const int32_t& entity = entities[i].id;
-
-        if (!currentScene->isEntityActive(entity)) {
-            continue;
+    currentScene->loopEntities([&](const Scene::Entity& entity) {
+        if (!entity.isActive) {
+            return false;
         }
 
-        if (EntityStats* stats = currentScene->getComponent<EntityStats>(entity)) {
-            if (EntityStatsDisplayer* disp = currentScene->getComponent<EntityStatsDisplayer>(entity)) {
+        if (EntityStats* stats = currentScene->getComponent<EntityStats>(entity.id)) {
+            if (EntityStatsDisplayer* disp = currentScene->getComponent<EntityStatsDisplayer>(entity.id)) {
                 systems->EntityStatsDisplayerSystem.fixedUpdate(*disp, *stats, systems->guiResizingInfo);
             }
         }
 
-        if (DisplayStatistics* stats = currentScene->getComponent<DisplayStatistics>(entity)) {
+        if (DisplayStatistics* stats = currentScene->getComponent<DisplayStatistics>(entity.id)) {
             systems->displayStatisticsSystem.fixedUpdate(*stats, time, systems->guiResizingInfo);
         }
-    }
+
+        return false;
+    });
 
     return isPauseMenuShowing;
 }
@@ -205,7 +203,7 @@ void FixedUpdatingSystem::updateShadowMaps(PointLightShadowMap& pointLightDepthM
 }
 
 //Set transforms of models to collision transforms
-void FixedUpdatingSystem::updateCollision(const int32_t& entity, CollisionMesh& collisionMesh) {
+void FixedUpdatingSystem::updateCollision(const int32_t entity, CollisionMesh& collisionMesh) {
 
     _3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(entity);
     UserControls* userControls         = currentScene->getFirstActiveComponentOfType<UserControls>();

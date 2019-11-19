@@ -30,13 +30,13 @@ public:
 
 private:
     //Updates GUI (Will be called even if the game is paused) will return true if the game is paused
-    bool updateGUI(const std::vector<Scene::Entity>& entities, const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
+    bool updateGUI(const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
 
     //Updates the shadow maps and sets the current shadows light position.
     void updateShadowMaps(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Camera& currentCamera);
 
     //Updates any collision logic if necessery.
-    void updateCollision(const int32_t& entity, CollisionMesh& collisionMesh);
+    void updateCollision(const int32_t entity, CollisionMesh& collisionMesh);
 
     //checks to see if an entity is colliding with another entity.
     void updateCollisionTriggers(const CollisionTag& thisTag);

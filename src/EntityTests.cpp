@@ -234,9 +234,9 @@ void LightTest::initialize(EntityWrapper::EntityVitals& vitals) {
     directionalLight.direction = glm::vec3(0.f, -1.f, 0.f);
     directionalLight.ambient   = glm::vec3(0.1f, 0.1f, 0.1f);
 
-    const int lightRange     = 5;
-    const int lightRangeMinY = 4;
-    const int lightRangeMaxY = 8;
+    const int lightRange     = 10;
+    const int lightRangeMinY = 7;
+    const int lightRangeMaxY = 10;
 
     for (unsigned int i = 0; i < vitals.currentSettings->getLightsPerEntity() && i < lights.size(); i++) {
         lights[i].setActive(true);
@@ -249,7 +249,7 @@ void LightTest::initialize(EntityWrapper::EntityVitals& vitals) {
         lights[i].diffuse  = glm::vec3(.55f, 0.55f, 0.6f);
         lights[i].specular = glm::vec3(.7, .6f, .5f);
 
-        lights[i].position = glm::vec3(hh::getRandomRange(-lightRange, lightRange), hh::getRandomRange(lightRangeMinY, lightRangeMaxY), hh::getRandomRange(-lightRange, lightRange));
+        lights[i].position = glm::vec3(hh::getRandomRange(-lightRange, lightRange), hh::getRandomRange(lightRangeMinY, lightRangeMaxY), 25 + hh::getRandomRange(-lightRange, lightRange));
 
         vitals.scene->addComponent(id, lights[i]);
     }

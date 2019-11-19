@@ -7,7 +7,7 @@ void RenderingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld&
     physicsWorld    = &world;
     systems         = &ssystems;
 
-    currentScene->loopEntities([&](Scene::Entity& entity) {
+    currentScene->loopEntities([&](const Scene::Entity& entity) {
         if (SkyBox* skyBox = currentScene->getComponent<SkyBox>(entity.id)) {
             systems->skyBoxSystem.init(*skyBox);
         }
@@ -117,7 +117,7 @@ void RenderingSystem::renderDebugging(Camera& currentCamera) {
 
 void RenderingSystem::renderModels(Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
 
-    currentScene->loopEntities([&](Scene::Entity& entity) {
+    currentScene->loopEntities([&](const Scene::Entity& entity) {
         if (!entity.isActive) {
             return false;
         }
@@ -165,7 +165,7 @@ void RenderingSystem::renderOthers(Camera& currentCamera, Time& currentTime) {
 
         const std::vector<Particles*>& particles = currentScene->getAllComponentsOfType<Particles>();
 
-        currentScene->loopEntities([&](Scene::Entity& entity) {
+        currentScene->loopEntities([&](const Scene::Entity& entity) {
             SkyBox* skyBox      = currentScene->getComponent<SkyBox>(entity.id);
             DefaultShader* shdr = currentScene->getComponent<DefaultShader>(entity.id);
 
@@ -184,7 +184,7 @@ void RenderingSystem::renderOthers(Camera& currentCamera, Time& currentTime) {
             renderParticles(*particles[i], currentCamera, currentTime);
         }
 
-        currentScene->loopEntities([&](Scene::Entity& entity) {
+        currentScene->loopEntities([&](const Scene::Entity& entity) {
             DefaultShader* shader = currentScene->getComponent<DefaultShader>(entity.id);
 
             if (!shader || shader->getShaderType() != SHADER_TYPE::GUI) {

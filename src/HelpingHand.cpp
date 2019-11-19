@@ -4,8 +4,8 @@ int hh::getRandomRange(int minInclusive, int maxExclusive) {
     return minInclusive + rand() % (maxExclusive - minInclusive);
 }
 
-float hh::getRandomRange(float minInclusive, float maxExclusive) {
-    int randNum = static_cast<int>(minInclusive * 100) + rand() % static_cast<int>((maxExclusive - minInclusive) * 100);
+float hh::getRandomRange(float min, float max) {
+    int randNum = static_cast<int>(min * 100) + rand() % static_cast<int>((max + 1 - min) * 100);
     return static_cast<float>(randNum) / 100.0f;
 }
 

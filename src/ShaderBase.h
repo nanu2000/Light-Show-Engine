@@ -68,4 +68,35 @@ public:
     using ShaderBase::ShaderBase;
 };
 
+class NewShader : public Component<NewShader> {
+
+    NewShader() {}
+
+    void initialize(std::vector<Shaders::UniformName> uniformL, std::vector<Shaders::AttribName> attribL) {
+
+        uniformList = uniformL;
+        attribList  = attribL;
+    }
+
+    void use() {
+    }
+
+    void supply() {
+    }
+
+    void supplyAttrib() {
+    }
+
+    const std::vector<Shaders::AttribName>* getAttribList() const {
+        return &attribList;
+    }
+
+    const std::vector<Shaders::UniformName>* getUniformList() const {
+        return &uniformList;
+    }
+
+    std::vector<Shaders::UniformName> uniformList = std::vector<Shaders::UniformName>();
+    std::vector<Shaders::AttribName> attribList   = std::vector<Shaders::AttribName>();
+};
+
 #endif

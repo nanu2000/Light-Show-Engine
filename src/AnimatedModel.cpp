@@ -592,7 +592,7 @@ void _3DM::AnimatedModel::initializeTexture(_3DM::Mesh& mesh, ShaderBase& shader
             mesh.normalsIndex++;
             stringStream << mesh.normalsIndex;
 
-            mesh.textures.at(j).uniformName = Shaders::getUniformName(Shaders::UniformName::Normals) + stringStream.str();
+            mesh.textures.at(j).uniformName = Shaders::getUniformName(Shaders::UniformName::NormalTexture) + stringStream.str();
             continue;
         }
 

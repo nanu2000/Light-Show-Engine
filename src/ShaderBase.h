@@ -68,6 +68,7 @@ public:
     using ShaderBase::ShaderBase;
 };
 
+//Should retrieve uniforms from Shaders::UniformList
 class NewShader : public Component<NewShader> {
 
     NewShader() {}

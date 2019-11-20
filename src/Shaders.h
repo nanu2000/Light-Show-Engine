@@ -45,40 +45,39 @@ enum class UniformName {
 
     TextureCoordinates = 6,
     Position           = 7,
-    Normals            = 8,
 
-    ModelMatrix      = 9,
-    ViewMatrix       = 10,
-    ProjectionMatrix = 11,
+    ModelMatrix      = 8,
+    ViewMatrix       = 9,
+    ProjectionMatrix = 10,
 
-    ViewPosition     = 12,
-    LightSpaceMatrix = 13,
-    LightPosition    = 14,
+    ViewPosition     = 11,
+    LightSpaceMatrix = 12,
+    LightPosition    = 13,
 
-    FarPlane             = 15,
-    ShadowMatrices       = 16,
-    DirectionalShadowMap = 17,
-    PointShadowMap       = 18,
-    IsModelAnimated      = 19,
-    Color                = 20,
-    ProjectionViewMatrix = 21,
-    DepthMap             = 22,
-    NearPlane            = 23,
+    FarPlane             = 14,
+    ShadowMatrices       = 15,
+    DirectionalShadowMap = 16,
+    PointShadowMap       = 17,
+    IsModelAnimated      = 18,
+    Color                = 19,
+    ProjectionViewMatrix = 20,
+    DepthMap             = 21,
+    NearPlane            = 22,
 
-    DirectionalLightDirection = 24,
-    DirectionalLightAmbient   = 25,
-    DirectionalLightDiffuse   = 26,
-    DirectionalLightSpecular  = 27,
-    MaterialDiffuse           = 28,
-    MaterialAmbient           = 29,
-    MaterialSpecular          = 30,
-    MaterialShininess         = 31,
-    TimeMS                    = 33,
-    UNIFORM_NAME_COUNT        = 34
+    DirectionalLightDirection = 23,
+    DirectionalLightAmbient   = 24,
+    DirectionalLightDiffuse   = 25,
+    DirectionalLightSpecular  = 26,
+    MaterialDiffuse           = 27,
+    MaterialAmbient           = 28,
+    MaterialSpecular          = 29,
+    MaterialShininess         = 30,
+    TimeMS                    = 31,
+    UNIFORM_NAME_COUNT        = 32
 
 };
 
-static const char* UniformNames[34] = {
+static const char* UniformNames[32] = {
     "material.texture_diffuse",
     "material.texture_specular",
     "material.texture_normals",
@@ -87,7 +86,6 @@ static const char* UniformNames[34] = {
     "boneTransformation",
     "textureCoords",
     "position",
-    "normal",
     "model",
     "view",
     "projection",
@@ -128,6 +126,23 @@ enum class AttribName {
     AttribName_MAX = 8,
 };
 
+struct UniformListItem {
+    const char* data  = nullptr;
+    int32_t byteLengh = 0;
+};
+
+static UniformListItem UniformList[static_cast<int>(UniformName::UNIFORM_NAME_COUNT)];
+
+static const void supplyUniformToList(const UniformName& name, const char* data, int32_t byteLength) {
+
+    if (static_cast<int>(name) < static_cast<int>(UniformName::UNIFORM_NAME_COUNT)) {
+        UniformList[static_cast<int>(name)].byteLengh = byteLength;
+        UniformList[static_cast<int>(name)].data      = data;
+    } else {
+        DBG_LOG("Error supplying uniform to list. Shaders::supplyUniformToList()");
+    }
+}
+
 static const char* getUniformName(const UniformName& name) {
     if (name < UniformName::UNIFORM_NAME_COUNT) {
         return UniformNames[static_cast<int32_t>(name)];
@@ -143,5 +158,5 @@ static GLint getUniformLocation(GLint program, const UniformName& name) {
     return glGetUniformLocation(program, getUniformName(name));
 }
 
-}
+};
 #endif

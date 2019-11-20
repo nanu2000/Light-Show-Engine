@@ -22,7 +22,7 @@ private:
     float currentInterval      = 0.f;
     std::string currentFPS     = "0";
     std::string currentMSPF    = "0";
-    std::vector<int> fpsAVG;
+    int lastFPS                = 0;
 
     friend class DisplayStatisticsSystem;
 };

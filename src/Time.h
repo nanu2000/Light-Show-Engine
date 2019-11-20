@@ -2,6 +2,8 @@
 #define TIME_H
 class Application;
 
+#include "Debug.h"
+#include "GameInfo.h"
 #include <SDL.h>
 
 class Time {
@@ -10,8 +12,8 @@ public:
     double getMSPF() const {
         return currentMSPF;
     }
-    double getFPS() const {
-        return 1.0 / (currentMSPF / 1000.0);
+    int getFPS() const {
+        return fps;
     }
     uint64_t sinceStartMS32() const {
         return SDL_GetTicks();
@@ -27,7 +29,10 @@ public:
     }
 
 private:
-    uint64_t timeSinceStart = 0;
+    uint64_t timeSinceStart        = 0;
+    int fps                        = 0;
+    int currentFramesInSecond      = 0;
+    float timeElapsedForFPSCounter = 0;
 
     double currentMSPF = 0;
 
@@ -44,6 +49,7 @@ private:
     }
 
     void updateMSPF();
+    void updateFPS();
 
     friend Application;
 };

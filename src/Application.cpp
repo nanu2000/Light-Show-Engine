@@ -32,9 +32,11 @@ void Application::run() {
 	***********************************/
 
     currentTime.timeSinceStart = SDL_GetTicks();
-    currentTime.updateMSPF();
 
     while (isRunning) {
+
+        currentTime.updateMSPF();
+        currentTime.updateFPS();
 
         now = SDL_GetTicks();
 
@@ -42,7 +44,7 @@ void Application::run() {
 
         last = now;
 
-        PrivateGameInfo::deltaTime = static_cast<float>(frameTime * 10);
+        PrivateGameInfo::deltaTime = static_cast<float>(currentTime.getMSPF()) / 1000.0f;
 
         if (frameTime > 0.25) {
             frameTime = 0.25;
@@ -66,8 +68,6 @@ void Application::run() {
         //must be called before render.
         update();
         render();
-
-        currentTime.updateMSPF();
     }
 
     uninitialize(); //uninitialize the application

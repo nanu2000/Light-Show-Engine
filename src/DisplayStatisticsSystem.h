@@ -19,23 +19,16 @@ public:
             ds.lastUnit = unit;
         }
 
-        ds.currentInterval += GameInfo::fixedDeltaTime;
-        ds.fpsAVG.push_back(time.getFPS());
-
-        if (ds.currentInterval > ds.updateInterval) {
-
-            int average = std::accumulate(ds.fpsAVG.begin(), ds.fpsAVG.end(), 0) / ds.fpsAVG.size();
-
-            ds.currentFPS = "\nFPS: " + std::to_string(average);
-            ds.fpsAVG.resize(0);
-            ds.currentInterval = 0;
-        }
-
         double mspf     = floor(100 * time.getMSPF()) / 100;
         std::string str = std::to_string(mspf);
         str.erase(str.find_last_not_of('0') + 1, std::string::npos);
 
         ds.currentMSPF = "MSPF: " + str;
+
+        if (ds.lastFPS != time.getFPS()) {
+            ds.lastFPS    = time.getFPS();
+            ds.currentFPS = "\nFPS: " + std::to_string(ds.lastFPS);
+        }
 
         ds.guiString.setString(ds.currentMSPF + ds.currentFPS);
     }

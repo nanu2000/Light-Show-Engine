@@ -11,7 +11,7 @@ struct Transform {
 
     glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f); //Position of object
 
-    glm::quat rotation = glm::quat(1.0f, 1.0f, 1.0f, 1.0f); //Rotation of object
+    glm::quat rotation = glm::quat(.0f, .0f, .0f, 1.0f); //Rotation of object
 
     glm::vec3 scale = glm::vec3(1.0f, 1.0f, 1.0f); //Scale of object
 };

@@ -146,7 +146,6 @@ void EnemyTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
     }
 
     vitals.scene->addComponent(id, transform);
-    vitals.scene->addComponent(id, ai);
     vitals.scene->addComponent(id, info);
     vitals.scene->addComponent(id, controller);
     vitals.scene->addComponent(id, model);

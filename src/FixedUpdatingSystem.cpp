@@ -101,14 +101,6 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
             return false;
         }
 
-        if (TestEnemyAI* ai = currentScene->getComponent<TestEnemyAI>(entity.id)) {
-            if (EntityTransform* et = currentScene->getComponent<EntityTransform>(entity.id)) {
-                if (GlobalInformation* info = currentScene->getComponent<GlobalInformation>(entity.id)) {
-                    ai->fixedUpdate(*info, InputLocator::getService(), *et);
-                }
-            }
-        }
-
         if (ThirdPersonCamera* thisCamera = currentScene->getComponent<ThirdPersonCamera>(entity.id)) {
 
             if (thisCamera->isActive()) {
@@ -239,12 +231,11 @@ void FixedUpdatingSystem::updateCollision(const int32_t entity, CollisionMesh& c
 
             //3 prereqs for enemyctrlr sys
             GlobalInformation* globalInfo = currentScene->getComponent<GlobalInformation>(entity);
-            TestEnemyAI* ai               = currentScene->getComponent<TestEnemyAI>(entity);
             EntityTransform* et           = currentScene->getComponent<EntityTransform>(entity);
 
-            if (globalInfo && ai && et) {
+            if (globalInfo && et) {
 
-                systems->enemyControllerSystem.update(InputLocator::getService(), *et, collisionMesh, *physicsWorld, *globalInfo, *eController, *ai);
+                systems->enemyControllerSystem.update(InputLocator::getService(), *et, collisionMesh, *physicsWorld, *globalInfo, *eController);
 
                 animatedModel->transform = et->transform;
                 animatedModel->setAnimationClip(eController->getAnimationStateUint());

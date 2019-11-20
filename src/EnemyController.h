@@ -7,30 +7,20 @@
 #include <glm/geometric.hpp>
 
 enum class ENEMY_ANIMATION_STATE : uint8_t {
-    Walking = 3,
-    Jumping = 5,
-    Idle    = 6
+    Idle = 0
 };
 
 enum class ENEMY_ROTATION : uint8_t {
     Towards_Target,
-    Away_From_Target,
-    Away_From_Last_Target,
-    Random_Changing_Direction,
     Unknown
 };
 
-namespace ENEMY_CTRLR_NS {
-struct SlopeIntensity {
-    SlopeIntensity(float gravity, float depth) {
-        slopeGravity = gravity;
-        slopeAmount  = depth;
-    }
-
-    float slopeGravity = 0;
-    float slopeAmount  = 0;
+enum class ENEMY_MOVEMENT_TYPE : uint8_t {
+    Idle_Facing_Player    = 0,
+    Idle                  = 1,
+    Walk_Random_Direction = 2,
+    MAX                   = 3
 };
-}
 
 class EnemyController : public Component<EnemyController> {
 
@@ -53,13 +43,6 @@ private:
     ///////////////////////////////////////////////////////////////////////////////
     //Const Members
     ///////////////////////////////////////////////////////////////////////////////
-    static const unsigned int MAX_AMOUNT_SLOPE_CALCULATIONS = 3;
-
-    const ENEMY_CTRLR_NS::SlopeIntensity slopes[MAX_AMOUNT_SLOPE_CALCULATIONS] = {
-        ENEMY_CTRLR_NS::SlopeIntensity(10, .2f), //Must be in incrementing order.
-        ENEMY_CTRLR_NS::SlopeIntensity(30, .6f), //+
-        ENEMY_CTRLR_NS::SlopeIntensity(80, .8f) //++
-    };
 
     const float friction                   = 2.0f;
     const float damping                    = 7.0f;
@@ -72,12 +55,6 @@ private:
     const float colliderWidthAndDepth      = .4f;
 
     ///////////////////////////////////////////////////////////////////////////////
-    //Helper Functions
-    ///////////////////////////////////////////////////////////////////////////////
-    float getResistance() const;
-    bool canJump(const glm::vec3& lastPosition) const;
-
-    ///////////////////////////////////////////////////////////////////////////////
     //Normal members for logic performed in system.
     ///////////////////////////////////////////////////////////////////////////////
 
@@ -87,12 +64,13 @@ private:
     bool isTouchingGround = false;
     bool performJump      = false;
     bool jumping          = false;
-    glm::vec3 lastTouchedPosition;
-    glm::vec3 offsetFromCollider;
-    glm::vec3 rayNormal;
-    btVector3 currentSlopeIntensity;
-    ENEMY_ANIMATION_STATE currentState = ENEMY_ANIMATION_STATE::Idle;
-    ENEMY_ROTATION currentRotation = ENEMY_ROTATION::Towards_Target;
+
+    glm::vec3 offsetFromCollider = glm::vec3(0, 0, 0);
+    glm::vec3 rayNormal          = glm::vec3(0, 0, 0);
+
+    ENEMY_ANIMATION_STATE currentState   = ENEMY_ANIMATION_STATE::Idle;
+    ENEMY_ROTATION currentRotation       = ENEMY_ROTATION::Towards_Target;
+    ENEMY_MOVEMENT_TYPE enemyMovmentType = ENEMY_MOVEMENT_TYPE::Idle_Facing_Player;
 
     //Friend the system for this component
     friend class EnemyControllerSystem;

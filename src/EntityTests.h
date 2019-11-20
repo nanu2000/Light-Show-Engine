@@ -21,7 +21,6 @@
 #include "Scene.h"
 #include "Settings.h"
 #include "SkyBox.h"
-#include "TestEnemyAI.h"
 #include "TextMap.h"
 #include "ThirdPersonCamera.h"
 #include "ThirdPersonCameraControllerTest.h"
@@ -114,7 +113,6 @@ private:
     _3DM::AnimatedModel model = _3DM::AnimatedModel("assets/Models/player/player.3DMA");
 
     EntityTransform transform;
-    TestEnemyAI ai;
     GlobalInformation info;
     EnemyController controller = EnemyController(glm::vec3(0, -2, 0));
     CollisionMesh collisionMesh;

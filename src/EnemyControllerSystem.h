@@ -9,7 +9,6 @@
 #include "GlobalInformation.h"
 #include "PhysicsWorld.h"
 #include "RayCaster.h"
-#include "TestEnemyAI.h"
 #include "ThirdPersonCamera.h"
 
 namespace ENEMY_CTRLR_NS {
@@ -25,14 +24,12 @@ public:
         assert(ENEMY_CTRLR_NS::AMOUNT_OF_RAYS == 4);
     }
 
-    void update(Input& input, EntityTransform& modelsTransform, CollisionMesh& mesh, PhysicsWorld& world, const GlobalInformation& globalInformation, EnemyController& enemyController, const TestEnemyAI& ai);
+    void update(Input& input, EntityTransform& modelsTransform, CollisionMesh& mesh, PhysicsWorld& world, const GlobalInformation& globalInformation, EnemyController& enemyController);
 
 private:
     RayCaster rayCast[ENEMY_CTRLR_NS::AMOUNT_OF_RAYS];
 
-    void performJump(CollisionMesh& collisionMesh, float jumpVelocity);
-
-    void calculateMovment(Input& input, const glm::quat& rotation, const glm::vec3& playersPosition, CollisionMesh& collisionMesh, EnemyController& enemyController, const TestEnemyAI& ai);
+    void calculateMovment(Input& input, const glm::quat& rotation, const glm::vec3& playersPosition, CollisionMesh& collisionMesh, EnemyController& enemyController);
 
     void handleRayHit(EnemyController& enemyController, CollisionMesh& collisionMesh, float closest);
 
@@ -42,15 +39,11 @@ private:
 
     void executeRayTesting(EnemyController& enemyController, CollisionMesh& collisionMesh, const Transform& meshTransform, PhysicsWorld& world);
 
-    glm::vec3 getSlopeSpeed(float sensitivity, const glm::vec3& rayNormal) { return rayNormal * sensitivity * GameInfo::fixedDeltaTime; }
-
-    int getCurrentSlopeSpeedIndex(const glm::vec3& rayNormal, const EnemyController& enemyController);
-
     void performCommands(CollisionMesh& collisionMesh, EnemyController& enemyController);
 
     void applyForces(CollisionMesh& collisionMesh, EnemyController& enemyController);
 
-    void applyNewTransform(CollisionMesh& mesh, const glm::vec3& playersPosition, EnemyController& enemyController, Transform& oldTransform, const TestEnemyAI& ai);
+    void applyNewTransform(CollisionMesh& mesh, const glm::vec3& playersPosition, EnemyController& enemyController, Transform& oldTransform);
 };
 
 #endif

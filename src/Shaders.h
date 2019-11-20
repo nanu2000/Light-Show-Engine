@@ -10,9 +10,10 @@ const std::string SHADOW_FILTERING_TAG = "/*SF*/";
 
 enum class SHADER_TYPE {
     Default         = 0,
-    Particle        = 1,
-    GUI             = 2,
-    SHADER_TYPE_MAX = 3
+    Lit             = 1,
+    Particle        = 2,
+    GUI             = 3,
+    SHADER_TYPE_MAX = 4
 };
 
 enum SHADER_TASK {
@@ -68,12 +69,13 @@ enum class UniformName {
     DirectionalLightAmbient   = 24,
     DirectionalLightDiffuse   = 25,
     DirectionalLightSpecular  = 26,
-    MaterialDiffuse           = 27,
-    MaterialAmbient           = 28,
-    MaterialSpecular          = 29,
-    MaterialShininess         = 30,
-    TimeMS                    = 31,
-    UNIFORM_NAME_COUNT        = 32
+
+    MaterialDiffuse    = 27,
+    MaterialAmbient    = 28,
+    MaterialSpecular   = 29,
+    MaterialShininess  = 30,
+    TimeMS             = 31,
+    UNIFORM_NAME_COUNT = 32
 
 };
 
@@ -125,23 +127,6 @@ enum class AttribName {
 
     AttribName_MAX = 8,
 };
-
-struct UniformListItem {
-    const char* data  = nullptr;
-    int32_t byteLengh = 0;
-};
-
-static UniformListItem UniformList[static_cast<int>(UniformName::UNIFORM_NAME_COUNT)];
-
-static const void supplyUniformToList(const UniformName& name, const char* data, int32_t byteLength) {
-
-    if (static_cast<int>(name) < static_cast<int>(UniformName::UNIFORM_NAME_COUNT)) {
-        UniformList[static_cast<int>(name)].byteLengh = byteLength;
-        UniformList[static_cast<int>(name)].data      = data;
-    } else {
-        DBG_LOG("Error supplying uniform to list. Shaders::supplyUniformToList()");
-    }
-}
 
 static const char* getUniformName(const UniformName& name) {
     if (name < UniformName::UNIFORM_NAME_COUNT) {

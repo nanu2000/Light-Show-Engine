@@ -45,9 +45,6 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
     if (areVitalsNull()) {
         return;
     }
-    Shaders::supplyUniformToList(Shaders::UniformName::Color, nullptr, 10);
-    DBG_LOG("%i\n", Shaders::UniformList[(int)Shaders::UniformName::Color].byteLengh);
-    DBG_LOG("%i\n", Shaders::UniformList[40].byteLengh);
 
     bool isPauseMenuShowing = updateGUI(time, pointLightDepthMap, directionalLightDepthMap);
 

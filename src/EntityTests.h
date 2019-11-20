@@ -13,13 +13,13 @@
 #include "GuiSprite.h"
 #include "GuiString.h"
 #include "Lights.h"
-#include "LitShader.h"
 #include "Material.h"
 #include "PauseMenu.h"
 #include "PlayerCameraHandler.h"
 #include "PlayerController.h"
 #include "Scene.h"
 #include "Settings.h"
+#include "Shader.h"
 #include "SkyBox.h"
 #include "TextMap.h"
 #include "ThirdPersonCamera.h"
@@ -52,7 +52,7 @@ private:
     std::vector<PointLight> lights = std::vector<PointLight>(4);
     DirectionalLight directionalLight;
     SkyBox skyBox;
-    DefaultShader skyBoxShader;
+    Shader skyBoxShader;
 };
 
 class ParticleTest : public EntityWrapper {
@@ -62,7 +62,7 @@ public:
 
 private:
     Particles particles = Particles(10000);
-    DefaultShader particleShader;
+    Shader particleShader;
     FountainParticleEmitter particleTest;
 };
 
@@ -73,7 +73,7 @@ public:
 
 private:
     DisplayStatistics statDisplayer;
-    DefaultShader textShader;
+    Shader textShader;
 
     ThirdPersonCamera camera;
     DebuggingController dbgController;
@@ -89,7 +89,7 @@ public:
 private:
     _3DM::AnimatedModel model = _3DM::AnimatedModel("assets/Models/player/player.3DMA");
 
-    DefaultShader textShader;
+    Shader textShader;
 
     PauseMenu menu;
 
@@ -100,7 +100,7 @@ private:
     CollisionMesh collisionMesh;
     PlayerController testController = PlayerController(glm::vec3(0, -2, 0));
     SimpleMaterial material;
-    LitShader shader;
+    Shader shader;
     BoneCollisionMesh bCollisionMesh;
 };
 
@@ -117,7 +117,7 @@ private:
     EnemyController controller = EnemyController(glm::vec3(0, -2, 0));
     CollisionMesh collisionMesh;
     SimpleMaterial material;
-    LitShader shader;
+    Shader shader;
 };
 
 class CubeTrigger : public EntityWrapper {
@@ -129,7 +129,7 @@ private:
     _3DM::Model model = _3DM::Model("assets/Models/cube.3DM");
     CollisionMesh collisionMesh;
     Material material;
-    LitShader shader;
+    Shader shader;
 };
 
 class FloorObject : public EntityWrapper {
@@ -141,7 +141,7 @@ private:
     _3DM::Model cm    = _3DM::Model("assets/Models/testlevel_cm.3DM");
     CollisionMesh collisionMesh;
     Material floorMaterial;
-    LitShader shader;
+    Shader shader;
 };
 
 #endif

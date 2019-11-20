@@ -1,5 +1,5 @@
-#include "LitShader.h"
-void LitShader::recompileShader(const Settings& currentSettings) {
+#include "Shader.h"
+void Shader::recompileShader(const Settings& currentSettings) {
 
     std::string vertexCode   = "";
     std::string fragmentCode = "";
@@ -20,7 +20,7 @@ void LitShader::recompileShader(const Settings& currentSettings) {
     }
 }
 
-LitShader::LitShader(const Settings& currentSettings, const std::string& vertexPath, const std::string& fragmentPath, const SHADER_TYPE& type, const std::string& geometryPath) {
+Shader::Shader(const Settings& currentSettings, const std::string& vertexPath, const std::string& fragmentPath, const SHADER_TYPE& type, const std::string& geometryPath) {
 
     std::string vertexCode   = "";
     std::string fragmentCode = "";
@@ -48,7 +48,7 @@ LitShader::LitShader(const Settings& currentSettings, const std::string& vertexP
     }
 }
 
-void LitShader::setPointLight(const Settings& currentSettings, const PointLight& light, unsigned int index) {
+void Shader::setPointLight(const Settings& currentSettings, const PointLight& light, unsigned int index) {
     if (index < currentSettings.getLightsPerEntity()) {
         std::string location = "pointLights[" + std::to_string(index);
 
@@ -62,42 +62,52 @@ void LitShader::setPointLight(const Settings& currentSettings, const PointLight&
     }
 }
 
-void LitShader::setDirectionalLight(const DirectionalLight& directionalLight) {
+void Shader::setDirectionalLight(const DirectionalLight& directionalLight) {
     supplyVec3fUniform(Shaders::getUniformName(Shaders::UniformName::DirectionalLightDirection), directionalLight.direction);
     supplyVec3fUniform(Shaders::getUniformName(Shaders::UniformName::DirectionalLightAmbient), directionalLight.ambient);
     supplyVec3fUniform(Shaders::getUniformName(Shaders::UniformName::DirectionalLightDiffuse), directionalLight.diffuse);
     supplyVec3fUniform(Shaders::getUniformName(Shaders::UniformName::DirectionalLightSpecular), directionalLight.specular);
 }
 
-void LitShader::setMaterial(const Material& material) {
+void Shader::setMaterial(const Material& material) {
     supplyVec3fUniform(Shaders::getUniformName(Shaders::UniformName::MaterialDiffuse), material.diffuse);
     supplyVec3fUniform(Shaders::getUniformName(Shaders::UniformName::MaterialAmbient), material.ambient);
     supplyVec3fUniform(Shaders::getUniformName(Shaders::UniformName::MaterialSpecular), material.specular);
     supply1fUniform(Shaders::getUniformName(Shaders::UniformName::MaterialShininess), material.shininess);
 }
 
-void LitShader::setSimpleMaterial(const SimpleMaterial& material) {
+void Shader::setSimpleMaterial(const SimpleMaterial& material) {
     setShininess(material.shininess);
 }
 
-void LitShader::setShininess(const float& shininess) {
+void Shader::setShininess(const float& shininess) {
     supply1fUniform(Shaders::getUniformName(Shaders::UniformName::MaterialShininess), shininess);
 }
 
-void LitShader::updateTagValues(const Settings& currentSettings, std::string& fragmentCode) {
+void Shader::updateTagValues(const Settings& currentSettings, std::string& fragmentCode) {
 
-    updateTagValue(
-        Shaders::MAX_LIGHT_TAG,
-        std::to_string(currentSettings.getLightsPerEntity()),
-        fragmentCode);
+    if (shaderType != SHADER_TYPE::Lit) {
+        return;
+    }
 
-    updateTagValue(
-        Shaders::SHADOW_INTENSITY_TAG,
-        std::to_string(currentSettings.getShadowIntensity()),
-        fragmentCode);
+    try {
 
-    updateTagValue(
-        Shaders::SHADOW_FILTERING_TAG,
-        std::to_string(currentSettings.getShadowFilterAmount()),
-        fragmentCode);
+        updateTagValue(
+            Shaders::MAX_LIGHT_TAG,
+            std::to_string(currentSettings.getLightsPerEntity()),
+            fragmentCode);
+
+        updateTagValue(
+            Shaders::SHADOW_INTENSITY_TAG,
+            std::to_string(currentSettings.getShadowIntensity()),
+            fragmentCode);
+
+        updateTagValue(
+            Shaders::SHADOW_FILTERING_TAG,
+            std::to_string(currentSettings.getShadowFilterAmount()),
+            fragmentCode);
+
+    } catch (const std::exception& e) {
+        DBG_LOG("Exception e: %s\n", e.what());
+    }
 }

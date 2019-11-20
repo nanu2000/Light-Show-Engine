@@ -7,10 +7,10 @@
 #include "GuiButton.h"
 #include "GuiSprite.h"
 #include "GuiString.h"
-#include "LitShader.h"
 #include "Model.h"
 #include "PointLightShadowMap.h"
 #include "Scene.h"
+#include "Shader.h"
 #include "SystemBase.h"
 #include "ThirdPersonCamera.h"
 
@@ -34,7 +34,7 @@ private:
     void renderOthers(Camera& currentCamera, Time& currentTime);
     void renderParticles(Particles& particles, Camera& currentCamera, Time& currentTime);
 
-    void initializeLights(LitShader& litShader);
+    void initializeLights(Shader& litShader);
     void initializeModels(ShaderBase& shader, const int32_t& entity);
 
     //Prepares and retrieves the first shader found in scene that is associated with entity.

@@ -11,28 +11,31 @@ void RenderingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld&
         if (SkyBox* skyBox = currentScene->getComponent<SkyBox>(entity.id)) {
             systems->skyBoxSystem.init(*skyBox);
         }
-        if (LitShader* shader = currentScene->getComponent<LitShader>(entity.id)) {
-            initializeLights(*shader);
-            initializeModels(*shader, entity.id);
+        if (Shader* shader = currentScene->getComponent<Shader>(entity.id)) {
 
-            if (Material* mat = currentScene->getComponent<Material>(entity.id)) {
-                shader->setMaterial(*mat);
-            }
-            if (SimpleMaterial* mat = currentScene->getComponent<SimpleMaterial>(entity.id)) {
-                shader->setSimpleMaterial(*mat);
-            }
-        }
+            if (shader->getShaderType() == SHADER_TYPE::Lit) {
 
-        if (DefaultShader* shader = currentScene->getComponent<DefaultShader>(entity.id)) {
+                initializeLights(*shader);
+                initializeModels(*shader, entity.id);
+
+                if (Material* mat = currentScene->getComponent<Material>(entity.id)) {
+                    shader->setMaterial(*mat);
+                }
+                if (SimpleMaterial* mat = currentScene->getComponent<SimpleMaterial>(entity.id)) {
+                    shader->setSimpleMaterial(*mat);
+                }
+            }
+
             if (shader->getShaderType() == SHADER_TYPE::Default) {
                 initializeModels(*shader, entity.id);
             }
         }
+
         return false;
     });
 }
 
-void RenderingSystem::initializeLights(LitShader& litShader) {
+void RenderingSystem::initializeLights(Shader& litShader) {
 
     const std::vector<PointLight*>& pointLights = currentScene->getAllComponentsOfType<PointLight>();
 
@@ -89,10 +92,14 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
         return;
     }
 
-    const std::vector<LitShader*>& litShaders = currentScene->getAllComponentsOfType<LitShader>();
+    const std::vector<Shader*>& shaders = currentScene->getAllComponentsOfType<Shader>();
 
-    for (unsigned int i = 0; i < litShaders.size(); i++) {
-        initializeLights(*litShaders.at(i));
+    for (unsigned int i = 0; i < shaders.size(); i++) {
+        if (shaders.at(i)->getShaderType() != SHADER_TYPE::Lit) {
+            continue;
+        }
+
+        initializeLights(*shaders.at(i));
     }
 
     renderDebugging(*currentCamera);
@@ -136,21 +143,26 @@ void RenderingSystem::renderModels(Camera& currentCamera, Time& currentTime, Poi
             return false;
         }
 
-        if (LitShader* shdr = currentScene->getComponent<LitShader>(entity.id)) {
+        if (Shader* shdr = currentScene->getComponent<Shader>(entity.id)) {
 
-            shdr->useProgram();
-            supplyLitShaderUniforms(*shdr, pointLightDepthMap, directionalLightDepthMap, currentCamera, currentTime);
-            glUniform1i(Shaders::getUniformLocation(shdr->getProgramID(), Shaders::UniformName::IsModelAnimated), isAnimated);
+            if (shdr->getShaderType() == SHADER_TYPE::Lit) {
 
-            modelToRender->renderAll(*shdr);
-        } else if (DefaultShader* dshdr = currentScene->getComponent<DefaultShader>(entity.id)) {
+                shdr->useProgram();
+                supplyLitShaderUniforms(*shdr, pointLightDepthMap, directionalLightDepthMap, currentCamera, currentTime);
+                glUniform1i(Shaders::getUniformLocation(shdr->getProgramID(), Shaders::UniformName::IsModelAnimated), isAnimated);
 
-            dshdr->useProgram();
-            supplyDefaultShaderUniforms(*dshdr, currentCamera, currentTime);
+                modelToRender->renderAll(*shdr);
+            }
 
-            glUniform1i(Shaders::getUniformLocation(dshdr->getProgramID(), Shaders::UniformName::IsModelAnimated), isAnimated);
+            if (shdr->getShaderType() == SHADER_TYPE::Default) {
 
-            modelToRender->renderAll(*dshdr);
+                shdr->useProgram();
+                supplyDefaultShaderUniforms(*shdr, currentCamera, currentTime);
+
+                glUniform1i(Shaders::getUniformLocation(shdr->getProgramID(), Shaders::UniformName::IsModelAnimated), isAnimated);
+
+                modelToRender->renderAll(*shdr);
+            }
         }
 
         return false;
@@ -165,10 +177,14 @@ void RenderingSystem::renderOthers(Camera& currentCamera, Time& currentTime) {
         const std::vector<Particles*>& particles = currentScene->getAllComponentsOfType<Particles>();
 
         currentScene->loopEntities([&](const Scene::Entity& entity) {
-            SkyBox* skyBox      = currentScene->getComponent<SkyBox>(entity.id);
-            DefaultShader* shdr = currentScene->getComponent<DefaultShader>(entity.id);
+            SkyBox* skyBox = currentScene->getComponent<SkyBox>(entity.id);
+            Shader* shdr   = currentScene->getComponent<Shader>(entity.id);
 
             if (!skyBox || !shdr) {
+                return false;
+            }
+
+            if (shdr->getShaderType() != SHADER_TYPE::Default) {
                 return false;
             }
 
@@ -184,7 +200,7 @@ void RenderingSystem::renderOthers(Camera& currentCamera, Time& currentTime) {
         }
 
         currentScene->loopEntities([&](const Scene::Entity& entity) {
-            DefaultShader* shader = currentScene->getComponent<DefaultShader>(entity.id);
+            Shader* shader = currentScene->getComponent<Shader>(entity.id);
 
             if (!shader || shader->getShaderType() != SHADER_TYPE::GUI) {
                 return false;
@@ -215,7 +231,7 @@ void RenderingSystem::renderOthers(Camera& currentCamera, Time& currentTime) {
 void RenderingSystem::renderParticles(Particles& particles,
                                       Camera& currentCamera,
                                       Time& currentTime) {
-    if (DefaultShader* thisShader = currentScene->getComponent<DefaultShader>(particles.getEntityID())) {
+    if (Shader* thisShader = currentScene->getComponent<Shader>(particles.getEntityID())) {
         // Check to see if the shader is a particle shader
         if (thisShader->getShaderType() == SHADER_TYPE::Particle) {
             supplyParticleShaderUniforms(*thisShader, currentCamera, currentTime);
@@ -245,7 +261,9 @@ RenderingSystem::prepareShader(
     Camera& currentCamera,
     Time& currentTime) {
     ShaderBase* thisShader;
-    if (thisShader = currentScene->getComponent<DefaultShader>(entity)) {
+
+    if (thisShader = currentScene->getComponent<Shader>(entity)) {
+
         if (thisShader->getShaderType() == SHADER_TYPE::Default) {
             if (currentScene->isEntityActive(entity)) {
                 thisShader->useProgram();
@@ -253,10 +271,8 @@ RenderingSystem::prepareShader(
                 return thisShader;
             }
         }
-    }
 
-    if (thisShader = currentScene->getComponent<LitShader>(entity)) {
-        if (thisShader->getShaderType() == SHADER_TYPE::Default) {
+        if (thisShader->getShaderType() == SHADER_TYPE::Lit) {
             if (currentScene->isEntityActive(entity)) {
                 thisShader->useProgram();
                 supplyLitShaderUniforms(*thisShader,

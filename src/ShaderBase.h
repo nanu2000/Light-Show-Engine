@@ -63,41 +63,4 @@ protected:
     SHADER_TYPE shaderType = SHADER_TYPE::Default;
 };
 
-class DefaultShader : public ShaderBase, public Component<DefaultShader> {
-public:
-    using ShaderBase::ShaderBase;
-};
-
-//Should retrieve uniforms from Shaders::UniformList
-class NewShader : public Component<NewShader> {
-
-    NewShader() {}
-
-    void initialize(std::vector<Shaders::UniformName> uniformL, std::vector<Shaders::AttribName> attribL) {
-
-        uniformList = uniformL;
-        attribList  = attribL;
-    }
-
-    void use() {
-    }
-
-    void supply() {
-    }
-
-    void supplyAttrib() {
-    }
-
-    const std::vector<Shaders::AttribName>* getAttribList() const {
-        return &attribList;
-    }
-
-    const std::vector<Shaders::UniformName>* getUniformList() const {
-        return &uniformList;
-    }
-
-    std::vector<Shaders::UniformName> uniformList = std::vector<Shaders::UniformName>();
-    std::vector<Shaders::AttribName> attribList   = std::vector<Shaders::AttribName>();
-};
-
 #endif

@@ -6,12 +6,12 @@
 #include "Settings.h"
 #include "ShaderBase.h"
 
-class LitShader : public Component<LitShader>, public ShaderBase {
+class Shader : public Component<Shader>, public ShaderBase {
 
 public:
-    LitShader() {}
+    Shader() {}
 
-    LitShader(const Settings& currentSettings, const std::string& vertexPath, const std::string& fragmentPath, const SHADER_TYPE& type, const std::string& geometryPath = "");
+    Shader(const Settings& currentSettings, const std::string& vertexPath, const std::string& fragmentPath, const SHADER_TYPE& type, const std::string& geometryPath = "");
 
     void recompileShader(const Settings& currentSettings);
 

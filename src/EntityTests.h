@@ -62,7 +62,7 @@ public:
     void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
-    Particles particles = Particles(100);
+    Particles particles = Particles(10000);
     DefaultShader particleShader;
     FountainParticleEmitter particleTest;
 };

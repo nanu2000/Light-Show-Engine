@@ -1,7 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
-#include "FixedUpdatingSystem.h"
 #include "EntityTests.h"
+#include "FixedUpdatingSystem.h"
 #include "Messenger.h"
 #include "RenderingSystem.h"
 #include "UpdatingSystem.h"
@@ -28,7 +28,7 @@ private:
     void renderDirectionalDepthMap();
     void readBackendEventQueue();
 
-    WorldSettings worldSettings = WorldSettings(GameInfo::DEFAULT_GRAVITY, glm::vec3(-5, 0, 0));
+    WorldSettings worldSettings = WorldSettings(GameInfo::DEFAULT_GRAVITY, glm::vec3(-20, 0, 10));
     PhysicsWorld physicsWorld   = PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
 
     Scene currentScene;

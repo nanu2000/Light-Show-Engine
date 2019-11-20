@@ -58,6 +58,7 @@ public:
     void renderParticles(ShaderBase& shader, Particles& particlesWrapper);
     void fixedUpdateParticles(int amountPerSecond, Particles& particlesWrapper);
     void fixedUpdateParticles(Particles& particlesWrapper);
+    void updateParticles(Particles& particlesWrapper);
 
     unsigned int getParticlesPerSecond() { return particlesPerSecond; }
 

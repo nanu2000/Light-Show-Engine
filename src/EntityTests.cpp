@@ -15,16 +15,16 @@ void ParticleTest::initialize(EntityWrapper::EntityVitals& vitals) {
     particleTest.initialize(*vitals.worldSettings);
 
     particleTest.setWeight(1);
-    particleTest.setFountainPull(10);
-    particleTest.setFountainSpread(3.f);
-    particleTest.setDefaultLifeTime(1.f);
-    particleTest.setDefaultEndScale(2.f);
-    particleTest.setDefaultStartScale(.2f);
-    particleTest.setParticlesPerSecond(100);
-    particleTest.setFountainVerticalForce(15);
+    particleTest.setFountainPull(5);
+    particleTest.setFountainSpread(5.f);
+    particleTest.setDefaultLifeTime(2.f);
+    particleTest.setDefaultEndScale(.4f);
+    particleTest.setDefaultStartScale(.1f);
+    particleTest.setParticlesPerSecond(4999);
+    particleTest.setFountainVerticalForce(10);
 
-    particleTest.emmisionPosition = glm::vec3(15, 2, -2);
-    particleTest.setDefaultColor(glm::vec4(.15f, .15f, .15f, .5f));
+    particleTest.emmisionPosition = glm::vec3(42, 8, -5);
+    particleTest.setDefaultColor(glm::vec4(.15f, .35f, .65f, .1f));
 
     vitals.scene->addComponent(id, particles);
     vitals.scene->addComponent(id, particleTest);

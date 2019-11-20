@@ -2,9 +2,11 @@
 #define UPDATING_SYSTEM
 
 #include "CollisionMesh.h"
+#include "FountainParticleEmitter.h"
 #include "GlobalInformation.h"
 #include "Locator.h"
 #include "Messenger.h"
+#include "ParticleSystem.h"
 #include "PauseMenu.h"
 #include "Scene.h"
 #include "Settings.h"

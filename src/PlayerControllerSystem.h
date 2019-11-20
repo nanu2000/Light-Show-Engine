@@ -23,7 +23,7 @@ public:
         assert(PLR_CTRLR_NS::AMOUNT_OF_RAYS == 4);
     }
 
-    void update(Transform& modelsTransform, PlayerController& playerController, Camera& camera);
+    void update(Transform& modelsTransform, PlayerController& playerController, Camera& camera, CollisionMesh& mesh);
     void fixedUpdate(Input& input, Transform& modelsTransform, CollisionMesh& mesh, PhysicsWorld& world, PlayerController& playerController, Camera& camera, const UserControls& userControls);
 
 private:

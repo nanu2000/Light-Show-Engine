@@ -103,11 +103,10 @@ int PlayerControllerSystem::getLowestRayHitIndex(const RayCaster& rayResults, Pl
 }
 
 void PlayerControllerSystem::performJump(CollisionMesh& collisionMesh, float jumpVelocity) {
-    collisionMesh.setVelocity(
-        btVector3(
-            collisionMesh.getVelocitybt().x(),
-            jumpVelocity,
-            collisionMesh.getVelocitybt().z()));
+    collisionMesh.applyCentralImpulse(
+        btVector3(0,
+                  jumpVelocity,
+                  0));
 }
 
 ControllerRayCollision PlayerControllerSystem::getLowestRayHitForAllRays(PlayerController& playerController) {
@@ -204,7 +203,6 @@ void PlayerControllerSystem::executeRayTesting(PlayerController& playerControlle
 void PlayerControllerSystem::applyNewTransform(CollisionMesh& mesh, const glm::vec3& cameraForward, const PlayerController& playerController, Transform& currentTransform) {
 
     currentTransform.position = mesh.getPosition() + playerController.offsetFromCollider;
-    applyNewRotation(cameraForward, playerController, currentTransform);
 }
 
 void PlayerControllerSystem::applyNewRotation(const glm::vec3& cameraForward, const PlayerController& playerController, Transform& currentTransform) {
@@ -242,7 +240,13 @@ void PlayerControllerSystem::fixedUpdate(Input& input, Transform& modelsTransfor
     ///////////////////
 }
 
-void PlayerControllerSystem::update(Transform& modelsTransform, PlayerController& playerController, Camera& camera) {
+void PlayerControllerSystem::update(Transform& modelsTransform, PlayerController& playerController, Camera& camera, CollisionMesh& mesh) {
+
+    //Normally we would update model position here, however doing this:
+    //btTransform b;
+    //mesh.getMotionState()->getWorldTransform(b);
+    //modelsTransform.position = hh::toGlmVec3(b.getOrigin()) + playerController.offsetFromCollider;
+    //will result in lag. https://gamedev.stackexchange.com/questions/140865/graphical-mesh-lags-behind-collision-shape-in-bulletphysics-debug-drawing
 
     /////////////////Transform Model Orientation according to collision mesh and camera.
     applyNewRotation(camera.getForward(), playerController, modelsTransform);

@@ -60,7 +60,10 @@ void UpdatingSystem::update() {
 
             if (PlayerController* controller = currentScene->getComponent<PlayerController>(entity)) {
 
-                systems->playerControllerSystem.update(animatedModel->transform, *controller, *thirdPersonCamera);
+                if (CollisionMesh* cmesh = currentScene->getComponent<CollisionMesh>(entity)) {
+
+                    systems->playerControllerSystem.update(animatedModel->transform, *controller, *thirdPersonCamera, *cmesh);
+                }
             }
         }
     }

@@ -11,11 +11,7 @@ public:
     void setThirdPersonCameraTargetPosition(PlayerCameraHandler& playerController, const Transform& modelsTransform, ThirdPersonCamera& camera) {
         //Modify this once a new camera controller component is created
 
-        float newYPosition
-            = hh::lerp(
-                camera.getTargetPosition().y,
-                modelsTransform.position.y + playerController.getCameraTargetOffset()->y,
-                glm::clamp(GameInfo::getDeltaTime() * playerController.getYinterpolationSpeed(), 0.0f, 1.0f));
+        float newYPosition = modelsTransform.position.y + playerController.getCameraTargetOffset()->y;
 
         camera.setTargetPosition(
             glm::vec3(

@@ -5,7 +5,6 @@
 #include "DayNightCycleSystem.h"
 #include "DisplayStatisticsSystem.h"
 #include "EnemyControllerSystem.h"
-#include "EntityStatsDisplayerSystem.h"
 #include "FirstPersonCameraSystem.h"
 #include "PauseMenuSystem.h"
 #include "PlayerCameraHandlingSystem.h"
@@ -15,7 +14,6 @@
 
 struct SubSystems {
     PauseMenuSystem pauseMenuSystem;
-    EntityStatsDisplayerSystem EntityStatsDisplayerSystem;
     DisplayStatisticsSystem displayStatisticsSystem;
 
     GUIResizingInformation guiResizingInfo;

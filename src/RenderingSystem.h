@@ -35,16 +35,16 @@ private:
     void renderParticles(Particles& particles, Camera& currentCamera, Time& currentTime);
 
     void initializeLights(Shader& litShader);
-    void initializeModels(ShaderBase& shader, const int32_t& entity);
+    void initializeModels(Shader& shader, const int32_t& entity);
 
     //Prepares and retrieves the first shader found in scene that is associated with entity.
     //**Does use program.
-    ShaderBase* prepareShader(const int32_t& entity, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Camera& currentCamera, Time& currentTime);
+    Shader* prepareShader(const int32_t& entity, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Camera& currentCamera, Time& currentTime);
 
-    void supplyLitShaderUniforms(ShaderBase& shader, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Camera& currentCamera, Time& currentTime);
+    void supplyLitShaderUniforms(Shader& shader, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Camera& currentCamera, Time& currentTime);
 
-    void supplyDefaultShaderUniforms(ShaderBase& shader, Camera& currentCamera, Time& currentTime);
+    void supplyDefaultShaderUniforms(Shader& shader, Camera& currentCamera, Time& currentTime);
 
-    void supplyParticleShaderUniforms(ShaderBase& particleShader, Camera& currentCamera, Time& currentTime);
+    void supplyParticleShaderUniforms(Shader& particleShader, Camera& currentCamera, Time& currentTime);
 };
 #endif

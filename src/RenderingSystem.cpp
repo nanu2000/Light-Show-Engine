@@ -63,7 +63,7 @@ void RenderingSystem::initializeLights(Shader& litShader) {
     }
 }
 
-void RenderingSystem::initializeModels(ShaderBase& shader, const int32_t& entity) {
+void RenderingSystem::initializeModels(Shader& shader, const int32_t& entity) {
     if (_3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(entity)) {
         animatedModel->initialize(shader);
     }
@@ -109,16 +109,17 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
 
 void RenderingSystem::renderDebugging(Camera& currentCamera) {
     // Execute debug drawing if enabled
-    if (ShaderBase::getShaderTask() == SHADER_TASK::Normal_Render_Task) {
-
-        const std::vector<DebuggingController*>& debugControllers = currentScene->getAllComponentsOfType<DebuggingController>();
-
-        for (unsigned int i = 0; i < debugControllers.size(); i++) {
-            debugControllers[i]->executeDebugRendering(*physicsWorld, *currentCamera.getViewMatrix(), *currentCamera.getProjectionMatrix());
-        }
-
-        systems->dayNightCycleSystem.debugRender(*currentCamera.getViewMatrix(), *currentCamera.getProjectionMatrix());
+    if (Shader::getShaderTask() != SHADER_TASK::Normal_Render_Task) {
+        return;
     }
+
+    const std::vector<DebuggingController*>& debugControllers = currentScene->getAllComponentsOfType<DebuggingController>();
+
+    for (unsigned int i = 0; i < debugControllers.size(); i++) {
+        debugControllers[i]->executeDebugRendering(*physicsWorld, *currentCamera.getViewMatrix(), *currentCamera.getProjectionMatrix());
+    }
+
+    systems->dayNightCycleSystem.debugRender(*currentCamera.getViewMatrix(), *currentCamera.getProjectionMatrix());
 }
 
 void RenderingSystem::renderModels(Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
@@ -172,65 +173,57 @@ void RenderingSystem::renderModels(Camera& currentCamera, Time& currentTime, Poi
 void RenderingSystem::renderOthers(Camera& currentCamera, Time& currentTime) {
 
     // Render Particles and GUI
-    if (ShaderBase::getShaderTask() == SHADER_TASK::Normal_Render_Task) {
+    if (Shader::getShaderTask() != SHADER_TASK::Normal_Render_Task) {
+        return;
+    }
 
-        const std::vector<Particles*>& particles = currentScene->getAllComponentsOfType<Particles>();
+    const std::vector<Particles*>& particles = currentScene->getAllComponentsOfType<Particles>();
 
-        currentScene->loopEntities([&](const Scene::Entity& entity) {
-            SkyBox* skyBox = currentScene->getComponent<SkyBox>(entity.id);
-            Shader* shdr   = currentScene->getComponent<Shader>(entity.id);
+    currentScene->loopEntities([&](const Scene::Entity& entity) {
+        SkyBox* skyBox = currentScene->getComponent<SkyBox>(entity.id);
+        Shader* shdr   = currentScene->getComponent<Shader>(entity.id);
 
-            if (!skyBox || !shdr) {
-                return false;
-            }
-
-            if (shdr->getShaderType() != SHADER_TYPE::Default) {
-                return false;
-            }
-
-            shdr->useProgram();
-            supplyDefaultShaderUniforms(*shdr, currentCamera, currentTime);
-            systems->skyBoxSystem.render(*skyBox, currentCamera, *shdr);
-
+        if (!skyBox || !shdr) {
             return false;
-        });
-
-        for (unsigned int i = 0; i < particles.size(); i++) {
-            renderParticles(*particles[i], currentCamera, currentTime);
         }
 
-        currentScene->loopEntities([&](const Scene::Entity& entity) {
-            Shader* shader = currentScene->getComponent<Shader>(entity.id);
-
-            if (!shader || shader->getShaderType() != SHADER_TYPE::GUI) {
-                return false;
-            }
-
-            if (EntityStats* stats = currentScene->getComponent<EntityStats>(entity.id)) {
-                if (EntityStatsDisplayer* disp = currentScene->getComponent<EntityStatsDisplayer>(entity.id)) {
-                    shader->useProgram();
-                    systems->EntityStatsDisplayerSystem.render(*disp, *shader);
-                }
-            }
-
-            if (DisplayStatistics* stats = currentScene->getComponent<DisplayStatistics>(entity.id)) {
-                shader->useProgram();
-                systems->displayStatisticsSystem.render(*shader, *stats);
-            }
-
-            if (PauseMenu* menu = currentScene->getComponent<PauseMenu>(entity.id)) {
-                shader->useProgram();
-                systems->pauseMenuSystem.render(*shader, *menu);
-            }
-
+        if (shdr->getShaderType() != SHADER_TYPE::Default) {
             return false;
-        });
+        }
+
+        shdr->useProgram();
+        supplyDefaultShaderUniforms(*shdr, currentCamera, currentTime);
+        systems->skyBoxSystem.render(*skyBox, currentCamera, *shdr);
+
+        return false;
+    });
+
+    for (unsigned int i = 0; i < particles.size(); i++) {
+        renderParticles(*particles[i], currentCamera, currentTime);
     }
+
+    currentScene->loopEntities([&](const Scene::Entity& entity) {
+        Shader* shader = currentScene->getComponent<Shader>(entity.id);
+
+        if (!shader || shader->getShaderType() != SHADER_TYPE::GUI) {
+            return false;
+        }
+
+        if (DisplayStatistics* stats = currentScene->getComponent<DisplayStatistics>(entity.id)) {
+            shader->useProgram();
+            systems->displayStatisticsSystem.render(*shader, *stats);
+        }
+
+        if (PauseMenu* menu = currentScene->getComponent<PauseMenu>(entity.id)) {
+            shader->useProgram();
+            systems->pauseMenuSystem.render(*shader, *menu);
+        }
+
+        return false;
+    });
 }
 
-void RenderingSystem::renderParticles(Particles& particles,
-                                      Camera& currentCamera,
-                                      Time& currentTime) {
+void RenderingSystem::renderParticles(Particles& particles, Camera& currentCamera, Time& currentTime) {
     if (Shader* thisShader = currentScene->getComponent<Shader>(particles.getEntityID())) {
         // Check to see if the shader is a particle shader
         if (thisShader->getShaderType() == SHADER_TYPE::Particle) {
@@ -243,8 +236,7 @@ void RenderingSystem::renderParticles(Particles& particles,
     }
 }
 
-ParticleEmitter*
-RenderingSystem::getParticleEmitter(int32_t entity) {
+ParticleEmitter* RenderingSystem::getParticleEmitter(int32_t entity) {
     // Search for fountain particle system
     if (ParticleEmitter* particleEmitter = currentScene->getComponent<FountainParticleEmitter>(entity)) {
         return particleEmitter;
@@ -253,14 +245,12 @@ RenderingSystem::getParticleEmitter(int32_t entity) {
     return nullptr;
 }
 
-ShaderBase*
-RenderingSystem::prepareShader(
-    const int32_t& entity,
-    PointLightShadowMap& pointLightDepthMap,
-    DirectionalLightShadowMap& directionalLightDepthMap,
-    Camera& currentCamera,
-    Time& currentTime) {
-    ShaderBase* thisShader;
+Shader* RenderingSystem::prepareShader(const int32_t& entity,
+                                       PointLightShadowMap& pointLightDepthMap,
+                                       DirectionalLightShadowMap& directionalLightDepthMap,
+                                       Camera& currentCamera,
+                                       Time& currentTime) {
+    Shader* thisShader;
 
     if (thisShader = currentScene->getComponent<Shader>(entity)) {
 
@@ -288,12 +278,22 @@ RenderingSystem::prepareShader(
     return nullptr;
 }
 
-void RenderingSystem::supplyLitShaderUniforms(
-    ShaderBase& shader,
-    PointLightShadowMap& pointLightDepthMap,
-    DirectionalLightShadowMap& directionalLightDepthMap,
-    Camera& currentCamera,
-    Time& currentTime) {
+void RenderingSystem::supplyDefaultShaderUniforms(Shader& shader, Camera& currentCamera, Time& currentTime) {
+
+    const GLint& programID = shader.getProgramID();
+
+    glUniformMatrix4fv(Shaders::getUniformLocation(programID, Shaders::UniformName::ViewMatrix), 1, GL_FALSE, glm::value_ptr(*currentCamera.getViewMatrix()));
+    glUniformMatrix4fv(Shaders::getUniformLocation(programID, Shaders::UniformName::ProjectionMatrix), 1, GL_FALSE, glm::value_ptr(*currentCamera.getProjectionMatrix()));
+
+    glUniform3f(Shaders::getUniformLocation(programID, Shaders::UniformName::ViewPosition), currentCamera.position.x, currentCamera.position.y, currentCamera.position.z);
+}
+
+void RenderingSystem::supplyLitShaderUniforms(Shader& shader,
+                                              PointLightShadowMap& pointLightDepthMap,
+                                              DirectionalLightShadowMap& directionalLightDepthMap,
+                                              Camera& currentCamera,
+                                              Time& currentTime) {
+
     supplyDefaultShaderUniforms(shader, currentCamera, currentTime);
 
     glActiveTexture(GL_TEXTURE0 + Shaders::DEPTH_MAP_LOCATION_OMNIDIRECTIONAL);
@@ -302,68 +302,27 @@ void RenderingSystem::supplyLitShaderUniforms(
     //glUniform1i(Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::TimeMS), currentTime.sinceStartMS32());
 
     if (pointLightDepthMap.isActive()) {
+
         glUniform1f(Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::FarPlane), pointLightDepthMap.getFarPlane());
-
         glUniform3fv(Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::LightPosition), 1, &pointLightDepthMap.getCurrentLightPosition()[0]);
-
         glBindTexture(GL_TEXTURE_CUBE_MAP, pointLightDepthMap.getCubeMap());
 
     } else {
         glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
     }
 
-    glUniformMatrix4fv(Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::LightSpaceMatrix),
-                       1,
-                       GL_FALSE,
-                       glm::value_ptr(*directionalLightDepthMap.getLightSpaceMatrix()));
-
-    glUniform1i(Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::DirectionalShadowMap),
-                Shaders::DEPTH_MAP_LOCATION_DIRECTIONAL);
+    glUniformMatrix4fv(Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::LightSpaceMatrix), 1, GL_FALSE, glm::value_ptr(*directionalLightDepthMap.getLightSpaceMatrix()));
+    glUniform1i(Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::DirectionalShadowMap), Shaders::DEPTH_MAP_LOCATION_DIRECTIONAL);
 
     glActiveTexture(GL_TEXTURE0 + Shaders::DEPTH_MAP_LOCATION_DIRECTIONAL);
     glBindTexture(GL_TEXTURE_2D, directionalLightDepthMap.getDepthMap());
 }
 
-void RenderingSystem::supplyDefaultShaderUniforms(ShaderBase& shader,
-                                                  Camera& currentCamera,
-                                                  Time& currentTime) {
-    const GLint& programID = shader.getProgramID();
-
-    glUniformMatrix4fv(
-        Shaders::getUniformLocation(programID, Shaders::UniformName::ViewMatrix),
-        1,
-        GL_FALSE,
-        glm::value_ptr(*currentCamera.getViewMatrix()));
-
-    glUniformMatrix4fv(Shaders::getUniformLocation(
-                           programID, Shaders::UniformName::ProjectionMatrix),
-                       1,
-                       GL_FALSE,
-                       glm::value_ptr(*currentCamera.getProjectionMatrix()));
-
-    glUniform3f(
-        Shaders::getUniformLocation(programID, Shaders::UniformName::ViewPosition),
-        currentCamera.position.x,
-        currentCamera.position.y,
-        currentCamera.position.z);
-}
-
-void RenderingSystem::supplyParticleShaderUniforms(ShaderBase& particleShader,
-                                                   Camera& currentCamera,
-                                                   Time& currentTime) {
+void RenderingSystem::supplyParticleShaderUniforms(Shader& particleShader, Camera& currentCamera, Time& currentTime) {
     particleShader.useProgram();
 
     const GLint& programID = particleShader.getProgramID();
 
-    glUniformMatrix4fv(
-        Shaders::getUniformLocation(programID, Shaders::UniformName::ViewMatrix),
-        1,
-        GL_FALSE,
-        glm::value_ptr(*currentCamera.getViewMatrix()));
-
-    glUniformMatrix4fv(Shaders::getUniformLocation(
-                           programID, Shaders::UniformName::ProjectionMatrix),
-                       1,
-                       GL_FALSE,
-                       glm::value_ptr(*currentCamera.getProjectionMatrix()));
+    glUniformMatrix4fv(Shaders::getUniformLocation(programID, Shaders::UniformName::ViewMatrix), 1, GL_FALSE, glm::value_ptr(*currentCamera.getViewMatrix()));
+    glUniformMatrix4fv(Shaders::getUniformLocation(programID, Shaders::UniformName::ProjectionMatrix), 1, GL_FALSE, glm::value_ptr(*currentCamera.getProjectionMatrix()));
 }

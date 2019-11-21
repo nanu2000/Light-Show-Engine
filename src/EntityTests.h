@@ -5,8 +5,6 @@
 #include "DebuggingController.h"
 #include "DisplayStatistics.h"
 #include "EnemyController.h"
-#include "EntityStats.h"
-#include "EntityStatsDisplayer.h"
 #include "EntityTransform.h"
 #include "FountainParticleEmitter.h"
 #include "GlobalInformation.h"
@@ -74,6 +72,7 @@ public:
 private:
     DisplayStatistics statDisplayer;
     Shader textShader;
+    PauseMenu menu;
 
     ThirdPersonCamera camera;
     DebuggingController dbgController;
@@ -90,11 +89,6 @@ private:
     _3DM::AnimatedModel model = _3DM::AnimatedModel("assets/Models/player/player.3DMA");
 
     Shader textShader;
-
-    PauseMenu menu;
-
-    EntityStatsDisplayer statsDisplayer;
-    EntityStats stats;
 
     PlayerCameraHandler cameraHandler;
     CollisionMesh collisionMesh;

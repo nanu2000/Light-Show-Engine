@@ -76,9 +76,6 @@ void Game::initializeShaders() {
 
     directionalLightDepthMap.initialize();
     pointLightDepthMap.initialize();
-
-    ShaderBase::setShaderTaskShader(SHADER_TASK::Directional_Depth_Task, directionalLightDepthMap.getDepthMapShader());
-    ShaderBase::setShaderTaskShader(SHADER_TASK::Omnidirectional_Depth_Task, pointLightDepthMap.getDepthMapShader());
 }
 
 void Game::readBackendEventQueue() {

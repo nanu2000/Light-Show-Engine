@@ -38,12 +38,10 @@ public:
 
     void render(ShaderBase& shader, PauseMenu& menu) {
         if (menu.isShowing) {
+            menu.str.setVerticalPadding(-16);
+            menu.str.setPosition(glm::vec2(GameInfo::getWindowWidth() - menu.str.getWidthOfString() * 2, GameInfo::getWindowHeight()));
             menu.resumeButton.render(shader);
             menu.str.render(shader, "Paused\n:D");
-
-            menu.str.setVerticalPadding(-16);
-
-            menu.str.setPosition(glm::vec2(GameInfo::getWindowWidth() - menu.str.getWidthOfString() * 2, GameInfo::getWindowHeight()));
         }
     }
 };

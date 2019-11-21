@@ -4,7 +4,6 @@
 #include "DebuggingController.h"
 #include "DirectionalLightShadowMap.h"
 #include "DisplayStatistics.h"
-#include "EntityStatsDisplayer.h"
 #include "FountainParticleEmitter.h"
 #include "GUIResizingInfo.h"
 #include "GlobalInformation.h"

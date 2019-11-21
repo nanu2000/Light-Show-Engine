@@ -43,6 +43,9 @@ void Player::initialize(EntityWrapper::EntityVitals& vitals) {
 
     statDisplayer.initialize(*vitals.map, TextureLocator::getService().getTexture("assets/Fonts/CourierNew.png", GL_NEAREST));
 
+    menu.initialize(*vitals.map, TextureLocator::getService().getTexture("assets/Fonts/CourierNew.png", GL_NEAREST));
+
+    vitals.scene->addComponent(id, menu);
     vitals.scene->addComponent(id, cameraController);
     vitals.scene->addComponent(id, camera);
     vitals.scene->addComponent(id, dbgController);
@@ -92,14 +95,6 @@ void PlayerTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
         model.setMeshMatrix(i, glm::mat4(1.f));
     }
 
-    menu.initialize(*vitals.map, TextureLocator::getService().getTexture("assets/Fonts/CourierNew.png", GL_NEAREST));
-    statsDisplayer.initialize(*vitals.map, TextureLocator::getService().getTexture("assets/Fonts/CourierNew.png", GL_NEAREST));
-
-    vitals.scene->addComponent(id, menu);
-
-    vitals.scene->addComponent(id, textShader);
-    //vitals.scene->addComponent(id, statsDisplayer);
-    // vitals.scene->addComponent(id, stats);
     vitals.scene->addComponent(id, bCollisionMesh);
     vitals.scene->addComponent(id, cameraHandler);
     vitals.scene->addComponent(id, model);

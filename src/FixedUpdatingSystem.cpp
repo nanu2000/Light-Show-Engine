@@ -148,12 +148,6 @@ bool FixedUpdatingSystem::updateGUI(const Time& time, PointLightShadowMap& point
             return false;
         }
 
-        if (EntityStats* stats = currentScene->getComponent<EntityStats>(entity.id)) {
-            if (EntityStatsDisplayer* disp = currentScene->getComponent<EntityStatsDisplayer>(entity.id)) {
-                systems->EntityStatsDisplayerSystem.fixedUpdate(*disp, *stats, systems->guiResizingInfo);
-            }
-        }
-
         if (DisplayStatistics* stats = currentScene->getComponent<DisplayStatistics>(entity.id)) {
             systems->displayStatisticsSystem.fixedUpdate(*stats, time, systems->guiResizingInfo);
         }

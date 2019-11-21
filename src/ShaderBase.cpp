@@ -1,7 +1,7 @@
 #include "ShaderBase.h"
 
 SHADER_TASK ShaderBase::currentTask = SHADER_TASK::Normal_Render_Task;
-GLint ShaderBase::shadersForTasks[SHADER_TASK::SHADER_TASK_MAX];
+GLint ShaderBase::shadersForTasks[static_cast<unsigned int>(SHADER_TASK::SHADER_TASK_MAX)];
 
 ShaderBase::ShaderBase(const std::string& vertexPath, const std::string& fragmentPath, const SHADER_TYPE& type, const std::string& geometryPath) {
     std::string vertexCode   = "";
@@ -104,7 +104,7 @@ void ShaderBase::createProgram(const std::string& vShaderCode, const std::string
 
     GLint vertex   = createAndCompileShader(GL_VERTEX_SHADER, &(c_str = vShaderCode.c_str()));
     GLint fragment = createAndCompileShader(GL_FRAGMENT_SHADER, &(c_str = fShaderCode.c_str()));
-    GLint geometry;
+    GLint geometry = 0;
 
     this->programID = glCreateProgram();
 

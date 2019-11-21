@@ -16,7 +16,7 @@ enum class SHADER_TYPE {
     SHADER_TYPE_MAX = 4
 };
 
-enum SHADER_TASK {
+enum class SHADER_TASK {
     Normal_Render_Task         = 0,
     Directional_Depth_Task     = 1,
     Omnidirectional_Depth_Task = 2,

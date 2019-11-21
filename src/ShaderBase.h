@@ -22,7 +22,7 @@ public:
 
     static SHADER_TASK getShaderTask();
 
-    static void setShaderTaskShader(SHADER_TASK task, const GLint& id) { shadersForTasks[task] = id; }
+    static void setShaderTaskShader(SHADER_TASK task, const GLint& id) { shadersForTasks[static_cast<unsigned int>(task)] = id; }
     static void setShaderTask(SHADER_TASK task) { currentTask = task; }
 
     SHADER_TYPE getShaderType() { return shaderType; }
@@ -35,7 +35,9 @@ public:
         const SHADER_TYPE& type,
         const std::string& geometryPath = "");
 
-    GLint getProgramID() const { return currentTask == SHADER_TASK::Normal_Render_Task ? programID : shadersForTasks[currentTask]; }
+    GLint getProgramID() const {
+        return currentTask == SHADER_TASK::Normal_Render_Task ? programID : shadersForTasks[static_cast<unsigned int>(currentTask)];
+    }
 
     void useProgram();
 
@@ -46,7 +48,7 @@ public:
     void recompileShader();
 
 protected:
-    static GLint shadersForTasks[SHADER_TASK::SHADER_TASK_MAX];
+    static GLint shadersForTasks[static_cast<unsigned int>(SHADER_TASK::SHADER_TASK_MAX)];
     static SHADER_TASK currentTask;
 
     GLint createAndCompileShader(int GLShaderType, const GLchar* const* code);

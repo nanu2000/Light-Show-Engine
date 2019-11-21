@@ -116,7 +116,7 @@ void Application::initializeGL() {
     GLenum err = glewInit();
 
     if (err != GLEW_OK) {
-        DBG_LOG("engine init error (glew): %s\n", glewGetErrorString(err));
+        DBG_LOG("engine init error (glew): %s (Application.cpp)\n", glewGetErrorString(err));
     }
 
     glLineWidth(1.5f);
@@ -132,7 +132,7 @@ void Application::initializeGL() {
 
     GLenum glError = glGetError();
     if (glError != GL_NO_ERROR) {
-        DBG_LOG("GL Error: %i", SDL_Error);
+        DBG_LOG("GL Error: %i (Application.cpp)\n", static_cast<int>(glError));
     }
 }
 

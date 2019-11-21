@@ -11,7 +11,7 @@ struct Vector3Key {
     Vector3Key() {
     }
     float time;
-    glm::vec3 origin = glm::vec3(0.0f,0.0f,0.0f);
+    glm::vec3 origin = glm::vec3(0.0f, 0.0f, 0.0f);
 };
 
 struct QuatKey {
@@ -22,8 +22,8 @@ struct QuatKey {
 
     QuatKey() {
     }
-    float time;
-    glm::quat origin;
+    float time       = 0;
+    glm::quat origin = glm::quat(0, 0, 0, 1);
 };
 }
 

@@ -38,7 +38,7 @@ public:
     uint8_t getAnimationStateUint() const { return static_cast<uint8_t>(currentState); }
 
 private:
-    glm::vec3 lastKnownTargetPosition;
+    glm::vec3 lastKnownTargetPosition = glm::vec3(0, 0, 0);
 
     ///////////////////////////////////////////////////////////////////////////////
     //Const Members

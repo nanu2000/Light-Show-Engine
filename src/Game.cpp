@@ -72,10 +72,13 @@ void Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSy
 }
 
 void Game::initializeShaders() {
-    ShaderBase::setShaderTask(SHADER_TASK::Normal_Render_Task);
 
     directionalLightDepthMap.initialize();
     pointLightDepthMap.initialize();
+
+    ShaderBase::setShaderTask(SHADER_TASK::Normal_Render_Task);
+    ShaderBase::setShaderTaskShader(SHADER_TASK::Directional_Depth_Task, directionalLightDepthMap.getDepthMapShader());
+    ShaderBase::setShaderTaskShader(SHADER_TASK::Omnidirectional_Depth_Task, pointLightDepthMap.getDepthMapShader());
 }
 
 void Game::readBackendEventQueue() {
@@ -105,40 +108,7 @@ void Game::render() {
         return;
     }
 
-    renderOmnidirectionalDepthMap();
-    renderDirectionalDepthMap();
-
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-    ShaderBase::setShaderTask(SHADER_TASK::Normal_Render_Task);
-
-    glViewport(0, 0, GameInfo::getWindowWidth(), GameInfo::getWindowHeight());
-
     renderingSystem.render(pointLightDepthMap, directionalLightDepthMap, *currentTime);
-}
-
-void Game::renderOmnidirectionalDepthMap() {
-    ShaderBase::setShaderTask(SHADER_TASK::Omnidirectional_Depth_Task);
-
-    if (pointLightDepthMap.isActive()) {
-        glViewport(0, 0, pointLightDepthMap.getDepthMapWidth(), pointLightDepthMap.getDepthMapHeight());
-
-        glBindFramebuffer(GL_FRAMEBUFFER, pointLightDepthMap.getFBO());
-        glClear(GL_DEPTH_BUFFER_BIT);
-        renderingSystem.render(pointLightDepthMap, directionalLightDepthMap, *currentTime);
-    }
-}
-
-void Game::renderDirectionalDepthMap() {
-    ShaderBase::setShaderTask(SHADER_TASK::Directional_Depth_Task);
-    if (directionalLightDepthMap.isActive()) {
-        glViewport(0, 0, directionalLightDepthMap.getDepthMapWidth(), directionalLightDepthMap.getDepthMapHeight());
-
-        glBindFramebuffer(GL_FRAMEBUFFER, directionalLightDepthMap.getFBO());
-        glClear(GL_DEPTH_BUFFER_BIT);
-        renderingSystem.render(pointLightDepthMap, directionalLightDepthMap, *currentTime);
-    }
 }
 
 void Game::uninitialize() {

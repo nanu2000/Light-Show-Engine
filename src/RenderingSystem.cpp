@@ -81,7 +81,7 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
     |*Last, Render All GUI Objects.			  *|
     |******************************************/
 
-    if (areVitalsNull() == true) {
+    if (areVitalsNull()) {
         DBG_LOG("Vitals are null (RenderingSystem.cpp)\n");
         return;
     }
@@ -94,6 +94,7 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
 
     const std::vector<Shader*>& shaders = currentScene->getAllComponentsOfType<Shader>();
 
+    ShaderBase::setShaderTask(SHADER_TASK::Normal_Render_Task);
     for (unsigned int i = 0; i < shaders.size(); i++) {
         if (shaders.at(i)->getShaderType() != SHADER_TYPE::Lit) {
             continue;
@@ -102,9 +103,49 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
         initializeLights(*shaders.at(i));
     }
 
-    renderDebugging(*currentCamera);
-    renderModels(*currentCamera, currentTime, pointLightDepthMap, directionalLightDepthMap);
-    renderOthers(*currentCamera, currentTime);
+    //If the point light depth map is active, render to it.
+    if (pointLightDepthMap.isActive()) {
+
+        //Uses shader for depth when getProgramID is called.
+        ShaderBase::setShaderTask(SHADER_TASK::Omnidirectional_Depth_Task);
+
+        glViewport(0, 0, pointLightDepthMap.getDepthMapWidth(), pointLightDepthMap.getDepthMapHeight());
+
+        glBindFramebuffer(GL_FRAMEBUFFER, pointLightDepthMap.getFBO());
+        glClear(GL_DEPTH_BUFFER_BIT);
+        renderAll(*currentCamera, currentTime, pointLightDepthMap, directionalLightDepthMap);
+    }
+
+    //If the directional light depth map is active, render to it.
+    if (directionalLightDepthMap.isActive()) {
+
+        //Uses shader for depth when getProgramID is called.
+        ShaderBase::setShaderTask(SHADER_TASK::Directional_Depth_Task);
+
+        glViewport(0, 0, directionalLightDepthMap.getDepthMapWidth(), directionalLightDepthMap.getDepthMapHeight());
+
+        glBindFramebuffer(GL_FRAMEBUFFER, directionalLightDepthMap.getFBO());
+        glClear(GL_DEPTH_BUFFER_BIT);
+        renderAll(*currentCamera, currentTime, pointLightDepthMap, directionalLightDepthMap);
+    }
+
+    //Default rendering
+    {
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        //don't override getProgramID when it's called.
+        ShaderBase::setShaderTask(SHADER_TASK::Normal_Render_Task);
+        glViewport(0, 0, GameInfo::getWindowWidth(), GameInfo::getWindowHeight());
+        renderAll(*currentCamera, currentTime, pointLightDepthMap, directionalLightDepthMap);
+    }
+}
+
+void RenderingSystem::renderAll(Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
+
+    renderDebugging(currentCamera);
+    renderModels(currentCamera, currentTime, pointLightDepthMap, directionalLightDepthMap);
+    renderOthers(currentCamera, currentTime);
 }
 
 void RenderingSystem::renderDebugging(Camera& currentCamera) {
@@ -170,9 +211,10 @@ void RenderingSystem::renderModels(Camera& currentCamera, Time& currentTime, Poi
     });
 }
 
+// Render Particles and GUI
 void RenderingSystem::renderOthers(Camera& currentCamera, Time& currentTime) {
 
-    // Render Particles and GUI
+    //Particles and UI aren't 3D so depth render tasks don't need their info.
     if (Shader::getShaderTask() != SHADER_TASK::Normal_Render_Task) {
         return;
     }

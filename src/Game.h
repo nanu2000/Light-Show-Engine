@@ -24,8 +24,6 @@ private:
     bool areVitalsNull();
 
     void initializeShaders();
-    void renderOmnidirectionalDepthMap();
-    void renderDirectionalDepthMap();
     void readBackendEventQueue();
 
     WorldSettings worldSettings = WorldSettings(GameInfo::DEFAULT_GRAVITY, glm::vec3(-20, 0, 10));

@@ -29,6 +29,7 @@ private:
     //or a fountain particle system pointer
     ParticleEmitter* getParticleEmitter(int32_t entity);
 
+    void renderAll(Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
     void renderDebugging(Camera& currentCamera);
     void renderModels(Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
     void renderOthers(Camera& currentCamera, Time& currentTime);

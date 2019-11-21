@@ -31,8 +31,6 @@ void Application::run() {
 	* This loop is the main game loop *
 	***********************************/
 
-    currentTime.timeSinceStart = SDL_GetTicks();
-
     while (isRunning) {
 
         currentTime.updateMSPF();

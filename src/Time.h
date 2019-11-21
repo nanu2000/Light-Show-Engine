@@ -37,15 +37,16 @@ private:
     double currentMSPF = 0;
 
     struct TimeData {
-        Uint64 then      = 0;
-        Uint64 now       = 0;
-        Uint64 frequency = 0;
+        Uint64 then = 0;
+        Uint64 now  = 0;
     };
 
     TimeData timeData;
 
     void initialize() {
-        timeData.frequency = SDL_GetPerformanceFrequency();
+
+        timeSinceStart = SDL_GetTicks();
+        updateMSPF();
     }
 
     void updateMSPF();

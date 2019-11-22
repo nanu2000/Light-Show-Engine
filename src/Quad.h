@@ -10,18 +10,46 @@
 #include <glm/gtx/transform.hpp>
 class Quad {
 public:
-    void RenderQuad(
+    void render3D(
         const ShaderBase& shader,
         const Texture& texture,
         const glm::vec4& spriteOrientationInPixels,
         const glm::vec2& positionInPixels,
         const glm::vec2& scaleInPixels);
 
+    void render3D(const ShaderBase& shader, GLint textureID, glm::mat4& modelMatrix);
+
+    void render2D(const ShaderBase& shader, GLint textureID);
+
 private:
-    GLint positionAttribLocation = 0;
+    void init();
+
+    bool hasInit                      = false;
+    GLint positionAttribLocation      = 0;
     GLint textureCoordsAttribLocation = 0;
 
-    GLuint quadVAO = 0;
-    GLuint quadVBO = 0;
+    GLuint quadVAO                    = 0;
+    GLuint quadVBO                    = 0;
+    std::vector<GLfloat> quadVertices = {
+        //top left
+        -1.0f, 1.0f,
+
+        0, 1,
+
+        //bottom left
+        -1.0f, -1.0f,
+
+        0, 0,
+
+        // top right
+        1.0f, 1.0f,
+
+        1, 1,
+
+        // bottom right
+        1.0f, -1.0f,
+
+        1, 0
+    };
 };
 #endif

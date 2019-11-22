@@ -62,13 +62,13 @@ public:
         glGetBooleanv(GL_DEPTH_WRITEMASK, &currentDepth);
 
         glDepthMask(GL_FALSE);
-        quad.RenderQuad(shader, *texture, glm::vec4(spriteXStart, spriteYStart, spriteWidth, spriteHeight), position, scale);
+        quad.render3D(shader, *texture, glm::vec4(spriteXStart, spriteYStart, spriteWidth, spriteHeight), position, scale);
         glDepthMask(currentDepth);
     }
 
 protected:
     glm::vec2 position = glm::vec2(0.0f, 0.0f);
-    glm::vec2 scale = glm::vec2(0.0f, 0.0f);
+    glm::vec2 scale    = glm::vec2(0.0f, 0.0f);
 
     float spriteXStart = 0;
     float spriteYStart = 0;

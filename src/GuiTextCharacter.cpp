@@ -1,7 +1,7 @@
 #include "GuiTextCharacter.h"
 
 void GuiTextCharacter::render(ShaderBase& shader, Texture& texture, const Glyph& glyph, const glm::vec2& scale) {
-    quad.RenderQuad(
+    quad.render3D(
         shader,
         texture,
         glm::vec4(glyph.x, glyph.y, glyph.getWidth(), glyph.getHeight()),

@@ -39,52 +39,52 @@ file(GLOB SOURCE_FILES
 )
 
 if(USE_DEBUG_TOOLS)
-    add_executable(main ${SOURCE_FILES})
+    add_executable(lightshow ${SOURCE_FILES})
 else()
     if(WIN32)
-        add_executable(main WIN32 ${SOURCE_FILES})
+        add_executable(lightshow WIN32 ${SOURCE_FILES})
     else()
-        add_executable(main ${SOURCE_FILES})
+        add_executable(lightshow ${SOURCE_FILES})
     endif()
 endif()
 
 # SDL2
 find_package(SDL2 REQUIRED)
-include_directories(main ${SDL2_INCLUDE_DIRS})
+include_directories(SYSTEM ${SDL2_INCLUDE_DIRS})
 string(STRIP "${SDL2_LIBRARIES}" SDL2_LIBRARIES)
-target_link_libraries(main PRIVATE ${SDL2_LIBRARIES})
+target_link_libraries(lightshow PRIVATE ${SDL2_LIBRARIES})
 message("${SDL2_INCLUDE_DIRS}")
 # SDL_Mixer
 find_package(SDL2_mixer REQUIRED)
-include_directories(main ${SDL_MIXER_INCLUDE_DIR})
+include_directories(SYSTEM ${SDL_MIXER_INCLUDE_DIR})
 # string(STRIP "${SDL_MIXER_LIBRARY}" SDL_MIXER_LIBRARY)
-target_link_libraries(main PRIVATE ${SDL_MIXER_LIBRARY})
+target_link_libraries(lightshow PRIVATE ${SDL_MIXER_LIBRARY})
 
 # SDL_Image
 find_package(SDL2_image REQUIRED)
-include_directories(main ${SDL2IMAGE_INCLUDE_DIRS})
+include_directories(SYSTEM ${SDL2IMAGE_INCLUDE_DIRS})
 # string(STRIP "${SDL_MIXER_LIBRARY}" SDL_MIXER_LIBRARY)
-target_link_libraries(main PRIVATE ${SDL2IMAGE_LIBRARIES})
+target_link_libraries(lightshow PRIVATE ${SDL2IMAGE_LIBRARIES})
 
 # glew
 add_definitions(-DGLEW_STATIC)
 add_subdirectory(lib/glew EXCLUDE_FROM_ALL)
-target_link_libraries(main PRIVATE libglew_static)
+target_link_libraries(lightshow PRIVATE libglew_static)
 
 # glm
 add_subdirectory(lib/glm EXCLUDE_FROM_ALL)
-target_link_libraries(main PRIVATE glm)
+target_link_libraries(lightshow PRIVATE glm)
 
 # GameNetworkingSockets
 find_package(GNS REQUIRED)
-include_directories(main ${GNS_INCLUDE_DIRS})
-target_link_libraries(main PRIVATE ${GNS_LIBRARIES})
+include_directories(SYSTEM ${GNS_INCLUDE_DIRS})
+target_link_libraries(lightshow PRIVATE ${GNS_LIBRARIES})
 
 # bullet
-include_directories(main lib/bullet/src)
-target_link_libraries(main PRIVATE BulletDynamics)
-target_link_libraries(main PRIVATE BulletCollision)
-target_link_libraries(main PRIVATE LinearMath)
+include_directories(SYSTEM lib/bullet/src)
+target_link_libraries(lightshow PRIVATE BulletDynamics)
+target_link_libraries(lightshow PRIVATE BulletCollision)
+target_link_libraries(lightshow PRIVATE LinearMath)
 # BulletDynamics.lib;BulletCollision.lib;
 
 #some Bullet specific definitions need to be used, to be compatible
@@ -101,49 +101,49 @@ file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
 
 if(WIN32)
     add_custom_command(
-        TARGET main POST_BUILD
+        TARGET lightshow POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different 
             "${SDL2_LIBRARIES_PATH}/SDL2.dll"
-            $<TARGET_FILE_DIR:main>
+            $<TARGET_FILE_DIR:lightshow>
     )
         
     add_custom_command(
-        TARGET main POST_BUILD
+        TARGET lightshow POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory 
             "${SDL2IMAGE_LIBRARIES_PATH}"
-            $<TARGET_FILE_DIR:main>
+            $<TARGET_FILE_DIR:lightshow>
     )
 
     add_custom_command(
-        TARGET main POST_BUILD
+        TARGET lightshow POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory 
             "${SDL_MIXER_LIBRARY_PATH}"
-            $<TARGET_FILE_DIR:main>
+            $<TARGET_FILE_DIR:lightshow>
     )
 
     add_custom_command(
-        TARGET main POST_BUILD
+        TARGET lightshow POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different 
             "${GNS_LIBRARIES_PATH}/GameNetworkingSockets.dll"
-            $<TARGET_FILE_DIR:main>
+            $<TARGET_FILE_DIR:lightshow>
     )
 
     if(BUILD_TYPE MATCHES "Release")
 
         add_custom_command(
-            TARGET main POST_BUILD
+            TARGET lightshow POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy_if_different 
                 "C:/sdk/protobuf/Release/protobuf-amd${ARCHITECTURE}/bin/libprotobuf.dll"
-                $<TARGET_FILE_DIR:main>
+                $<TARGET_FILE_DIR:lightshow>
         )
 
     elseif(BUILD_TYPE MATCHES "Debug")
 
         add_custom_command(
-            TARGET main POST_BUILD
+            TARGET lightshow POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy_if_different 
                 "C:/sdk/protobuf/Debug/protobuf-amd${ARCHITECTURE}/bin/libprotobufd.dll"
-                $<TARGET_FILE_DIR:main>
+                $<TARGET_FILE_DIR:lightshow>
         )
     
     endif()
@@ -151,19 +151,19 @@ if(WIN32)
     if(ARCHITECTURE EQUAL 86)
 
         add_custom_command(
-            TARGET main POST_BUILD
+            TARGET lightshow POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy_if_different 
                 "C:/Program Files (x86)/OpenSSL-Win32/bin/libcrypto-1_1.dll"
-                $<TARGET_FILE_DIR:main>
+                $<TARGET_FILE_DIR:lightshow>
         )
 
     elseif(ARCHITECTURE EQUAL 64)
 
         add_custom_command(
-            TARGET main POST_BUILD
+            TARGET lightshow POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy_if_different 
                 "C:/Program Files/OpenSSL-Win64/bin/libcrypto-1_1-x64.dll"
-                $<TARGET_FILE_DIR:main>
+                $<TARGET_FILE_DIR:lightshow>
         )
 
     endif()

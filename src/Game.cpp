@@ -75,6 +75,7 @@ void Game::initializeShaders() {
 
     directionalLightDepthMap.initialize();
     pointLightDepthMap.initialize();
+    renderTexture.initialize(GameInfo::getWindowWidth(), GameInfo::getWindowHeight());
 
     ShaderBase::setShaderTask(SHADER_TASK::Normal_Render_Task);
     ShaderBase::setShaderTaskShader(SHADER_TASK::Directional_Depth_Task, directionalLightDepthMap.getDepthMapShader());
@@ -84,7 +85,7 @@ void Game::initializeShaders() {
 void Game::readBackendEventQueue() {
     BackEndMessages msg;
     while (backEndMessages->getMessagesThenRemove(msg)) {
-        fixedUpdatingSystem.handleBackEndMessage(msg);
+        fixedUpdatingSystem.handleBackEndMessage(msg, renderTexture);
     }
 }
 
@@ -108,7 +109,7 @@ void Game::render() {
         return;
     }
 
-    renderingSystem.render(pointLightDepthMap, directionalLightDepthMap, *currentTime);
+    renderingSystem.render(pointLightDepthMap, directionalLightDepthMap, *currentTime, renderTexture);
 }
 
 void Game::uninitialize() {

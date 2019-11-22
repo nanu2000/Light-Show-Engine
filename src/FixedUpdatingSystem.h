@@ -12,6 +12,7 @@
 #include "PlayerController.h"
 #include "PointLightShadowMap.h"
 #include "RayCaster.h"
+#include "RenderTexture.h"
 #include "Scene.h"
 #include "Shader.h"
 #include "SystemBase.h"
@@ -25,7 +26,7 @@ public:
 
     void fixedUpdate(const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
 
-    void handleBackEndMessage(BackEndMessages msg);
+    void handleBackEndMessage(BackEndMessages msg, RenderTexture& renderTexture);
 
 private:
     //Updates GUI (Will be called even if the game is paused) will return true if the game is paused

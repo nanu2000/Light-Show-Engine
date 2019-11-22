@@ -16,7 +16,7 @@ void FixedUpdatingSystem::initialize(Scene& scene, Settings& settings, PhysicsWo
 }
 
 //Called in Game.cpp
-void FixedUpdatingSystem::handleBackEndMessage(BackEndMessages msg) {
+void FixedUpdatingSystem::handleBackEndMessage(BackEndMessages msg, RenderTexture& renderTexture) {
 
     switch (msg) {
 
@@ -28,6 +28,7 @@ void FixedUpdatingSystem::handleBackEndMessage(BackEndMessages msg) {
         }
 
         systems->guiResizingInfo.updateInformation();
+        renderTexture.resize(GameInfo::getWindowWidth(), GameInfo::getWindowHeight());
 
         break;
 

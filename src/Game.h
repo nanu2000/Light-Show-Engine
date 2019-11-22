@@ -34,6 +34,7 @@ private:
 
     PointLightShadowMap pointLightDepthMap;
     DirectionalLightShadowMap directionalLightDepthMap;
+    RenderTexture renderTexture;
 
     UpdatingSystem updatingSystem;
     FixedUpdatingSystem fixedUpdatingSystem;

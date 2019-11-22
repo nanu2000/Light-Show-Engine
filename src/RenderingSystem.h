@@ -9,6 +9,8 @@
 #include "GuiString.h"
 #include "Model.h"
 #include "PointLightShadowMap.h"
+#include "Quad.h"
+#include "RenderTexture.h"
 #include "Scene.h"
 #include "Shader.h"
 #include "SystemBase.h"
@@ -21,7 +23,7 @@ class RenderingSystem : public SystemBase {
 
 public:
     void initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& systems) override;
-    void render(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Time& currentTime);
+    void render(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Time& currentTime, RenderTexture renderTexture);
 
 private:
     //This function searches for any particle systems that may exist.
@@ -47,5 +49,8 @@ private:
     void supplyDefaultShaderUniforms(Shader& shader, Camera& currentCamera, Time& currentTime);
 
     void supplyParticleShaderUniforms(Shader& particleShader, Camera& currentCamera, Time& currentTime);
+
+    Quad screenQuad;
+    ShaderBase screenShader;
 };
 #endif

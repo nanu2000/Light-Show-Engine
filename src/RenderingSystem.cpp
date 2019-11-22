@@ -33,6 +33,8 @@ void RenderingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld&
 
         return false;
     });
+
+    screenShader = ShaderBase("assets/Shaders/RenderTexture.v", "assets/Shaders/RenderTexture.f", SHADER_TYPE::Default);
 }
 
 void RenderingSystem::initializeLights(Shader& litShader) {
@@ -72,7 +74,7 @@ void RenderingSystem::initializeModels(Shader& shader, const int32_t& entity) {
     }
 }
 
-void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Time& currentTime) {
+void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Time& currentTime, RenderTexture renderTexture) {
 
     /******************************************|
     |*		The Current Rendering Order		  *|
@@ -103,6 +105,7 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
         initializeLights(*shaders.at(i));
     }
 
+    glEnable(GL_DEPTH_TEST);
     //If the point light depth map is active, render to it.
     if (pointLightDepthMap.isActive()) {
 
@@ -129,15 +132,28 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
         renderAll(*currentCamera, currentTime, pointLightDepthMap, directionalLightDepthMap);
     }
 
-    //Default rendering
-    {
-        glBindFramebuffer(GL_FRAMEBUFFER, 0);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    //Use normal shaders
+    ShaderBase::setShaderTask(SHADER_TASK::Normal_Render_Task);
 
-        //don't override getProgramID when it's called.
-        ShaderBase::setShaderTask(SHADER_TASK::Normal_Render_Task);
-        glViewport(0, 0, GameInfo::getWindowWidth(), GameInfo::getWindowHeight());
+    //Render everything to texture.
+    {
+        glViewport(0, 0, renderTexture.getWidth(), renderTexture.getHeight());
+
+        glBindFramebuffer(GL_FRAMEBUFFER, renderTexture.getFBO());
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         renderAll(*currentCamera, currentTime, pointLightDepthMap, directionalLightDepthMap);
+    }
+
+    //Render texture to quad.
+    {
+        glViewport(0, 0, GameInfo::getWindowWidth(), GameInfo::getWindowHeight());
+        //don't override getProgramID when it's called.
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
+        glDisable(GL_DEPTH_TEST);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        screenShader.useProgram();
+        screenQuad.render2D(screenShader, renderTexture.getTextureID());
     }
 }
 

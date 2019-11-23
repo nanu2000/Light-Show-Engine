@@ -127,9 +127,9 @@ void EnemyControllerSystem::applyNewTransform(CollisionMesh& mesh, const glm::ve
     oldTransform.rotation
         = glm::quat(
             glm::vec3(
-                glm::radians(-90.0f),
-                -hh::signedRadiansBetweenVectors(glm::vec3(forward.x, 0, forward.z), glm::vec3(0, 0, -1)),
-                0));
+                hh::signedRadiansBetweenVectors(glm::vec3(forward.x, 0, forward.z), glm::vec3(1, 0, 0)),
+                0,
+                glm::radians(-90.f)));
 
     oldTransform.position = mesh.getPosition() + enemyController.offsetFromCollider;
 }

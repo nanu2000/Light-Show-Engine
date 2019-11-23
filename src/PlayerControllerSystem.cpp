@@ -52,7 +52,7 @@ void PlayerControllerSystem::getPlayerInput(Input& input, CollisionMesh& collisi
     }
 
     if (playerController.jumping) {
-        currentMovmentState = PLAYER_ANIMATION_STATE::Jumping;
+        //currentMovmentState = PLAYER_ANIMATION_STATE::Jumping;
     }
 
     playerController.currentState = currentMovmentState;
@@ -211,9 +211,9 @@ void PlayerControllerSystem::applyNewRotation(const glm::vec3& cameraForward, co
         currentTransform.rotation
             = glm::quat(
                 glm::vec3(
-                    glm::radians(-90.0f),
-                    -hh::signedRadiansBetweenVectors(glm::vec3(cameraForward.x, 0, cameraForward.z), glm::vec3(0, 0, 1)),
-                    0));
+                    hh::signedRadiansBetweenVectors(glm::vec3(cameraForward.x, 0, cameraForward.z), glm::vec3(1, 0, 0)),
+                    0,
+                    glm::radians(-90.f)));
     }
 }
 

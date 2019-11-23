@@ -84,9 +84,12 @@ void PlayerTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
 
     textShader = Shader(*vitals.currentSettings, "assets/Shaders/GUIShader.v", "assets/Shaders/GUIShader.f", SHADER_TYPE::GUI);
 
-    for (unsigned int i = 0; i < 30; i++) {
-        bCollisionMesh.addCollider(i, id, COLLISION_TAGS::Player);
-    }
+    bCollisionMesh.addCollider(model.getBoneID("head"), id, COLLISION_TAGS::Player);
+    bCollisionMesh.addCollider(model.getBoneID("body"), id, COLLISION_TAGS::Player);
+    bCollisionMesh.addCollider(model.getBoneID("arm.r"), id, COLLISION_TAGS::Player);
+    bCollisionMesh.addCollider(model.getBoneID("arm.l"), id, COLLISION_TAGS::Player);
+    bCollisionMesh.addCollider(model.getBoneID("leg.r"), id, COLLISION_TAGS::Player);
+    bCollisionMesh.addCollider(model.getBoneID("leg.l"), id, COLLISION_TAGS::Player);
 
     collisionMesh.getRigidBody()->setInvInertiaDiagLocal(btVector3(0, 0, 0));
     collisionMesh.getRigidBody()->updateInertiaTensor();

@@ -7,7 +7,9 @@
 #include <glm/geometric.hpp>
 
 enum class ENEMY_ANIMATION_STATE : uint8_t {
-    Idle = 0
+    All     = 0,
+    Idle    = 1,
+    Walking = 2
 };
 
 enum class ENEMY_ROTATION : uint8_t {

@@ -8,9 +8,9 @@
 //The state resembles the players movement and the current animation that should play along with it
 //PA_XXX 2 - where XXX is the movment state and 2 is the animation that should play at that state.
 enum class PLAYER_ANIMATION_STATE : uint8_t {
-    Walking = 3,
-    Jumping = 5,
-    Idle    = 6
+    All     = 0,
+    Idle    = 1,
+    Walking = 2
 };
 
 namespace PLR_CTRLR_NS {
@@ -58,7 +58,7 @@ private:
     const float halfLengthOfRay            = 2.f;
     const float playerGravityImpulse       = -GameInfo::fixedDeltaTime * 19;
     const float speed                      = GameInfo::fixedDeltaTime * 100;
-    const float jumpVelocity               = 11;
+    const float jumpVelocity               = 20;
     const float jumpEnabledWithinMagnitude = 1;
     const float colliderWidthAndDepth      = .4f;
 
@@ -71,14 +71,14 @@ private:
     ///////////////////////////////////////////////////////////////////////////////
     //Normal members for logic performed in system.
     ///////////////////////////////////////////////////////////////////////////////
-    bool isTouchingGround     = false;
-    bool performJump          = false;
-    bool jumping              = false;
-    bool rotateAwayFromCamera = false;
-    glm::vec3 lastTouchedPosition = glm::vec3(0.0f, 0.0f, 0.0f);
-    glm::vec3 offsetFromCollider = glm::vec3(0.0f, 0.0f, 0.0f);
-    glm::vec3 rayNormal = glm::vec3(0.0f, 0.0f, 0.0f);
-    btVector3 currentSlopeIntensity = btVector3(0.0f, 0.0f, 0.0f);
+    bool isTouchingGround               = false;
+    bool performJump                    = false;
+    bool jumping                        = false;
+    bool rotateAwayFromCamera           = false;
+    glm::vec3 lastTouchedPosition       = glm::vec3(0.0f, 0.0f, 0.0f);
+    glm::vec3 offsetFromCollider        = glm::vec3(0.0f, 0.0f, 0.0f);
+    glm::vec3 rayNormal                 = glm::vec3(0.0f, 0.0f, 0.0f);
+    btVector3 currentSlopeIntensity     = btVector3(0.0f, 0.0f, 0.0f);
     PLAYER_ANIMATION_STATE currentState = PLAYER_ANIMATION_STATE::Idle;
 
     //Friend the system for this component

@@ -63,6 +63,7 @@ public:
 
         glEnableVertexAttribArray(posAttrib);
         glVertexAttribPointer(posAttrib, 3, GL_FLOAT, GL_FALSE, 0, 0);
+        initialized = true;
     }
 
     void render(ShaderBase& shader, Camera& camera) {
@@ -87,10 +88,23 @@ public:
         glBindVertexArray(0);
     }
 
+    ~CubeShape() {
+
+        if (!initialized) {
+            return;
+        }
+
+        DBG_LOG("Freeing memory for cube.\n");
+
+        glDeleteVertexArrays(1, &VAOID);
+        glDeleteBuffers(1, &vertID);
+    }
+
 private:
     std::vector<GLfloat> vertices;
     GLuint VAOID;
     GLuint vertID;
+    bool initialized = false;
 };
 
 #endif

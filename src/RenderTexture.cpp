@@ -27,6 +27,7 @@ void RenderTexture::initialize(unsigned int w, unsigned int h) {
     }
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    initialized = true;
 }
 
 void RenderTexture::resize(unsigned int w, unsigned int h) {
@@ -35,4 +36,16 @@ void RenderTexture::resize(unsigned int w, unsigned int h) {
     glDeleteTextures(1, &textureID);
     glDeleteRenderbuffers(1, &textureRBO);
     initialize(w, h);
+}
+
+RenderTexture::~RenderTexture() {
+    if (!initialized) {
+        return;
+    }
+
+    DBG_LOG("Freeing memory for render texture.\n");
+
+    glDeleteFramebuffers(1, &textureFBO);
+    glDeleteTextures(1, &textureID);
+    glDeleteRenderbuffers(1, &textureRBO);
 }

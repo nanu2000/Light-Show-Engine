@@ -21,6 +21,8 @@ public:
 
     void render2D(const ShaderBase& shader, GLint textureID);
 
+    ~Quad();
+
 private:
     void init();
 

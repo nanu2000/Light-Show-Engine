@@ -23,7 +23,7 @@ class RenderingSystem : public SystemBase {
 
 public:
     void initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& systems) override;
-    void render(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Time& currentTime, RenderTexture renderTexture);
+    void render(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Time& currentTime, const RenderTexture& renderTexture);
 
 private:
     //This function searches for any particle systems that may exist.

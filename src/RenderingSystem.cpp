@@ -74,7 +74,7 @@ void RenderingSystem::initializeModels(Shader& shader, const int32_t& entity) {
     }
 }
 
-void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Time& currentTime, RenderTexture renderTexture) {
+void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Time& currentTime, const RenderTexture& renderTexture) {
 
     /******************************************|
     |*		The Current Rendering Order		  *|

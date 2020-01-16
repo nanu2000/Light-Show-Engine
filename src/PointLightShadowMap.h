@@ -11,6 +11,7 @@
 class PointLightShadowMap {
 public:
     PointLightShadowMap() {};
+    ~PointLightShadowMap();
 
     const float FOV = glm::radians(90.0f);
 
@@ -86,6 +87,7 @@ private:
     ShaderBase depthMapShader;
     glm::vec3 lightPosition    = glm::vec3(0, 6, 0);
     glm::mat4 shadowProjection = glm::perspective(FOV, aspect, nearPlane, farPlane);
+    bool initialized           = false;
 };
 
 #endif // !DEPTH_MAP_H

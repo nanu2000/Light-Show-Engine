@@ -32,6 +32,8 @@ public:
     void updateDepthMap(const glm::vec3& camerPosition);
     void initialize();
 
+    ~DirectionalLightShadowMap();
+
 private:
     //4096 is amazing quality. Best quality would use multiple maps and csm
     unsigned int DEPTH_MAP_WIDTH  = 4096;
@@ -62,6 +64,7 @@ private:
     GLuint depthMapFBO;
     ShaderBase depthMapShader;
     GLuint depthMap;
+    bool initialized = false;
 };
 
 #endif

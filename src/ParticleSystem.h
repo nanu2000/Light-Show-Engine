@@ -50,7 +50,7 @@ private:
 class ParticleEmitter {
 
 public:
-    virtual ~ParticleEmitter() {}
+    virtual ~ParticleEmitter();
 
     glm::vec3 emmisionPosition = glm::vec3(0.0f, 0.0f, 0.0f);
 
@@ -92,6 +92,8 @@ private:
     GLuint vertexArrayObject    = 0;
     GLuint bufferObject         = 0;
     GLuint instanceBufferObject = 0;
+
+    bool initialized = false;
 };
 
 #endif

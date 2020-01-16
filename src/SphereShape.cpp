@@ -34,6 +34,7 @@ void SphereShape::createSphere(int radius, int stacks, int slices) {
 
     glEnableVertexAttribArray(posAttrib);
     glVertexAttribPointer(posAttrib, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    initialized = true;
 }
 
 void SphereShape::drawSphere(ShaderBase& shader) {
@@ -50,4 +51,15 @@ void SphereShape::drawSphere(ShaderBase& shader) {
     glDrawArrays(GL_TRIANGLE_STRIP, 0, vertices.size());
 
     glBindVertexArray(0);
+}
+
+SphereShape::~SphereShape() {
+    if (!initialized) {
+        return;
+    }
+
+    DBG_LOG("Freeing memory for sphereshape.\n");
+
+    glDeleteVertexArrays(1, &VAOID);
+    glDeleteBuffers(1, &vertID);
 }

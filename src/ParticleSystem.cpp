@@ -33,6 +33,19 @@ void ParticleEmitter::initialize(const WorldSettings& worldSettings) {
         (GLvoid*)(3 * sizeof(GLfloat)));
 
     glBindVertexArray(0);
+
+    initialized = true;
+}
+ParticleEmitter::~ParticleEmitter() {
+    if (!initialized) {
+        return;
+    }
+
+    DBG_LOG("Freeing memory for particle emitter.\n");
+
+    glDeleteVertexArrays(1, &vertexArrayObject);
+    glDeleteBuffers(1, &bufferObject);
+    glDeleteBuffers(1, &instanceBufferObject);
 }
 
 void ParticleEmitter::renderParticles(ShaderBase& shader, Particles& particlesWrapper) {

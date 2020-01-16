@@ -15,7 +15,9 @@
 class Texture {
 public:
     Texture();
+
     ~Texture() {
+        DBG_LOG("Freeing memory for texture.\n");
         glDeleteTextures(1, &texture);
     }
 

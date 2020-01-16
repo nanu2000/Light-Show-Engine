@@ -18,6 +18,7 @@ class Model : public Component<Model>, public ModelBase {
 public:
     Model(const std::string& path);
     Model() {}
+    ~Model();
 
     void renderSingleMesh(unsigned int index, ShaderBase& shader);
     int getMeshIndex(const std::string& MeshName) const;
@@ -42,6 +43,7 @@ private:
 
     std::string rootPath;
     bool modelLoaded = false;
+    bool initialized = false;
 
     friend class _3DM::_3DM_IO;
 };

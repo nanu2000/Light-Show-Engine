@@ -11,14 +11,16 @@
 class RenderTexture {
 
 public:
-    inline GLint getTextureID() { return textureID; }
-    inline GLuint getFBO() { return textureFBO; }
+    inline GLint getTextureID() const { return textureID; }
+    inline GLuint getFBO() const { return textureFBO; }
 
     inline unsigned int getWidth() const { return width; }
     inline unsigned int getHeight() const { return height; }
 
     void initialize(unsigned int w, unsigned int h);
     void resize(unsigned int w, unsigned int h);
+
+    ~RenderTexture();
 
 private:
     unsigned int width  = 0;
@@ -27,6 +29,7 @@ private:
     GLuint textureFBO;
     GLuint textureID;
     GLuint textureRBO;
+    bool initialized = false;
 };
 
 #endif

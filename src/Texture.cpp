@@ -258,9 +258,9 @@ GLuint TextureHandler::createCubeMap(const std::string identifier, const std::ve
 }
 
 TextureHandler::~TextureHandler() {
-    DBG_LOG("freeing memory allocated for image library.\n");
-
     std::map<std::string, GLuint>::iterator itr;
+
+    DBG_LOG("Freeing memory for cube maps.\n");
 
     for (itr = cubeMaps.begin(); itr != cubeMaps.end(); ++itr) {
         glDeleteTextures(1, &itr->second);

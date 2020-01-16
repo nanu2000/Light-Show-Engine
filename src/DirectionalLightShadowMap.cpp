@@ -37,8 +37,8 @@ void DirectionalLightShadowMap::initialize() {
     glDrawBuffer(GL_NONE);
     glReadBuffer(GL_NONE);
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    initialized = true;
 }
-
 void DirectionalLightShadowMap::updateDepthMapResolution() {
     if (DEPTH_MAP_HEIGHT > 0 && DEPTH_MAP_WIDTH > 0) {
 
@@ -56,4 +56,14 @@ void DirectionalLightShadowMap::updateDepthMapResolution() {
     } else {
         DBG_LOG("The Depth Map Resolution Needs To Be Greater Than 0.\n");
     }
+}
+
+DirectionalLightShadowMap::~DirectionalLightShadowMap() {
+    if (!initialized) {
+        return;
+    }
+    DBG_LOG("Freeing memory for Directional light depth map.\n");
+
+    glDeleteFramebuffers(1, &depthMapFBO);
+    glDeleteTextures(1, &depthMap);
 }

@@ -44,6 +44,19 @@ void DebugDrawer::initialize() {
     lineVertices.resize(MAX_AMOUNT_DEBUG_LINES * 2);
 
     currentMaxAmountOfVertices = lineVertices.size();
+    initialized                = true;
+}
+
+DebugDrawer::~DebugDrawer() {
+
+    if (!initialized) {
+        return;
+    }
+
+    DBG_LOG("Freeing memory for debug drawer.\n");
+
+    glDeleteVertexArrays(1, &VAO);
+    glDeleteBuffers(1, &vertID);
 }
 
 void DebugDrawer::drawLine(const btVector3& from, const btVector3& to, const btVector3& color) {

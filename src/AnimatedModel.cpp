@@ -64,7 +64,30 @@ void _3DM::AnimatedModel::initialize(ShaderBase& shader) {
 
         glBindVertexArray(0);
     }
+    initialized   = true;
     animatedModel = true;
+}
+
+_3DM::AnimatedModel::~AnimatedModel() {
+
+    if (!initialized) {
+        //If the object is not initialized then no buffers were generated.
+        return;
+    }
+
+    DBG_LOG("Freeing memory for animated model.\n");
+
+    for (unsigned int i = 0; i < meshes.size(); i++) {
+        AnimatedMesh& mesh = meshes.at(i);
+
+        glDeleteBuffers(1, &mesh.weightsBufferObject);
+        glDeleteBuffers(1, &mesh.boneIDsBufferObject);
+        glDeleteVertexArrays(1, &mesh.mesh.vertexArrayObject);
+        glDeleteBuffers(1, &mesh.mesh.vertexBufferObject);
+        glDeleteBuffers(1, &mesh.mesh.elementBufferObject);
+        glDeleteBuffers(1, &mesh.mesh.uvBufferObject);
+        glDeleteBuffers(1, &mesh.mesh.normalBufferObject);
+    }
 }
 
 _3DM::AnimatedModel::AnimatedModel(const std::string& path) {

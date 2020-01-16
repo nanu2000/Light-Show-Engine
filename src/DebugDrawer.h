@@ -17,6 +17,7 @@ public:
     void initialize();
 
     DebugDrawer() {}
+    ~DebugDrawer();
 
     virtual void drawLine(const btVector3& from, const btVector3& to, const btVector3& color);
 
@@ -41,11 +42,12 @@ private:
     unsigned int currentMaxAmountOfVertices = 0;
     unsigned int currentAmountOfLines       = 0;
 
-    GLuint VAO = 0;
+    GLuint VAO    = 0;
     GLuint vertID = 0;
 
-    GLint positionAttribute = 0;
+    GLint positionAttribute  = 0;
     GLint projectionLocation = 0;
-    GLint viewLocation = 0;
+    GLint viewLocation       = 0;
+    bool initialized         = false;
 };
 #endif

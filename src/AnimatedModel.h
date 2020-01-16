@@ -21,6 +21,8 @@ class AnimatedModel : public Component<AnimatedModel>, public ModelBase {
 public:
     AnimatedModel(const std::string& path);
 
+    ~AnimatedModel();
+
     void initialize(ShaderBase& shader);
     /**************
 		*	Getters	  *
@@ -138,6 +140,7 @@ private:
 
     std::string rootPath;
     bool modelLoaded = false;
+    bool initialized = false;
 
     AnimatedModel() {}
     friend class _3DM::_3DM_IO;

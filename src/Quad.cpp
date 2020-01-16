@@ -162,3 +162,14 @@ void Quad::render2D(const ShaderBase& shader, GLint textureID) {
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     glBindVertexArray(0);
 }
+
+Quad::~Quad() {
+    if (!hasInit) {
+        return;
+    }
+
+    DBG_LOG("Freeing memory for Quad.\n");
+
+    glDeleteVertexArrays(1, &quadVAO);
+    glDeleteBuffers(1, &quadVBO);
+}

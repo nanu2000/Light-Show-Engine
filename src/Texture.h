@@ -38,13 +38,32 @@ private:
     std::string location;
 };
 
+class CubeMap {
+public:
+    CubeMap();
+    ~CubeMap() {
+        DBG_LOG("Freeing memory for cubemap.\n");
+        glDeleteTextures(1, &texture);
+    }
+    CubeMap(const std::vector<std::string>& faces, GLuint txture);
+
+    inline GLuint getCubeMapData() const { return texture; }
+    const std::vector<std::string> getLocations() const {
+        return location;
+    }
+
+private:
+    std::vector<std::string> location;
+    GLuint texture = 0;
+};
+
 class TextureHandler {
 public:
-    // Will return Texture if it already exists, but will create one if it doesnt
+    // Will return Texture if it already exists, but will create one if it doesn't
     // exist.
     Texture& getTexture(std::string filePath, GLint filtering = GL_LINEAR, bool repeatTexture = false);
 
-    GLuint createCubeMap(const std::string identifier, const std::vector<std::string>& faces);
+    CubeMap& getCubeMap(const std::string identifier, const std::vector<std::string>& faces);
 
     ~TextureHandler();
 
@@ -56,7 +75,7 @@ private:
     Texture& addNew(std::string filePath, GLint filtering, bool repeatTexture);
     void addThenSort(Texture& texture);
     std::vector<Texture*> textureLibrary;
-    std::map<std::string, GLuint> cubeMaps;
+    std::map<std::string, CubeMap*> cubeMaps;
 };
 
 #endif

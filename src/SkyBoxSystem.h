@@ -9,11 +9,11 @@ public:
     void render(SkyBox& skybox, Camera& camera, ShaderBase& shader) {
         glDepthFunc(GL_LEQUAL);
         glCullFace(GL_FRONT);
-        glBindTexture(GL_TEXTURE_CUBE_MAP, skybox.getCubeMap());
+        glBindTexture(GL_TEXTURE_CUBE_MAP, skybox.getCubeMap()->getCubeMapData());
         skybox.getCube()->render(shader, camera);
         glCullFace(GL_BACK);
         glDepthFunc(GL_LESS);
     }
-   // void update(SkyBox& skybox) {}
+    // void update(SkyBox& skybox) {}
 };
 #endif

@@ -9,6 +9,8 @@ Texture::Texture(std::string loc, GLuint txture, GLuint w, GLuint h, bool istran
 }
 
 Texture::Texture() {}
+
+//TODO: Merge with cubemap logic
 Texture& TextureHandler::createTexture(std::string filePath,
                                        GLint filtering,
                                        bool repeatTexture) {
@@ -136,6 +138,7 @@ Texture& TextureHandler::createTexture(std::string filePath,
 
         newTexture = new Texture(filePath, texture, 3, 3, false);
     }
+
     return *newTexture;
 }
 
@@ -189,22 +192,26 @@ Texture& TextureHandler::getTexture(std::string filePath,
     return *texture;
 }
 
-GLuint TextureHandler::createCubeMap(const std::string identifier, const std::vector<std::string>& faces) {
+CubeMap& TextureHandler::getCubeMap(const std::string identifier, const std::vector<std::string>& faces) {
 
-    std::map<std::string, GLuint>::iterator itr;
+    assert(faces.size() == 6);
+
+    std::map<std::string, CubeMap*>::iterator itr;
 
     for (itr = cubeMaps.begin(); itr != cubeMaps.end(); ++itr) {
 
-        if (itr->first == identifier) {
+        if (itr->first == identifier && itr->second != nullptr) {
             DBG_LOG("Cubmap identifier %s exists, returning.\n", itr->first.c_str());
-            return itr->second;
+            return *itr->second;
         }
     }
 
     unsigned int textureID;
     glGenTextures(1, &textureID);
 
-    cubeMaps.insert({ identifier, textureID });
+    CubeMap* cubemap = new CubeMap(faces, textureID);
+
+    cubeMaps.insert({ identifier, cubemap });
 
     glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
 
@@ -213,9 +220,9 @@ GLuint TextureHandler::createCubeMap(const std::string identifier, const std::ve
         SDL_Surface* surface;
         if ((surface = IMG_Load(faces[i].c_str()))) { // get number of bytes per pixel (for colors)
 
-            int numberOfColors = surface->format->BytesPerPixel;
-            bool transparent   = false;
-            GLint textureFormat;
+            int numberOfColors  = surface->format->BytesPerPixel;
+            bool transparent    = false;
+            GLint textureFormat = GL_RGBA;
 
             // contains an alpha channel
             if (numberOfColors == 4) {
@@ -254,17 +261,36 @@ GLuint TextureHandler::createCubeMap(const std::string identifier, const std::ve
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 
-    return textureID;
+    return *cubemap;
 }
 
 TextureHandler::~TextureHandler() {
-    std::map<std::string, GLuint>::iterator itr;
+    ;
 
     DBG_LOG("Freeing memory for cube maps.\n");
 
-    for (itr = cubeMaps.begin(); itr != cubeMaps.end(); ++itr) {
-        glDeleteTextures(1, &itr->second);
+    for (std::map<std::string, CubeMap*>::iterator it = cubeMaps.begin(); it != cubeMaps.end(); ++it) {
+        if (it->second != nullptr) {
+            delete it->second;
+            it->second = nullptr;
+        }
     }
+    cubeMaps.clear();
 
-    hh::clearVectorOfPointers(textureLibrary);
+    DBG_LOG("Freeing memory for textures.\n");
+    for (std::vector<Texture*>::iterator it = textureLibrary.begin(); it != textureLibrary.end(); ++it) {
+        if (*it != nullptr) {
+            delete *it;
+            *it = nullptr;
+        }
+    }
+    textureLibrary.clear();
+}
+
+CubeMap::CubeMap() {
+}
+
+CubeMap::CubeMap(const std::vector<std::string>& faces, GLuint txture) {
+    location = faces;
+    texture  = txture;
 }

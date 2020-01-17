@@ -7,12 +7,19 @@ class SkyBox : public Component<SkyBox> {
 
 public:
     CubeShape* getCube() { return &cube; }
-    GLuint getCubeMap() { return map; }
-    void supplyMap(GLuint m) { map = m; }
+    CubeMap* getCubeMap() {
+
+#ifdef DEBUG
+        assert(map != nullptr);
+#endif // DEBUG
+
+        return map;
+    }
+    void supplyMap(CubeMap& m) { map = &m; }
 
 private:
     CubeShape cube;
-    GLuint map;
+    CubeMap* map;
 };
 
 #endif

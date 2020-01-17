@@ -84,12 +84,12 @@ void PlayerTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
 
     textShader = Shader(*vitals.currentSettings, "assets/Shaders/GUIShader.v", "assets/Shaders/GUIShader.f", SHADER_TYPE::GUI);
 
-    bCollisionMesh.addCollider(model.getBoneID("head"), id, COLLISION_TAGS::Player);
-    bCollisionMesh.addCollider(model.getBoneID("body"), id, COLLISION_TAGS::Player);
-    bCollisionMesh.addCollider(model.getBoneID("arm.r"), id, COLLISION_TAGS::Player);
-    bCollisionMesh.addCollider(model.getBoneID("arm.l"), id, COLLISION_TAGS::Player);
-    bCollisionMesh.addCollider(model.getBoneID("leg.r"), id, COLLISION_TAGS::Player);
-    bCollisionMesh.addCollider(model.getBoneID("leg.l"), id, COLLISION_TAGS::Player);
+    //bCollisionMesh.addCollider(model.getBoneID("head"), id, COLLISION_TAGS::Player);
+    //bCollisionMesh.addCollider(model.getBoneID("body"), id, COLLISION_TAGS::Player);
+    //bCollisionMesh.addCollider(model.getBoneID("arm.r"), id, COLLISION_TAGS::Player);
+    // bCollisionMesh.addCollider(model.getBoneID("arm.l"), id, COLLISION_TAGS::Player);
+    //bCollisionMesh.addCollider(model.getBoneID("leg.r"), id, COLLISION_TAGS::Player);
+    //bCollisionMesh.addCollider(model.getBoneID("leg.l"), id, COLLISION_TAGS::Player);
 
     collisionMesh.getRigidBody()->setInvInertiaDiagLocal(btVector3(0, 0, 0));
     collisionMesh.getRigidBody()->updateInertiaTensor();
@@ -251,7 +251,7 @@ void LightTest::initialize(EntityWrapper::EntityVitals& vitals) {
         vitals.scene->addComponent(id, lights[i]);
     }
 
-    GLuint m = TextureLocator::getService().createCubeMap("skybox", std::vector<std::string> { "assets/Images/cubeMaps/skybox/right.png", "assets/Images/cubeMaps/skybox/left.png", "assets/Images/cubeMaps/skybox/top.png", "assets/Images/cubeMaps/skybox/bottom.png", "assets/Images/cubeMaps/skybox/front.png", "assets/Images/cubeMaps/skybox/back.png" });
+    CubeMap& m = TextureLocator::getService().getCubeMap("skybox", std::vector<std::string> { "assets/Images/cubeMaps/skybox/right.png", "assets/Images/cubeMaps/skybox/left.png", "assets/Images/cubeMaps/skybox/top.png", "assets/Images/cubeMaps/skybox/bottom.png", "assets/Images/cubeMaps/skybox/front.png", "assets/Images/cubeMaps/skybox/back.png" });
     skyBox.supplyMap(m);
 
     skyBoxShader = Shader(*vitals.currentSettings, "assets/Shaders/SkyBox.v", "assets/Shaders/SkyBox.f", SHADER_TYPE::Default);

@@ -227,8 +227,14 @@ void SoundHandler::playSound(const std::string& location) {
 *The destructor of the sound handler will delete the vector of pointers and clear it*
 *************************************************************************************/
 SoundHandler::~SoundHandler() {
-    hh::clearVectorOfPointers(soundLibrary);
     DBG_LOG("Freeing memory for the sound library\n");
+    for (std::vector<Sound*>::iterator it = soundLibrary.begin(); it != soundLibrary.end(); ++it) {
+        if (*it != nullptr) {
+            delete *it;
+            *it = nullptr;
+        }
+    }
+    soundLibrary.clear();
 }
 
 //*************************************End of Sound Handler Class*********************************************
@@ -376,9 +382,14 @@ bool MusicHandler::isPlayingMusic() {
 *The destructor of the music handler will delete the vector of pointers and clear it*
 *************************************************************************************/
 MusicHandler::~MusicHandler() {
-    hh::clearVectorOfPointers(musicLibrary);
-
     DBG_LOG("Freeing memory for the music library\n");
+    for (std::vector<Music*>::iterator it = musicLibrary.begin(); it != musicLibrary.end(); ++it) {
+        if (*it != nullptr) {
+            delete *it;
+            *it = nullptr;
+        }
+    }
+    musicLibrary.clear();
 }
 
 //*************************************End of Music Handler Class*********************************************

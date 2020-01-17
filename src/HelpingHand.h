@@ -127,16 +127,6 @@ void swapVal(T& a, T& b) {
 
 const glm::vec3 UP_VECTOR = glm::vec3(0.0f, 1.0f, 0.0f);
 
-//clearVectorOfPointers will delete each element inside of a vector, then clear the vector of those pointers.
-template <class C>
-void clearVectorOfPointers(C& cntr) {
-    for (typename C::iterator it = cntr.begin();
-         it != cntr.end(); ++it) {
-        delete *it;
-    }
-    cntr.clear();
-}
-
 //Used for linear interpolation.
 template <typename T>
 T lerp(const T& a, const T& b, float t) {

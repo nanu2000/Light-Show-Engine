@@ -14,15 +14,8 @@
 
 class Texture {
 public:
-    Texture();
-
-    ~Texture() {
-        DBG_LOG("Freeing memory for texture.\n");
-        glDeleteTextures(1, &texture);
-    }
-
-    Texture(std::string loc, GLuint txture, GLuint w, GLuint h,
-            bool istransparent);
+    Texture(std::string loc, GLuint txture, GLuint w, GLuint h, bool istransparent);
+    ~Texture();
 
     inline bool checkTransparency() const { return isTransparent; }
     inline GLuint getWidth() const { return imageWidth; }
@@ -40,15 +33,11 @@ private:
 
 class CubeMap {
 public:
-    CubeMap();
-    ~CubeMap() {
-        DBG_LOG("Freeing memory for cubemap.\n");
-        glDeleteTextures(1, &texture);
-    }
     CubeMap(const std::vector<std::string>& faces, GLuint txture);
+    ~CubeMap();
 
     inline GLuint getCubeMapData() const { return texture; }
-    const std::vector<std::string> getLocations() const {
+    inline const std::vector<std::string> getTexturePaths() const {
         return location;
     }
 
@@ -57,25 +46,51 @@ private:
     GLuint texture = 0;
 };
 
+//The TextureHandler class should be used for handling textures and cubemaps throughout the programs duration.
+//It should be handled by the TextureLocator class.
 class TextureHandler {
 public:
-    // Will return Texture if it already exists, but will create one if it doesn't
-    // exist.
+    //Tries to retrieve a texture via file path, if it's not in the texture library then it adds it.
     Texture& getTexture(std::string filePath, GLint filtering = GL_LINEAR, bool repeatTexture = false);
 
+    //Tries to retrieve a cubemap via file paths, if it's not in the cubemap library then it adds it.
     CubeMap& getCubeMap(const std::string identifier, const std::vector<std::string>& faces);
 
+    //Free memory allocated for cubemaps and textures.
+    //All allocated pointers are stored in textureLibrary and cubeMapLibrary
     ~TextureHandler();
 
 private:
-    Texture& createTexture(std::string filePath, GLint filtering,
-                           bool repeatTexture);
+    //Fills Texture with data from filePath if it exists. if not it will use a checker pattern.
+    Texture parseTexture(std::string filePath, GLint filtering, bool repeatTexture);
+
+    //Checks if the sdl surface is power of two. Only runs on debug
+    void verifySurfaceDimensions(const SDL_Surface& surface);
+
+    //Returns sdl_surface format. IE GL_RGB, GL_RGBA, etc...
+    GLenum getSurfaceFormat(const SDL_Surface& surface);
+
+    //Generates filler image using glTexImage2D with fillerTexturePixels to create a texture to use.
+    void teximage2DFillerTexture(GLenum target);
+
+    //Add a new texture to the sorted texture library.
+    Texture& addNewTexture(std::string filePath, GLint filtering, bool repeatTexture);
 
     Texture* binarySearchTextures(const std::string& key);
-    Texture& addNew(std::string filePath, GLint filtering, bool repeatTexture);
-    void addThenSort(Texture& texture);
+
+    //Used as data for filepaths which could not find a valid texture to use.
+    //These bytes are a simple checkered pattern.
+    const GLubyte fillerTexturePixels[27] = { 0, 0, 0, 255, 255, 255, 0, 0, 0,
+
+                                              255, 255, 255, 0, 0, 0, 255, 255, 255,
+
+                                              0, 0, 0, 255, 255, 255, 0, 0, 0 };
+
+    //Contains all dynamically allocated pointers for textures
     std::vector<Texture*> textureLibrary;
-    std::map<std::string, CubeMap*> cubeMaps;
+
+    //Contains all dynamically allocated pointers for cubemaps
+    std::map<std::string, CubeMap*> cubeMapLibrary;
 };
 
 #endif

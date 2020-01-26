@@ -34,7 +34,7 @@ void RenderingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld&
         return false;
     });
 
-    screenShader = ShaderBase("assets/Shaders/RenderTexture.v", "assets/Shaders/RenderTexture.f", SHADER_TYPE::Default);
+    screenShader = ShaderBase("assets/shaders/render-texture.vert", "assets/shaders/render-texture.frag", SHADER_TYPE::Default);
 }
 
 void RenderingSystem::initializeLights(Shader& litShader) {

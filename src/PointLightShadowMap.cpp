@@ -3,10 +3,10 @@
 void PointLightShadowMap::initialize() {
 
     depthMapShader = ShaderBase(
-        "assets/Shaders/PointLightDepthMapAnimated.v",
-        "assets/Shaders/PointLightDepthMap.f",
+        "assets/shaders/point-light-depth-map.vert",
+        "assets/Shaders/point-light-depth-map.frag",
         SHADER_TYPE::Default,
-        "assets/Shaders/PointLightDepthMap.g");
+        "assets/shaders/point-light-depth-map.geom");
 
     glGenTextures(1, &depthCubeMap);
 

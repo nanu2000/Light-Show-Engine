@@ -5,7 +5,6 @@ layout(location = 2) in vec2 textureCoords;
 
 out vec2 textureCoords_o;
 
-
 void main()
 {
     textureCoords_o = textureCoords;

@@ -21,18 +21,26 @@ out vec2 textureCoords_o;
 out vec4 fragmentPositionLightSpace_o;
 
 void main() {
-    // Transform the vertex information based on bones.
 
-    vec3 pos = (boneWeights.x * (boneTransformation[int(boneIds.x)] * vec4(position, 1.0)).xyz) + (boneWeights.y * (boneTransformation[int(boneIds.y)] * vec4(position, 1.0)).xyz) + (boneWeights.z * (boneTransformation[int(boneIds.z)] * vec4(position, 1.0)).xyz) + (boneWeights.w * (boneTransformation[int(boneIds.w)] * vec4(position, 1.0)).xyz);
+    //Transform the vertex information based on bones.
+    //We use vec4(position, 1.0) because boneTransformation is a mat4, and you can't multiply a vec3 with a mat4.
+    vec3 pos =  (boneWeights.x * (boneTransformation[int(boneIds.x)] * vec4(position, 1.0)).xyz) + 
+                (boneWeights.y * (boneTransformation[int(boneIds.y)] * vec4(position, 1.0)).xyz) + 
+                (boneWeights.z * (boneTransformation[int(boneIds.z)] * vec4(position, 1.0)).xyz) + 
+                (boneWeights.w * (boneTransformation[int(boneIds.w)] * vec4(position, 1.0)).xyz);
 
-    vec3 norm = (boneWeights.x * (boneTransformation[int(boneIds.x)] * vec4(normal, 0.0)).xyz) + (boneWeights.y * (boneTransformation[int(boneIds.y)] * vec4(normal, 0.0)).xyz) + (boneWeights.z * (boneTransformation[int(boneIds.z)] * vec4(normal, 0.0)).xyz) + (boneWeights.w * (boneTransformation[int(boneIds.w)] * vec4(normal, 0.0)).xyz);
+    //Calculate the normals based on bones
+    vec3 norm = (boneWeights.x * (boneTransformation[int(boneIds.x)] * vec4(normal, 0.0)).xyz) + 
+                (boneWeights.y * (boneTransformation[int(boneIds.y)] * vec4(normal, 0.0)).xyz) + 
+                (boneWeights.z * (boneTransformation[int(boneIds.z)] * vec4(normal, 0.0)).xyz) + 
+                (boneWeights.w * (boneTransformation[int(boneIds.w)] * vec4(normal, 0.0)).xyz);
 
-    gl_Position = projection * view * model * vec4(pos, 1.0f);
-    position_o  = (view * model * vec4(pos, 1.0)).xyz;
-
-    normal_o        = mat3(transpose(inverse(model))) * norm;
-    fragPosition_o  = vec3(model * vec4(pos, 1.0f));
-    textureCoords_o = textureCoords;
-
+    //Supply outputs
+    position_o                   = (view * model * vec4(pos, 1.0)).xyz;
+    normal_o                     = mat3(transpose(inverse(model))) * norm;
+    textureCoords_o              = textureCoords;
+    fragPosition_o               = vec3(model * vec4(pos, 1.0f));
     fragmentPositionLightSpace_o = lightSpaceMatrix * vec4(fragPosition_o, 1.0);
+   
+    gl_Position = projection * view * model * vec4(pos, 1.0f);
 }

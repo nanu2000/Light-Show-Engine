@@ -1,9 +1,9 @@
 #version 330 core
-layout(triangles) in;
-layout(triangle_strip, max_vertices = 18) out;
 
 uniform mat4 shadowMatrices[6];
 
+layout(triangles) in;
+layout(triangle_strip, max_vertices = 18) out;
 out vec4 FragPosition_o; // FragPos from GS (output per emitvertex)
 
 void main() {

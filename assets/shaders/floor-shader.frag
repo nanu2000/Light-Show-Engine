@@ -1,5 +1,4 @@
 #version 330 core
-out vec4 color;
 
 //**********************************************
 //These macros are modified on runtime.
@@ -52,6 +51,8 @@ in vec4 fragmentPositionLightSpace_o;
 in vec2 textureCoords_o;
 in vec3 normal_o;
 in vec3 fragPosition_o;
+
+out vec4 color;
 
 vec3 CalcDirLight(DirectionalLight light, vec3 normal, vec3 viewDir);
 vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir, float shadowCalculation);
@@ -116,27 +117,6 @@ float pointLightShadowCalculation(vec3 fragPos, PointLight pointLight) {
     return shadow;
 }
 
-void main() {
-    // Properties
-    vec3 norm    = normalize(normal_o);
-    vec3 viewDir = normalize(viewPosition - fragPosition_o);
-
-    // Phase 1: Directional lighting
-    vec3 result = CalcDirLight(directionalLight, norm, viewDir);
-
-    float pointLightShadow = (1.0f - pointLightShadowCalculation(fragPosition_o, pointLights[0]));
-
-    // Phase 2: Point lights
-    for (int i = 0; i < AMOUNT_OF_POINT_LIGHTS; i++) {
-        result += CalcPointLight(pointLights[i], norm, fragPosition_o, viewDir, pointLightShadow / AMOUNT_OF_POINT_LIGHTS);
-    }
-
-    //for opacity, use the W member of the texture like so:
-    //color = vec4(result, texture(material.texture_diffuse1, textureCoords_o).w);
-
-    color = vec4(result, texture(material.texture_diffuse1, textureCoords_o).w);
-}
-
 vec3 CalcDirLight(DirectionalLight light, vec3 normal, vec3 viewDir) {
     vec3 lightDir = normalize(-light.direction);
     // Diffuse shading
@@ -175,4 +155,25 @@ vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir, f
     diffuse *= attenuation;
     specular *= attenuation;
     return (ambient + shadowCalculation * (diffuse + specular));
+}
+
+void main() {
+    // Properties
+    vec3 norm    = normalize(normal_o);
+    vec3 viewDir = normalize(viewPosition - fragPosition_o);
+
+    // Phase 1: Directional lighting
+    vec3 result = CalcDirLight(directionalLight, norm, viewDir);
+
+    float pointLightShadow = (1.0f - pointLightShadowCalculation(fragPosition_o, pointLights[0]));
+
+    // Phase 2: Point lights
+    for (int i = 0; i < AMOUNT_OF_POINT_LIGHTS; i++) {
+        result += CalcPointLight(pointLights[i], norm, fragPosition_o, viewDir, pointLightShadow / AMOUNT_OF_POINT_LIGHTS);
+    }
+
+    //for opacity, use the W member of the texture like so:
+    //color = vec4(result, texture(material.texture_diffuse1, textureCoords_o).w);
+
+    color = vec4(result, texture(material.texture_diffuse1, textureCoords_o).w);
 }

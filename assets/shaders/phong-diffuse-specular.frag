@@ -1,5 +1,4 @@
 #version 330 core
-out vec4 color;
 
 //**********************************************
 //These macros are modified on runtime.
@@ -38,7 +37,6 @@ struct PointLight {
 };
 
 uniform PointLight pointLights[AMOUNT_OF_POINT_LIGHTS];
-
 uniform DirectionalLight directionalLight;
 
 uniform Material material;
@@ -52,6 +50,8 @@ in vec4 fragmentPositionLightSpace_o;
 in vec2 textureCoords_o;
 in vec3 normal_o;
 in vec3 fragPosition_o;
+
+out vec4 color;
 
 vec3 CalcDirLight(DirectionalLight light, vec3 normal, vec3 viewDir);
 vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir, float shadowCalculation);

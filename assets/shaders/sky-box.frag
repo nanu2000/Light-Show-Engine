@@ -1,7 +1,7 @@
 #version 330 core
 
-in vec3 textureCoords_o;
 uniform samplerCube skybox;
+in vec3 textureCoords_o;
 out vec4 FragColor;
 
 void main() {

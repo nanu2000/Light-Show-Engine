@@ -1,5 +1,4 @@
 #version 330 core
-out vec4 color;
 
 //**********************************************
 //These macros are modified on runtime.
@@ -41,9 +40,7 @@ struct PointLight {
 };
 
 uniform PointLight pointLights[AMOUNT_OF_POINT_LIGHTS];
-
 uniform DirectionalLight directionalLight;
-
 uniform Material material;
 uniform samplerCube pointShadowMap;
 uniform sampler2D directionalShadowMap;
@@ -55,6 +52,8 @@ in vec4 fragmentPositionLightSpace_o;
 in vec2 textureCoords_o;
 in vec3 normal_o;
 in vec3 fragPosition_o;
+
+out vec4 color;
 
 vec3 CalcDirLight(DirectionalLight light, vec3 normal, vec3 viewDir);
 vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir, float shadowCalculation);
@@ -117,22 +116,6 @@ float pointLightShadowCalculation(vec3 fragPos) {
     }
     return shadow;
 }
-void main() {
-    // Properties
-    vec3 norm    = normalize(normal_o);
-    vec3 viewDir = normalize(viewPosition - fragPosition_o);
-
-    // Phase 1: Directional lighting
-    vec3 result = CalcDirLight(directionalLight, norm, viewDir);
-
-    // Phase 2: Point lights
-    float pointLightShadow = (1.0f - pointLightShadowCalculation(fragPosition_o) / float(AMOUNT_OF_POINT_LIGHTS));
-    for (int i = 0; i < AMOUNT_OF_POINT_LIGHTS; i++) {
-        result += CalcPointLight(pointLights[i], norm, fragPosition_o, viewDir, pointLightShadow);
-    }
-
-    color = vec4(result, 1.0);
-}
 
 vec3 CalcDirLight(DirectionalLight light, vec3 normal, vec3 viewDir) {
     vec3 lightDir = normalize(-light.direction);
@@ -172,4 +155,21 @@ vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir, f
     specular *= attenuation;
 
     return (ambient + shadowCalculation * (diffuse + specular));
+}
+
+void main() {
+    // Properties
+    vec3 norm    = normalize(normal_o);
+    vec3 viewDir = normalize(viewPosition - fragPosition_o);
+
+    // Phase 1: Directional lighting
+    vec3 result = CalcDirLight(directionalLight, norm, viewDir);
+
+    // Phase 2: Point lights
+    float pointLightShadow = (1.0f - pointLightShadowCalculation(fragPosition_o) / float(AMOUNT_OF_POINT_LIGHTS));
+    for (int i = 0; i < AMOUNT_OF_POINT_LIGHTS; i++) {
+        result += CalcPointLight(pointLights[i], norm, fragPosition_o, viewDir, pointLightShadow);
+    }
+
+    color = vec4(result, 1.0);
 }

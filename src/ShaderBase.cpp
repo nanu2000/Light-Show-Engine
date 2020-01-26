@@ -57,6 +57,13 @@ int ShaderBase::getCode(const std::string& vertexPath, const std::string& fragme
         std::stringstream vShaderStream;
         std::stringstream fShaderStream;
 
+        if (vertexPath.empty()) {
+            DBG_LOG("No path for vertex shader\n");
+        }
+        if (fragmentPath.empty()) {
+            DBG_LOG("No path for fragment shader\n");
+        }
+
         vShaderFile.open(vertexPath);
         fShaderFile.open(fragmentPath);
 
@@ -78,6 +85,26 @@ int ShaderBase::getCode(const std::string& vertexPath, const std::string& fragme
 
         vertexCode   = vShaderStream.str();
         fragmentCode = fShaderStream.str();
+
+#ifdef DEBUG
+        if (vertexCode.empty()) {
+            DBG_LOG("No code for vertex shader: \n");
+            DBG_LOG(vertexPath.c_str());
+            DBG_LOG("\n");
+        }
+
+        if (fragmentCode.empty()) {
+            DBG_LOG("No code for fragment shader: \n");
+            DBG_LOG(fragmentPath.c_str());
+            DBG_LOG("\n");
+        }
+
+        if (geometryCode.empty() && !geometryPath.empty()) {
+            DBG_LOG("No code for geometry shader: \n");
+            DBG_LOG(geometryPath.c_str());
+            DBG_LOG("\n");
+        }
+#endif
 
     } catch (std::ifstream::failure e) {
         return -1;

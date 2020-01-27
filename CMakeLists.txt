@@ -48,6 +48,7 @@ else()
     endif()
 endif()
 
+
 # SDL2
 find_package(SDL2 REQUIRED)
 include_directories(SYSTEM ${SDL2_INCLUDE_DIRS})
@@ -96,10 +97,17 @@ endif (USE_DOUBLE_PRECISION)
 add_subdirectory(lib/bullet EXCLUDE_FROM_ALL)
 
 
-#copy assets to build dir
 file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
 
 if(WIN32)
+
+    #copy all assets using robocopy cmd script
+    #do this so visual studio will copy after a file change. cmake's copy wont copy unless the cmake script is rebuilt.
+    add_custom_command(
+        TARGET lightshow PRE_BUILD 
+        COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/RoboCopyAssets.bat"
+        )
+
     add_custom_command(
         TARGET lightshow POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different 

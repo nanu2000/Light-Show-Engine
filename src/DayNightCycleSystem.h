@@ -21,6 +21,10 @@ public:
 
         float speed = 1.0f;
 
+        if (InputLocator::getService().getMouseButton(MOUSE_BUTTON::LeftButton)) {
+            speed = 20;
+        }
+
         currentRotation = currentRotation + GameInfo::fixedDeltaTime * speed;
         currentRotation = glm::mod(currentRotation, 360.f);
 
@@ -43,7 +47,8 @@ public:
         glm::vec3 dir = hh::sphericalToCartisean(rotRadians, glm::radians(170.f), 1);
 
         currentDirection = glm::vec3(dir.y, dir.x, dir.z);
-        light.direction  = currentDirection;
+
+        light.direction = currentDirection;
     }
 
     void debugRender(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix) {

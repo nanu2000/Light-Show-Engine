@@ -52,5 +52,10 @@ private:
 
     Quad screenQuad;
     ShaderBase screenShader;
+
+    //Todo: move to a debugging component/system.
+    glm::mat4 depthMatrix = glm::mat4(1.0f);
+    Quad depthQuad;
+    ShaderBase depthShader;
 };
 #endif

@@ -79,7 +79,7 @@ private:
 
     bool lightSupplied  = false;
     GLfloat nearPlane   = .10f;
-    GLfloat farPlane    = 50.0f;
+    GLfloat farPlane    = 100.0f;
     GLfloat aspect      = 1.0f;
     GLuint depthMapFBO  = 0;
     GLuint depthCubeMap = 0;

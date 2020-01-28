@@ -15,17 +15,17 @@ out vec2 textureCoords_o;
 out vec3 fragPosition_o;
 out vec4 fragmentPositionLightSpace_o;
 
+
 void main() {
 
-    gl_Position                  = projection * view * model * vec4(position, 1.0f);
     position_o                   = (view * model * vec4(position, 1.0)).xyz;
     
     //Pretty much we move the normals based on the models orientation. 
     //lighthouse has a good example http://www.lighthouse3d.com/tutorials/glsl-12-tutorial/the-normal-matrix/
-    normal_o                     = transpose(inverse(mat3(model))) * normal;
+    normal_o                     = mat3(transpose(inverse(model))) * normal;
     //
-
     fragPosition_o               = vec3(model * vec4(position, 1.0f));
     textureCoords_o              = textureCoords;
     fragmentPositionLightSpace_o = lightSpaceMatrix * vec4(fragPosition_o, 1.0);
+    gl_Position                  = projection * view * model * vec4(position, 1.0f);
 }

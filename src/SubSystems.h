@@ -6,6 +6,7 @@
 #include "DisplayStatisticsSystem.h"
 #include "EnemyControllerSystem.h"
 #include "FirstPersonCameraSystem.h"
+#include "ParticleSystem.h"
 #include "PauseMenuSystem.h"
 #include "PlayerCameraHandlingSystem.h"
 #include "PlayerControllerSystem.h"
@@ -29,6 +30,8 @@ struct SubSystems {
 
     DayNightCycleSystem dayNightCycleSystem;
     SkyBoxSystem skyBoxSystem;
+
+    ParticleSystem particleSystem;
 };
 
 #endif

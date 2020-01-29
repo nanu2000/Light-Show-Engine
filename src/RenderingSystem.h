@@ -3,7 +3,6 @@
 
 #include "DebuggingController.h"
 #include "DirectionalLightShadowMap.h"
-#include "FountainParticleEmitter.h"
 #include "GuiButton.h"
 #include "GuiSprite.h"
 #include "GuiString.h"
@@ -26,12 +25,8 @@ public:
     void render(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Time& currentTime, const RenderTexture& renderTexture);
 
 private:
-    //This function searches for any particle systems that may exist.
-    //As of 4/17/2016, there is only one particle system implemented, so it will only return either a nullptr,
-    //or a fountain particle system pointer
-    ParticleEmitter* getParticleEmitter(int32_t entity);
-
-    void renderAll(Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
+    void
+    renderAll(Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
     void renderDebugging(Camera& currentCamera);
     void renderModels(Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
     void renderOthers(Camera& currentCamera, Time& currentTime);

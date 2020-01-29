@@ -1,6 +1,6 @@
 #include "ParticleSystem.h"
 
-void ParticleEmitter::initialize(const WorldSettings& worldSettings) {
+void Particles::initialize(const Settings& worldSettings) {
 
     currentWorldSettings = &worldSettings;
 
@@ -34,9 +34,22 @@ void ParticleEmitter::initialize(const WorldSettings& worldSettings) {
 
     glBindVertexArray(0);
 
+    for (int i = 0; i < particles.size(); i++) {
+
+        setParticleToDefault(particles[i]);
+    }
+
     initialized = true;
 }
-ParticleEmitter::~ParticleEmitter() {
+
+bool Particles::areVitalsNull() {
+    if (!currentWorldSettings) {
+        DBG_LOG("Please initialize particle emitter properly\n");
+        return true;
+    }
+    return false;
+}
+Particles::~Particles() {
     if (!initialized) {
         return;
     }
@@ -48,19 +61,33 @@ ParticleEmitter::~ParticleEmitter() {
     glDeleteBuffers(1, &instanceBufferObject);
 }
 
-void ParticleEmitter::renderParticles(ShaderBase& shader, Particles& particlesWrapper) {
-    if (renderingSize > 0 && !areVitalsNull()) {
-        if (!particlesWrapper.getTexture()) {
-            DBG_LOG("Particle Texture Is Null! Cannot Render Particles! (ParticleEmitter::renderParticles in ParticleSystem.cpp) \n");
+void Particles::setWorldSettings(const Settings& worldSettings) {
+    currentWorldSettings = &worldSettings;
+}
+
+void Particles::setParticleToDefault(Particle& particle) {
+
+    particle.speed = glm::vec3(std::rand() % 10 - 5, std::rand() % 10 - 5, std::rand() % 10 - 5);
+
+    particle.position = emmisionPosition;
+    particle.color    = defaultColor;
+    particle.size     = defaultScale;
+    particle.lifeTime = defaultLifeTime;
+}
+
+void ParticleSystem::renderParticles(ShaderBase& shader, Particles& particles) {
+    if (particles.renderingSize > 0 && !particles.areVitalsNull()) {
+        if (!particles.getTexture()) {
+            DBG_LOG("Particle Texture Is Null! Cannot Render Particles! (ParticleSystem::renderParticles in ParticleSystem.cpp) \n");
             return;
         }
 
-        std::vector<Particle>& particles = *particlesWrapper.getParticles();
+        std::vector<Particle>& particleV = *particles.getParticles();
 
-        glBindVertexArray(vertexArrayObject);
+        glBindVertexArray(particles.vertexArrayObject);
 
-        glBindBuffer(GL_ARRAY_BUFFER, instanceBufferObject);
-        glBufferData(GL_ARRAY_BUFFER, renderingSize * sizeof(Particle), &particles[0], GL_DYNAMIC_DRAW);
+        glBindBuffer(GL_ARRAY_BUFFER, particles.instanceBufferObject);
+        glBufferData(GL_ARRAY_BUFFER, particles.renderingSize * sizeof(Particle), &particleV[0], GL_DYNAMIC_DRAW);
 
         glEnableVertexAttribArray(Shaders::getAttribLocation(Shaders::AttribName::ParticlePosition));
         glEnableVertexAttribArray(Shaders::getAttribLocation(Shaders::AttribName::ParticleScale));
@@ -93,90 +120,77 @@ void ParticleEmitter::renderParticles(ShaderBase& shader, Particles& particlesWr
         glVertexAttribDivisor(Shaders::getAttribLocation(Shaders::AttribName::ParticlePosition), 1);
 
         glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, particlesWrapper.getTexture()->getTextureData());
+        glBindTexture(GL_TEXTURE_2D, particles.getTexture()->getTextureData());
         glUniform1i(Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::DiffuseTexture), 0);
 
         GLboolean currentDepth;
         glGetBooleanv(GL_DEPTH_WRITEMASK, &currentDepth);
 
         glDepthMask(GL_FALSE);
-        glDrawArraysInstanced(GL_TRIANGLE_STRIP, 0, 4, renderingSize);
+        glDrawArraysInstanced(GL_TRIANGLE_STRIP, 0, 4, particles.renderingSize);
         glDepthMask(currentDepth);
 
         glBindVertexArray(0);
     }
 }
 
-void ParticleEmitter::mainFixedUpdateParticles(Particles& particlesWrapper) {
-    if (areVitalsNull()) {
-        return;
+void ParticleSystem::fixedUpdateParticles(Particles& particles) {
+    std::vector<Particle>& particlesV = *particles.getParticles();
+
+    //Lets say we want 60 particles per second - pps
+
+    //~.1 seconds lets say is every frame - dt
+
+    //every frame we need pps * dt particles. 60 * .1 = 6 per frame to spawn
+
+    particles.newparticles += GameInfo::fixedDeltaTime * particles.particlesPerSecond;
+
+    int particlesToSpawn = static_cast<int>(particles.newparticles);
+
+    if (particlesToSpawn > 0) {
+
+        while (particlesToSpawn > 0) {
+
+            if (particles.renderingSize <= static_cast<int>(particlesV.size())) {
+
+                //Get the last particle
+                particles.setParticleToDefault(particlesV[particles.renderingSize]);
+
+                particlesV[particles.renderingSize].lifeTime -= GameInfo::fixedDeltaTime;
+
+                particles.renderingSize++;
+
+                particlesToSpawn--;
+
+            } else {
+                break;
+            }
+        }
+        particles.newparticles = 0;
     }
 
-    std::vector<Particle>& particles = *particlesWrapper.getParticles();
+    assert(particles.renderingSize <= particles.particlesPerSecond);
 
-    for (int i = 0; i < renderingSize; i++) {
-        particles[i].lifeTime -= GameInfo::fixedDeltaTime;
+    for (int i = 0; i < particles.renderingSize; i++) {
+        particlesV[i].lifeTime -= GameInfo::fixedDeltaTime;
 
-        if (particles[i].lifeTime <= GameInfo::fixedDeltaTime) {
-            hh::swapVal(particles[i], particles[renderingSize - 1]);
-            renderingSize--;
+        if (particlesV[i].lifeTime <= 0) {
+            hh::swapVal(particlesV[i], particlesV[particles.renderingSize - 1]);
+            particles.renderingSize--;
         }
     }
-
-    float pps = 1.0f / particlesPerSecond;
-
-    newparticles += GameInfo::fixedDeltaTime;
-
-    while (newparticles > pps) {
-        if (renderingSize <= static_cast<int>(particles.size())) {
-            setParticleToDefault(particles[renderingSize]);
-            particles[renderingSize].lifeTime -= GameInfo::fixedDeltaTime;
-            renderingSize++;
-            newparticles -= pps;
-
-        } else {
-            break;
-        }
-    }
 }
 
-void ParticleEmitter::setParticleToDefault(Particle& p) {
-    p.speed    = glm::vec3(std::rand() % 10 - 5, std::rand() % 10 - 5, std::rand() % 10 - 5);
-    p.position = emmisionPosition;
-    p.lifeTime = 1;
-    p.size     = 1;
-}
+void ParticleSystem::updateParticles(Particles& particles) {
+    std::vector<Particle>& particlesV = *particles.getParticles();
 
-void ParticleEmitter::fixedUpdateParticles(int amountPerSecond, Particles& particlesWrapper) {
-    particlesPerSecond = amountPerSecond;
-    mainFixedUpdateParticles(particlesWrapper);
-}
-
-void ParticleEmitter::fixedUpdateParticles(Particles& particlesWrapper) {
-    mainFixedUpdateParticles(particlesWrapper);
-}
-
-void ParticleEmitter::updateParticles(Particles& particlesWrapper) {
-    std::vector<Particle>& particles = *particlesWrapper.getParticles();
-    for (int i = 0; i < renderingSize; i++) {
-        performParticleCalculations(particles[i]);
+    for (int i = 0; i < particles.renderingSize; i++) {
+        performParticleCalculations(particlesV[i], particles);
     }
 }
 
 //Generally calculations are overridden
-void ParticleEmitter::performParticleCalculations(Particle& p) {
-    p.speed += currentWorldSettings->getGravity() * GameInfo::getDeltaTime() * 0.5f;
-    p.position += p.speed * GameInfo::getDeltaTime();
-}
-
-void ParticleEmitter::setWorldSettings(const WorldSettings& worldSettings) {
-    currentWorldSettings = &worldSettings;
-}
-
-bool ParticleEmitter::areVitalsNull() {
-    if (!currentWorldSettings) {
-        DBG_LOG("Please initialize particle emitter properly\n");
-        return true;
-    }
-    return false;
+void ParticleSystem::performParticleCalculations(Particle& particle, Particles& particles) {
+    particle.speed += particles.currentWorldSettings->getGravity() * GameInfo::getDeltaTime() * 0.5f;
+    particle.position += particle.speed * GameInfo::getDeltaTime();
 }

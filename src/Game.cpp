@@ -33,7 +33,6 @@ void Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSy
     vitals.map             = &map;
     vitals.scene           = &currentScene;
     vitals.thisWorld       = &physicsWorld;
-    vitals.worldSettings   = &worldSettings;
 
     std::vector<EntityWrapper*> entities;
 

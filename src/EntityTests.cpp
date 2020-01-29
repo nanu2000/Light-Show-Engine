@@ -10,24 +10,17 @@ void ParticleTest::initialize(EntityWrapper::EntityVitals& vitals) {
 
     particles.initializeTexture(TextureLocator::getService().getTexture("assets/Particles/fluffParticle.png"));
 
-    particleShader = Shader(*vitals.currentSettings, "assets/shaders/particle-shader.vert", "assets/shaders/particle-shader.frag", SHADER_TYPE::Particle);
+    particles.emmisionPosition = glm::vec3(0, 5, 0);
+    particles.setParticlesPerSecond(10000);
+    particles.setDefaultStartScale(.3);
+    particles.setDefaultColor(glm::vec4(.4, .6, 1, .4));
 
-    particleTest.initialize(*vitals.worldSettings);
+    particles.initialize(*vitals.currentSettings);
 
-    particleTest.setWeight(1);
-    particleTest.setFountainPull(5);
-    particleTest.setFountainSpread(5.f);
-    particleTest.setDefaultLifeTime(2.f);
-    particleTest.setDefaultEndScale(.4f);
-    particleTest.setDefaultStartScale(.1f);
-    particleTest.setParticlesPerSecond(4999);
-    particleTest.setFountainVerticalForce(10);
-
-    particleTest.emmisionPosition = glm::vec3(42, 8, -5);
-    particleTest.setDefaultColor(glm::vec4(.15f, .35f, .65f, .1f));
+    particleShader
+        = Shader(*vitals.currentSettings, "assets/shaders/particle-shader.vert", "assets/shaders/particle-shader.frag", SHADER_TYPE::Particle);
 
     vitals.scene->addComponent(id, particles);
-    vitals.scene->addComponent(id, particleTest);
     vitals.scene->addComponent(id, particleShader);
 }
 

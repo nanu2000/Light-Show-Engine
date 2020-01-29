@@ -6,12 +6,12 @@
 #include "DisplayStatistics.h"
 #include "EnemyController.h"
 #include "EntityTransform.h"
-#include "FountainParticleEmitter.h"
 #include "GlobalInformation.h"
 #include "GuiSprite.h"
 #include "GuiString.h"
 #include "Lights.h"
 #include "Material.h"
+#include "ParticleSystem.h"
 #include "PauseMenu.h"
 #include "PlayerCameraHandler.h"
 #include "PlayerController.h"
@@ -27,13 +27,12 @@
 class EntityWrapper {
 public:
     struct EntityVitals {
-        Settings* currentSettings    = nullptr;
-        Scene* scene                 = nullptr;
-        PhysicsWorld* thisWorld      = nullptr;
-        WorldSettings* worldSettings = nullptr;
-        TextMap* map                 = nullptr;
+        Settings* currentSettings = nullptr;
+        Scene* scene              = nullptr;
+        PhysicsWorld* thisWorld   = nullptr;
+        TextMap* map              = nullptr;
 
-        bool checkForNulls() { return currentSettings && scene && thisWorld && worldSettings && map; }
+        bool checkForNulls() { return currentSettings && scene && thisWorld && map; }
     };
 
     virtual void initialize(EntityVitals& vitals) = 0;
@@ -61,7 +60,6 @@ public:
 private:
     Particles particles = Particles(10000);
     Shader particleShader;
-    FountainParticleEmitter particleTest;
 };
 
 class Player : public EntityWrapper {

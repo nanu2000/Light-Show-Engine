@@ -111,9 +111,7 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
         }
 
         if (Particles* p = currentScene->getComponent<Particles>(entity.id)) {
-            if (ParticleEmitter* pe = currentScene->getComponent<FountainParticleEmitter>(entity.id)) {
-                pe->fixedUpdateParticles(*p);
-            }
+            systems->particleSystem.fixedUpdateParticles(*p);
         }
 
         if (DebuggingController* dbgCtrlr = currentScene->getComponent<DebuggingController>(entity.id)) {

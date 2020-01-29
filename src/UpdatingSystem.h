@@ -2,7 +2,6 @@
 #define UPDATING_SYSTEM
 
 #include "CollisionMesh.h"
-#include "FountainParticleEmitter.h"
 #include "GlobalInformation.h"
 #include "Locator.h"
 #include "Messenger.h"

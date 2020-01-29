@@ -39,9 +39,7 @@ void UpdatingSystem::update() {
         _3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(entity);
 
         if (Particles* p = currentScene->getComponent<Particles>(entity)) {
-            if (ParticleEmitter* pe = currentScene->getComponent<FountainParticleEmitter>(entity)) {
-                pe->updateParticles(*p);
-            }
+            systems->particleSystem.updateParticles(*p);
         }
 
         if (thirdPersonCamera) {

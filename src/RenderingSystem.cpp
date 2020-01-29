@@ -298,21 +298,9 @@ void RenderingSystem::renderParticles(Particles& particles, Camera& currentCamer
         // Check to see if the shader is a particle shader
         if (thisShader->getShaderType() == SHADER_TYPE::Particle) {
             supplyParticleShaderUniforms(*thisShader, currentCamera, currentTime);
-
-            if (ParticleEmitter* particleEmitter = getParticleEmitter(particles.getEntityID())) {
-                particleEmitter->renderParticles(*thisShader, particles);
-            }
+            systems->particleSystem.renderParticles(*thisShader, particles);
         }
     }
-}
-
-ParticleEmitter* RenderingSystem::getParticleEmitter(int32_t entity) {
-    // Search for fountain particle system
-    if (ParticleEmitter* particleEmitter = currentScene->getComponent<FountainParticleEmitter>(entity)) {
-        return particleEmitter;
-    }
-
-    return nullptr;
 }
 
 Shader* RenderingSystem::prepareShader(const int32_t& entity,

@@ -31,7 +31,8 @@ struct SubSystems {
     DayNightCycleSystem dayNightCycleSystem;
     SkyBoxSystem skyBoxSystem;
 
-    ParticleSystem particleSystem;
+    DefaultParticleSystem defaultParticleSystem;
+    FountainParticleSystem fountainParticleSystem;
 };
 
 #endif

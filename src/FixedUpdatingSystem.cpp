@@ -110,8 +110,16 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
             }
         }
 
-        if (Particles* p = currentScene->getComponent<Particles>(entity.id)) {
-            systems->particleSystem.fixedUpdateParticles(*p);
+        if (Particles* particles = currentScene->getComponent<Particles>(entity.id)) {
+            switch (particles->getParticleType()) {
+            case PARTICLE_TYPE::Default:
+                systems->defaultParticleSystem.fixedUpdateParticles(*particles);
+            default:
+                break;
+            case PARTICLE_TYPE::Fountain:
+                systems->fountainParticleSystem.fixedUpdateParticles(*particles);
+                break;
+            }
         }
 
         if (DebuggingController* dbgCtrlr = currentScene->getComponent<DebuggingController>(entity.id)) {

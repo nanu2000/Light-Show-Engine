@@ -298,7 +298,16 @@ void RenderingSystem::renderParticles(Particles& particles, Camera& currentCamer
         // Check to see if the shader is a particle shader
         if (thisShader->getShaderType() == SHADER_TYPE::Particle) {
             supplyParticleShaderUniforms(*thisShader, currentCamera, currentTime);
-            systems->particleSystem.renderParticles(*thisShader, particles);
+
+            switch (particles.getParticleType()) {
+            case PARTICLE_TYPE::Default:
+                systems->defaultParticleSystem.renderParticles(*thisShader, particles);
+            default:
+                break;
+            case PARTICLE_TYPE::Fountain:
+                systems->fountainParticleSystem.renderParticles(*thisShader, particles);
+                break;
+            }
         }
     }
 }

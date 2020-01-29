@@ -38,8 +38,23 @@ void UpdatingSystem::update() {
 
         _3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(entity);
 
-        if (Particles* p = currentScene->getComponent<Particles>(entity)) {
-            systems->particleSystem.updateParticles(*p);
+        if (Particles* particles = currentScene->getComponent<Particles>(entity)) {
+
+            if (InputLocator::getService().keyPressedOnce(SDLK_0)) {
+                particles->setParticleType(static_cast<PARTICLE_TYPE>((static_cast<int>(particles->getParticleType()) + 1) % static_cast<int>(PARTICLE_TYPE::Max)));
+
+                DBG_LOG("Type set to %i\n", static_cast<int>(particles->getParticleType()));
+            }
+
+            switch (particles->getParticleType()) {
+            case PARTICLE_TYPE::Default:
+                systems->defaultParticleSystem.updateParticles(*particles);
+            default:
+                break;
+            case PARTICLE_TYPE::Fountain:
+                systems->fountainParticleSystem.updateParticles(*particles);
+                break;
+            }
         }
 
         if (thirdPersonCamera) {

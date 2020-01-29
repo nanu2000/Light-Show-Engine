@@ -11,7 +11,7 @@
 #include "GuiString.h"
 #include "Lights.h"
 #include "Material.h"
-#include "ParticleSystem.h"
+#include "Particles.h"
 #include "PauseMenu.h"
 #include "PlayerCameraHandler.h"
 #include "PlayerController.h"
@@ -58,7 +58,7 @@ public:
     void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
-    Particles particles = Particles(10000);
+    Particles particles = Particles(2000);
     Shader particleShader;
 };
 

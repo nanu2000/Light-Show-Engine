@@ -8,12 +8,16 @@ void ParticleTest::initialize(EntityWrapper::EntityVitals& vitals) {
 
     int32_t id = vitals.scene->generateEntity();
 
-    particles.initializeTexture(TextureLocator::getService().getTexture("assets/Particles/fluffParticle.png"));
+    particles.setTexture(TextureLocator::getService().getTexture("assets/Particles/fluffParticle.png"));
 
-    particles.emmisionPosition = glm::vec3(0, 5, 0);
-    particles.setParticlesPerSecond(10000);
-    particles.setDefaultStartScale(.3);
+    particles.setPosition(glm::vec3(42, 8, -30));
+    particles.setParticlesPerSecond(1000);
+    particles.setDefaultStartScale(.1);
+    particles.setWeight(1);
+    particles.setDefaultLifeTime(2);
     particles.setDefaultColor(glm::vec4(.4, .6, 1, .4));
+
+    particles.setParticleType(PARTICLE_TYPE::Fountain);
 
     particles.initialize(*vitals.currentSettings);
 
@@ -61,7 +65,7 @@ void PlayerTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
         "assets/shaders/phong-diffuse-specular.frag",
         SHADER_TYPE::Lit);
 
-    material.shininess = 64.f;
+    material.shininess = 16.f;
 
     model.setAnimationClip(0);
 

@@ -16,7 +16,6 @@ PhysicsWorld::PhysicsWorld(const btVector3& gravity) {
 
 PhysicsWorld::~PhysicsWorld() {
     assert(thisWorld);
-    assert(thisWorld);
     assert(solver);
     assert(collisionConfiguration);
     assert(dispatcher);

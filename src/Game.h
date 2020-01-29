@@ -42,6 +42,7 @@ private:
 
     const static unsigned int AMOUNT_OF_ENTITIES = 6;
 
+    bool hasInit                  = false;
     Player playerTest             = Player();
     LightTest lightTest           = LightTest();
     PlayerTestObject playerObject = PlayerTestObject();
@@ -49,6 +50,14 @@ private:
     FloorObject floor             = FloorObject();
     CubeTrigger cube              = CubeTrigger();
     ParticleTest particles        = ParticleTest();
+
+    Player playerTesttwo   = Player();
+    LightTest lightTesttwo = LightTest();
+    PlayerTestObject* playerObjecttwo;
+    FloorObject* floortwo;
+
+    Scene testScene;
+    PhysicsWorld* worldtest;
 
     TextMap map;
 

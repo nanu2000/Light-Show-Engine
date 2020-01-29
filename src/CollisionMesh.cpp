@@ -43,6 +43,7 @@ void CollisionMesh::initializeMeshShape(
 
     setTrigger(trigger);
     setKinematic(kinematic);
+    hasInit = true;
 }
 
 void CollisionMesh::initializeModelShape(
@@ -89,6 +90,7 @@ void CollisionMesh::initializeModelShape(
 
     setTrigger(trigger);
     setKinematic(kinematic);
+    hasInit = true;
 }
 
 void CollisionMesh::initializeMeshShape(const btTransform& transformation, _3DM::AnimatedModel& model, unsigned int meshIndex, float mass, CollisionTag usrTag, bool trigger, btVector3 localInertia, float friction, float restitution, bool kinematic) {
@@ -124,6 +126,7 @@ void CollisionMesh::initializeMeshShape(const btTransform& transformation, _3DM:
 
     setTrigger(trigger);
     setKinematic(kinematic);
+    hasInit = true;
 }
 
 void CollisionMesh::initializeModelShape(const btTransform& transformation, _3DM::AnimatedModel& model, float mass, CollisionTag usrTag, bool trigger, btVector3 localInertia, float friction, float restitution, bool kinematic) {
@@ -159,6 +162,7 @@ void CollisionMesh::initializeModelShape(const btTransform& transformation, _3DM
 
     setTrigger(trigger);
     setKinematic(kinematic);
+    hasInit = true;
 }
 
 void CollisionMesh::setTrigger(bool t) {
@@ -195,13 +199,20 @@ Transform CollisionMesh::getTransformation() {
 }
 
 CollisionMesh::~CollisionMesh() {
+    assert(hasInit);
     assert(rigidBody != nullptr && thisMotionState != nullptr && thisShape != nullptr);
 
     delete rigidBody;
     delete thisMotionState;
     delete thisShape;
+
+    rigidBody       = nullptr;
+    thisMotionState = nullptr;
+    thisShape       = nullptr;
+
     if (isMesh) {
         delete thisMesh;
+        thisMesh = nullptr;
     }
 }
 
@@ -247,12 +258,12 @@ btTriangleMesh* CollisionMesh::createTriangleModelCollider(_3DM::AnimatedModel* 
 
     for (unsigned int i = 0; i < model->amountOfMeshes(); i++) {
         std::vector<uint32_t>* indices = model->getMeshIndices(i);
-        std::vector<glm::vec3>* verts = model->getMeshVertices(i);
+        std::vector<glm::vec3>* verts  = model->getMeshVertices(i);
 
         for (unsigned int j = 0; j < indices->size(); j += 3) {
             for (unsigned int k = 0; k < 3; k++) {
 
-                int index = indices->at(j + k);
+                int index      = indices->at(j + k);
                 glm::vec3& vec = verts->at(index);
                 vertexPos[k].setX(vec.x);
                 vertexPos[k].setY(vec.y);

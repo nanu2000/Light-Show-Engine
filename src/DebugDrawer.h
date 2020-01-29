@@ -10,7 +10,7 @@
 
 class DebugDrawer : public btIDebugDraw {
 public:
-    const unsigned int MAX_AMOUNT_DEBUG_LINES = 22500;
+    static const unsigned int MAX_AMOUNT_DEBUG_LINES = 22500;
 
     void render(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix);
 

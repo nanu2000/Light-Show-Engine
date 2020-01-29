@@ -7,8 +7,8 @@
 
 class DebuggingController : public Component<DebuggingController> {
 public:
-    const SDL_Keycode PHYSICS_DRAW_TOGGLE   = SDLK_F1;
-    const SDL_Keycode WIREFRAME_DRAW_TOGGLE = SDLK_F2;
+    static const SDL_Keycode PHYSICS_DRAW_TOGGLE   = SDLK_F1;
+    static const SDL_Keycode WIREFRAME_DRAW_TOGGLE = SDLK_F2;
 
     void controlPhysicsDebugDraw(Input& inputHandler, PhysicsWorld& world);
 

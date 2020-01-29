@@ -36,7 +36,7 @@ public:
     }
 
 private:
-    const float cameraSpeed = 10.f;
+    float cameraSpeed = 10.f;
 };
 
 #endif

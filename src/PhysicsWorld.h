@@ -1,10 +1,10 @@
 #ifndef PHYSICS_WORLD_H
 #define PHYSICS_WORLD_H
 
-#include "btBulletDynamicsCommon.h"
 #include "CollisionMesh.h"
 #include "CollisionTag.h"
 #include "DebugDrawer.h"
+#include "btBulletDynamicsCommon.h"
 #include <LinearMath/btIDebugDraw.h>
 
 class PhysicsWorld {
@@ -34,6 +34,7 @@ public:
 
 private:
     std::vector<btRigidBody*> rigidBodies;
+    std::vector<btCollisionShape*> shapes;
 
     DebugDrawer debugDrawer;
     btBroadphaseInterface* broadphase                       = nullptr;

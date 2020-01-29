@@ -46,21 +46,21 @@ private:
     ///////////////////////////////////////////////////////////////////////////////
     static const unsigned int MAX_AMOUNT_SLOPE_CALCULATIONS = 3;
 
-    const PLR_CTRLR_NS::SlopeIntensity slopes[MAX_AMOUNT_SLOPE_CALCULATIONS] = {
+    PLR_CTRLR_NS::SlopeIntensity slopes[MAX_AMOUNT_SLOPE_CALCULATIONS] = {
         PLR_CTRLR_NS::SlopeIntensity(10, .2f), //Must be in incrementing order.
         PLR_CTRLR_NS::SlopeIntensity(30, .6f), //+
         PLR_CTRLR_NS::SlopeIntensity(80, .8f) //++
     };
 
-    const float friction                   = 2.0f;
-    const float damping                    = 7.0f;
-    const float fallMovementDamping        = 2;
-    const float halfLengthOfRay            = 2.f;
-    const float playerGravityImpulse       = -GameInfo::fixedDeltaTime * 19;
-    const float speed                      = GameInfo::fixedDeltaTime * 100;
-    const float jumpVelocity               = 20;
-    const float jumpEnabledWithinMagnitude = 1;
-    const float colliderWidthAndDepth      = .4f;
+    float friction                   = 2.0f;
+    float damping                    = 7.0f;
+    float fallMovementDamping        = 2;
+    float halfLengthOfRay            = 2.f;
+    float playerGravityImpulse       = -GameInfo::fixedDeltaTime * 19;
+    float speed                      = GameInfo::fixedDeltaTime * 100;
+    float jumpVelocity               = 20;
+    float jumpEnabledWithinMagnitude = 1;
+    float colliderWidthAndDepth      = .4f;
 
     ///////////////////////////////////////////////////////////////////////////////
     //Helper Functions

@@ -1,5 +1,6 @@
 #ifndef DIRECTIONAL_LIGHT_SHADOW_MAP_H
 #define DIRECTIONAL_LIGHT_SHADOW_MAP_H
+#include "Camera.h"
 #include "HelpingHand.h"
 #include "ShaderBase.h"
 #include <GL/glew.h>
@@ -29,7 +30,7 @@ public:
     glm::vec3 getCurrentLightDirection() { return lightDirection; }
     void setCurrentLightDirection(const glm::vec3& lightDir) { lightDirection = glm::vec3(lightDir.x + securityAdditiveForDirection, lightDir.y + securityAdditiveForDirection, lightDir.z); }
 
-    void updateDepthMap(const glm::vec3& camerPosition);
+    void updateDepthMap(const Camera& camera);
     void initialize();
 
     ~DirectionalLightShadowMap();

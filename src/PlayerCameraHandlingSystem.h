@@ -1,14 +1,14 @@
 #ifndef PLAYER_CAMERA_HANDLING_SYSTEM
 #define PLAYER_CAMERA_HANDLING_SYSTEM
 
+#include "Camera.h"
 #include "HelpingHand.h"
 #include "PlayerCameraHandler.h"
-#include "ThirdPersonCamera.h"
 
 class PlayerCameraHandlingSystem {
 
 public:
-    void setThirdPersonCameraTargetPosition(PlayerCameraHandler& playerController, const Transform& modelsTransform, ThirdPersonCamera& camera) {
+    void setThirdPersonCameraTargetPosition(PlayerCameraHandler& playerController, const Transform& modelsTransform, Camera& camera) {
         //Modify this once a new camera controller component is created
 
         float newYPosition = modelsTransform.position.y + playerController.getCameraTargetOffset()->y;

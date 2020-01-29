@@ -94,7 +94,7 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
         return;
     }
 
-    Camera* currentCamera = currentScene->getFirstActiveComponentOfType<ThirdPersonCamera>();
+    Camera* currentCamera = currentScene->getFirstActiveComponentOfType<Camera>();
 
     if (!currentCamera) {
         return;
@@ -151,6 +151,7 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
 
         //Todo: move this into a ui sys/component for debugging
         //Pretty much we render a neat little quad with the directional light's depth map in it for debugging purposes. This will be useful for finetuning shaders.
+
         depthShader.useProgram();
         glUniform3f(Shaders::getUniformLocation(depthShader.getProgramID(), Shaders::UniformName::ViewPosition), currentCamera->position.x, currentCamera->position.y, currentCamera->position.z);
         depthQuad.render3D(depthShader, directionalLightDepthMap.getDepthMap(), depthMatrix);

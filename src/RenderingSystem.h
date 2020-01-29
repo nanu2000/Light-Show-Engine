@@ -1,6 +1,7 @@
 #ifndef RENDERING_SYSTEM_H
 #define RENDERING_SYSTEM_H
 
+#include "Camera.h"
 #include "DebuggingController.h"
 #include "DirectionalLightShadowMap.h"
 #include "GuiButton.h"
@@ -13,7 +14,6 @@
 #include "Scene.h"
 #include "Shader.h"
 #include "SystemBase.h"
-#include "ThirdPersonCamera.h"
 
 using _3DM::AnimatedModel;
 using _3DM::Model;

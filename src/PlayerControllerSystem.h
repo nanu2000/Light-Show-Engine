@@ -1,13 +1,13 @@
 #ifndef PLAYER_CONTROLLER_SYSTEM
 #define PLAYER_CONTROLLER_SYSTEM
 
+#include "Camera.h"
 #include "CollisionMesh.h"
 #include "Component.h"
 #include "ControllerRayCollision.h"
 #include "PhysicsWorld.h"
 #include "PlayerController.h"
 #include "RayCaster.h"
-#include "ThirdPersonCamera.h"
 #include "UserControls.h"
 
 namespace PLR_CTRLR_NS {

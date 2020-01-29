@@ -34,7 +34,7 @@ void UpdatingSystem::update() {
 
         int32_t entity = entities.at(i).id;
 
-        ThirdPersonCamera* thirdPersonCamera = currentScene->getFirstActiveComponentOfType<ThirdPersonCamera>();
+        Camera* camera = currentScene->getFirstActiveComponentOfType<Camera>();
 
         _3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(entity);
 
@@ -57,25 +57,21 @@ void UpdatingSystem::update() {
             }
         }
 
-        if (thirdPersonCamera) {
+        if (camera) {
 
-            systems->thirdPersonCameraSystem.update(*thirdPersonCamera);
-
-            if (ThirdPersonCameraControllerTest* thisCameraController = currentScene->getComponent<ThirdPersonCameraControllerTest>(entity)) {
-                thisCameraController->update(thirdPersonCamera);
-            }
+            systems->cameraSystem.update(*camera);
         }
-        if (thirdPersonCamera && animatedModel) {
+        if (camera && animatedModel) {
 
             if (PlayerCameraHandler* playerCameraHandler = currentScene->getComponent<PlayerCameraHandler>(entity)) {
-                systems->playerCameraHandlingSystem.setThirdPersonCameraTargetPosition(*playerCameraHandler, animatedModel->transform, *thirdPersonCamera);
+                systems->playerCameraHandlingSystem.setThirdPersonCameraTargetPosition(*playerCameraHandler, animatedModel->transform, *camera);
             }
 
             if (PlayerController* controller = currentScene->getComponent<PlayerController>(entity)) {
 
                 if (CollisionMesh* cmesh = currentScene->getComponent<CollisionMesh>(entity)) {
 
-                    systems->playerControllerSystem.update(animatedModel->transform, *controller, *thirdPersonCamera, *cmesh);
+                    systems->playerControllerSystem.update(animatedModel->transform, *controller, *camera, *cmesh);
                 }
             }
         }

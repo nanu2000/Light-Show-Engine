@@ -1,6 +1,7 @@
 #ifndef ENTITY_TESTS
 #define ENTITY_TESTS
 #include "BoneCollisionMesh.h"
+#include "Camera.h"
 #include "CollisionMesh.h"
 #include "DebuggingController.h"
 #include "DisplayStatistics.h"
@@ -20,8 +21,6 @@
 #include "Shader.h"
 #include "SkyBox.h"
 #include "TextMap.h"
-#include "ThirdPersonCamera.h"
-#include "ThirdPersonCameraControllerTest.h"
 #include "UserControls.h"
 
 class EntityWrapper {
@@ -72,10 +71,9 @@ private:
     Shader textShader;
     PauseMenu menu;
 
-    ThirdPersonCamera camera;
+    Camera camera;
     DebuggingController dbgController;
     UserControls userControls;
-    ThirdPersonCameraControllerTest cameraController;
 };
 
 class PlayerTestObject : public EntityWrapper {

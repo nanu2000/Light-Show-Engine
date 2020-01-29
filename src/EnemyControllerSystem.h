@@ -1,6 +1,7 @@
 #ifndef ENEMY_CONTROLLER_SYSTEM_H
 #define ENEMY_CONTROLLER_SYSTEM_H
 
+#include "Camera.h"
 #include "CollisionMesh.h"
 #include "Component.h"
 #include "ControllerRayCollision.h"
@@ -9,7 +10,6 @@
 #include "GlobalInformation.h"
 #include "PhysicsWorld.h"
 #include "RayCaster.h"
-#include "ThirdPersonCamera.h"
 
 namespace ENEMY_CTRLR_NS {
 const unsigned int AMOUNT_OF_RAYS  = 4;

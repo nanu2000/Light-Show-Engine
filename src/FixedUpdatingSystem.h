@@ -1,6 +1,7 @@
 #ifndef FIXED_UPDATING_SYSTEM
 #define FIXED_UPDATING_SYSTEM
 
+#include "Camera.h"
 #include "DebuggingController.h"
 #include "DirectionalLightShadowMap.h"
 #include "DisplayStatistics.h"
@@ -15,8 +16,6 @@
 #include "Scene.h"
 #include "Shader.h"
 #include "SystemBase.h"
-#include "ThirdPersonCamera.h"
-#include "ThirdPersonCameraControllerTest.h"
 
 class FixedUpdatingSystem : public SystemBase {
 

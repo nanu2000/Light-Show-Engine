@@ -1,7 +1,6 @@
 #ifndef SCENE_H
 #define SCENE_H
 #include "Component.h"
-#include "FirstPersonCamera.h"
 #include "PhysicsWorld.h"
 #include <algorithm>
 #include <vector>

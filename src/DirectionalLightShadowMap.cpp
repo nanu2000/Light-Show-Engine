@@ -1,8 +1,8 @@
 #include "DirectionalLightShadowMap.h"
 
-void DirectionalLightShadowMap::updateDepthMap(const glm::vec3& camerPosition) {
+void DirectionalLightShadowMap::updateDepthMap(const Camera& camera) {
 
-    lightSpaceMatrix = glm::ortho(bounds.left, bounds.right, bounds.bottom, bounds.top, bounds.zNear, bounds.zFar) * glm::lookAt(-lightDirection + camerPosition, camerPosition, hh::UP_VECTOR);
+    lightSpaceMatrix = glm::ortho(bounds.left, bounds.right, bounds.bottom, bounds.top, bounds.zNear, bounds.zFar) * glm::lookAt(-lightDirection + camera.getTargetPosition(), camera.getTargetPosition(), hh::UP_VECTOR);
 
     depthMapShader.useProgram();
 

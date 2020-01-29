@@ -43,7 +43,6 @@ void Player::initialize(EntityWrapper::EntityVitals& vitals) {
     menu.initialize(*vitals.map, TextureLocator::getService().getTexture("assets/Fonts/CourierNew.png", GL_NEAREST));
 
     vitals.scene->addComponent(id, menu);
-    vitals.scene->addComponent(id, cameraController);
     vitals.scene->addComponent(id, camera);
     vitals.scene->addComponent(id, dbgController);
     vitals.scene->addComponent(id, textShader);

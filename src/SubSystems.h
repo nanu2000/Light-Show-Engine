@@ -2,16 +2,15 @@
 #define SUB_SYSTEMS_H
 
 #include "BoneCollisionMeshSystem.h"
+#include "CameraSystem.h"
 #include "DayNightCycleSystem.h"
 #include "DisplayStatisticsSystem.h"
 #include "EnemyControllerSystem.h"
-#include "FirstPersonCameraSystem.h"
 #include "ParticleSystem.h"
 #include "PauseMenuSystem.h"
 #include "PlayerCameraHandlingSystem.h"
 #include "PlayerControllerSystem.h"
 #include "SkyBoxSystem.h"
-#include "ThirdPersonCameraSystem.h"
 
 struct SubSystems {
     PauseMenuSystem pauseMenuSystem;
@@ -24,8 +23,7 @@ struct SubSystems {
 
     PlayerCameraHandlingSystem playerCameraHandlingSystem;
 
-    FirstPersonCameraSystem firstPersonCameraSystem;
-    ThirdPersonCameraSystem thirdPersonCameraSystem;
+    CameraSystem cameraSystem;
     BoneCollisionMeshSystem boneCollisionMeshSystem;
 
     DayNightCycleSystem dayNightCycleSystem;

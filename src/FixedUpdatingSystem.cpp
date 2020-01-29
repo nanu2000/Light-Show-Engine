@@ -7,8 +7,8 @@ void FixedUpdatingSystem::initialize(Scene& scene, Settings& settings, PhysicsWo
     physicsWorld    = &world;
     systems         = &ssystems;
 
-    if (ThirdPersonCamera* camera = currentScene->getFirstActiveComponentOfType<ThirdPersonCamera>()) {
-        systems->thirdPersonCameraSystem.initializeCamera(*camera);
+    if (Camera* camera = currentScene->getFirstActiveComponentOfType<Camera>()) {
+        systems->cameraSystem.initializeCamera(*camera);
     }
 
     systems->guiResizingInfo.updateInformation();
@@ -22,8 +22,8 @@ void FixedUpdatingSystem::handleBackEndMessage(BackEndMessages msg, RenderTextur
 
     case BackEndMessages::REFRESH_CAMERA:
 
-        if (ThirdPersonCamera* camera = currentScene->getFirstActiveComponentOfType<ThirdPersonCamera>()) {
-            systems->thirdPersonCameraSystem.refreshCamera(*camera);
+        if (Camera* camera = currentScene->getFirstActiveComponentOfType<Camera>()) {
+            systems->cameraSystem.refreshCamera(*camera);
             DBG_LOG("Camera Refreshed Succesfully\n");
         }
 
@@ -102,11 +102,11 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
             return false;
         }
 
-        if (ThirdPersonCamera* thisCamera = currentScene->getComponent<ThirdPersonCamera>(entity.id)) {
+        if (Camera* camera = currentScene->getComponent<Camera>(entity.id)) {
 
-            if (thisCamera->isActive()) {
+            if (camera->isActive()) {
                 //only needs to update fixed- saves memory & barely makes a difference.
-                updateShadowMaps(pointLightDepthMap, directionalLightDepthMap, *thisCamera);
+                updateShadowMaps(pointLightDepthMap, directionalLightDepthMap, *camera);
             }
         }
 
@@ -176,7 +176,7 @@ void FixedUpdatingSystem::updateShadowMaps(PointLightShadowMap& pointLightDepthM
         [&](const DirectionalLight& light) {
             if (light.isActive()) {
                 directionalLightDepthMap.setCurrentLightDirection(light.direction);
-                directionalLightDepthMap.updateDepthMap(currentCamera.position);
+                directionalLightDepthMap.updateDepthMap(currentCamera);
                 directionalLightDepthMap.setShadowActive(true);
                 return true; //perform on first light
             }
@@ -211,7 +211,7 @@ void FixedUpdatingSystem::updateCollision(const int32_t entity, CollisionMesh& c
         //run player controller and update models animation
         if (controller && userControls) {
 
-            if (ThirdPersonCamera* camera = currentScene->getFirstActiveComponentOfType<ThirdPersonCamera>()) {
+            if (Camera* camera = currentScene->getFirstActiveComponentOfType<Camera>()) {
 
                 systems->playerControllerSystem.fixedUpdate(InputLocator::getService(), animatedModel->transform, collisionMesh, *physicsWorld, *controller, *camera, *userControls);
 

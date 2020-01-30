@@ -18,6 +18,7 @@ public:
 
     unsigned int getDepthMapWidth() const { return DEPTH_MAP_WIDTH; }
     unsigned int getDepthMapHeight() const { return DEPTH_MAP_HEIGHT; }
+
     void setDepthMapResolution(const unsigned int& width, const unsigned int& height) {
         DEPTH_MAP_WIDTH  = width;
         DEPTH_MAP_HEIGHT = height;

@@ -36,13 +36,14 @@ public:
 
     virtual void initialize(EntityVitals& vitals) = 0;
 
-    virtual ~EntityWrapper() {}
+    virtual ~EntityWrapper() {};
 };
 
 class LightTest : public EntityWrapper {
 
 public:
     void initialize(EntityWrapper::EntityVitals& vitals);
+    ~LightTest() {}
 
 private:
     std::vector<PointLight> lights = std::vector<PointLight>(4);
@@ -54,6 +55,7 @@ private:
 class ParticleTest : public EntityWrapper {
 
 public:
+    ~ParticleTest() {}
     void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
@@ -64,6 +66,7 @@ private:
 class Player : public EntityWrapper {
 
 public:
+    ~Player() {}
     void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
@@ -79,6 +82,7 @@ private:
 class PlayerTestObject : public EntityWrapper {
 
 public:
+    ~PlayerTestObject() {}
     void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
@@ -97,6 +101,7 @@ private:
 class EnemyTestObject : public EntityWrapper {
 
 public:
+    ~EnemyTestObject() {}
     void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
@@ -113,6 +118,7 @@ private:
 class CubeTrigger : public EntityWrapper {
 
 public:
+    ~CubeTrigger() {}
     void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
@@ -124,6 +130,7 @@ private:
 
 class FloorObject : public EntityWrapper {
 public:
+    ~FloorObject() {}
     void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:

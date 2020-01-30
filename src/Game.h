@@ -26,10 +26,7 @@ private:
     void initializeShaders();
     void readBackendEventQueue();
 
-    PhysicsWorld physicsWorld = PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
-
-    Scene currentScene;
-    Settings currentSettings = Settings(GameInfo::DEFAULT_GRAVITY, glm::vec3(-20, 0, 10));
+    Settings settings = Settings(GameInfo::DEFAULT_GRAVITY, glm::vec3(-20, 0, 10));
 
     PointLightShadowMap pointLightDepthMap;
     DirectionalLightShadowMap directionalLightDepthMap;
@@ -42,26 +39,31 @@ private:
 
     const static unsigned int AMOUNT_OF_ENTITIES = 6;
 
-    bool hasInit                  = false;
-    Player playerTest             = Player();
-    LightTest lightTest           = LightTest();
-    PlayerTestObject playerObject = PlayerTestObject();
-    EnemyTestObject enemyObject   = EnemyTestObject();
-    FloorObject floor             = FloorObject();
-    CubeTrigger cube              = CubeTrigger();
-    ParticleTest particles        = ParticleTest();
+    Scene* scene               = new Scene();
+    PhysicsWorld* physicsWorld = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
 
-    Player playerTesttwo   = Player();
-    LightTest lightTesttwo = LightTest();
-    PlayerTestObject* playerObjecttwo;
-    FloorObject* floortwo;
+    //PhysicsWorld sceneOnePhysicsWorld = PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
+    //Scene sceneOne;
+    std::vector<EntityWrapper*> sceneOneEntities = {
+        new Player(),
+        new LightTest(),
+        new PlayerTestObject(),
+        new EnemyTestObject(),
+        new FloorObject(),
+        new CubeTrigger(),
+        new ParticleTest()
+    };
 
-    Scene testScene;
-    PhysicsWorld* worldtest;
+    //PhysicsWorld sceneTwoPhysicsWorld = PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
+    //Scene sceneTwo;
+    std::vector<EntityWrapper*> sceneTwoEntities = {
+        new Player(),
+        new LightTest(),
+        new PlayerTestObject(),
+        new FloorObject()
+    };
 
     TextMap map;
-
-    const std::vector<Scene::Entity>* Allentity;
 };
 
 #endif

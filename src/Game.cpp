@@ -29,34 +29,22 @@ void Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSy
 
     EntityWrapper::EntityVitals vitals;
 
-    vitals.currentSettings = &currentSettings;
+    vitals.currentSettings = &settings;
     vitals.map             = &map;
-    vitals.scene           = &currentScene;
-    vitals.thisWorld       = &physicsWorld;
+    vitals.scene           = scene;
+    vitals.thisWorld       = physicsWorld;
 
-    std::vector<EntityWrapper*> entities;
-
-    entities.push_back(&playerObject);
-    entities.push_back(&lightTest);
-    entities.push_back(&floor);
-    entities.push_back(&cube);
-    entities.push_back(&particles);
-    entities.push_back(&enemyObject);
-    entities.push_back(&playerTest);
-
-    for (unsigned int i = 0; i < entities.size(); i++) {
-        entities[i]->initialize(vitals);
+    for (unsigned int i = 0; i < sceneOneEntities.size(); i++) {
+        sceneOneEntities[i]->initialize(vitals);
     }
 
-    Allentity = currentScene.getAllEntities();
-
-    currentScene.performOperationsOnAllOfType<CollisionMesh>(
-        [& world = physicsWorld](const CollisionMesh& mesh) {
+    scene->performOperationsOnAllOfType<CollisionMesh>(
+        [& world = *physicsWorld](const CollisionMesh& mesh) {
             world.addRigidBody(mesh);
             return false;
         });
-    currentScene.performOperationsOnAllOfType<BoneCollisionMesh>(
-        [& world = physicsWorld](BoneCollisionMesh& bmesh) {
+    scene->performOperationsOnAllOfType<BoneCollisionMesh>(
+        [& world = *physicsWorld](BoneCollisionMesh& bmesh) {
             bmesh.iterateThroughColliders(
                 [&](CollisionMesh& mesh, int32_t id) {
                     world.addRigidBody(mesh);
@@ -65,9 +53,9 @@ void Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSy
             return false;
         });
 
-    fixedUpdatingSystem.initialize(currentScene, currentSettings, physicsWorld, subSystems);
-    updatingSystem.initialize(currentScene, currentSettings, physicsWorld, subSystems);
-    renderingSystem.initialize(currentScene, currentSettings, physicsWorld, subSystems);
+    fixedUpdatingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
+    updatingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
+    renderingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
 }
 
 void Game::initializeShaders() {
@@ -98,58 +86,29 @@ void Game::fixedUpdate() {
 
     if (InputLocator::getService().keyPressedOnce(SDLK_7)) {
 
-        std::vector<EntityWrapper*> entitiestwo;
-        entitiestwo.clear();
+        delete scene;
+        delete physicsWorld;
 
-        if (hasInit) {
-            //Must call init for these objs before deleting. If worldtest is alive, then init was called on these guys so we can re-create them.
-            //If not, collision objects will never be inited, and an assert on nullptr will be thrown.
-
-            testScene = Scene();
-
-            playerTesttwo = Player();
-            lightTesttwo  = LightTest();
-
-            //must be called before other two.
-            delete worldtest;
-
-            delete floortwo;
-            delete playerObjecttwo;
-
-        } else {
-
-            floortwo        = new FloorObject();
-            playerObjecttwo = new PlayerTestObject();
-            worldtest       = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
-        }
-
-        floortwo        = new FloorObject();
-        playerObjecttwo = new PlayerTestObject();
-        worldtest       = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
-
-        entitiestwo.push_back(playerObjecttwo);
-        entitiestwo.push_back(&lightTesttwo);
-        entitiestwo.push_back(floortwo);
-        entitiestwo.push_back(&playerTesttwo);
+        scene        = new Scene();
+        physicsWorld = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
 
         EntityWrapper::EntityVitals vitals;
-        vitals.currentSettings = &currentSettings;
+        vitals.currentSettings = &settings;
         vitals.map             = &map;
-        vitals.scene           = &testScene;
-        vitals.thisWorld       = worldtest;
+        vitals.scene           = scene;
+        vitals.thisWorld       = physicsWorld;
 
-        for (unsigned int i = 0; i < entitiestwo.size(); i++) {
-
-            entitiestwo.at(i)->initialize(vitals);
+        for (unsigned int i = 0; i < sceneTwoEntities.size(); i++) {
+            sceneTwoEntities[i]->initialize(vitals);
         }
 
-        testScene.performOperationsOnAllOfType<CollisionMesh>(
-            [& world = *worldtest](const CollisionMesh& mesh) {
+        scene->performOperationsOnAllOfType<CollisionMesh>(
+            [& world = *physicsWorld](const CollisionMesh& mesh) {
                 world.addRigidBody(mesh);
                 return false;
             });
-        testScene.performOperationsOnAllOfType<BoneCollisionMesh>(
-            [& world = *worldtest](BoneCollisionMesh& bmesh) {
+        scene->performOperationsOnAllOfType<BoneCollisionMesh>(
+            [& world = *physicsWorld](BoneCollisionMesh& bmesh) {
                 bmesh.iterateThroughColliders(
                     [&](CollisionMesh& mesh, int32_t id) {
                         world.addRigidBody(mesh);
@@ -162,11 +121,9 @@ void Game::fixedUpdate() {
         renderingSystem     = RenderingSystem();
         updatingSystem      = UpdatingSystem();
 
-        fixedUpdatingSystem.initialize(testScene, currentSettings, *worldtest, subSystems);
-        updatingSystem.initialize(testScene, currentSettings, *worldtest, subSystems);
-        renderingSystem.initialize(testScene, currentSettings, *worldtest, subSystems);
-
-        hasInit = true;
+        fixedUpdatingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
+        updatingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
+        renderingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
     }
 
     fixedUpdatingSystem.fixedUpdate(*currentTime, pointLightDepthMap, directionalLightDepthMap);
@@ -185,5 +142,12 @@ void Game::render() {
 }
 
 void Game::uninitialize() {
-    physicsWorld.removeAllRigidBodies();
+    for (unsigned int i = 0; i < sceneOneEntities.size(); i++) {
+        delete sceneOneEntities[i];
+        sceneOneEntities[i] = nullptr;
+    }
+    for (unsigned int i = 0; i < sceneTwoEntities.size(); i++) {
+        delete sceneTwoEntities[i];
+        sceneTwoEntities[i] = nullptr;
+    }
 }

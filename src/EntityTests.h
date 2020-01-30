@@ -94,8 +94,6 @@ private:
     CollisionMesh collisionMesh;
     PlayerController testController = PlayerController(glm::vec3(0, .5f, 0));
     SimpleMaterial material;
-
-    //Mem leak
     Shader shader;
     BoneCollisionMesh bCollisionMesh;
 };

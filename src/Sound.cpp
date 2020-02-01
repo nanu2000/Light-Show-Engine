@@ -228,11 +228,11 @@ void SoundHandler::playSound(const std::string& location) {
 *************************************************************************************/
 SoundHandler::~SoundHandler() {
     DBG_LOG("Freeing memory for the sound library\n");
-    for (std::vector<Sound*>::iterator it = soundLibrary.begin(); it != soundLibrary.end(); ++it) {
-        if (*it != nullptr) {
-            delete *it;
-            *it = nullptr;
-        }
+
+    for (unsigned int i = 0; i < soundLibrary.size(); i++) {
+
+        delete soundLibrary.at(i);
+        soundLibrary.at(i) = nullptr;
     }
     soundLibrary.clear();
 }
@@ -383,11 +383,10 @@ bool MusicHandler::isPlayingMusic() {
 *************************************************************************************/
 MusicHandler::~MusicHandler() {
     DBG_LOG("Freeing memory for the music library\n");
-    for (std::vector<Music*>::iterator it = musicLibrary.begin(); it != musicLibrary.end(); ++it) {
-        if (*it != nullptr) {
-            delete *it;
-            *it = nullptr;
-        }
+    for (unsigned int i = 0; i < musicLibrary.size(); i++) {
+
+        delete musicLibrary.at(i);
+        musicLibrary.at(i) = nullptr;
     }
     musicLibrary.clear();
 }

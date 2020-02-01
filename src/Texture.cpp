@@ -290,11 +290,10 @@ TextureHandler::~TextureHandler() {
     cubeMapLibrary.clear();
 
     DBG_LOG("Freeing memory for textures.\n");
-    for (std::vector<Texture*>::iterator it = textureLibrary.begin(); it != textureLibrary.end(); ++it) {
-        if (*it != nullptr) {
-            delete *it;
-            *it = nullptr;
-        }
+    for (unsigned int i = 0; i < textureLibrary.size(); i++) {
+
+        delete textureLibrary.at(i);
+        textureLibrary.at(i) = nullptr;
     }
     textureLibrary.clear();
 }

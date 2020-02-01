@@ -145,11 +145,13 @@ public:
     ~ShaderHandler() {
 
         DBG_LOG("Freeing memory for shaders.\n");
-        for (std::vector<Shader*>::iterator it = shaderLibrary.begin(); it != shaderLibrary.end(); ++it) {
-            if (*it != nullptr) {
-                delete *it;
-                *it = nullptr;
-            }
+
+        for (unsigned int i = 0; i < shaderLibrary.size(); i++) {
+
+            //todo: move delete program to shader class.
+            glDeleteProgram(shaderLibrary.at(i)->getProgramID());
+            delete shaderLibrary.at(i);
+            shaderLibrary.at(i) = nullptr;
         }
     }
 

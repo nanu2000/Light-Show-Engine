@@ -34,25 +34,18 @@ elseif(CMAKE_BUILD_TYPE MATCHES MinSizeRel)
     set(USE_DEBUG_TOOLS false)
 endif()
 
-file(GLOB SOURCE_FILES_H
-    "src/*.h"
-)
 
-file(GLOB SOURCE_FILES_CPP
-    "src/*.cpp"
-)
+file(GLOB TESTS_FILES "tests/*.cpp")
 
-file(GLOB SOURCE_FILES
-    "src/*.h"
-    "src/*.cpp"
-)
-target_sources(lightshow-lib 
-    PRIVATE
-        ${SOURCE_FILES_CPP}
-    PUBLIC
-        ${SOURCE_FILES_H})
+file(GLOB SOURCE_FILES_H "src/*.h")
 
-target_include_directories(lightshow-lib PUBLIC src)
+file(GLOB SOURCE_FILES_CPP "src/*.cpp")
+
+file(GLOB SOURCE_FILES "src/*.h" "src/*.cpp")
+
+target_sources(lightshow-lib PRIVATE ${SOURCE_FILES_CPP} PUBLIC ${SOURCE_FILES_H})
+
+target_include_directories(lightshow-lib PUBLIC src)             
 
 if(USE_DEBUG_TOOLS)
     add_executable(lightshow ${SOURCE_FILES})
@@ -65,18 +58,18 @@ else()
 endif()
 
 # Download and unpack googletest at configure time
-configure_file(GTestConfig.cmake googletest-download/CMakeLists.txt)
+configure_file(GTestConfig.cmake lib/googletest-download/CMakeLists.txt)
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
-  RESULT_VARIABLE result
-  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/googletest-download )
+    RESULT_VARIABLE result
+    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/lib/googletest-download )
 if(result)
-  message(FATAL_ERROR "CMake step for googletest failed: ${result}")
+    message(FATAL_ERROR "CMake step for googletest failed: ${result}")
 endif()
 execute_process(COMMAND ${CMAKE_COMMAND} --build .
-  RESULT_VARIABLE result
-  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/googletest-download )
+    RESULT_VARIABLE result
+    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/lib/googletest-download )
 if(result)
-  message(FATAL_ERROR "Build step for googletest failed: ${result}")
+    message(FATAL_ERROR "Build step for googletest failed: ${result}")
 endif()
 
 # Prevent overriding the parent project's compiler/linker
@@ -86,27 +79,20 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 # Add googletest directly to our build. This defines
 # the gtest and gtest_main targets.
 add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/lib/googletest-src
-                 ${CMAKE_CURRENT_BINARY_DIR}/lib/googletest-build
-                 EXCLUDE_FROM_ALL)
-
-                 
+                    ${CMAKE_CURRENT_BINARY_DIR}/lib/googletest-build
+                    EXCLUDE_FROM_ALL)
 add_executable(
     unit_tests
-    tests/example.cpp
-    )
-
+    ${TESTS_FILES}
+)
 target_link_libraries(
     unit_tests
     gtest_main
     lightshow-lib
-    )
+)
 
-add_test(
-  NAME
-    unit
-  COMMAND
-    ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}/unit_tests
-  )
+# for using ctest
+# add_test(NAME unit_tests COMMAND unit_tests)
 
 # SDL2
 find_package(SDL2 REQUIRED)
@@ -169,7 +155,6 @@ set( BULLET_DOUBLE_DEF "-DBT_USE_DOUBLE_PRECISION")
 endif (USE_DOUBLE_PRECISION)
 
 add_subdirectory(lib/bullet EXCLUDE_FROM_ALL)
-
 
 file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
 

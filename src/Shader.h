@@ -120,7 +120,6 @@ public:
         Shader* shader = binarySearchShaders(id);
 
         if (shader != nullptr) {
-            DBG_LOG("Shader %s found.\n", id.c_str());
             return *shader;
         }
 
@@ -135,7 +134,6 @@ public:
         Shader* shader = binarySearchShaders(id);
 
         if (shader != nullptr) {
-            DBG_LOG("Shader %s found.\n", id.c_str());
             return *shader;
         }
 
@@ -144,10 +142,9 @@ public:
 
     ~ShaderHandler() {
 
-        DBG_LOG("Freeing memory for shaders.\n");
-
         for (unsigned int i = 0; i < shaderLibrary.size(); i++) {
 
+            DBG_LOG("Freeing memory for shader %s.\n", shaderLibrary.at(i)->getIdentifier().c_str());
             //todo: move delete program to shader class.
             glDeleteProgram(shaderLibrary.at(i)->getProgramID());
             delete shaderLibrary.at(i);

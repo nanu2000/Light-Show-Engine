@@ -14,6 +14,7 @@ namespace PLR_CTRLR_NS {
 const unsigned int AMOUNT_OF_RAYS  = 4;
 const float CLAMPING_VELOCITY      = -5;
 const float RAY_DISTANCE_CORRECTOR = -0.1f;
+static RayCaster rayCast[PLR_CTRLR_NS::AMOUNT_OF_RAYS];
 }
 
 class PlayerControllerSystem {
@@ -27,8 +28,6 @@ public:
     void fixedUpdate(Input& input, Transform& modelsTransform, CollisionMesh& mesh, PhysicsWorld& world, PlayerController& playerController, Camera& camera, const UserControls& userControls);
 
 private:
-    RayCaster rayCast[PLR_CTRLR_NS::AMOUNT_OF_RAYS];
-
     void performJump(CollisionMesh& collisionMesh, float jumpVelocity);
 
     void getPlayerInput(Input& input, CollisionMesh& collisionMesh, PlayerController& playerController, Camera& camera, const UserControls& userControls);

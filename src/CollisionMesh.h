@@ -23,6 +23,12 @@ public:
         float friction            = 0,
         float restitution         = 0,
         bool kinematic            = false) {
+
+        if (hasInit) {
+            DBG_LOG("CollisionMesh already initialized!\n");
+            deInit();
+        }
+
         thisShape = new T(shape);
 
         thisShape->calculateLocalInertia(mass, localInertia);
@@ -191,6 +197,8 @@ public:
     bool isTrigger() const { return isTriggerBody; }
 
 private:
+    void deInit();
+
     bool isKinematicBody = false;
     bool isTriggerBody   = false;
 

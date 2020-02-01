@@ -92,6 +92,27 @@ void Game::fixedUpdate() {
         scene        = new Scene();
         physicsWorld = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
 
+        if (!hasInit) {
+
+            sceneTwoEntities[0] = new Player();
+            sceneTwoEntities[1] = new LightTest();
+            sceneTwoEntities[2] = new PlayerTestObject();
+            sceneTwoEntities[3] = new FloorObject();
+
+            hasInit = true;
+        } else {
+
+            delete sceneTwoEntities[0];
+            delete sceneTwoEntities[1];
+            delete sceneTwoEntities[2];
+            delete sceneTwoEntities[3];
+
+            sceneTwoEntities[0] = new Player();
+            sceneTwoEntities[1] = new LightTest();
+            sceneTwoEntities[2] = new PlayerTestObject();
+            sceneTwoEntities[3] = new FloorObject();
+        }
+
         EntityWrapper::EntityVitals vitals;
         vitals.currentSettings = &settings;
         vitals.map             = &map;

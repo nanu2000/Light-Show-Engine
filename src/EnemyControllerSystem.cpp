@@ -70,11 +70,11 @@ ControllerRayCollision EnemyControllerSystem::getLowestRayHitForAllRays(EnemyCon
     ControllerRayCollision collisionInfo;
 
     for (unsigned int i = 0; i < ENEMY_CTRLR_NS::AMOUNT_OF_RAYS; i++) {
-        if (rayCast[i].hasHit()) {
-            int index = getLowestRayHitIndex(rayCast[i], enemyController);
+        if (ENEMY_CTRLR_NS::rayCast[i].hasHit()) {
+            int index = getLowestRayHitIndex(ENEMY_CTRLR_NS::rayCast[i], enemyController);
 
             if (index != -1) {
-                float amount = rayCast[i].getLength() - rayCast[i].getHitFractionRaySpace(index);
+                float amount = ENEMY_CTRLR_NS::rayCast[i].getLength() - ENEMY_CTRLR_NS::rayCast[i].getHitFractionRaySpace(index);
 
                 if (amount > collisionInfo.lowestPointValue) {
                     collisionInfo.lowestPointIndex = index;
@@ -98,10 +98,10 @@ void EnemyControllerSystem::applyForces(CollisionMesh& collisionMesh, EnemyContr
 void EnemyControllerSystem::executeRayTesting(EnemyController& enemyController, CollisionMesh& collisionMesh, const Transform& meshTransform, PhysicsWorld& world) {
     float rayDistance = enemyController.colliderWidthAndDepth + ENEMY_CTRLR_NS::RAY_DISTANCE_CORRECTOR;
 
-    rayCast[0].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y + enemyController.halfLengthOfRay, meshTransform.position.z - rayDistance), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y - enemyController.halfLengthOfRay, meshTransform.position.z - rayDistance));
-    rayCast[1].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y + enemyController.halfLengthOfRay, meshTransform.position.z + rayDistance), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y - enemyController.halfLengthOfRay, meshTransform.position.z + rayDistance));
-    rayCast[2].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y + enemyController.halfLengthOfRay, meshTransform.position.z + rayDistance), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y - enemyController.halfLengthOfRay, meshTransform.position.z + rayDistance));
-    rayCast[3].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y + enemyController.halfLengthOfRay, meshTransform.position.z - rayDistance), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y - enemyController.halfLengthOfRay, meshTransform.position.z - rayDistance));
+    ENEMY_CTRLR_NS::rayCast[0].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y + enemyController.halfLengthOfRay, meshTransform.position.z - rayDistance), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y - enemyController.halfLengthOfRay, meshTransform.position.z - rayDistance));
+    ENEMY_CTRLR_NS::rayCast[1].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y + enemyController.halfLengthOfRay, meshTransform.position.z + rayDistance), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y - enemyController.halfLengthOfRay, meshTransform.position.z + rayDistance));
+    ENEMY_CTRLR_NS::rayCast[2].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y + enemyController.halfLengthOfRay, meshTransform.position.z + rayDistance), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y - enemyController.halfLengthOfRay, meshTransform.position.z + rayDistance));
+    ENEMY_CTRLR_NS::rayCast[3].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y + enemyController.halfLengthOfRay, meshTransform.position.z - rayDistance), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y - enemyController.halfLengthOfRay, meshTransform.position.z - rayDistance));
 
     ControllerRayCollision collision = getLowestRayHitForAllRays(enemyController);
 

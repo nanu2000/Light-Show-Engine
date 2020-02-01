@@ -57,11 +57,13 @@ private:
     //PhysicsWorld sceneTwoPhysicsWorld = PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
     //Scene sceneTwo;
     std::vector<EntityWrapper*> sceneTwoEntities = {
-        new Player(),
-        new LightTest(),
-        new PlayerTestObject(),
-        new FloorObject()
+        nullptr,
+        nullptr,
+        nullptr,
+        nullptr
     };
+
+    bool hasInit = false;
 
     TextMap map;
 };

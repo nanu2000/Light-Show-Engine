@@ -45,7 +45,7 @@ void RenderingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld&
 
 void RenderingSystem::initializeLights(Shader& litShader) {
 
-    const std::vector<PointLight*>& pointLights = currentScene->getAllComponentsOfType<PointLight>();
+    const std::vector<PointLight*> pointLights = currentScene->getAllComponentsOfType<PointLight>();
 
     //Right now I'm only using 1 dir light
     const DirectionalLight* directionalLight = currentScene->getFirstActiveComponentOfType<DirectionalLight>();
@@ -100,7 +100,7 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
         return;
     }
 
-    const std::vector<Shader*>& shaders = currentScene->getAllComponentsOfType<Shader>();
+    const std::vector<Shader*> shaders = currentScene->getAllComponentsOfType<Shader>();
 
     Shader::setShaderTask(SHADER_TASK::Normal_Render_Task);
     for (unsigned int i = 0; i < shaders.size(); i++) {
@@ -183,7 +183,7 @@ void RenderingSystem::renderDebugging(Camera& currentCamera) {
         return;
     }
 
-    const std::vector<DebuggingController*>& debugControllers = currentScene->getAllComponentsOfType<DebuggingController>();
+    const std::vector<DebuggingController*> debugControllers = currentScene->getAllComponentsOfType<DebuggingController>();
 
     for (unsigned int i = 0; i < debugControllers.size(); i++) {
         debugControllers[i]->executeDebugRendering(*physicsWorld, *currentCamera.getViewMatrix(), *currentCamera.getProjectionMatrix());
@@ -248,7 +248,7 @@ void RenderingSystem::renderOthers(Camera& currentCamera, Time& currentTime) {
         return;
     }
 
-    const std::vector<Particles*>& particles = currentScene->getAllComponentsOfType<Particles>();
+    const std::vector<Particles*> particles = currentScene->getAllComponentsOfType<Particles>();
 
     currentScene->loopEntities([&](const Scene::Entity& entity) {
         SkyBox* skyBox = currentScene->getComponent<SkyBox>(entity.id);

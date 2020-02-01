@@ -89,7 +89,7 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
             }
 
             //Update collision for boneCollisionMeshes
-            const std::vector<const CollisionTag*>& collisionTags = *mesh.getCollisionTags();
+            const std::vector<const CollisionTag*> collisionTags = *mesh.getCollisionTags();
             for (unsigned int i = 0; i < collisionTags.size(); i++) {
                 updateCollisionTriggers(*collisionTags[i]);
             }
@@ -217,7 +217,7 @@ void FixedUpdatingSystem::updateCollision(const int32_t entity, CollisionMesh& c
 
                 animatedModel->setAnimationClip(controller->getAnimationStateUint());
 
-                const std::vector<GlobalInformation*>& GI = currentScene->getAllComponentsOfType<GlobalInformation>();
+                const std::vector<GlobalInformation*> GI = currentScene->getAllComponentsOfType<GlobalInformation>();
 
                 //Update all globalinfo instances telling them where the players at.
                 //This could be done in a better way but right not it's not a big deal.
@@ -251,8 +251,8 @@ void FixedUpdatingSystem::updateCollisionTriggers(const CollisionTag& thisTag) {
         return;
     }
 
-    const std::vector<CollisionTag*>& others = thisTag.collidingWith;
-    const CollisionTag* other                = nullptr;
+    const std::vector<CollisionTag*> others = thisTag.collidingWith;
+    const CollisionTag* other               = nullptr;
 
     for (unsigned int i = 0; i < thisTag.collidingWith.size() && (other = others[i]); i++) {
         handleCollisionTrigger(thisTag, *other);

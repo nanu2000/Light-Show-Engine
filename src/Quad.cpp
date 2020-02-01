@@ -39,6 +39,10 @@ void Quad::render3D(
     modelMatrix = glm::translate(modelMatrix, tv);
     modelMatrix = glm::scale(modelMatrix, glm::vec3(scaleInPixels.x / GameInfo::getWindowWidth(), scaleInPixels.y / GameInfo::getWindowHeight(), 1.0f));
 
+    if (quadVertices.size() == 16) {
+        quadVertices.resize(20);
+    }
+
     quadVertices = {
         //top left
         -1.0f, 1.0f, -1.0f,

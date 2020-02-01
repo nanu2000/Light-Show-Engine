@@ -113,11 +113,11 @@ ControllerRayCollision PlayerControllerSystem::getLowestRayHitForAllRays(PlayerC
     ControllerRayCollision collisionInfo;
 
     for (unsigned int i = 0; i < PLR_CTRLR_NS::AMOUNT_OF_RAYS; i++) {
-        if (rayCast[i].hasHit()) {
-            int index = getLowestRayHitIndex(rayCast[i], playerController);
+        if (PLR_CTRLR_NS::rayCast[i].hasHit()) {
+            int index = getLowestRayHitIndex(PLR_CTRLR_NS::rayCast[i], playerController);
 
             if (index != -1) {
-                float amount = rayCast[i].getLength() - rayCast[i].getHitFractionRaySpace(index);
+                float amount = PLR_CTRLR_NS::rayCast[i].getLength() - PLR_CTRLR_NS::rayCast[i].getHitFractionRaySpace(index);
 
                 if (amount > collisionInfo.lowestPointValue) {
                     collisionInfo.lowestPointIndex = index;
@@ -168,10 +168,10 @@ void PlayerControllerSystem::applyForces(CollisionMesh& collisionMesh, PlayerCon
 void PlayerControllerSystem::executeRayTesting(PlayerController& playerController, CollisionMesh& collisionMesh, const Transform& meshTransform, PhysicsWorld& world) {
     float rayDistance = playerController.colliderWidthAndDepth + PLR_CTRLR_NS::RAY_DISTANCE_CORRECTOR;
 
-    rayCast[0].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z - rayDistance), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z - rayDistance));
-    rayCast[1].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z + rayDistance), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z + rayDistance));
-    rayCast[2].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z + rayDistance), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z + rayDistance));
-    rayCast[3].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z - rayDistance), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z - rayDistance));
+    PLR_CTRLR_NS::rayCast[0].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z - rayDistance), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z - rayDistance));
+    PLR_CTRLR_NS::rayCast[1].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z + rayDistance), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z + rayDistance));
+    PLR_CTRLR_NS::rayCast[2].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z + rayDistance), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z + rayDistance));
+    PLR_CTRLR_NS::rayCast[3].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z - rayDistance), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z - rayDistance));
 
     ControllerRayCollision collision = getLowestRayHitForAllRays(playerController);
 
@@ -179,9 +179,9 @@ void PlayerControllerSystem::executeRayTesting(PlayerController& playerControlle
 
         handleRayHit(playerController, collisionMesh, collision.lowestPointValue);
 
-        if (collision.lowestPointIndex < rayCast[collision.rayIndex].size()) {
+        if (collision.lowestPointIndex < PLR_CTRLR_NS::rayCast[collision.rayIndex].size()) {
 
-            playerController.rayNormal = hh::toGlmVec3(rayCast[collision.rayIndex].getHitNormal(collision.lowestPointIndex));
+            playerController.rayNormal = hh::toGlmVec3(PLR_CTRLR_NS::rayCast[collision.rayIndex].getHitNormal(collision.lowestPointIndex));
 
             playerController.currentSlopeIntensity = btVector3(0, 0, 0);
 

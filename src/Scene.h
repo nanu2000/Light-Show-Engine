@@ -29,7 +29,7 @@ public:
         int index = binarySearchForComponent(T::type, objectID);
 
         if (index != -1) {
-            return static_cast<T*>(components.at(index));
+            return dynamic_cast<T*>(components.at(index));
         }
 
         return nullptr;
@@ -37,8 +37,8 @@ public:
 
     template <typename T>
     T* getFirstComponentOfType() {
-        std::vector<T*>& componentsOfType = getAllComponentsOfType<T>();
-        int firstIndex                    = binarySearchForComponent(T::type);
+        std::vector<T*> componentsOfType = getAllComponentsOfType<T>();
+        int firstIndex                   = binarySearchForComponent(T::type);
         for (int i = 0; i < componentsOfType.size(); i++) {
             if (componentsOfType[i]->isActive()) {
                 return componentsOfType[i];
@@ -54,7 +54,7 @@ public:
         if (firstIndex == -1) {
             return nullptr;
         } else {
-            return static_cast<T*>(components.at(firstIndex));
+            return dynamic_cast<T*>(components.at(firstIndex));
         }
     }
 
@@ -63,7 +63,7 @@ public:
     //returning true in lambda will end loop.
     template <typename T, typename func>
     void performOperationsOnAllOfType(func function) {
-        const std::vector<T*>& type = getAllComponentsOfType<T>();
+        const std::vector<T*> type = getAllComponentsOfType<T>();
         for (unsigned int i = 0; i < type.size(); i++) {
             if (function(*type[i])) {
                 return;
@@ -95,7 +95,7 @@ public:
         }
 
         while (firstIndex < static_cast<int>(components.size()) && T::type == components.at(firstIndex)->getType()) {
-            returnVector.push_back(static_cast<T*>(components.at(firstIndex)));
+            returnVector.push_back(dynamic_cast<T*>(components.at(firstIndex)));
             firstIndex++;
         }
 

@@ -11,6 +11,12 @@ void CollisionMesh::initializeMeshShape(
     float friction,
     float restitution,
     bool kinematic) {
+
+    if (hasInit) {
+        DBG_LOG("CollisionMesh already initialized!\n");
+        deInit();
+    }
+
     isMesh = true;
 
     //this allocates memory
@@ -57,6 +63,11 @@ void CollisionMesh::initializeModelShape(
     float restitution,
     bool kinematic) {
 
+    if (hasInit) {
+        DBG_LOG("CollisionMesh already initialized!\n");
+        deInit();
+    }
+
     isMesh = true;
 
     //this allocates memory
@@ -94,6 +105,12 @@ void CollisionMesh::initializeModelShape(
 }
 
 void CollisionMesh::initializeMeshShape(const btTransform& transformation, _3DM::AnimatedModel& model, unsigned int meshIndex, float mass, CollisionTag usrTag, bool trigger, btVector3 localInertia, float friction, float restitution, bool kinematic) {
+
+    if (hasInit) {
+        DBG_LOG("CollisionMesh already initialized!\n");
+        deInit();
+    }
+
     isMesh = true;
 
     //this allocates memory
@@ -130,6 +147,12 @@ void CollisionMesh::initializeMeshShape(const btTransform& transformation, _3DM:
 }
 
 void CollisionMesh::initializeModelShape(const btTransform& transformation, _3DM::AnimatedModel& model, float mass, CollisionTag usrTag, bool trigger, btVector3 localInertia, float friction, float restitution, bool kinematic) {
+
+    if (hasInit) {
+        DBG_LOG("CollisionMesh already initialized!\n");
+        deInit();
+    }
+
     isMesh = true;
 
     //this allocates memory
@@ -179,6 +202,27 @@ void CollisionMesh::setTrigger(bool t) {
     isTriggerBody = t;
 }
 
+void CollisionMesh::deInit() {
+    assert(hasInit);
+    assert(rigidBody != nullptr && thisMotionState != nullptr && thisShape != nullptr);
+
+    delete rigidBody;
+    delete thisMotionState;
+    delete thisShape;
+
+    rigidBody       = nullptr;
+    thisMotionState = nullptr;
+    thisShape       = nullptr;
+
+    if (isMesh) {
+        delete thisMesh;
+        thisMesh = nullptr;
+        isMesh   = false;
+    }
+
+    hasInit = false;
+}
+
 void CollisionMesh::setKinematic(bool t) {
     assert(rigidBody != nullptr);
     if (t) {
@@ -199,21 +243,8 @@ Transform CollisionMesh::getTransformation() {
 }
 
 CollisionMesh::~CollisionMesh() {
-    assert(hasInit);
-    assert(rigidBody != nullptr && thisMotionState != nullptr && thisShape != nullptr);
 
-    delete rigidBody;
-    delete thisMotionState;
-    delete thisShape;
-
-    rigidBody       = nullptr;
-    thisMotionState = nullptr;
-    thisShape       = nullptr;
-
-    if (isMesh) {
-        delete thisMesh;
-        thisMesh = nullptr;
-    }
+    deInit();
 }
 
 btTriangleMesh* CollisionMesh::createTriangleMeshCollider(_3DM::AnimatedModel* model, unsigned int meshIndex) {

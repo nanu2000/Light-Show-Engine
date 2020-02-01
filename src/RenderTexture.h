@@ -2,7 +2,7 @@
 #define RENDER_TEXTURE_H
 #include "GameInfo.h"
 #include "HelpingHand.h"
-#include "ShaderBase.h"
+#include "Shader.h"
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>

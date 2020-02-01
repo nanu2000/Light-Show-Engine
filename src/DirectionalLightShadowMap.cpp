@@ -14,10 +14,13 @@ void DirectionalLightShadowMap::updateDepthMap(const Camera& camera) {
 }
 
 void DirectionalLightShadowMap::initialize() {
-    depthMapShader = ShaderBase(
-        "assets/shaders/directional-light-shadow-map.vert",
-        "assets/shaders/empty.frag",
-        SHADER_TYPE::Default);
+
+    Shader x = ShaderLocator::getService().getShader("dirshadowmap",
+                                                     "assets/shaders/directional-light-shadow-map.vert",
+                                                     "assets/shaders/empty.frag",
+                                                     SHADER_TYPE::Default);
+
+    depthMapShader = x;
 
     glGenFramebuffers(1, &depthMapFBO);
     glGenTextures(1, &depthMap);

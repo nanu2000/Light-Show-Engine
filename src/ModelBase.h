@@ -5,9 +5,9 @@
 
 class ModelBase {
 public:
-    virtual void renderSingleMesh(unsigned int index, ShaderBase& shader) = 0;
-    virtual void renderAll(ShaderBase& shader)                            = 0;
-    virtual void initialize(ShaderBase& shader)                           = 0;
+    virtual void renderSingleMesh(unsigned int index, Shader& shader) = 0;
+    virtual void renderAll(Shader& shader)                            = 0;
+    virtual void initialize(Shader& shader)                           = 0;
 
     virtual ~ModelBase() {}
     bool isAnimatedModel() { return animatedModel; }

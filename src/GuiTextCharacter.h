@@ -4,7 +4,7 @@
 #include "Quad.h"
 class GuiTextCharacter {
 public:
-    void render(ShaderBase& shader, Texture& texture, const Glyph& glyph, const glm::vec2& scale);
+    void render(Shader& shader, Texture& texture, const Glyph& glyph, const glm::vec2& scale);
 
     float xPosition = 0;
     float yPosition = 0;

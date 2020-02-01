@@ -14,19 +14,19 @@ public:
 
     GuiString(unsigned int capacity = 5, const std::string& string = "");
 
-    void render(ShaderBase& shader);
-    void render(ShaderBase& shader, const std::string& string);
-    void render(ShaderBase& shader, const std::string& string, unsigned int newCapacity);
+    void render(Shader& shader);
+    void render(Shader& shader, const std::string& string);
+    void render(Shader& shader, const std::string& string, unsigned int newCapacity);
 
     void render(
-        ShaderBase& shader,
+        Shader& shader,
         int horizontalpad,
         int verticalpad   = 1,
         int spacesize     = 8,
         const glm::ivec2& = glm::ivec2(0));
 
     void render(
-        ShaderBase& shader,
+        Shader& shader,
         const std::string& string,
         int horizontalpad,
         int verticalpad            = 1,
@@ -70,7 +70,7 @@ public:
     float getWidthOfString() const { return widthOfString; }
 
 private:
-    void mainRender(ShaderBase& shader);
+    void mainRender(Shader& shader);
 
     float widthOfString = 0;
 

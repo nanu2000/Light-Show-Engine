@@ -148,10 +148,11 @@ void Application::initialize() {
 
     std::srand(SDL_GetTicks()); //Set random seed
 
-    InputLocator ::provide(input);
-    MusicLocator ::provide(mainMusic);
-    SoundLocator ::provide(mainSound);
-    TextureLocator ::provide(textureservice);
+    InputLocator ::provide(inputService);
+    MusicLocator ::provide(musicService);
+    SoundLocator ::provide(soundService);
+    TextureLocator ::provide(textureService);
+    ShaderLocator ::provide(shaderService);
 
     thisGame.initialize(&currentTime, &backEndMessagingSystem);
 }
@@ -173,7 +174,7 @@ void Application::update() {
     SDL_PumpEvents();
 
     while (SDL_PollEvent(&sdlEventSystem)) {
-        input.handleEvents(sdlEventSystem, static_cast<SDL_EventType>(sdlEventSystem.type));
+        inputService.handleEvents(sdlEventSystem, static_cast<SDL_EventType>(sdlEventSystem.type));
 
         switch (static_cast<SDL_EventType>(sdlEventSystem.type)) {
         case SDL_EventType::SDL_WINDOWEVENT:

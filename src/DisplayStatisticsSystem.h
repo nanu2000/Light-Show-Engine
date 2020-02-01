@@ -33,7 +33,7 @@ public:
         ds.guiString.setString(ds.currentMSPF + ds.currentFPS);
     }
 
-    void render(ShaderBase& shader, DisplayStatistics& ds) {
+    void render(Shader& shader, DisplayStatistics& ds) {
         ds.guiString.render(shader);
     }
 };

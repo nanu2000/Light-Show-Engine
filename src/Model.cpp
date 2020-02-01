@@ -9,7 +9,7 @@ _3DM::Model::Model(const std::string& path) {
     }
 }
 
-void _3DM::Model::renderSingleMesh(unsigned int index, ShaderBase& shader) {
+void _3DM::Model::renderSingleMesh(unsigned int index, Shader& shader) {
     if (!modelLoaded) {
         DBG_LOG("Please load a model before trying to render one.\n");
         return;
@@ -30,7 +30,7 @@ int _3DM::Model::getMeshIndex(const std::string& MeshName) const {
     return -1;
 }
 
-void _3DM::Model::initializeTexture(_3DM::Mesh& mesh, ShaderBase& shader) {
+void _3DM::Model::initializeTexture(_3DM::Mesh& mesh, Shader& shader) {
     for (GLuint j = 0; j < mesh.textures.size(); j++) {
         std::stringstream stringStream;
 
@@ -65,7 +65,7 @@ void _3DM::Model::initializeTexture(_3DM::Mesh& mesh, ShaderBase& shader) {
     }
 }
 
-void _3DM::Model::initializeBuffers(_3DM::Mesh& mesh, ShaderBase& shader) {
+void _3DM::Model::initializeBuffers(_3DM::Mesh& mesh, Shader& shader) {
 
     GLint uvAttribute       = Shaders::getAttribLocation(Shaders::AttribName::TextureCoordinates);
     GLint positionAttribute = Shaders::getAttribLocation(Shaders::AttribName::Position);
@@ -97,7 +97,7 @@ void _3DM::Model::initializeBuffers(_3DM::Mesh& mesh, ShaderBase& shader) {
     glVertexAttribPointer(normalsAttribute, 3, GL_FLOAT, GL_FALSE, 0, 0);
 }
 
-void _3DM::Model::initialize(ShaderBase& shader) {
+void _3DM::Model::initialize(Shader& shader) {
 
     if (!modelLoaded) {
         printf("Please load in a model before initializing buffers. ( _3DM::Model::initialize() )\n");
@@ -134,7 +134,7 @@ _3DM::Model::~Model() {
         glDeleteBuffers(1, &mesh.normalBufferObject);
     }
 }
-void _3DM::Model::renderAll(ShaderBase& shader) {
+void _3DM::Model::renderAll(Shader& shader) {
     if (!modelLoaded) {
 #ifdef DEBUG
         printf("Please load a model before trying to render one.\n");
@@ -178,7 +178,7 @@ std::vector<uint32_t>* _3DM::Model::getMeshIndices(unsigned int index) {
     return nullptr;
 }
 
-void _3DM::Model::renderMesh(unsigned int index, ShaderBase& shader) {
+void _3DM::Model::renderMesh(unsigned int index, Shader& shader) {
 
     glBindVertexArray(meshes.at(index).vertexArrayObject); //Bind VAO
 

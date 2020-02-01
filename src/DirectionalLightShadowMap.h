@@ -1,13 +1,14 @@
 #ifndef DIRECTIONAL_LIGHT_SHADOW_MAP_H
 #define DIRECTIONAL_LIGHT_SHADOW_MAP_H
 #include "Camera.h"
+#include "Debug.h"
 #include "HelpingHand.h"
-#include "ShaderBase.h"
+#include "Locator.h"
+#include "Shader.h"
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-
 class DirectionalLightShadowMap {
 
 public:
@@ -64,7 +65,7 @@ private:
 
     glm::mat4 lightSpaceMatrix;
     GLuint depthMapFBO;
-    ShaderBase depthMapShader;
+    Shader depthMapShader;
     GLuint depthMap;
     bool initialized = false;
 };

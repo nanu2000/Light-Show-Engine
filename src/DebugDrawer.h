@@ -3,7 +3,7 @@
 #define DEBUG_DRAWER_H
 
 #include "GameInfo.h"
-#include "ShaderBase.h"
+#include "Locator.h"
 #include <LinearMath/btIDebugDraw.h>
 #include <glm/gtc/type_ptr.hpp>
 #include <vector>
@@ -32,7 +32,7 @@ public:
     virtual int getDebugMode() const { return currentDebugMode; }
 
 private:
-    ShaderBase thisShader;
+    Shader thisShader;
 
     glm::mat4 identitym = glm::mat4(1.0f);
 

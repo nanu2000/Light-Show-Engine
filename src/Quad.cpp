@@ -11,7 +11,7 @@ void Quad::init() {
 
 //Renders a textured 3D quad. Used for gui.
 void Quad::render3D(
-    const ShaderBase& shader,
+    const Shader& shader,
     const Texture& texture,
     const glm::vec4& spriteOrientationInPixels,
     const glm::vec2& positionInPixels,
@@ -86,7 +86,7 @@ void Quad::render3D(
 }
 
 //Renders a 3D textured quad
-void Quad::render3D(const ShaderBase& shader, GLint textureID, glm::mat4& modelMatrix) {
+void Quad::render3D(const Shader& shader, GLint textureID, glm::mat4& modelMatrix) {
 
     if (!hasInit) {
         init();
@@ -139,7 +139,7 @@ void Quad::render3D(const ShaderBase& shader, GLint textureID, glm::mat4& modelM
 }
 
 //Renders a 2D textured quad
-void Quad::render2D(const ShaderBase& shader, GLint textureID) {
+void Quad::render2D(const Shader& shader, GLint textureID) {
 
     if (!hasInit) {
         init();

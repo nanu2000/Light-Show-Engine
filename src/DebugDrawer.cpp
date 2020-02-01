@@ -26,7 +26,7 @@ void DebugDrawer::render(const glm::mat4& projectionMatrix, const glm::mat4& vie
 }
 
 void DebugDrawer::initialize() {
-    thisShader = ShaderBase("assets/shaders/color.vert", "assets/shaders/color.frag", SHADER_TYPE::Default);
+    thisShader = ShaderLocator::getService().getShader("dbg", "assets/shaders/color.vert", "assets/shaders/color.frag", SHADER_TYPE::Default);
 
     thisShader.useProgram();
 

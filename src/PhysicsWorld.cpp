@@ -20,7 +20,7 @@ PhysicsWorld::~PhysicsWorld() {
     assert(collisionConfiguration);
     assert(dispatcher);
     assert(broadphase);
-
+    removeAllRigidBodies();
     delete thisWorld;
     delete solver;
     delete collisionConfiguration;

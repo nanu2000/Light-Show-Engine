@@ -64,9 +64,9 @@ void Game::initializeShaders() {
     pointLightDepthMap.initialize();
     renderTexture.initialize(GameInfo::getWindowWidth(), GameInfo::getWindowHeight());
 
-    ShaderBase::setShaderTask(SHADER_TASK::Normal_Render_Task);
-    ShaderBase::setShaderTaskShader(SHADER_TASK::Directional_Depth_Task, directionalLightDepthMap.getDepthMapShader());
-    ShaderBase::setShaderTaskShader(SHADER_TASK::Omnidirectional_Depth_Task, pointLightDepthMap.getDepthMapShader());
+    Shader::setShaderTask(SHADER_TASK::Normal_Render_Task);
+    Shader::setShaderTaskShader(SHADER_TASK::Directional_Depth_Task, directionalLightDepthMap.getDepthMapShader());
+    Shader::setShaderTaskShader(SHADER_TASK::Omnidirectional_Depth_Task, pointLightDepthMap.getDepthMapShader());
 }
 
 void Game::readBackendEventQueue() {

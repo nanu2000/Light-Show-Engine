@@ -1,7 +1,7 @@
 #ifndef QUAD_H
 #define QUAD_H
 #include "GameInfo.h"
-#include "ShaderBase.h"
+#include "Shader.h"
 #include "Shaders.h"
 #include "Texture.h"
 #include "Transform.h"
@@ -11,15 +11,15 @@
 class Quad {
 public:
     void render3D(
-        const ShaderBase& shader,
+        const Shader& shader,
         const Texture& texture,
         const glm::vec4& spriteOrientationInPixels,
         const glm::vec2& positionInPixels,
         const glm::vec2& scaleInPixels);
 
-    void render3D(const ShaderBase& shader, GLint textureID, glm::mat4& modelMatrix);
+    void render3D(const Shader& shader, GLint textureID, glm::mat4& modelMatrix);
 
-    void render2D(const ShaderBase& shader, GLint textureID);
+    void render2D(const Shader& shader, GLint textureID);
 
     ~Quad();
 

@@ -1,6 +1,6 @@
 #ifndef POINT_LIGHT_SHADOW_MAP_H
 #define POINT_LIGHT_SHADOW_MAP_H
-#include "ShaderBase.h"
+#include "Locator.h"
 #include "Texture.h"
 #include <GL/glew.h>
 #include <glm/glm.hpp>
@@ -84,7 +84,7 @@ private:
     GLuint depthMapFBO  = 0;
     GLuint depthCubeMap = 0;
 
-    ShaderBase depthMapShader;
+    Shader depthMapShader;
     glm::vec3 lightPosition    = glm::vec3(0, 6, 0);
     glm::mat4 shadowProjection = glm::perspective(FOV, aspect, nearPlane, farPlane);
     bool initialized           = false;

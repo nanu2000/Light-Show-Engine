@@ -1,6 +1,7 @@
 #ifndef LOCATOR_H
 #define LOCATOR_H
 #include "Input.h"
+#include "Shader.h"
 #include "Sound.h"
 #include "Texture.h"
 /*************************************************************************************************
@@ -39,10 +40,17 @@ T* Locator<T, U>::service;
 template <class T, class U>
 U Locator<T, U>::nullService;
 
+class TextureHandler;
+class Input;
+class NullInput;
+class SoundHandler;
+class MusicHandler;
+class ShaderHandler;
+
 class TextureLocator : public Locator<TextureHandler, TextureHandler> {};
 class InputLocator : public Locator<Input, NullInput> {};
 class SoundLocator : public Locator<SoundHandler, SoundHandler> {};
 /*Remember, that if I use the music service and play a song then change the service without stopping the song, the locator will not be able to stop that song.*/
 class MusicLocator : public Locator<MusicHandler, MusicHandler> {};
-
+class ShaderLocator : public Locator<ShaderHandler, ShaderHandler> {};
 #endif

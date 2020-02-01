@@ -7,7 +7,7 @@
 #include "Mesh.h"
 #include "ModelBase.h"
 #include "ModelSerialization.h"
-#include "ShaderBase.h"
+#include "Shader.h"
 #include "Transform.h"
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
@@ -20,10 +20,10 @@ public:
     Model() {}
     ~Model();
 
-    void renderSingleMesh(unsigned int index, ShaderBase& shader);
+    void renderSingleMesh(unsigned int index, Shader& shader);
     int getMeshIndex(const std::string& MeshName) const;
-    void initialize(ShaderBase& shader);
-    void renderAll(ShaderBase& shader);
+    void initialize(Shader& shader);
+    void renderAll(Shader& shader);
     glm::mat4 getMeshMatrix(unsigned int index) const;
     void setMeshMatrix(unsigned int index, const glm::mat4& newMatrix);
     unsigned int amountOfMeshes() { return meshes.size(); }
@@ -35,11 +35,11 @@ public:
 private:
     std::vector<Mesh> meshes;
 
-    void initializeBuffers(_3DM::Mesh& mesh, ShaderBase& shader);
+    void initializeBuffers(_3DM::Mesh& mesh, Shader& shader);
 
-    void initializeTexture(_3DM::Mesh& mesh, ShaderBase& shader);
+    void initializeTexture(_3DM::Mesh& mesh, Shader& shader);
 
-    void renderMesh(unsigned int index, ShaderBase& shader);
+    void renderMesh(unsigned int index, Shader& shader);
 
     std::string rootPath;
     bool modelLoaded = false;

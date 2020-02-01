@@ -4,7 +4,7 @@
 #include "Component.h"
 #include "Locator.h"
 #include "Settings.h"
-#include "ShaderBase.h"
+#include "Shader.h"
 #include <algorithm>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/norm.hpp>

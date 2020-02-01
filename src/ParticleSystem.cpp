@@ -1,7 +1,7 @@
 #include "ParticleSystem.h"
 
 //Rendering logic
-void DefaultParticleSystem::renderParticles(ShaderBase& shader, Particles& particles) {
+void DefaultParticleSystem::renderParticles(Shader& shader, Particles& particles) {
 
     if (particles.renderingSize <= 0) {
         return;

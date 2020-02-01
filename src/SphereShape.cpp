@@ -37,7 +37,7 @@ void SphereShape::createSphere(int radius, int stacks, int slices) {
     initialized = true;
 }
 
-void SphereShape::drawSphere(ShaderBase& shader) {
+void SphereShape::drawSphere(Shader& shader) {
     DBG_LOG("rendering");
     GLuint transformLoc = Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::ModelMatrix);
     GLuint posAttrib    = Shaders::getAttribLocation(Shaders::AttribName::Position);

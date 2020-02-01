@@ -7,7 +7,7 @@
 class DefaultParticleSystem {
 
 public:
-    virtual void renderParticles(ShaderBase& shader, Particles& particles);
+    virtual void renderParticles(Shader& shader, Particles& particles);
     virtual void fixedUpdateParticles(Particles& particlesWrapper);
     virtual void updateParticles(Particles& particlesWrapper);
 

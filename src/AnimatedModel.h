@@ -9,7 +9,7 @@
 #include "Locator.h"
 #include "ModelBase.h"
 #include "ModelSerialization.h"
-#include "ShaderBase.h"
+#include "Shader.h"
 #include "Transform.h"
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
@@ -23,7 +23,7 @@ public:
 
     ~AnimatedModel();
 
-    void initialize(ShaderBase& shader);
+    void initialize(Shader& shader);
     /**************
 		*	Getters	  *
 		***************/
@@ -59,8 +59,8 @@ public:
 		*************/
 
     void fixedUpdateAnimation();
-    void renderAll(ShaderBase& shader);
-    void renderSingleMesh(unsigned int index, ShaderBase& shader);
+    void renderAll(Shader& shader);
+    void renderSingleMesh(unsigned int index, Shader& shader);
     void removeKeyframes(unsigned int channelIndex);
 
     void addRotationToKeyFrames(const glm::quat& rotation, unsigned int channelIndex);
@@ -112,15 +112,15 @@ private:
         }
     }
 
-    void initializeBuffers(Mesh& mesh, ShaderBase& shader);
-    void initializeTexture(Mesh& mesh, ShaderBase& shader);
+    void initializeBuffers(Mesh& mesh, Shader& shader);
+    void initializeTexture(Mesh& mesh, Shader& shader);
 
-    void renderMesh(unsigned int index, ShaderBase& shader);
-    void initializeBoneBuffers(AnimatedMesh& mesh, ShaderBase& shader);
+    void renderMesh(unsigned int index, Shader& shader);
+    void initializeBoneBuffers(AnimatedMesh& mesh, Shader& shader);
     void updateBoneTree(const float& timeInTicks, BoneNode* node, const glm::mat4& parentTransform);
     void blendBoneTree(const float& lastAnimationTime, _3DM::BoneNode* node, const glm::mat4& parentTransform);
 
-    void bindBuffers(ShaderBase& shader, AnimatedMesh& mesh);
+    void bindBuffers(Shader& shader, AnimatedMesh& mesh);
 
     Animation modelsAnimation;
 

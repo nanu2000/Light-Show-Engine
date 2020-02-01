@@ -84,13 +84,15 @@ private:
 	*Everything below is used for testing purposes.*
 	************************************************/
 
-    Input input; //For the InputLocator
+    Input inputService; //For the InputLocator
 
-    SoundHandler mainSound; //For the SoundLocator
+    SoundHandler soundService; //For the SoundLocator
 
-    MusicHandler mainMusic; //For the MusicLocator
+    MusicHandler musicService; //For the MusicLocator
 
-    TextureHandler textureservice; //For the TextureLocator
+    TextureHandler textureService; //For the TextureLocator
+
+    ShaderHandler shaderService; //For the ShaderLocator
 
     Time currentTime;
 

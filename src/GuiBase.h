@@ -1,13 +1,13 @@
 #ifndef GUI_BASE
 #define GUI_BASE
 
+#include "Shader.h"
 #include <stdint.h>
-#include "ShaderBase.h"
 
 class GuiBase {
 
 public:
-    virtual void render(ShaderBase& shader) = 0;
+    virtual void render(Shader& shader) = 0;
 };
 
 #endif

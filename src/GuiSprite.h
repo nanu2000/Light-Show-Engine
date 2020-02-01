@@ -50,7 +50,7 @@ public:
         position = pos;
     }
 
-    void render(ShaderBase& shader) {
+    void render(Shader& shader) {
         if (texture == nullptr) {
 
             DBG_LOG("GuiSprite needs to be initialized before being used. The texture must not be null.");

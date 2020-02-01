@@ -1,7 +1,7 @@
 #ifndef CUBE_SHAPE
 #define CUBE_SHAPE
 
-#include "ShaderBase.h"
+#include "Shader.h"
 #include "Shaders.h"
 #include "glm/gtc/constants.hpp"
 #include "glm/gtc/type_ptr.hpp"
@@ -66,7 +66,7 @@ public:
         initialized = true;
     }
 
-    void render(ShaderBase& shader, Camera& camera) {
+    void render(Shader& shader, Camera& camera) {
         GLuint transformLoc = Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::ModelMatrix);
 
         glm::mat4 view = glm::mat4(glm::mat3(*camera.getViewMatrix()));

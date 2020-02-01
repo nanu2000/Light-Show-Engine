@@ -1,7 +1,7 @@
 #ifndef SPHERE_SHAPE
 #define SPHERE_SHAPE
 
-#include "ShaderBase.h"
+#include "Shader.h"
 #include "Shaders.h"
 #include "glm/gtc/constants.hpp"
 #include "glm/gtc/type_ptr.hpp"
@@ -11,7 +11,7 @@
 class SphereShape {
 public:
     void createSphere(int radius, int stacks, int slices);
-    void drawSphere(ShaderBase& shader);
+    void drawSphere(Shader& shader);
     ~SphereShape();
 
 private:

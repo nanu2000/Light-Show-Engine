@@ -54,7 +54,7 @@ void _3DM::AnimatedModel::overWritePositionToKeyFrames(const glm::vec3& position
     }
 }
 
-void _3DM::AnimatedModel::initialize(ShaderBase& shader) {
+void _3DM::AnimatedModel::initialize(Shader& shader) {
     // loop through each mesh and initialize them
     for (unsigned int i = 0; i < meshes.size(); i++) {
 
@@ -269,7 +269,7 @@ int _3DM::AnimatedModel::getMeshIndex(const std::string& MeshName) const {
     return -1;
 }
 
-void _3DM::AnimatedModel::renderSingleMesh(unsigned int index, ShaderBase& shader) {
+void _3DM::AnimatedModel::renderSingleMesh(unsigned int index, Shader& shader) {
     if (!modelLoaded) {
         DBG_LOG("Please load a model before trying to render one.\n");
         return;
@@ -515,7 +515,7 @@ void _3DM::AnimatedModel::blendBoneTree(const float& lastAnimationTime, _3DM::Bo
 * This function is expected to be called after glUseProgram. *
 * This function contains NO bounds checking					 *
 **************************************************************/
-void _3DM::AnimatedModel::renderMesh(unsigned int index, ShaderBase& shader) {
+void _3DM::AnimatedModel::renderMesh(unsigned int index, Shader& shader) {
     glm::mat4 transformation = meshes.at(index).mesh.baseModelMatrix;
 
     transformation = glm::translate(transformation, transform.position);
@@ -557,7 +557,7 @@ void _3DM::AnimatedModel::renderMesh(unsigned int index, ShaderBase& shader) {
 /****************************************
 *Render All meshes if they exist.		*
 *****************************************/
-void _3DM::AnimatedModel::renderAll(ShaderBase& shader) {
+void _3DM::AnimatedModel::renderAll(Shader& shader) {
 
     if (!modelLoaded) {
         DBG_LOG("Please load a model before trying to render one.\n");
@@ -570,14 +570,14 @@ void _3DM::AnimatedModel::renderAll(ShaderBase& shader) {
     }
 };
 
-void _3DM::AnimatedModel::initializeBoneBuffers(_3DM::AnimatedMesh& mesh, ShaderBase& shader) {
+void _3DM::AnimatedModel::initializeBoneBuffers(_3DM::AnimatedMesh& mesh, Shader& shader) {
     glGenBuffers(1, &mesh.weightsBufferObject);
     glGenBuffers(1, &mesh.boneIDsBufferObject);
 
     bindBuffers(shader, mesh);
 }
 
-void _3DM::AnimatedModel::bindBuffers(ShaderBase& shader, AnimatedMesh& mesh) {
+void _3DM::AnimatedModel::bindBuffers(Shader& shader, AnimatedMesh& mesh) {
     int boneIDsAttribute = Shaders::getAttribLocation(Shaders::AttribName::BoneIDS);
     int weightsAttribute = Shaders::getAttribLocation(Shaders::AttribName::BoneWeights);
 
@@ -592,7 +592,7 @@ void _3DM::AnimatedModel::bindBuffers(ShaderBase& shader, AnimatedMesh& mesh) {
     glVertexAttribPointer(boneIDsAttribute, 4, GL_FLOAT, GL_FALSE, 0, 0);
 }
 
-void _3DM::AnimatedModel::initializeTexture(_3DM::Mesh& mesh, ShaderBase& shader) {
+void _3DM::AnimatedModel::initializeTexture(_3DM::Mesh& mesh, Shader& shader) {
     mesh.diffuseIndex  = 0;
     mesh.normalsIndex  = 0;
     mesh.specularIndex = 0;
@@ -629,7 +629,7 @@ void _3DM::AnimatedModel::initializeTexture(_3DM::Mesh& mesh, ShaderBase& shader
         }
     }
 }
-void _3DM::AnimatedModel::initializeBuffers(_3DM::Mesh& mesh, ShaderBase& shader) {
+void _3DM::AnimatedModel::initializeBuffers(_3DM::Mesh& mesh, Shader& shader) {
     glGenVertexArrays(1, &mesh.vertexArrayObject);
 
     glGenBuffers(1, &mesh.vertexBufferObject);

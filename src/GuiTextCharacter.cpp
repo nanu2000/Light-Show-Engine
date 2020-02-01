@@ -1,6 +1,6 @@
 #include "GuiTextCharacter.h"
 
-void GuiTextCharacter::render(ShaderBase& shader, Texture& texture, const Glyph& glyph, const glm::vec2& scale) {
+void GuiTextCharacter::render(Shader& shader, Texture& texture, const Glyph& glyph, const glm::vec2& scale) {
     quad.render3D(
         shader,
         texture,

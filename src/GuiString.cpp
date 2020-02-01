@@ -13,17 +13,17 @@ GuiString::GuiString(unsigned int capacity, const std::string& string) {
     }
 }
 
-void GuiString::render(ShaderBase& shader) {
+void GuiString::render(Shader& shader) {
     mainRender(shader);
 }
 
-void GuiString::render(ShaderBase& shader, const std::string& string) {
+void GuiString::render(Shader& shader, const std::string& string) {
     currentString = string;
     mainRender(shader);
 }
 
 void GuiString::render(
-    ShaderBase& shader,
+    Shader& shader,
     const std::string& string,
     int horizontalpad,
     int verticalpad,
@@ -39,13 +39,13 @@ void GuiString::render(
     mainRender(shader);
 }
 
-void GuiString::render(ShaderBase& shader, const std::string& string, unsigned int newCapacity) {
+void GuiString::render(Shader& shader, const std::string& string, unsigned int newCapacity) {
     characters.resize(newCapacity);
     currentString = string;
     mainRender(shader);
 }
 
-void GuiString::render(ShaderBase& shader, int horizontalpad, int verticalpad, int spacesize, const glm::ivec2&) {
+void GuiString::render(Shader& shader, int horizontalpad, int verticalpad, int spacesize, const glm::ivec2&) {
 
     horizontalPadding = horizontalpad;
     verticalPadding   = verticalpad;
@@ -54,7 +54,7 @@ void GuiString::render(ShaderBase& shader, int horizontalpad, int verticalpad, i
     mainRender(shader);
 }
 
-void GuiString::mainRender(ShaderBase& shader) {
+void GuiString::mainRender(Shader& shader) {
     if (!currentTexture) {
         DBG_LOG("Current Font Texture is Null (GuiString::render())");
         return;

@@ -34,8 +34,8 @@ void RenderingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld&
         return false;
     });
 
-    screenShader = ShaderBase("assets/shaders/render-texture.vert", "assets/shaders/render-texture.frag", SHADER_TYPE::Default);
-    depthShader  = ShaderBase("assets/shaders/depth.vert", "assets/shaders/depth.frag", SHADER_TYPE::Default);
+    screenShader = ShaderLocator::getService().getShader("screen", "assets/shaders/render-texture.vert", "assets/shaders/render-texture.frag", SHADER_TYPE::Default);
+    depthShader  = ShaderLocator::getService().getShader("depthtest", "assets/shaders/depth.vert", "assets/shaders/depth.frag", SHADER_TYPE::Default);
 
     //Todo: move to a debugging component/system.
     //Pretty much we render a neat little quad with the directional light's depth map in it for debugging purposes. This will be useful for finetuning shaders.
@@ -102,7 +102,7 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
 
     const std::vector<Shader*>& shaders = currentScene->getAllComponentsOfType<Shader>();
 
-    ShaderBase::setShaderTask(SHADER_TASK::Normal_Render_Task);
+    Shader::setShaderTask(SHADER_TASK::Normal_Render_Task);
     for (unsigned int i = 0; i < shaders.size(); i++) {
         if (shaders.at(i)->getShaderType() != SHADER_TYPE::Lit) {
             continue;
@@ -116,7 +116,7 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
     if (pointLightDepthMap.isActive()) {
 
         //Uses shader for depth when getProgramID is called.
-        ShaderBase::setShaderTask(SHADER_TASK::Omnidirectional_Depth_Task);
+        Shader::setShaderTask(SHADER_TASK::Omnidirectional_Depth_Task);
 
         glViewport(0, 0, pointLightDepthMap.getDepthMapWidth(), pointLightDepthMap.getDepthMapHeight());
 
@@ -129,7 +129,7 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
     if (directionalLightDepthMap.isActive()) {
 
         //Uses shader for depth when getProgramID is called.
-        ShaderBase::setShaderTask(SHADER_TASK::Directional_Depth_Task);
+        Shader::setShaderTask(SHADER_TASK::Directional_Depth_Task);
 
         glViewport(0, 0, directionalLightDepthMap.getDepthMapWidth(), directionalLightDepthMap.getDepthMapHeight());
 
@@ -139,7 +139,7 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
     }
 
     //Use normal shaders
-    ShaderBase::setShaderTask(SHADER_TASK::Normal_Render_Task);
+    Shader::setShaderTask(SHADER_TASK::Normal_Render_Task);
 
     //Render everything to texture.
     {

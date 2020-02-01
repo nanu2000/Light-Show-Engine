@@ -6,7 +6,7 @@
 class SkyBoxSystem {
 public:
     void init(SkyBox& skybox) { skybox.getCube()->create(); }
-    void render(SkyBox& skybox, Camera& camera, ShaderBase& shader) {
+    void render(SkyBox& skybox, Camera& camera, Shader& shader) {
         glDepthFunc(GL_LEQUAL);
         glCullFace(GL_FRONT);
         glBindTexture(GL_TEXTURE_CUBE_MAP, skybox.getCubeMap()->getCubeMapData());

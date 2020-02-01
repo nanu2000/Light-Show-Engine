@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # target_compile_options(main PRIVATE -Wall)
 
 project (lightshow-bp)
+add_library(lightshow-lib "")
 
 if(UNIX AND NOT APPLE)
     add_compile_definitions(LINUX)
@@ -33,10 +34,25 @@ elseif(CMAKE_BUILD_TYPE MATCHES MinSizeRel)
     set(USE_DEBUG_TOOLS false)
 endif()
 
+file(GLOB SOURCE_FILES_H
+    "src/*.h"
+)
+
+file(GLOB SOURCE_FILES_CPP
+    "src/*.cpp"
+)
+
 file(GLOB SOURCE_FILES
     "src/*.h"
     "src/*.cpp"
 )
+target_sources(lightshow-lib 
+    PRIVATE
+        ${SOURCE_FILES_CPP}
+    PUBLIC
+        ${SOURCE_FILES_H})
+
+target_include_directories(lightshow-lib PUBLIC src)
 
 if(USE_DEBUG_TOOLS)
     add_executable(lightshow ${SOURCE_FILES})
@@ -48,44 +64,102 @@ else()
     endif()
 endif()
 
+# Download and unpack googletest at configure time
+configure_file(GTestConfig.cmake googletest-download/CMakeLists.txt)
+execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
+  RESULT_VARIABLE result
+  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/googletest-download )
+if(result)
+  message(FATAL_ERROR "CMake step for googletest failed: ${result}")
+endif()
+execute_process(COMMAND ${CMAKE_COMMAND} --build .
+  RESULT_VARIABLE result
+  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/googletest-download )
+if(result)
+  message(FATAL_ERROR "Build step for googletest failed: ${result}")
+endif()
+
+# Prevent overriding the parent project's compiler/linker
+# settings on Windows
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
+# Add googletest directly to our build. This defines
+# the gtest and gtest_main targets.
+add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/lib/googletest-src
+                 ${CMAKE_CURRENT_BINARY_DIR}/lib/googletest-build
+                 EXCLUDE_FROM_ALL)
+
+                 
+add_executable(
+    unit_tests
+    tests/example.cpp
+    )
+
+target_link_libraries(
+    unit_tests
+    gtest_main
+    lightshow-lib
+    )
+
+add_test(
+  NAME
+    unit
+  COMMAND
+    ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}/unit_tests
+  )
 
 # SDL2
 find_package(SDL2 REQUIRED)
 include_directories(SYSTEM ${SDL2_INCLUDE_DIRS})
+target_include_directories(lightshow-lib PUBLIC ${SDL2_INCLUDE_DIRS})
 string(STRIP "${SDL2_LIBRARIES}" SDL2_LIBRARIES)
 target_link_libraries(lightshow PRIVATE ${SDL2_LIBRARIES})
+target_link_libraries(lightshow-lib PRIVATE ${SDL2_LIBRARIES})
 message("${SDL2_INCLUDE_DIRS}")
 # SDL_Mixer
 find_package(SDL2_mixer REQUIRED)
 include_directories(SYSTEM ${SDL_MIXER_INCLUDE_DIR})
+target_include_directories(lightshow-lib PUBLIC ${SDL_MIXER_INCLUDE_DIR})
 # string(STRIP "${SDL_MIXER_LIBRARY}" SDL_MIXER_LIBRARY)
 target_link_libraries(lightshow PRIVATE ${SDL_MIXER_LIBRARY})
+target_link_libraries(lightshow-lib PRIVATE ${SDL_MIXER_LIBRARY})
 
 # SDL_Image
 find_package(SDL2_image REQUIRED)
 include_directories(SYSTEM ${SDL2IMAGE_INCLUDE_DIRS})
+target_include_directories(lightshow-lib PUBLIC ${SDL2IMAGE_INCLUDE_DIRS})
 # string(STRIP "${SDL_MIXER_LIBRARY}" SDL_MIXER_LIBRARY)
 target_link_libraries(lightshow PRIVATE ${SDL2IMAGE_LIBRARIES})
+target_link_libraries(lightshow-lib PRIVATE ${SDL2IMAGE_LIBRARIES})
 
 # glew
 add_definitions(-DGLEW_STATIC)
 add_subdirectory(lib/glew EXCLUDE_FROM_ALL)
 target_link_libraries(lightshow PRIVATE libglew_static)
+target_include_directories(lightshow-lib PUBLIC lib/glew/include)
+target_link_libraries(lightshow-lib PRIVATE libglew_static)
 
 # glm
 add_subdirectory(lib/glm EXCLUDE_FROM_ALL)
 target_link_libraries(lightshow PRIVATE glm)
+target_include_directories(lightshow-lib PUBLIC lib/glm)
 
 # GameNetworkingSockets
 find_package(GNS REQUIRED)
 include_directories(SYSTEM ${GNS_INCLUDE_DIRS})
+target_include_directories(lightshow-lib PUBLIC ${GNS_INCLUDE_DIRS})
 target_link_libraries(lightshow PRIVATE ${GNS_LIBRARIES})
+target_link_libraries(lightshow-lib PRIVATE ${GNS_LIBRARIES})
 
 # bullet
 include_directories(SYSTEM lib/bullet/src)
+target_include_directories(lightshow-lib PUBLIC lib/bullet/src)
 target_link_libraries(lightshow PRIVATE BulletDynamics)
 target_link_libraries(lightshow PRIVATE BulletCollision)
 target_link_libraries(lightshow PRIVATE LinearMath)
+target_link_libraries(lightshow-lib PRIVATE BulletDynamics)
+target_link_libraries(lightshow-lib PRIVATE BulletCollision)
+target_link_libraries(lightshow-lib PRIVATE LinearMath)
 # BulletDynamics.lib;BulletCollision.lib;
 
 #some Bullet specific definitions need to be used, to be compatible

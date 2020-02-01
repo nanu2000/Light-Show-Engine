@@ -3,7 +3,7 @@
 #include "Component.h"
 #include "GUIResizingInfo.h"
 #include "GuiString.h"
-#include "Time.h"
+#include "LTime.h"
 #include <numeric>
 
 class DisplayStatistics : public Component<DisplayStatistics> {

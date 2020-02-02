@@ -18,7 +18,6 @@ private:
 
     float lastUnit = 0;
 
-    float updateInterval    = 1.f; //update every second
     float currentInterval   = 0.f;
     std::string currentFPS  = "0";
     std::string currentMSPF = "0";

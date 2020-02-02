@@ -272,25 +272,29 @@ void RenderingSystem::renderOthers(Camera& currentCamera, Time& currentTime) {
         renderParticles(*particles[i], currentCamera, currentTime);
     }
 
-    currentScene->loopEntities([&](const Scene::Entity& entity) {
-        Shader* shader = currentScene->getComponent<Shader>(entity.id);
+    //Only one per scene
+    DisplayStatistics* stats = currentScene->getFirstActiveComponentOfType<DisplayStatistics>();
+    if (stats) {
 
-        if (!shader || shader->getShaderType() != SHADER_TYPE::GUI) {
-            return false;
-        }
+        Shader* shader = currentScene->getComponent<Shader>(stats->getEntityID());
 
-        if (DisplayStatistics* stats = currentScene->getComponent<DisplayStatistics>(entity.id)) {
+        if (shader && shader->getShaderType() == SHADER_TYPE::GUI) {
             shader->useProgram();
             systems->displayStatisticsSystem.render(*shader, *stats);
         }
+    }
 
-        if (PauseMenu* menu = currentScene->getComponent<PauseMenu>(entity.id)) {
+    //Only one per scene
+    PauseMenu* menu = currentScene->getFirstActiveComponentOfType<PauseMenu>();
+    if (stats) {
+
+        Shader* shader = currentScene->getComponent<Shader>(menu->getEntityID());
+
+        if (shader && shader->getShaderType() == SHADER_TYPE::GUI) {
             shader->useProgram();
             systems->pauseMenuSystem.render(*shader, *menu);
         }
-
-        return false;
-    });
+    }
 }
 
 void RenderingSystem::renderParticles(Particles& particles, Camera& currentCamera, Time& currentTime) {

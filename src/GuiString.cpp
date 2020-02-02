@@ -56,11 +56,11 @@ void GuiString::render(Shader& shader, int horizontalpad, int verticalpad, int s
 
 void GuiString::mainRender(Shader& shader) {
     if (!currentTexture) {
-        DBG_LOG("Current Font Texture is Null (GuiString::render())");
+        DBG_LOG("Current Font Texture is Null (GuiString::render())\n");
         return;
     }
     if (!currentTextMap) {
-        DBG_LOG("Current Text Map is Null (GuiString::render())");
+        DBG_LOG("Current Text Map is Null (GuiString::render())\n");
         return;
     }
 
@@ -69,6 +69,10 @@ void GuiString::mainRender(Shader& shader) {
     int indexModifier = 0;
 
     widthOfString = 0;
+
+    GLboolean currentDepth;
+    glGetBooleanv(GL_DEPTH_WRITEMASK, &currentDepth);
+    glDepthMask(GL_FALSE);
 
     for (unsigned int i = 0; i < characters.size() && i + indexModifier < currentString.size(); i++) {
 
@@ -92,12 +96,7 @@ void GuiString::mainRender(Shader& shader) {
                 characters[i].xPosition = textPosition.x + currentX * 2 + currentGlyph->getWidth() * scale.x;
                 characters[i].yPosition = textPosition.y + currentY * 2 - currentGlyph->getHeight() * scale.y;
 
-                GLboolean currentDepth;
-                glGetBooleanv(GL_DEPTH_WRITEMASK, &currentDepth);
-
-                glDepthMask(GL_FALSE);
                 characters[i].render(shader, *currentTexture, *currentGlyph, scale);
-                glDepthMask(currentDepth);
                 currentX += currentGlyph->getWidth() * scale.x + horizontalPadding;
             }
         }
@@ -106,4 +105,6 @@ void GuiString::mainRender(Shader& shader) {
             widthOfString = currentX;
         }
     }
+
+    glDepthMask(currentDepth);
 }

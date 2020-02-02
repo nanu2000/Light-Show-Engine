@@ -37,8 +37,6 @@ private:
     RenderingSystem renderingSystem;
     SubSystems subSystems;
 
-    const static unsigned int AMOUNT_OF_ENTITIES = 6;
-
     Scene* scene               = new Scene();
     PhysicsWorld* physicsWorld = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
 

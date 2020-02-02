@@ -26,9 +26,7 @@ public:
 private:
     void init();
 
-    bool hasInit                      = false;
-    GLint positionAttribLocation      = 0;
-    GLint textureCoordsAttribLocation = 0;
+    bool hasInit = false;
 
     GLuint quadVAO                    = 0;
     GLuint quadVBO                    = 0;

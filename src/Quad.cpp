@@ -4,9 +4,13 @@ void Quad::init() {
 
     glGenVertexArrays(1, &quadVAO);
     glGenBuffers(1, &quadVBO);
-    positionAttribLocation      = Shaders::getAttribLocation(Shaders::AttribName::Position);
-    textureCoordsAttribLocation = Shaders::getAttribLocation(Shaders::AttribName::TextureCoordinates);
-    hasInit                     = true;
+
+    glBindVertexArray(quadVAO);
+    glEnableVertexAttribArray(Shaders::getAttribLocation(Shaders::AttribName::Position));
+    glEnableVertexAttribArray(Shaders::getAttribLocation(Shaders::AttribName::TextureCoordinates));
+    glBindVertexArray(0);
+
+    hasInit = true;
 }
 
 //Renders a textured 3D quad. Used for gui.
@@ -69,11 +73,8 @@ void Quad::render3D(
     glBindBuffer(GL_ARRAY_BUFFER, quadVBO);
     glBufferData(GL_ARRAY_BUFFER, quadVertices.size() * sizeof(GLfloat), &quadVertices[0], GL_STATIC_DRAW);
 
-    glEnableVertexAttribArray(positionAttribLocation);
-    glEnableVertexAttribArray(textureCoordsAttribLocation);
-
-    glVertexAttribPointer(positionAttribLocation, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)0);
-    glVertexAttribPointer(textureCoordsAttribLocation, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+    glVertexAttribPointer(Shaders::getAttribLocation(Shaders::AttribName::Position), 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)0);
+    glVertexAttribPointer(Shaders::getAttribLocation(Shaders::AttribName::TextureCoordinates), 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
 
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texture.getTextureData());
@@ -126,11 +127,8 @@ void Quad::render3D(const Shader& shader, GLint textureID, glm::mat4& modelMatri
     glBindBuffer(GL_ARRAY_BUFFER, quadVBO);
     glBufferData(GL_ARRAY_BUFFER, quadVertices.size() * sizeof(GLfloat), &quadVertices[0], GL_STATIC_DRAW);
 
-    glEnableVertexAttribArray(positionAttribLocation);
-    glEnableVertexAttribArray(textureCoordsAttribLocation);
-
-    glVertexAttribPointer(positionAttribLocation, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)0);
-    glVertexAttribPointer(textureCoordsAttribLocation, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+    glVertexAttribPointer(Shaders::getAttribLocation(Shaders::AttribName::Position), 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)0);
+    glVertexAttribPointer(Shaders::getAttribLocation(Shaders::AttribName::TextureCoordinates), 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
 
     glUniformMatrix4fv(
         Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::ModelMatrix),
@@ -157,11 +155,8 @@ void Quad::render2D(const Shader& shader, GLint textureID) {
     glBindBuffer(GL_ARRAY_BUFFER, quadVBO);
     glBufferData(GL_ARRAY_BUFFER, quadVertices.size() * sizeof(GLfloat), &quadVertices[0], GL_STATIC_DRAW);
 
-    glEnableVertexAttribArray(positionAttribLocation);
-    glEnableVertexAttribArray(textureCoordsAttribLocation);
-
-    glVertexAttribPointer(positionAttribLocation, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)0);
-    glVertexAttribPointer(textureCoordsAttribLocation, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)(2 * sizeof(GLfloat)));
+    glVertexAttribPointer(Shaders::getAttribLocation(Shaders::AttribName::Position), 2, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)0);
+    glVertexAttribPointer(Shaders::getAttribLocation(Shaders::AttribName::TextureCoordinates), 2, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)(2 * sizeof(GLfloat)));
 
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     glBindVertexArray(0);

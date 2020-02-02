@@ -16,7 +16,7 @@ struct SubSystems {
     PauseMenuSystem pauseMenuSystem;
     DisplayStatisticsSystem displayStatisticsSystem;
 
-    GUIResizingInformation guiResizingInfo;
+    // GUIResizingInformation guiResizingInfo;
 
     PlayerControllerSystem playerControllerSystem;
     EnemyControllerSystem enemyControllerSystem;
@@ -26,7 +26,7 @@ struct SubSystems {
     CameraSystem cameraSystem;
     BoneCollisionMeshSystem boneCollisionMeshSystem;
 
-    DayNightCycleSystem dayNightCycleSystem;
+    //DayNightCycleSystem dayNightCycleSystem;
     SkyBoxSystem skyBoxSystem;
 
     DefaultParticleSystem defaultParticleSystem;

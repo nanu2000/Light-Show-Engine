@@ -8,10 +8,12 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <vector>
 
+namespace DBG_DRAWER {
+static const unsigned int MAX_AMOUNT_DEBUG_LINES = 200;
+}
+
 class DebugDrawer : public btIDebugDraw {
 public:
-    static const unsigned int MAX_AMOUNT_DEBUG_LINES = 22500;
-
     void render(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix);
 
     void initialize();
@@ -36,7 +38,7 @@ private:
 
     glm::mat4 identitym = glm::mat4(1.0f);
 
-    std::vector<glm::vec3> lineVertices;
+    //glm::vec3 lineVertices[DBG_DRAWER::MAX_AMOUNT_DEBUG_LINES * 2];
 
     int currentDebugMode                    = 0;
     unsigned int currentMaxAmountOfVertices = 0;

@@ -1,3 +1,7 @@
+#Note:
+#I am not the best at using cmake, it is definitely a skill I could brush up on.
+#Please excuse me, this file does not look very good, but it works very well for me.
+
 # Projects Settings
 cmake_minimum_required (VERSION 3.1)
 set(CMAKE_CXX_STANDARD 14)

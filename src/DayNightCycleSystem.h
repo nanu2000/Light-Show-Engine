@@ -10,8 +10,8 @@ class DayNightCycleSystem {
 
 public:
     void initialize() {
-        debugDrawer.setDebugMode(btIDebugDraw::DBG_DrawWireframe);
-        debugDrawer.initialize();
+        //debugDrawer.setDebugMode(btIDebugDraw::DBG_DrawWireframe);
+        //debugDrawer.initialize();
 
         nightLightDiffuse = glm::vec3(.1f, .13f, .16f);
         dayLightDiffuse   = glm::vec3(.7f, .73f, .74f);
@@ -56,13 +56,13 @@ public:
         btVector3 linePos = btVector3(0, 10, 0);
         float distance    = 5;
 
-        debugDrawer.drawLine(linePos, (btVector3(currentDirection.x, currentDirection.y, currentDirection.z) * distance) + linePos, btVector3(255, 255, 255));
+        // debugDrawer.drawLine(linePos, (btVector3(currentDirection.x, currentDirection.y, currentDirection.z) * distance) + linePos, btVector3(255, 255, 255));
 
-        debugDrawer.render(projectionMatrix, viewMatrix);
+        //debugDrawer.render(projectionMatrix, viewMatrix);
     }
 
 private:
-    DebugDrawer debugDrawer;
+    //DebugDrawer debugDrawer;
 
     glm::vec3 currentDirection;
 

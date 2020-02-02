@@ -36,18 +36,18 @@ void Player::initialize(EntityWrapper::EntityVitals& vitals) {
 
     int32_t id = vitals.scene->generateEntity();
 
-    textShader = ShaderLocator::getService().getShader("ui", *vitals.currentSettings, "assets/shaders/gui-shader.vert", "assets/shaders/gui-shader.frag", SHADER_TYPE::GUI);
+    //textShader = ShaderLocator::getService().getShader("ui", *vitals.currentSettings, "assets/shaders/gui-shader.vert", "assets/shaders/gui-shader.frag", SHADER_TYPE::GUI);
 
-    statDisplayer.initialize(*vitals.map, TextureLocator::getService().getTexture("assets/Fonts/CourierNew.png", GL_NEAREST));
+    //statDisplayer.initialize(*vitals.map, TextureLocator::getService().getTexture("assets/Fonts/CourierNew.png", GL_NEAREST));
 
-    menu.initialize(*vitals.map, TextureLocator::getService().getTexture("assets/Fonts/CourierNew.png", GL_NEAREST));
+    //menu.initialize(*vitals.map, TextureLocator::getService().getTexture("assets/Fonts/CourierNew.png", GL_NEAREST));
 
-    vitals.scene->addComponent(id, menu);
+    //vitals.scene->addComponent(id, menu);
     vitals.scene->addComponent(id, camera);
-    vitals.scene->addComponent(id, dbgController);
-    vitals.scene->addComponent(id, textShader);
-    vitals.scene->addComponent(id, userControls);
-    vitals.scene->addComponent(id, statDisplayer);
+    //vitals.scene->addComponent(id, dbgController);
+    //vitals.scene->addComponent(id, textShader);
+    //vitals.scene->addComponent(id, userControls);
+    //vitals.scene->addComponent(id, statDisplayer);
 }
 
 void PlayerTestObject::initialize(EntityWrapper::EntityVitals& vitals) {

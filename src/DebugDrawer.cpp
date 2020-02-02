@@ -2,12 +2,12 @@
 
 void DebugDrawer::render(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix) {
 
-    thisShader.useProgram();
+    /* thisShader.useProgram();
 
     glBindVertexArray(VAO);
 
     glBindBuffer(GL_ARRAY_BUFFER, vertID);
-    glBufferData(GL_ARRAY_BUFFER, lineVertices.size() * sizeof(glm::vec3), &lineVertices[0].x, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, currentMaxAmountOfVertices * sizeof(glm::vec3), &lineVertices[0].x, GL_DYNAMIC_DRAW);
 
     glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
     glUniformMatrix4fv(viewLocation, 1, GL_FALSE, glm::value_ptr(viewMatrix));
@@ -22,11 +22,11 @@ void DebugDrawer::render(const glm::mat4& projectionMatrix, const glm::mat4& vie
 
     currentAmountOfLines = 0;
 
-    glBindVertexArray(0);
+    glBindVertexArray(0);*/
 }
 
 void DebugDrawer::initialize() {
-    thisShader = ShaderLocator::getService().getShader("dbg", "assets/shaders/color.vert", "assets/shaders/color.frag", SHADER_TYPE::Default);
+    /*thisShader = ShaderLocator::getService().getShader("dbg", "assets/shaders/color.vert", "assets/shaders/color.frag", SHADER_TYPE::Default);
 
     thisShader.useProgram();
 
@@ -41,37 +41,35 @@ void DebugDrawer::initialize() {
     glGenBuffers(1, &vertID);
     glBindVertexArray(0);
 
-    lineVertices.resize(MAX_AMOUNT_DEBUG_LINES * 2);
-
-    currentMaxAmountOfVertices = lineVertices.size();
-    initialized                = true;
+    currentMaxAmountOfVertices = DBG_DRAWER::MAX_AMOUNT_DEBUG_LINES * 2;
+    initialized                = true;*/
 }
 
 DebugDrawer::~DebugDrawer() {
 
-    if (!initialized) {
+    /*  if (!initialized) {
         return;
     }
 
     DBG_LOG("Freeing memory for debug drawer.\n");
 
     glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &vertID);
+    glDeleteBuffers(1, &vertID);*/
 }
 
 void DebugDrawer::drawLine(const btVector3& from, const btVector3& to, const btVector3& color) {
 
-    if (currentAmountOfLines + 1 < currentMaxAmountOfVertices) {
-        lineVertices.at(currentAmountOfLines)     = (glm::vec3(from.getX(), from.getY(), from.getZ()));
-        lineVertices.at(currentAmountOfLines + 1) = (glm::vec3(to.getX(), to.getY(), to.getZ()));
+    /*  if (currentAmountOfLines + 1 < currentMaxAmountOfVertices) {
+        lineVertices[(currentAmountOfLines)]     = (glm::vec3(from.getX(), from.getY(), from.getZ()));
+        lineVertices[(currentAmountOfLines + 1)] = (glm::vec3(to.getX(), to.getY(), to.getZ()));
         currentAmountOfLines += 2;
-    }
+    }*/
 }
 
 void DebugDrawer::setDebugMode(int debugMode) {
-    currentDebugMode = debugMode;
+    //currentDebugMode = debugMode;
 }
 
 void DebugDrawer::reportErrorWarning(const char* warningString) {
-    printf("%s", warningString);
+    //printf("%s", warningString);
 }

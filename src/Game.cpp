@@ -84,16 +84,6 @@ void Game::fixedUpdate() {
     //Event Queue
     readBackendEventQueue();
 
-    if (InputLocator::getService().keyPressedOnce(SDLK_8)) {
-
-        Quad x[100];
-        for (int i = 0; i < 100; i++) {
-            x[i].render3D(
-                ShaderLocator::getService().getShader("ui", settings, "assets/shaders/gui-shader.vert", "assets/shaders/gui-shader.frag", SHADER_TYPE::GUI),
-                TextureLocator::getService().getTexture("assets/Fonts/CourierNew.png", GL_NEAREST).getTextureData(),
-                glm::mat4(1));
-        }
-    }
     if (InputLocator::getService().keyPressedOnce(SDLK_7)) {
 
         delete scene;

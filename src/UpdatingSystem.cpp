@@ -16,7 +16,7 @@ void UpdatingSystem::update() {
     if (UserControls* userControls = currentScene->getFirstActiveComponentOfType<UserControls>()) {
         if (PauseMenu* menu = currentScene->getFirstActiveComponentOfType<PauseMenu>()) {
 
-            //            systems->pauseMenuSystem.update(InputLocator::getService(), *menu, systems->guiResizingInfo, *userControls);
+            systems->pauseMenuSystem.update(InputLocator::getService(), *menu, systems->guiResizingInfo, *userControls);
             isPauseMenuShowing = menu->showing();
         }
     }

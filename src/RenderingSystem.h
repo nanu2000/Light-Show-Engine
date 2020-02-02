@@ -45,12 +45,12 @@ private:
 
     void supplyParticleShaderUniforms(Shader& particleShader, Camera& currentCamera, Time& currentTime);
 
-    Quad screenQuad;
-    Shader screenShader;
+    //Quad screenQuad;
+    //Shader screenShader;
 
     //Todo: move to a debugging component/system.
-    glm::mat4 depthMatrix = glm::mat4(1.0f);
-    Quad depthQuad;
-    Shader depthShader;
+    //glm::mat4 depthMatrix = glm::mat4(1.0f);
+    //Quad depthQuad;
+    //Shader depthShader;
 };
 #endif

@@ -16,7 +16,7 @@ struct SubSystems {
     PauseMenuSystem pauseMenuSystem;
     DisplayStatisticsSystem displayStatisticsSystem;
 
-    // GUIResizingInformation guiResizingInfo;
+    GUIResizingInformation guiResizingInfo;
 
     PlayerControllerSystem playerControllerSystem;
     EnemyControllerSystem enemyControllerSystem;

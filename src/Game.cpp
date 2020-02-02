@@ -53,9 +53,6 @@ void Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSy
             return false;
         });
 
-    //Perform copy
-    subSystems = SubSystems();
-
     fixedUpdatingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
     updatingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
     renderingSystem.initialize(*scene, settings, *physicsWorld, subSystems);

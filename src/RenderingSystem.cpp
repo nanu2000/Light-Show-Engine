@@ -34,13 +34,13 @@ void RenderingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld&
         return false;
     });
 
-    screenShader = ShaderLocator::getService().getShader("screen", "assets/shaders/render-texture.vert", "assets/shaders/render-texture.frag", SHADER_TYPE::Default);
-    depthShader  = ShaderLocator::getService().getShader("depthtest", "assets/shaders/depth.vert", "assets/shaders/depth.frag", SHADER_TYPE::Default);
+    //screenShader = ShaderLocator::getService().getShader("screen", "assets/shaders/render-texture.vert", "assets/shaders/render-texture.frag", SHADER_TYPE::Default);
+    //depthShader  = ShaderLocator::getService().getShader("depthtest", "assets/shaders/depth.vert", "assets/shaders/depth.frag", SHADER_TYPE::Default);
 
     //Todo: move to a debugging component/system.
     //Pretty much we render a neat little quad with the directional light's depth map in it for debugging purposes. This will be useful for finetuning shaders.
-    depthMatrix *= glm::translate(glm::vec3(0.8f, 0.8f, 0.0f));
-    depthMatrix *= glm::scale(glm::vec3(0.2, 0.2, 0.2));
+    //depthMatrix *= glm::translate(glm::vec3(0.8f, 0.8f, 0.0f));
+    //depthMatrix *= glm::scale(glm::vec3(0.2, 0.2, 0.2));
 }
 
 void RenderingSystem::initializeLights(Shader& litShader) {
@@ -152,9 +152,9 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
         //Todo: move this into a ui sys/component for debugging
         //Pretty much we render a neat little quad with the directional light's depth map in it for debugging purposes. This will be useful for finetuning shaders.
 
-        depthShader.useProgram();
-        glUniform3f(Shaders::getUniformLocation(depthShader.getProgramID(), Shaders::UniformName::ViewPosition), currentCamera->position.x, currentCamera->position.y, currentCamera->position.z);
-        depthQuad.render3D(depthShader, directionalLightDepthMap.getDepthMap(), depthMatrix);
+        // depthShader.useProgram();
+        //glUniform3f(Shaders::getUniformLocation(depthShader.getProgramID(), Shaders::UniformName::ViewPosition), currentCamera->position.x, currentCamera->position.y, currentCamera->position.z);
+        //depthQuad.render3D(depthShader, directionalLightDepthMap.getDepthMap(), depthMatrix);
     }
 
     //Render texture to quad.
@@ -165,8 +165,8 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
         glDisable(GL_DEPTH_TEST);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        screenShader.useProgram();
-        screenQuad.render2D(screenShader, renderTexture.getTextureID());
+        //screenShader.useProgram();
+        //screenQuad.render2D(screenShader, renderTexture.getTextureID());
     }
 }
 

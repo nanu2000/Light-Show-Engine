@@ -11,7 +11,7 @@ void FixedUpdatingSystem::initialize(Scene& scene, Settings& settings, PhysicsWo
         systems->cameraSystem.initializeCamera(*camera);
     }
 
-    //systems->guiResizingInfo.updateInformation();
+    systems->guiResizingInfo.updateInformation();
     //    systems->dayNightCycleSystem.initialize();
 }
 
@@ -27,7 +27,7 @@ void FixedUpdatingSystem::handleBackEndMessage(BackEndMessages msg, RenderTextur
             DBG_LOG("Camera Refreshed Succesfully\n");
         }
 
-        //systems->guiResizingInfo.updateInformation();
+        systems->guiResizingInfo.updateInformation();
         renderTexture.resize(GameInfo::getWindowWidth(), GameInfo::getWindowHeight());
 
         break;
@@ -156,7 +156,7 @@ bool FixedUpdatingSystem::updateGUI(const Time& time, PointLightShadowMap& point
         }
 
         if (DisplayStatistics* stats = currentScene->getComponent<DisplayStatistics>(entity.id)) {
-            //systems->displayStatisticsSystem.fixedUpdate(*stats, time, systems->guiResizingInfo);
+            systems->displayStatisticsSystem.fixedUpdate(*stats, time, systems->guiResizingInfo);
         }
 
         return false;

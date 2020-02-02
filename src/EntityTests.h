@@ -70,13 +70,13 @@ public:
     void initialize(EntityWrapper::EntityVitals& vitals);
 
 private:
-    // DisplayStatistics statDisplayer;
-    //Shader textShader;
-    //PauseMenu menu;
+    DisplayStatistics statDisplayer;
+    Shader textShader;
+    PauseMenu menu;
 
     Camera camera;
     //DebuggingController dbgController;
-    //UserControls userControls;
+    UserControls userControls;
 };
 
 class PlayerTestObject : public EntityWrapper {

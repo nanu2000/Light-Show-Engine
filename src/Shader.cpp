@@ -52,21 +52,14 @@ Shader::Shader(const std::string& id, const Settings& currentSettings, const std
 
 void Shader::setPointLight(const Settings& currentSettings, const PointLight& light, unsigned int index) {
     if (index < currentSettings.getLightsPerEntity()) {
-        std::string location  = "pointLights[" + std::to_string(index);
-        std::string position  = location + "].position";
-        std::string ambient   = location + "].ambient";
-        std::string diffuse   = location + "].ambient";
-        std::string specular  = location + "].specular";
-        std::string constant  = location + "].constant";
-        std::string linear    = location + "].linear";
-        std::string quadratic = location + "].quadratic";
-        supplyVec3fUniform(position, light.position);
-        supplyVec3fUniform(ambient, light.ambient);
-        supplyVec3fUniform(diffuse, light.diffuse);
-        supplyVec3fUniform(specular, light.specular);
-        supply1fUniform(constant, light.constant);
-        supply1fUniform(linear, light.linear);
-        supply1fUniform(quadratic, light.quadratic);
+        std::string location = "pointLights[" + std::to_string(index);
+        supplyVec3fUniform(location + "].position", light.position);
+        supplyVec3fUniform(location + "].ambient", light.ambient);
+        supplyVec3fUniform(location + "].diffuse", light.diffuse);
+        supplyVec3fUniform(location + "].specular", light.specular);
+        supply1fUniform(location + "].constant", light.constant);
+        supply1fUniform(location + "].linear", light.linear);
+        supply1fUniform(location + "].quadratic", light.quadratic);
     }
 }
 

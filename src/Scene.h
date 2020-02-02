@@ -29,7 +29,7 @@ public:
         int index = binarySearchForComponent(T::type, objectID);
 
         if (index != -1) {
-            return dynamic_cast<T*>(components.at(index));
+            return static_cast<T*>(components.at(index));
         }
 
         return nullptr;
@@ -54,7 +54,7 @@ public:
         if (firstIndex == -1) {
             return nullptr;
         } else {
-            return dynamic_cast<T*>(components.at(firstIndex));
+            return static_cast<T*>(components.at(firstIndex));
         }
     }
 
@@ -95,7 +95,7 @@ public:
         }
 
         while (firstIndex < static_cast<int>(components.size()) && T::type == components.at(firstIndex)->getType()) {
-            returnVector.push_back(dynamic_cast<T*>(components.at(firstIndex)));
+            returnVector.push_back(static_cast<T*>(components.at(firstIndex)));
             firstIndex++;
         }
 

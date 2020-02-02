@@ -105,9 +105,9 @@ void Game::fixedUpdate() {
         if (!hasInit) {
 
             sceneTwoEntities[0] = new Player();
-            sceneTwoEntities[1] = new Player();
-            sceneTwoEntities[2] = new Player();
-            sceneTwoEntities[3] = new Player();
+            sceneTwoEntities[1] = new PlayerTestObject();
+            sceneTwoEntities[2] = new FloorObject();
+            sceneTwoEntities[3] = new LightTest();
 
             hasInit = true;
         } else {

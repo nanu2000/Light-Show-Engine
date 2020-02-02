@@ -26,7 +26,7 @@ struct SubSystems {
     CameraSystem cameraSystem;
     BoneCollisionMeshSystem boneCollisionMeshSystem;
 
-    //DayNightCycleSystem dayNightCycleSystem;
+    //DayNightCycleSystem dayNightCycleSystem; -- causes memory leak on copy constructor because DebugDrawer is intertwined with PhysicsWorld.
     SkyBoxSystem skyBoxSystem;
 
     DefaultParticleSystem defaultParticleSystem;

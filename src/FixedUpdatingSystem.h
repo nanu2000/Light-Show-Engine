@@ -20,6 +20,8 @@
 class FixedUpdatingSystem : public SystemBase {
 
 public:
+    ~FixedUpdatingSystem() {}
+
     void initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& systems) override;
 
     void fixedUpdate(const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);

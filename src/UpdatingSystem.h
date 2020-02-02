@@ -15,6 +15,8 @@
 class UpdatingSystem : public SystemBase {
 
 public:
+    ~UpdatingSystem() {}
+
     void initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& systems) override;
 
     //Called from Game.cpp

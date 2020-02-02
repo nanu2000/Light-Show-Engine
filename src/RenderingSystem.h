@@ -21,6 +21,7 @@ using _3DM::Model;
 class RenderingSystem : public SystemBase {
 
 public:
+    ~RenderingSystem() {}
     void initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& systems) override;
     void render(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Time& currentTime, const RenderTexture& renderTexture);
 
@@ -45,12 +46,12 @@ private:
 
     void supplyParticleShaderUniforms(Shader& particleShader, Camera& currentCamera, Time& currentTime);
 
-    //Quad screenQuad;
-    //Shader screenShader;
+    Quad screenQuad;
+    Shader screenShader;
 
     //Todo: move to a debugging component/system.
-    //glm::mat4 depthMatrix = glm::mat4(1.0f);
-    //Quad depthQuad;
-    //Shader depthShader;
+    glm::mat4 depthMatrix = glm::mat4(1.0f);
+    Quad depthQuad;
+    Shader depthShader;
 };
 #endif

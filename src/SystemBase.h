@@ -6,6 +6,8 @@
 class SystemBase {
 
 public:
+    virtual ~SystemBase() {}
+
     virtual void initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& systems) = 0;
 
     void setScene(Scene& scene) { currentScene = &scene; }

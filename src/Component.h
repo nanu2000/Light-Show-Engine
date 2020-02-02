@@ -11,6 +11,7 @@ extern int32_t nextType;
 
 class ComponentInterface {
 public:
+    virtual ~ComponentInterface() {}
     virtual int32_t getType() const = 0;
     int32_t getEntityID() const { return entityID; }
     void setEntityID(int32_t id) { entityID = id; }
@@ -29,11 +30,11 @@ private:
 template <class T>
 class Component : public ComponentInterface {
 public:
+    virtual ~Component() {}
     int32_t getType() const { return T::type; }
     static int32_t type;
 
 private:
-
     friend Scene;
 };
 

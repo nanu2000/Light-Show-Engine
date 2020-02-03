@@ -4,7 +4,7 @@ void Game::resetVitals(Time* time, Messenger<BackEndMessages>* backEndMessagingS
     currentTime     = time;
     backEndMessages = backEndMessagingSystem;
 }
-///test
+
 bool Game::areVitalsNull() {
     if (!currentTime || !backEndMessages) {
         DBG_LOG("ONE OR MORE VITAL OBJECTS IS NULL\n (Game::isVitalsNull())\n");
@@ -13,9 +13,7 @@ bool Game::areVitalsNull() {
 
     return false;
 }
-/*!
-test 2
-*/
+
 void Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSystem) {
 
     currentTime     = time;

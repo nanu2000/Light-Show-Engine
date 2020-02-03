@@ -46,15 +46,15 @@ private:
     //Const Members
     ///////////////////////////////////////////////////////////////////////////////
 
-    const float friction                   = 2.0f;
-    const float damping                    = 7.0f;
-    const float fallMovementDamping        = 2;
-    const float halfLengthOfRay            = 2.f;
-    const float playerGravityImpulse       = -GameInfo::fixedDeltaTime * 19;
-    const float speed                      = GameInfo::fixedDeltaTime * 65;
-    const float jumpVelocity               = 11;
-    const float jumpEnabledWithinMagnitude = 1;
-    const float colliderWidthAndDepth      = .4f;
+    float friction                   = 2.0f;
+    float damping                    = 7.0f;
+    float fallMovementDamping        = 2;
+    float halfLengthOfRay            = 2.f;
+    float playerGravityImpulse       = -GameInfo::fixedDeltaTime * 19;
+    float speed                      = GameInfo::fixedDeltaTime * 65;
+    float jumpVelocity               = 11;
+    float jumpEnabledWithinMagnitude = 1;
+    float colliderWidthAndDepth      = .4f;
 
     ///////////////////////////////////////////////////////////////////////////////
     //Normal members for logic performed in system.

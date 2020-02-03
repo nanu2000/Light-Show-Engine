@@ -1,6 +1,0 @@
-<map id="EnemyControllerSystem::getLowestRayHitIndex" name="EnemyControllerSystem::getLowestRayHitIndex">
-<area shape="rect" id="node1" title=" " alt="" coords="5,49,168,90"/>
-<area shape="rect" id="node2" href="$d3/dbc/class_ray_caster.html#a45c26b33e25a86d40d13ac887c0a78ca" title=" " alt="" coords="216,5,412,32"/>
-<area shape="rect" id="node3" href="$d3/dbc/class_ray_caster.html#a65d444adaed1585db97b1c6361d54265" title=" " alt="" coords="228,56,400,83"/>
-<area shape="rect" id="node4" href="$d3/dbc/class_ray_caster.html#a85220b230435f4132f72a1ae9304b632" title=" " alt="" coords="257,107,371,133"/>
-</map>

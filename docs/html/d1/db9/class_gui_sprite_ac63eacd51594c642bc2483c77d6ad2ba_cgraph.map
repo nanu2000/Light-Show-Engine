@@ -1,6 +1,0 @@
-<map id="GuiSprite::GuiSprite" name="GuiSprite::GuiSprite">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,144,57"/>
-<area shape="rect" id="node2" href="$d1/db9/class_gui_sprite.html#a50b84e21fcb306c538ed057bd0eea717" title=" " alt="" coords="192,31,323,57"/>
-<area shape="rect" id="node3" href="$d2/d7f/class_texture.html#a0eaebfd0e00f88d19a64ed05ea634539" title=" " alt="" coords="371,5,499,32"/>
-<area shape="rect" id="node4" href="$d2/d7f/class_texture.html#a4d8e86e7df22179e8f3af9392020608c" title=" " alt="" coords="372,56,497,83"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="SkyBoxSystem::init" name="SkyBoxSystem::init">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,144,57"/>
-<area shape="rect" id="node2" href="$d5/db4/class_cube_shape.html#a59ec963d6031ae7c74e16e9d4af6209a" title=" " alt="" coords="192,5,325,32"/>
-<area shape="rect" id="node4" href="$de/dda/class_sky_box.html#a6dddf4a7d8654174621a0caab58cc95f" title=" " alt="" coords="197,56,321,83"/>
-<area shape="rect" id="node3" href="$d7/da2/namespace_shaders.html#a137768343963ec1e71572a39e29892e6" title=" " alt="" coords="373,5,549,32"/>
-</map>

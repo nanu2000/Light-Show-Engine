@@ -1,6 +1,0 @@
-<map id="PhysicsWorld::addRigidBody" name="PhysicsWorld::addRigidBody">
-<area shape="rect" id="node1" title=" " alt="" coords="5,56,196,83"/>
-<area shape="rect" id="node2" href="$d4/daa/class_collision_mesh.html#a39ab9471f1d870a0ca50883203658617" title=" " alt="" coords="244,5,432,32"/>
-<area shape="rect" id="node3" href="$d4/daa/class_collision_mesh.html#aef42c3553294f05d929dc50f0542da58" title=" " alt="" coords="249,56,427,83"/>
-<area shape="rect" id="node4" href="$d4/daa/class_collision_mesh.html#ac06186aa8d797ff8b17c0da0db2f39a4" title=" " alt="" coords="258,107,418,133"/>
-</map>

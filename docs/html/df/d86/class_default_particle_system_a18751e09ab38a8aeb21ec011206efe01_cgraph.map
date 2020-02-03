@@ -1,9 +1,0 @@
-<map id="DefaultParticleSystem::renderParticles" name="DefaultParticleSystem::renderParticles">
-<area shape="rect" id="node1" title=" " alt="" coords="5,99,156,141"/>
-<area shape="rect" id="node2" href="$d0/d67/class_particles.html#a157f6a74b53ef15e2bd063d594d194f0" title=" " alt="" coords="221,5,376,32"/>
-<area shape="rect" id="node3" href="$d1/d51/class_shader.html#a240b7ecb19883fa340489840733eae6d" title=" " alt="" coords="223,56,374,83"/>
-<area shape="rect" id="node4" href="$d0/d67/class_particles.html#adc1860aaf7be7e28ac03b75b28dd9815" title=" " alt="" coords="227,107,370,133"/>
-<area shape="rect" id="node5" href="$d2/d7f/class_texture.html#a922a73acbaee522dd96d971b630da0fa" title=" " alt="" coords="218,157,379,184"/>
-<area shape="rect" id="node6" href="$d7/da2/namespace_shaders.html#aaa649eb98b860170946f582b8e93c12d" title=" " alt="" coords="204,208,393,235"/>
-<area shape="rect" id="node7" href="$d7/da2/namespace_shaders.html#a25a80e81a8051ed31ecab4ed167b0be8" title=" " alt="" coords="441,208,616,235"/>
-</map>

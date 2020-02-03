@@ -1,9 +1,0 @@
-<map id="PlayerControllerSystem::handleRayHit" name="PlayerControllerSystem::handleRayHit">
-<area shape="rect" id="node1" title=" " alt="" coords="5,74,164,115"/>
-<area shape="rect" id="node2" href="$d4/daa/class_collision_mesh.html#aa9ad0053cdd4fd6e991b343e174e543f" title=" " alt="" coords="217,5,393,32"/>
-<area shape="rect" id="node4" href="$d4/daa/class_collision_mesh.html#ade31943d65b275017a002515e1b2af3c" title=" " alt="" coords="212,56,399,83"/>
-<area shape="rect" id="node5" href="$d4/daa/class_collision_mesh.html#a094cbf7841a6b6badc1e19f048819ebe" title=" " alt="" coords="217,107,393,133"/>
-<area shape="rect" id="node6" href="$d4/daa/class_collision_mesh.html#ae1579dc2df203d65a3ec2a9761748100" title=" " alt="" coords="225,157,386,184"/>
-<area shape="rect" id="node3" href="$d7/dd1/namespacehh.html#ad5fffa12ef6d4badda8b6db66b21f4fb" title=" " alt="" coords="447,5,556,32"/>
-<area shape="rect" id="node7" href="$d7/dd1/namespacehh.html#aa0102ec32d9d665ebdda89fa4c03c5b6" title=" " alt="" coords="452,157,551,184"/>
-</map>

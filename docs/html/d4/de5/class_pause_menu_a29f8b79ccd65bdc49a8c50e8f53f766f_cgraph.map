@@ -1,8 +1,0 @@
-<map id="PauseMenu::initialize" name="PauseMenu::initialize">
-<area shape="rect" id="node1" title=" " alt="" coords="5,71,152,98"/>
-<area shape="rect" id="node2" href="$d2/d23/class_locator.html#a310ebd51e96b6341e25471b651afaf34" title=" " alt="" coords="200,5,393,47"/>
-<area shape="rect" id="node3" href="$dd/df5/class_gui_string.html#a092c979f8a66d3226f191b63f32f7e81" title=" " alt="" coords="231,71,362,98"/>
-<area shape="rect" id="node4" href="$d1/db9/class_gui_sprite.html#a50b84e21fcb306c538ed057bd0eea717" title=" " alt="" coords="231,122,362,149"/>
-<area shape="rect" id="node5" href="$d2/d7f/class_texture.html#a0eaebfd0e00f88d19a64ed05ea634539" title=" " alt="" coords="441,97,569,123"/>
-<area shape="rect" id="node6" href="$d2/d7f/class_texture.html#a4d8e86e7df22179e8f3af9392020608c" title=" " alt="" coords="443,147,568,174"/>
-</map>

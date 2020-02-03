@@ -1,6 +1,0 @@
-<map id="CollisionMesh::initialize" name="CollisionMesh::initialize">
-<area shape="rect" id="node1" title=" " alt="" coords="235,56,393,83"/>
-<area shape="rect" id="node2" href="$db/dd3/class_player_test_object.html#aac17d3bdbe3a909a7a873551fe90b6bb" title=" " alt="" coords="7,5,185,32"/>
-<area shape="rect" id="node3" href="$da/d1b/class_enemy_test_object.html#a360c36ab9698fba8c384a6aa7816a7a2" title=" " alt="" coords="5,56,187,83"/>
-<area shape="rect" id="node4" href="$de/d20/class_cube_trigger.html#acd67037d7ab9aca5a6880824644f1cea" title=" " alt="" coords="23,107,169,133"/>
-</map>

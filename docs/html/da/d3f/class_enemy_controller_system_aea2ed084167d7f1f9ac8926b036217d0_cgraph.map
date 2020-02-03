@@ -1,9 +1,0 @@
-<map id="EnemyControllerSystem::getLowestRayHitForAllRays" name="EnemyControllerSystem::getLowestRayHitForAllRays">
-<area shape="rect" id="node1" title=" " alt="" coords="5,64,197,105"/>
-<area shape="rect" id="node2" href="$d3/dbc/class_ray_caster.html#a43455e12a824e4945575324cfd7b2709" title=" " alt="" coords="245,5,417,47"/>
-<area shape="rect" id="node3" href="$d3/dbc/class_ray_caster.html#a5edbf39fa4e279c529222aa22291f22d" title=" " alt="" coords="257,71,405,98"/>
-<area shape="rect" id="node4" href="$da/d3f/class_enemy_controller_system.html#af6b83f414b09fb388f55f5649f0658a1" title=" " alt="" coords="250,123,413,164"/>
-<area shape="rect" id="node5" href="$d3/dbc/class_ray_caster.html#a45c26b33e25a86d40d13ac887c0a78ca" title=" " alt="" coords="465,79,661,106"/>
-<area shape="rect" id="node6" href="$d3/dbc/class_ray_caster.html#a65d444adaed1585db97b1c6361d54265" title=" " alt="" coords="477,130,649,157"/>
-<area shape="rect" id="node7" href="$d3/dbc/class_ray_caster.html#a85220b230435f4132f72a1ae9304b632" title=" " alt="" coords="506,181,621,207"/>
-</map>

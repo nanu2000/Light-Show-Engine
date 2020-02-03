@@ -1,7 +1,0 @@
-<map id="DebuggingController::controlPhysicsDebugDraw" name="DebuggingController::controlPhysicsDebugDraw">
-<area shape="rect" id="node1" title=" " alt="" coords="5,53,188,94"/>
-<area shape="rect" id="node2" href="$d5/d44/class_physics_world.html#a1f017ddfa5031919162435f953701e15" title=" " alt="" coords="236,23,395,65"/>
-<area shape="rect" id="node5" href="$d4/d7b/class_input.html#a2aaf873636cedf13e51a424eb6ea802b" title=" " alt="" coords="236,89,395,116"/>
-<area shape="rect" id="node3" href="$d1/da2/class_debug_drawer.html#a590663c66c9953dcebacbb399d749730" title=" " alt="" coords="463,5,617,32"/>
-<area shape="rect" id="node4" href="$d1/da2/class_debug_drawer.html#a61ad63653eddf7549c2e748ae6022aa6" title=" " alt="" coords="443,56,637,83"/>
-</map>

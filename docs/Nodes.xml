@@ -6,6 +6,10 @@
       <Path>index.html</Path>
       <Subnodes>
        <Node>
+        <Name>Index</Name>
+        <Path>index.html</Path>
+       </Node>
+       <Node>
         <Name>Namespaces</Name>
         <Path>namespaces.html</Path>
         <Subnodes>

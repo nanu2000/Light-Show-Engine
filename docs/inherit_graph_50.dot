@@ -1,9 +1,0 @@
-digraph "Graphical Class Hierarchy"
-{
- // INTERACTIVE_SVG=YES
- // LATEX_PDF_SIZE
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  rankdir="LR";
-  Node0 [label="PLR_CTRLR_NS::SlopeIntensity",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d0/de4/struct_p_l_r___c_t_r_l_r___n_s_1_1_slope_intensity.html",tooltip=" "];
-}

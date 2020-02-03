@@ -1,6 +1,0 @@
-<map id="GuiBase" name="GuiBase">
-<area shape="rect" id="node1" title=" " alt="" coords="59,5,131,32"/>
-<area shape="rect" id="node2" href="$d1/db9/class_gui_sprite.html" title=" " alt="" coords="7,80,83,107"/>
-<area shape="rect" id="node4" href="$dd/df5/class_gui_string.html" title=" " alt="" coords="107,80,183,107"/>
-<area shape="rect" id="node3" href="$d6/d17/class_gui_button.html" title=" " alt="" coords="5,155,85,181"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="SkyBox" name="SkyBox">
-<area shape="rect" id="node1" title=" " alt="" coords="193,260,261,287"/>
-<area shape="rect" id="node2" href="$d2/d00/class_component.html" title=" " alt="" coords="5,171,164,197"/>
-<area shape="rect" id="node3" href="$d5/d79/class_component_interface.html" title=" " alt="" coords="27,5,164,32"/>
-<area shape="rect" id="node4" href="$d2/d00/class_component.html" title=" " alt="" coords="101,81,220,108"/>
-<area shape="rect" id="node5" href="$d6/d1e/class_cube_map.html" title=" " alt="" coords="189,171,266,197"/>
-<area shape="rect" id="node6" href="$d5/db4/class_cube_shape.html" title=" " alt="" coords="291,171,380,197"/>
-</map>

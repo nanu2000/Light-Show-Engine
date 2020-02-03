@@ -1,7 +1,0 @@
-<map id="GuiButton" name="GuiButton">
-<area shape="rect" id="node1" title=" " alt="" coords="88,171,168,197"/>
-<area shape="rect" id="node2" href="$d1/db9/class_gui_sprite.html" title=" " alt="" coords="90,95,166,121"/>
-<area shape="rect" id="node3" href="$d1/d39/class_gui_base.html" title=" " alt="" coords="5,5,77,32"/>
-<area shape="rect" id="node4" href="$d3/df8/class_quad.html" title=" " alt="" coords="101,5,155,32"/>
-<area shape="rect" id="node5" href="$d2/d7f/class_texture.html" title=" " alt="" coords="179,5,245,32"/>
-</map>

@@ -1,0 +1,25 @@
+var class_settings =
+[
+    [ "Settings", "db/d2b/class_settings.html#a8845d2ba39388e0ee7b65981d83b441d", null ],
+    [ "getGravity", "db/d2b/class_settings.html#aeaee47228136bd4d848b5a30655a71da", null ],
+    [ "getLightsPerEntity", "db/d2b/class_settings.html#ac25f3a418000ad7512363abe4d786c00", null ],
+    [ "getShadowFilterAmount", "db/d2b/class_settings.html#a00efac626c00aaa8d1805681367dc6ee", null ],
+    [ "getShadowIntensity", "db/d2b/class_settings.html#a98de2371d317c5c15382576aa7ab58a7", null ],
+    [ "getWind", "db/d2b/class_settings.html#a126603102b24f583f19170d3e9540d83", null ],
+    [ "setAmountOfLightsPerEntity", "db/d2b/class_settings.html#a91bec0d005254fd27e5717b1de3527d7", null ],
+    [ "setShadowFilteringAmount", "db/d2b/class_settings.html#a5772f6809e4888eb633ba628792574e4", null ],
+    [ "setShadowIntensity", "db/d2b/class_settings.html#a20c3e2d37fa6b130dd39a4340e7b3895", null ],
+    [ "setWorldGravity", "db/d2b/class_settings.html#ad51955a81b0ce11a55a291ddd81ad6f6", null ],
+    [ "setWorldWind", "db/d2b/class_settings.html#a6ff01d512330ba92221281f3f39bb338", null ],
+    [ "amountOfLightsPerEntity", "db/d2b/class_settings.html#a95e36a11761bf4f18f0834ba96c603c9", null ],
+    [ "MAX_AMOUNT_LIGHTS_PER_ENTITY", "db/d2b/class_settings.html#a2aa47cd80f47bd3163420cde8b06b1de", null ],
+    [ "MAX_FILTER_AMOUNT", "db/d2b/class_settings.html#a0d7807d109cffc538d1a3b5cb0c70e73", null ],
+    [ "MAX_SHADOW_INTENSITY", "db/d2b/class_settings.html#aa426209e6f9b6d5f6b235ddecca35f6a", null ],
+    [ "MIN_AMOUNT_LIGHTS_PER_ENTITY", "db/d2b/class_settings.html#a5181b16e1b7672192b3730cf45e4655b", null ],
+    [ "MIN_FILTER_AMOUNT", "db/d2b/class_settings.html#a781c8d21d1a849dc3d33d956fc4b300b", null ],
+    [ "MIN_SHADOW_INTENSITY", "db/d2b/class_settings.html#ac7dfd0e95b0f82a4e7bd2c11863ba214", null ],
+    [ "shadowFilteringAmount", "db/d2b/class_settings.html#a7936d992d01d06ddc67b46b5bd09498f", null ],
+    [ "shadowIntesity", "db/d2b/class_settings.html#a2349ec800269fc70c864b954ff15f8f9", null ],
+    [ "worldGravity", "db/d2b/class_settings.html#a1170dbd3e02947efe90cefab8862fdcf", null ],
+    [ "worldWind", "db/d2b/class_settings.html#a37a9593f8f3e82d954a9683bcdf6645a", null ]
+];

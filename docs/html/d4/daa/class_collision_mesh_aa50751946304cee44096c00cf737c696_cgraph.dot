@@ -1,0 +1,15 @@
+digraph "CollisionMesh::initialize"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="CollisionMesh::initialize",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="CollisionMesh::deInit",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4/daa/class_collision_mesh.html#adcf9c78c61f0be4c72d56722e0129c2d",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="CollisionMesh::setKinematic",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4/daa/class_collision_mesh.html#a258fb73d34b153032086203cfb8d7193",tooltip=" "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="CollisionMesh::setTrigger",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4/daa/class_collision_mesh.html#afe25849e28ea6a9884f42d15b40c84d7",tooltip=" "];
+}

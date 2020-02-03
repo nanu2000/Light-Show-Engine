@@ -1,0 +1,11 @@
+digraph "PhysicsWorld::removeRigidBody"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="PhysicsWorld::removeRigidBody",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="CollisionMesh::getRigidBody",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4/daa/class_collision_mesh.html#a39ab9471f1d870a0ca50883203658617",tooltip=" "];
+}

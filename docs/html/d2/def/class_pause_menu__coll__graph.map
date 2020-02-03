@@ -1,0 +1,13 @@
+<map id="PauseMenu" name="PauseMenu">
+<area shape="rect" id="node1" title=" " alt="" coords="257,273,347,300"/>
+<area shape="rect" id="node2" href="$d2/d00/class_component.html" title=" " alt="" coords="57,184,238,211"/>
+<area shape="rect" id="node3" href="$d5/d79/class_component_interface.html" title=" " alt="" coords="5,5,143,32"/>
+<area shape="rect" id="node4" href="$d2/d00/class_component.html" title=" " alt="" coords="95,95,213,121"/>
+<area shape="rect" id="node5" href="$d6/d17/class_gui_button.html" title=" " alt="" coords="262,184,342,211"/>
+<area shape="rect" id="node6" href="$d1/db9/class_gui_sprite.html" title=" " alt="" coords="253,95,329,121"/>
+<area shape="rect" id="node7" href="$d1/d39/class_gui_base.html" title=" " alt="" coords="267,5,339,32"/>
+<area shape="rect" id="node10" href="$dd/df5/class_gui_string.html" title=" " alt="" coords="376,95,452,121"/>
+<area shape="rect" id="node8" href="$d3/df8/class_quad.html" title=" " alt="" coords="183,5,237,32"/>
+<area shape="rect" id="node9" href="$d2/d7f/class_texture.html" title=" " alt="" coords="371,5,436,32"/>
+<area shape="rect" id="node11" href="$db/d74/class_text_map.html" title=" " alt="" coords="499,5,571,32"/>
+</map>

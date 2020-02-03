@@ -1,0 +1,23 @@
+digraph "CollisionMesh::initializeMeshShape"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="CollisionMesh::initialize\lMeshShape",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="CollisionMesh::createTriangle\lMeshCollider",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4/daa/class_collision_mesh.html#a78af0888b7cc86b1466b3aa733869db3",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="_3DM::AnimatedModel\l::amountOfMeshes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$de/d92/class__3_d_m_1_1_animated_model.html#a69c6dd8a0e12cdf4e11cde64cea757c4",tooltip=" "];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="_3DM::AnimatedModel\l::getMeshIndices",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$de/d92/class__3_d_m_1_1_animated_model.html#a57f30fb1443d89d32e69ccfe06e46b71",tooltip=" "];
+  Node2 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="_3DM::AnimatedModel\l::getMeshVertices",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$de/d92/class__3_d_m_1_1_animated_model.html#a774e41d8b93802e78dcf1f17d76d42c3",tooltip=" "];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="CollisionMesh::deInit",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4/daa/class_collision_mesh.html#adcf9c78c61f0be4c72d56722e0129c2d",tooltip=" "];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="CollisionMesh::setKinematic",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4/daa/class_collision_mesh.html#a258fb73d34b153032086203cfb8d7193",tooltip=" "];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="CollisionMesh::setTrigger",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4/daa/class_collision_mesh.html#afe25849e28ea6a9884f42d15b40c84d7",tooltip=" "];
+}

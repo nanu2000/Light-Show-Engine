@@ -1,0 +1,41 @@
+<map id="Game::update" name="Game::update">
+<area shape="rect" id="node1" title=" " alt="" coords="5,253,109,280"/>
+<area shape="rect" id="node2" href="$d2/d54/class_updating_system.html#a127ad554750e7e7582a1904abfb265aa" title=" " alt="" coords="157,253,323,280"/>
+<area shape="rect" id="node3" href="$d6/db5/class_scene.html#abe0ba4b6ba925640493f34f730ccd8d4" title=" " alt="" coords="421,5,565,32"/>
+<area shape="rect" id="node4" href="$d6/db5/class_scene.html#a65d6f6cd75b250c657d5d4a267c4b245" title=" " alt="" coords="418,123,569,149"/>
+<area shape="rect" id="node7" href="$d6/db5/class_scene.html#ae05acfccb36d74a21bd4988a2b562ceb" title=" " alt="" coords="387,57,599,98"/>
+<area shape="rect" id="node8" href="$d2/d23/class_locator.html#a310ebd51e96b6341e25471b651afaf34" title=" " alt="" coords="953,35,1116,77"/>
+<area shape="rect" id="node9" href="$d4/d7b/class_input.html#a2aaf873636cedf13e51a424eb6ea802b" title=" " alt="" coords="699,341,857,368"/>
+<area shape="rect" id="node10" href="$d4/d4f/class_player_camera_handling_system.html#a94f1d2b673b85a1fbbbe39a3759d3bf3" title=" " alt="" coords="371,727,616,769"/>
+<area shape="rect" id="node13" href="$d7/dd6/class_pause_menu_system.html#a7c17c731da14866fbbfb186f50b7824e" title=" " alt="" coords="402,483,585,509"/>
+<area shape="rect" id="node28" href="$d4/df8/class_camera_system.html#a9bb59c07839a3bf41290e49f367d8fd6" title=" " alt="" coords="699,224,857,251"/>
+<area shape="rect" id="node34" href="$d5/d50/class_player_controller_system.html#ae968cd78ae054ed5521f19c6d3793933" title=" " alt="" coords="414,845,573,886"/>
+<area shape="rect" id="node38" href="$df/d86/class_default_particle_system.html#a1304aae47238ab24cf8653c2b423d207" title=" " alt="" coords="418,275,569,317"/>
+<area shape="rect" id="node5" href="$d6/db5/class_scene.html#af06ab78544ec997fd8e480762b2cc40a" title=" " alt="" coords="664,68,892,95"/>
+<area shape="rect" id="node6" href="$d6/db5/class_scene.html#a55c346bea3f04eb9d9f8476a68c2fa93" title=" " alt="" coords="680,123,876,149"/>
+<area shape="rect" id="node11" href="$d4/df7/class_player_camera_handler.html#a02eb98ad960e5b71b0b17189426c0f1d" title=" " alt="" coords="697,727,859,769"/>
+<area shape="rect" id="node12" href="$da/dbb/class_camera.html#a4bd1cfe2d720f762d3c983370421c029" title=" " alt="" coords="690,793,866,820"/>
+<area shape="rect" id="node14" href="$d9/dd8/class_user_controls.html#ab577475a2b33671f1f5697fbe0e0cc49" title=" " alt="" coords="686,443,870,485"/>
+<area shape="rect" id="node15" href="$d7/d06/class_g_u_i_resizing_information.html#aa8fb79fc71098f1cf2ce4fac2d5c79ac" title=" " alt="" coords="699,509,857,550"/>
+<area shape="rect" id="node16" href="$d6/d17/class_gui_button.html#aa019fa7e0fbe4a380899cb9ddb418317" title=" " alt="" coords="671,575,885,601"/>
+<area shape="rect" id="node17" href="$d1/db9/class_gui_sprite.html#a6ec7ef9580657e062cea7f5ce8bcb515" title=" " alt="" coords="711,625,845,652"/>
+<area shape="rect" id="node18" href="$dd/df5/class_gui_string.html#a964f40eb765b7ad9827284b65ac2c9fc" title=" " alt="" coords="711,676,845,703"/>
+<area shape="rect" id="node19" href="$d6/d17/class_gui_button.html#acfb469dd9337dc5ebf70e32037b02851" title=" " alt="" coords="715,392,841,419"/>
+<area shape="rect" id="node20" href="$d4/d7b/class_input.html#a8e3bbc45ca89de6dc03cd870d0909345" title=" " alt="" coords="958,421,1111,448"/>
+<area shape="rect" id="node21" href="$d4/d7b/class_input.html#aa10d2871226e0b497010dfca43fe278b" title=" " alt="" coords="953,472,1116,499"/>
+<area shape="rect" id="node22" href="$d6/d17/class_gui_button.html#a571aa197ec582b526b5d6e2639bad843" title=" " alt="" coords="943,355,1126,397"/>
+<area shape="rect" id="node27" href="$d6/d17/class_gui_button.html#a72312192b57055be324335dd1ed88a3d" title=" " alt="" coords="949,523,1120,565"/>
+<area shape="rect" id="node23" href="$d4/d58/namespace_game_info.html#a344c7e16ac06ee1f8458a249aac36e8e" title=" " alt="" coords="1177,265,1364,292"/>
+<area shape="rect" id="node25" href="$d4/d58/namespace_game_info.html#a7cf2306eb3025a60a9e2da52eefba71e" title=" " alt="" coords="1179,341,1362,368"/>
+<area shape="rect" id="node24" href="$de/d6b/class_application.html#a0398d40c89d52bb8d6ac6ac466c5d30c" title=" " alt="" coords="1412,258,1605,299"/>
+<area shape="rect" id="node26" href="$de/d6b/class_application.html#aad8864ec1fa58ee23db7b111876d09a5" title=" " alt="" coords="1412,334,1605,375"/>
+<area shape="rect" id="node29" href="$da/dbb/class_camera.html#ad4f098389debf103ea7a26e344a653dd" title=" " alt="" coords="940,101,1129,128"/>
+<area shape="rect" id="node30" href="$d4/d58/namespace_game_info.html#aa6186a79a90a3fcd2556c4282b20a077" title=" " alt="" coords="954,304,1115,331"/>
+<area shape="rect" id="node31" href="$d4/d7b/class_input.html#a971adcc605a1101f162e2be7a5c16a5e" title=" " alt="" coords="962,253,1107,280"/>
+<area shape="rect" id="node32" href="$da/dbb/class_camera.html#a4849cb25adcc05df85e1cfba9da77a33" title=" " alt="" coords="940,152,1129,179"/>
+<area shape="rect" id="node33" href="$d7/dd1/namespacehh.html#ad58b31143e949894df4e3ca4eaa20550" title=" " alt="" coords="952,203,1117,229"/>
+<area shape="rect" id="node35" href="$d5/d50/class_player_controller_system.html#a9b0be7cb86a889e07b30d9fa68a7aaa7" title=" " alt="" coords="699,845,857,886"/>
+<area shape="rect" id="node37" href="$da/dbb/class_camera.html#ae44d552243a7b430e94ed9e70adcf07b" title=" " alt="" coords="709,911,847,937"/>
+<area shape="rect" id="node36" href="$d7/dd1/namespacehh.html#aa744e19f5c464bf275c30a824f81b06e" title=" " alt="" coords="945,845,1124,886"/>
+<area shape="rect" id="node39" href="$df/d86/class_default_particle_system.html#a27c707a1f76448433785ce06a0f5152c" title=" " alt="" coords="684,275,872,317"/>
+</map>

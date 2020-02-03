@@ -1,0 +1,15 @@
+digraph "GuiSprite::GuiSprite"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="GuiSprite::GuiSprite",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="GuiSprite::initialize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d1/db9/class_gui_sprite.html#a50b84e21fcb306c538ed057bd0eea717",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Texture::getHeight",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d2/d7f/class_texture.html#a0eaebfd0e00f88d19a64ed05ea634539",tooltip=" "];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Texture::getWidth",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d2/d7f/class_texture.html#a4d8e86e7df22179e8f3af9392020608c",tooltip=" "];
+}

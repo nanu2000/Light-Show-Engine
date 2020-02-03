@@ -1,0 +1,48 @@
+digraph "CubeTrigger"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="CubeTrigger",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="EntityWrapper",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d3/d43/class_entity_wrapper.html",tooltip=" "];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" shader" ,fontname="Helvetica"];
+  Node3 [label="Shader",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d1/d51/class_shader.html",tooltip=" "];
+  Node4 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Component\< Shader \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d2/d00/class_component.html",tooltip=" "];
+  Node5 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="ComponentInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d5/d79/class_component_interface.html",tooltip=" "];
+  Node6 -> Node4 [dir="back",color="orange",fontsize="10",style="dashed",label=" \< Shader \>" ,fontname="Helvetica"];
+  Node6 [label="Component\< T \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d2/d00/class_component.html",tooltip=" "];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" shaderType" ,fontname="Helvetica"];
+  Node7 [label="SHADER_TYPE",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node8 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" currentTask" ,fontname="Helvetica"];
+  Node8 [label="SHADER_TASK",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node9 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" material" ,fontname="Helvetica"];
+  Node9 [label="Material",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d3/d0a/struct_material.html",tooltip=" "];
+  Node10 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Component\< Material \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d2/d00/class_component.html",tooltip=" "];
+  Node5 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 -> Node10 [dir="back",color="orange",fontsize="10",style="dashed",label=" \< Material \>" ,fontname="Helvetica"];
+  Node11 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" collisionMesh" ,fontname="Helvetica"];
+  Node11 [label="CollisionMesh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4/daa/class_collision_mesh.html",tooltip=" "];
+  Node12 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="Component\< CollisionMesh \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d2/d00/class_component.html",tooltip=" "];
+  Node5 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 -> Node12 [dir="back",color="orange",fontsize="10",style="dashed",label=" \< CollisionMesh \>" ,fontname="Helvetica"];
+  Node13 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" thisTag" ,fontname="Helvetica"];
+  Node13 [label="CollisionTag",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$dc/d34/struct_collision_tag.html",tooltip=" "];
+  Node14 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" model" ,fontname="Helvetica"];
+  Node14 [label="_3DM::Model",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d3/d96/class__3_d_m_1_1_model.html",tooltip=" "];
+  Node15 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="Component\< Model \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d2/d00/class_component.html",tooltip=" "];
+  Node5 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 -> Node15 [dir="back",color="orange",fontsize="10",style="dashed",label=" \< Model \>" ,fontname="Helvetica"];
+  Node16 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 [label="ModelBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d1/d75/class_model_base.html",tooltip=" "];
+  Node17 -> Node16 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" transform" ,fontname="Helvetica"];
+  Node17 [label="Transform",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$dd/d69/struct_transform.html",tooltip=" "];
+}

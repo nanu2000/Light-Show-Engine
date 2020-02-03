@@ -225,3 +225,4 @@ lib/protobuf_build/Release/x64/*
 
 out/*
 
+doxygen.tag

@@ -1,0 +1,11 @@
+digraph "PhysicsWorld::~PhysicsWorld"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="PhysicsWorld::~PhysicsWorld",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="PhysicsWorld::removeAllRigid\lBodies",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d5/d44/class_physics_world.html#a05c62f1ce930105c71bc5fba4d9e14f3",tooltip=" "];
+}

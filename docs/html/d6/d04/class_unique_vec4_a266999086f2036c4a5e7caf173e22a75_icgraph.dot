@@ -1,0 +1,15 @@
+digraph "UniqueVec4::UniqueVec4"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="UniqueVec4::UniqueVec4",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="UniqueVec4::operator*",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d6/d04/class_unique_vec4.html#add20994db36f7bf4780773ecf6995ae2",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="UniqueVec4::operator+",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d6/d04/class_unique_vec4.html#adc8e9bc088fc03caa09126a540ba758e",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="UniqueVec4::operator-",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d6/d04/class_unique_vec4.html#a3f903e97976b973cd756b293b389e878",tooltip=" "];
+}

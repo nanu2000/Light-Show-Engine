@@ -1,0 +1,25 @@
+digraph "Application::initializeSDL"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Application::initializeSDL",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Window::getWindow",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d9/dbf/class_window.html#ac2d85f74ad9f6b6d76c158b1b98cee5b",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="GameInfo::getWindowHeight",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4/d58/namespace_game_info.html#a344c7e16ac06ee1f8458a249aac36e8e",tooltip=" "];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Application::getGameWindow\lHeight",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$de/d6b/class_application.html#a0398d40c89d52bb8d6ac6ac466c5d30c",tooltip=" "];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="GameInfo::getWindowWidth",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4/d58/namespace_game_info.html#a7cf2306eb3025a60a9e2da52eefba71e",tooltip=" "];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Application::getGameWindow\lWidth",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$de/d6b/class_application.html#aad8864ec1fa58ee23db7b111876d09a5",tooltip=" "];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Window::initialize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d9/dbf/class_window.html#ab8bedded50af796c7f44603bb71ba33b",tooltip=" "];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="GameInfo::setMousePosition",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4/d58/namespace_game_info.html#aea6e21f4828393a3ae9aca0eee51c5ba",tooltip=" "];
+  Node8 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Application::setMousePosition",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$de/d6b/class_application.html#a01dc1b9c36720b31e0419c829e8000c0",tooltip=" "];
+}

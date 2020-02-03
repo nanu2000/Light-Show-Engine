@@ -1,0 +1,11 @@
+<map id="SkyBoxSystem::render" name="SkyBoxSystem::render">
+<area shape="rect" id="node1" title=" " alt="" coords="5,81,163,108"/>
+<area shape="rect" id="node2" href="$de/dda/class_sky_box.html#a6dddf4a7d8654174621a0caab58cc95f" title=" " alt="" coords="241,5,365,32"/>
+<area shape="rect" id="node3" href="$de/dda/class_sky_box.html#a7f3aef072c20076fa247042e0cd43c45" title=" " alt="" coords="229,56,378,83"/>
+<area shape="rect" id="node4" href="$d6/d1e/class_cube_map.html#acde3a0aba1f698db9455853d4d832d59" title=" " alt="" coords="211,107,396,133"/>
+<area shape="rect" id="node5" href="$d5/db4/class_cube_shape.html#ac5f14732b3bb793823e1abc5b028ad97" title=" " alt="" coords="237,157,370,184"/>
+<area shape="rect" id="node6" href="$d1/d51/class_shader.html#a240b7ecb19883fa340489840733eae6d" title=" " alt="" coords="463,107,614,133"/>
+<area shape="rect" id="node7" href="$d7/da2/namespace_shaders.html#aaa649eb98b860170946f582b8e93c12d" title=" " alt="" coords="444,157,633,184"/>
+<area shape="rect" id="node9" href="$da/dbb/class_camera.html#a1d11fe156faf5a21c8737aa37f72af5c" title=" " alt="" coords="460,208,617,235"/>
+<area shape="rect" id="node8" href="$d7/da2/namespace_shaders.html#a25a80e81a8051ed31ecab4ed167b0be8" title=" " alt="" coords="681,157,856,184"/>
+</map>

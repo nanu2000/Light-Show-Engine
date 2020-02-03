@@ -1,0 +1,7 @@
+<map id="CollisionMesh::getRigidBody" name="CollisionMesh::getRigidBody">
+<area shape="rect" id="node1" title=" " alt="" coords="264,81,452,108"/>
+<area shape="rect" id="node2" href="$d5/d44/class_physics_world.html#a6d8b5975b39a8201e13958e2fe7f95e5" title=" " alt="" coords="15,5,206,32"/>
+<area shape="rect" id="node3" href="$db/dd3/class_player_test_object.html#aac17d3bdbe3a909a7a873551fe90b6bb" title=" " alt="" coords="22,56,199,83"/>
+<area shape="rect" id="node4" href="$da/d1b/class_enemy_test_object.html#a360c36ab9698fba8c384a6aa7816a7a2" title=" " alt="" coords="20,107,201,133"/>
+<area shape="rect" id="node5" href="$d5/d44/class_physics_world.html#a0ae4af63e94f2dddcd74f9bf2e064a19" title=" " alt="" coords="5,157,216,184"/>
+</map>

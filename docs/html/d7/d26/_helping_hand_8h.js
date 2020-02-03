@@ -1,0 +1,28 @@
+var _helping_hand_8h =
+[
+    [ "property", "d7/d26/_helping_hand_8h.html#a6a7fb6d8189134ae4c2557bca5101f2d", null ],
+    [ "binarySearchVector", "d7/d26/_helping_hand_8h.html#a5bdb0130d856e32cd8c55aea68e9f8f2", null ],
+    [ "combineVectors", "d7/d26/_helping_hand_8h.html#a15ee6501dc9d520301a12619c8acedaa", null ],
+    [ "combineVectors", "d7/d26/_helping_hand_8h.html#a7341a1876eacb2e1a620fe7c27dd0c80", null ],
+    [ "combineVectors", "d7/d26/_helping_hand_8h.html#adf3ac5c75ce5407cc2b279ac6837f805", null ],
+    [ "compareFloatingPoint", "d7/d26/_helping_hand_8h.html#af677fe95593213ecddda6cc19e89baa7", null ],
+    [ "eularToQuat", "d7/d26/_helping_hand_8h.html#a63c5694202b1202ca1172426e9675b73", null ],
+    [ "getRandomRange", "d7/d26/_helping_hand_8h.html#ab21ba89269b950486e397ef23a6e2c35", null ],
+    [ "getRandomRange", "d7/d26/_helping_hand_8h.html#aed1bace99cbd4c8fba93c9bde4aaafe0", null ],
+    [ "isPointWithinCone", "d7/d26/_helping_hand_8h.html#a69ba4378eed91448346e9e3f2828f0c1", null ],
+    [ "isPointWithinCone", "d7/d26/_helping_hand_8h.html#a908d1c5baeed0b34d382afed2fd59abb", null ],
+    [ "isPointWithinConePreCos", "d7/d26/_helping_hand_8h.html#aa838adfd1d9276cc42906acb2c4ba243", null ],
+    [ "isPointWithinConePreCos", "d7/d26/_helping_hand_8h.html#a1217c360303d58a370456759b78c80f1", null ],
+    [ "isPowerOfTwo", "d7/d26/_helping_hand_8h.html#ac873cd925e3e7e68b6975dac4182baa7", null ],
+    [ "lerp", "d7/d26/_helping_hand_8h.html#acc12d311b39ab754de1f52061139b09d", null ],
+    [ "moveItemToBack", "d7/d26/_helping_hand_8h.html#af758e5df5037980e7e161264bd1851c6", null ],
+    [ "signedRadiansBetweenVectors", "d7/d26/_helping_hand_8h.html#aa744e19f5c464bf275c30a824f81b06e", null ],
+    [ "sphericalToCartisean", "d7/d26/_helping_hand_8h.html#ad58b31143e949894df4e3ca4eaa20550", null ],
+    [ "swapVal", "d7/d26/_helping_hand_8h.html#a2e3a10a982e697caaecbe192184d35c1", null ],
+    [ "toBtVec3", "d7/d26/_helping_hand_8h.html#aa0102ec32d9d665ebdda89fa4c03c5b6", null ],
+    [ "toGlmQuat", "d7/d26/_helping_hand_8h.html#ab959ffbb77b52e2f0b42582c23117eb4", null ],
+    [ "toGlmVec3", "d7/d26/_helping_hand_8h.html#ad5fffa12ef6d4badda8b6db66b21f4fb", null ],
+    [ "toQuaternion", "d7/d26/_helping_hand_8h.html#aab23046dfd5466ab78a15f3490e4ad4e", null ],
+    [ "quadVertices", "d7/d26/_helping_hand_8h.html#a6d2fb2ba58fe2051ccfb4552204c9495", null ],
+    [ "UP_VECTOR", "d7/d26/_helping_hand_8h.html#a1a58124e82ac38033076e5106352024c", null ]
+];

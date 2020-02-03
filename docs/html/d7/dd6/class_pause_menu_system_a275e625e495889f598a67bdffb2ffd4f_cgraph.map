@@ -1,0 +1,26 @@
+<map id="PauseMenuSystem::render" name="PauseMenuSystem::render">
+<area shape="rect" id="node1" title=" " alt="" coords="5,157,185,184"/>
+<area shape="rect" id="node2" href="$dd/df5/class_gui_string.html#a4a48d0bce9e5e949d5a0e31c00d879c6" title=" " alt="" coords="239,5,421,32"/>
+<area shape="rect" id="node3" href="$d4/d58/namespace_game_info.html#a344c7e16ac06ee1f8458a249aac36e8e" title=" " alt="" coords="677,31,864,57"/>
+<area shape="rect" id="node5" href="$d4/d58/namespace_game_info.html#a7cf2306eb3025a60a9e2da52eefba71e" title=" " alt="" coords="679,81,862,108"/>
+<area shape="rect" id="node7" href="$dd/df5/class_gui_string.html#ad0f15cbdb97efa9caa42cf9f3a6b4314" title=" " alt="" coords="270,208,390,235"/>
+<area shape="rect" id="node13" href="$d1/db9/class_gui_sprite.html#ad8d743c3e3889fba893f29796717114f" title=" " alt="" coords="270,157,390,184"/>
+<area shape="rect" id="node23" href="$dd/df5/class_gui_string.html#abb299aeb3be7a0533709ef30be6ec668" title=" " alt="" coords="255,259,405,285"/>
+<area shape="rect" id="node24" href="$dd/df5/class_gui_string.html#a6274f2963a0184d296da9286cbcf222c" title=" " alt="" coords="233,309,427,336"/>
+<area shape="rect" id="node4" href="$de/d6b/class_application.html#a0398d40c89d52bb8d6ac6ac466c5d30c" title=" " alt="" coords="913,17,1107,58"/>
+<area shape="rect" id="node6" href="$de/d6b/class_application.html#aad8864ec1fa58ee23db7b111876d09a5" title=" " alt="" coords="913,82,1107,123"/>
+<area shape="rect" id="node8" href="$dd/df5/class_gui_string.html#a2de41389b7f44064a13193fc8d8f7822" title=" " alt="" coords="475,545,628,572"/>
+<area shape="rect" id="node9" href="$db/d74/class_text_map.html#aa255b018cda98630ea032d99431e5c08" title=" " alt="" coords="705,655,837,681"/>
+<area shape="rect" id="node10" href="$db/db4/struct_glyph.html#acde78c0f1f504ded10a319581b7ff8cf" title=" " alt="" coords="711,487,830,513"/>
+<area shape="rect" id="node11" href="$db/d74/class_text_map.html#a51dea925ea75100dd8221e9415959baf" title=" " alt="" coords="676,538,865,579"/>
+<area shape="rect" id="node12" href="$db/db4/struct_glyph.html#a838940af793d410d6208d71a8691c24c" title=" " alt="" coords="713,604,829,631"/>
+<area shape="rect" id="node14" href="$d3/df8/class_quad.html#a424c01ecd59971dc51e39bc19fbda551" title=" " alt="" coords="495,208,608,235"/>
+<area shape="rect" id="node15" href="$d7/da2/namespace_shaders.html#a137768343963ec1e71572a39e29892e6" title=" " alt="" coords="922,284,1098,311"/>
+<area shape="rect" id="node16" href="$d2/d7f/class_texture.html#a0eaebfd0e00f88d19a64ed05ea634539" title=" " alt="" coords="707,436,835,463"/>
+<area shape="rect" id="node17" href="$d1/d51/class_shader.html#a240b7ecb19883fa340489840733eae6d" title=" " alt="" coords="695,132,846,159"/>
+<area shape="rect" id="node18" href="$d2/d7f/class_texture.html#a922a73acbaee522dd96d971b630da0fa" title=" " alt="" coords="690,183,851,209"/>
+<area shape="rect" id="node19" href="$d7/da2/namespace_shaders.html#aaa649eb98b860170946f582b8e93c12d" title=" " alt="" coords="676,385,865,412"/>
+<area shape="rect" id="node21" href="$d2/d7f/class_texture.html#a4d8e86e7df22179e8f3af9392020608c" title=" " alt="" coords="708,284,833,311"/>
+<area shape="rect" id="node22" href="$d3/df8/class_quad.html#ab6f9562308559b344d2e0d1e1cf3a0cf" title=" " alt="" coords="731,233,810,260"/>
+<area shape="rect" id="node20" href="$d7/da2/namespace_shaders.html#a25a80e81a8051ed31ecab4ed167b0be8" title=" " alt="" coords="923,385,1097,412"/>
+</map>

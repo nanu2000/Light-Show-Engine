@@ -18,10 +18,6 @@ void Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSy
 
     initMap();
 
-    for (unsigned int i = 0; i < sceneOne.size(); i++) {
-        sceneOneEntities.push_back(getEntity(sceneOne.at(i)));
-    }
-
     currentTime     = time;
     backEndMessages = backEndMessagingSystem;
 
@@ -33,15 +29,59 @@ void Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSy
 
     map.createMap("assets/Fonts/CourierNew.FontDat");
 
-    EntityWrapper::EntityVitals vitals;
+    loadScene(0);
+}
 
+void Game::initializeShaders() {
+
+    directionalLightDepthMap.initialize();
+    pointLightDepthMap.initialize();
+    renderTexture.initialize(GameInfo::getWindowWidth(), GameInfo::getWindowHeight());
+
+    Shader::setShaderTask(SHADER_TASK::Normal_Render_Task);
+    Shader::setShaderTaskShader(SHADER_TASK::Directional_Depth_Task, directionalLightDepthMap.getDepthMapShader());
+    Shader::setShaderTaskShader(SHADER_TASK::Omnidirectional_Depth_Task, pointLightDepthMap.getDepthMapShader());
+}
+
+void Game::readBackendEventQueue() {
+    BackEndMessages msg;
+    while (backEndMessages->getMessagesThenRemove(msg)) {
+        fixedUpdatingSystem.handleBackEndMessage(msg, renderTexture);
+    }
+}
+
+void Game::loadScene(int index) {
+
+    if (index >= scenes.size()) {
+        DBG_LOG("Cannot load scene, index out of bounds\n");
+        return;
+    }
+
+    currentScene = index;
+
+    delete scene;
+    delete physicsWorld;
+
+    scene        = new Scene();
+    physicsWorld = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
+
+    for (unsigned int i = 0; i < sceneEntities.size(); i++) {
+        delete sceneEntities.at(i);
+    }
+    sceneEntities.clear();
+
+    for (unsigned int i = 0; i < scenes.at(currentScene).size(); i++) {
+        sceneEntities.push_back(allocateEntity(scenes.at(currentScene).at(i)));
+    }
+
+    EntityWrapper::EntityVitals vitals;
     vitals.currentSettings = &settings;
     vitals.map             = &map;
     vitals.scene           = scene;
     vitals.thisWorld       = physicsWorld;
 
-    for (unsigned int i = 0; i < sceneOneEntities.size(); i++) {
-        sceneOneEntities[i]->initialize(vitals);
+    for (unsigned int i = 0; i < sceneEntities.size(); i++) {
+        sceneEntities[i]->initialize(vitals);
     }
 
     scene->performOperationsOnAllOfType<CollisionMesh>(
@@ -64,24 +104,6 @@ void Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSy
     renderingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
 }
 
-void Game::initializeShaders() {
-
-    directionalLightDepthMap.initialize();
-    pointLightDepthMap.initialize();
-    renderTexture.initialize(GameInfo::getWindowWidth(), GameInfo::getWindowHeight());
-
-    Shader::setShaderTask(SHADER_TASK::Normal_Render_Task);
-    Shader::setShaderTaskShader(SHADER_TASK::Directional_Depth_Task, directionalLightDepthMap.getDepthMapShader());
-    Shader::setShaderTaskShader(SHADER_TASK::Omnidirectional_Depth_Task, pointLightDepthMap.getDepthMapShader());
-}
-
-void Game::readBackendEventQueue() {
-    BackEndMessages msg;
-    while (backEndMessages->getMessagesThenRemove(msg)) {
-        fixedUpdatingSystem.handleBackEndMessage(msg, renderTexture);
-    }
-}
-
 void Game::fixedUpdate() {
     if (areVitalsNull()) {
         return;
@@ -92,59 +114,7 @@ void Game::fixedUpdate() {
 
     if (InputLocator::getService().keyPressedOnce(SDLK_7)) {
 
-        delete scene;
-        delete physicsWorld;
-
-        scene        = new Scene();
-        physicsWorld = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
-
-        if (!hasInit) {
-
-            for (unsigned int i = 0; i < sceneTwo.size(); i++) {
-                sceneTwoEntities.push_back(getEntity(sceneTwo.at(i)));
-            }
-
-            hasInit = true;
-        } else {
-
-            for (unsigned int i = 0; i < sceneTwoEntities.size(); i++) {
-                delete sceneTwoEntities.at(i);
-            }
-            sceneTwoEntities.clear();
-
-            for (unsigned int i = 0; i < sceneTwo.size(); i++) {
-                sceneTwoEntities.push_back(getEntity(sceneTwo.at(i)));
-            }
-        }
-
-        EntityWrapper::EntityVitals vitals;
-        vitals.currentSettings = &settings;
-        vitals.map             = &map;
-        vitals.scene           = scene;
-        vitals.thisWorld       = physicsWorld;
-
-        for (unsigned int i = 0; i < sceneTwoEntities.size(); i++) {
-            sceneTwoEntities[i]->initialize(vitals);
-        }
-
-        scene->performOperationsOnAllOfType<CollisionMesh>(
-            [& world = *physicsWorld](const CollisionMesh& mesh) {
-                world.addRigidBody(mesh);
-                return false;
-            });
-        scene->performOperationsOnAllOfType<BoneCollisionMesh>(
-            [& world = *physicsWorld](BoneCollisionMesh& bmesh) {
-                bmesh.iterateThroughColliders(
-                    [&](CollisionMesh& mesh, int32_t id) {
-                        world.addRigidBody(mesh);
-                    });
-
-                return false;
-            });
-
-        fixedUpdatingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
-        updatingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
-        renderingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
+        loadScene((currentScene + 1) % scenes.size());
     }
 
     fixedUpdatingSystem.fixedUpdate(*currentTime, pointLightDepthMap, directionalLightDepthMap);
@@ -163,12 +133,8 @@ void Game::render() {
 }
 
 void Game::uninitialize() {
-    for (unsigned int i = 0; i < sceneOneEntities.size(); i++) {
-        delete sceneOneEntities.at(i);
+    for (unsigned int i = 0; i < sceneEntities.size(); i++) {
+        delete sceneEntities.at(i);
     }
-    sceneOneEntities.clear();
-    for (unsigned int i = 0; i < sceneTwoEntities.size(); i++) {
-        delete sceneTwoEntities.at(i);
-    }
-    sceneTwoEntities.clear();
+    sceneEntities.clear();
 }

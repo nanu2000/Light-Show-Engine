@@ -185,7 +185,7 @@ static void initMap() {
     entityMap[getEntityName(ENTITY_NAME::CubeTrigger)]      = &createInstance<CubeTrigger>;
     entityMap[getEntityName(ENTITY_NAME::FloorObject)]      = &createInstance<FloorObject>;
 }
-static EntityWrapper* getEntity(const std::string& str) {
+static EntityWrapper* allocateEntity(const std::string& str) {
     return entityMap[str]();
 }
 #endif

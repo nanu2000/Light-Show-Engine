@@ -41,17 +41,13 @@ private:
     Scene* scene               = new Scene();
     PhysicsWorld* physicsWorld = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
 
-    //PhysicsWorld sceneOnePhysicsWorld = PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
-    //Scene sceneOne;
-    std::vector<EntityWrapper*> sceneOneEntities;
+    std::vector<EntityWrapper*> sceneEntities;
 
-    //PhysicsWorld sceneTwoPhysicsWorld = PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
-    //Scene sceneTwo;
-    std::vector<EntityWrapper*> sceneTwoEntities;
-
-    bool hasInit = false;
+    int currentScene = 0;
 
     TextMap map;
+
+    void loadScene(int scene);
 };
 
 #endif

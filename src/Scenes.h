@@ -1,19 +1,21 @@
 #include "EntityTests.h"
 
-static std::vector<std::string> sceneOne = {
-    "Player",
-    "LightTest",
-    "PlayerTestObject",
-    "EnemyTestObject",
-    "FloorObject",
-    "ParticleTest"
-};
-static std::vector<std::string> sceneTwo = {
-    "Player",
-    "LightTest",
-    "PlayerTestObject",
-    "EnemyTestObject",
-    "CubeTrigger",
-    "FloorObject",
-    "ParticleTest"
+static std::vector<std::vector<std::string>> scenes = {
+    { "Player",
+      "LightTest",
+      "PlayerTestObject",
+      "EnemyTestObject",
+      "FloorObject",
+      "ParticleTest" },
+    { "Player",
+      "LightTest",
+      "PlayerTestObject",
+      "EnemyTestObject",
+      "CubeTrigger",
+      "FloorObject",
+      "ParticleTest" },
+    { "Player",
+      "LightTest",
+      "PlayerTestObject",
+      "FloorObject" }
 };

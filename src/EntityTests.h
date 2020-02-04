@@ -23,6 +23,27 @@
 #include "TextMap.h"
 #include "UserControls.h"
 
+enum class ENTITY_NAME {
+    LightTest        = 0,
+    ParticleTest     = 1,
+    Player           = 2,
+    PlayerTestObject = 3,
+    EnemyTestObject  = 4,
+    CubeTrigger      = 5,
+    FloorObject      = 6,
+    ENTITY_COUNT     = 7
+};
+
+static const char* EntityNames[7] = {
+    "LightTest",
+    "ParticleTest",
+    "Player",
+    "PlayerTestObject",
+    "EnemyTestObject",
+    "CubeTrigger",
+    "FloorObject"
+};
+
 class EntityWrapper {
 public:
     struct EntityVitals {
@@ -141,4 +162,30 @@ private:
     Shader shader;
 };
 
+template <typename T>
+static EntityWrapper* createInstance() { return new T; }
+
+typedef std::map<std::string, EntityWrapper* (*)()> EntityMap;
+
+static EntityMap entityMap;
+
+static const char* getEntityName(const ENTITY_NAME& name) {
+    if (name < ENTITY_NAME::ENTITY_COUNT) {
+        return EntityNames[static_cast<int32_t>(name)];
+    }
+    return "NA";
+}
+
+static void initMap() {
+    entityMap[getEntityName(ENTITY_NAME::LightTest)]        = &createInstance<LightTest>;
+    entityMap[getEntityName(ENTITY_NAME::ParticleTest)]     = &createInstance<ParticleTest>;
+    entityMap[getEntityName(ENTITY_NAME::Player)]           = &createInstance<Player>;
+    entityMap[getEntityName(ENTITY_NAME::PlayerTestObject)] = &createInstance<PlayerTestObject>;
+    entityMap[getEntityName(ENTITY_NAME::EnemyTestObject)]  = &createInstance<EnemyTestObject>;
+    entityMap[getEntityName(ENTITY_NAME::CubeTrigger)]      = &createInstance<CubeTrigger>;
+    entityMap[getEntityName(ENTITY_NAME::FloorObject)]      = &createInstance<FloorObject>;
+}
+static EntityWrapper* getEntity(const std::string& str) {
+    return entityMap[str]();
+}
 #endif

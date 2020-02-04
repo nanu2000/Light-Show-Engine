@@ -39,6 +39,7 @@ void RenderingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld&
 
     //Todo: move to a debugging component/system.
     //Pretty much we render a neat little quad with the directional light's depth map in it for debugging purposes. This will be useful for finetuning shaders.
+    depthMatrix = glm::mat4(1.0);
     depthMatrix *= glm::translate(glm::vec3(0.8f, 0.8f, 0.0f));
     depthMatrix *= glm::scale(glm::vec3(0.2, 0.2, 0.2));
 }

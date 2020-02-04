@@ -36,8 +36,8 @@ private:
     void initializeLights(Shader& litShader);
     void initializeModels(Shader& shader, const int32_t& entity);
 
-    //Prepares and retrieves the first shader found in scene that is associated with entity.
-    //**Does use program.
+    //!Prepares and retrieves the first shader found in scene that is associated with entity.
+    //!*Does use program.
     Shader* prepareShader(const int32_t& entity, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Camera& currentCamera, Time& currentTime);
 
     void supplyLitShaderUniforms(Shader& shader, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Camera& currentCamera, Time& currentTime);

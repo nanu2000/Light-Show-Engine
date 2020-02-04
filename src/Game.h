@@ -4,6 +4,7 @@
 #include "FixedUpdatingSystem.h"
 #include "Messenger.h"
 #include "RenderingSystem.h"
+#include "Scenes.h"
 #include "UpdatingSystem.h"
 
 class Game {
@@ -42,24 +43,11 @@ private:
 
     //PhysicsWorld sceneOnePhysicsWorld = PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
     //Scene sceneOne;
-    std::vector<EntityWrapper*> sceneOneEntities = {
-        new Player(),
-        new LightTest(),
-        new PlayerTestObject(),
-        new EnemyTestObject(),
-        new FloorObject(),
-        new CubeTrigger(),
-        new ParticleTest()
-    };
+    std::vector<EntityWrapper*> sceneOneEntities;
 
     //PhysicsWorld sceneTwoPhysicsWorld = PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
     //Scene sceneTwo;
-    std::vector<EntityWrapper*> sceneTwoEntities = {
-        nullptr,
-        nullptr,
-        nullptr,
-        nullptr
-    };
+    std::vector<EntityWrapper*> sceneTwoEntities;
 
     bool hasInit = false;
 

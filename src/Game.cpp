@@ -16,6 +16,12 @@ bool Game::areVitalsNull() {
 
 void Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSystem) {
 
+    initMap();
+
+    for (unsigned int i = 0; i < sceneOne.size(); i++) {
+        sceneOneEntities.push_back(getEntity(sceneOne.at(i)));
+    }
+
     currentTime     = time;
     backEndMessages = backEndMessagingSystem;
 
@@ -94,23 +100,21 @@ void Game::fixedUpdate() {
 
         if (!hasInit) {
 
-            sceneTwoEntities[0] = new Player();
-            sceneTwoEntities[1] = new PlayerTestObject();
-            sceneTwoEntities[2] = new FloorObject();
-            sceneTwoEntities[3] = new LightTest();
+            for (unsigned int i = 0; i < sceneTwo.size(); i++) {
+                sceneTwoEntities.push_back(getEntity(sceneTwo.at(i)));
+            }
 
             hasInit = true;
         } else {
 
-            delete sceneTwoEntities[0];
-            delete sceneTwoEntities[1];
-            delete sceneTwoEntities[2];
-            delete sceneTwoEntities[3];
+            for (unsigned int i = 0; i < sceneTwoEntities.size(); i++) {
+                delete sceneTwoEntities.at(i);
+            }
+            sceneTwoEntities.clear();
 
-            sceneTwoEntities[0] = new Player();
-            sceneTwoEntities[1] = new PlayerTestObject();
-            sceneTwoEntities[2] = new FloorObject();
-            sceneTwoEntities[3] = new LightTest();
+            for (unsigned int i = 0; i < sceneTwo.size(); i++) {
+                sceneTwoEntities.push_back(getEntity(sceneTwo.at(i)));
+            }
         }
 
         EntityWrapper::EntityVitals vitals;
@@ -160,11 +164,11 @@ void Game::render() {
 
 void Game::uninitialize() {
     for (unsigned int i = 0; i < sceneOneEntities.size(); i++) {
-        delete sceneOneEntities[i];
-        sceneOneEntities[i] = nullptr;
+        delete sceneOneEntities.at(i);
     }
+    sceneOneEntities.clear();
     for (unsigned int i = 0; i < sceneTwoEntities.size(); i++) {
-        delete sceneTwoEntities[i];
-        sceneTwoEntities[i] = nullptr;
+        delete sceneTwoEntities.at(i);
     }
+    sceneTwoEntities.clear();
 }

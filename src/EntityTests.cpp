@@ -205,8 +205,6 @@ void FloorObject::initialize(EntityWrapper::EntityVitals& vitals) {
 
     collisionMesh.getShape()->setLocalScaling(btVector3(1, 1, 1));
 
-    DBG_LOG("%i", model.amountOfMeshes());
-
     vitals.scene->addComponent(id, floorMaterial);
     vitals.scene->addComponent(id, model);
     vitals.scene->addComponent(id, shader);

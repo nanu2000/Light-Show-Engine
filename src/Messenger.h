@@ -10,7 +10,7 @@ class Messenger {
 
 public:
     void AddMessage(const T& message) {
-        if (numberOfCurrentMessages < GameInfo::DEFAULT_MESSAGE_CAPACITY) {
+        if (numberOfCurrentMessages >= GameInfo::DEFAULT_MESSAGE_CAPACITY) {
             DBG_LOG("Current messages at capacity (Messenger.h)");
             messageList.at(numberOfCurrentMessages) = message;
         } else {

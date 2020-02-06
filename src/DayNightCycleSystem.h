@@ -9,14 +9,6 @@
 class DayNightCycleSystem {
 
 public:
-    void initialize() {
-        //debugDrawer.setDebugMode(btIDebugDraw::DBG_DrawWireframe);
-        //debugDrawer.initialize();
-
-        nightLightDiffuse = glm::vec3(.1f, .13f, .16f);
-        dayLightDiffuse   = glm::vec3(.7f, .73f, .74f);
-    }
-
     void fixedUpdate(DirectionalLight& light, const Time& time) {
 
         float speed = 1.0f;
@@ -70,8 +62,8 @@ private:
 
     bool sunDown = false;
 
-    glm::vec3 nightLightDiffuse;
-    glm::vec3 dayLightDiffuse;
+    glm::vec3 nightLightDiffuse = glm::vec3(.1f, .13f, .16f);
+    glm::vec3 dayLightDiffuse   = glm::vec3(.7f, .73f, .74f);
 };
 
 #endif

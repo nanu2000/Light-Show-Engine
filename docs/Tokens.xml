@@ -1085,6 +1085,7 @@
     </TokenIdentifier>
     <Path>df/dae/_scenes_8h.html</Path>
     <Anchor>a1e872f09cb44811bb724936b7f9969f7</Anchor>
+    <Abstract>Soon to be moved into json.</Abstract>
     <DeclaredIn>Scenes.h</DeclaredIn>
   </Token>
   <Token>
@@ -5790,6 +5791,7 @@
     </TokenIdentifier>
     <Path>d3/de8/class_fixed_updating_system.html</Path>
     <Anchor>ae6dd11a60942e140a62f8358bb69d4ba</Anchor>
+    <Abstract>Called in Game.cpp.</Abstract>
     <DeclaredIn>FixedUpdatingSystem.h</DeclaredIn>
   </Token>
   <Token>
@@ -5800,7 +5802,8 @@
       <Scope>FixedUpdatingSystem</Scope>
     </TokenIdentifier>
     <Path>d3/de8/class_fixed_updating_system.html</Path>
-    <Anchor>a3ed508813ba850baed19e86ef0429028</Anchor>
+    <Anchor>aa25ea33e79afdd725ac0458b18f1e936</Anchor>
+    <Abstract>Called in Game.cpp.</Abstract>
     <DeclaredIn>FixedUpdatingSystem.h</DeclaredIn>
   </Token>
   <Token>
@@ -5812,6 +5815,7 @@
     </TokenIdentifier>
     <Path>d3/de8/class_fixed_updating_system.html</Path>
     <Anchor>a8f07c76b37a898f91221740f42c72598</Anchor>
+    <Abstract>Called in Game.cpp.</Abstract>
     <DeclaredIn>FixedUpdatingSystem.h</DeclaredIn>
   </Token>
   <Token>
@@ -5878,6 +5882,7 @@
     </TokenIdentifier>
     <Path>d3/de8/class_fixed_updating_system.html</Path>
     <Anchor>a137e7d0c5f7e54609c674fbc0557f338</Anchor>
+    <Abstract>Updates GUI (Will be called even if the game is paused) will return true if the game is paused.</Abstract>
     <DeclaredIn>FixedUpdatingSystem.h</DeclaredIn>
   </Token>
   <Token>
@@ -5889,6 +5894,7 @@
     </TokenIdentifier>
     <Path>d3/de8/class_fixed_updating_system.html</Path>
     <Anchor>a62f406cd3cb3d441e605ed1a5e888ec6</Anchor>
+    <Abstract>Updates the shadow maps and sets the current shadows light position.</Abstract>
     <DeclaredIn>FixedUpdatingSystem.h</DeclaredIn>
   </Token>
   <Token>
@@ -5900,6 +5906,7 @@
     </TokenIdentifier>
     <Path>d3/de8/class_fixed_updating_system.html</Path>
     <Anchor>a7086592e0a53a3a3f8c7533f042a4266</Anchor>
+    <Abstract>Updates any collision logic if necessery.</Abstract>
     <DeclaredIn>FixedUpdatingSystem.h</DeclaredIn>
   </Token>
   <Token>
@@ -5911,6 +5918,7 @@
     </TokenIdentifier>
     <Path>d3/de8/class_fixed_updating_system.html</Path>
     <Anchor>a097a3f7a12a5e2e8de83bbb3e8d4e725</Anchor>
+    <Abstract>checks to see if an entity is colliding with another entity.</Abstract>
     <DeclaredIn>FixedUpdatingSystem.h</DeclaredIn>
   </Token>
   <Token>
@@ -5922,6 +5930,7 @@
     </TokenIdentifier>
     <Path>d3/de8/class_fixed_updating_system.html</Path>
     <Anchor>a6f6bb1695e03ef174e661643c3a0de27</Anchor>
+    <Abstract>executes any logic regarding collisions.</Abstract>
     <DeclaredIn>FixedUpdatingSystem.h</DeclaredIn>
   </Token>
   <Token>
@@ -6201,6 +6210,39 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>loadScene</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Game</Scope>
+    </TokenIdentifier>
+    <Path>dd/d1f/class_game.html</Path>
+    <Anchor>a339feb3115ec7ff701cadd6cce18a66b</Anchor>
+    <DeclaredIn>Game.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getCurrentSceneIndex</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Game</Scope>
+    </TokenIdentifier>
+    <Path>dd/d1f/class_game.html</Path>
+    <Anchor>a832848985ea3534b74bf73a8280e6cc1</Anchor>
+    <DeclaredIn>Game.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getSceneCount</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Game</Scope>
+    </TokenIdentifier>
+    <Path>dd/d1f/class_game.html</Path>
+    <Anchor>ae318b13518ccdcbeb7de51c5b8a08ad3</Anchor>
+    <DeclaredIn>Game.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>areVitalsNull</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -6245,17 +6287,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>loadScene</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>Game</Scope>
-    </TokenIdentifier>
-    <Path>dd/d1f/class_game.html</Path>
-    <Anchor>a339feb3115ec7ff701cadd6cce18a66b</Anchor>
-    <DeclaredIn>Game.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>backEndMessages</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -6273,6 +6304,16 @@
     </TokenIdentifier>
     <Path>dd/d1f/class_game.html</Path>
     <Anchor>a348407fe0cdb71a067acf2af496a5fcf</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>gameState</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Game</Scope>
+    </TokenIdentifier>
+    <Path>dd/d1f/class_game.html</Path>
+    <Anchor>a4573dd85e0711a78cc27eb0b51c79f44</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -6403,6 +6444,73 @@
     </TokenIdentifier>
     <Path>dd/d1f/class_game.html</Path>
     <Anchor>aecad07fce7267a365766f7050e86565f</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>GameState</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>GameState</Scope>
+    </TokenIdentifier>
+    <Path>dd/d87/class_game_state.html</Path>
+    <DeclaredIn>GameState.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>GameState</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>GameState</Scope>
+    </TokenIdentifier>
+    <Path>dd/d87/class_game_state.html</Path>
+    <Anchor>a378ae317e78c5b88fc0f0b5739f4481e</Anchor>
+    <DeclaredIn>GameState.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>loadScene</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>GameState</Scope>
+    </TokenIdentifier>
+    <Path>dd/d87/class_game_state.html</Path>
+    <Anchor>a36c6478fe831ec44d5eadf6b5594f567</Anchor>
+    <Abstract>Loads a scene via index of the scene to be loaded.</Abstract>
+    <DeclaredIn>GameState.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getCurrentSceneIndex</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>GameState</Scope>
+    </TokenIdentifier>
+    <Path>dd/d87/class_game_state.html</Path>
+    <Anchor>a6e8b5379e75511658b1d4cec4c3693c7</Anchor>
+    <Abstract>Gets the index of the current scene.</Abstract>
+    <DeclaredIn>GameState.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getSceneCount</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>GameState</Scope>
+    </TokenIdentifier>
+    <Path>dd/d87/class_game_state.html</Path>
+    <Anchor>afd2590c77244f3b927bb59e0f5d8206a</Anchor>
+    <Abstract>Gets amount of scenes loaded into game.</Abstract>
+    <DeclaredIn>GameState.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>currentGame</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>GameState</Scope>
+    </TokenIdentifier>
+    <Path>dd/d87/class_game_state.html</Path>
+    <Anchor>a50d8b5ed886437d2543a8722d768715d</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -8196,13 +8304,14 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>AddMessage</Name>
+      <Name>addMessage</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
       <Scope>Messenger</Scope>
     </TokenIdentifier>
     <Path>d6/dc9/class_messenger.html</Path>
-    <Anchor>a6610379d1b30c4dfcdd1b47434a056b6</Anchor>
+    <Anchor>ac983786a5d5f394365dd8c91f70811d0</Anchor>
+    <Abstract>Add a message to the queue.</Abstract>
     <DeclaredIn>Messenger.h</DeclaredIn>
   </Token>
   <Token>
@@ -8214,6 +8323,7 @@
     </TokenIdentifier>
     <Path>d6/dc9/class_messenger.html</Path>
     <Anchor>adc1f68f26170b8a13b5b917434f12310</Anchor>
+    <Abstract>Retrieves a message and stored it in the param msg then pops it from the list.</Abstract>
     <DeclaredIn>Messenger.h</DeclaredIn>
   </Token>
   <Token>
@@ -8225,6 +8335,7 @@
     </TokenIdentifier>
     <Path>d6/dc9/class_messenger.html</Path>
     <Anchor>a0a657d5cd6bd18f3cb0c8da196b9a776</Anchor>
+    <Abstract>Returns true if the msg value is in the message queue and removes the message from the queue.</Abstract>
     <DeclaredIn>Messenger.h</DeclaredIn>
   </Token>
   <Token>
@@ -8236,6 +8347,7 @@
     </TokenIdentifier>
     <Path>d6/dc9/class_messenger.html</Path>
     <Anchor>a83a644e3a9bc6e718940b4ebf0fd3fb6</Anchor>
+    <Abstract>Clears all messages from the queue.</Abstract>
     <DeclaredIn>Messenger.h</DeclaredIn>
   </Token>
   <Token>

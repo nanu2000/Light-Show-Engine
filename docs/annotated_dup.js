@@ -34,6 +34,7 @@ var annotated_dup =
     [ "FloorObject", "da/d3c/class_floor_object.html", "da/d3c/class_floor_object" ],
     [ "FountainParticleSystem", "d3/dad/class_fountain_particle_system.html", "d3/dad/class_fountain_particle_system" ],
     [ "Game", "dd/d1f/class_game.html", "dd/d1f/class_game" ],
+    [ "GameState", "dd/d87/class_game_state.html", "dd/d87/class_game_state" ],
     [ "GlobalInformation", "df/de8/class_global_information.html", "df/de8/class_global_information" ],
     [ "Glyph", "db/db4/struct_glyph.html", "db/db4/struct_glyph" ],
     [ "GuiBase", "d1/d39/class_gui_base.html", "d1/d39/class_gui_base" ],

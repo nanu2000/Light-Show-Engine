@@ -108,6 +108,7 @@ var hierarchy =
       [ "PlayerTestObject", "db/dd3/class_player_test_object.html", null ]
     ] ],
     [ "Game", "dd/d1f/class_game.html", null ],
+    [ "GameState", "dd/d87/class_game_state.html", null ],
     [ "Glyph", "db/db4/struct_glyph.html", null ],
     [ "GuiBase", "d1/d39/class_gui_base.html", [
       [ "GuiSprite", "d1/db9/class_gui_sprite.html", [

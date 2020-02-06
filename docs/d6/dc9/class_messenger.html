@@ -83,13 +83,17 @@ $(document).ready(function(){initNavTree('d6/dc9/class_messenger.html','../../')
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6610379d1b30c4dfcdd1b47434a056b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dc9/class_messenger.html#a6610379d1b30c4dfcdd1b47434a056b6">AddMessage</a> (const T &amp;message)</td></tr>
-<tr class="separator:a6610379d1b30c4dfcdd1b47434a056b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac983786a5d5f394365dd8c91f70811d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dc9/class_messenger.html#ac983786a5d5f394365dd8c91f70811d0">addMessage</a> (const T &amp;message)</td></tr>
+<tr class="memdesc:ac983786a5d5f394365dd8c91f70811d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a message to the queue.  <a href="../../d6/dc9/class_messenger.html#ac983786a5d5f394365dd8c91f70811d0">More...</a><br /></td></tr>
+<tr class="separator:ac983786a5d5f394365dd8c91f70811d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc1f68f26170b8a13b5b917434f12310"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dc9/class_messenger.html#adc1f68f26170b8a13b5b917434f12310">getMessagesThenRemove</a> (T &amp;msg)</td></tr>
+<tr class="memdesc:adc1f68f26170b8a13b5b917434f12310"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a message and stored it in the param <code>msg</code> then pops it from the list.  <a href="../../d6/dc9/class_messenger.html#adc1f68f26170b8a13b5b917434f12310">More...</a><br /></td></tr>
 <tr class="separator:adc1f68f26170b8a13b5b917434f12310"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a657d5cd6bd18f3cb0c8da196b9a776"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dc9/class_messenger.html#a0a657d5cd6bd18f3cb0c8da196b9a776">findThenRemoveMessage</a> (T msg)</td></tr>
+<tr class="memdesc:a0a657d5cd6bd18f3cb0c8da196b9a776"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the <code>msg</code> value is in the message queue and removes the message from the queue.  <a href="../../d6/dc9/class_messenger.html#a0a657d5cd6bd18f3cb0c8da196b9a776">More...</a><br /></td></tr>
 <tr class="separator:a0a657d5cd6bd18f3cb0c8da196b9a776"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83a644e3a9bc6e718940b4ebf0fd3fb6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dc9/class_messenger.html#a83a644e3a9bc6e718940b4ebf0fd3fb6">clearAll</a> ()</td></tr>
+<tr class="memdesc:a83a644e3a9bc6e718940b4ebf0fd3fb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all messages from the queue.  <a href="../../d6/dc9/class_messenger.html#a83a644e3a9bc6e718940b4ebf0fd3fb6">More...</a><br /></td></tr>
 <tr class="separator:a83a644e3a9bc6e718940b4ebf0fd3fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -103,11 +107,13 @@ Private Attributes</h2></td></tr>
 <div class="textblock"><h3>template&lt;class T&gt;<br />
 class Messenger&lt; T &gt;</h3>
 
+<p>The messenger- a pretty basic queue object used to send messages to one service from another.</p>
+<p>ex: from the <a class="el" href="../../dd/d1f/class_game.html">Game</a> class to the <a class="el" href="../../d3/de8/class_fixed_updating_system.html">FixedUpdatingSystem</a> class. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00009">9</a> of file <a class="el" href="../../d4/d30/_messenger_8h_source.html">Messenger.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00014">14</a> of file <a class="el" href="../../d4/d30/_messenger_8h_source.html">Messenger.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6610379d1b30c4dfcdd1b47434a056b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6610379d1b30c4dfcdd1b47434a056b6">&#9670;&nbsp;</a></span>AddMessage()</h2>
+<a id="ac983786a5d5f394365dd8c91f70811d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac983786a5d5f394365dd8c91f70811d0">&#9670;&nbsp;</a></span>addMessage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -118,7 +124,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d6/dc9/class_messenger.html">Messenger</a>&lt; T &gt;::AddMessage </td>
+          <td class="memname">void <a class="el" href="../../d6/dc9/class_messenger.html">Messenger</a>&lt; T &gt;::addMessage </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>message</em></td><td>)</td>
@@ -132,7 +138,9 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00012">12</a> of file <a class="el" href="../../d4/d30/_messenger_8h_source.html">Messenger.h</a>.</p>
+<p>Add a message to the queue. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00018">18</a> of file <a class="el" href="../../d4/d30/_messenger_8h_source.html">Messenger.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d3/db8/_window_8cpp_source.html#l00046">Window::resizeWindow()</a>.</p>
 
@@ -163,7 +171,9 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00045">45</a> of file <a class="el" href="../../d4/d30/_messenger_8h_source.html">Messenger.h</a>.</p>
+<p>Clears all messages from the queue. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00054">54</a> of file <a class="el" href="../../d4/d30/_messenger_8h_source.html">Messenger.h</a>.</p>
 
 </div>
 </div>
@@ -193,7 +203,9 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00033">33</a> of file <a class="el" href="../../d4/d30/_messenger_8h_source.html">Messenger.h</a>.</p>
+<p>Returns true if the <code>msg</code> value is in the message queue and removes the message from the queue. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00041">41</a> of file <a class="el" href="../../d4/d30/_messenger_8h_source.html">Messenger.h</a>.</p>
 
 </div>
 </div>
@@ -223,7 +235,9 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00022">22</a> of file <a class="el" href="../../d4/d30/_messenger_8h_source.html">Messenger.h</a>.</p>
+<p>Retrieves a message and stored it in the param <code>msg</code> then pops it from the list. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00029">29</a> of file <a class="el" href="../../d4/d30/_messenger_8h_source.html">Messenger.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00103">Game::readBackendEventQueue()</a>.</p>
 
@@ -252,9 +266,9 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00051">51</a> of file <a class="el" href="../../d4/d30/_messenger_8h_source.html">Messenger.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00060">60</a> of file <a class="el" href="../../d4/d30/_messenger_8h_source.html">Messenger.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00012">Messenger&lt; BackEndMessages &gt;::AddMessage()</a>, <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00033">Messenger&lt; BackEndMessages &gt;::findThenRemoveMessage()</a>, and <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00022">Messenger&lt; BackEndMessages &gt;::getMessagesThenRemove()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00018">Messenger&lt; BackEndMessages &gt;::addMessage()</a>, <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00041">Messenger&lt; BackEndMessages &gt;::findThenRemoveMessage()</a>, and <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00029">Messenger&lt; BackEndMessages &gt;::getMessagesThenRemove()</a>.</p>
 
 </div>
 </div>
@@ -280,9 +294,9 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00050">50</a> of file <a class="el" href="../../d4/d30/_messenger_8h_source.html">Messenger.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00059">59</a> of file <a class="el" href="../../d4/d30/_messenger_8h_source.html">Messenger.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00012">Messenger&lt; BackEndMessages &gt;::AddMessage()</a>, <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00045">Messenger&lt; BackEndMessages &gt;::clearAll()</a>, <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00033">Messenger&lt; BackEndMessages &gt;::findThenRemoveMessage()</a>, and <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00022">Messenger&lt; BackEndMessages &gt;::getMessagesThenRemove()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00018">Messenger&lt; BackEndMessages &gt;::addMessage()</a>, <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00054">Messenger&lt; BackEndMessages &gt;::clearAll()</a>, <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00041">Messenger&lt; BackEndMessages &gt;::findThenRemoveMessage()</a>, and <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00029">Messenger&lt; BackEndMessages &gt;::getMessagesThenRemove()</a>.</p>
 
 </div>
 </div>
@@ -295,7 +309,7 @@ template&lt;class T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/dc9/class_messenger.html">Messenger</a></li>
-    <li class="footer">Generated on Wed Feb 5 2020 16:56:56 for LightShow_Boilerplate by
+    <li class="footer">Generated on Wed Feb 5 2020 22:05:09 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

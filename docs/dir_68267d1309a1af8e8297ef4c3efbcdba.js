@@ -86,6 +86,10 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     ] ],
     [ "GameInfo.cpp", "d5/dec/_game_info_8cpp.html", null ],
     [ "GameInfo.h", "de/d50/_game_info_8h.html", "de/d50/_game_info_8h" ],
+    [ "GameState.cpp", "d7/d85/_game_state_8cpp.html", null ],
+    [ "GameState.h", "d1/d14/_game_state_8h.html", [
+      [ "GameState", "dd/d87/class_game_state.html", "dd/d87/class_game_state" ]
+    ] ],
     [ "GlobalInformation.h", "df/ded/_global_information_8h.html", [
       [ "GlobalInformation", "df/de8/class_global_information.html", "df/de8/class_global_information" ]
     ] ],

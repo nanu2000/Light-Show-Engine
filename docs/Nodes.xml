@@ -2761,7 +2761,7 @@
              <Node>
               <Name>fixedUpdate</Name>
               <Path>d3/de8/class_fixed_updating_system.html</Path>
-              <Anchor>a3ed508813ba850baed19e86ef0429028</Anchor>
+              <Anchor>aa25ea33e79afdd725ac0458b18f1e936</Anchor>
              </Node>
              <Node>
               <Name>handleBackEndMessage</Name>
@@ -2877,6 +2877,16 @@
               <Anchor>a953f7a9fe92ec47602083dd2e9a3b26d</Anchor>
              </Node>
              <Node>
+              <Name>getCurrentSceneIndex</Name>
+              <Path>dd/d1f/class_game.html</Path>
+              <Anchor>a832848985ea3534b74bf73a8280e6cc1</Anchor>
+             </Node>
+             <Node>
+              <Name>getSceneCount</Name>
+              <Path>dd/d1f/class_game.html</Path>
+              <Anchor>ae318b13518ccdcbeb7de51c5b8a08ad3</Anchor>
+             </Node>
+             <Node>
               <Name>initialize</Name>
               <Path>dd/d1f/class_game.html</Path>
               <Anchor>a8986a201a654418cefe34ec28af1a22c</Anchor>
@@ -2942,6 +2952,11 @@
               <Anchor>ad9ce087f9521415c564ae26a7e8162d3</Anchor>
              </Node>
              <Node>
+              <Name>gameState</Name>
+              <Path>dd/d1f/class_game.html</Path>
+              <Anchor>a4573dd85e0711a78cc27eb0b51c79f44</Anchor>
+             </Node>
+             <Node>
               <Name>map</Name>
               <Path>dd/d1f/class_game.html</Path>
               <Anchor>aecad07fce7267a365766f7050e86565f</Anchor>
@@ -2990,6 +3005,37 @@
               <Name>updatingSystem</Name>
               <Path>dd/d1f/class_game.html</Path>
               <Anchor>aacfb150d8b6e3a28f5ce950262df968b</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>GameState</Name>
+            <Path>dd/d87/class_game_state.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>GameState</Name>
+              <Path>dd/d87/class_game_state.html</Path>
+              <Anchor>a378ae317e78c5b88fc0f0b5739f4481e</Anchor>
+             </Node>
+             <Node>
+              <Name>getCurrentSceneIndex</Name>
+              <Path>dd/d87/class_game_state.html</Path>
+              <Anchor>a6e8b5379e75511658b1d4cec4c3693c7</Anchor>
+             </Node>
+             <Node>
+              <Name>getSceneCount</Name>
+              <Path>dd/d87/class_game_state.html</Path>
+              <Anchor>afd2590c77244f3b927bb59e0f5d8206a</Anchor>
+             </Node>
+             <Node>
+              <Name>loadScene</Name>
+              <Path>dd/d87/class_game_state.html</Path>
+              <Anchor>a36c6478fe831ec44d5eadf6b5594f567</Anchor>
+             </Node>
+             <Node>
+              <Name>currentGame</Name>
+              <Path>dd/d87/class_game_state.html</Path>
+              <Anchor>a50d8b5ed886437d2543a8722d768715d</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -3659,9 +3705,9 @@
             <Path>d6/dc9/class_messenger.html</Path>
             <Subnodes>
              <Node>
-              <Name>AddMessage</Name>
+              <Name>addMessage</Name>
               <Path>d6/dc9/class_messenger.html</Path>
-              <Anchor>a6610379d1b30c4dfcdd1b47434a056b6</Anchor>
+              <Anchor>ac983786a5d5f394365dd8c91f70811d0</Anchor>
              </Node>
              <Node>
               <Name>clearAll</Name>
@@ -7034,6 +7080,10 @@
             <Path>dd/d1f/class_game.html</Path>
            </Node>
            <Node>
+            <Name>GameState</Name>
+            <Path>dd/d87/class_game_state.html</Path>
+           </Node>
+           <Node>
             <Name>Glyph</Name>
             <Path>db/db4/struct_glyph.html</Path>
            </Node>
@@ -10322,7 +10372,7 @@
                  <Node>
                   <Name>fixedUpdate</Name>
                   <Path>d3/de8/class_fixed_updating_system.html</Path>
-                  <Anchor>a3ed508813ba850baed19e86ef0429028</Anchor>
+                  <Anchor>aa25ea33e79afdd725ac0458b18f1e936</Anchor>
                  </Node>
                  <Node>
                   <Name>handleBackEndMessage</Name>
@@ -10391,6 +10441,16 @@
                   <Anchor>a953f7a9fe92ec47602083dd2e9a3b26d</Anchor>
                  </Node>
                  <Node>
+                  <Name>getCurrentSceneIndex</Name>
+                  <Path>dd/d1f/class_game.html</Path>
+                  <Anchor>a832848985ea3534b74bf73a8280e6cc1</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getSceneCount</Name>
+                  <Path>dd/d1f/class_game.html</Path>
+                  <Anchor>ae318b13518ccdcbeb7de51c5b8a08ad3</Anchor>
+                 </Node>
+                 <Node>
                   <Name>initialize</Name>
                   <Path>dd/d1f/class_game.html</Path>
                   <Anchor>a8986a201a654418cefe34ec28af1a22c</Anchor>
@@ -10454,6 +10514,11 @@
                   <Name>fixedUpdatingSystem</Name>
                   <Path>dd/d1f/class_game.html</Path>
                   <Anchor>ad9ce087f9521415c564ae26a7e8162d3</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>gameState</Name>
+                  <Path>dd/d1f/class_game.html</Path>
+                  <Anchor>a4573dd85e0711a78cc27eb0b51c79f44</Anchor>
                  </Node>
                  <Node>
                   <Name>map</Name>
@@ -10658,6 +10723,47 @@
                 <Name>WINDOW_TITLE</Name>
                 <Path>de/d50/_game_info_8h.html</Path>
                 <Anchor>a84e173e912102cfa77a4894831965ef2</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>GameState.cpp</Name>
+              <Path>d7/d85/_game_state_8cpp.html</Path>
+             </Node>
+             <Node>
+              <Name>GameState.h</Name>
+              <Path>d1/d14/_game_state_8h.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>GameState</Name>
+                <Path>dd/d87/class_game_state.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>GameState</Name>
+                  <Path>dd/d87/class_game_state.html</Path>
+                  <Anchor>a378ae317e78c5b88fc0f0b5739f4481e</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getCurrentSceneIndex</Name>
+                  <Path>dd/d87/class_game_state.html</Path>
+                  <Anchor>a6e8b5379e75511658b1d4cec4c3693c7</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getSceneCount</Name>
+                  <Path>dd/d87/class_game_state.html</Path>
+                  <Anchor>afd2590c77244f3b927bb59e0f5d8206a</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>loadScene</Name>
+                  <Path>dd/d87/class_game_state.html</Path>
+                  <Anchor>a36c6478fe831ec44d5eadf6b5594f567</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>currentGame</Name>
+                  <Path>dd/d87/class_game_state.html</Path>
+                  <Anchor>a50d8b5ed886437d2543a8722d768715d</Anchor>
+                 </Node>
+                </Subnodes>
                </Node>
               </Subnodes>
              </Node>
@@ -11961,9 +12067,9 @@
                 <Path>d6/dc9/class_messenger.html</Path>
                 <Subnodes>
                  <Node>
-                  <Name>AddMessage</Name>
+                  <Name>addMessage</Name>
                   <Path>d6/dc9/class_messenger.html</Path>
-                  <Anchor>a6610379d1b30c4dfcdd1b47434a056b6</Anchor>
+                  <Anchor>ac983786a5d5f394365dd8c91f70811d0</Anchor>
                  </Node>
                  <Node>
                   <Name>clearAll</Name>

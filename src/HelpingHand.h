@@ -10,29 +10,6 @@
 *hh stands for helping hand.*
 *****************************/
 
-#define property(Type, Variable)                              \
-private:                                                      \
-    Type Variable;                                            \
-                                                              \
-public:                                                       \
-    const Type##& get##Variable() const { return Variable; }; \
-    void set##Variable(const Type& Variable##_) { Variable = Variable##_; }
-
-//here is how you use the property definition
-
-//class abc
-//{
-//	//this automattically creates a getter, setter & a private variable with the type of std::string, with the name 'name' for the private variable, and 'getname' for the getter and 'setname' for the setter.
-//	property(std::string, name);
-//
-//	void modifyProperty()
-//	{
-//		setname("hello!");
-//		std::string test = getname();
-//	}
-//
-//};
-
 namespace hh {
 
 int getRandomRange(int minInclusive, int maxExclusive);

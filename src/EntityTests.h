@@ -23,27 +23,7 @@
 #include "TextMap.h"
 #include "UserControls.h"
 
-enum class ENTITY_NAME {
-    LightTest        = 0,
-    ParticleTest     = 1,
-    Player           = 2,
-    PlayerTestObject = 3,
-    EnemyTestObject  = 4,
-    CubeTrigger      = 5,
-    FloorObject      = 6,
-    ENTITY_COUNT     = 7
-};
-
-static const char* EntityNames[7] = {
-    "LightTest",
-    "ParticleTest",
-    "Player",
-    "PlayerTestObject",
-    "EnemyTestObject",
-    "CubeTrigger",
-    "FloorObject"
-};
-
+//! Simple base class used for entities.
 class EntityWrapper {
 public:
     struct EntityVitals {
@@ -60,6 +40,7 @@ public:
     virtual ~EntityWrapper() {};
 };
 
+//! Test entity class
 class LightTest : public EntityWrapper {
 
 public:
@@ -73,6 +54,7 @@ private:
     Shader skyBoxShader;
 };
 
+//! Test entity class
 class ParticleTest : public EntityWrapper {
 
 public:
@@ -84,6 +66,7 @@ private:
     Shader particleShader;
 };
 
+//! Test entity class
 class Player : public EntityWrapper {
 
 public:
@@ -100,6 +83,7 @@ private:
     UserControls userControls;
 };
 
+//! Test entity class
 class PlayerTestObject : public EntityWrapper {
 
 public:
@@ -119,6 +103,7 @@ private:
     BoneCollisionMesh bCollisionMesh;
 };
 
+//! Test entity class
 class EnemyTestObject : public EntityWrapper {
 
 public:
@@ -136,6 +121,7 @@ private:
     Shader shader;
 };
 
+//! Test entity class
 class CubeTrigger : public EntityWrapper {
 
 public:
@@ -149,6 +135,7 @@ private:
     Shader shader;
 };
 
+//! Test entity class
 class FloorObject : public EntityWrapper {
 public:
     ~FloorObject() {}
@@ -162,30 +149,37 @@ private:
     Shader shader;
 };
 
-template <typename T>
-static EntityWrapper* createInstance() { return new T; }
+namespace Entities {
+    //! Used to map a string to an EntityWrapper type's constructor.
+    template <typename T>
+    static EntityWrapper* registerEntity() { return new T; }
 
-typedef std::map<std::string, EntityWrapper* (*)()> EntityMap;
+    //! Map of entity constructors.
+    static std::map<std::string, EntityWrapper* (*)()> entityTypes;
 
-static EntityMap entityMap;
+    //! Used to allocate a new entity via string registered with registerEntity. **Does not control lifetime of allocated entity.**
+    static EntityWrapper* allocateEntity(const std::string& str) {
 
-static const char* getEntityName(const ENTITY_NAME& name) {
-    if (name < ENTITY_NAME::ENTITY_COUNT) {
-        return EntityNames[static_cast<int32_t>(name)];
+        std::map<std::string, EntityWrapper* (*)()>::iterator it = entityTypes.find(str);
+
+        if (it != entityTypes.end()) {
+            return entityTypes.at(str)();
+        }
+
+        DBG_LOG("Could not find entity with name `%s`.\n Perhaps this entity isn't registered in Entities::registerEntities(), or Entities::registerEntities() was never called in Game::init() ?\n", str.c_str());
+        return nullptr;
     }
-    return "NA";
+
+    //! Registers all entities so they can be created with Entities::allocateEntity via string.
+    static void registerEntities() {
+        entityTypes["LightTest"]        = &registerEntity<LightTest>;
+        entityTypes["ParticleTest"]     = &registerEntity<ParticleTest>;
+        entityTypes["Player"]           = &registerEntity<Player>;
+        entityTypes["PlayerTestObject"] = &registerEntity<PlayerTestObject>;
+        entityTypes["EnemyTestObject"]  = &registerEntity<EnemyTestObject>;
+        entityTypes["CubeTrigger"]      = &registerEntity<CubeTrigger>;
+        entityTypes["FloorObject"]      = &registerEntity<FloorObject>;
+    }
 }
 
-static void initMap() {
-    entityMap[getEntityName(ENTITY_NAME::LightTest)]        = &createInstance<LightTest>;
-    entityMap[getEntityName(ENTITY_NAME::ParticleTest)]     = &createInstance<ParticleTest>;
-    entityMap[getEntityName(ENTITY_NAME::Player)]           = &createInstance<Player>;
-    entityMap[getEntityName(ENTITY_NAME::PlayerTestObject)] = &createInstance<PlayerTestObject>;
-    entityMap[getEntityName(ENTITY_NAME::EnemyTestObject)]  = &createInstance<EnemyTestObject>;
-    entityMap[getEntityName(ENTITY_NAME::CubeTrigger)]      = &createInstance<CubeTrigger>;
-    entityMap[getEntityName(ENTITY_NAME::FloorObject)]      = &createInstance<FloorObject>;
-}
-static EntityWrapper* allocateEntity(const std::string& str) {
-    return entityMap[str]();
-}
 #endif

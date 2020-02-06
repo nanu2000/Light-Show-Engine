@@ -16,7 +16,7 @@ bool Game::areVitalsNull() {
 
 void Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSystem) {
 
-    initMap();
+    Entities::registerEntities();
 
     currentTime     = time;
     backEndMessages = backEndMessagingSystem;
@@ -66,12 +66,15 @@ void Game::loadScene(int index) {
     physicsWorld = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
 
     for (unsigned int i = 0; i < sceneEntities.size(); i++) {
+        if (sceneEntities.at(i) == nullptr) {
+            continue;
+        }
         delete sceneEntities.at(i);
     }
     sceneEntities.clear();
 
     for (unsigned int i = 0; i < scenes.at(currentScene).size(); i++) {
-        sceneEntities.push_back(allocateEntity(scenes.at(currentScene).at(i)));
+        sceneEntities.push_back(Entities::allocateEntity(scenes.at(currentScene).at(i)));
     }
 
     EntityWrapper::EntityVitals vitals;
@@ -81,6 +84,9 @@ void Game::loadScene(int index) {
     vitals.thisWorld       = physicsWorld;
 
     for (unsigned int i = 0; i < sceneEntities.size(); i++) {
+        if (sceneEntities.at(i) == nullptr) {
+            continue;
+        }
         sceneEntities[i]->initialize(vitals);
     }
 
@@ -134,6 +140,9 @@ void Game::render() {
 
 void Game::uninitialize() {
     for (unsigned int i = 0; i < sceneEntities.size(); i++) {
+        if (sceneEntities.at(i) == nullptr) {
+            continue;
+        }
         delete sceneEntities.at(i);
     }
     sceneEntities.clear();

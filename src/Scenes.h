@@ -17,5 +17,5 @@ static std::vector<std::vector<std::string>> scenes = {
     { "Player",
       "LightTest",
       "PlayerTestObject",
-      "FloorObject" }
+      "FloorObject", "error!" }
 };

@@ -1,8 +1,8 @@
 #include "EntityTests.h"
 
-void ParticleTest::initialize(EntityWrapper::EntityVitals& vitals) {
+void ParticleTest::initialize(EntityVitals& vitals) {
     if (vitals.checkForNulls() == false) {
-        DBG_LOG("Null Vitals! (EntityWrapper::EntityVitals::checkForNulls)\n");
+        DBG_LOG("Null Vitals! (EntityVitals::checkForNulls)\n");
         return;
     }
 
@@ -28,9 +28,9 @@ void ParticleTest::initialize(EntityWrapper::EntityVitals& vitals) {
     vitals.scene->addComponent(id, particleShader);
 }
 
-void Player::initialize(EntityWrapper::EntityVitals& vitals) {
+void Player::initialize(EntityVitals& vitals) {
     if (vitals.checkForNulls() == false) {
-        DBG_LOG("Null Vitals! (EntityWrapper::EntityVitals::checkForNulls)\n");
+        DBG_LOG("Null Vitals! (EntityVitals::checkForNulls)\n");
         return;
     }
 
@@ -50,9 +50,9 @@ void Player::initialize(EntityWrapper::EntityVitals& vitals) {
     vitals.scene->addComponent(id, statDisplayer);
 }
 
-void PlayerTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
+void PlayerTestObject::initialize(EntityVitals& vitals) {
     if (vitals.checkForNulls() == false) {
-        DBG_LOG("Null Vitals! (EntityWrapper::EntityVitals::checkForNulls)\n");
+        DBG_LOG("Null Vitals! (EntityVitals::checkForNulls)\n");
         return;
     }
 
@@ -104,9 +104,9 @@ void PlayerTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
     vitals.scene->addComponent(id, testController);
 }
 
-void EnemyTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
+void EnemyTestObject::initialize(EntityVitals& vitals) {
     if (vitals.checkForNulls() == false) {
-        DBG_LOG("Null Vitals! (EntityWrapper::EntityVitals::checkForNulls)\n");
+        DBG_LOG("Null Vitals! (EntityVitals::checkForNulls)\n");
         return;
     }
 
@@ -148,9 +148,9 @@ void EnemyTestObject::initialize(EntityWrapper::EntityVitals& vitals) {
     vitals.scene->addComponent(id, collisionMesh);
 }
 
-void CubeTrigger::initialize(EntityWrapper::EntityVitals& vitals) {
+void CubeTrigger::initialize(EntityVitals& vitals) {
     if (vitals.checkForNulls() == false) {
-        DBG_LOG("Null Vitals! (EntityWrapper::EntityVitals::checkForNulls)\n");
+        DBG_LOG("Null Vitals! (EntityVitals::checkForNulls)\n");
         return;
     }
 
@@ -177,9 +177,9 @@ void CubeTrigger::initialize(EntityWrapper::EntityVitals& vitals) {
     vitals.scene->addComponent(id, collisionMesh);
 }
 
-void FloorObject::initialize(EntityWrapper::EntityVitals& vitals) {
+void FloorObject::initialize(EntityVitals& vitals) {
     if (vitals.checkForNulls() == false) {
-        DBG_LOG("Null Vitals! (EntityWrapper::EntityVitals::checkForNulls)\n");
+        DBG_LOG("Null Vitals! (EntityVitals::checkForNulls)\n");
         return;
     }
 
@@ -211,9 +211,9 @@ void FloorObject::initialize(EntityWrapper::EntityVitals& vitals) {
     vitals.scene->addComponent(id, collisionMesh);
 }
 
-void LightTest::initialize(EntityWrapper::EntityVitals& vitals) {
+void LightTest::initialize(EntityVitals& vitals) {
     if (vitals.checkForNulls() == false) {
-        DBG_LOG("Null Vitals! (EntityWrapper::EntityVitals::checkForNulls)\n");
+        DBG_LOG("Null Vitals! (EntityVitals::checkForNulls)\n");
         return;
     }
 

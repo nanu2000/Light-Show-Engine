@@ -27,6 +27,8 @@ private:
     void initializeShaders();
     void readBackendEventQueue();
 
+    void freeEntities();
+
     Settings settings = Settings(GameInfo::DEFAULT_GRAVITY, glm::vec3(-20, 0, 10));
 
     PointLightShadowMap pointLightDepthMap;

@@ -23,18 +23,27 @@
 #include "TextMap.h"
 #include "UserControls.h"
 
+//! Used to store vital information used to initialize entities.
+class EntityVitals {
+public:
+    EntityVitals(Settings* set, Scene* scen, PhysicsWorld* phys, TextMap* text) {
+        currentSettings = set;
+        scene           = scen;
+        thisWorld       = phys;
+        map             = text;
+    }
+
+    Settings* currentSettings = nullptr;
+    Scene* scene              = nullptr;
+    PhysicsWorld* thisWorld   = nullptr;
+    TextMap* map              = nullptr;
+
+    bool checkForNulls() { return currentSettings && scene && thisWorld && map; }
+};
+
 //! Simple base class used for entities.
 class EntityWrapper {
 public:
-    struct EntityVitals {
-        Settings* currentSettings = nullptr;
-        Scene* scene              = nullptr;
-        PhysicsWorld* thisWorld   = nullptr;
-        TextMap* map              = nullptr;
-
-        bool checkForNulls() { return currentSettings && scene && thisWorld && map; }
-    };
-
     virtual void initialize(EntityVitals& vitals) = 0;
 
     virtual ~EntityWrapper() {};
@@ -44,7 +53,7 @@ public:
 class LightTest : public EntityWrapper {
 
 public:
-    void initialize(EntityWrapper::EntityVitals& vitals);
+    void initialize(EntityVitals& vitals);
     ~LightTest() {}
 
 private:
@@ -59,7 +68,7 @@ class ParticleTest : public EntityWrapper {
 
 public:
     ~ParticleTest() {}
-    void initialize(EntityWrapper::EntityVitals& vitals);
+    void initialize(EntityVitals& vitals);
 
 private:
     Particles particles = Particles(2000);
@@ -71,7 +80,7 @@ class Player : public EntityWrapper {
 
 public:
     ~Player() {}
-    void initialize(EntityWrapper::EntityVitals& vitals);
+    void initialize(EntityVitals& vitals);
 
 private:
     DisplayStatistics statDisplayer;
@@ -88,7 +97,7 @@ class PlayerTestObject : public EntityWrapper {
 
 public:
     ~PlayerTestObject() {}
-    void initialize(EntityWrapper::EntityVitals& vitals);
+    void initialize(EntityVitals& vitals);
 
 private:
     _3DM::AnimatedModel model = _3DM::AnimatedModel("assets/Models/player/testplayer.3DMA");
@@ -108,7 +117,7 @@ class EnemyTestObject : public EntityWrapper {
 
 public:
     ~EnemyTestObject() {}
-    void initialize(EntityWrapper::EntityVitals& vitals);
+    void initialize(EntityVitals& vitals);
 
 private:
     _3DM::AnimatedModel model = _3DM::AnimatedModel("assets/Models/player/testplayer.3DMA");
@@ -126,7 +135,7 @@ class CubeTrigger : public EntityWrapper {
 
 public:
     ~CubeTrigger() {}
-    void initialize(EntityWrapper::EntityVitals& vitals);
+    void initialize(EntityVitals& vitals);
 
 private:
     _3DM::Model model = _3DM::Model("assets/Models/cube.3DM");
@@ -139,7 +148,7 @@ private:
 class FloorObject : public EntityWrapper {
 public:
     ~FloorObject() {}
-    void initialize(EntityWrapper::EntityVitals& vitals);
+    void initialize(EntityVitals& vitals);
 
 private:
     _3DM::Model model = _3DM::Model("assets/Models/testlevel.3DM");

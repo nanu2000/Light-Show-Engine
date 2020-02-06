@@ -43,13 +43,6 @@ void Game::initializeShaders() {
     Shader::setShaderTaskShader(SHADER_TASK::Omnidirectional_Depth_Task, pointLightDepthMap.getDepthMapShader());
 }
 
-void Game::readBackendEventQueue() {
-    BackEndMessages msg;
-    while (backEndMessages->getMessagesThenRemove(msg)) {
-        fixedUpdatingSystem.handleBackEndMessage(msg, renderTexture);
-    }
-}
-
 void Game::loadScene(int index) {
 
     if (index >= scenes.size()) {
@@ -59,37 +52,33 @@ void Game::loadScene(int index) {
 
     currentScene = index;
 
+    //Free old scene and entities.
     delete scene;
     delete physicsWorld;
+    freeEntities();
 
-    scene        = new Scene();
-    physicsWorld = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
-
-    for (unsigned int i = 0; i < sceneEntities.size(); i++) {
-        if (sceneEntities.at(i) == nullptr) {
-            continue;
-        }
-        delete sceneEntities.at(i);
-    }
-    sceneEntities.clear();
+    //Allocate new scene and entities.
+    scene               = new Scene();
+    physicsWorld        = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
+    EntityVitals vitals = EntityVitals(&settings, scene, physicsWorld, &map);
 
     for (unsigned int i = 0; i < scenes.at(currentScene).size(); i++) {
-        sceneEntities.push_back(Entities::allocateEntity(scenes.at(currentScene).at(i)));
-    }
 
-    EntityWrapper::EntityVitals vitals;
-    vitals.currentSettings = &settings;
-    vitals.map             = &map;
-    vitals.scene           = scene;
-    vitals.thisWorld       = physicsWorld;
+        EntityWrapper* newEntity = Entities::allocateEntity(scenes.at(currentScene).at(i));
 
-    for (unsigned int i = 0; i < sceneEntities.size(); i++) {
-        if (sceneEntities.at(i) == nullptr) {
-            continue;
+        if (newEntity == nullptr) {
+            continue; //Only add to scene if new entity is valid.
         }
-        sceneEntities[i]->initialize(vitals);
+
+        sceneEntities.push_back(newEntity);
     }
 
+    //Initialize new entities
+    for (unsigned int i = 0; i < sceneEntities.size(); i++) {
+        sceneEntities.at(i)->initialize(vitals);
+    }
+
+    //Add rigid bodies to physics world.
     scene->performOperationsOnAllOfType<CollisionMesh>(
         [& world = *physicsWorld](const CollisionMesh& mesh) {
             world.addRigidBody(mesh);
@@ -105,9 +94,17 @@ void Game::loadScene(int index) {
             return false;
         });
 
+    //Re-init systems.
     fixedUpdatingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
     updatingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
     renderingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
+}
+
+void Game::readBackendEventQueue() {
+    BackEndMessages msg;
+    while (backEndMessages->getMessagesThenRemove(msg)) {
+        fixedUpdatingSystem.handleBackEndMessage(msg, renderTexture);
+    }
 }
 
 void Game::fixedUpdate() {
@@ -115,7 +112,6 @@ void Game::fixedUpdate() {
         return;
     }
 
-    //Event Queue
     readBackendEventQueue();
 
     if (InputLocator::getService().keyPressedOnce(SDLK_7)) {
@@ -138,7 +134,8 @@ void Game::render() {
     renderingSystem.render(pointLightDepthMap, directionalLightDepthMap, *currentTime, renderTexture);
 }
 
-void Game::uninitialize() {
+void Game::freeEntities() {
+
     for (unsigned int i = 0; i < sceneEntities.size(); i++) {
         if (sceneEntities.at(i) == nullptr) {
             continue;
@@ -146,4 +143,10 @@ void Game::uninitialize() {
         delete sceneEntities.at(i);
     }
     sceneEntities.clear();
+}
+
+void Game::uninitialize() {
+    delete scene;
+    delete physicsWorld;
+    freeEntities();
 }

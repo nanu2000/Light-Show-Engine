@@ -114,12 +114,7 @@ void Game::fixedUpdate() {
 
     readBackendEventQueue();
 
-    if (InputLocator::getService().keyPressedOnce(SDLK_7)) {
-
-        loadScene((currentScene + 1) % scenes.size());
-    }
-
-    fixedUpdatingSystem.fixedUpdate(*currentTime, pointLightDepthMap, directionalLightDepthMap);
+    fixedUpdatingSystem.fixedUpdate(gameState, *currentTime, pointLightDepthMap, directionalLightDepthMap);
 }
 
 void Game::update() {

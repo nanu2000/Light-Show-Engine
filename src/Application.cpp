@@ -1,4 +1,5 @@
 #include "Application.h"
+
 bool Application::isRunning = true; //Set to true so the game runs
 
 Window Application::gameWindow = Window();

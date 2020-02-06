@@ -2,6 +2,7 @@
 #define GAME_H
 #include "EntityTests.h"
 #include "FixedUpdatingSystem.h"
+#include "GameState.h"
 #include "Messenger.h"
 #include "RenderingSystem.h"
 #include "Scenes.h"
@@ -18,11 +19,22 @@ public:
     void update();
     void uninitialize();
 
+    void loadScene(int scene);
+
+    inline int getCurrentSceneIndex() const {
+        return currentScene;
+    }
+    inline int getSceneCount() const {
+        return scenes.size();
+    }
+
 private:
     Messenger<BackEndMessages>* backEndMessages = nullptr;
     Time* currentTime                           = nullptr;
+    GameState gameState                         = GameState(*this);
 
-    bool areVitalsNull();
+    bool
+    areVitalsNull();
 
     void initializeShaders();
     void readBackendEventQueue();
@@ -48,8 +60,6 @@ private:
     int currentScene = 0;
 
     TextMap map;
-
-    void loadScene(int scene);
 };
 
 #endif

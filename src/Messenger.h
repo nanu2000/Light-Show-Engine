@@ -6,10 +6,16 @@
 #include <vector>
 
 template <class T>
+
+/*!The messenger- a pretty basic queue object used to send messages to one service from another. 
+
+ex: from the Game class to the FixedUpdatingSystem class.
+*/
 class Messenger {
 
 public:
-    void AddMessage(const T& message) {
+    //!Add a message to the queue
+    void addMessage(const T& message) {
         if (numberOfCurrentMessages >= GameInfo::DEFAULT_MESSAGE_CAPACITY) {
             DBG_LOG("Current messages at capacity (Messenger.h)");
             messageList.at(numberOfCurrentMessages) = message;
@@ -19,6 +25,7 @@ public:
         numberOfCurrentMessages++;
     }
 
+    //!Retrieves a message and stored it in the param `msg` then pops it from the list.
     bool getMessagesThenRemove(T& msg) {
         if (numberOfCurrentMessages - 1 >= 0) {
             msg = messageList.at(numberOfCurrentMessages - 1);
@@ -30,6 +37,7 @@ public:
         }
     }
 
+    //!Returns true if the `msg` value is in the message queue and removes the message from the queue.
     bool findThenRemoveMessage(T msg) {
 
         for (int i = 0; i < numberOfCurrentMessages; i++) {
@@ -42,6 +50,7 @@ public:
         return false;
     }
 
+    //!Clears all messages from the queue.
     void clearAll() {
         numberOfCurrentMessages = 0;
     }

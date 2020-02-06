@@ -1,5 +1,5 @@
 #include "EntityTests.h"
-
+//! Soon to be moved into json
 static std::vector<std::vector<std::string>> scenes = {
     { "Player",
       "LightTest",
@@ -17,5 +17,9 @@ static std::vector<std::vector<std::string>> scenes = {
     { "Player",
       "LightTest",
       "PlayerTestObject",
-      "FloorObject", "error!" }
+      "FloorObject",
+      "error!" },
+    { "Player",
+      "LightTest",
+      "PlayerTestObject" }
 };

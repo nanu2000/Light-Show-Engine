@@ -1,6 +1,6 @@
 #include "FixedUpdatingSystem.h"
 
-//Called in Game.cpp
+//! Called in Game.cpp
 void FixedUpdatingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& ssystems) {
     currentScene    = &scene;
     currentSettings = &settings;
@@ -15,7 +15,7 @@ void FixedUpdatingSystem::initialize(Scene& scene, Settings& settings, PhysicsWo
     //    systems->dayNightCycleSystem.initialize();
 }
 
-//Called in Game.cpp
+//! Called in Game.cpp
 void FixedUpdatingSystem::handleBackEndMessage(BackEndMessages msg, RenderTexture& renderTexture) {
 
     switch (msg) {
@@ -40,8 +40,8 @@ void FixedUpdatingSystem::handleBackEndMessage(BackEndMessages msg, RenderTextur
     }
 }
 
-//Called in Game.cpp
-void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
+//! Called in Game.cpp
+void FixedUpdatingSystem::fixedUpdate(GameState& gameState, const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
 
     if (areVitalsNull()) {
         return;
@@ -62,6 +62,11 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
         SDL_ShowCursor(SDL_DISABLE);
 
         GameInfo::setMousePosition(GameInfo::getWindowWidth() / 2, GameInfo::getWindowHeight() / 2);
+    }
+
+    if (InputLocator::getService().keyPressedOnce(SDLK_7)) {
+
+        gameState.loadScene((gameState.getCurrentSceneIndex() + 1) % gameState.getSceneCount());
     }
 
     //Run day night cycle
@@ -137,8 +142,8 @@ void FixedUpdatingSystem::fixedUpdate(const Time& time, PointLightShadowMap& poi
     });
 }
 
-//Updates GUI.
-//returns true if the pause menu is showing.
+//!Updates GUI.
+//!returns true if the pause menu is showing.
 bool FixedUpdatingSystem::updateGUI(const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
 
     bool isPauseMenuShowing = false;
@@ -165,7 +170,7 @@ bool FixedUpdatingSystem::updateGUI(const Time& time, PointLightShadowMap& point
     return isPauseMenuShowing;
 }
 
-//Provides info for the shadow maps such as the lights' positions
+//!Provides info for the shadow maps such as the lights' positions
 void FixedUpdatingSystem::updateShadowMaps(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Camera& currentCamera) {
 
     //Assume no shadows are active
@@ -195,7 +200,7 @@ void FixedUpdatingSystem::updateShadowMaps(PointLightShadowMap& pointLightDepthM
         });
 }
 
-//Set transforms of models to collision transforms
+//!Set transforms of models to collision transforms
 void FixedUpdatingSystem::updateCollision(const int32_t entity, CollisionMesh& collisionMesh) {
 
     _3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(entity);
@@ -245,7 +250,7 @@ void FixedUpdatingSystem::updateCollision(const int32_t entity, CollisionMesh& c
     }
 }
 
-//Checks for collision tag, if it exists then it will execute triggers on any objects colliding
+//! Checks for collision tag, if it exists then it will execute triggers on any objects colliding
 void FixedUpdatingSystem::updateCollisionTriggers(const CollisionTag& thisTag) {
     if (thisTag.tagName == COLLISION_TAGS::TAG_EMPTY) {
         return;

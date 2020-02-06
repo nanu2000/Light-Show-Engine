@@ -48,7 +48,7 @@ void Window::resizeWindow(int w, int h, Messenger<BackEndMessages>& msgr) {
     height = h;
     SDL_SetWindowSize(gameWindow, width, height);
     glViewport(0, 0, width, height);
-    msgr.AddMessage(BackEndMessages::REFRESH_CAMERA);
+    msgr.addMessage(BackEndMessages::REFRESH_CAMERA);
 }
 
 glm::ivec2 Window::getDeviceMaxScreenSize() {

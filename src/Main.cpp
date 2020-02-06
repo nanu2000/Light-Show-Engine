@@ -4,7 +4,7 @@
  *If you have any comments or questions please feel free to contact me @ richiesikra@gmail.com.
  */
 int main(int argc, char* argv[]) {
-    Application thisApplication; //the application
+    Engine::Application thisApplication; //the application
 
     thisApplication.run();
 

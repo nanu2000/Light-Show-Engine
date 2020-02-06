@@ -1,26 +1,29 @@
 #include "Application.h"
-
-bool Application::isRunning = true; //Set to true so the game runs
-
-Window Application::gameWindow = Window();
-
+using namespace Engine;
+//Used to terminate the game
 void GameInfo::terminateGame() {
-    Application::isRunning = false;
+    Engine::isRunning = false;
 }
 
+//!Used to get the game windows width.
 int GameInfo::getWindowWidth() {
-    return Application::getGameWindowWidth();
+    return Engine::getGameWindowWidth();
 }
 
+//!Used to get the game windows height.
 int GameInfo::getWindowHeight() {
-    return Application::getGameWindowHeight();
+    return Engine::getGameWindowHeight();
 }
 
+//!Used to set the mouse position.
 void GameInfo::setMousePosition(int xPos, int yPos) {
-    Application::setMousePosition(xPos, yPos);
+    Engine::setMousePosition(xPos, yPos);
 }
 
-void Application::run() {
+Window Engine::gameWindow = Window(GameInfo::START_WINDOW_WIDTH, GameInfo::START_WINDOW_HEIGHT);
+bool Engine::isRunning    = true;
+
+void Engine::Application::run() {
     unsigned long now  = SDL_GetTicks(); //milliseconds passed
     unsigned long last = now; //last known amount of milliseconds passed since last update
     double accumulator = GameInfo::fixedDeltaTime; // GameInfo::fixedDeltaTime;	//fixed timestep accumulator

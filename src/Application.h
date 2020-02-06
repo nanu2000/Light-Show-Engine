@@ -1,104 +1,102 @@
 #ifndef GAME_APP_H
 #define GAME_APP_H
 
-/***************************
-* Includes and namespaces. *
-****************************/
-#include "Debug.h"
 #include "Game.h"
 #include "Window.h"
 #include <GL/glew.h>
-/****************************************************************************
-************************* The application class *****************************
-*****************************************************************************/
-class Application {
 
-    /******************************************
-************* Public Members **************
-*******************************************/
+//!Contains the engine side of things.
+namespace Engine {
 
-public:
-    /**************************
-	* public Member Functions *
-	***************************/
-    void run(); //A function that runs everything important
+    //!The game loop will only run if this is true.
+    extern bool isRunning;
 
-    inline static unsigned int const getGameWindowWidth() {
+    //!The window used for the game.
+    extern Window gameWindow;
+
+    inline unsigned int const getGameWindowWidth() {
         return gameWindow.getWidth();
     };
-    inline static unsigned int const getGameWindowHeight() {
+
+    inline unsigned int const getGameWindowHeight() {
         return gameWindow.getHeight();
     };
+
     inline static void setMousePosition(int xPos, int yPos) {
         SDL_WarpMouseInWindow(gameWindow.getWindow(), xPos, yPos);
     }
-    /**************************
-	* public Member variables *
-	***************************/
 
-    static bool isRunning; //The game loop will only run if this is true.
+    //! The Application class manages important tasks like creating a Game, managing the Window and Locators (single instance services) such as Input, Textures, Audio, and Shaders.
+    class Application {
 
-    /******************************************
-************* Private Members *************
-*******************************************/
+    public:
+        void run(); //The function that runs everything
 
-private:
-    static Window gameWindow;
-    /***************************
-	* Private Member Functions *
-	****************************/
+    private:
+        //!For Fixed updating - generally physics. Capped to run at GameInfo::fixedDeltaTime
+        void fixedUpdate();
 
-    void fixedUpdate(); //For Fixed updating - generally physics. Capped to run at GameInfo::fixedDeltaTime
+        //!For updating- generally user input or ai
+        void update();
 
-    void update(); //For updating- generally user input or ai
+        //!For Rendering
+        void render();
 
-    void render(); //For Rendering
+        //!For Important Initializing
+        void initialize();
 
-    void initialize(); //For Important Initializing
+        //!For Important Uninitializing
+        void uninitialize();
 
-    void uninitialize(); //For Important Uninitializing
+        //!For initializing openGL
+        void initializeGL();
 
-    void initializeGL(); //for initializing openGL
+        //!For initializing SDL2
+        void initializeSDL();
 
-    void initializeSDL(); //For initializing SDL2
+        //!For initializing audio (SDL_Mixer)
+        void initializeAudio();
 
-    void initializeAudio(); //For initializing audio (SDL_Mixer)
+        SDL_Event sdlEventSystem;
 
-    /***************************
-	* Private Member Variables *
-	****************************/
+        //!Audio Rate.(frequency) 22050 for LQ sound (faster) 44100 for HQ sound
+        const unsigned int AUDIO_RATE = 22050;
 
-    SDL_Event sdlEventSystem;
+        //!Audio Channel	2 for sterio, 1 for mono
+        const unsigned int AUDIO_CHANNEL = 1;
 
-    const unsigned int AUDIO_RATE = 22050; //Audio Rate.(frequency) 22050 for LQ sound (faster) 44100 for HQ sound
+        //!Audio Bufffer (chunk size) Bytes used per output sample
+        const unsigned int AUDIO_BUFFER = 256;
 
-    const unsigned int AUDIO_CHANNEL = 1; //Audio Channel	2 for sterio, 1 for mono
+        //!Audio Format signed 8-bit samples, in system byte order. Same as AUDIO_S16SYS
+        const unsigned short AUDIO_FORMAT = AUDIO_U8;
 
-    const unsigned int AUDIO_BUFFER = 256; //Audio Bufffer (chunk size) Bytes used per output sample
+        //!The default color of the screen.
+        const glm::vec4 SCREEN_COLOR = glm::vec4(.8f, .9f, .95f, 1.f);
 
-    const unsigned short AUDIO_FORMAT = AUDIO_U8; //Audio Format signed 8-bit samples, in system byte order. Same as AUDIO_S16SYS
+        //For the InputLocator
+        Input inputService;
 
-    const glm::vec4 SCREEN_COLOR = glm::vec4(.8f, .9f, .95f, 1.f); //The default color of the screen.
+        //For the SoundLocator
+        SoundHandler soundService;
 
-    /***********************************************
-	*Everything below is used for testing purposes.*
-	************************************************/
+        //For the MusicLocator
+        MusicHandler musicService;
 
-    Input inputService; //For the InputLocator
+        //For the TextureLocator
+        TextureHandler textureService;
 
-    SoundHandler soundService; //For the SoundLocator
+        //For the ShaderLocator
+        ShaderHandler shaderService;
 
-    MusicHandler musicService; //For the MusicLocator
+        //!Manages time
+        Time currentTime;
 
-    TextureHandler textureService; //For the TextureLocator
+        //!Manages BackEndMessages to send to Game
+        Messenger<BackEndMessages> backEndMessagingSystem;
 
-    ShaderHandler shaderService; //For the ShaderLocator
-
-    Time currentTime;
-
-    Messenger<BackEndMessages> backEndMessagingSystem;
-
-    Game thisGame;
-};
-
+        //!We run the game with this!
+        Game thisGame;
+    };
+}
 #endif

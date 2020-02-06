@@ -1,5 +1,8 @@
 #include "Window.h"
-
+Window::Window(unsigned int w, unsigned int h) {
+    width  = w;
+    height = h;
+}
 Window::~Window() {
     SDL_GL_DeleteContext(glContext);
     SDL_DestroyWindow(gameWindow);

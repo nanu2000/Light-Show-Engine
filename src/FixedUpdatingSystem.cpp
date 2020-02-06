@@ -72,7 +72,7 @@ void FixedUpdatingSystem::fixedUpdate(GameState& gameState, const Time& time, Po
     //Run day night cycle
     currentScene->performOperationsOnAllOfType<DirectionalLight>(
         [&](DirectionalLight& light) {
-            //            systems->dayNightCycleSystem.fixedUpdate(light, time);
+            systems->dayNightCycleSystem.fixedUpdate(light, time);
             return false;
         });
 

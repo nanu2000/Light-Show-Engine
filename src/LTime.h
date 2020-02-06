@@ -1,11 +1,12 @@
 #ifndef TIME_H
 #define TIME_H
-class Application;
-
 #include "Debug.h"
 #include "GameInfo.h"
 #include <SDL.h>
 
+namespace Engine {
+    class Application;
+}
 class Time {
 
 public:
@@ -52,7 +53,7 @@ private:
     void updateMSPF();
     void updateFPS();
 
-    friend Application;
+    friend class Engine::Application;
 };
 
 #endif // !TIME_H

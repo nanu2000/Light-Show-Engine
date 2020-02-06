@@ -1,7 +1,6 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 #include "Debug.h"
-#include "GameInfo.h"
 #include "Messenger.h"
 #include <GL/glew.h>
 #include <SDL.h>
@@ -10,6 +9,9 @@
 
 class Window {
 public:
+    Window(unsigned int w, unsigned int h);
+    Window() {}
+
     ~Window();
 
     void initialize();
@@ -33,8 +35,8 @@ private:
     SDL_Window* gameWindow  = nullptr;
     SDL_GLContext glContext = nullptr;
 
-    unsigned int width  = GameInfo::START_WINDOW_WIDTH;
-    unsigned int height = GameInfo::START_WINDOW_HEIGHT;
+    unsigned int width  = 640;
+    unsigned int height = 400;
 };
 
 #endif // !WINDOW_H

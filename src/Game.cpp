@@ -1,11 +1,6 @@
 #include "Game.h"
 
-void Game::resetVitals(Time* time, Messenger<BackEndMessages>* backEndMessagingSystem) {
-    currentTime     = time;
-    backEndMessages = backEndMessagingSystem;
-}
-
-bool Game::areVitalsNull() {
+bool Engine::Game::areVitalsNull() {
     if (!currentTime || !backEndMessages) {
         DBG_LOG("ONE OR MORE VITAL OBJECTS IS NULL\n (Game::isVitalsNull())\n");
         return true;
@@ -14,7 +9,7 @@ bool Game::areVitalsNull() {
     return false;
 }
 
-void Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSystem) {
+void Engine::Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSystem) {
 
     Entities::registerEntities();
 
@@ -32,7 +27,7 @@ void Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSy
     loadScene(0);
 }
 
-void Game::initializeShaders() {
+void Engine::Game::initializeShaders() {
 
     directionalLightDepthMap.initialize();
     pointLightDepthMap.initialize();
@@ -43,7 +38,7 @@ void Game::initializeShaders() {
     Shader::setShaderTaskShader(SHADER_TASK::Omnidirectional_Depth_Task, pointLightDepthMap.getDepthMapShader());
 }
 
-void Game::loadScene(int index) {
+void Engine::Game::loadScene(int index) {
 
     if (index >= scenes.size()) {
         DBG_LOG("Cannot load scene, index out of bounds\n");
@@ -100,14 +95,14 @@ void Game::loadScene(int index) {
     renderingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
 }
 
-void Game::readBackendEventQueue() {
+void Engine::Game::readBackendEventQueue() {
     BackEndMessages msg;
     while (backEndMessages->getMessagesThenRemove(msg)) {
         fixedUpdatingSystem.handleBackEndMessage(msg, renderTexture);
     }
 }
 
-void Game::fixedUpdate() {
+void Engine::Game::fixedUpdate() {
     if (areVitalsNull()) {
         return;
     }
@@ -117,11 +112,11 @@ void Game::fixedUpdate() {
     fixedUpdatingSystem.fixedUpdate(gameState, *currentTime, pointLightDepthMap, directionalLightDepthMap);
 }
 
-void Game::update() {
+void Engine::Game::update() {
     updatingSystem.update();
 }
 
-void Game::render() {
+void Engine::Game::render() {
     if (areVitalsNull()) {
         return;
     }
@@ -129,7 +124,7 @@ void Game::render() {
     renderingSystem.render(pointLightDepthMap, directionalLightDepthMap, *currentTime, renderTexture);
 }
 
-void Game::freeEntities() {
+void Engine::Game::freeEntities() {
 
     for (unsigned int i = 0; i < sceneEntities.size(); i++) {
         if (sceneEntities.at(i) == nullptr) {
@@ -140,7 +135,7 @@ void Game::freeEntities() {
     sceneEntities.clear();
 }
 
-void Game::uninitialize() {
+void Engine::Game::uninitialize() {
     delete scene;
     delete physicsWorld;
     freeEntities();

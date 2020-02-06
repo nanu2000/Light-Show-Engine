@@ -1,6 +1,10 @@
 #ifndef GAME_STATE_H
 #define GAME_STATE_H
-class Game;
+
+namespace Engine {
+    class Game;
+}
+
 /*! 
 The GameState class is used as a layer to provide Game functions such as Game::loadScene to classes such as 
 FixedUpdatingSystem without exposing sensitive functions like Game::uninitialize or Game::resetVitals. 
@@ -9,7 +13,7 @@ Essentially: FixedUpdatingSystem, RenderingSystem, and UpdatingSystem should not
 */
 class GameState {
 public:
-    GameState(Game& game);
+    GameState(Engine::Game& game);
 
     //!Loads a scene via index of the scene to be loaded.
     void loadScene(int sceneIndex);
@@ -21,6 +25,6 @@ public:
     int getSceneCount();
 
 private:
-    Game* currentGame;
+    Engine::Game* currentGame;
 };
 #endif

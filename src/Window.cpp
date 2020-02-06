@@ -1,30 +1,28 @@
 #include "Window.h"
-Window::Window(unsigned int w, unsigned int h) {
+Engine::Window::Window(unsigned int w, unsigned int h) {
     width  = w;
     height = h;
 }
-Window::~Window() {
+Engine::Window::~Window() {
     SDL_GL_DeleteContext(glContext);
     SDL_DestroyWindow(gameWindow);
 }
-void Window::initialize() {
+void Engine::Window::initialize() {
 
     gameWindow = SDL_CreateWindow //create game window
-        (
-            windowTitle.c_str(), //Sets title of the applications window
-            SDL_WINDOWPOS_CENTERED, //sets x position of window
-            SDL_WINDOWPOS_CENTERED, //sets y position of window
-            width, //sets width of window (pixel size)
-            height, //sets height of window (pixel size)
-            SDL_WINDOW_OPENGL | //enables window to be used with opengl
-                SDL_WINDOW_RESIZABLE);
+        (windowTitle.c_str(),
+         SDL_WINDOWPOS_CENTERED, //sets x position of window
+         SDL_WINDOWPOS_CENTERED, //sets y position of window
+         width,
+         height,
+         SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE); //enables window to be used with opengl and to be resizable.
 
     glViewport(0, 0, width, height); //openGL camera viewport
 
     glContext = SDL_GL_CreateContext(gameWindow);
 }
 
-void Window::handleEvents(SDL_Event& eventSystem, SDL_WindowEventID windowEvent, Messenger<BackEndMessages>& msgr) {
+void Engine::Window::handleEvents(SDL_Event& eventSystem, SDL_WindowEventID windowEvent, Messenger<BackEndMessages>& msgr) {
 
     switch (windowEvent) {
 
@@ -41,12 +39,12 @@ void Window::handleEvents(SDL_Event& eventSystem, SDL_WindowEventID windowEvent,
     }
 }
 
-void Window::setWindowTitle(const std::string& title) {
+void Engine::Window::setWindowTitle(const std::string& title) {
     windowTitle = title;
     SDL_SetWindowTitle(gameWindow, windowTitle.c_str());
 }
 
-void Window::resizeWindow(int w, int h, Messenger<BackEndMessages>& msgr) {
+void Engine::Window::resizeWindow(int w, int h, Messenger<BackEndMessages>& msgr) {
     width  = w;
     height = h;
     SDL_SetWindowSize(gameWindow, width, height);
@@ -54,7 +52,7 @@ void Window::resizeWindow(int w, int h, Messenger<BackEndMessages>& msgr) {
     msgr.addMessage(BackEndMessages::REFRESH_CAMERA);
 }
 
-glm::ivec2 Window::getDeviceMaxScreenSize() {
+glm::ivec2 Engine::Window::getDeviceMaxScreenSize() {
     SDL_DisplayMode current;
     int window = 0;
 

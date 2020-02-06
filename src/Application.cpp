@@ -1,5 +1,6 @@
 #include "Application.h"
 using namespace Engine;
+
 //Used to terminate the game
 void GameInfo::terminateGame() {
     Engine::isRunning = false;
@@ -20,8 +21,8 @@ void GameInfo::setMousePosition(int xPos, int yPos) {
     Engine::setMousePosition(xPos, yPos);
 }
 
-Window Engine::gameWindow = Window(GameInfo::START_WINDOW_WIDTH, GameInfo::START_WINDOW_HEIGHT);
-bool Engine::isRunning    = true;
+Engine::Window Engine::gameWindow = Engine::Window(GameInfo::START_WINDOW_WIDTH, GameInfo::START_WINDOW_HEIGHT);
+bool Engine::isRunning            = true;
 
 void Engine::Application::run() {
     unsigned long now  = SDL_GetTicks(); //milliseconds passed

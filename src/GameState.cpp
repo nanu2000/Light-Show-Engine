@@ -1,6 +1,6 @@
 #include "GameState.h"
 #include "Game.h"
-GameState::GameState(Game& game) {
+GameState::GameState(Engine::Game& game) {
     currentGame = &game;
 }
 

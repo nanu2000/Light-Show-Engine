@@ -12,7 +12,7 @@ namespace Engine {
     extern bool isRunning;
 
     //!The window used for the game.
-    extern Window gameWindow;
+    extern Engine::Window gameWindow;
 
     inline unsigned int const getGameWindowWidth() {
         return gameWindow.getWidth();
@@ -42,10 +42,10 @@ namespace Engine {
         //!For Rendering
         void render();
 
-        //!For Important Initializing
+        //!For Initializing everything
         void initialize();
 
-        //!For Important Uninitializing
+        //!For Uninitializing everything
         void uninitialize();
 
         //!For initializing openGL
@@ -60,7 +60,7 @@ namespace Engine {
         SDL_Event sdlEventSystem;
 
         //!Audio Rate.(frequency) 22050 for LQ sound (faster) 44100 for HQ sound
-        const unsigned int AUDIO_RATE = 22050;
+        const unsigned int AUDIO_RATE = 44100;
 
         //!Audio Channel	2 for sterio, 1 for mono
         const unsigned int AUDIO_CHANNEL = 1;

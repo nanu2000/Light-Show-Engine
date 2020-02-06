@@ -8,58 +8,79 @@
 #include "Scenes.h"
 #include "UpdatingSystem.h"
 
-class Game {
+namespace Engine {
 
-public:
-    void initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSystem);
-    void resetVitals(Time* time, Messenger<BackEndMessages>* backEndMessagingSystem);
+    //!Handles the Game's physics, scene loading, rendering, and updating. Managed by Application.
+    class Game {
 
-    void fixedUpdate();
-    void render();
-    void update();
-    void uninitialize();
+    public:
+        void initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSystem);
 
-    void loadScene(int scene);
+        void fixedUpdate();
+        void render();
+        void update();
 
-    inline int getCurrentSceneIndex() const {
-        return currentScene;
-    }
-    inline int getSceneCount() const {
-        return scenes.size();
-    }
+        void uninitialize();
 
-private:
-    Messenger<BackEndMessages>* backEndMessages = nullptr;
-    Time* currentTime                           = nullptr;
-    GameState gameState                         = GameState(*this);
+        //!Loads a scene by index- should be called in fixedUpdate.
+        void loadScene(int scene);
 
-    bool
-    areVitalsNull();
+        inline int getCurrentSceneIndex() const {
+            return currentScene;
+        }
+        inline int getSceneCount() const {
+            return scenes.size();
+        }
 
-    void initializeShaders();
-    void readBackendEventQueue();
+    private:
+        //!Messenger to recieve messages from Application.
+        Messenger<BackEndMessages>* backEndMessages = nullptr;
+        Time* currentTime                           = nullptr;
 
-    void freeEntities();
+        //!Used to provide Game info to UpdatingSystem, FixedUpdatingSystem, and RenderingSystem without exposing the Game
+        GameState gameState = GameState(*this);
 
-    Settings settings = Settings(GameInfo::DEFAULT_GRAVITY, glm::vec3(-20, 0, 10));
+        //!Checks for null vitals
+        bool areVitalsNull();
 
-    PointLightShadowMap pointLightDepthMap;
-    DirectionalLightShadowMap directionalLightDepthMap;
-    RenderTexture renderTexture;
+        void initializeShaders();
+        void readBackendEventQueue();
 
-    UpdatingSystem updatingSystem;
-    FixedUpdatingSystem fixedUpdatingSystem;
-    RenderingSystem renderingSystem;
-    SubSystems subSystems;
+        void freeEntities();
 
-    Scene* scene               = new Scene();
-    PhysicsWorld* physicsWorld = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
+        Settings settings = Settings(GameInfo::DEFAULT_GRAVITY, glm::vec3(-20, 0, 10));
 
-    std::vector<EntityWrapper*> sceneEntities;
+        //Todo: Components?
+        PointLightShadowMap pointLightDepthMap;
+        DirectionalLightShadowMap directionalLightDepthMap;
+        RenderTexture renderTexture;
 
-    int currentScene = 0;
+        //!The main system used for updating the game based on the Scene's components
+        UpdatingSystem updatingSystem;
 
-    TextMap map;
-};
+        //!The main system used for fixed updating the game based on the Scene's components
+        FixedUpdatingSystem fixedUpdatingSystem;
 
+        //!The main system used for rendering game the game based on the Scene's components
+        RenderingSystem renderingSystem;
+
+        //!Small systems that are used inside of the UpdatingSystem, FixedUpdatingSystem, and RenderingSystem.
+        SubSystems subSystems;
+
+        //!Current scene
+        Scene* scene = new Scene();
+
+        //!Current PhysicsWorld used along with the Scene
+        PhysicsWorld* physicsWorld = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
+
+        std::vector<EntityWrapper*> sceneEntities;
+
+        //!The current scene index
+        int currentScene = 0;
+
+        //Todo: Move to component?
+        //!Font atlas to be used in the game.
+        TextMap map;
+    };
+}
 #endif

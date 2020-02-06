@@ -5,6 +5,7 @@
 #include "glm/vec4.hpp"
 #include <string>
 
+//Todo: Move to json for entities in scene.
 enum class COLLISION_TAGS : int16_t {
     Player           = 0,
     TestCollisionTag = 1,
@@ -29,12 +30,14 @@ static const char* GET_COLLISION_TAG_NAME(const COLLISION_TAGS& cTag) {
 }
 
 const int8_t TAG_ENTITY_UNDEFINED = -1;
+//
 
 //deltaTime for physics calculations and accurate updating
 namespace PrivateGameInfo {
     extern float deltaTime;
 };
 
+//!Contains the game's info such as Window settings and timestep.
 namespace GameInfo {
 
     /*For Screen Resolution Dependent Images / text, use this formula.

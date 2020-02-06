@@ -105,6 +105,10 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a0cd419405f5790feab89322cbb3f18ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5eb682ebf3aa9ac5b2d6d63ade9ddcc0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1f/class_game.html#a5eb682ebf3aa9ac5b2d6d63ade9ddcc0">readBackendEventQueue</a> ()</td></tr>
 <tr class="separator:a5eb682ebf3aa9ac5b2d6d63ade9ddcc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a953f7a9fe92ec47602083dd2e9a3b26d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1f/class_game.html#a953f7a9fe92ec47602083dd2e9a3b26d">freeEntities</a> ()</td></tr>
+<tr class="separator:a953f7a9fe92ec47602083dd2e9a3b26d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a339feb3115ec7ff701cadd6cce18a66b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1f/class_game.html#a339feb3115ec7ff701cadd6cce18a66b">loadScene</a> (int <a class="el" href="../../dd/d1f/class_game.html#afcb137f9c5d6598c5182c2d8d24312bc">scene</a>)</td></tr>
+<tr class="separator:a339feb3115ec7ff701cadd6cce18a66b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -132,18 +136,16 @@ Private Attributes</h2></td></tr>
 <tr class="separator:afcb137f9c5d6598c5182c2d8d24312bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe18add138e55e9cc72f8ed0c426f414"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d44/class_physics_world.html">PhysicsWorld</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1f/class_game.html#abe18add138e55e9cc72f8ed0c426f414">physicsWorld</a> = new <a class="el" href="../../d5/d44/class_physics_world.html">PhysicsWorld</a>(<a class="el" href="../../d7/dd1/namespacehh.html#aa0102ec32d9d665ebdda89fa4c03c5b6">hh::toBtVec3</a>(<a class="el" href="../../d4/d58/namespace_game_info.html#a673ece59517ff41f70fd3c72f73ef681">GameInfo::DEFAULT_GRAVITY</a>))</td></tr>
 <tr class="separator:abe18add138e55e9cc72f8ed0c426f414"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a110cbeb88ebcec201bfc76ccfb90357d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d3/d43/class_entity_wrapper.html">EntityWrapper</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1f/class_game.html#a110cbeb88ebcec201bfc76ccfb90357d">sceneOneEntities</a></td></tr>
-<tr class="separator:a110cbeb88ebcec201bfc76ccfb90357d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab29665a1916f5e38160e86934c21c8de"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d3/d43/class_entity_wrapper.html">EntityWrapper</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1f/class_game.html#ab29665a1916f5e38160e86934c21c8de">sceneTwoEntities</a></td></tr>
-<tr class="separator:ab29665a1916f5e38160e86934c21c8de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a538da538bec244e4065f4c541a605753"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1f/class_game.html#a538da538bec244e4065f4c541a605753">hasInit</a> = false</td></tr>
-<tr class="separator:a538da538bec244e4065f4c541a605753"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27767c5ac995168f3826ad54d93d17ed"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d3/d43/class_entity_wrapper.html">EntityWrapper</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1f/class_game.html#a27767c5ac995168f3826ad54d93d17ed">sceneEntities</a></td></tr>
+<tr class="separator:a27767c5ac995168f3826ad54d93d17ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6d4257f69001744503d4ffe94f978f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1f/class_game.html#ac6d4257f69001744503d4ffe94f978f9">currentScene</a> = 0</td></tr>
+<tr class="separator:ac6d4257f69001744503d4ffe94f978f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecad07fce7267a365766f7050e86565f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d74/class_text_map.html">TextMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1f/class_game.html#aecad07fce7267a365766f7050e86565f">map</a></td></tr>
 <tr class="separator:aecad07fce7267a365766f7050e86565f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00009">9</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00010">10</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa4f9a0322b707a1bcdb18a2bb54210b6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa4f9a0322b707a1bcdb18a2bb54210b6">&#9670;&nbsp;</a></span>areVitalsNull()</h2>
@@ -170,9 +172,9 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00008">8</a> of file <a class="el" href="../../d7/db5/_game_8cpp_source.html">Game.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d9/dcd/_game_8h_source.html#l00021">backEndMessages</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00022">currentTime</a>, and <a class="el" href="../../d0/d4b/_debug_8h_source.html#l00003">DBG_LOG</a>.</p>
+<p class="reference">References <a class="el" href="../../d9/dcd/_game_8h_source.html#l00022">backEndMessages</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00023">currentTime</a>, and <a class="el" href="../../d0/d4b/_debug_8h_source.html#l00003">DBG_LOG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00079">fixedUpdate()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">initialize()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00153">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00110">fixedUpdate()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">initialize()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00129">render()</a>.</p>
 
 </div>
 </div>
@@ -191,11 +193,42 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00079">79</a> of file <a class="el" href="../../d7/db5/_game_8cpp_source.html">Game.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00110">110</a> of file <a class="el" href="../../d7/db5/_game_8cpp_source.html">Game.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00008">areVitalsNull()</a>, <a class="el" href="../../da/d03/_entity_tests_8h_source.html#l00029">EntityWrapper::EntityVitals::currentSettings</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00022">currentTime</a>, <a class="el" href="../../de/d50/_game_info_8h_source.html#l00074">GameInfo::DEFAULT_GRAVITY</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00032">directionalLightDepthMap</a>, <a class="el" href="../../d0/d56/_fixed_updating_system_8cpp_source.html#l00044">FixedUpdatingSystem::fixedUpdate()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00036">fixedUpdatingSystem</a>, <a class="el" href="../../db/dcf/_locator_8h_source.html#l00020">Locator&lt; Input, NullInput &gt;::getService()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00064">hasInit</a>, <a class="el" href="../../d7/d1d/_updating_system_8cpp_source.html#l00003">UpdatingSystem::initialize()</a>, <a class="el" href="../../d0/d56/_fixed_updating_system_8cpp_source.html#l00004">FixedUpdatingSystem::initialize()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00003">RenderingSystem::initialize()</a>, <a class="el" href="../../da/d03/_entity_tests_8h_source.html#l00032">EntityWrapper::EntityVitals::map</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00066">map</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00065">Scene::performOperationsOnAllOfType()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00041">physicsWorld</a>, <a class="el" href="../../de/d50/_game_info_8h.html#af4cacc871b556d58b423003df79433fba636da1d35e805b00eae0fcd8333f9234">Player</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00031">pointLightDepthMap</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00072">readBackendEventQueue()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00037">renderingSystem</a>, <a class="el" href="../../da/d03/_entity_tests_8h_source.html#l00030">EntityWrapper::EntityVitals::scene</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00040">scene</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00057">sceneTwoEntities</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00029">settings</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00038">subSystems</a>, <a class="el" href="../../da/d03/_entity_tests_8h_source.html#l00031">EntityWrapper::EntityVitals::thisWorld</a>, <a class="el" href="../../d5/de1/_helping_hand_8cpp_source.html#l00012">hh::toBtVec3()</a>, and <a class="el" href="../../d9/dcd/_game_8h_source.html#l00035">updatingSystem</a>.</p>
+<p class="reference">References <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00008">areVitalsNull()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00048">currentScene</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00023">currentTime</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00035">directionalLightDepthMap</a>, <a class="el" href="../../d0/d56/_fixed_updating_system_8cpp_source.html#l00044">FixedUpdatingSystem::fixedUpdate()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00039">fixedUpdatingSystem</a>, <a class="el" href="../../db/dcf/_locator_8h_source.html#l00020">Locator&lt; Input, NullInput &gt;::getService()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00046">loadScene()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00034">pointLightDepthMap</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00103">readBackendEventQueue()</a>, and <a class="el" href="../../df/dae/_scenes_8h_source.html#l00003">scenes</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00160">Application::fixedUpdate()</a>.</p>
+
+</div>
+</div>
+<a id="a953f7a9fe92ec47602083dd2e9a3b26d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a953f7a9fe92ec47602083dd2e9a3b26d">&#9670;&nbsp;</a></span>freeEntities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::freeEntities </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00137">137</a> of file <a class="el" href="../../d7/db5/_game_8cpp_source.html">Game.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../d9/dcd/_game_8h_source.html#l00046">sceneEntities</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00046">loadScene()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00148">uninitialize()</a>.</p>
 
 </div>
 </div>
@@ -227,7 +260,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">17</a> of file <a class="el" href="../../d7/db5/_game_8cpp_source.html">Game.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00008">areVitalsNull()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00021">backEndMessages</a>, <a class="el" href="../../df/d08/_text_map_8cpp_source.html#l00023">TextMap::createMap()</a>, <a class="el" href="../../da/d03/_entity_tests_8h_source.html#l00029">EntityWrapper::EntityVitals::currentSettings</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00022">currentTime</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00036">fixedUpdatingSystem</a>, <a class="el" href="../../d7/d1d/_updating_system_8cpp_source.html#l00003">UpdatingSystem::initialize()</a>, <a class="el" href="../../d0/d56/_fixed_updating_system_8cpp_source.html#l00004">FixedUpdatingSystem::initialize()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00003">RenderingSystem::initialize()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00061">initializeShaders()</a>, <a class="el" href="../../da/d03/_entity_tests_8h_source.html#l00032">EntityWrapper::EntityVitals::map</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00066">map</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00065">Scene::performOperationsOnAllOfType()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00041">physicsWorld</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00037">renderingSystem</a>, <a class="el" href="../../da/d03/_entity_tests_8h_source.html#l00030">EntityWrapper::EntityVitals::scene</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00040">scene</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00045">sceneOneEntities</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00029">settings</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00038">subSystems</a>, <a class="el" href="../../da/d03/_entity_tests_8h_source.html#l00031">EntityWrapper::EntityVitals::thisWorld</a>, and <a class="el" href="../../d9/dcd/_game_8h_source.html#l00035">updatingSystem</a>.</p>
+<p class="reference">References <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00008">areVitalsNull()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00022">backEndMessages</a>, <a class="el" href="../../df/d08/_text_map_8cpp_source.html#l00023">TextMap::createMap()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00023">currentTime</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00035">initializeShaders()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00046">loadScene()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00050">map</a>, and <a class="el" href="../../da/d03/_entity_tests_8h_source.html#l00183">Entities::registerEntities()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00139">Application::initialize()</a>.</p>
 
@@ -256,11 +289,43 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00061">61</a> of file <a class="el" href="../../d7/db5/_game_8cpp_source.html">Game.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00035">35</a> of file <a class="el" href="../../d7/db5/_game_8cpp_source.html">Game.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d9/dcd/_game_8h_source.html#l00032">directionalLightDepthMap</a>, <a class="el" href="../../d7/d14/_directional_light_shadow_map_8h_source.html#l00016">DirectionalLightShadowMap::getDepthMapShader()</a>, <a class="el" href="../../d4/d43/_point_light_shadow_map_8h_source.html#l00019">PointLightShadowMap::getDepthMapShader()</a>, <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00014">GameInfo::getWindowHeight()</a>, <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00010">GameInfo::getWindowWidth()</a>, <a class="el" href="../../dc/dd6/_render_texture_8cpp_source.html#l00002">RenderTexture::initialize()</a>, <a class="el" href="../../d1/db9/_directional_light_shadow_map_8cpp_source.html#l00016">DirectionalLightShadowMap::initialize()</a>, <a class="el" href="../../d9/dce/_point_light_shadow_map_8cpp_source.html#l00003">PointLightShadowMap::initialize()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00031">pointLightDepthMap</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00033">renderTexture</a>, <a class="el" href="../../d8/d34/_shader_8h_source.html#l00030">Shader::setShaderTask()</a>, and <a class="el" href="../../d8/d34/_shader_8h_source.html#l00029">Shader::setShaderTaskShader()</a>.</p>
+<p class="reference">References <a class="el" href="../../d9/dcd/_game_8h_source.html#l00035">directionalLightDepthMap</a>, <a class="el" href="../../d7/d14/_directional_light_shadow_map_8h_source.html#l00016">DirectionalLightShadowMap::getDepthMapShader()</a>, <a class="el" href="../../d4/d43/_point_light_shadow_map_8h_source.html#l00019">PointLightShadowMap::getDepthMapShader()</a>, <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00014">GameInfo::getWindowHeight()</a>, <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00010">GameInfo::getWindowWidth()</a>, <a class="el" href="../../dc/dd6/_render_texture_8cpp_source.html#l00002">RenderTexture::initialize()</a>, <a class="el" href="../../d1/db9/_directional_light_shadow_map_8cpp_source.html#l00016">DirectionalLightShadowMap::initialize()</a>, <a class="el" href="../../d9/dce/_point_light_shadow_map_8cpp_source.html#l00003">PointLightShadowMap::initialize()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00034">pointLightDepthMap</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00036">renderTexture</a>, <a class="el" href="../../d8/d34/_shader_8h_source.html#l00030">Shader::setShaderTask()</a>, and <a class="el" href="../../d8/d34/_shader_8h_source.html#l00029">Shader::setShaderTaskShader()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">initialize()</a>.</p>
+
+</div>
+</div>
+<a id="a339feb3115ec7ff701cadd6cce18a66b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a339feb3115ec7ff701cadd6cce18a66b">&#9670;&nbsp;</a></span>loadScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::loadScene </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>scene</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00046">46</a> of file <a class="el" href="../../d7/db5/_game_8cpp_source.html">Game.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../da/d03/_entity_tests_8h_source.html#l00170">Entities::allocateEntity()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00048">currentScene</a>, <a class="el" href="../../d0/d4b/_debug_8h_source.html#l00003">DBG_LOG</a>, <a class="el" href="../../de/d50/_game_info_8h_source.html#l00074">GameInfo::DEFAULT_GRAVITY</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00039">fixedUpdatingSystem</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00137">freeEntities()</a>, <a class="el" href="../../d7/d1d/_updating_system_8cpp_source.html#l00003">UpdatingSystem::initialize()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00003">RenderingSystem::initialize()</a>, <a class="el" href="../../d0/d56/_fixed_updating_system_8cpp_source.html#l00004">FixedUpdatingSystem::initialize()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00050">map</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00065">Scene::performOperationsOnAllOfType()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00044">physicsWorld</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00040">renderingSystem</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00043">scene</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00046">sceneEntities</a>, <a class="el" href="../../df/dae/_scenes_8h_source.html#l00003">scenes</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00032">settings</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00041">subSystems</a>, <a class="el" href="../../d5/de1/_helping_hand_8cpp_source.html#l00012">hh::toBtVec3()</a>, and <a class="el" href="../../d9/dcd/_game_8h_source.html#l00038">updatingSystem</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00110">fixedUpdate()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">initialize()</a>.</p>
 
 </div>
 </div>
@@ -287,11 +352,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00072">72</a> of file <a class="el" href="../../d7/db5/_game_8cpp_source.html">Game.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00103">103</a> of file <a class="el" href="../../d7/db5/_game_8cpp_source.html">Game.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d9/dcd/_game_8h_source.html#l00021">backEndMessages</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00036">fixedUpdatingSystem</a>, <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00022">Messenger&lt; T &gt;::getMessagesThenRemove()</a>, <a class="el" href="../../d0/d56/_fixed_updating_system_8cpp_source.html#l00019">FixedUpdatingSystem::handleBackEndMessage()</a>, and <a class="el" href="../../d9/dcd/_game_8h_source.html#l00033">renderTexture</a>.</p>
+<p class="reference">References <a class="el" href="../../d9/dcd/_game_8h_source.html#l00022">backEndMessages</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00039">fixedUpdatingSystem</a>, <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00022">Messenger&lt; T &gt;::getMessagesThenRemove()</a>, <a class="el" href="../../d0/d56/_fixed_updating_system_8cpp_source.html#l00019">FixedUpdatingSystem::handleBackEndMessage()</a>, and <a class="el" href="../../d9/dcd/_game_8h_source.html#l00036">renderTexture</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00079">fixedUpdate()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00110">fixedUpdate()</a>.</p>
 
 </div>
 </div>
@@ -310,9 +375,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00153">153</a> of file <a class="el" href="../../d7/db5/_game_8cpp_source.html">Game.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00129">129</a> of file <a class="el" href="../../d7/db5/_game_8cpp_source.html">Game.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00008">areVitalsNull()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00022">currentTime</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00032">directionalLightDepthMap</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00031">pointLightDepthMap</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00083">RenderingSystem::render()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00037">renderingSystem</a>, and <a class="el" href="../../d9/dcd/_game_8h_source.html#l00033">renderTexture</a>.</p>
+<p class="reference">References <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00008">areVitalsNull()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00023">currentTime</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00035">directionalLightDepthMap</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00034">pointLightDepthMap</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00084">RenderingSystem::render()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00040">renderingSystem</a>, and <a class="el" href="../../d9/dcd/_game_8h_source.html#l00036">renderTexture</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00165">Application::render()</a>.</p>
 
@@ -346,7 +411,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00003">3</a> of file <a class="el" href="../../d7/db5/_game_8cpp_source.html">Game.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d9/dcd/_game_8h_source.html#l00021">backEndMessages</a>, and <a class="el" href="../../d9/dcd/_game_8h_source.html#l00022">currentTime</a>.</p>
+<p class="reference">References <a class="el" href="../../d9/dcd/_game_8h_source.html#l00022">backEndMessages</a>, and <a class="el" href="../../d9/dcd/_game_8h_source.html#l00023">currentTime</a>.</p>
 
 </div>
 </div>
@@ -365,9 +430,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00161">161</a> of file <a class="el" href="../../d7/db5/_game_8cpp_source.html">Game.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00148">148</a> of file <a class="el" href="../../d7/db5/_game_8cpp_source.html">Game.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d9/dcd/_game_8h_source.html#l00045">sceneOneEntities</a>, and <a class="el" href="../../d9/dcd/_game_8h_source.html#l00057">sceneTwoEntities</a>.</p>
+<p class="reference">References <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00137">freeEntities()</a>, <a class="el" href="../../d9/dcd/_game_8h_source.html#l00044">physicsWorld</a>, and <a class="el" href="../../d9/dcd/_game_8h_source.html#l00043">scene</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00189">Application::uninitialize()</a>.</p>
 
@@ -388,9 +453,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00149">149</a> of file <a class="el" href="../../d7/db5/_game_8cpp_source.html">Game.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00125">125</a> of file <a class="el" href="../../d7/db5/_game_8cpp_source.html">Game.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d7/d1d/_updating_system_8cpp_source.html#l00012">UpdatingSystem::update()</a>, and <a class="el" href="../../d9/dcd/_game_8h_source.html#l00035">updatingSystem</a>.</p>
+<p class="reference">References <a class="el" href="../../d7/d1d/_updating_system_8cpp_source.html#l00012">UpdatingSystem::update()</a>, and <a class="el" href="../../d9/dcd/_game_8h_source.html#l00038">updatingSystem</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00172">Application::update()</a>.</p>
 
@@ -417,9 +482,35 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00021">21</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00022">22</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00008">areVitalsNull()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">initialize()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00072">readBackendEventQueue()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00003">resetVitals()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00008">areVitalsNull()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">initialize()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00103">readBackendEventQueue()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00003">resetVitals()</a>.</p>
+
+</div>
+</div>
+<a id="ac6d4257f69001744503d4ffe94f978f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6d4257f69001744503d4ffe94f978f9">&#9670;&nbsp;</a></span>currentScene</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Game::currentScene = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00048">48</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00110">fixedUpdate()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00046">loadScene()</a>.</p>
 
 </div>
 </div>
@@ -443,9 +534,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00022">22</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00023">23</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00008">areVitalsNull()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00079">fixedUpdate()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">initialize()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00153">render()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00003">resetVitals()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00008">areVitalsNull()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00110">fixedUpdate()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">initialize()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00129">render()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00003">resetVitals()</a>.</p>
 
 </div>
 </div>
@@ -469,9 +560,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00032">32</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00035">35</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00079">fixedUpdate()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00061">initializeShaders()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00153">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00110">fixedUpdate()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00035">initializeShaders()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00129">render()</a>.</p>
 
 </div>
 </div>
@@ -495,35 +586,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00036">36</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00039">39</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00079">fixedUpdate()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">initialize()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00072">readBackendEventQueue()</a>.</p>
-
-</div>
-</div>
-<a id="a538da538bec244e4065f4c541a605753"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a538da538bec244e4065f4c541a605753">&#9670;&nbsp;</a></span>hasInit</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Game::hasInit = false</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00064">64</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00079">fixedUpdate()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00110">fixedUpdate()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00046">loadScene()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00103">readBackendEventQueue()</a>.</p>
 
 </div>
 </div>
@@ -547,9 +612,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00066">66</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00050">50</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00079">fixedUpdate()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">initialize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">initialize()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00046">loadScene()</a>.</p>
 
 </div>
 </div>
@@ -573,9 +638,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00041">41</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00044">44</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00079">fixedUpdate()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">initialize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00046">loadScene()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00148">uninitialize()</a>.</p>
 
 </div>
 </div>
@@ -599,9 +664,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00031">31</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00034">34</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00079">fixedUpdate()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00061">initializeShaders()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00153">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00110">fixedUpdate()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00035">initializeShaders()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00129">render()</a>.</p>
 
 </div>
 </div>
@@ -625,9 +690,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00037">37</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00040">40</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00079">fixedUpdate()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">initialize()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00153">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00046">loadScene()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00129">render()</a>.</p>
 
 </div>
 </div>
@@ -651,9 +716,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00033">33</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00036">36</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00061">initializeShaders()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00072">readBackendEventQueue()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00153">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00035">initializeShaders()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00103">readBackendEventQueue()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00129">render()</a>.</p>
 
 </div>
 </div>
@@ -677,14 +742,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00040">40</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00043">43</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00079">fixedUpdate()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">initialize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00046">loadScene()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00148">uninitialize()</a>.</p>
 
 </div>
 </div>
-<a id="a110cbeb88ebcec201bfc76ccfb90357d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a110cbeb88ebcec201bfc76ccfb90357d">&#9670;&nbsp;</a></span>sceneOneEntities</h2>
+<a id="a27767c5ac995168f3826ad54d93d17ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27767c5ac995168f3826ad54d93d17ed">&#9670;&nbsp;</a></span>sceneEntities</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -693,7 +758,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="../../d3/d43/class_entity_wrapper.html">EntityWrapper</a>*&gt; Game::sceneOneEntities</td>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d3/d43/class_entity_wrapper.html">EntityWrapper</a>*&gt; Game::sceneEntities</td>
         </tr>
       </table>
   </td>
@@ -702,51 +767,10 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">        <span class="keyword">new</span> <a class="code" href="../../de/d50/_game_info_8h.html#af4cacc871b556d58b423003df79433fba636da1d35e805b00eae0fcd8333f9234">Player</a>(),</div>
-<div class="line">        <span class="keyword">new</span> <a class="code" href="../../d1/d45/class_light_test.html">LightTest</a>(),</div>
-<div class="line">        <span class="keyword">new</span> <a class="code" href="../../db/dd3/class_player_test_object.html">PlayerTestObject</a>(),</div>
-<div class="line">        <span class="keyword">new</span> <a class="code" href="../../da/d1b/class_enemy_test_object.html">EnemyTestObject</a>(),</div>
-<div class="line">        <span class="keyword">new</span> <a class="code" href="../../da/d3c/class_floor_object.html">FloorObject</a>(),</div>
-<div class="line">        <span class="keyword">new</span> <a class="code" href="../../de/d20/class_cube_trigger.html">CubeTrigger</a>(),</div>
-<div class="line">        <span class="keyword">new</span> <a class="code" href="../../d7/dbc/class_particle_test.html">ParticleTest</a>()</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00045">45</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">initialize()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00161">uninitialize()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00046">46</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
 
-</div>
-</div>
-<a id="ab29665a1916f5e38160e86934c21c8de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab29665a1916f5e38160e86934c21c8de">&#9670;&nbsp;</a></span>sceneTwoEntities</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="../../d3/d43/class_entity_wrapper.html">EntityWrapper</a>*&gt; Game::sceneTwoEntities</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">        <span class="keyword">nullptr</span>,</div>
-<div class="line">        <span class="keyword">nullptr</span>,</div>
-<div class="line">        <span class="keyword">nullptr</span>,</div>
-<div class="line">        <span class="keyword">nullptr</span></div>
-<div class="line">    }</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00057">57</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00079">fixedUpdate()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00161">uninitialize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00137">freeEntities()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00046">loadScene()</a>.</p>
 
 </div>
 </div>
@@ -770,9 +794,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00029">29</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00032">32</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00079">fixedUpdate()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">initialize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00046">loadScene()</a>.</p>
 
 </div>
 </div>
@@ -796,9 +820,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00038">38</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00041">41</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00079">fixedUpdate()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">initialize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00046">loadScene()</a>.</p>
 
 </div>
 </div>
@@ -822,9 +846,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00035">35</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dcd/_game_8h_source.html#l00038">38</a> of file <a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00079">fixedUpdate()</a>, <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">initialize()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00149">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00046">loadScene()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00125">update()</a>.</p>
 
 </div>
 </div>
@@ -834,18 +858,11 @@ Private Attributes</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="a_game_info_8h_html_af4cacc871b556d58b423003df79433fba636da1d35e805b00eae0fcd8333f9234"><div class="ttname"><a href="../../de/d50/_game_info_8h.html#af4cacc871b556d58b423003df79433fba636da1d35e805b00eae0fcd8333f9234">COLLISION_TAGS::Player</a></div><div class="ttdeci">@ Player</div></div>
-<div class="ttc" id="aclass_floor_object_html"><div class="ttname"><a href="../../da/d3c/class_floor_object.html">FloorObject</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/d03/_entity_tests_8h_source.html#l00131">EntityTests.h:131</a></div></div>
-<div class="ttc" id="aclass_player_test_object_html"><div class="ttname"><a href="../../db/dd3/class_player_test_object.html">PlayerTestObject</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/d03/_entity_tests_8h_source.html#l00082">EntityTests.h:82</a></div></div>
-<div class="ttc" id="aclass_particle_test_html"><div class="ttname"><a href="../../d7/dbc/class_particle_test.html">ParticleTest</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/d03/_entity_tests_8h_source.html#l00055">EntityTests.h:55</a></div></div>
-<div class="ttc" id="aclass_cube_trigger_html"><div class="ttname"><a href="../../de/d20/class_cube_trigger.html">CubeTrigger</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/d03/_entity_tests_8h_source.html#l00118">EntityTests.h:118</a></div></div>
-<div class="ttc" id="aclass_enemy_test_object_html"><div class="ttname"><a href="../../da/d1b/class_enemy_test_object.html">EnemyTestObject</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/d03/_entity_tests_8h_source.html#l00101">EntityTests.h:101</a></div></div>
-<div class="ttc" id="aclass_light_test_html"><div class="ttname"><a href="../../d1/d45/class_light_test.html">LightTest</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/d03/_entity_tests_8h_source.html#l00042">EntityTests.h:42</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dd/d1f/class_game.html">Game</a></li>
-    <li class="footer">Generated on Sun Feb 2 2020 19:24:02 for LightShow_Boilerplate by
+    <li class="footer">Generated on Wed Feb 5 2020 16:56:55 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

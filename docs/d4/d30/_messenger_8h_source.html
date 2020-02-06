@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('d4/d30/_messenger_8h_source.html','../
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../d6/dc9/class_messenger.html#a6610379d1b30c4dfcdd1b47434a056b6">   12</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d6/dc9/class_messenger.html#a6610379d1b30c4dfcdd1b47434a056b6">AddMessage</a>(<span class="keyword">const</span> T&amp; message) {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d6/dc9/class_messenger.html#af1d847e475658b5f2eca8468c846305a">numberOfCurrentMessages</a> &lt; <a class="code" href="../../d4/d58/namespace_game_info.html#a9924f2a3cff99c42159446036d89c57e">GameInfo::DEFAULT_MESSAGE_CAPACITY</a>) {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d6/dc9/class_messenger.html#af1d847e475658b5f2eca8468c846305a">numberOfCurrentMessages</a> &gt;= <a class="code" href="../../d4/d58/namespace_game_info.html#a9924f2a3cff99c42159446036d89c57e">GameInfo::DEFAULT_MESSAGE_CAPACITY</a>) {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            <a class="code" href="../../d0/d4b/_debug_8h.html#a115b8cdc79239a202a0cd3855b4f1209">DBG_LOG</a>(<span class="stringliteral">&quot;Current messages at capacity (Messenger.h)&quot;</span>);</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            <a class="code" href="../../d6/dc9/class_messenger.html#aa0959985eb047d092a5aa9d1a4f6cfe1">messageList</a>.at(<a class="code" href="../../d6/dc9/class_messenger.html#af1d847e475658b5f2eca8468c846305a">numberOfCurrentMessages</a>) = message;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        } <span class="keywordflow">else</span> {</div>
@@ -137,7 +137,7 @@ $(document).ready(function(){initNavTree('d4/d30/_messenger_8h_source.html','../
 <div class="ttc" id="aclass_messenger_html"><div class="ttname"><a href="../../d6/dc9/class_messenger.html">Messenger</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d30/_messenger_8h_source.html#l00009">Messenger.h:9</a></div></div>
 <div class="ttc" id="a_messages_8h_html"><div class="ttname"><a href="../../df/de2/_messages_8h.html">Messages.h</a></div></div>
 <div class="ttc" id="a_helping_hand_8h_html"><div class="ttname"><a href="../../d7/d26/_helping_hand_8h.html">HelpingHand.h</a></div></div>
-<div class="ttc" id="anamespacehh_html_af758e5df5037980e7e161264bd1851c6"><div class="ttname"><a href="../../d7/dd1/namespacehh.html#af758e5df5037980e7e161264bd1851c6">hh::moveItemToBack</a></div><div class="ttdeci">void moveItemToBack(std::vector&lt; T &gt; &amp;v, size_t itemIndex)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d26/_helping_hand_8h_source.html#l00137">HelpingHand.h:137</a></div></div>
+<div class="ttc" id="anamespacehh_html_af758e5df5037980e7e161264bd1851c6"><div class="ttname"><a href="../../d7/dd1/namespacehh.html#af758e5df5037980e7e161264bd1851c6">hh::moveItemToBack</a></div><div class="ttdeci">void moveItemToBack(std::vector&lt; T &gt; &amp;v, size_t itemIndex)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d26/_helping_hand_8h_source.html#l00116">HelpingHand.h:116</a></div></div>
 <div class="ttc" id="a_game_info_8h_html"><div class="ttname"><a href="../../de/d50/_game_info_8h.html">GameInfo.h</a></div></div>
 <div class="ttc" id="aclass_messenger_html_aa0959985eb047d092a5aa9d1a4f6cfe1"><div class="ttname"><a href="../../d6/dc9/class_messenger.html#aa0959985eb047d092a5aa9d1a4f6cfe1">Messenger::messageList</a></div><div class="ttdeci">std::vector&lt; T &gt; messageList</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d30/_messenger_8h_source.html#l00051">Messenger.h:51</a></div></div>
 <div class="ttc" id="aclass_messenger_html_af1d847e475658b5f2eca8468c846305a"><div class="ttname"><a href="../../d6/dc9/class_messenger.html#af1d847e475658b5f2eca8468c846305a">Messenger::numberOfCurrentMessages</a></div><div class="ttdeci">int numberOfCurrentMessages</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d30/_messenger_8h_source.html#l00050">Messenger.h:50</a></div></div>
@@ -147,7 +147,7 @@ $(document).ready(function(){initNavTree('d4/d30/_messenger_8h_source.html','../
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../d4/d30/_messenger_8h.html">Messenger.h</a></li>
-    <li class="footer">Generated on Sun Feb 2 2020 19:24:01 for LightShow_Boilerplate by
+    <li class="footer">Generated on Wed Feb 5 2020 16:56:54 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -97,7 +97,7 @@ var hierarchy =
     [ "DisplayStatisticsSystem", "d3/d85/class_display_statistics_system.html", null ],
     [ "EnemyControllerSystem", "da/d3f/class_enemy_controller_system.html", null ],
     [ "Scene::Entity", "d7/d80/struct_scene_1_1_entity.html", null ],
-    [ "EntityWrapper::EntityVitals", "d5/da8/struct_entity_wrapper_1_1_entity_vitals.html", null ],
+    [ "EntityVitals", "db/dbe/class_entity_vitals.html", null ],
     [ "EntityWrapper", "d3/d43/class_entity_wrapper.html", [
       [ "CubeTrigger", "de/d20/class_cube_trigger.html", null ],
       [ "EnemyTestObject", "da/d1b/class_enemy_test_object.html", null ],

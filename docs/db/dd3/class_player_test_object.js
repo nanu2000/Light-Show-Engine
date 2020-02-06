@@ -1,7 +1,7 @@
 var class_player_test_object =
 [
     [ "~PlayerTestObject", "db/dd3/class_player_test_object.html#aaf67d30cb0fbee59031f0cf742150602", null ],
-    [ "initialize", "db/dd3/class_player_test_object.html#aac17d3bdbe3a909a7a873551fe90b6bb", null ],
+    [ "initialize", "db/dd3/class_player_test_object.html#ae69f29399695e79ce391f211f853d887", null ],
     [ "bCollisionMesh", "db/dd3/class_player_test_object.html#a8896195c52380b9b0b80f516c36e0111", null ],
     [ "cameraHandler", "db/dd3/class_player_test_object.html#a6b66510d1547cf95f0ef1e9875753ce1", null ],
     [ "collisionMesh", "db/dd3/class_player_test_object.html#a2ea499cc074cc75b314daeb41e8c79ee", null ],

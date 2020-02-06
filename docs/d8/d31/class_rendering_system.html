@@ -130,6 +130,7 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:aed2bdaa38a47cecb67c4bc10cd7cce6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d31/class_rendering_system.html#aed2bdaa38a47cecb67c4bc10cd7cce6f">initializeModels</a> (<a class="el" href="../../d1/d51/class_shader.html">Shader</a> &amp;shader, const int32_t &amp;entity)</td></tr>
 <tr class="separator:aed2bdaa38a47cecb67c4bc10cd7cce6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a167a571527b6f44e8c4bf45f383500be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d51/class_shader.html">Shader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d31/class_rendering_system.html#a167a571527b6f44e8c4bf45f383500be">prepareShader</a> (const int32_t &amp;entity, <a class="el" href="../../d1/d18/class_point_light_shadow_map.html">PointLightShadowMap</a> &amp;pointLightDepthMap, <a class="el" href="../../dc/d22/class_directional_light_shadow_map.html">DirectionalLightShadowMap</a> &amp;directionalLightDepthMap, <a class="el" href="../../da/dbb/class_camera.html">Camera</a> &amp;currentCamera, <a class="el" href="../../d6/d2c/class_time.html">Time</a> &amp;currentTime)</td></tr>
+<tr class="memdesc:a167a571527b6f44e8c4bf45f383500be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares and retrieves the first shader found in scene that is associated with entity.  <a href="../../d8/d31/class_rendering_system.html#a167a571527b6f44e8c4bf45f383500be">More...</a><br /></td></tr>
 <tr class="separator:a167a571527b6f44e8c4bf45f383500be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5174d014f3eaf6bbc2a3ac03a9029d76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d31/class_rendering_system.html#a5174d014f3eaf6bbc2a3ac03a9029d76">supplyLitShaderUniforms</a> (<a class="el" href="../../d1/d51/class_shader.html">Shader</a> &amp;shader, <a class="el" href="../../d1/d18/class_point_light_shadow_map.html">PointLightShadowMap</a> &amp;pointLightDepthMap, <a class="el" href="../../dc/d22/class_directional_light_shadow_map.html">DirectionalLightShadowMap</a> &amp;directionalLightDepthMap, <a class="el" href="../../da/dbb/class_camera.html">Camera</a> &amp;currentCamera, <a class="el" href="../../d6/d2c/class_time.html">Time</a> &amp;currentTime)</td></tr>
 <tr class="separator:a5174d014f3eaf6bbc2a3ac03a9029d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -247,7 +248,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="reference">References <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00031">SystemBase::currentScene</a>, <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00030">SystemBase::currentSettings</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00023">Scene::getComponent()</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00011">Scene::Entity::id</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00078">Scene::loopEntities()</a>, <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00029">SystemBase::physicsWorld</a>, and <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00026">SystemBase::systems</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00079">Game::fixedUpdate()</a>, and <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00017">Game::initialize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00046">Game::loadScene()</a>.</p>
 
 </div>
 </div>
@@ -275,11 +276,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00046">46</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00047">47</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00031">SystemBase::currentScene</a>, <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00030">SystemBase::currentSettings</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00088">Scene::getAllComponentsOfType()</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00050">Scene::getFirstActiveComponentOfType()</a>, <a class="el" href="../../d5/d16/_shader_8cpp_source.html#l00066">Shader::setDirectionalLight()</a>, <a class="el" href="../../d5/d16/_shader_8cpp_source.html#l00053">Shader::setPointLight()</a>, and <a class="el" href="../../d5/d16/_shader_8cpp_source.html#l00290">Shader::useProgram()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00083">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00084">render()</a>.</p>
 
 </div>
 </div>
@@ -317,7 +318,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00074">74</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00075">75</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00031">SystemBase::currentScene</a>, and <a class="el" href="../../de/d56/_scene_8h_source.html#l00023">Scene::getComponent()</a>.</p>
 
@@ -375,9 +376,12 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00319">319</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
+<p>Prepares and retrieves the first shader found in scene that is associated with entity. </p>
+<p>*Does use program. </p>
 
-<p class="reference">References <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00031">SystemBase::currentScene</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00023">Scene::getComponent()</a>, <a class="el" href="../../d8/d34/_shader_8h_source.html#l00032">Shader::getShaderType()</a>, <a class="el" href="../../d9/d44/_scene_8cpp_source.html#l00003">Scene::isEntityActive()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00352">supplyDefaultShaderUniforms()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00362">supplyLitShaderUniforms()</a>, and <a class="el" href="../../d5/d16/_shader_8cpp_source.html#l00290">Shader::useProgram()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00320">320</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00031">SystemBase::currentScene</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00023">Scene::getComponent()</a>, <a class="el" href="../../d8/d34/_shader_8h_source.html#l00032">Shader::getShaderType()</a>, <a class="el" href="../../d9/d44/_scene_8cpp_source.html#l00003">Scene::isEntityActive()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00353">supplyDefaultShaderUniforms()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00363">supplyLitShaderUniforms()</a>, and <a class="el" href="../../d5/d16/_shader_8cpp_source.html#l00290">Shader::useProgram()</a>.</p>
 
 </div>
 </div>
@@ -419,11 +423,11 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00083">83</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00084">84</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00017">SystemBase::areVitalsNull()</a>, <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00031">SystemBase::currentScene</a>, <a class="el" href="../../d0/d4b/_debug_8h_source.html#l00003">DBG_LOG</a>, <a class="el" href="../../da/d66/_rendering_system_8h_source.html#l00053">depthMatrix</a>, <a class="el" href="../../da/d66/_rendering_system_8h_source.html#l00054">depthQuad</a>, <a class="el" href="../../da/d66/_rendering_system_8h_source.html#l00055">depthShader</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00088">Scene::getAllComponentsOfType()</a>, <a class="el" href="../../d7/d14/_directional_light_shadow_map_8h_source.html#l00017">DirectionalLightShadowMap::getDepthMap()</a>, <a class="el" href="../../d7/d14/_directional_light_shadow_map_8h_source.html#l00021">DirectionalLightShadowMap::getDepthMapHeight()</a>, <a class="el" href="../../d4/d43/_point_light_shadow_map_8h_source.html#l00025">PointLightShadowMap::getDepthMapHeight()</a>, <a class="el" href="../../d7/d14/_directional_light_shadow_map_8h_source.html#l00020">DirectionalLightShadowMap::getDepthMapWidth()</a>, <a class="el" href="../../d4/d43/_point_light_shadow_map_8h_source.html#l00024">PointLightShadowMap::getDepthMapWidth()</a>, <a class="el" href="../../de/da5/_render_texture_8h_source.html#l00015">RenderTexture::getFBO()</a>, <a class="el" href="../../d7/d14/_directional_light_shadow_map_8h_source.html#l00018">DirectionalLightShadowMap::getFBO()</a>, <a class="el" href="../../d4/d43/_point_light_shadow_map_8h_source.html#l00032">PointLightShadowMap::getFBO()</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00050">Scene::getFirstActiveComponentOfType()</a>, <a class="el" href="../../de/da5/_render_texture_8h_source.html#l00018">RenderTexture::getHeight()</a>, <a class="el" href="../../d8/d34/_shader_8h_source.html#l00043">Shader::getProgramID()</a>, <a class="el" href="../../de/da5/_render_texture_8h_source.html#l00014">RenderTexture::getTextureID()</a>, <a class="el" href="../../d2/d06/_shaders_8h_source.html#l00142">Shaders::getUniformLocation()</a>, <a class="el" href="../../de/da5/_render_texture_8h_source.html#l00017">RenderTexture::getWidth()</a>, <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00014">GameInfo::getWindowHeight()</a>, <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00010">GameInfo::getWindowWidth()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00046">initializeLights()</a>, <a class="el" href="../../d7/d14/_directional_light_shadow_map_8h_source.html#l00030">DirectionalLightShadowMap::isActive()</a>, <a class="el" href="../../d4/d43/_point_light_shadow_map_8h_source.html#l00034">PointLightShadowMap::isActive()</a>, <a class="el" href="../../d5/d91/_camera_8h_source.html#l00017">Camera::position</a>, <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00140">Quad::render2D()</a>, <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00017">Quad::render3D()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00172">renderAll()</a>, <a class="el" href="../../da/d66/_rendering_system_8h_source.html#l00049">screenQuad</a>, <a class="el" href="../../da/d66/_rendering_system_8h_source.html#l00050">screenShader</a>, <a class="el" href="../../d8/d34/_shader_8h_source.html#l00030">Shader::setShaderTask()</a>, <a class="el" href="../../d5/d16/_shader_8cpp_source.html#l00290">Shader::useProgram()</a>, and <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa9960170a6153bc6fe4206dfc26fcb618">Shaders::ViewPosition</a>.</p>
+<p class="reference">References <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00017">SystemBase::areVitalsNull()</a>, <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00031">SystemBase::currentScene</a>, <a class="el" href="../../d0/d4b/_debug_8h_source.html#l00003">DBG_LOG</a>, <a class="el" href="../../da/d66/_rendering_system_8h_source.html#l00053">depthMatrix</a>, <a class="el" href="../../da/d66/_rendering_system_8h_source.html#l00054">depthQuad</a>, <a class="el" href="../../da/d66/_rendering_system_8h_source.html#l00055">depthShader</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00088">Scene::getAllComponentsOfType()</a>, <a class="el" href="../../d7/d14/_directional_light_shadow_map_8h_source.html#l00017">DirectionalLightShadowMap::getDepthMap()</a>, <a class="el" href="../../d7/d14/_directional_light_shadow_map_8h_source.html#l00021">DirectionalLightShadowMap::getDepthMapHeight()</a>, <a class="el" href="../../d4/d43/_point_light_shadow_map_8h_source.html#l00025">PointLightShadowMap::getDepthMapHeight()</a>, <a class="el" href="../../d7/d14/_directional_light_shadow_map_8h_source.html#l00020">DirectionalLightShadowMap::getDepthMapWidth()</a>, <a class="el" href="../../d4/d43/_point_light_shadow_map_8h_source.html#l00024">PointLightShadowMap::getDepthMapWidth()</a>, <a class="el" href="../../de/da5/_render_texture_8h_source.html#l00015">RenderTexture::getFBO()</a>, <a class="el" href="../../d7/d14/_directional_light_shadow_map_8h_source.html#l00018">DirectionalLightShadowMap::getFBO()</a>, <a class="el" href="../../d4/d43/_point_light_shadow_map_8h_source.html#l00032">PointLightShadowMap::getFBO()</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00050">Scene::getFirstActiveComponentOfType()</a>, <a class="el" href="../../de/da5/_render_texture_8h_source.html#l00018">RenderTexture::getHeight()</a>, <a class="el" href="../../d8/d34/_shader_8h_source.html#l00043">Shader::getProgramID()</a>, <a class="el" href="../../de/da5/_render_texture_8h_source.html#l00014">RenderTexture::getTextureID()</a>, <a class="el" href="../../d2/d06/_shaders_8h_source.html#l00142">Shaders::getUniformLocation()</a>, <a class="el" href="../../de/da5/_render_texture_8h_source.html#l00017">RenderTexture::getWidth()</a>, <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00014">GameInfo::getWindowHeight()</a>, <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00010">GameInfo::getWindowWidth()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00047">initializeLights()</a>, <a class="el" href="../../d7/d14/_directional_light_shadow_map_8h_source.html#l00030">DirectionalLightShadowMap::isActive()</a>, <a class="el" href="../../d4/d43/_point_light_shadow_map_8h_source.html#l00034">PointLightShadowMap::isActive()</a>, <a class="el" href="../../d5/d91/_camera_8h_source.html#l00017">Camera::position</a>, <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00140">Quad::render2D()</a>, <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00017">Quad::render3D()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00173">renderAll()</a>, <a class="el" href="../../da/d66/_rendering_system_8h_source.html#l00049">screenQuad</a>, <a class="el" href="../../da/d66/_rendering_system_8h_source.html#l00050">screenShader</a>, <a class="el" href="../../d8/d34/_shader_8h_source.html#l00030">Shader::setShaderTask()</a>, <a class="el" href="../../d5/d16/_shader_8cpp_source.html#l00290">Shader::useProgram()</a>, and <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa9960170a6153bc6fe4206dfc26fcb618">Shaders::ViewPosition</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00153">Game::render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d7/db5/_game_8cpp_source.html#l00129">Game::render()</a>.</p>
 
 </div>
 </div>
@@ -473,11 +477,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00172">172</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00173">173</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00179">renderDebugging()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00194">renderModels()</a>, and <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00243">renderOthers()</a>.</p>
+<p class="reference">References <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00180">renderDebugging()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00195">renderModels()</a>, and <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00244">renderOthers()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00083">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00084">render()</a>.</p>
 
 </div>
 </div>
@@ -505,11 +509,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00179">179</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00180">180</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00031">SystemBase::currentScene</a>, <a class="el" href="../../d8/d1e/_debugging_controller_8cpp_source.html#l00016">DebuggingController::executeDebugRendering()</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00088">Scene::getAllComponentsOfType()</a>, <a class="el" href="../../d5/d91/_camera_8h_source.html#l00031">Camera::getProjectionMatrix()</a>, <a class="el" href="../../d5/d16/_shader_8cpp_source.html#l00138">Shader::getShaderTask()</a>, <a class="el" href="../../d5/d91/_camera_8h_source.html#l00030">Camera::getViewMatrix()</a>, and <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00029">SystemBase::physicsWorld</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00172">renderAll()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00173">renderAll()</a>.</p>
 
 </div>
 </div>
@@ -559,11 +563,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00194">194</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00195">195</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00031">SystemBase::currentScene</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00023">Scene::getComponent()</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00011">Scene::Entity::id</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00012">Scene::Entity::isActive</a>, and <a class="el" href="../../de/d56/_scene_8h_source.html#l00078">Scene::loopEntities()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00172">renderAll()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00173">renderAll()</a>.</p>
 
 </div>
 </div>
@@ -601,11 +605,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00243">243</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00244">244</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00031">SystemBase::currentScene</a>, <a class="el" href="../../d8/dc4/_sub_systems_8h_source.html#l00017">SubSystems::displayStatisticsSystem</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00088">Scene::getAllComponentsOfType()</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00023">Scene::getComponent()</a>, <a class="el" href="../../dc/d20/_component_8h_source.html#l00016">ComponentInterface::getEntityID()</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00050">Scene::getFirstActiveComponentOfType()</a>, <a class="el" href="../../d5/d16/_shader_8cpp_source.html#l00138">Shader::getShaderTask()</a>, <a class="el" href="../../d8/d34/_shader_8h_source.html#l00032">Shader::getShaderType()</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00011">Scene::Entity::id</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00078">Scene::loopEntities()</a>, <a class="el" href="../../d8/dc4/_sub_systems_8h_source.html#l00016">SubSystems::pauseMenuSystem</a>, <a class="el" href="../../da/d13/_sky_box_system_8h_source.html#l00009">SkyBoxSystem::render()</a>, <a class="el" href="../../d0/dd5/_display_statistics_system_8h_source.html#l00036">DisplayStatisticsSystem::render()</a>, <a class="el" href="../../d8/dd5/_pause_menu_system_8h_source.html#l00039">PauseMenuSystem::render()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00300">renderParticles()</a>, <a class="el" href="../../d8/dc4/_sub_systems_8h_source.html#l00030">SubSystems::skyBoxSystem</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00352">supplyDefaultShaderUniforms()</a>, <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00026">SystemBase::systems</a>, and <a class="el" href="../../d5/d16/_shader_8cpp_source.html#l00290">Shader::useProgram()</a>.</p>
+<p class="reference">References <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00031">SystemBase::currentScene</a>, <a class="el" href="../../d8/dc4/_sub_systems_8h_source.html#l00017">SubSystems::displayStatisticsSystem</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00088">Scene::getAllComponentsOfType()</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00023">Scene::getComponent()</a>, <a class="el" href="../../dc/d20/_component_8h_source.html#l00016">ComponentInterface::getEntityID()</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00050">Scene::getFirstActiveComponentOfType()</a>, <a class="el" href="../../d5/d16/_shader_8cpp_source.html#l00138">Shader::getShaderTask()</a>, <a class="el" href="../../d8/d34/_shader_8h_source.html#l00032">Shader::getShaderType()</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00011">Scene::Entity::id</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00078">Scene::loopEntities()</a>, <a class="el" href="../../d8/dc4/_sub_systems_8h_source.html#l00016">SubSystems::pauseMenuSystem</a>, <a class="el" href="../../da/d13/_sky_box_system_8h_source.html#l00009">SkyBoxSystem::render()</a>, <a class="el" href="../../d0/dd5/_display_statistics_system_8h_source.html#l00036">DisplayStatisticsSystem::render()</a>, <a class="el" href="../../d8/dd5/_pause_menu_system_8h_source.html#l00039">PauseMenuSystem::render()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00301">renderParticles()</a>, <a class="el" href="../../d8/dc4/_sub_systems_8h_source.html#l00030">SubSystems::skyBoxSystem</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00353">supplyDefaultShaderUniforms()</a>, <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00026">SystemBase::systems</a>, and <a class="el" href="../../d5/d16/_shader_8cpp_source.html#l00290">Shader::useProgram()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00172">renderAll()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00173">renderAll()</a>.</p>
 
 </div>
 </div>
@@ -649,11 +653,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00300">300</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00301">301</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00031">SystemBase::currentScene</a>, <a class="el" href="../../d0/db0/_particles_8h.html#ac736a3b691a4251e1a7e5a9fd4cad39ba7a1920d61156abc05a60135aefe8bc67">Default</a>, <a class="el" href="../../d8/dc4/_sub_systems_8h_source.html#l00032">SubSystems::defaultParticleSystem</a>, <a class="el" href="../../d0/db0/_particles_8h.html#ac736a3b691a4251e1a7e5a9fd4cad39ba7941ce00c308ef62cd69af52664e9788">Fountain</a>, <a class="el" href="../../d8/dc4/_sub_systems_8h_source.html#l00033">SubSystems::fountainParticleSystem</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00023">Scene::getComponent()</a>, <a class="el" href="../../dc/d20/_component_8h_source.html#l00016">ComponentInterface::getEntityID()</a>, <a class="el" href="../../d0/db0/_particles_8h_source.html#l00054">Particles::getParticleType()</a>, <a class="el" href="../../d0/d05/_particle_system_8cpp_source.html#l00004">DefaultParticleSystem::renderParticles()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00392">supplyParticleShaderUniforms()</a>, and <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00026">SystemBase::systems</a>.</p>
+<p class="reference">References <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00031">SystemBase::currentScene</a>, <a class="el" href="../../d0/db0/_particles_8h.html#ac736a3b691a4251e1a7e5a9fd4cad39ba7a1920d61156abc05a60135aefe8bc67">Default</a>, <a class="el" href="../../d8/dc4/_sub_systems_8h_source.html#l00032">SubSystems::defaultParticleSystem</a>, <a class="el" href="../../d0/db0/_particles_8h.html#ac736a3b691a4251e1a7e5a9fd4cad39ba7941ce00c308ef62cd69af52664e9788">Fountain</a>, <a class="el" href="../../d8/dc4/_sub_systems_8h_source.html#l00033">SubSystems::fountainParticleSystem</a>, <a class="el" href="../../de/d56/_scene_8h_source.html#l00023">Scene::getComponent()</a>, <a class="el" href="../../dc/d20/_component_8h_source.html#l00016">ComponentInterface::getEntityID()</a>, <a class="el" href="../../d0/db0/_particles_8h_source.html#l00054">Particles::getParticleType()</a>, <a class="el" href="../../d0/d05/_particle_system_8cpp_source.html#l00004">DefaultParticleSystem::renderParticles()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00393">supplyParticleShaderUniforms()</a>, and <a class="el" href="../../dc/d18/_system_base_8h_source.html#l00026">SystemBase::systems</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00243">renderOthers()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00244">renderOthers()</a>.</p>
 
 </div>
 </div>
@@ -697,11 +701,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00352">352</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00353">353</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../d8/d34/_shader_8h_source.html#l00043">Shader::getProgramID()</a>, <a class="el" href="../../d5/d91/_camera_8h_source.html#l00031">Camera::getProjectionMatrix()</a>, <a class="el" href="../../d2/d06/_shaders_8h_source.html#l00142">Shaders::getUniformLocation()</a>, <a class="el" href="../../d5/d91/_camera_8h_source.html#l00030">Camera::getViewMatrix()</a>, <a class="el" href="../../d5/d91/_camera_8h_source.html#l00017">Camera::position</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa5c79d4241e5a2978c699473b01f82fe9">Shaders::ProjectionMatrix</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aab3184e06babbab03e639eed0554b29eb">Shaders::ViewMatrix</a>, and <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa9960170a6153bc6fe4206dfc26fcb618">Shaders::ViewPosition</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00319">prepareShader()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00243">renderOthers()</a>, and <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00362">supplyLitShaderUniforms()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00320">prepareShader()</a>, <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00244">renderOthers()</a>, and <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00363">supplyLitShaderUniforms()</a>.</p>
 
 </div>
 </div>
@@ -757,11 +761,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00362">362</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00363">363</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d2/d06/_shaders_8h_source.html#l00035">Shaders::DEPTH_MAP_LOCATION_DIRECTIONAL</a>, <a class="el" href="../../d2/d06/_shaders_8h_source.html#l00031">Shaders::DEPTH_MAP_LOCATION_OMNIDIRECTIONAL</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aaa0472e0c4f795330150e311e02dae3a3">Shaders::DirectionalShadowMap</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa87b2eb1675b2833a621030a039972b9d">Shaders::FarPlane</a>, <a class="el" href="../../d4/d43/_point_light_shadow_map_8h_source.html#l00018">PointLightShadowMap::getCubeMap()</a>, <a class="el" href="../../d4/d43/_point_light_shadow_map_8h_source.html#l00021">PointLightShadowMap::getCurrentLightPosition()</a>, <a class="el" href="../../d7/d14/_directional_light_shadow_map_8h_source.html#l00017">DirectionalLightShadowMap::getDepthMap()</a>, <a class="el" href="../../d4/d43/_point_light_shadow_map_8h_source.html#l00020">PointLightShadowMap::getFarPlane()</a>, <a class="el" href="../../d7/d14/_directional_light_shadow_map_8h_source.html#l00015">DirectionalLightShadowMap::getLightSpaceMatrix()</a>, <a class="el" href="../../d8/d34/_shader_8h_source.html#l00043">Shader::getProgramID()</a>, <a class="el" href="../../d2/d06/_shaders_8h_source.html#l00142">Shaders::getUniformLocation()</a>, <a class="el" href="../../d4/d43/_point_light_shadow_map_8h_source.html#l00034">PointLightShadowMap::isActive()</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa441bec7b87ce033baf66aa9aba797390">Shaders::LightPosition</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aafd79a3947f11c02ee4ca80aa632d272b">Shaders::LightSpaceMatrix</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aae700caa78e3b0a9639bfed4e9f26d049">Shaders::PointShadowMap</a>, and <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00352">supplyDefaultShaderUniforms()</a>.</p>
+<p class="reference">References <a class="el" href="../../d2/d06/_shaders_8h_source.html#l00035">Shaders::DEPTH_MAP_LOCATION_DIRECTIONAL</a>, <a class="el" href="../../d2/d06/_shaders_8h_source.html#l00031">Shaders::DEPTH_MAP_LOCATION_OMNIDIRECTIONAL</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aaa0472e0c4f795330150e311e02dae3a3">Shaders::DirectionalShadowMap</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa87b2eb1675b2833a621030a039972b9d">Shaders::FarPlane</a>, <a class="el" href="../../d4/d43/_point_light_shadow_map_8h_source.html#l00018">PointLightShadowMap::getCubeMap()</a>, <a class="el" href="../../d4/d43/_point_light_shadow_map_8h_source.html#l00021">PointLightShadowMap::getCurrentLightPosition()</a>, <a class="el" href="../../d7/d14/_directional_light_shadow_map_8h_source.html#l00017">DirectionalLightShadowMap::getDepthMap()</a>, <a class="el" href="../../d4/d43/_point_light_shadow_map_8h_source.html#l00020">PointLightShadowMap::getFarPlane()</a>, <a class="el" href="../../d7/d14/_directional_light_shadow_map_8h_source.html#l00015">DirectionalLightShadowMap::getLightSpaceMatrix()</a>, <a class="el" href="../../d8/d34/_shader_8h_source.html#l00043">Shader::getProgramID()</a>, <a class="el" href="../../d2/d06/_shaders_8h_source.html#l00142">Shaders::getUniformLocation()</a>, <a class="el" href="../../d4/d43/_point_light_shadow_map_8h_source.html#l00034">PointLightShadowMap::isActive()</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa441bec7b87ce033baf66aa9aba797390">Shaders::LightPosition</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aafd79a3947f11c02ee4ca80aa632d272b">Shaders::LightSpaceMatrix</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aae700caa78e3b0a9639bfed4e9f26d049">Shaders::PointShadowMap</a>, and <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00353">supplyDefaultShaderUniforms()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00319">prepareShader()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00320">prepareShader()</a>.</p>
 
 </div>
 </div>
@@ -805,11 +809,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00392">392</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00393">393</a> of file <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html">RenderingSystem.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../d8/d34/_shader_8h_source.html#l00043">Shader::getProgramID()</a>, <a class="el" href="../../d5/d91/_camera_8h_source.html#l00031">Camera::getProjectionMatrix()</a>, <a class="el" href="../../d2/d06/_shaders_8h_source.html#l00142">Shaders::getUniformLocation()</a>, <a class="el" href="../../d5/d91/_camera_8h_source.html#l00030">Camera::getViewMatrix()</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa5c79d4241e5a2978c699473b01f82fe9">Shaders::ProjectionMatrix</a>, <a class="el" href="../../d5/d16/_shader_8cpp_source.html#l00290">Shader::useProgram()</a>, and <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aab3184e06babbab03e639eed0554b29eb">Shaders::ViewMatrix</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00300">renderParticles()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00301">renderParticles()</a>.</p>
 
 </div>
 </div>
@@ -836,7 +840,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d66/_rendering_system_8h_source.html#l00053">53</a> of file <a class="el" href="../../da/d66/_rendering_system_8h_source.html">RenderingSystem.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00083">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00084">render()</a>.</p>
 
 </div>
 </div>
@@ -862,7 +866,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d66/_rendering_system_8h_source.html#l00054">54</a> of file <a class="el" href="../../da/d66/_rendering_system_8h_source.html">RenderingSystem.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00083">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00084">render()</a>.</p>
 
 </div>
 </div>
@@ -888,7 +892,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d66/_rendering_system_8h_source.html#l00055">55</a> of file <a class="el" href="../../da/d66/_rendering_system_8h_source.html">RenderingSystem.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00083">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00084">render()</a>.</p>
 
 </div>
 </div>
@@ -914,7 +918,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d66/_rendering_system_8h_source.html#l00049">49</a> of file <a class="el" href="../../da/d66/_rendering_system_8h_source.html">RenderingSystem.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00083">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00084">render()</a>.</p>
 
 </div>
 </div>
@@ -940,7 +944,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d66/_rendering_system_8h_source.html#l00050">50</a> of file <a class="el" href="../../da/d66/_rendering_system_8h_source.html">RenderingSystem.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00083">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/db8/_rendering_system_8cpp_source.html#l00084">render()</a>.</p>
 
 </div>
 </div>
@@ -954,7 +958,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d8/d31/class_rendering_system.html">RenderingSystem</a></li>
-    <li class="footer">Generated on Sun Feb 2 2020 19:24:02 for LightShow_Boilerplate by
+    <li class="footer">Generated on Wed Feb 5 2020 16:56:56 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

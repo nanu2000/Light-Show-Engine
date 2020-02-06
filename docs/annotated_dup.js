@@ -28,6 +28,7 @@ var annotated_dup =
     [ "EnemyControllerSystem", "da/d3f/class_enemy_controller_system.html", "da/d3f/class_enemy_controller_system" ],
     [ "EnemyTestObject", "da/d1b/class_enemy_test_object.html", "da/d1b/class_enemy_test_object" ],
     [ "EntityTransform", "d9/dd8/class_entity_transform.html", "d9/dd8/class_entity_transform" ],
+    [ "EntityVitals", "db/dbe/class_entity_vitals.html", "db/dbe/class_entity_vitals" ],
     [ "EntityWrapper", "d3/d43/class_entity_wrapper.html", "d3/d43/class_entity_wrapper" ],
     [ "FixedUpdatingSystem", "d3/de8/class_fixed_updating_system.html", "d3/de8/class_fixed_updating_system" ],
     [ "FloorObject", "da/d3c/class_floor_object.html", "da/d3c/class_floor_object" ],

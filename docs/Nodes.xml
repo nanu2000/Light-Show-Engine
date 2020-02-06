@@ -30,6 +30,10 @@
             <Path>d4/d37/namespace_e_n_e_m_y___c_t_r_l_r___n_s.html</Path>
            </Node>
            <Node>
+            <Name>Entities</Name>
+            <Path>d6/d4b/namespace_entities.html</Path>
+           </Node>
+           <Node>
             <Name>GameInfo</Name>
             <Path>d4/d58/namespace_game_info.html</Path>
            </Node>
@@ -1926,7 +1930,7 @@
              <Node>
               <Name>initialize</Name>
               <Path>de/d20/class_cube_trigger.html</Path>
-              <Anchor>acd67037d7ab9aca5a6880824644f1cea</Anchor>
+              <Anchor>a71b28f1db3632e3fac4f0a2eb972ace6</Anchor>
              </Node>
              <Node>
               <Name>collisionMesh</Name>
@@ -2643,7 +2647,7 @@
              <Node>
               <Name>initialize</Name>
               <Path>da/d1b/class_enemy_test_object.html</Path>
-              <Anchor>a360c36ab9698fba8c384a6aa7816a7a2</Anchor>
+              <Anchor>a170627be60c99d5332be438ad028b08d</Anchor>
              </Node>
              <Node>
               <Name>collisionMesh</Name>
@@ -2694,40 +2698,45 @@
             </Subnodes>
            </Node>
            <Node>
-            <Name>EntityWrapper</Name>
-            <Path>d3/d43/class_entity_wrapper.html</Path>
+            <Name>EntityVitals</Name>
+            <Path>db/dbe/class_entity_vitals.html</Path>
             <Subnodes>
              <Node>
               <Name>EntityVitals</Name>
-              <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>checkForNulls</Name>
-                <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-                <Anchor>acf65583e2e08d352ba6d4b4a45454214</Anchor>
-               </Node>
-               <Node>
-                <Name>currentSettings</Name>
-                <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-                <Anchor>a4450bc423593e6d11580af6b5928d41b</Anchor>
-               </Node>
-               <Node>
-                <Name>map</Name>
-                <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-                <Anchor>aaaf80b2e9d1c6eb02e2e1e25f9cf4c3f</Anchor>
-               </Node>
-               <Node>
-                <Name>scene</Name>
-                <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-                <Anchor>a382b7affd10119e9ace0db22a7273499</Anchor>
-               </Node>
-               <Node>
-                <Name>thisWorld</Name>
-                <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-                <Anchor>a93befbbcbd8614395206eb14aac8d91e</Anchor>
-               </Node>
-              </Subnodes>
+              <Path>db/dbe/class_entity_vitals.html</Path>
+              <Anchor>ab77550b7dc0650383cdea30707f791fe</Anchor>
              </Node>
+             <Node>
+              <Name>checkForNulls</Name>
+              <Path>db/dbe/class_entity_vitals.html</Path>
+              <Anchor>a21860d8c4e260081c3983ea062d95600</Anchor>
+             </Node>
+             <Node>
+              <Name>currentSettings</Name>
+              <Path>db/dbe/class_entity_vitals.html</Path>
+              <Anchor>af82b80262fa4d8b3c6638109132eb5ff</Anchor>
+             </Node>
+             <Node>
+              <Name>map</Name>
+              <Path>db/dbe/class_entity_vitals.html</Path>
+              <Anchor>a5377620f165d82f3bb26db313a1b51fb</Anchor>
+             </Node>
+             <Node>
+              <Name>scene</Name>
+              <Path>db/dbe/class_entity_vitals.html</Path>
+              <Anchor>ac479d98587240baf489d2de757528ba9</Anchor>
+             </Node>
+             <Node>
+              <Name>thisWorld</Name>
+              <Path>db/dbe/class_entity_vitals.html</Path>
+              <Anchor>a4c89fddde1116ee7c3cdb4a820146cd3</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>EntityWrapper</Name>
+            <Path>d3/d43/class_entity_wrapper.html</Path>
+            <Subnodes>
              <Node>
               <Name>~EntityWrapper</Name>
               <Path>d3/d43/class_entity_wrapper.html</Path>
@@ -2803,7 +2812,7 @@
              <Node>
               <Name>initialize</Name>
               <Path>da/d3c/class_floor_object.html</Path>
-              <Anchor>a5f324e5913659265a3ac615c8888c524</Anchor>
+              <Anchor>a8eeff63d37ecb524e0a903285fbfe797</Anchor>
              </Node>
              <Node>
               <Name>cm</Name>
@@ -2863,6 +2872,11 @@
               <Anchor>a157e87f9dc147a5842ee6bdc06c95c17</Anchor>
              </Node>
              <Node>
+              <Name>freeEntities</Name>
+              <Path>dd/d1f/class_game.html</Path>
+              <Anchor>a953f7a9fe92ec47602083dd2e9a3b26d</Anchor>
+             </Node>
+             <Node>
               <Name>initialize</Name>
               <Path>dd/d1f/class_game.html</Path>
               <Anchor>a8986a201a654418cefe34ec28af1a22c</Anchor>
@@ -2871,6 +2885,11 @@
               <Name>initializeShaders</Name>
               <Path>dd/d1f/class_game.html</Path>
               <Anchor>a0cd419405f5790feab89322cbb3f18ce</Anchor>
+             </Node>
+             <Node>
+              <Name>loadScene</Name>
+              <Path>dd/d1f/class_game.html</Path>
+              <Anchor>a339feb3115ec7ff701cadd6cce18a66b</Anchor>
              </Node>
              <Node>
               <Name>readBackendEventQueue</Name>
@@ -2903,6 +2922,11 @@
               <Anchor>ae16cf1b0c582839cca1e0298d7e738f9</Anchor>
              </Node>
              <Node>
+              <Name>currentScene</Name>
+              <Path>dd/d1f/class_game.html</Path>
+              <Anchor>ac6d4257f69001744503d4ffe94f978f9</Anchor>
+             </Node>
+             <Node>
               <Name>currentTime</Name>
               <Path>dd/d1f/class_game.html</Path>
               <Anchor>a348407fe0cdb71a067acf2af496a5fcf</Anchor>
@@ -2916,11 +2940,6 @@
               <Name>fixedUpdatingSystem</Name>
               <Path>dd/d1f/class_game.html</Path>
               <Anchor>ad9ce087f9521415c564ae26a7e8162d3</Anchor>
-             </Node>
-             <Node>
-              <Name>hasInit</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>a538da538bec244e4065f4c541a605753</Anchor>
              </Node>
              <Node>
               <Name>map</Name>
@@ -2953,14 +2972,9 @@
               <Anchor>afcb137f9c5d6598c5182c2d8d24312bc</Anchor>
              </Node>
              <Node>
-              <Name>sceneOneEntities</Name>
+              <Name>sceneEntities</Name>
               <Path>dd/d1f/class_game.html</Path>
-              <Anchor>a110cbeb88ebcec201bfc76ccfb90357d</Anchor>
-             </Node>
-             <Node>
-              <Name>sceneTwoEntities</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>ab29665a1916f5e38160e86934c21c8de</Anchor>
+              <Anchor>a27767c5ac995168f3826ad54d93d17ed</Anchor>
              </Node>
              <Node>
               <Name>settings</Name>
@@ -3559,7 +3573,7 @@
              <Node>
               <Name>initialize</Name>
               <Path>d1/d45/class_light_test.html</Path>
-              <Anchor>acfa774548a0298d8240d5d73d20fe676</Anchor>
+              <Anchor>a8e1496077e7cd87df42b5b269422a1cc</Anchor>
              </Node>
              <Node>
               <Name>directionalLight</Name>
@@ -4133,7 +4147,7 @@
              <Node>
               <Name>initialize</Name>
               <Path>d7/dbc/class_particle_test.html</Path>
-              <Anchor>a2c80205ed7aa29e3cb9062ad803f4485</Anchor>
+              <Anchor>a0222594d12ff8c2a362cfdfa54a37ec2</Anchor>
              </Node>
              <Node>
               <Name>particles</Name>
@@ -4317,7 +4331,7 @@
              <Node>
               <Name>initialize</Name>
               <Path>d8/d53/class_player.html</Path>
-              <Anchor>a74539e4ea62aea94ea420052bac78292</Anchor>
+              <Anchor>aafa0b5810a654e04f88a1a9e71513b45</Anchor>
              </Node>
              <Node>
               <Name>camera</Name>
@@ -4627,7 +4641,7 @@
              <Node>
               <Name>initialize</Name>
               <Path>db/dd3/class_player_test_object.html</Path>
-              <Anchor>aac17d3bdbe3a909a7a873551fe90b6bb</Anchor>
+              <Anchor>ae69f29399695e79ce391f211f853d887</Anchor>
              </Node>
              <Node>
               <Name>bCollisionMesh</Name>
@@ -6978,8 +6992,8 @@
             <Path>d7/d80/struct_scene_1_1_entity.html</Path>
            </Node>
            <Node>
-            <Name>EntityWrapper::EntityVitals</Name>
-            <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
+            <Name>EntityVitals</Name>
+            <Path>db/dbe/class_entity_vitals.html</Path>
            </Node>
            <Node>
             <Name>EntityWrapper</Name>
@@ -9911,40 +9925,45 @@
               <Path>da/d03/_entity_tests_8h.html</Path>
               <Subnodes>
                <Node>
-                <Name>EntityWrapper</Name>
-                <Path>d3/d43/class_entity_wrapper.html</Path>
+                <Name>EntityVitals</Name>
+                <Path>db/dbe/class_entity_vitals.html</Path>
                 <Subnodes>
                  <Node>
                   <Name>EntityVitals</Name>
-                  <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-                  <Subnodes>
-                   <Node>
-                    <Name>checkForNulls</Name>
-                    <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-                    <Anchor>acf65583e2e08d352ba6d4b4a45454214</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>currentSettings</Name>
-                    <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-                    <Anchor>a4450bc423593e6d11580af6b5928d41b</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>map</Name>
-                    <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-                    <Anchor>aaaf80b2e9d1c6eb02e2e1e25f9cf4c3f</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>scene</Name>
-                    <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-                    <Anchor>a382b7affd10119e9ace0db22a7273499</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>thisWorld</Name>
-                    <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-                    <Anchor>a93befbbcbd8614395206eb14aac8d91e</Anchor>
-                   </Node>
-                  </Subnodes>
+                  <Path>db/dbe/class_entity_vitals.html</Path>
+                  <Anchor>ab77550b7dc0650383cdea30707f791fe</Anchor>
                  </Node>
+                 <Node>
+                  <Name>checkForNulls</Name>
+                  <Path>db/dbe/class_entity_vitals.html</Path>
+                  <Anchor>a21860d8c4e260081c3983ea062d95600</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>currentSettings</Name>
+                  <Path>db/dbe/class_entity_vitals.html</Path>
+                  <Anchor>af82b80262fa4d8b3c6638109132eb5ff</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>map</Name>
+                  <Path>db/dbe/class_entity_vitals.html</Path>
+                  <Anchor>a5377620f165d82f3bb26db313a1b51fb</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>scene</Name>
+                  <Path>db/dbe/class_entity_vitals.html</Path>
+                  <Anchor>ac479d98587240baf489d2de757528ba9</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>thisWorld</Name>
+                  <Path>db/dbe/class_entity_vitals.html</Path>
+                  <Anchor>a4c89fddde1116ee7c3cdb4a820146cd3</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>EntityWrapper</Name>
+                <Path>d3/d43/class_entity_wrapper.html</Path>
+                <Subnodes>
                  <Node>
                   <Name>~EntityWrapper</Name>
                   <Path>d3/d43/class_entity_wrapper.html</Path>
@@ -9954,37 +9973,6 @@
                   <Name>initialize</Name>
                   <Path>d3/d43/class_entity_wrapper.html</Path>
                   <Anchor>a8bff7d8e80109d5096a80c02a5c7ad1c</Anchor>
-                 </Node>
-                </Subnodes>
-               </Node>
-               <Node>
-                <Name>EntityVitals</Name>
-                <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-                <Subnodes>
-                 <Node>
-                  <Name>checkForNulls</Name>
-                  <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-                  <Anchor>acf65583e2e08d352ba6d4b4a45454214</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>currentSettings</Name>
-                  <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-                  <Anchor>a4450bc423593e6d11580af6b5928d41b</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>map</Name>
-                  <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-                  <Anchor>aaaf80b2e9d1c6eb02e2e1e25f9cf4c3f</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>scene</Name>
-                  <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-                  <Anchor>a382b7affd10119e9ace0db22a7273499</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>thisWorld</Name>
-                  <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-                  <Anchor>a93befbbcbd8614395206eb14aac8d91e</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -10000,7 +9988,7 @@
                  <Node>
                   <Name>initialize</Name>
                   <Path>d1/d45/class_light_test.html</Path>
-                  <Anchor>acfa774548a0298d8240d5d73d20fe676</Anchor>
+                  <Anchor>a8e1496077e7cd87df42b5b269422a1cc</Anchor>
                  </Node>
                  <Node>
                   <Name>directionalLight</Name>
@@ -10036,7 +10024,7 @@
                  <Node>
                   <Name>initialize</Name>
                   <Path>d7/dbc/class_particle_test.html</Path>
-                  <Anchor>a2c80205ed7aa29e3cb9062ad803f4485</Anchor>
+                  <Anchor>a0222594d12ff8c2a362cfdfa54a37ec2</Anchor>
                  </Node>
                  <Node>
                   <Name>particles</Name>
@@ -10062,7 +10050,7 @@
                  <Node>
                   <Name>initialize</Name>
                   <Path>d8/d53/class_player.html</Path>
-                  <Anchor>a74539e4ea62aea94ea420052bac78292</Anchor>
+                  <Anchor>aafa0b5810a654e04f88a1a9e71513b45</Anchor>
                  </Node>
                  <Node>
                   <Name>camera</Name>
@@ -10103,7 +10091,7 @@
                  <Node>
                   <Name>initialize</Name>
                   <Path>db/dd3/class_player_test_object.html</Path>
-                  <Anchor>aac17d3bdbe3a909a7a873551fe90b6bb</Anchor>
+                  <Anchor>ae69f29399695e79ce391f211f853d887</Anchor>
                  </Node>
                  <Node>
                   <Name>bCollisionMesh</Name>
@@ -10159,7 +10147,7 @@
                  <Node>
                   <Name>initialize</Name>
                   <Path>da/d1b/class_enemy_test_object.html</Path>
-                  <Anchor>a360c36ab9698fba8c384a6aa7816a7a2</Anchor>
+                  <Anchor>a170627be60c99d5332be438ad028b08d</Anchor>
                  </Node>
                  <Node>
                   <Name>collisionMesh</Name>
@@ -10210,7 +10198,7 @@
                  <Node>
                   <Name>initialize</Name>
                   <Path>de/d20/class_cube_trigger.html</Path>
-                  <Anchor>acd67037d7ab9aca5a6880824644f1cea</Anchor>
+                  <Anchor>a71b28f1db3632e3fac4f0a2eb972ace6</Anchor>
                  </Node>
                  <Node>
                   <Name>collisionMesh</Name>
@@ -10246,7 +10234,7 @@
                  <Node>
                   <Name>initialize</Name>
                   <Path>da/d3c/class_floor_object.html</Path>
-                  <Anchor>a5f324e5913659265a3ac615c8888c524</Anchor>
+                  <Anchor>a8eeff63d37ecb524e0a903285fbfe797</Anchor>
                  </Node>
                  <Node>
                   <Name>cm</Name>
@@ -10274,6 +10262,26 @@
                   <Anchor>a8b51b1130fdbb4a8957045c9e839c239</Anchor>
                  </Node>
                 </Subnodes>
+               </Node>
+               <Node>
+                <Name>allocateEntity</Name>
+                <Path>da/d03/_entity_tests_8h.html</Path>
+                <Anchor>a38322017cdf3b5b1146808731a156565</Anchor>
+               </Node>
+               <Node>
+                <Name>registerEntities</Name>
+                <Path>da/d03/_entity_tests_8h.html</Path>
+                <Anchor>a3801717aee8cb83ae0f8d169550cd211</Anchor>
+               </Node>
+               <Node>
+                <Name>registerEntity</Name>
+                <Path>da/d03/_entity_tests_8h.html</Path>
+                <Anchor>a21a24ff93dd1dc0318d5aaf0efb6a6cf</Anchor>
+               </Node>
+               <Node>
+                <Name>entityTypes</Name>
+                <Path>da/d03/_entity_tests_8h.html</Path>
+                <Anchor>a1b8c9385589a3e52c2d6dc8e0f930972</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -10378,6 +10386,11 @@
                   <Anchor>a157e87f9dc147a5842ee6bdc06c95c17</Anchor>
                  </Node>
                  <Node>
+                  <Name>freeEntities</Name>
+                  <Path>dd/d1f/class_game.html</Path>
+                  <Anchor>a953f7a9fe92ec47602083dd2e9a3b26d</Anchor>
+                 </Node>
+                 <Node>
                   <Name>initialize</Name>
                   <Path>dd/d1f/class_game.html</Path>
                   <Anchor>a8986a201a654418cefe34ec28af1a22c</Anchor>
@@ -10386,6 +10399,11 @@
                   <Name>initializeShaders</Name>
                   <Path>dd/d1f/class_game.html</Path>
                   <Anchor>a0cd419405f5790feab89322cbb3f18ce</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>loadScene</Name>
+                  <Path>dd/d1f/class_game.html</Path>
+                  <Anchor>a339feb3115ec7ff701cadd6cce18a66b</Anchor>
                  </Node>
                  <Node>
                   <Name>readBackendEventQueue</Name>
@@ -10418,6 +10436,11 @@
                   <Anchor>ae16cf1b0c582839cca1e0298d7e738f9</Anchor>
                  </Node>
                  <Node>
+                  <Name>currentScene</Name>
+                  <Path>dd/d1f/class_game.html</Path>
+                  <Anchor>ac6d4257f69001744503d4ffe94f978f9</Anchor>
+                 </Node>
+                 <Node>
                   <Name>currentTime</Name>
                   <Path>dd/d1f/class_game.html</Path>
                   <Anchor>a348407fe0cdb71a067acf2af496a5fcf</Anchor>
@@ -10431,11 +10454,6 @@
                   <Name>fixedUpdatingSystem</Name>
                   <Path>dd/d1f/class_game.html</Path>
                   <Anchor>ad9ce087f9521415c564ae26a7e8162d3</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>hasInit</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>a538da538bec244e4065f4c541a605753</Anchor>
                  </Node>
                  <Node>
                   <Name>map</Name>
@@ -10468,14 +10486,9 @@
                   <Anchor>afcb137f9c5d6598c5182c2d8d24312bc</Anchor>
                  </Node>
                  <Node>
-                  <Name>sceneOneEntities</Name>
+                  <Name>sceneEntities</Name>
                   <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>a110cbeb88ebcec201bfc76ccfb90357d</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>sceneTwoEntities</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>ab29665a1916f5e38160e86934c21c8de</Anchor>
+                  <Anchor>a27767c5ac995168f3826ad54d93d17ed</Anchor>
                  </Node>
                  <Node>
                   <Name>settings</Name>
@@ -11232,11 +11245,6 @@
               <Name>HelpingHand.h</Name>
               <Path>d7/d26/_helping_hand_8h.html</Path>
               <Subnodes>
-               <Node>
-                <Name>property</Name>
-                <Path>d7/d26/_helping_hand_8h.html</Path>
-                <Anchor>a6a7fb6d8189134ae4c2557bca5101f2d</Anchor>
-               </Node>
                <Node>
                 <Name>binarySearchVector</Name>
                 <Path>d7/d26/_helping_hand_8h.html</Path>
@@ -13880,6 +13888,17 @@
                   <Anchor>a3b4dd21e984bbed86295bd82a68725af</Anchor>
                  </Node>
                 </Subnodes>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>Scenes.h</Name>
+              <Path>df/dae/_scenes_8h.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>scenes</Name>
+                <Path>df/dae/_scenes_8h.html</Path>
+                <Anchor>a1e872f09cb44811bb724936b7f9969f7</Anchor>
                </Node>
               </Subnodes>
              </Node>

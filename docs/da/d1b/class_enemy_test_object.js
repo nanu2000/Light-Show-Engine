@@ -1,7 +1,7 @@
 var class_enemy_test_object =
 [
     [ "~EnemyTestObject", "da/d1b/class_enemy_test_object.html#abc4af535f1c0a85acd95bda167a53d20", null ],
-    [ "initialize", "da/d1b/class_enemy_test_object.html#a360c36ab9698fba8c384a6aa7816a7a2", null ],
+    [ "initialize", "da/d1b/class_enemy_test_object.html#a170627be60c99d5332be438ad028b08d", null ],
     [ "collisionMesh", "da/d1b/class_enemy_test_object.html#ac3b35fb076681092f874b44db5c5dc34", null ],
     [ "controller", "da/d1b/class_enemy_test_object.html#a5ac3ba8ce9e3b8ab377fcdfb47abbfad", null ],
     [ "info", "da/d1b/class_enemy_test_object.html#ad1d317fcd91e2267cf7669ac247eb296", null ],

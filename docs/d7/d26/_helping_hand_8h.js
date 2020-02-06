@@ -1,6 +1,5 @@
 var _helping_hand_8h =
 [
-    [ "property", "d7/d26/_helping_hand_8h.html#a6a7fb6d8189134ae4c2557bca5101f2d", null ],
     [ "binarySearchVector", "d7/d26/_helping_hand_8h.html#a5bdb0130d856e32cd8c55aea68e9f8f2", null ],
     [ "combineVectors", "d7/d26/_helping_hand_8h.html#a15ee6501dc9d520301a12619c8acedaa", null ],
     [ "combineVectors", "d7/d26/_helping_hand_8h.html#a7341a1876eacb2e1a620fe7c27dd0c80", null ],

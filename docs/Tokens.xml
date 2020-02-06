@@ -199,6 +199,54 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>registerEntity</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>Entities</Scope>
+    </TokenIdentifier>
+    <Path>d6/d4b/namespace_entities.html</Path>
+    <Anchor>a21a24ff93dd1dc0318d5aaf0efb6a6cf</Anchor>
+    <Abstract>Used to map a string to an EntityWrapper type&apos;s constructor.</Abstract>
+    <DeclaredIn>EntityTests.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>allocateEntity</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>Entities</Scope>
+    </TokenIdentifier>
+    <Path>d6/d4b/namespace_entities.html</Path>
+    <Anchor>a38322017cdf3b5b1146808731a156565</Anchor>
+    <Abstract>Used to allocate a new entity via string registered with registerEntity. Does not control lifetime of...</Abstract>
+    <DeclaredIn>EntityTests.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>registerEntities</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>Entities</Scope>
+    </TokenIdentifier>
+    <Path>d6/d4b/namespace_entities.html</Path>
+    <Anchor>a3801717aee8cb83ae0f8d169550cd211</Anchor>
+    <Abstract>Registers all entities so they can be created with Entities::allocateEntity via string.</Abstract>
+    <DeclaredIn>EntityTests.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>entityTypes</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Entities</Scope>
+    </TokenIdentifier>
+    <Path>d6/d4b/namespace_entities.html</Path>
+    <Anchor>a1b8c9385589a3e52c2d6dc8e0f930972</Anchor>
+    <Abstract>Map of entity constructors.</Abstract>
+    <DeclaredIn>EntityTests.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>GET_COLLISION_TAG_NAME</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
@@ -536,16 +584,6 @@
     <Path>d2/d74/_gui_button_8h.html</Path>
     <Anchor>a8523f7a9e6b59b8df903f65961092ad5ad93ffe3c42630ba3fc4bf5fb086dc9c8</Anchor>
     <DeclaredIn>GuiButton.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>property</Name>
-      <APILanguage>unknown</APILanguage>
-      <Type>macro</Type>
-    </TokenIdentifier>
-    <Path>d7/d26/_helping_hand_8h.html</Path>
-    <Anchor>a6a7fb6d8189134ae4c2557bca5101f2d</Anchor>
-    <DeclaredIn>HelpingHand.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1038,6 +1076,16 @@
     <Path>dc/de5/_ray_caster_8h.html</Path>
     <Anchor>aae916dc4400d62ca947c2f100a1f36d2</Anchor>
     <DeclaredIn>RayCaster.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>scenes</Name>
+      <APILanguage>c</APILanguage>
+      <Type>data</Type>
+    </TokenIdentifier>
+    <Path>df/dae/_scenes_8h.html</Path>
+    <Anchor>a1e872f09cb44811bb724936b7f9969f7</Anchor>
+    <DeclaredIn>Scenes.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -3524,6 +3572,7 @@
       <Scope>CubeTrigger</Scope>
     </TokenIdentifier>
     <Path>de/d20/class_cube_trigger.html</Path>
+    <Abstract>Test entity class.</Abstract>
     <DeclaredIn>EntityTests.h</DeclaredIn>
   </Token>
   <Token>
@@ -3545,7 +3594,7 @@
       <Scope>CubeTrigger</Scope>
     </TokenIdentifier>
     <Path>de/d20/class_cube_trigger.html</Path>
-    <Anchor>acd67037d7ab9aca5a6880824644f1cea</Anchor>
+    <Anchor>a71b28f1db3632e3fac4f0a2eb972ace6</Anchor>
     <DeclaredIn>EntityTests.h</DeclaredIn>
   </Token>
   <Token>
@@ -5383,6 +5432,7 @@
       <Scope>EnemyTestObject</Scope>
     </TokenIdentifier>
     <Path>da/d1b/class_enemy_test_object.html</Path>
+    <Abstract>Test entity class.</Abstract>
     <DeclaredIn>EntityTests.h</DeclaredIn>
   </Token>
   <Token>
@@ -5404,7 +5454,7 @@
       <Scope>EnemyTestObject</Scope>
     </TokenIdentifier>
     <Path>da/d1b/class_enemy_test_object.html</Path>
-    <Anchor>a360c36ab9698fba8c384a6aa7816a7a2</Anchor>
+    <Anchor>a170627be60c99d5332be438ad028b08d</Anchor>
     <DeclaredIn>EntityTests.h</DeclaredIn>
   </Token>
   <Token>
@@ -5606,12 +5656,86 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>EntityVitals</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>EntityVitals</Scope>
+    </TokenIdentifier>
+    <Path>db/dbe/class_entity_vitals.html</Path>
+    <Abstract>Used to store vital information used to initialize entities.</Abstract>
+    <DeclaredIn>EntityTests.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>EntityVitals</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>EntityVitals</Scope>
+    </TokenIdentifier>
+    <Path>db/dbe/class_entity_vitals.html</Path>
+    <Anchor>ab77550b7dc0650383cdea30707f791fe</Anchor>
+    <DeclaredIn>EntityTests.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>checkForNulls</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>EntityVitals</Scope>
+    </TokenIdentifier>
+    <Path>db/dbe/class_entity_vitals.html</Path>
+    <Anchor>a21860d8c4e260081c3983ea062d95600</Anchor>
+    <DeclaredIn>EntityTests.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>currentSettings</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>EntityVitals</Scope>
+    </TokenIdentifier>
+    <Path>db/dbe/class_entity_vitals.html</Path>
+    <Anchor>af82b80262fa4d8b3c6638109132eb5ff</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>scene</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>EntityVitals</Scope>
+    </TokenIdentifier>
+    <Path>db/dbe/class_entity_vitals.html</Path>
+    <Anchor>ac479d98587240baf489d2de757528ba9</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>thisWorld</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>EntityVitals</Scope>
+    </TokenIdentifier>
+    <Path>db/dbe/class_entity_vitals.html</Path>
+    <Anchor>a4c89fddde1116ee7c3cdb4a820146cd3</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>map</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>EntityVitals</Scope>
+    </TokenIdentifier>
+    <Path>db/dbe/class_entity_vitals.html</Path>
+    <Anchor>a5377620f165d82f3bb26db313a1b51fb</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>EntityWrapper</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
       <Scope>EntityWrapper</Scope>
     </TokenIdentifier>
     <Path>d3/d43/class_entity_wrapper.html</Path>
+    <Abstract>Simple base class used for entities.</Abstract>
     <DeclaredIn>EntityTests.h</DeclaredIn>
   </Token>
   <Token>
@@ -5635,67 +5759,6 @@
     <Path>d3/d43/class_entity_wrapper.html</Path>
     <Anchor>a2e82b7c3e9b89febb53f0e306d509d88</Anchor>
     <DeclaredIn>EntityTests.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>EntityWrapper::EntityVitals</Name>
-      <APILanguage>c</APILanguage>
-      <Type>cl</Type>
-      <Scope>EntityWrapper::EntityVitals</Scope>
-    </TokenIdentifier>
-    <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-    <DeclaredIn>EntityTests.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>checkForNulls</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>EntityWrapper::EntityVitals</Scope>
-    </TokenIdentifier>
-    <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-    <Anchor>acf65583e2e08d352ba6d4b4a45454214</Anchor>
-    <DeclaredIn>EntityTests.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>currentSettings</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>EntityWrapper::EntityVitals</Scope>
-    </TokenIdentifier>
-    <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-    <Anchor>a4450bc423593e6d11580af6b5928d41b</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>scene</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>EntityWrapper::EntityVitals</Scope>
-    </TokenIdentifier>
-    <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-    <Anchor>a382b7affd10119e9ace0db22a7273499</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>thisWorld</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>EntityWrapper::EntityVitals</Scope>
-    </TokenIdentifier>
-    <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-    <Anchor>a93befbbcbd8614395206eb14aac8d91e</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>map</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>EntityWrapper::EntityVitals</Scope>
-    </TokenIdentifier>
-    <Path>d5/da8/struct_entity_wrapper_1_1_entity_vitals.html</Path>
-    <Anchor>aaaf80b2e9d1c6eb02e2e1e25f9cf4c3f</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -5909,6 +5972,7 @@
       <Scope>FloorObject</Scope>
     </TokenIdentifier>
     <Path>da/d3c/class_floor_object.html</Path>
+    <Abstract>Test entity class.</Abstract>
     <DeclaredIn>EntityTests.h</DeclaredIn>
   </Token>
   <Token>
@@ -5930,7 +5994,7 @@
       <Scope>FloorObject</Scope>
     </TokenIdentifier>
     <Path>da/d3c/class_floor_object.html</Path>
-    <Anchor>a5f324e5913659265a3ac615c8888c524</Anchor>
+    <Anchor>a8eeff63d37ecb524e0a903285fbfe797</Anchor>
     <DeclaredIn>EntityTests.h</DeclaredIn>
   </Token>
   <Token>
@@ -6170,6 +6234,28 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>freeEntities</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Game</Scope>
+    </TokenIdentifier>
+    <Path>dd/d1f/class_game.html</Path>
+    <Anchor>a953f7a9fe92ec47602083dd2e9a3b26d</Anchor>
+    <DeclaredIn>Game.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>loadScene</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Game</Scope>
+    </TokenIdentifier>
+    <Path>dd/d1f/class_game.html</Path>
+    <Anchor>a339feb3115ec7ff701cadd6cce18a66b</Anchor>
+    <DeclaredIn>Game.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>backEndMessages</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -6290,33 +6376,23 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>sceneOneEntities</Name>
+      <Name>sceneEntities</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
       <Scope>Game</Scope>
     </TokenIdentifier>
     <Path>dd/d1f/class_game.html</Path>
-    <Anchor>a110cbeb88ebcec201bfc76ccfb90357d</Anchor>
+    <Anchor>a27767c5ac995168f3826ad54d93d17ed</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>sceneTwoEntities</Name>
+      <Name>currentScene</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
       <Scope>Game</Scope>
     </TokenIdentifier>
     <Path>dd/d1f/class_game.html</Path>
-    <Anchor>ab29665a1916f5e38160e86934c21c8de</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>hasInit</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>Game</Scope>
-    </TokenIdentifier>
-    <Path>dd/d1f/class_game.html</Path>
-    <Anchor>a538da538bec244e4065f4c541a605753</Anchor>
+    <Anchor>ac6d4257f69001744503d4ffe94f978f9</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -7823,6 +7899,7 @@
       <Scope>LightTest</Scope>
     </TokenIdentifier>
     <Path>d1/d45/class_light_test.html</Path>
+    <Abstract>Test entity class.</Abstract>
     <DeclaredIn>EntityTests.h</DeclaredIn>
   </Token>
   <Token>
@@ -7833,7 +7910,7 @@
       <Scope>LightTest</Scope>
     </TokenIdentifier>
     <Path>d1/d45/class_light_test.html</Path>
-    <Anchor>acfa774548a0298d8240d5d73d20fe676</Anchor>
+    <Anchor>a8e1496077e7cd87df42b5b269422a1cc</Anchor>
     <DeclaredIn>EntityTests.h</DeclaredIn>
   </Token>
   <Token>
@@ -9266,6 +9343,7 @@
       <Scope>ParticleTest</Scope>
     </TokenIdentifier>
     <Path>d7/dbc/class_particle_test.html</Path>
+    <Abstract>Test entity class.</Abstract>
     <DeclaredIn>EntityTests.h</DeclaredIn>
   </Token>
   <Token>
@@ -9287,7 +9365,7 @@
       <Scope>ParticleTest</Scope>
     </TokenIdentifier>
     <Path>d7/dbc/class_particle_test.html</Path>
-    <Anchor>a2c80205ed7aa29e3cb9062ad803f4485</Anchor>
+    <Anchor>a0222594d12ff8c2a362cfdfa54a37ec2</Anchor>
     <DeclaredIn>EntityTests.h</DeclaredIn>
   </Token>
   <Token>
@@ -9750,6 +9828,7 @@
       <Scope>Player</Scope>
     </TokenIdentifier>
     <Path>d8/d53/class_player.html</Path>
+    <Abstract>Test entity class.</Abstract>
     <DeclaredIn>EntityTests.h</DeclaredIn>
   </Token>
   <Token>
@@ -9771,7 +9850,7 @@
       <Scope>Player</Scope>
     </TokenIdentifier>
     <Path>d8/d53/class_player.html</Path>
-    <Anchor>a74539e4ea62aea94ea420052bac78292</Anchor>
+    <Anchor>aafa0b5810a654e04f88a1a9e71513b45</Anchor>
     <DeclaredIn>EntityTests.h</DeclaredIn>
   </Token>
   <Token>
@@ -10591,6 +10670,7 @@
       <Scope>PlayerTestObject</Scope>
     </TokenIdentifier>
     <Path>db/dd3/class_player_test_object.html</Path>
+    <Abstract>Test entity class.</Abstract>
     <DeclaredIn>EntityTests.h</DeclaredIn>
   </Token>
   <Token>
@@ -10612,7 +10692,7 @@
       <Scope>PlayerTestObject</Scope>
     </TokenIdentifier>
     <Path>db/dd3/class_player_test_object.html</Path>
-    <Anchor>aac17d3bdbe3a909a7a873551fe90b6bb</Anchor>
+    <Anchor>ae69f29399695e79ce391f211f853d887</Anchor>
     <DeclaredIn>EntityTests.h</DeclaredIn>
   </Token>
   <Token>
@@ -11830,6 +11910,7 @@
     </TokenIdentifier>
     <Path>d8/d31/class_rendering_system.html</Path>
     <Anchor>a167a571527b6f44e8c4bf45f383500be</Anchor>
+    <Abstract>Prepares and retrieves the first shader found in scene that is associated with entity.</Abstract>
     <DeclaredIn>RenderingSystem.h</DeclaredIn>
   </Token>
   <Token>
@@ -17765,6 +17846,63 @@
     <Path>d4/d37/namespace_e_n_e_m_y___c_t_r_l_r___n_s.html</Path>
     <Anchor>ade4c8adcfa4d9a09d892873591ac2269</Anchor>
     <DeclaredIn>EnemyControllerSystem.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Entities</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>Entities</Scope>
+    </TokenIdentifier>
+    <Path>d6/d4b/namespace_entities.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>registerEntity</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>Entities</Scope>
+    </TokenIdentifier>
+    <Path>d6/d4b/namespace_entities.html</Path>
+    <Anchor>a21a24ff93dd1dc0318d5aaf0efb6a6cf</Anchor>
+    <Abstract>Used to map a string to an EntityWrapper type&apos;s constructor.</Abstract>
+    <DeclaredIn>EntityTests.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>allocateEntity</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>Entities</Scope>
+    </TokenIdentifier>
+    <Path>d6/d4b/namespace_entities.html</Path>
+    <Anchor>a38322017cdf3b5b1146808731a156565</Anchor>
+    <Abstract>Used to allocate a new entity via string registered with registerEntity. Does not control lifetime of...</Abstract>
+    <DeclaredIn>EntityTests.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>registerEntities</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>Entities</Scope>
+    </TokenIdentifier>
+    <Path>d6/d4b/namespace_entities.html</Path>
+    <Anchor>a3801717aee8cb83ae0f8d169550cd211</Anchor>
+    <Abstract>Registers all entities so they can be created with Entities::allocateEntity via string.</Abstract>
+    <DeclaredIn>EntityTests.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>entityTypes</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Entities</Scope>
+    </TokenIdentifier>
+    <Path>d6/d4b/namespace_entities.html</Path>
+    <Anchor>a1b8c9385589a3e52c2d6dc8e0f930972</Anchor>
+    <Abstract>Map of entity constructors.</Abstract>
+    <DeclaredIn>EntityTests.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>

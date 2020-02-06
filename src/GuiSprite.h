@@ -51,12 +51,8 @@ public:
     }
 
     void render(Shader& shader) {
-        if (texture == nullptr) {
 
-            DBG_LOG("GuiSprite needs to be initialized before being used. The texture must not be null.");
-
-            assert(texture);
-        }
+        DBG_CHECK(texture);
 
         GLboolean currentDepth;
         glGetBooleanv(GL_DEPTH_WRITEMASK, &currentDepth);

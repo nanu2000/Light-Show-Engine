@@ -15,11 +15,11 @@ PhysicsWorld::PhysicsWorld(const btVector3& gravity) {
 }
 
 PhysicsWorld::~PhysicsWorld() {
-    assert(thisWorld);
-    assert(solver);
-    assert(collisionConfiguration);
-    assert(dispatcher);
-    assert(broadphase);
+    DBG_CHECK(thisWorld);
+    DBG_CHECK(solver);
+    DBG_CHECK(collisionConfiguration);
+    DBG_CHECK(dispatcher);
+    DBG_CHECK(broadphase);
     removeAllRigidBodies();
     delete thisWorld;
     delete solver;
@@ -83,8 +83,8 @@ void PhysicsWorld::initializeDebugDraw() {
 }
 
 void PhysicsWorld::addRigidBody(const CollisionMesh& collisionMesh) {
-    assert(thisWorld);
-    assert(collisionMesh.getRigidBody()->getUserPointer());
+    DBG_CHECK(thisWorld);
+    DBG_CHECK(collisionMesh.getRigidBody()->getUserPointer());
 
     thisWorld->addRigidBody(collisionMesh.getRigidBody());
     rigidBodies.push_back(collisionMesh.getRigidBody());
@@ -99,7 +99,7 @@ void PhysicsWorld::addRigidBody(const CollisionMesh& collisionMesh) {
 }
 
 void PhysicsWorld::removeRigidBody(const CollisionMesh& collisionMesh) {
-    assert(thisWorld);
+    DBG_CHECK(thisWorld);
 
     for (unsigned int i = 0; i < rigidBodies.size(); i++) {
         if (rigidBodies[i] == collisionMesh.getRigidBody()) {
@@ -110,7 +110,7 @@ void PhysicsWorld::removeRigidBody(const CollisionMesh& collisionMesh) {
 }
 
 void PhysicsWorld::removeAllRigidBodies() {
-    assert(thisWorld);
+    DBG_CHECK(thisWorld);
 
     for (unsigned int i = 0; i < rigidBodies.size(); i++) {
         thisWorld->removeRigidBody(rigidBodies[i]);

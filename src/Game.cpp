@@ -19,6 +19,9 @@ void Engine::Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMes
     if (areVitalsNull()) {
         return;
     }
+    DBG_CHECK(false);
+    DBG_CHECK(false);
+    DBG_CHECK(false);
 
     initializeShaders();
 

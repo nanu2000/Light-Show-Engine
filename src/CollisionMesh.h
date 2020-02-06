@@ -118,20 +118,20 @@ public:
     btRigidBody* const getRigidBody() const { return rigidBody; }
 
     void setScale(const glm::vec3& scale) {
-        assert(thisShape != nullptr);
+        DBG_CHECK(thisShape != nullptr);
         thisShape->setLocalScaling(hh::toBtVec3(scale));
     }
 
     glm::vec3 getScale() {
-        assert(thisShape != nullptr);
+        DBG_CHECK(thisShape != nullptr);
         return hh::toGlmVec3(thisShape->getLocalScaling());
     }
     glm::vec3 getPosition() {
-        assert(rigidBody != nullptr);
+        DBG_CHECK(rigidBody != nullptr);
         return hh::toGlmVec3(rigidBody->getCenterOfMassPosition());
     }
     glm::quat getRotation() {
-        assert(rigidBody != nullptr);
+        DBG_CHECK(rigidBody != nullptr);
         return hh::toGlmQuat(rigidBody->getCenterOfMassTransform().getRotation());
     }
 
@@ -143,7 +143,7 @@ public:
     }
 
     void addVelocity(const btVector3& v) {
-        assert(rigidBody != nullptr);
+        DBG_CHECK(rigidBody != nullptr);
 
         rigidBody->setLinearVelocity(
             btVector3(
@@ -153,7 +153,7 @@ public:
     }
 
     void addVelocity(const glm::vec3& v) {
-        assert(rigidBody != nullptr);
+        DBG_CHECK(rigidBody != nullptr);
 
         rigidBody->setLinearVelocity(
             btVector3(
@@ -163,33 +163,33 @@ public:
     }
 
     void setVelocity(const btVector3& v) {
-        assert(rigidBody != nullptr);
+        DBG_CHECK(rigidBody != nullptr);
         rigidBody->setLinearVelocity(v);
     }
 
     void setVelocity(const glm::vec3& v) {
-        assert(rigidBody != nullptr);
+        DBG_CHECK(rigidBody != nullptr);
         rigidBody->setLinearVelocity(hh::toBtVec3(v));
     }
 
     glm::vec3 getVelocity() {
-        assert(rigidBody != nullptr);
+        DBG_CHECK(rigidBody != nullptr);
         return hh::toGlmVec3(rigidBody->getLinearVelocity());
     }
     btVector3 getVelocitybt() const {
-        assert(rigidBody != nullptr);
+        DBG_CHECK(rigidBody != nullptr);
         return rigidBody->getLinearVelocity();
     }
     void applyCentralImpulse(const glm::vec3& impulse) {
-        assert(rigidBody != nullptr);
+        DBG_CHECK(rigidBody != nullptr);
         rigidBody->applyCentralImpulse(hh::toBtVec3(impulse));
     }
     void applyCentralImpulse(const btVector3& impulse) {
-        assert(rigidBody != nullptr);
+        DBG_CHECK(rigidBody != nullptr);
         rigidBody->applyCentralImpulse(impulse);
     }
     void activateRigidBody(bool t) {
-        assert(rigidBody != nullptr);
+        DBG_CHECK(rigidBody != nullptr);
         rigidBody->activate(t);
     }
 

@@ -189,7 +189,7 @@ void CollisionMesh::initializeModelShape(const btTransform& transformation, _3DM
 }
 
 void CollisionMesh::setTrigger(bool t) {
-    assert(rigidBody != nullptr);
+    DBG_CHECK(rigidBody);
     if (t) {
         rigidBody->setCollisionFlags(
             rigidBody->getCollisionFlags() | btCollisionObject::CF_NO_CONTACT_RESPONSE);
@@ -203,8 +203,8 @@ void CollisionMesh::setTrigger(bool t) {
 }
 
 void CollisionMesh::deInit() {
-    assert(hasInit);
-    assert(rigidBody != nullptr && thisMotionState != nullptr && thisShape != nullptr);
+    DBG_CHECK(hasInit);
+    DBG_CHECK(rigidBody != nullptr && thisMotionState != nullptr && thisShape != nullptr);
 
     delete rigidBody;
     delete thisMotionState;
@@ -224,7 +224,7 @@ void CollisionMesh::deInit() {
 }
 
 void CollisionMesh::setKinematic(bool t) {
-    assert(rigidBody != nullptr);
+    DBG_CHECK(rigidBody != nullptr);
     if (t) {
         rigidBody->setCollisionFlags(rigidBody->getCollisionFlags() | btCollisionObject::CF_KINEMATIC_OBJECT);
     } else {
@@ -235,7 +235,7 @@ void CollisionMesh::setKinematic(bool t) {
 }
 
 Transform CollisionMesh::getTransformation() {
-    assert(rigidBody != nullptr && thisShape != nullptr);
+    DBG_CHECK(rigidBody != nullptr && thisShape != nullptr);
     return Transform(
         hh::toGlmVec3(rigidBody->getCenterOfMassPosition()),
         hh::toGlmQuat(rigidBody->getCenterOfMassTransform().getRotation()),

@@ -9,9 +9,7 @@ public:
     CubeShape* getCube() { return &cube; }
     CubeMap* getCubeMap() {
 
-#ifdef DEBUG
-        assert(map != nullptr);
-#endif // DEBUG
+        DBG_CHECK(map);
 
         return map;
     }

@@ -70,7 +70,10 @@ void DefaultParticleSystem::fixedUpdateParticles(Particles& particles) {
         }
         particles.newparticles = 0;
     }
-    assert(particles.renderingSize <= particles.particles.size());
+    if (particles.renderingSize > particles.particles.size()) {
+        DBG_LOG("DefaultParticleSystem::fixedUpdateParticles renderingSize overflow.\n");
+        particles.renderingSize = particles.particles.size();
+    }
 
     for (int i = 0; i < particles.renderingSize; i++) {
         particlesV[i].lifeTime -= GameInfo::fixedDeltaTime;

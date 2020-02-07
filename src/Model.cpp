@@ -32,6 +32,12 @@ int _3DM::Model::getMeshIndex(const std::string& MeshName) const {
 
 void _3DM::Model::initializeTexture(_3DM::Mesh& mesh, Shader& shader) {
     for (GLuint j = 0; j < mesh.textures.size(); j++) {
+
+        //Check to see if uniform is already set. If it is then the texture was already initialized (most likely via addTexture).
+        if (!mesh.textures.at(j).uniformName.empty()) {
+            continue;
+        }
+
         std::stringstream stringStream;
 
         mesh.textures.at(j).imageID = TextureLocator::getService().getTexture(mesh.textures.at(j).imagePath).getTextureData();

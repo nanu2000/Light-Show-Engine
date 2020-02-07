@@ -15,136 +15,172 @@
 #include "glm/gtc/type_ptr.hpp"
 namespace _3DM {
 
-class _3DM_IO;
-class AnimatedModel : public Component<AnimatedModel>, public ModelBase {
+    class _3DM_IO;
+    class AnimatedModel : public Component<AnimatedModel>, public ModelBase {
 
-public:
-    AnimatedModel(const std::string& path);
+    public:
+        AnimatedModel(const std::string& path);
 
-    ~AnimatedModel();
+        ~AnimatedModel();
 
-    void initialize(Shader& shader);
-    /**************
+        void initialize(Shader& shader);
+        /**************
 		*	Getters	  *
 		***************/
 
-    glm::mat4 getMeshMatrix(unsigned int index) const;
-    int getMeshIndex(const std::string& MeshName) const;
-    int getAnimationIndex(const std::string& name) const;
-    int getChannelIndex(const std::string& channelName) const;
-    int getBoneID(const std::string& nodeName) const;
-    std::string getBoneName(uint32_t id) const;
-    int amountOfAnimations() const { return animationClips.size(); }
+        glm::mat4 getMeshMatrix(unsigned int index) const;
+        int getMeshIndex(const std::string& MeshName) const;
+        int getAnimationIndex(const std::string& name) const;
+        int getChannelIndex(const std::string& channelName) const;
+        int getBoneID(const std::string& nodeName) const;
+        std::string getBoneName(uint32_t id) const;
+        int amountOfAnimations() const { return animationClips.size(); }
 
-    glm::mat4 getBoneTransformation(unsigned int boneId) const;
-    glm::mat4 getBoneTransformationWithoutOffset(unsigned int boneId) const;
-    glm::mat4 getBoneTransformationWithoutOffset(const std::string& name) const;
+        glm::mat4 getBoneTransformation(unsigned int boneId) const;
+        glm::mat4 getBoneTransformationWithoutOffset(unsigned int boneId) const;
+        glm::mat4 getBoneTransformationWithoutOffset(const std::string& name) const;
 
-    unsigned int amountOfBones() const { return modelsAnimation.boneTransformations.size(); }
-    unsigned int amountOfMeshes() const { return meshes.size(); }
+        unsigned int amountOfBones() const { return modelsAnimation.boneTransformations.size(); }
+        unsigned int amountOfMeshes() const { return meshes.size(); }
 
-    std::vector<glm::vec3>* getMeshVertices(unsigned int index);
-    std::vector<uint32_t>* getMeshIndices(unsigned int index);
+        std::vector<glm::vec3>* getMeshVertices(unsigned int index);
+        std::vector<uint32_t>* getMeshIndices(unsigned int index);
 
-    /**************
+        /**************
 		*	Setters	  *
 		***************/
 
-    void setMeshMatrix(unsigned int index, const glm::mat4& newMatrix);
-    void setBoneMatrix(const glm::mat4& transformation, unsigned int boneId);
-    void setAnimationClip(unsigned int clip);
+        void setMeshMatrix(unsigned int index, const glm::mat4& newMatrix);
+        void setBoneMatrix(const glm::mat4& transformation, unsigned int boneId);
+        void setAnimationClip(unsigned int clip);
 
-    /************
+        /************
 		*	Other   *
 		*************/
 
-    void fixedUpdateAnimation();
-    void renderAll(Shader& shader);
-    void renderSingleMesh(unsigned int index, Shader& shader);
-    void removeKeyframes(unsigned int channelIndex);
+        void addTexture(const Texture& texture, int index, const _3DM::TextureType& type) {
+            if (index >= meshes.size()) {
+                DBG_LOG("This index goes out of bounds (_3DM::AnimatedModel::addTexture)\n");
+                return;
+            }
 
-    void addRotationToKeyFrames(const glm::quat& rotation, unsigned int channelIndex);
-    void addRotationToKeyFrames(const glm::vec3& rotation, unsigned int channelIndex);
-    void overwriteRotationKeyFrames(const glm::vec3& rotation, unsigned int channelIndex);
-    void overwriteRotationKeyFrames(const glm::quat& rotation, unsigned int channelIndex);
-    void addScaleToKeyFrames(const glm::vec3& scale, unsigned int channelIndex);
-    void overwriteScaleKeyFrames(const glm::vec3& scale, unsigned int channelIndex);
-    void addPositionToKeyFrames(const glm::vec3& position, unsigned int channelIndex);
-    void overWritePositionToKeyFrames(const glm::vec3& position, unsigned int channelIndex);
+            AnimatedMesh& animMesh = meshes.at(index);
 
-    void setBlendingTime(const float newTime) { blendingTime = newTime; }
+            ModelTexture modelTexture;
+            std::stringstream stringStream;
 
-private:
-    struct InterpolatedFrame {
-        InterpolatedFrame()
-            : interpolation(0.0f)
-            , firstFrame(0)
-            , lastFrame(0) {}
+            modelTexture.imageID   = texture.getTextureData();
+            modelTexture.imagePath = texture.getLocation();
+            modelTexture.imageType = type;
 
-        float interpolation = 0;
-        int firstFrame      = 0;
-        int lastFrame       = 0;
-    };
+            switch (type) {
+            case _3DM::Diffuse:
+                animMesh.mesh.diffuseIndex++;
+                stringStream << animMesh.mesh.diffuseIndex;
+                modelTexture.uniformName = Shaders::getUniformName(Shaders::UniformName::DiffuseTexture) + stringStream.str();
+                break;
+            case _3DM::Specular:
+                animMesh.mesh.specularIndex++;
+                stringStream << animMesh.mesh.specularIndex;
+                modelTexture.uniformName = Shaders::getUniformName(Shaders::UniformName::SpecularTexture) + stringStream.str();
+                break;
+            case _3DM::Normals:
+                animMesh.mesh.normalsIndex++;
+                stringStream << animMesh.mesh.normalsIndex;
+                modelTexture.uniformName = Shaders::getUniformName(Shaders::UniformName::NormalTexture) + stringStream.str();
+                break;
+            }
 
-    template <typename T>
-    InterpolatedFrame getKeyframesAtTime(std::vector<T>& keys, const float& currentTime) {
-        InterpolatedFrame thisFrame;
+            animMesh.mesh.textures.push_back(modelTexture);
+        }
 
-        for (int i = 0; i < static_cast<int>(keys.size()) - 1; i++) {
-            if (currentTime >= keys[i].time && currentTime < keys.at(i + 1).time) {
-                thisFrame.interpolation = (currentTime - keys[i].time) / (keys.at(i + 1).time - keys[i].time);
-                thisFrame.firstFrame    = i;
-                thisFrame.lastFrame     = i + 1;
-                return thisFrame;
+        void fixedUpdateAnimation();
+        void renderAll(Shader& shader);
+        void renderSingleMesh(unsigned int index, Shader& shader);
+        void removeKeyframes(unsigned int channelIndex);
+
+        void addRotationToKeyFrames(const glm::quat& rotation, unsigned int channelIndex);
+        void addRotationToKeyFrames(const glm::vec3& rotation, unsigned int channelIndex);
+        void overwriteRotationKeyFrames(const glm::vec3& rotation, unsigned int channelIndex);
+        void overwriteRotationKeyFrames(const glm::quat& rotation, unsigned int channelIndex);
+        void addScaleToKeyFrames(const glm::vec3& scale, unsigned int channelIndex);
+        void overwriteScaleKeyFrames(const glm::vec3& scale, unsigned int channelIndex);
+        void addPositionToKeyFrames(const glm::vec3& position, unsigned int channelIndex);
+        void overWritePositionToKeyFrames(const glm::vec3& position, unsigned int channelIndex);
+
+        void setBlendingTime(const float newTime) { blendingTime = newTime; }
+
+    private:
+        struct InterpolatedFrame {
+            InterpolatedFrame()
+                : interpolation(0.0f)
+                , firstFrame(0)
+                , lastFrame(0) {}
+
+            float interpolation = 0;
+            int firstFrame      = 0;
+            int lastFrame       = 0;
+        };
+
+        template <typename T>
+        InterpolatedFrame getKeyframesAtTime(std::vector<T>& keys, const float& currentTime) {
+            InterpolatedFrame thisFrame;
+
+            for (int i = 0; i < static_cast<int>(keys.size()) - 1; i++) {
+                if (currentTime >= keys[i].time && currentTime < keys.at(i + 1).time) {
+                    thisFrame.interpolation = (currentTime - keys[i].time) / (keys.at(i + 1).time - keys[i].time);
+                    thisFrame.firstFrame    = i;
+                    thisFrame.lastFrame     = i + 1;
+                    return thisFrame;
+                }
+            }
+            return thisFrame;
+        }
+
+        template <typename T>
+        unsigned int getNearestFrameAtTime(std::vector<T>& keys, const float& currentTime) {
+            InterpolatedFrame frames = getKeyframesAtTime(keys, currentTime);
+
+            if (frames.interpolation <= .5f) {
+                return frames.firstFrame;
+            } else {
+                return frames.lastFrame;
             }
         }
-        return thisFrame;
-    }
 
-    template <typename T>
-    unsigned int getNearestFrameAtTime(std::vector<T>& keys, const float& currentTime) {
-        InterpolatedFrame frames = getKeyframesAtTime(keys, currentTime);
+        void initializeBuffers(Mesh& mesh, Shader& shader);
+        void initializeTexture(Mesh& mesh, Shader& shader);
 
-        if (frames.interpolation <= .5f) {
-            return frames.firstFrame;
-        } else {
-            return frames.lastFrame;
-        }
-    }
+        void renderMesh(unsigned int index, Shader& shader);
+        void initializeBoneBuffers(AnimatedMesh& mesh, Shader& shader);
+        void updateBoneTree(const float& timeInTicks, BoneNode* node, const glm::mat4& parentTransform);
+        void blendBoneTree(const float& lastAnimationTime, _3DM::BoneNode* node, const glm::mat4& parentTransform);
 
-    void initializeBuffers(Mesh& mesh, Shader& shader);
-    void initializeTexture(Mesh& mesh, Shader& shader);
+        void bindBuffers(Shader& shader, AnimatedMesh& mesh);
 
-    void renderMesh(unsigned int index, Shader& shader);
-    void initializeBoneBuffers(AnimatedMesh& mesh, Shader& shader);
-    void updateBoneTree(const float& timeInTicks, BoneNode* node, const glm::mat4& parentTransform);
-    void blendBoneTree(const float& lastAnimationTime, _3DM::BoneNode* node, const glm::mat4& parentTransform);
+        Animation modelsAnimation;
 
-    void bindBuffers(Shader& shader, AnimatedMesh& mesh);
+        std::vector<AnimatedMesh> meshes;
 
-    Animation modelsAnimation;
+        std::map<std::string, uint32_t> boneIDMap; //retrieves the bones ID with a given name
 
-    std::vector<AnimatedMesh> meshes;
+        uint16_t currentAnimationClip      = 0;
+        uint16_t lastAnimationClip         = 0;
+        float timeSinceAnimationStarted    = 0;
+        float blendingTime                 = .1f;
+        float currentBlendingTime          = 0;
+        float blendingLastFrameTime        = 0;
+        uint16_t blendinglastAnimationClip = 0;
 
-    std::map<std::string, uint32_t> boneIDMap; //retrieves the bones ID with a given name
+        std::vector<AnimationClip> animationClips;
 
-    uint16_t currentAnimationClip      = 0;
-    uint16_t lastAnimationClip         = 0;
-    float timeSinceAnimationStarted    = 0;
-    float blendingTime                 = .1f;
-    float currentBlendingTime          = 0;
-    float blendingLastFrameTime        = 0;
-    uint16_t blendinglastAnimationClip = 0;
+        std::string rootPath;
+        bool modelLoaded = false;
+        bool initialized = false;
 
-    std::vector<AnimationClip> animationClips;
-
-    std::string rootPath;
-    bool modelLoaded = false;
-    bool initialized = false;
-
-    AnimatedModel() {}
-    friend class _3DM::_3DM_IO;
-};
+        AnimatedModel() {}
+        friend class _3DM::_3DM_IO;
+    };
 
 };
 

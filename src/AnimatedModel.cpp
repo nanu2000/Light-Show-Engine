@@ -593,11 +593,14 @@ void _3DM::AnimatedModel::bindBuffers(Shader& shader, AnimatedMesh& mesh) {
 }
 
 void _3DM::AnimatedModel::initializeTexture(_3DM::Mesh& mesh, Shader& shader) {
-    mesh.diffuseIndex  = 0;
-    mesh.normalsIndex  = 0;
-    mesh.specularIndex = 0;
 
     for (GLuint j = 0; j < mesh.textures.size(); j++) {
+
+        //Check to see if uniform is already set. If it is then the texture was already initialized (most likely via addTexture).
+        if (!mesh.textures.at(j).uniformName.empty()) {
+            continue;
+        }
+
         std::stringstream stringStream;
 
         mesh.textures.at(j).imageID = TextureLocator::getService().getTexture(mesh.textures.at(j).imagePath).getTextureData();

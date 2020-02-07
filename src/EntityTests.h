@@ -88,7 +88,7 @@ private:
     PauseMenu menu;
 
     Camera camera;
-    //DebuggingController dbgController;
+    DebuggingController dbgController;
     UserControls userControls;
 };
 

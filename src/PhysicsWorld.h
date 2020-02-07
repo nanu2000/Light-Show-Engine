@@ -22,8 +22,6 @@ public:
 
     void debugDraw(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix);
 
-    void initializeDebugDraw();
-
     DebugDrawer* const getDebugDrawer() { return &debugDrawer; }
 
     void addRigidBody(const CollisionMesh& collisionMesh);
@@ -32,7 +30,18 @@ public:
 
     void removeAllRigidBodies();
 
+    void setDebugDrawing(bool b) {
+        shouldDebugDraw = b;
+    }
+    bool isDebugDrawing() {
+        return shouldDebugDraw;
+    }
+
+    void initializeDebugDraw();
+
 private:
+    bool shouldDebugDraw = false;
+
     std::vector<btRigidBody*> rigidBodies;
     std::vector<btCollisionShape*> shapes;
 

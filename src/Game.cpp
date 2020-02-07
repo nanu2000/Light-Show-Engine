@@ -53,8 +53,10 @@ void Engine::Game::loadScene(int index) {
     freeEntities();
 
     //Allocate new scene and entities.
-    scene               = new Scene();
-    physicsWorld        = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
+    scene        = new Scene();
+    physicsWorld = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
+    physicsWorld->initializeDebugDraw();
+
     EntityVitals vitals = EntityVitals(&settings, scene, physicsWorld, &map);
 
     for (unsigned int i = 0; i < scenes.at(currentScene).size(); i++) {

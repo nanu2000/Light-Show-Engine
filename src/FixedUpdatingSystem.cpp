@@ -130,7 +130,6 @@ void FixedUpdatingSystem::fixedUpdate(GameState& gameState, const Time& time, Po
         if (DebuggingController* dbgCtrlr = currentScene->getComponent<DebuggingController>(entity.id)) {
             Input& thisInput = InputLocator::getService();
 
-            dbgCtrlr->controlWireframeDebugDraw(thisInput);
             dbgCtrlr->controlPhysicsDebugDraw(thisInput, *physicsWorld);
         }
 

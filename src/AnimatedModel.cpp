@@ -185,7 +185,7 @@ glm::mat4 _3DM::AnimatedModel::getBoneTransformationWithoutOffset(unsigned int b
     std::map<std::string, glm::mat4>::const_iterator boneMatrixIT = modelsAnimation.boneOffset.find(getBoneName(boneId));
 
     if (boneMatrixIT != modelsAnimation.boneOffset.end()) {
-        return getBoneTransformation(boneId) / boneMatrixIT->second; //Use matrix 'division' to undo the multiplication of the bone offset.
+        return getBoneTransformation(boneId) / boneMatrixIT->second; //Use matrix division to undo the multiplication of the bone offset.
     }
     return glm::mat4();
 }
@@ -198,7 +198,7 @@ glm::mat4 _3DM::AnimatedModel::getBoneTransformationWithoutOffset(const std::str
         std::map<std::string, glm::mat4>::const_iterator boneMatrixIT = modelsAnimation.boneOffset.find(boneIDNameIT->first);
 
         if (boneMatrixIT != modelsAnimation.boneOffset.end()) {
-            return getBoneTransformation(getBoneID(name)) / boneMatrixIT->second; //Use matrix 'division' to undo the multiplication of the bone offset.
+            return getBoneTransformation(getBoneID(name)) / boneMatrixIT->second; //Use matrix division to undo the multiplication of the bone offset.
         }
     }
 
@@ -226,10 +226,43 @@ void _3DM::AnimatedModel::setBoneMatrix(const glm::mat4& transformation, unsigne
         DBG_LOG("There was an error setting the bone matrix. local variable boneId goes out of bounds.\n");
     }
 }
-/*********************************************************************************************************
 
-*Will update the animation accordingly. the value 'time' is expected to be a constantly increasing value.*
-**********************************************************************************************************/
+void _3DM::AnimatedModel::addTexture(const Texture& texture, int meshIndex, const _3DM::TextureType& type) {
+    if (meshIndex >= meshes.size()) {
+        DBG_LOG("This index goes out of bounds (_3DM::AnimatedModel::addTexture)\n");
+        return;
+    }
+
+    AnimatedMesh& animMesh = meshes.at(meshIndex);
+
+    ModelTexture modelTexture;
+    std::stringstream stringStream;
+
+    modelTexture.imageID   = texture.getTextureData();
+    modelTexture.imagePath = texture.getLocation();
+    modelTexture.imageType = type;
+
+    switch (type) {
+    case _3DM::TextureType::Diffuse:
+        animMesh.mesh.diffuseIndex++;
+        stringStream << animMesh.mesh.diffuseIndex;
+        modelTexture.uniformName = Shaders::getUniformName(Shaders::UniformName::DiffuseTexture) + stringStream.str();
+        break;
+    case _3DM::TextureType::Specular:
+        animMesh.mesh.specularIndex++;
+        stringStream << animMesh.mesh.specularIndex;
+        modelTexture.uniformName = Shaders::getUniformName(Shaders::UniformName::SpecularTexture) + stringStream.str();
+        break;
+    case _3DM::TextureType::Normals:
+        animMesh.mesh.normalsIndex++;
+        stringStream << animMesh.mesh.normalsIndex;
+        modelTexture.uniformName = Shaders::getUniformName(Shaders::UniformName::NormalTexture) + stringStream.str();
+        break;
+    }
+
+    animMesh.mesh.textures.push_back(modelTexture);
+}
+
 void _3DM::AnimatedModel::fixedUpdateAnimation() {
     if (currentAnimationClip != lastAnimationClip) {
         blendingLastFrameTime     = timeSinceAnimationStarted;
@@ -412,9 +445,7 @@ void _3DM::AnimatedModel::updateBoneTree(const float& timeInTicks, _3DM::BoneNod
         updateBoneTree(timeInTicks, &node->children[i], finalModel);
     }
 }
-/*****************************************************************************************************************************************
-*This function will recursively blend the bonetree according to the time given. it will also interpolate properly between each keyframe.*
-******************************************************************************************************************************************/
+
 void _3DM::AnimatedModel::blendBoneTree(const float& lastAnimationTime, _3DM::BoneNode* node, const glm::mat4& parentTransform) {
 
     int channelIndex = getChannelIndex(node->name);

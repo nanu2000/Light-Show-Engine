@@ -1,4 +1,5 @@
 #include "Model.h"
+
 _3DM::Model::Model(const std::string& path) {
     _3DM_IO modelLoader;
     *this = modelLoader.readModel(path);
@@ -7,6 +8,41 @@ _3DM::Model::Model(const std::string& path) {
         printf("Please load in a model before initializing buffers. ( _3DM::Model::initialize() )\n");
         return;
     }
+}
+
+void _3DM::Model::addTexture(const Texture& texture, int meshIndex, const _3DM::TextureType& type) {
+    if (meshIndex >= meshes.size()) {
+        DBG_LOG("This index goes out of bounds (_3DM::Model::addTexture)\n");
+        return;
+    }
+
+    Mesh& mesh = meshes.at(meshIndex);
+    std::stringstream stringStream;
+
+    ModelTexture modelTexture;
+    modelTexture.imageID   = texture.getTextureData();
+    modelTexture.imagePath = texture.getLocation();
+    modelTexture.imageType = type;
+
+    switch (type) {
+    case _3DM::TextureType::Diffuse:
+        mesh.diffuseIndex++;
+        stringStream << mesh.diffuseIndex;
+        modelTexture.uniformName = Shaders::getUniformName(Shaders::UniformName::DiffuseTexture) + stringStream.str();
+        break;
+    case _3DM::TextureType::Specular:
+        mesh.specularIndex++;
+        stringStream << mesh.specularIndex;
+        modelTexture.uniformName = Shaders::getUniformName(Shaders::UniformName::SpecularTexture) + stringStream.str();
+        break;
+    case _3DM::TextureType::Normals:
+        mesh.normalsIndex++;
+        stringStream << mesh.normalsIndex;
+        modelTexture.uniformName = Shaders::getUniformName(Shaders::UniformName::NormalTexture) + stringStream.str();
+        break;
+    }
+
+    mesh.textures.push_back(modelTexture);
 }
 
 void _3DM::Model::renderSingleMesh(unsigned int index, Shader& shader) {
@@ -20,7 +56,8 @@ void _3DM::Model::renderSingleMesh(unsigned int index, Shader& shader) {
         DBG_LOG("This index goes out of bounds (_3DM::Model::renderSingleMesh)\n");
     }
 }
-//Returns -1 on failure
+
+//!Retrieves a mesh's index via string. Returns -1 on failure.
 int _3DM::Model::getMeshIndex(const std::string& MeshName) const {
     for (unsigned int i = 0; i < meshes.size(); i++) {
         if (meshes[i].name == MeshName) {
@@ -30,6 +67,7 @@ int _3DM::Model::getMeshIndex(const std::string& MeshName) const {
     return -1;
 }
 
+//!Initializes the textures for a mesh.
 void _3DM::Model::initializeTexture(_3DM::Mesh& mesh, Shader& shader) {
     for (GLuint j = 0; j < mesh.textures.size(); j++) {
 
@@ -71,6 +109,7 @@ void _3DM::Model::initializeTexture(_3DM::Mesh& mesh, Shader& shader) {
     }
 }
 
+//!Initializes the buffers for a mesh.
 void _3DM::Model::initializeBuffers(_3DM::Mesh& mesh, Shader& shader) {
 
     GLint uvAttribute       = Shaders::getAttribLocation(Shaders::AttribName::TextureCoordinates);
@@ -103,6 +142,7 @@ void _3DM::Model::initializeBuffers(_3DM::Mesh& mesh, Shader& shader) {
     glVertexAttribPointer(normalsAttribute, 3, GL_FLOAT, GL_FALSE, 0, 0);
 }
 
+//!Initializes the model. Should be called before rendering.
 void _3DM::Model::initialize(Shader& shader) {
 
     if (!modelLoaded) {
@@ -114,9 +154,9 @@ void _3DM::Model::initialize(Shader& shader) {
     for (unsigned int i = 0; i < meshes.size(); i++) {
 
         initializeTexture(meshes[i], shader);
-
         initializeBuffers(meshes[i], shader);
     }
+
     glBindVertexArray(0);
     animatedModel = false;
     initialized   = true;
@@ -140,6 +180,8 @@ _3DM::Model::~Model() {
         glDeleteBuffers(1, &mesh.normalBufferObject);
     }
 }
+
+//!Renders all meshes in model.
 void _3DM::Model::renderAll(Shader& shader) {
     if (!modelLoaded) {
 #ifdef DEBUG
@@ -153,6 +195,7 @@ void _3DM::Model::renderAll(Shader& shader) {
     }
 }
 
+//!Retrieves matrix of mesh at index.
 glm::mat4 _3DM::Model::getMeshMatrix(unsigned int index) const {
     if (index < meshes.size() && index >= 0) {
         return meshes.at(index).baseModelMatrix;
@@ -162,12 +205,14 @@ glm::mat4 _3DM::Model::getMeshMatrix(unsigned int index) const {
     return glm::mat4();
 }
 
+//!Sets matrix of mesh at index.
 void _3DM::Model::setMeshMatrix(unsigned int index, const glm::mat4& newMatrix) {
     if (index < meshes.size() && index >= 0) {
         meshes.at(index).baseModelMatrix = newMatrix;
     }
 }
 
+//!Retrieves vertices of mesh at index.
 std::vector<glm::vec3>* _3DM::Model::getMeshVertices(unsigned int index) {
     if (index < meshes.size()) {
         return &meshes.at(index).vertices;
@@ -176,6 +221,7 @@ std::vector<glm::vec3>* _3DM::Model::getMeshVertices(unsigned int index) {
     return nullptr;
 }
 
+//Retrieves indices of mesh at index.
 std::vector<uint32_t>* _3DM::Model::getMeshIndices(unsigned int index) {
     if (index < meshes.size()) {
         return &meshes.at(index).indices;
@@ -184,6 +230,7 @@ std::vector<uint32_t>* _3DM::Model::getMeshIndices(unsigned int index) {
     return nullptr;
 }
 
+//Renders a mesh at index.
 void _3DM::Model::renderMesh(unsigned int index, Shader& shader) {
 
     glBindVertexArray(meshes.at(index).vertexArrayObject); //Bind VAO

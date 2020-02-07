@@ -3,18 +3,18 @@
 #include <string>
 
 namespace _3DM {
-    enum TextureType {
+    enum class TextureType {
         Diffuse  = 0,
         Specular = 1,
         Normals  = 2
     };
     struct ModelTexture {
-        std::string imagePath;
-        TextureType imageType;
+        std::string imagePath = "";
+        _3DM::TextureType imageType;
 
         //These variables do not need serialization
-        std::string uniformName;
-        unsigned int imageID;
+        std::string uniformName = "";
+        unsigned int imageID    = 0;
     };
 };
 

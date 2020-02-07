@@ -14,51 +14,21 @@
 
 namespace _3DM {
     class _3DM_IO;
+
+    //!The Model controls the lifecycle of a 3D Model. This includes init, rendering, and freeing the data to render the Model.
     class Model : public Component<Model>, public ModelBase {
     public:
         Model(const std::string& path);
         Model() {}
         ~Model();
 
-        void addTexture(const Texture& texture, int index, const _3DM::TextureType& type) {
-            if (index >= meshes.size()) {
-                DBG_LOG("This index goes out of bounds (_3DM::Model::addTexture)\n");
-                return;
-            }
-
-            Mesh& mesh = meshes.at(index);
-            std::stringstream stringStream;
-
-            ModelTexture modelTexture;
-            modelTexture.imageID   = texture.getTextureData();
-            modelTexture.imagePath = texture.getLocation();
-            modelTexture.imageType = type;
-
-            switch (type) {
-            case _3DM::Diffuse:
-                mesh.diffuseIndex++;
-                stringStream << mesh.diffuseIndex;
-                modelTexture.uniformName = Shaders::getUniformName(Shaders::UniformName::DiffuseTexture) + stringStream.str();
-                break;
-            case _3DM::Specular:
-                mesh.specularIndex++;
-                stringStream << mesh.specularIndex;
-                modelTexture.uniformName = Shaders::getUniformName(Shaders::UniformName::SpecularTexture) + stringStream.str();
-                break;
-            case _3DM::Normals:
-                mesh.normalsIndex++;
-                stringStream << mesh.normalsIndex;
-                modelTexture.uniformName = Shaders::getUniformName(Shaders::UniformName::NormalTexture) + stringStream.str();
-                break;
-            }
-
-            mesh.textures.push_back(modelTexture);
-        }
-
+        //! Used to add a texture manually to a mesh.
+        void addTexture(const Texture& texture, int meshIndex, const _3DM::TextureType& type);
         void renderSingleMesh(unsigned int index, Shader& shader);
         int getMeshIndex(const std::string& MeshName) const;
         void initialize(Shader& shader);
         void renderAll(Shader& shader);
+        void renderMesh(unsigned int index, Shader& shader);
         glm::mat4 getMeshMatrix(unsigned int index) const;
         void setMeshMatrix(unsigned int index, const glm::mat4& newMatrix);
         unsigned int amountOfMeshes() { return meshes.size(); }
@@ -71,10 +41,7 @@ namespace _3DM {
         std::vector<Mesh> meshes;
 
         void initializeBuffers(_3DM::Mesh& mesh, Shader& shader);
-
         void initializeTexture(_3DM::Mesh& mesh, Shader& shader);
-
-        void renderMesh(unsigned int index, Shader& shader);
 
         std::string rootPath;
         bool modelLoaded = false;

@@ -1,7 +1,8 @@
 #include "Window.h"
-Engine::Window::Window(unsigned int w, unsigned int h) {
-    width  = w;
-    height = h;
+Engine::Window::Window(unsigned int w, unsigned int h, const std::string& title) {
+    windowTitle = title;
+    width       = w;
+    height      = h;
 }
 Engine::Window::~Window() {
     SDL_GL_DeleteContext(glContext);

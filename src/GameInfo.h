@@ -68,7 +68,7 @@ namespace GameInfo {
     const float PHYSICS_TIME_STEP = fixedDeltaTime;
 
     //Default Window Title
-    const std::string WINDOW_TITLE = "Prototype #1 (Hopefully the last)";
+    const std::string WINDOW_TITLE = "Gonna get there!";
 
     //For Debug Drawing
     const glm::vec4 DEBUG_COLOR = glm::vec4(0.0f, 0.7f, 0.3f, 1.0f);

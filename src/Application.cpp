@@ -21,7 +21,7 @@ void GameInfo::setMousePosition(int xPos, int yPos) {
     Engine::setMousePosition(xPos, yPos);
 }
 
-Engine::Window Engine::gameWindow = Engine::Window(GameInfo::START_WINDOW_WIDTH, GameInfo::START_WINDOW_HEIGHT);
+Engine::Window Engine::gameWindow = Engine::Window(GameInfo::START_WINDOW_WIDTH, GameInfo::START_WINDOW_HEIGHT, GameInfo::WINDOW_TITLE);
 bool Engine::isRunning            = true;
 
 void Engine::Application::run() {

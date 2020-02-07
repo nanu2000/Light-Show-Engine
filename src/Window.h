@@ -12,7 +12,7 @@ namespace Engine {
     //! Handles all of the window logic for the application.
     class Window {
     public:
-        Window(unsigned int w, unsigned int h);
+        Window(unsigned int w, unsigned int h, const std::string& title);
         Window() {}
         ~Window();
 
@@ -34,7 +34,7 @@ namespace Engine {
 
         //!Returns max screen size
         glm::ivec2 getDeviceMaxScreenSize();
-        std::string windowTitle = GameInfo::WINDOW_TITLE;
+        std::string windowTitle = "";
 
         SDL_Window* gameWindow  = nullptr;
         SDL_GLContext glContext = nullptr;

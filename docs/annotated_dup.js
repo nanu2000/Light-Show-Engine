@@ -1,8 +1,8 @@
 var annotated_dup =
 [
     [ "_3DM", "de/d02/namespace__3_d_m.html", "de/d02/namespace__3_d_m" ],
+    [ "Engine", "d1/db6/namespace_engine.html", "d1/db6/namespace_engine" ],
     [ "PLR_CTRLR_NS", "d6/dea/namespace_p_l_r___c_t_r_l_r___n_s.html", "d6/dea/namespace_p_l_r___c_t_r_l_r___n_s" ],
-    [ "Application", "de/d6b/class_application.html", "de/d6b/class_application" ],
     [ "Audio", "d2/d4a/class_audio.html", "d2/d4a/class_audio" ],
     [ "BoneCollisionMesh", "d6/d9c/class_bone_collision_mesh.html", "d6/d9c/class_bone_collision_mesh" ],
     [ "BoneCollisionMeshSystem", "df/dd7/class_bone_collision_mesh_system.html", "df/dd7/class_bone_collision_mesh_system" ],
@@ -33,7 +33,6 @@ var annotated_dup =
     [ "FixedUpdatingSystem", "d3/de8/class_fixed_updating_system.html", "d3/de8/class_fixed_updating_system" ],
     [ "FloorObject", "da/d3c/class_floor_object.html", "da/d3c/class_floor_object" ],
     [ "FountainParticleSystem", "d3/dad/class_fountain_particle_system.html", "d3/dad/class_fountain_particle_system" ],
-    [ "Game", "dd/d1f/class_game.html", "dd/d1f/class_game" ],
     [ "GameState", "dd/d87/class_game_state.html", "dd/d87/class_game_state" ],
     [ "GlobalInformation", "df/de8/class_global_information.html", "df/de8/class_global_information" ],
     [ "Glyph", "db/db4/struct_glyph.html", "db/db4/struct_glyph" ],
@@ -96,6 +95,5 @@ var annotated_dup =
     [ "UniqueVec3", "d9/d35/class_unique_vec3.html", "d9/d35/class_unique_vec3" ],
     [ "UniqueVec4", "d6/d04/class_unique_vec4.html", "d6/d04/class_unique_vec4" ],
     [ "UpdatingSystem", "d2/d54/class_updating_system.html", "d2/d54/class_updating_system" ],
-    [ "UserControls", "d9/dd8/class_user_controls.html", "d9/dd8/class_user_controls" ],
-    [ "Window", "d9/dbf/class_window.html", "d9/dbf/class_window" ]
+    [ "UserControls", "d9/dd8/class_user_controls.html", "d9/dd8/class_user_controls" ]
 ];

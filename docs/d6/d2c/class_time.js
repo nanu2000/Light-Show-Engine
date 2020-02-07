@@ -10,7 +10,7 @@ var class_time =
     [ "sinceStartSF", "d6/d2c/class_time.html#adbca1f72e6132e0590b08b159ae5e9b0", null ],
     [ "updateFPS", "d6/d2c/class_time.html#a1f6d6979f54909c0a566dbfb2b974328", null ],
     [ "updateMSPF", "d6/d2c/class_time.html#a089fcc68cf0abf755c27e575a0f402be", null ],
-    [ "Application", "d6/d2c/class_time.html#a32a005be7439b821c7b3d8e05adf9a96", null ],
+    [ "Engine::Application", "d6/d2c/class_time.html#ac44b9aa67f4eab681187f2016344de30", null ],
     [ "currentFramesInSecond", "d6/d2c/class_time.html#a53431bed552891359e32eca79a24aa8c", null ],
     [ "currentMSPF", "d6/d2c/class_time.html#a7fba669cf22bdfd88e2e00bf7f962f5c", null ],
     [ "fps", "d6/d2c/class_time.html#a204c9df4f7c344d4acafd22a220a63c8", null ],

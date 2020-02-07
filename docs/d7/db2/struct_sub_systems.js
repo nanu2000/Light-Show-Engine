@@ -2,6 +2,7 @@ var struct_sub_systems =
 [
     [ "boneCollisionMeshSystem", "d7/db2/struct_sub_systems.html#a8583ea3685b04ee56630b77764a795fc", null ],
     [ "cameraSystem", "d7/db2/struct_sub_systems.html#ab33ddde51a122ff36ae540d860fdeff7", null ],
+    [ "dayNightCycleSystem", "d7/db2/struct_sub_systems.html#a9c19d7658941c226bab70171f61ab79d", null ],
     [ "defaultParticleSystem", "d7/db2/struct_sub_systems.html#a8cf6ecfeefe642f46dee2e077e585644", null ],
     [ "displayStatisticsSystem", "d7/db2/struct_sub_systems.html#a0eff7eb0c4b9a213cacc93d5d66215a0", null ],
     [ "enemyControllerSystem", "d7/db2/struct_sub_systems.html#a197cdb2d7dfdf0e652dea2e88308e7e3", null ],

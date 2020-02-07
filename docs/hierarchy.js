@@ -4,7 +4,7 @@ var hierarchy =
     [ "_3DM::AnimatedMesh", "d0/d9b/struct__3_d_m_1_1_animated_mesh.html", null ],
     [ "_3DM::Animation", "de/d98/struct__3_d_m_1_1_animation.html", null ],
     [ "_3DM::AnimationClip", "d8/d4c/struct__3_d_m_1_1_animation_clip.html", null ],
-    [ "Application", "de/d6b/class_application.html", null ],
+    [ "Engine::Application", "da/d14/class_engine_1_1_application.html", null ],
     [ "Audio", "d2/d4a/class_audio.html", [
       [ "Music", "db/d96/class_music.html", null ],
       [ "Sound", "d0/d9e/class_sound.html", null ]
@@ -107,7 +107,7 @@ var hierarchy =
       [ "Player", "d8/d53/class_player.html", null ],
       [ "PlayerTestObject", "db/dd3/class_player_test_object.html", null ]
     ] ],
-    [ "Game", "dd/d1f/class_game.html", null ],
+    [ "Engine::Game", "d5/de3/class_engine_1_1_game.html", null ],
     [ "GameState", "dd/d87/class_game_state.html", null ],
     [ "Glyph", "db/db4/struct_glyph.html", null ],
     [ "GuiBase", "d1/d39/class_gui_base.html", [
@@ -184,5 +184,5 @@ var hierarchy =
     [ "UniqueVec3< T >", "d9/d35/class_unique_vec3.html", null ],
     [ "UniqueVec4< T >", "d6/d04/class_unique_vec4.html", null ],
     [ "_3DM::Vector3Key", "d4/d33/struct__3_d_m_1_1_vector3_key.html", null ],
-    [ "Window", "d9/dbf/class_window.html", null ]
+    [ "Engine::Window", "dd/d36/class_engine_1_1_window.html", null ]
 ];

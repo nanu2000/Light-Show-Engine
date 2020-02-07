@@ -30,6 +30,10 @@
             <Path>d4/d37/namespace_e_n_e_m_y___c_t_r_l_r___n_s.html</Path>
            </Node>
            <Node>
+            <Name>Engine</Name>
+            <Path>d1/db6/namespace_engine.html</Path>
+           </Node>
+           <Node>
             <Name>Entities</Name>
             <Path>d6/d4b/namespace_entities.html</Path>
            </Node>
@@ -979,6 +983,370 @@
             </Subnodes>
            </Node>
            <Node>
+            <Name>Engine</Name>
+            <Path>d1/db6/namespace_engine.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>Application</Name>
+              <Path>da/d14/class_engine_1_1_application.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>fixedUpdate</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>a95c827cb5cf08bd0c3cc7b07ed4b4249</Anchor>
+               </Node>
+               <Node>
+                <Name>initialize</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>af431bce25717b04a78d4d0940ed6a92c</Anchor>
+               </Node>
+               <Node>
+                <Name>initializeAudio</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>ae39512b5d8ac5c052550242a4bd25928</Anchor>
+               </Node>
+               <Node>
+                <Name>initializeGL</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>af108e85aede6dda02fb4170cfc2c80a0</Anchor>
+               </Node>
+               <Node>
+                <Name>initializeSDL</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>ac849576fa6b5ad689bf274d1c63ab821</Anchor>
+               </Node>
+               <Node>
+                <Name>render</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>a9ac99d97ee1cc814298a2f2388bde835</Anchor>
+               </Node>
+               <Node>
+                <Name>run</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>abd1e0572c8f0ec3030f176606b256005</Anchor>
+               </Node>
+               <Node>
+                <Name>uninitialize</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>a292461c3f0ba69dbb4be3e9ca569ee50</Anchor>
+               </Node>
+               <Node>
+                <Name>update</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>a051023103d00b96b1e5e7437fd8e2e7c</Anchor>
+               </Node>
+               <Node>
+                <Name>AUDIO_BUFFER</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>ad5556d3aca463c601cc2687687b1b391</Anchor>
+               </Node>
+               <Node>
+                <Name>AUDIO_CHANNEL</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>ad90bc3299765c3f4cfcc14e2d8ef141d</Anchor>
+               </Node>
+               <Node>
+                <Name>AUDIO_FORMAT</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>aa79f948d66c38f38b4d313be7ae9c321</Anchor>
+               </Node>
+               <Node>
+                <Name>AUDIO_RATE</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>a404070c1a8b70d2a1b874cf6b4494a3b</Anchor>
+               </Node>
+               <Node>
+                <Name>backEndMessagingSystem</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>abedcf55fe3abbd5052189254f43b71d0</Anchor>
+               </Node>
+               <Node>
+                <Name>currentTime</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>a6943fafdfd40aece9355301d833bc389</Anchor>
+               </Node>
+               <Node>
+                <Name>inputService</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>a6ccb0ed39795d85f57b2d51edae13e11</Anchor>
+               </Node>
+               <Node>
+                <Name>musicService</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>a5b085575f78a816e30ef4d059d7a147b</Anchor>
+               </Node>
+               <Node>
+                <Name>SCREEN_COLOR</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>a77b8e6e8f3a0514f72c948039c19b833</Anchor>
+               </Node>
+               <Node>
+                <Name>sdlEventSystem</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>a6512a5ea4782714059f7b6c3154819e5</Anchor>
+               </Node>
+               <Node>
+                <Name>shaderService</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>a5cd75be1a867a1e21fedf6ba21e14d14</Anchor>
+               </Node>
+               <Node>
+                <Name>soundService</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>a344b5d22812c9b50050a0f9a98808363</Anchor>
+               </Node>
+               <Node>
+                <Name>textureService</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>a437e97ced852032dff97c25283ec9fcf</Anchor>
+               </Node>
+               <Node>
+                <Name>thisGame</Name>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
+                <Anchor>aa6ee841c614f81743c4204e8feb89aab</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>Game</Name>
+              <Path>d5/de3/class_engine_1_1_game.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>areVitalsNull</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a477f4e0a9720bcb3c7f7741a0ccdbfda</Anchor>
+               </Node>
+               <Node>
+                <Name>fixedUpdate</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a08315163522f7d4b45cddfae866f697b</Anchor>
+               </Node>
+               <Node>
+                <Name>freeEntities</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a108ab96b1ed4402964e422a5c51eea5a</Anchor>
+               </Node>
+               <Node>
+                <Name>getCurrentSceneIndex</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>aba363eb23668b383783ff41652e052f7</Anchor>
+               </Node>
+               <Node>
+                <Name>getSceneCount</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a9241ab7d438b7c52a17ea0bcf1429f80</Anchor>
+               </Node>
+               <Node>
+                <Name>initialize</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>abe3a423ddcf7d9ea95e90a94047ec026</Anchor>
+               </Node>
+               <Node>
+                <Name>initializeShaders</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a2dd6bce8b65f7c5f1607b224b03b9d4f</Anchor>
+               </Node>
+               <Node>
+                <Name>loadScene</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>ac47b510132f517f0edb159a8a6b2f92e</Anchor>
+               </Node>
+               <Node>
+                <Name>readBackendEventQueue</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>aa1b251ef70b421b274398706af155a76</Anchor>
+               </Node>
+               <Node>
+                <Name>render</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>aa22385cb710c60430ae282bc5bb86415</Anchor>
+               </Node>
+               <Node>
+                <Name>uninitialize</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>af53c58be0bc3bacc0876e8ea5dfc5cf9</Anchor>
+               </Node>
+               <Node>
+                <Name>update</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a8e0bc2306fea083ed5d92fbbafa08978</Anchor>
+               </Node>
+               <Node>
+                <Name>backEndMessages</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a07d7699ef9f6bf728e2a2103104b62c2</Anchor>
+               </Node>
+               <Node>
+                <Name>currentScene</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a4831ec56af08e7bc337a956826753ab6</Anchor>
+               </Node>
+               <Node>
+                <Name>currentTime</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a16408e08a90558b66ce2a80e1d26aae6</Anchor>
+               </Node>
+               <Node>
+                <Name>directionalLightDepthMap</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a3151d87fa877159ce6dc2ee285c6cb89</Anchor>
+               </Node>
+               <Node>
+                <Name>fixedUpdatingSystem</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a942c6a1de2ed5e53539f8c71e9c68631</Anchor>
+               </Node>
+               <Node>
+                <Name>gameState</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a02f0568af92743c0f632da51a5dafbeb</Anchor>
+               </Node>
+               <Node>
+                <Name>map</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>af2faa9c9f6d0a9823bf367e3054bd172</Anchor>
+               </Node>
+               <Node>
+                <Name>physicsWorld</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a192a75721bba7923a052edc470e2e6ad</Anchor>
+               </Node>
+               <Node>
+                <Name>pointLightDepthMap</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a484b388acc13d6c91b72be1be25421c3</Anchor>
+               </Node>
+               <Node>
+                <Name>renderingSystem</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>adf7a0a2e9bbc915ff4998eb00f3b309e</Anchor>
+               </Node>
+               <Node>
+                <Name>renderTexture</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a33bfb81a22bac23f88690145ac8f0215</Anchor>
+               </Node>
+               <Node>
+                <Name>scene</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a608809b864471ccf26444fb644910c38</Anchor>
+               </Node>
+               <Node>
+                <Name>sceneEntities</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a3844da029d6b4cbc9338f7fe471c8596</Anchor>
+               </Node>
+               <Node>
+                <Name>settings</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a885bf92c8aad140416350177c18f24f2</Anchor>
+               </Node>
+               <Node>
+                <Name>subSystems</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>abbefa9ea27242164666efc5d49cd0ee4</Anchor>
+               </Node>
+               <Node>
+                <Name>updatingSystem</Name>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
+                <Anchor>a33e62327b7ed03b6f809161e286b5229</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>Window</Name>
+              <Path>dd/d36/class_engine_1_1_window.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>Window</Name>
+                <Path>dd/d36/class_engine_1_1_window.html</Path>
+                <Anchor>a899c72211692a105ec29699f1f8f8599</Anchor>
+               </Node>
+               <Node>
+                <Name>Window</Name>
+                <Path>dd/d36/class_engine_1_1_window.html</Path>
+                <Anchor>a3b1292c8f06176ebcea484f2ccb7c3d5</Anchor>
+               </Node>
+               <Node>
+                <Name>~Window</Name>
+                <Path>dd/d36/class_engine_1_1_window.html</Path>
+                <Anchor>ac3f220a3b8863f93cb1689258d147dfb</Anchor>
+               </Node>
+               <Node>
+                <Name>getCurrentTitle</Name>
+                <Path>dd/d36/class_engine_1_1_window.html</Path>
+                <Anchor>a66f26a3a33989fb1c5261f7aa5770298</Anchor>
+               </Node>
+               <Node>
+                <Name>getDeviceMaxScreenSize</Name>
+                <Path>dd/d36/class_engine_1_1_window.html</Path>
+                <Anchor>ae5ad4f7a3e5ececf481914c902ce3102</Anchor>
+               </Node>
+               <Node>
+                <Name>getHeight</Name>
+                <Path>dd/d36/class_engine_1_1_window.html</Path>
+                <Anchor>a06260b36e144db3a8d4fbde3ddb2b973</Anchor>
+               </Node>
+               <Node>
+                <Name>getWidth</Name>
+                <Path>dd/d36/class_engine_1_1_window.html</Path>
+                <Anchor>a99da4222e3174ff27f8f64da4c96705e</Anchor>
+               </Node>
+               <Node>
+                <Name>getWindow</Name>
+                <Path>dd/d36/class_engine_1_1_window.html</Path>
+                <Anchor>abea48be4bd22dfe60883b92991ded64d</Anchor>
+               </Node>
+               <Node>
+                <Name>handleEvents</Name>
+                <Path>dd/d36/class_engine_1_1_window.html</Path>
+                <Anchor>a646a803e57874702833c691b50b7186e</Anchor>
+               </Node>
+               <Node>
+                <Name>initialize</Name>
+                <Path>dd/d36/class_engine_1_1_window.html</Path>
+                <Anchor>a1d5f468763bccda7b583c76a4e5b9a4a</Anchor>
+               </Node>
+               <Node>
+                <Name>resizeWindow</Name>
+                <Path>dd/d36/class_engine_1_1_window.html</Path>
+                <Anchor>a32185de04a4bcddf1f2ec2b34c73eb42</Anchor>
+               </Node>
+               <Node>
+                <Name>setWindowTitle</Name>
+                <Path>dd/d36/class_engine_1_1_window.html</Path>
+                <Anchor>af09c88c275d076ac136d48bfe1181c28</Anchor>
+               </Node>
+               <Node>
+                <Name>gameWindow</Name>
+                <Path>dd/d36/class_engine_1_1_window.html</Path>
+                <Anchor>a3ce5df5a50e7451c3945547fab0b4321</Anchor>
+               </Node>
+               <Node>
+                <Name>glContext</Name>
+                <Path>dd/d36/class_engine_1_1_window.html</Path>
+                <Anchor>a08794df434d17209566f5cea2a3fd32b</Anchor>
+               </Node>
+               <Node>
+                <Name>height</Name>
+                <Path>dd/d36/class_engine_1_1_window.html</Path>
+                <Anchor>a6b3c23a2bb2b0668a7ffc185ed01d669</Anchor>
+               </Node>
+               <Node>
+                <Name>width</Name>
+                <Path>dd/d36/class_engine_1_1_window.html</Path>
+                <Anchor>ad2a56f7a2cfdadbbabd67559089a3f46</Anchor>
+               </Node>
+               <Node>
+                <Name>windowTitle</Name>
+                <Path>dd/d36/class_engine_1_1_window.html</Path>
+                <Anchor>a7b4f15dae4e945e0ae7b68a244a320f9</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
             <Name>PLR_CTRLR_NS</Name>
             <Path>d6/dea/namespace_p_l_r___c_t_r_l_r___n_s.html</Path>
             <Subnodes>
@@ -1002,152 +1370,6 @@
                 <Anchor>a501aafa66ce87e05923496ea4bb6a3dd</Anchor>
                </Node>
               </Subnodes>
-             </Node>
-            </Subnodes>
-           </Node>
-           <Node>
-            <Name>Application</Name>
-            <Path>de/d6b/class_application.html</Path>
-            <Subnodes>
-             <Node>
-              <Name>fixedUpdate</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>a95c827cb5cf08bd0c3cc7b07ed4b4249</Anchor>
-             </Node>
-             <Node>
-              <Name>getGameWindowHeight</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>a0398d40c89d52bb8d6ac6ac466c5d30c</Anchor>
-             </Node>
-             <Node>
-              <Name>getGameWindowWidth</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>aad8864ec1fa58ee23db7b111876d09a5</Anchor>
-             </Node>
-             <Node>
-              <Name>initialize</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>af431bce25717b04a78d4d0940ed6a92c</Anchor>
-             </Node>
-             <Node>
-              <Name>initializeAudio</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>ae39512b5d8ac5c052550242a4bd25928</Anchor>
-             </Node>
-             <Node>
-              <Name>initializeGL</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>af108e85aede6dda02fb4170cfc2c80a0</Anchor>
-             </Node>
-             <Node>
-              <Name>initializeSDL</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>ac849576fa6b5ad689bf274d1c63ab821</Anchor>
-             </Node>
-             <Node>
-              <Name>render</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>a9ac99d97ee1cc814298a2f2388bde835</Anchor>
-             </Node>
-             <Node>
-              <Name>run</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>a68965449404743bf1add056784d6cf81</Anchor>
-             </Node>
-             <Node>
-              <Name>setMousePosition</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>a01dc1b9c36720b31e0419c829e8000c0</Anchor>
-             </Node>
-             <Node>
-              <Name>uninitialize</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>a292461c3f0ba69dbb4be3e9ca569ee50</Anchor>
-             </Node>
-             <Node>
-              <Name>update</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>a051023103d00b96b1e5e7437fd8e2e7c</Anchor>
-             </Node>
-             <Node>
-              <Name>AUDIO_BUFFER</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>aa6fb9db1ed3445e59ce151a044c684d2</Anchor>
-             </Node>
-             <Node>
-              <Name>AUDIO_CHANNEL</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>a58710f02784b0b20b3ef0b78fbf4123a</Anchor>
-             </Node>
-             <Node>
-              <Name>AUDIO_FORMAT</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>aa606be26abc180628391f01c47ebd863</Anchor>
-             </Node>
-             <Node>
-              <Name>AUDIO_RATE</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>abc128a88ad21ce63145377ab488cd03d</Anchor>
-             </Node>
-             <Node>
-              <Name>backEndMessagingSystem</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>ab39550c8b2c2070f16fbea28708b9e73</Anchor>
-             </Node>
-             <Node>
-              <Name>currentTime</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>a0ff09af726d5c88c808749b0b7a88e1a</Anchor>
-             </Node>
-             <Node>
-              <Name>gameWindow</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>a1ca8e5881ab12fb35e6949e2073323fe</Anchor>
-             </Node>
-             <Node>
-              <Name>inputService</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>acbb67d4c3dccffcd8c52a44e50ecd693</Anchor>
-             </Node>
-             <Node>
-              <Name>isRunning</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>ae1c1ff7a7663d9baa9b65a7ba8e1dcf8</Anchor>
-             </Node>
-             <Node>
-              <Name>musicService</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>ae1b18043bfc6906b448fd9ca47c4471f</Anchor>
-             </Node>
-             <Node>
-              <Name>SCREEN_COLOR</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>a3d41d2fce1a1705b187592c9d70c39fb</Anchor>
-             </Node>
-             <Node>
-              <Name>sdlEventSystem</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>a239995da4261610edf6d0211eac87785</Anchor>
-             </Node>
-             <Node>
-              <Name>shaderService</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>a65c00e11382a248c4e397c71bef5f88b</Anchor>
-             </Node>
-             <Node>
-              <Name>soundService</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>a030c84fa645345503ac2880e8ef93f89</Anchor>
-             </Node>
-             <Node>
-              <Name>textureService</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>a8939e46ca2eac7adb1839679171b4bf6</Anchor>
-             </Node>
-             <Node>
-              <Name>thisGame</Name>
-              <Path>de/d6b/class_application.html</Path>
-              <Anchor>a4a64d063b350bf892ab09bbeaa082872</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -1967,11 +2189,6 @@
               <Name>fixedUpdate</Name>
               <Path>d0/d9a/class_day_night_cycle_system.html</Path>
               <Anchor>a979c7f95e58d2f39665cefcbec453e8f</Anchor>
-             </Node>
-             <Node>
-              <Name>initialize</Name>
-              <Path>d0/d9a/class_day_night_cycle_system.html</Path>
-              <Anchor>ad34a3dd26a1a98044563318af01bd75d</Anchor>
              </Node>
              <Node>
               <Name>currentDirection</Name>
@@ -2858,164 +3075,13 @@
             </Subnodes>
            </Node>
            <Node>
-            <Name>Game</Name>
-            <Path>dd/d1f/class_game.html</Path>
-            <Subnodes>
-             <Node>
-              <Name>areVitalsNull</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>aa4f9a0322b707a1bcdb18a2bb54210b6</Anchor>
-             </Node>
-             <Node>
-              <Name>fixedUpdate</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>a157e87f9dc147a5842ee6bdc06c95c17</Anchor>
-             </Node>
-             <Node>
-              <Name>freeEntities</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>a953f7a9fe92ec47602083dd2e9a3b26d</Anchor>
-             </Node>
-             <Node>
-              <Name>getCurrentSceneIndex</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>a832848985ea3534b74bf73a8280e6cc1</Anchor>
-             </Node>
-             <Node>
-              <Name>getSceneCount</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>ae318b13518ccdcbeb7de51c5b8a08ad3</Anchor>
-             </Node>
-             <Node>
-              <Name>initialize</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>a8986a201a654418cefe34ec28af1a22c</Anchor>
-             </Node>
-             <Node>
-              <Name>initializeShaders</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>a0cd419405f5790feab89322cbb3f18ce</Anchor>
-             </Node>
-             <Node>
-              <Name>loadScene</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>a339feb3115ec7ff701cadd6cce18a66b</Anchor>
-             </Node>
-             <Node>
-              <Name>readBackendEventQueue</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>a5eb682ebf3aa9ac5b2d6d63ade9ddcc0</Anchor>
-             </Node>
-             <Node>
-              <Name>render</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>a15ddd769261d923827a3cdf41499c843</Anchor>
-             </Node>
-             <Node>
-              <Name>resetVitals</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>a4add33ac0ce6b7adc24ea2e8841942f7</Anchor>
-             </Node>
-             <Node>
-              <Name>uninitialize</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>a8c1912f74ec3347bb5d7681cc3e32ca0</Anchor>
-             </Node>
-             <Node>
-              <Name>update</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>a79df6376b332d63c9eca0dcee30305c3</Anchor>
-             </Node>
-             <Node>
-              <Name>backEndMessages</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>ae16cf1b0c582839cca1e0298d7e738f9</Anchor>
-             </Node>
-             <Node>
-              <Name>currentScene</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>ac6d4257f69001744503d4ffe94f978f9</Anchor>
-             </Node>
-             <Node>
-              <Name>currentTime</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>a348407fe0cdb71a067acf2af496a5fcf</Anchor>
-             </Node>
-             <Node>
-              <Name>directionalLightDepthMap</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>af67636ee8a215031f1ede902697a9430</Anchor>
-             </Node>
-             <Node>
-              <Name>fixedUpdatingSystem</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>ad9ce087f9521415c564ae26a7e8162d3</Anchor>
-             </Node>
-             <Node>
-              <Name>gameState</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>a4573dd85e0711a78cc27eb0b51c79f44</Anchor>
-             </Node>
-             <Node>
-              <Name>map</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>aecad07fce7267a365766f7050e86565f</Anchor>
-             </Node>
-             <Node>
-              <Name>physicsWorld</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>abe18add138e55e9cc72f8ed0c426f414</Anchor>
-             </Node>
-             <Node>
-              <Name>pointLightDepthMap</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>ae2742438585c2f994aecd361dfeea605</Anchor>
-             </Node>
-             <Node>
-              <Name>renderingSystem</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>a85124d07263cac785add82c9cf3bc0c0</Anchor>
-             </Node>
-             <Node>
-              <Name>renderTexture</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>aef7ae98770aba078fbf9ffe6faab38c7</Anchor>
-             </Node>
-             <Node>
-              <Name>scene</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>afcb137f9c5d6598c5182c2d8d24312bc</Anchor>
-             </Node>
-             <Node>
-              <Name>sceneEntities</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>a27767c5ac995168f3826ad54d93d17ed</Anchor>
-             </Node>
-             <Node>
-              <Name>settings</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>aebf5de99fd38318e935596f986c65471</Anchor>
-             </Node>
-             <Node>
-              <Name>subSystems</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>a2b39981a4b089a06791674e440c7154d</Anchor>
-             </Node>
-             <Node>
-              <Name>updatingSystem</Name>
-              <Path>dd/d1f/class_game.html</Path>
-              <Anchor>aacfb150d8b6e3a28f5ce950262df968b</Anchor>
-             </Node>
-            </Subnodes>
-           </Node>
-           <Node>
             <Name>GameState</Name>
             <Path>dd/d87/class_game_state.html</Path>
             <Subnodes>
              <Node>
               <Name>GameState</Name>
               <Path>dd/d87/class_game_state.html</Path>
-              <Anchor>a378ae317e78c5b88fc0f0b5739f4481e</Anchor>
+              <Anchor>a58cc52245fa45c46a66e47d9785da942</Anchor>
              </Node>
              <Node>
               <Name>getCurrentSceneIndex</Name>
@@ -3035,7 +3101,7 @@
              <Node>
               <Name>currentGame</Name>
               <Path>dd/d87/class_game_state.html</Path>
-              <Anchor>a50d8b5ed886437d2543a8722d768715d</Anchor>
+              <Anchor>aafeaa58a196a6e84efeaa68f1d331ec2</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -5901,6 +5967,11 @@
               <Anchor>ab33ddde51a122ff36ae540d860fdeff7</Anchor>
              </Node>
              <Node>
+              <Name>dayNightCycleSystem</Name>
+              <Path>d7/db2/struct_sub_systems.html</Path>
+              <Anchor>a9c19d7658941c226bab70171f61ab79d</Anchor>
+             </Node>
+             <Node>
               <Name>defaultParticleSystem</Name>
               <Path>d7/db2/struct_sub_systems.html</Path>
               <Anchor>a8cf6ecfeefe642f46dee2e077e585644</Anchor>
@@ -6241,9 +6312,9 @@
               <Anchor>a089fcc68cf0abf755c27e575a0f402be</Anchor>
              </Node>
              <Node>
-              <Name>Application</Name>
+              <Name>Engine::Application</Name>
               <Path>d6/d2c/class_time.html</Path>
-              <Anchor>a32a005be7439b821c7b3d8e05adf9a96</Anchor>
+              <Anchor>ac44b9aa67f4eab681187f2016344de30</Anchor>
              </Node>
              <Node>
               <Name>currentFramesInSecond</Name>
@@ -6610,87 +6681,6 @@
              </Node>
             </Subnodes>
            </Node>
-           <Node>
-            <Name>Window</Name>
-            <Path>d9/dbf/class_window.html</Path>
-            <Subnodes>
-             <Node>
-              <Name>~Window</Name>
-              <Path>d9/dbf/class_window.html</Path>
-              <Anchor>a245d821e6016fa1f6970ccbbedd635f6</Anchor>
-             </Node>
-             <Node>
-              <Name>getCurrentTitle</Name>
-              <Path>d9/dbf/class_window.html</Path>
-              <Anchor>a03408bad2a14959ee762222aa2b6a105</Anchor>
-             </Node>
-             <Node>
-              <Name>getDeviceMaxScreenSize</Name>
-              <Path>d9/dbf/class_window.html</Path>
-              <Anchor>a85b92a1f0c1678498470aac8f861fda4</Anchor>
-             </Node>
-             <Node>
-              <Name>getHeight</Name>
-              <Path>d9/dbf/class_window.html</Path>
-              <Anchor>aa017b94c100e1953c13f7a9d1e411ef9</Anchor>
-             </Node>
-             <Node>
-              <Name>getWidth</Name>
-              <Path>d9/dbf/class_window.html</Path>
-              <Anchor>aba43b0511b05fc2a90f86f9737d8f434</Anchor>
-             </Node>
-             <Node>
-              <Name>getWindow</Name>
-              <Path>d9/dbf/class_window.html</Path>
-              <Anchor>ac2d85f74ad9f6b6d76c158b1b98cee5b</Anchor>
-             </Node>
-             <Node>
-              <Name>handleEvents</Name>
-              <Path>d9/dbf/class_window.html</Path>
-              <Anchor>a6a545f61aa6fd24598820ad9607ec99a</Anchor>
-             </Node>
-             <Node>
-              <Name>initialize</Name>
-              <Path>d9/dbf/class_window.html</Path>
-              <Anchor>ab8bedded50af796c7f44603bb71ba33b</Anchor>
-             </Node>
-             <Node>
-              <Name>resizeWindow</Name>
-              <Path>d9/dbf/class_window.html</Path>
-              <Anchor>a78623e051f50427bcc05ffcef62a639e</Anchor>
-             </Node>
-             <Node>
-              <Name>setWindowTitle</Name>
-              <Path>d9/dbf/class_window.html</Path>
-              <Anchor>a10eba23905e65fa672e3cbea7438ea53</Anchor>
-             </Node>
-             <Node>
-              <Name>gameWindow</Name>
-              <Path>d9/dbf/class_window.html</Path>
-              <Anchor>a3edc9bf01659e61e9102f191a83801af</Anchor>
-             </Node>
-             <Node>
-              <Name>glContext</Name>
-              <Path>d9/dbf/class_window.html</Path>
-              <Anchor>ad9e00a5713406316f1c314f5ac4d4bdb</Anchor>
-             </Node>
-             <Node>
-              <Name>height</Name>
-              <Path>d9/dbf/class_window.html</Path>
-              <Anchor>ac8e0adc74d78dd8d6bcd3cb5e72164bc</Anchor>
-             </Node>
-             <Node>
-              <Name>width</Name>
-              <Path>d9/dbf/class_window.html</Path>
-              <Anchor>a4ddb6696a90ca8db80c4d12c7142da5e</Anchor>
-             </Node>
-             <Node>
-              <Name>windowTitle</Name>
-              <Path>d9/dbf/class_window.html</Path>
-              <Anchor>a0b152b155c0498b1c9dc903ffc4ecb37</Anchor>
-             </Node>
-            </Subnodes>
-           </Node>
           </Subnodes>
          </Node>
          <Node>
@@ -6718,8 +6708,8 @@
             <Path>d8/d4c/struct__3_d_m_1_1_animation_clip.html</Path>
            </Node>
            <Node>
-            <Name>Application</Name>
-            <Path>de/d6b/class_application.html</Path>
+            <Name>Engine::Application</Name>
+            <Path>da/d14/class_engine_1_1_application.html</Path>
            </Node>
            <Node>
             <Name>Audio</Name>
@@ -7076,8 +7066,8 @@
             </Subnodes>
            </Node>
            <Node>
-            <Name>Game</Name>
-            <Path>dd/d1f/class_game.html</Path>
+            <Name>Engine::Game</Name>
+            <Path>d5/de3/class_engine_1_1_game.html</Path>
            </Node>
            <Node>
             <Name>GameState</Name>
@@ -7364,8 +7354,8 @@
             <Path>d4/d33/struct__3_d_m_1_1_vector3_key.html</Path>
            </Node>
            <Node>
-            <Name>Window</Name>
-            <Path>d9/dbf/class_window.html</Path>
+            <Name>Engine::Window</Name>
+            <Path>dd/d36/class_engine_1_1_window.html</Path>
            </Node>
           </Subnodes>
          </Node>
@@ -8197,149 +8187,149 @@
               <Subnodes>
                <Node>
                 <Name>Application</Name>
-                <Path>de/d6b/class_application.html</Path>
+                <Path>da/d14/class_engine_1_1_application.html</Path>
                 <Subnodes>
                  <Node>
                   <Name>fixedUpdate</Name>
-                  <Path>de/d6b/class_application.html</Path>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
                   <Anchor>a95c827cb5cf08bd0c3cc7b07ed4b4249</Anchor>
                  </Node>
                  <Node>
-                  <Name>getGameWindowHeight</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>a0398d40c89d52bb8d6ac6ac466c5d30c</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>getGameWindowWidth</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>aad8864ec1fa58ee23db7b111876d09a5</Anchor>
-                 </Node>
-                 <Node>
                   <Name>initialize</Name>
-                  <Path>de/d6b/class_application.html</Path>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
                   <Anchor>af431bce25717b04a78d4d0940ed6a92c</Anchor>
                  </Node>
                  <Node>
                   <Name>initializeAudio</Name>
-                  <Path>de/d6b/class_application.html</Path>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
                   <Anchor>ae39512b5d8ac5c052550242a4bd25928</Anchor>
                  </Node>
                  <Node>
                   <Name>initializeGL</Name>
-                  <Path>de/d6b/class_application.html</Path>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
                   <Anchor>af108e85aede6dda02fb4170cfc2c80a0</Anchor>
                  </Node>
                  <Node>
                   <Name>initializeSDL</Name>
-                  <Path>de/d6b/class_application.html</Path>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
                   <Anchor>ac849576fa6b5ad689bf274d1c63ab821</Anchor>
                  </Node>
                  <Node>
                   <Name>render</Name>
-                  <Path>de/d6b/class_application.html</Path>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
                   <Anchor>a9ac99d97ee1cc814298a2f2388bde835</Anchor>
                  </Node>
                  <Node>
                   <Name>run</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>a68965449404743bf1add056784d6cf81</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>setMousePosition</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>a01dc1b9c36720b31e0419c829e8000c0</Anchor>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
+                  <Anchor>abd1e0572c8f0ec3030f176606b256005</Anchor>
                  </Node>
                  <Node>
                   <Name>uninitialize</Name>
-                  <Path>de/d6b/class_application.html</Path>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
                   <Anchor>a292461c3f0ba69dbb4be3e9ca569ee50</Anchor>
                  </Node>
                  <Node>
                   <Name>update</Name>
-                  <Path>de/d6b/class_application.html</Path>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
                   <Anchor>a051023103d00b96b1e5e7437fd8e2e7c</Anchor>
                  </Node>
                  <Node>
                   <Name>AUDIO_BUFFER</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>aa6fb9db1ed3445e59ce151a044c684d2</Anchor>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
+                  <Anchor>ad5556d3aca463c601cc2687687b1b391</Anchor>
                  </Node>
                  <Node>
                   <Name>AUDIO_CHANNEL</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>a58710f02784b0b20b3ef0b78fbf4123a</Anchor>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
+                  <Anchor>ad90bc3299765c3f4cfcc14e2d8ef141d</Anchor>
                  </Node>
                  <Node>
                   <Name>AUDIO_FORMAT</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>aa606be26abc180628391f01c47ebd863</Anchor>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
+                  <Anchor>aa79f948d66c38f38b4d313be7ae9c321</Anchor>
                  </Node>
                  <Node>
                   <Name>AUDIO_RATE</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>abc128a88ad21ce63145377ab488cd03d</Anchor>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
+                  <Anchor>a404070c1a8b70d2a1b874cf6b4494a3b</Anchor>
                  </Node>
                  <Node>
                   <Name>backEndMessagingSystem</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>ab39550c8b2c2070f16fbea28708b9e73</Anchor>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
+                  <Anchor>abedcf55fe3abbd5052189254f43b71d0</Anchor>
                  </Node>
                  <Node>
                   <Name>currentTime</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>a0ff09af726d5c88c808749b0b7a88e1a</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>gameWindow</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>a1ca8e5881ab12fb35e6949e2073323fe</Anchor>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
+                  <Anchor>a6943fafdfd40aece9355301d833bc389</Anchor>
                  </Node>
                  <Node>
                   <Name>inputService</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>acbb67d4c3dccffcd8c52a44e50ecd693</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>isRunning</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>ae1c1ff7a7663d9baa9b65a7ba8e1dcf8</Anchor>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
+                  <Anchor>a6ccb0ed39795d85f57b2d51edae13e11</Anchor>
                  </Node>
                  <Node>
                   <Name>musicService</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>ae1b18043bfc6906b448fd9ca47c4471f</Anchor>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
+                  <Anchor>a5b085575f78a816e30ef4d059d7a147b</Anchor>
                  </Node>
                  <Node>
                   <Name>SCREEN_COLOR</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>a3d41d2fce1a1705b187592c9d70c39fb</Anchor>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
+                  <Anchor>a77b8e6e8f3a0514f72c948039c19b833</Anchor>
                  </Node>
                  <Node>
                   <Name>sdlEventSystem</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>a239995da4261610edf6d0211eac87785</Anchor>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
+                  <Anchor>a6512a5ea4782714059f7b6c3154819e5</Anchor>
                  </Node>
                  <Node>
                   <Name>shaderService</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>a65c00e11382a248c4e397c71bef5f88b</Anchor>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
+                  <Anchor>a5cd75be1a867a1e21fedf6ba21e14d14</Anchor>
                  </Node>
                  <Node>
                   <Name>soundService</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>a030c84fa645345503ac2880e8ef93f89</Anchor>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
+                  <Anchor>a344b5d22812c9b50050a0f9a98808363</Anchor>
                  </Node>
                  <Node>
                   <Name>textureService</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>a8939e46ca2eac7adb1839679171b4bf6</Anchor>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
+                  <Anchor>a437e97ced852032dff97c25283ec9fcf</Anchor>
                  </Node>
                  <Node>
                   <Name>thisGame</Name>
-                  <Path>de/d6b/class_application.html</Path>
-                  <Anchor>a4a64d063b350bf892ab09bbeaa082872</Anchor>
+                  <Path>da/d14/class_engine_1_1_application.html</Path>
+                  <Anchor>aa6ee841c614f81743c4204e8feb89aab</Anchor>
                  </Node>
                 </Subnodes>
+               </Node>
+               <Node>
+                <Name>getGameWindowHeight</Name>
+                <Path>d9/da3/_application_8h.html</Path>
+                <Anchor>a2c0b20b2a529881d188a3e668962a3a3</Anchor>
+               </Node>
+               <Node>
+                <Name>getGameWindowWidth</Name>
+                <Path>d9/da3/_application_8h.html</Path>
+                <Anchor>a887dd9f5de6de3f1fb0b64bbc29bba87</Anchor>
+               </Node>
+               <Node>
+                <Name>setMousePosition</Name>
+                <Path>d9/da3/_application_8h.html</Path>
+                <Anchor>a470553a713873b02f49352cd630821c7</Anchor>
+               </Node>
+               <Node>
+                <Name>gameWindow</Name>
+                <Path>d9/da3/_application_8h.html</Path>
+                <Anchor>ad018715c783dec7bb2b71e6d17f7bded</Anchor>
+               </Node>
+               <Node>
+                <Name>isRunning</Name>
+                <Path>d9/da3/_application_8h.html</Path>
+                <Anchor>a3297bab216a17dae935909a63b889379</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -9154,11 +9144,6 @@
                   <Anchor>a979c7f95e58d2f39665cefcbec453e8f</Anchor>
                  </Node>
                  <Node>
-                  <Name>initialize</Name>
-                  <Path>d0/d9a/class_day_night_cycle_system.html</Path>
-                  <Anchor>ad34a3dd26a1a98044563318af01bd75d</Anchor>
-                 </Node>
-                 <Node>
                   <Name>currentDirection</Name>
                   <Path>d0/d9a/class_day_night_cycle_system.html</Path>
                   <Anchor>aad3c51116b640f0fc0abb8618c1ba85a</Anchor>
@@ -9191,6 +9176,11 @@
               <Name>Debug.h</Name>
               <Path>d0/d4b/_debug_8h.html</Path>
               <Subnodes>
+               <Node>
+                <Name>DBG_CHECK</Name>
+                <Path>d0/d4b/_debug_8h.html</Path>
+                <Anchor>a5e8e120b87a5d151f19b7c827d4fff13</Anchor>
+               </Node>
                <Node>
                 <Name>DBG_LOG</Name>
                 <Path>d0/d4b/_debug_8h.html</Path>
@@ -10423,152 +10413,147 @@
               <Subnodes>
                <Node>
                 <Name>Game</Name>
-                <Path>dd/d1f/class_game.html</Path>
+                <Path>d5/de3/class_engine_1_1_game.html</Path>
                 <Subnodes>
                  <Node>
                   <Name>areVitalsNull</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>aa4f9a0322b707a1bcdb18a2bb54210b6</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a477f4e0a9720bcb3c7f7741a0ccdbfda</Anchor>
                  </Node>
                  <Node>
                   <Name>fixedUpdate</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>a157e87f9dc147a5842ee6bdc06c95c17</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a08315163522f7d4b45cddfae866f697b</Anchor>
                  </Node>
                  <Node>
                   <Name>freeEntities</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>a953f7a9fe92ec47602083dd2e9a3b26d</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a108ab96b1ed4402964e422a5c51eea5a</Anchor>
                  </Node>
                  <Node>
                   <Name>getCurrentSceneIndex</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>a832848985ea3534b74bf73a8280e6cc1</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>aba363eb23668b383783ff41652e052f7</Anchor>
                  </Node>
                  <Node>
                   <Name>getSceneCount</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>ae318b13518ccdcbeb7de51c5b8a08ad3</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a9241ab7d438b7c52a17ea0bcf1429f80</Anchor>
                  </Node>
                  <Node>
                   <Name>initialize</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>a8986a201a654418cefe34ec28af1a22c</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>abe3a423ddcf7d9ea95e90a94047ec026</Anchor>
                  </Node>
                  <Node>
                   <Name>initializeShaders</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>a0cd419405f5790feab89322cbb3f18ce</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a2dd6bce8b65f7c5f1607b224b03b9d4f</Anchor>
                  </Node>
                  <Node>
                   <Name>loadScene</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>a339feb3115ec7ff701cadd6cce18a66b</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>ac47b510132f517f0edb159a8a6b2f92e</Anchor>
                  </Node>
                  <Node>
                   <Name>readBackendEventQueue</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>a5eb682ebf3aa9ac5b2d6d63ade9ddcc0</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>aa1b251ef70b421b274398706af155a76</Anchor>
                  </Node>
                  <Node>
                   <Name>render</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>a15ddd769261d923827a3cdf41499c843</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>resetVitals</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>a4add33ac0ce6b7adc24ea2e8841942f7</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>aa22385cb710c60430ae282bc5bb86415</Anchor>
                  </Node>
                  <Node>
                   <Name>uninitialize</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>a8c1912f74ec3347bb5d7681cc3e32ca0</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>af53c58be0bc3bacc0876e8ea5dfc5cf9</Anchor>
                  </Node>
                  <Node>
                   <Name>update</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>a79df6376b332d63c9eca0dcee30305c3</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a8e0bc2306fea083ed5d92fbbafa08978</Anchor>
                  </Node>
                  <Node>
                   <Name>backEndMessages</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>ae16cf1b0c582839cca1e0298d7e738f9</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a07d7699ef9f6bf728e2a2103104b62c2</Anchor>
                  </Node>
                  <Node>
                   <Name>currentScene</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>ac6d4257f69001744503d4ffe94f978f9</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a4831ec56af08e7bc337a956826753ab6</Anchor>
                  </Node>
                  <Node>
                   <Name>currentTime</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>a348407fe0cdb71a067acf2af496a5fcf</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a16408e08a90558b66ce2a80e1d26aae6</Anchor>
                  </Node>
                  <Node>
                   <Name>directionalLightDepthMap</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>af67636ee8a215031f1ede902697a9430</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a3151d87fa877159ce6dc2ee285c6cb89</Anchor>
                  </Node>
                  <Node>
                   <Name>fixedUpdatingSystem</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>ad9ce087f9521415c564ae26a7e8162d3</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a942c6a1de2ed5e53539f8c71e9c68631</Anchor>
                  </Node>
                  <Node>
                   <Name>gameState</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>a4573dd85e0711a78cc27eb0b51c79f44</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a02f0568af92743c0f632da51a5dafbeb</Anchor>
                  </Node>
                  <Node>
                   <Name>map</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>aecad07fce7267a365766f7050e86565f</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>af2faa9c9f6d0a9823bf367e3054bd172</Anchor>
                  </Node>
                  <Node>
                   <Name>physicsWorld</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>abe18add138e55e9cc72f8ed0c426f414</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a192a75721bba7923a052edc470e2e6ad</Anchor>
                  </Node>
                  <Node>
                   <Name>pointLightDepthMap</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>ae2742438585c2f994aecd361dfeea605</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a484b388acc13d6c91b72be1be25421c3</Anchor>
                  </Node>
                  <Node>
                   <Name>renderingSystem</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>a85124d07263cac785add82c9cf3bc0c0</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>adf7a0a2e9bbc915ff4998eb00f3b309e</Anchor>
                  </Node>
                  <Node>
                   <Name>renderTexture</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>aef7ae98770aba078fbf9ffe6faab38c7</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a33bfb81a22bac23f88690145ac8f0215</Anchor>
                  </Node>
                  <Node>
                   <Name>scene</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>afcb137f9c5d6598c5182c2d8d24312bc</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a608809b864471ccf26444fb644910c38</Anchor>
                  </Node>
                  <Node>
                   <Name>sceneEntities</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>a27767c5ac995168f3826ad54d93d17ed</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a3844da029d6b4cbc9338f7fe471c8596</Anchor>
                  </Node>
                  <Node>
                   <Name>settings</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>aebf5de99fd38318e935596f986c65471</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a885bf92c8aad140416350177c18f24f2</Anchor>
                  </Node>
                  <Node>
                   <Name>subSystems</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>a2b39981a4b089a06791674e440c7154d</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>abbefa9ea27242164666efc5d49cd0ee4</Anchor>
                  </Node>
                  <Node>
                   <Name>updatingSystem</Name>
-                  <Path>dd/d1f/class_game.html</Path>
-                  <Anchor>aacfb150d8b6e3a28f5ce950262df968b</Anchor>
+                  <Path>d5/de3/class_engine_1_1_game.html</Path>
+                  <Anchor>a33e62327b7ed03b6f809161e286b5229</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -10741,7 +10726,7 @@
                  <Node>
                   <Name>GameState</Name>
                   <Path>dd/d87/class_game_state.html</Path>
-                  <Anchor>a378ae317e78c5b88fc0f0b5739f4481e</Anchor>
+                  <Anchor>a58cc52245fa45c46a66e47d9785da942</Anchor>
                  </Node>
                  <Node>
                   <Name>getCurrentSceneIndex</Name>
@@ -10761,7 +10746,7 @@
                  <Node>
                   <Name>currentGame</Name>
                   <Path>dd/d87/class_game_state.html</Path>
-                  <Anchor>a50d8b5ed886437d2543a8722d768715d</Anchor>
+                  <Anchor>aafeaa58a196a6e84efeaa68f1d331ec2</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -11831,9 +11816,9 @@
                   <Anchor>a089fcc68cf0abf755c27e575a0f402be</Anchor>
                  </Node>
                  <Node>
-                  <Name>Application</Name>
+                  <Name>Engine::Application</Name>
                   <Path>d6/d2c/class_time.html</Path>
-                  <Anchor>a32a005be7439b821c7b3d8e05adf9a96</Anchor>
+                  <Anchor>ac44b9aa67f4eab681187f2016344de30</Anchor>
                  </Node>
                  <Node>
                   <Name>currentFramesInSecond</Name>
@@ -15250,6 +15235,11 @@
                   <Anchor>ab33ddde51a122ff36ae540d860fdeff7</Anchor>
                  </Node>
                  <Node>
+                  <Name>dayNightCycleSystem</Name>
+                  <Path>d7/db2/struct_sub_systems.html</Path>
+                  <Anchor>a9c19d7658941c226bab70171f61ab79d</Anchor>
+                 </Node>
+                 <Node>
                   <Name>defaultParticleSystem</Name>
                   <Path>d7/db2/struct_sub_systems.html</Path>
                   <Anchor>a8cf6ecfeefe642f46dee2e077e585644</Anchor>
@@ -16034,82 +16024,92 @@
               <Subnodes>
                <Node>
                 <Name>Window</Name>
-                <Path>d9/dbf/class_window.html</Path>
+                <Path>dd/d36/class_engine_1_1_window.html</Path>
                 <Subnodes>
                  <Node>
+                  <Name>Window</Name>
+                  <Path>dd/d36/class_engine_1_1_window.html</Path>
+                  <Anchor>a899c72211692a105ec29699f1f8f8599</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Window</Name>
+                  <Path>dd/d36/class_engine_1_1_window.html</Path>
+                  <Anchor>a3b1292c8f06176ebcea484f2ccb7c3d5</Anchor>
+                 </Node>
+                 <Node>
                   <Name>~Window</Name>
-                  <Path>d9/dbf/class_window.html</Path>
-                  <Anchor>a245d821e6016fa1f6970ccbbedd635f6</Anchor>
+                  <Path>dd/d36/class_engine_1_1_window.html</Path>
+                  <Anchor>ac3f220a3b8863f93cb1689258d147dfb</Anchor>
                  </Node>
                  <Node>
                   <Name>getCurrentTitle</Name>
-                  <Path>d9/dbf/class_window.html</Path>
-                  <Anchor>a03408bad2a14959ee762222aa2b6a105</Anchor>
+                  <Path>dd/d36/class_engine_1_1_window.html</Path>
+                  <Anchor>a66f26a3a33989fb1c5261f7aa5770298</Anchor>
                  </Node>
                  <Node>
                   <Name>getDeviceMaxScreenSize</Name>
-                  <Path>d9/dbf/class_window.html</Path>
-                  <Anchor>a85b92a1f0c1678498470aac8f861fda4</Anchor>
+                  <Path>dd/d36/class_engine_1_1_window.html</Path>
+                  <Anchor>ae5ad4f7a3e5ececf481914c902ce3102</Anchor>
                  </Node>
                  <Node>
                   <Name>getHeight</Name>
-                  <Path>d9/dbf/class_window.html</Path>
-                  <Anchor>aa017b94c100e1953c13f7a9d1e411ef9</Anchor>
+                  <Path>dd/d36/class_engine_1_1_window.html</Path>
+                  <Anchor>a06260b36e144db3a8d4fbde3ddb2b973</Anchor>
                  </Node>
                  <Node>
                   <Name>getWidth</Name>
-                  <Path>d9/dbf/class_window.html</Path>
-                  <Anchor>aba43b0511b05fc2a90f86f9737d8f434</Anchor>
+                  <Path>dd/d36/class_engine_1_1_window.html</Path>
+                  <Anchor>a99da4222e3174ff27f8f64da4c96705e</Anchor>
                  </Node>
                  <Node>
                   <Name>getWindow</Name>
-                  <Path>d9/dbf/class_window.html</Path>
-                  <Anchor>ac2d85f74ad9f6b6d76c158b1b98cee5b</Anchor>
+                  <Path>dd/d36/class_engine_1_1_window.html</Path>
+                  <Anchor>abea48be4bd22dfe60883b92991ded64d</Anchor>
                  </Node>
                  <Node>
                   <Name>handleEvents</Name>
-                  <Path>d9/dbf/class_window.html</Path>
-                  <Anchor>a6a545f61aa6fd24598820ad9607ec99a</Anchor>
+                  <Path>dd/d36/class_engine_1_1_window.html</Path>
+                  <Anchor>a646a803e57874702833c691b50b7186e</Anchor>
                  </Node>
                  <Node>
                   <Name>initialize</Name>
-                  <Path>d9/dbf/class_window.html</Path>
-                  <Anchor>ab8bedded50af796c7f44603bb71ba33b</Anchor>
+                  <Path>dd/d36/class_engine_1_1_window.html</Path>
+                  <Anchor>a1d5f468763bccda7b583c76a4e5b9a4a</Anchor>
                  </Node>
                  <Node>
                   <Name>resizeWindow</Name>
-                  <Path>d9/dbf/class_window.html</Path>
-                  <Anchor>a78623e051f50427bcc05ffcef62a639e</Anchor>
+                  <Path>dd/d36/class_engine_1_1_window.html</Path>
+                  <Anchor>a32185de04a4bcddf1f2ec2b34c73eb42</Anchor>
                  </Node>
                  <Node>
                   <Name>setWindowTitle</Name>
-                  <Path>d9/dbf/class_window.html</Path>
-                  <Anchor>a10eba23905e65fa672e3cbea7438ea53</Anchor>
+                  <Path>dd/d36/class_engine_1_1_window.html</Path>
+                  <Anchor>af09c88c275d076ac136d48bfe1181c28</Anchor>
                  </Node>
                  <Node>
                   <Name>gameWindow</Name>
-                  <Path>d9/dbf/class_window.html</Path>
-                  <Anchor>a3edc9bf01659e61e9102f191a83801af</Anchor>
+                  <Path>dd/d36/class_engine_1_1_window.html</Path>
+                  <Anchor>a3ce5df5a50e7451c3945547fab0b4321</Anchor>
                  </Node>
                  <Node>
                   <Name>glContext</Name>
-                  <Path>d9/dbf/class_window.html</Path>
-                  <Anchor>ad9e00a5713406316f1c314f5ac4d4bdb</Anchor>
+                  <Path>dd/d36/class_engine_1_1_window.html</Path>
+                  <Anchor>a08794df434d17209566f5cea2a3fd32b</Anchor>
                  </Node>
                  <Node>
                   <Name>height</Name>
-                  <Path>d9/dbf/class_window.html</Path>
-                  <Anchor>ac8e0adc74d78dd8d6bcd3cb5e72164bc</Anchor>
+                  <Path>dd/d36/class_engine_1_1_window.html</Path>
+                  <Anchor>a6b3c23a2bb2b0668a7ffc185ed01d669</Anchor>
                  </Node>
                  <Node>
                   <Name>width</Name>
-                  <Path>d9/dbf/class_window.html</Path>
-                  <Anchor>a4ddb6696a90ca8db80c4d12c7142da5e</Anchor>
+                  <Path>dd/d36/class_engine_1_1_window.html</Path>
+                  <Anchor>ad2a56f7a2cfdadbbabd67559089a3f46</Anchor>
                  </Node>
                  <Node>
                   <Name>windowTitle</Name>
-                  <Path>d9/dbf/class_window.html</Path>
-                  <Anchor>a0b152b155c0498b1c9dc903ffc4ecb37</Anchor>
+                  <Path>dd/d36/class_engine_1_1_window.html</Path>
+                  <Anchor>a7b4f15dae4e945e0ae7b68a244a320f9</Anchor>
                  </Node>
                 </Subnodes>
                </Node>

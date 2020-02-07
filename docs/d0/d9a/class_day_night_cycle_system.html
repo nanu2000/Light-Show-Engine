@@ -83,8 +83,6 @@ $(document).ready(function(){initNavTree('d0/d9a/class_day_night_cycle_system.ht
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad34a3dd26a1a98044563318af01bd75d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d9a/class_day_night_cycle_system.html#ad34a3dd26a1a98044563318af01bd75d">initialize</a> ()</td></tr>
-<tr class="separator:ad34a3dd26a1a98044563318af01bd75d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a979c7f95e58d2f39665cefcbec453e8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d9a/class_day_night_cycle_system.html#a979c7f95e58d2f39665cefcbec453e8f">fixedUpdate</a> (<a class="el" href="../../de/db5/struct_directional_light.html">DirectionalLight</a> &amp;light, const <a class="el" href="../../d6/d2c/class_time.html">Time</a> &amp;time)</td></tr>
 <tr class="separator:a979c7f95e58d2f39665cefcbec453e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a325958aa88f010856953ee1317c910cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d9a/class_day_night_cycle_system.html#a325958aa88f010856953ee1317c910cb">debugRender</a> (const glm::mat4 &amp;viewMatrix, const glm::mat4 &amp;projectionMatrix)</td></tr>
@@ -98,9 +96,9 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a037bc6d1ff407a677a4d419c1bab2fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a721c71eea4b2bd3154decbc21eea86d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d9a/class_day_night_cycle_system.html#a721c71eea4b2bd3154decbc21eea86d2">sunDown</a> = false</td></tr>
 <tr class="separator:a721c71eea4b2bd3154decbc21eea86d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca47add439f2a00c5eea69cbd224beb8"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d9a/class_day_night_cycle_system.html#aca47add439f2a00c5eea69cbd224beb8">nightLightDiffuse</a></td></tr>
+<tr class="memitem:aca47add439f2a00c5eea69cbd224beb8"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d9a/class_day_night_cycle_system.html#aca47add439f2a00c5eea69cbd224beb8">nightLightDiffuse</a> = glm::vec3(.1f, .13f, .16f)</td></tr>
 <tr class="separator:aca47add439f2a00c5eea69cbd224beb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad182c8f516aafed74b3b46c20263ff5c"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d9a/class_day_night_cycle_system.html#ad182c8f516aafed74b3b46c20263ff5c">dayLightDiffuse</a></td></tr>
+<tr class="memitem:ad182c8f516aafed74b3b46c20263ff5c"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d9a/class_day_night_cycle_system.html#ad182c8f516aafed74b3b46c20263ff5c">dayLightDiffuse</a> = glm::vec3(.7f, .73f, .74f)</td></tr>
 <tr class="separator:ad182c8f516aafed74b3b46c20263ff5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -141,7 +139,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00054">54</a> of file <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html">DayNightCycleSystem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00046">46</a> of file <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html">DayNightCycleSystem.h</a>.</p>
 
 </div>
 </div>
@@ -179,38 +177,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00020">20</a> of file <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html">DayNightCycleSystem.h</a>.</p>
-
-<p class="reference">References <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00067">currentDirection</a>, <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00069">currentRotation</a>, <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00074">dayLightDiffuse</a>, <a class="el" href="../../d0/d4b/_debug_8h_source.html#l00003">DBG_LOG</a>, <a class="el" href="../../d5/d31/_lights_8h_source.html#l00019">DirectionalLight::diffuse</a>, <a class="el" href="../../d5/d31/_lights_8h_source.html#l00017">DirectionalLight::direction</a>, <a class="el" href="../../de/d50/_game_info_8h_source.html#l00057">GameInfo::fixedDeltaTime</a>, <a class="el" href="../../db/dcf/_locator_8h_source.html#l00020">Locator&lt; Input, NullInput &gt;::getService()</a>, <a class="el" href="../../d2/d94/_input_8h.html#a3d2484fac070b8d8b0ea5ed1ff5b5d58a2a81c1ce439d7652d7a61d55229c8043">LeftButton</a>, <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00073">nightLightDiffuse</a>, <a class="el" href="../../d5/de1/_helping_hand_8cpp_source.html#l00058">hh::sphericalToCartisean()</a>, and <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00071">sunDown</a>.</p>
-
-</div>
-</div>
-<a id="ad34a3dd26a1a98044563318af01bd75d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad34a3dd26a1a98044563318af01bd75d">&#9670;&nbsp;</a></span>initialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DayNightCycleSystem::initialize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
 <p class="definition">Definition at line <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00012">12</a> of file <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html">DayNightCycleSystem.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00074">dayLightDiffuse</a>, and <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00073">nightLightDiffuse</a>.</p>
+<p class="reference">References <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00059">currentDirection</a>, <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00061">currentRotation</a>, <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00066">dayLightDiffuse</a>, <a class="el" href="../../d0/d4b/_debug_8h_source.html#l00013">DBG_LOG</a>, <a class="el" href="../../d5/d31/_lights_8h_source.html#l00019">DirectionalLight::diffuse</a>, <a class="el" href="../../d5/d31/_lights_8h_source.html#l00017">DirectionalLight::direction</a>, <a class="el" href="../../de/d50/_game_info_8h_source.html#l00060">GameInfo::fixedDeltaTime</a>, <a class="el" href="../../db/dcf/_locator_8h_source.html#l00020">Locator&lt; Input, NullInput &gt;::getService()</a>, <a class="el" href="../../d2/d94/_input_8h.html#a3d2484fac070b8d8b0ea5ed1ff5b5d58a2a81c1ce439d7652d7a61d55229c8043">LeftButton</a>, <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00065">nightLightDiffuse</a>, <a class="el" href="../../d5/de1/_helping_hand_8cpp_source.html#l00058">hh::sphericalToCartisean()</a>, and <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00063">sunDown</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d0/d56/_fixed_updating_system_8cpp_source.html#l00044">FixedUpdatingSystem::fixedUpdate()</a>.</p>
 
 </div>
 </div>
@@ -235,9 +206,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00067">67</a> of file <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html">DayNightCycleSystem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00059">59</a> of file <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html">DayNightCycleSystem.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00020">fixedUpdate()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00012">fixedUpdate()</a>.</p>
 
 </div>
 </div>
@@ -261,9 +232,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00069">69</a> of file <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html">DayNightCycleSystem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00061">61</a> of file <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html">DayNightCycleSystem.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00020">fixedUpdate()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00012">fixedUpdate()</a>.</p>
 
 </div>
 </div>
@@ -277,7 +248,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec3 DayNightCycleSystem::dayLightDiffuse</td>
+          <td class="memname">glm::vec3 DayNightCycleSystem::dayLightDiffuse = glm::vec3(.7f, .73f, .74f)</td>
         </tr>
       </table>
   </td>
@@ -287,9 +258,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00074">74</a> of file <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html">DayNightCycleSystem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00066">66</a> of file <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html">DayNightCycleSystem.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00020">fixedUpdate()</a>, and <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00012">initialize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00012">fixedUpdate()</a>.</p>
 
 </div>
 </div>
@@ -303,7 +274,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec3 DayNightCycleSystem::nightLightDiffuse</td>
+          <td class="memname">glm::vec3 DayNightCycleSystem::nightLightDiffuse = glm::vec3(.1f, .13f, .16f)</td>
         </tr>
       </table>
   </td>
@@ -313,9 +284,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00073">73</a> of file <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html">DayNightCycleSystem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00065">65</a> of file <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html">DayNightCycleSystem.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00020">fixedUpdate()</a>, and <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00012">initialize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00012">fixedUpdate()</a>.</p>
 
 </div>
 </div>
@@ -339,9 +310,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00071">71</a> of file <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html">DayNightCycleSystem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00063">63</a> of file <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html">DayNightCycleSystem.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00020">fixedUpdate()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../df/dd4/_day_night_cycle_system_8h_source.html#l00012">fixedUpdate()</a>.</p>
 
 </div>
 </div>
@@ -354,7 +325,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d9a/class_day_night_cycle_system.html">DayNightCycleSystem</a></li>
-    <li class="footer">Generated on Wed Feb 5 2020 22:05:08 for LightShow_Boilerplate by
+    <li class="footer">Generated on Thu Feb 6 2020 17:30:38 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -14,9 +14,7 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
       [ "QuatKey", "d0/d15/struct__3_d_m_1_1_quat_key.html", "d0/d15/struct__3_d_m_1_1_quat_key" ]
     ] ],
     [ "Application.cpp", "d0/d42/_application_8cpp.html", null ],
-    [ "Application.h", "d9/da3/_application_8h.html", [
-      [ "Application", "de/d6b/class_application.html", "de/d6b/class_application" ]
-    ] ],
+    [ "Application.h", "d9/da3/_application_8h.html", "d9/da3/_application_8h" ],
     [ "BoneCollisionMesh.cpp", "de/de2/_bone_collision_mesh_8cpp.html", null ],
     [ "BoneCollisionMesh.h", "d5/dbd/_bone_collision_mesh_8h.html", "d5/dbd/_bone_collision_mesh_8h" ],
     [ "BoneCollisionMeshSystem.cpp", "d9/d9b/_bone_collision_mesh_system_8cpp.html", null ],
@@ -82,7 +80,7 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     ] ],
     [ "Game.cpp", "d7/db5/_game_8cpp.html", null ],
     [ "Game.h", "d9/dcd/_game_8h.html", [
-      [ "Game", "dd/d1f/class_game.html", "dd/d1f/class_game" ]
+      [ "Game", "d5/de3/class_engine_1_1_game.html", "d5/de3/class_engine_1_1_game" ]
     ] ],
     [ "GameInfo.cpp", "d5/dec/_game_info_8cpp.html", null ],
     [ "GameInfo.h", "de/d50/_game_info_8h.html", "de/d50/_game_info_8h" ],
@@ -281,6 +279,6 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     ] ],
     [ "Window.cpp", "d3/db8/_window_8cpp.html", null ],
     [ "Window.h", "de/d42/_window_8h.html", [
-      [ "Window", "d9/dbf/class_window.html", "d9/dbf/class_window" ]
+      [ "Window", "dd/d36/class_engine_1_1_window.html", "dd/d36/class_engine_1_1_window" ]
     ] ]
 ];

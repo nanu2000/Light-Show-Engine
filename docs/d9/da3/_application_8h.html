@@ -71,13 +71,15 @@ $(document).ready(function(){initNavTree('d9/da3/_application_8h.html','../../')
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">Application.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d4b/_debug_8h_source.html">Debug.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/dcd/_game_8h_source.html">Game.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../de/d42/_window_8h_source.html">Window.h</a>&quot;</code><br />
 <code>#include &lt;GL/glew.h&gt;</code><br />
 </div>
@@ -85,8 +87,33 @@ $(document).ready(function(){initNavTree('d9/da3/_application_8h.html','../../')
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d6b/class_application.html">Application</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d14/class_engine_1_1_application.html">Engine::Application</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../da/d14/class_engine_1_1_application.html" title="The Application class manages important tasks like creating a Game, managing the Window and Locators ...">Application</a> class manages important tasks like creating a <a class="el" href="../../d5/de3/class_engine_1_1_game.html" title="Handles the Game&#39;s physics, scene loading, rendering, and updating. Managed by Application.">Game</a>, managing the <a class="el" href="../../dd/d36/class_engine_1_1_window.html" title="Handles all of the window logic for the application.">Window</a> and Locators (single instance services) such as <a class="el" href="../../d4/d7b/class_input.html">Input</a>, Textures, <a class="el" href="../../d2/d4a/class_audio.html">Audio</a>, and <a class="el" href="../../d7/da2/namespace_shaders.html">Shaders</a>.  <a href="../../da/d14/class_engine_1_1_application.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:d1/db6/namespace_engine"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db6/namespace_engine.html">Engine</a></td></tr>
+<tr class="memdesc:d1/db6/namespace_engine"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the engine side of things. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a887dd9f5de6de3f1fb0b64bbc29bba87"><td class="memItemLeft" align="right" valign="top">unsigned const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db6/namespace_engine.html#a887dd9f5de6de3f1fb0b64bbc29bba87">Engine::getGameWindowWidth</a> ()</td></tr>
+<tr class="separator:a887dd9f5de6de3f1fb0b64bbc29bba87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c0b20b2a529881d188a3e668962a3a3"><td class="memItemLeft" align="right" valign="top">unsigned const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db6/namespace_engine.html#a2c0b20b2a529881d188a3e668962a3a3">Engine::getGameWindowHeight</a> ()</td></tr>
+<tr class="separator:a2c0b20b2a529881d188a3e668962a3a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a470553a713873b02f49352cd630821c7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db6/namespace_engine.html#a470553a713873b02f49352cd630821c7">Engine::setMousePosition</a> (int xPos, int yPos)</td></tr>
+<tr class="separator:a470553a713873b02f49352cd630821c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a3297bab216a17dae935909a63b889379"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db6/namespace_engine.html#a3297bab216a17dae935909a63b889379">Engine::isRunning</a> = true</td></tr>
+<tr class="memdesc:a3297bab216a17dae935909a63b889379"><td class="mdescLeft">&#160;</td><td class="mdescRight">The game loop will only run if this is true.  <a href="../../d1/db6/namespace_engine.html#a3297bab216a17dae935909a63b889379">More...</a><br /></td></tr>
+<tr class="separator:a3297bab216a17dae935909a63b889379"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad018715c783dec7bb2b71e6d17f7bded"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d36/class_engine_1_1_window.html">Engine::Window</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db6/namespace_engine.html#ad018715c783dec7bb2b71e6d17f7bded">Engine::gameWindow</a> = <a class="el" href="../../dd/d36/class_engine_1_1_window.html">Engine::Window</a>(<a class="el" href="../../d4/d58/namespace_game_info.html#a0592d26ea0f3b1e04bb0dd81d8342842">GameInfo::START_WINDOW_WIDTH</a>, <a class="el" href="../../d4/d58/namespace_game_info.html#a75730e2590b5539fdbd80740c814b7f5">GameInfo::START_WINDOW_HEIGHT</a>)</td></tr>
+<tr class="memdesc:ad018715c783dec7bb2b71e6d17f7bded"><td class="mdescLeft">&#160;</td><td class="mdescRight">The window used for the game.  <a href="../../d1/db6/namespace_engine.html#ad018715c783dec7bb2b71e6d17f7bded">More...</a><br /></td></tr>
+<tr class="separator:ad018715c783dec7bb2b71e6d17f7bded"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -94,7 +121,7 @@ Classes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../d9/da3/_application_8h.html">Application.h</a></li>
-    <li class="footer">Generated on Wed Feb 5 2020 22:05:08 for LightShow_Boilerplate by
+    <li class="footer">Generated on Thu Feb 6 2020 17:30:38 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

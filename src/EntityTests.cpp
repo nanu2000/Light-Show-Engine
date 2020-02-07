@@ -65,20 +65,7 @@ void PlayerTestObject::initialize(EntityVitals& vitals) {
                                                    SHADER_TYPE::Lit);
 
     material.shininess = 16.f;
-    model.addTexture(TextureLocator::getService().getTexture("assets/Fonts/CourierNew.png", GL_NEAREST), 0, _3DM::TextureType::Diffuse);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Fonts/CourierNew.png", GL_NEAREST), 1, _3DM::TextureType::Diffuse);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/player/gltftestimg.png", GL_NEAREST), 2, _3DM::TextureType::Diffuse);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/player/gltftestimg.png", GL_NEAREST), 3, _3DM::TextureType::Diffuse);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/player/gltftestimg.png", GL_NEAREST), 4, _3DM::TextureType::Diffuse);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/player/gltftestimg.png", GL_NEAREST), 5, _3DM::TextureType::Diffuse);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/player/gltftestimg.png", GL_NEAREST), 6, _3DM::TextureType::Diffuse);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/player/gltftestimg.png", GL_NEAREST), 0, _3DM::TextureType::Specular);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/player/gltftestimg.png", GL_NEAREST), 1, _3DM::TextureType::Specular);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/player/gltftestimg.png", GL_NEAREST), 2, _3DM::TextureType::Specular);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/player/gltftestimg.png", GL_NEAREST), 3, _3DM::TextureType::Specular);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/player/gltftestimg.png", GL_NEAREST), 4, _3DM::TextureType::Specular);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/player/gltftestimg.png", GL_NEAREST), 5, _3DM::TextureType::Specular);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/player/gltftestimg.png", GL_NEAREST), 6, _3DM::TextureType::Specular);
+
     model.setAnimationClip(0);
 
     collisionMesh.initialize(
@@ -172,11 +159,9 @@ void CubeTrigger::initialize(EntityVitals& vitals) {
     shader = ShaderLocator::getService().getShader("cubeobj",
                                                    *vitals.currentSettings,
                                                    "assets/shaders/lit.vert",
-                                                   "assets/shaders/phong-diffuse-specular.frag",
+                                                   "assets/shaders/phong-color.frag",
                                                    SHADER_TYPE::Lit);
 
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/player/gltftestimg.png", GL_NEAREST), 0, _3DM::TextureType::Diffuse);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/player/gltftestimg.png", GL_NEAREST), 0, _3DM::TextureType::Specular);
     collisionMesh.initialize(
         btTransform(btQuaternion(btVector3(0, 0, 1), 0), btVector3(2, 4, -2)),
         btBoxShape(btVector3(1, 1, 1)),
@@ -205,21 +190,6 @@ void FloorObject::initialize(EntityVitals& vitals) {
                                                    "assets/shaders/lit.vert",
                                                    "assets/shaders/floor-shader.frag",
                                                    SHADER_TYPE::Lit);
-
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/ChestImage.png", GL_NEAREST), 0, _3DM::TextureType::Diffuse);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/ChestSpecular.png", GL_NEAREST), 0, _3DM::TextureType::Specular);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/ChestImage.png", GL_NEAREST), 1, _3DM::TextureType::Diffuse);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/ChestSpecular.png", GL_NEAREST), 1, _3DM::TextureType::Specular);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/ChestImage.png", GL_NEAREST), 2, _3DM::TextureType::Diffuse);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/ChestSpecular.png", GL_NEAREST), 2, _3DM::TextureType::Specular);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/ChestImage.png", GL_NEAREST), 3, _3DM::TextureType::Diffuse);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/ChestSpecular.png", GL_NEAREST), 3, _3DM::TextureType::Specular);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/ChestImage.png", GL_NEAREST), 4, _3DM::TextureType::Diffuse);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/ChestSpecular.png", GL_NEAREST), 4, _3DM::TextureType::Specular);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/ChestImage.png", GL_NEAREST), 5, _3DM::TextureType::Diffuse);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/ChestSpecular.png", GL_NEAREST), 5, _3DM::TextureType::Specular);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/ChestImage.png", GL_NEAREST), 6, _3DM::TextureType::Diffuse);
-    model.addTexture(TextureLocator::getService().getTexture("assets/Models/ChestSpecular.png", GL_NEAREST), 6, _3DM::TextureType::Specular);
 
     floorMaterial.shininess = 128.f;
 

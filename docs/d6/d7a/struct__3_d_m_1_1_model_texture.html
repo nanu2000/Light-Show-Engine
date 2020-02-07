@@ -82,13 +82,13 @@ $(document).ready(function(){initNavTree('d6/d7a/struct__3_d_m_1_1_model_texture
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aa54014d97422b3533f367aee7056a00c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7a/struct__3_d_m_1_1_model_texture.html#aa54014d97422b3533f367aee7056a00c">imagePath</a></td></tr>
+<tr class="memitem:aa54014d97422b3533f367aee7056a00c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7a/struct__3_d_m_1_1_model_texture.html#aa54014d97422b3533f367aee7056a00c">imagePath</a> = &quot;&quot;</td></tr>
 <tr class="separator:aa54014d97422b3533f367aee7056a00c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70ce9d26919c990e2a17286ae9022e8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d02/namespace__3_d_m.html#a21fb40cb1d5797abac13be1543749170">TextureType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7a/struct__3_d_m_1_1_model_texture.html#a70ce9d26919c990e2a17286ae9022e8f">imageType</a></td></tr>
-<tr class="separator:a70ce9d26919c990e2a17286ae9022e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1111117f1e75c1bfdbbf6cfa8aa50623"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7a/struct__3_d_m_1_1_model_texture.html#a1111117f1e75c1bfdbbf6cfa8aa50623">uniformName</a></td></tr>
+<tr class="memitem:a6e1ea6d2cb3e67cc58e832baabd3a35d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d02/namespace__3_d_m.html#a21fb40cb1d5797abac13be1543749170">_3DM::TextureType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7a/struct__3_d_m_1_1_model_texture.html#a6e1ea6d2cb3e67cc58e832baabd3a35d">imageType</a></td></tr>
+<tr class="separator:a6e1ea6d2cb3e67cc58e832baabd3a35d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1111117f1e75c1bfdbbf6cfa8aa50623"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7a/struct__3_d_m_1_1_model_texture.html#a1111117f1e75c1bfdbbf6cfa8aa50623">uniformName</a> = &quot;&quot;</td></tr>
 <tr class="separator:a1111117f1e75c1bfdbbf6cfa8aa50623"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4cf7f520876f5bcb6e5d854f917b4aa"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7a/struct__3_d_m_1_1_model_texture.html#ac4cf7f520876f5bcb6e5d854f917b4aa">imageID</a></td></tr>
+<tr class="memitem:ac4cf7f520876f5bcb6e5d854f917b4aa"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7a/struct__3_d_m_1_1_model_texture.html#ac4cf7f520876f5bcb6e5d854f917b4aa">imageID</a> = 0</td></tr>
 <tr class="separator:ac4cf7f520876f5bcb6e5d854f917b4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -102,12 +102,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int _3DM::ModelTexture::imageID</td>
+          <td class="memname">unsigned int _3DM::ModelTexture::imageID = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d21/_model_texture_8h_source.html#l00017">17</a> of file <a class="el" href="../../d8/d21/_model_texture_8h_source.html">ModelTexture.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00013">_3DM::Model::addTexture()</a>, and <a class="el" href="../../d8/de6/_animated_model_8cpp_source.html#l00230">_3DM::AnimatedModel::addTexture()</a>.</p>
 
 </div>
 </div>
@@ -118,28 +120,32 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string _3DM::ModelTexture::imagePath</td>
+          <td class="memname">std::string _3DM::ModelTexture::imagePath = &quot;&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d21/_model_texture_8h_source.html#l00012">12</a> of file <a class="el" href="../../d8/d21/_model_texture_8h_source.html">ModelTexture.h</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00013">_3DM::Model::addTexture()</a>, and <a class="el" href="../../d8/de6/_animated_model_8cpp_source.html#l00230">_3DM::AnimatedModel::addTexture()</a>.</p>
+
 </div>
 </div>
-<a id="a70ce9d26919c990e2a17286ae9022e8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70ce9d26919c990e2a17286ae9022e8f">&#9670;&nbsp;</a></span>imageType</h2>
+<a id="a6e1ea6d2cb3e67cc58e832baabd3a35d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e1ea6d2cb3e67cc58e832baabd3a35d">&#9670;&nbsp;</a></span>imageType</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../de/d02/namespace__3_d_m.html#a21fb40cb1d5797abac13be1543749170">TextureType</a> _3DM::ModelTexture::imageType</td>
+          <td class="memname"><a class="el" href="../../de/d02/namespace__3_d_m.html#a21fb40cb1d5797abac13be1543749170">_3DM::TextureType</a> _3DM::ModelTexture::imageType</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d21/_model_texture_8h_source.html#l00013">13</a> of file <a class="el" href="../../d8/d21/_model_texture_8h_source.html">ModelTexture.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00013">_3DM::Model::addTexture()</a>, and <a class="el" href="../../d8/de6/_animated_model_8cpp_source.html#l00230">_3DM::AnimatedModel::addTexture()</a>.</p>
 
 </div>
 </div>
@@ -150,12 +156,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string _3DM::ModelTexture::uniformName</td>
+          <td class="memname">std::string _3DM::ModelTexture::uniformName = &quot;&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d21/_model_texture_8h_source.html#l00016">16</a> of file <a class="el" href="../../d8/d21/_model_texture_8h_source.html">ModelTexture.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00013">_3DM::Model::addTexture()</a>, and <a class="el" href="../../d8/de6/_animated_model_8cpp_source.html#l00230">_3DM::AnimatedModel::addTexture()</a>.</p>
 
 </div>
 </div>
@@ -168,7 +176,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../de/d02/namespace__3_d_m.html">_3DM</a></li><li class="navelem"><a class="el" href="../../d6/d7a/struct__3_d_m_1_1_model_texture.html">ModelTexture</a></li>
-    <li class="footer">Generated on Thu Feb 6 2020 17:30:39 for LightShow_Boilerplate by
+    <li class="footer">Generated on Thu Feb 6 2020 23:06:01 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

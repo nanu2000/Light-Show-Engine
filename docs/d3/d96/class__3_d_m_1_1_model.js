@@ -3,6 +3,7 @@ var class__3_d_m_1_1_model =
     [ "Model", "d3/d96/class__3_d_m_1_1_model.html#a492585407cca41c7e6267fa126e0c24e", null ],
     [ "Model", "d3/d96/class__3_d_m_1_1_model.html#a5e4312d659ba4e1b5be2bae827cd7155", null ],
     [ "~Model", "d3/d96/class__3_d_m_1_1_model.html#a0c8e3b3ec2d5d7a71582742e11451c7a", null ],
+    [ "addTexture", "d3/d96/class__3_d_m_1_1_model.html#a2ce24a7d9003748752457ae5a853e9e7", null ],
     [ "amountOfMeshes", "d3/d96/class__3_d_m_1_1_model.html#a49748220558104e4577121ffd3b836cc", null ],
     [ "getMeshIndex", "d3/d96/class__3_d_m_1_1_model.html#ad895a6e294f946798dfc7193f7e0c798", null ],
     [ "getMeshIndices", "d3/d96/class__3_d_m_1_1_model.html#af9f6fae18e109496063576dae998342f", null ],

@@ -81,6 +81,9 @@ $(document).ready(function(){initNavTree('d3/d96/class__3_d_m_1_1_model.html','.
 </div><!--header-->
 <div class="contents">
 
+<p>The <a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html" title="The Model controls the lifecycle of a 3D Model. This includes init, rendering, and freeing the data t...">Model</a> controls the lifecycle of a 3D <a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html" title="The Model controls the lifecycle of a 3D Model. This includes init, rendering, and freeing the data t...">Model</a>. This includes init, rendering, and freeing the data to render the <a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html" title="The Model controls the lifecycle of a 3D Model. This includes init, rendering, and freeing the data t...">Model</a>.  
+ <a href="../../d3/d96/class__3_d_m_1_1_model.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Inheritance diagram for _3DM::Model:</div>
@@ -104,21 +107,32 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5e4312d659ba4e1b5be2bae827cd7155"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c8e3b3ec2d5d7a71582742e11451c7a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html#a0c8e3b3ec2d5d7a71582742e11451c7a">~Model</a> ()</td></tr>
 <tr class="separator:a0c8e3b3ec2d5d7a71582742e11451c7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ce24a7d9003748752457ae5a853e9e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html#a2ce24a7d9003748752457ae5a853e9e7">addTexture</a> (const <a class="el" href="../../d2/d7f/class_texture.html">Texture</a> &amp;texture, int meshIndex, const <a class="el" href="../../de/d02/namespace__3_d_m.html#a21fb40cb1d5797abac13be1543749170">_3DM::TextureType</a> &amp;<a class="el" href="../../d2/d00/class_component.html#a4e8fbccb18dbf4ae6372b4579f74b0ff">type</a>)</td></tr>
+<tr class="memdesc:a2ce24a7d9003748752457ae5a853e9e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to add a texture manually to a mesh.  <a href="../../d3/d96/class__3_d_m_1_1_model.html#a2ce24a7d9003748752457ae5a853e9e7">More...</a><br /></td></tr>
+<tr class="separator:a2ce24a7d9003748752457ae5a853e9e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1b651b190906ce2e2d003f81303cf2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html#ad1b651b190906ce2e2d003f81303cf2e">renderSingleMesh</a> (unsigned int index, <a class="el" href="../../d1/d51/class_shader.html">Shader</a> &amp;shader)</td></tr>
 <tr class="separator:ad1b651b190906ce2e2d003f81303cf2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad895a6e294f946798dfc7193f7e0c798"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html#ad895a6e294f946798dfc7193f7e0c798">getMeshIndex</a> (const std::string &amp;MeshName) const</td></tr>
+<tr class="memdesc:ad895a6e294f946798dfc7193f7e0c798"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a mesh's index via string. Returns -1 on failure.  <a href="../../d3/d96/class__3_d_m_1_1_model.html#ad895a6e294f946798dfc7193f7e0c798">More...</a><br /></td></tr>
 <tr class="separator:ad895a6e294f946798dfc7193f7e0c798"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fceea0e40a60765d93afa286d9b42b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html#a1fceea0e40a60765d93afa286d9b42b8">initialize</a> (<a class="el" href="../../d1/d51/class_shader.html">Shader</a> &amp;shader)</td></tr>
+<tr class="memdesc:a1fceea0e40a60765d93afa286d9b42b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the model. Should be called before rendering.  <a href="../../d3/d96/class__3_d_m_1_1_model.html#a1fceea0e40a60765d93afa286d9b42b8">More...</a><br /></td></tr>
 <tr class="separator:a1fceea0e40a60765d93afa286d9b42b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66709a27e16c982edba405c5dd5f920b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html#a66709a27e16c982edba405c5dd5f920b">renderAll</a> (<a class="el" href="../../d1/d51/class_shader.html">Shader</a> &amp;shader)</td></tr>
+<tr class="memdesc:a66709a27e16c982edba405c5dd5f920b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders all meshes in model.  <a href="../../d3/d96/class__3_d_m_1_1_model.html#a66709a27e16c982edba405c5dd5f920b">More...</a><br /></td></tr>
 <tr class="separator:a66709a27e16c982edba405c5dd5f920b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3201f9fc54e6f0adbd0208e68e1579e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html#a3201f9fc54e6f0adbd0208e68e1579e0">renderMesh</a> (unsigned int index, <a class="el" href="../../d1/d51/class_shader.html">Shader</a> &amp;shader)</td></tr>
+<tr class="separator:a3201f9fc54e6f0adbd0208e68e1579e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e478ffc1c5cc012505f8c9be8f176ee"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html#a3e478ffc1c5cc012505f8c9be8f176ee">getMeshMatrix</a> (unsigned int index) const</td></tr>
+<tr class="memdesc:a3e478ffc1c5cc012505f8c9be8f176ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves matrix of mesh at index.  <a href="../../d3/d96/class__3_d_m_1_1_model.html#a3e478ffc1c5cc012505f8c9be8f176ee">More...</a><br /></td></tr>
 <tr class="separator:a3e478ffc1c5cc012505f8c9be8f176ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad78a19794e30475e69a53dd336ef346c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html#ad78a19794e30475e69a53dd336ef346c">setMeshMatrix</a> (unsigned int index, const glm::mat4 &amp;newMatrix)</td></tr>
+<tr class="memdesc:ad78a19794e30475e69a53dd336ef346c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets matrix of mesh at index.  <a href="../../d3/d96/class__3_d_m_1_1_model.html#ad78a19794e30475e69a53dd336ef346c">More...</a><br /></td></tr>
 <tr class="separator:ad78a19794e30475e69a53dd336ef346c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49748220558104e4577121ffd3b836cc"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html#a49748220558104e4577121ffd3b836cc">amountOfMeshes</a> ()</td></tr>
 <tr class="separator:a49748220558104e4577121ffd3b836cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5590da7e2a2f29fdfb05bd97f03a10f4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; glm::vec3 &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html#a5590da7e2a2f29fdfb05bd97f03a10f4">getMeshVertices</a> (unsigned int index)</td></tr>
+<tr class="memdesc:a5590da7e2a2f29fdfb05bd97f03a10f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves vertices of mesh at index.  <a href="../../d3/d96/class__3_d_m_1_1_model.html#a5590da7e2a2f29fdfb05bd97f03a10f4">More...</a><br /></td></tr>
 <tr class="separator:a5590da7e2a2f29fdfb05bd97f03a10f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9f6fae18e109496063576dae998342f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; uint32_t &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html#af9f6fae18e109496063576dae998342f">getMeshIndices</a> (unsigned int index)</td></tr>
 <tr class="separator:af9f6fae18e109496063576dae998342f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,11 +163,11 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:ad96d7f1265a6893b7b47afb120343cea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html#ad96d7f1265a6893b7b47afb120343cea">initializeBuffers</a> (<a class="el" href="../../da/d2e/struct__3_d_m_1_1_mesh.html">_3DM::Mesh</a> &amp;mesh, <a class="el" href="../../d1/d51/class_shader.html">Shader</a> &amp;shader)</td></tr>
+<tr class="memdesc:ad96d7f1265a6893b7b47afb120343cea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the buffers for a mesh.  <a href="../../d3/d96/class__3_d_m_1_1_model.html#ad96d7f1265a6893b7b47afb120343cea">More...</a><br /></td></tr>
 <tr class="separator:ad96d7f1265a6893b7b47afb120343cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e709f9f65b099c0744e0fc21adeeb5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html#a4e709f9f65b099c0744e0fc21adeeb5d">initializeTexture</a> (<a class="el" href="../../da/d2e/struct__3_d_m_1_1_mesh.html">_3DM::Mesh</a> &amp;mesh, <a class="el" href="../../d1/d51/class_shader.html">Shader</a> &amp;shader)</td></tr>
+<tr class="memdesc:a4e709f9f65b099c0744e0fc21adeeb5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the textures for a mesh.  <a href="../../d3/d96/class__3_d_m_1_1_model.html#a4e709f9f65b099c0744e0fc21adeeb5d">More...</a><br /></td></tr>
 <tr class="separator:a4e709f9f65b099c0744e0fc21adeeb5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3201f9fc54e6f0adbd0208e68e1579e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html#a3201f9fc54e6f0adbd0208e68e1579e0">renderMesh</a> (unsigned int index, <a class="el" href="../../d1/d51/class_shader.html">Shader</a> &amp;shader)</td></tr>
-<tr class="separator:a3201f9fc54e6f0adbd0208e68e1579e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -184,8 +198,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:ac4c1a71fda4d7d3ef213a9cda58cad30 inherit pro_attribs_class_model_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00017">17</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<div class="textblock"><p>The <a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html" title="The Model controls the lifecycle of a 3D Model. This includes init, rendering, and freeing the data t...">Model</a> controls the lifecycle of a 3D <a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html" title="The Model controls the lifecycle of a 3D Model. This includes init, rendering, and freeing the data t...">Model</a>. This includes init, rendering, and freeing the data to render the <a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html" title="The Model controls the lifecycle of a 3D Model. This includes init, rendering, and freeing the data t...">Model</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00019">19</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a492585407cca41c7e6267fa126e0c24e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a492585407cca41c7e6267fa126e0c24e">&#9670;&nbsp;</a></span>Model() <span class="overload">[1/2]</span></h2>
@@ -203,9 +218,9 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00002">2</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00003">3</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/ded/_model_8h_source.html#l00045">modelLoaded</a>, and <a class="el" href="../../d5/dbf/_model_serialization_8cpp_source.html#l00598">_3DM::_3DM_IO::readModel()</a>.</p>
+<p class="reference">References <a class="el" href="../../da/ded/_model_8h_source.html#l00047">modelLoaded</a>, and <a class="el" href="../../d5/dbf/_model_serialization_8cpp_source.html#l00598">_3DM::_3DM_IO::readModel()</a>.</p>
 
 </div>
 </div>
@@ -232,7 +247,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00020">20</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00022">22</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 
 </div>
 </div>
@@ -251,13 +266,55 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00119">119</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00165">165</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../d0/d4b/_debug_8h_source.html#l00013">DBG_LOG</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00024">_3DM::Mesh::elementBufferObject</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00026">_3DM::Mesh::normalBufferObject</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00025">_3DM::Mesh::uvBufferObject</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00022">_3DM::Mesh::vertexArrayObject</a>, and <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00023">_3DM::Mesh::vertexBufferObject</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2ce24a7d9003748752457ae5a853e9e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ce24a7d9003748752457ae5a853e9e7">&#9670;&nbsp;</a></span>addTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void _3DM::Model::addTexture </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/d7f/class_texture.html">Texture</a> &amp;&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>meshIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d02/namespace__3_d_m.html#a21fb40cb1d5797abac13be1543749170">_3DM::TextureType</a> &amp;&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Used to add a texture manually to a mesh. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00013">13</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../d0/d4b/_debug_8h_source.html#l00013">DBG_LOG</a>, <a class="el" href="../../de/d02/namespace__3_d_m.html#a21fb40cb1d5797abac13be1543749170a41178642cae095a6bdb909119b4d16e8">_3DM::Diffuse</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00028">_3DM::Mesh::diffuseIndex</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aae712876b5313699d4e38e6f70c7c725e">Shaders::DiffuseTexture</a>, <a class="el" href="../../de/dbf/_texture_8h_source.html#l00024">Texture::getLocation()</a>, <a class="el" href="../../de/dbf/_texture_8h_source.html#l00023">Texture::getTextureData()</a>, <a class="el" href="../../d2/d06/_shaders_8h_source.html#l00131">Shaders::getUniformName()</a>, <a class="el" href="../../d8/d21/_model_texture_8h_source.html#l00017">_3DM::ModelTexture::imageID</a>, <a class="el" href="../../d8/d21/_model_texture_8h_source.html#l00012">_3DM::ModelTexture::imagePath</a>, <a class="el" href="../../d8/d21/_model_texture_8h_source.html#l00013">_3DM::ModelTexture::imageType</a>, <a class="el" href="../../de/d02/namespace__3_d_m.html#a21fb40cb1d5797abac13be1543749170a4ab971a51f0335cbf8d9c2c65d379e99">_3DM::Normals</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00030">_3DM::Mesh::normalsIndex</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aab59103e987d5c0e6e17c6c184edf90b2">Shaders::NormalTexture</a>, <a class="el" href="../../de/d02/namespace__3_d_m.html#a21fb40cb1d5797abac13be1543749170a39b0044dd8789d333e7794f359406740">_3DM::Specular</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00029">_3DM::Mesh::specularIndex</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa8f19fa0f2cc4078c09a89d31205980e7">Shaders::SpecularTexture</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00016">_3DM::Mesh::textures</a>, and <a class="el" href="../../d8/d21/_model_texture_8h_source.html#l00016">_3DM::ModelTexture::uniformName</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../de/d4c/_entity_tests_8cpp_source.html#l00164">CubeTrigger::initialize()</a>, and <a class="el" href="../../de/d4c/_entity_tests_8cpp_source.html#l00195">FloorObject::initialize()</a>.</p>
+
+</div>
+</div>
 <a id="a49748220558104e4577121ffd3b836cc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a49748220558104e4577121ffd3b836cc">&#9670;&nbsp;</a></span>amountOfMeshes()</h2>
 
@@ -281,9 +338,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00029">29</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00034">34</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/ded/_model_8h_source.html#l00036">meshes</a>.</p>
+<p class="reference">References <a class="el" href="../../da/ded/_model_8h_source.html#l00041">meshes</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d1/df8/_collision_mesh_8cpp_source.html#l00311">CollisionMesh::createTriangleMeshCollider()</a>, and <a class="el" href="../../d1/df8/_collision_mesh_8cpp_source.html#l00341">CollisionMesh::createTriangleModelCollider()</a>.</p>
 
@@ -305,7 +362,9 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00024">24</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Retrieves a mesh's index via string. Returns -1 on failure. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00061">61</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -325,7 +384,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00173">173</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00225">225</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d1/df8/_collision_mesh_8cpp_source.html#l00311">CollisionMesh::createTriangleMeshCollider()</a>, and <a class="el" href="../../d1/df8/_collision_mesh_8cpp_source.html#l00341">CollisionMesh::createTriangleModelCollider()</a>.</p>
 
@@ -347,7 +406,9 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00150">150</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Retrieves matrix of mesh at index. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00199">199</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../d0/d4b/_debug_8h_source.html#l00013">DBG_LOG</a>.</p>
 
@@ -369,7 +430,9 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00165">165</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Retrieves vertices of mesh at index. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00216">216</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d1/df8/_collision_mesh_8cpp_source.html#l00311">CollisionMesh::createTriangleMeshCollider()</a>, and <a class="el" href="../../d1/df8/_collision_mesh_8cpp_source.html#l00341">CollisionMesh::createTriangleModelCollider()</a>.</p>
 
@@ -399,9 +462,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Initializes the model. Should be called before rendering. </p>
+
 <p>Implements <a class="el" href="../../d1/d75/class_model_base.html#a7015667850530f0aaf553c795ca5aef8">ModelBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00100">100</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00146">146</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -439,7 +504,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00068">68</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Initializes the buffers for a mesh. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00113">113</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00024">_3DM::Mesh::elementBufferObject</a>, <a class="el" href="../../d2/d06/_shaders_8h_source.html#l00138">Shaders::getAttribLocation()</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00014">_3DM::Mesh::indices</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a3b915b2e9c580fc6208bb3b9741429a8a960b44c579bc2f6818d2daaf9e4c16f0">Shaders::Normal</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00026">_3DM::Mesh::normalBufferObject</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00011">_3DM::Mesh::normals</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a3b915b2e9c580fc6208bb3b9741429a8a52f5e0bc3859bc5f5e25130b6c7e8881">Shaders::Position</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a3b915b2e9c580fc6208bb3b9741429a8aa5988984ffe625223ef5f7f2259cbac8">Shaders::TextureCoordinates</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00025">_3DM::Mesh::uvBufferObject</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00013">_3DM::Mesh::uvs</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00022">_3DM::Mesh::vertexArrayObject</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00023">_3DM::Mesh::vertexBufferObject</a>, and <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00010">_3DM::Mesh::vertices</a>.</p>
 
@@ -479,9 +546,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00033">33</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Initializes the textures for a mesh. </p>
 
-<p class="reference">References <a class="el" href="../../d8/d21/_model_texture_8h_source.html#l00007">_3DM::Diffuse</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00028">_3DM::Mesh::diffuseIndex</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aae712876b5313699d4e38e6f70c7c725e">Shaders::DiffuseTexture</a>, <a class="el" href="../../db/dcf/_locator_8h_source.html#l00020">Locator&lt; TextureHandler, TextureHandler &gt;::getService()</a>, <a class="el" href="../../da/d26/_texture_8cpp_source.html#l00197">TextureHandler::getTexture()</a>, <a class="el" href="../../de/dbf/_texture_8h_source.html#l00023">Texture::getTextureData()</a>, <a class="el" href="../../d2/d06/_shaders_8h_source.html#l00131">Shaders::getUniformName()</a>, <a class="el" href="../../d8/d21/_model_texture_8h_source.html#l00009">_3DM::Normals</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00030">_3DM::Mesh::normalsIndex</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aab59103e987d5c0e6e17c6c184edf90b2">Shaders::NormalTexture</a>, <a class="el" href="../../d8/d21/_model_texture_8h_source.html#l00008">_3DM::Specular</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00029">_3DM::Mesh::specularIndex</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa8f19fa0f2cc4078c09a89d31205980e7">Shaders::SpecularTexture</a>, and <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00016">_3DM::Mesh::textures</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00071">71</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../de/d02/namespace__3_d_m.html#a21fb40cb1d5797abac13be1543749170a41178642cae095a6bdb909119b4d16e8">_3DM::Diffuse</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00028">_3DM::Mesh::diffuseIndex</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aae712876b5313699d4e38e6f70c7c725e">Shaders::DiffuseTexture</a>, <a class="el" href="../../db/dcf/_locator_8h_source.html#l00020">Locator&lt; TextureHandler, TextureHandler &gt;::getService()</a>, <a class="el" href="../../da/d26/_texture_8cpp_source.html#l00197">TextureHandler::getTexture()</a>, <a class="el" href="../../de/dbf/_texture_8h_source.html#l00023">Texture::getTextureData()</a>, <a class="el" href="../../d2/d06/_shaders_8h_source.html#l00131">Shaders::getUniformName()</a>, <a class="el" href="../../de/d02/namespace__3_d_m.html#a21fb40cb1d5797abac13be1543749170a4ab971a51f0335cbf8d9c2c65d379e99">_3DM::Normals</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00030">_3DM::Mesh::normalsIndex</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aab59103e987d5c0e6e17c6c184edf90b2">Shaders::NormalTexture</a>, <a class="el" href="../../de/d02/namespace__3_d_m.html#a21fb40cb1d5797abac13be1543749170a39b0044dd8789d333e7794f359406740">_3DM::Specular</a>, <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00029">_3DM::Mesh::specularIndex</a>, <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa8f19fa0f2cc4078c09a89d31205980e7">Shaders::SpecularTexture</a>, and <a class="el" href="../../d2/da1/_mesh_8h_source.html#l00016">_3DM::Mesh::textures</a>.</p>
 
 </div>
 </div>
@@ -509,9 +578,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Renders all meshes in model. </p>
+
 <p>Implements <a class="el" href="../../d1/d75/class_model_base.html#ae66c3c1a3efcbdb8512eb68cfe830cd0">ModelBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00137">137</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00185">185</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -520,9 +591,6 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void _3DM::Model::renderMesh </td>
@@ -542,14 +610,9 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00181">181</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00234">234</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../d8/d34/_shader_8h_source.html#l00043">Shader::getProgramID()</a>, <a class="el" href="../../d2/d06/_shaders_8h_source.html#l00142">Shaders::getUniformLocation()</a>, and <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa3e04ff8d5f81e0e803be16ae79aaf3c6">Shaders::ModelMatrix</a>.</p>
 
@@ -591,7 +654,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d1/d75/class_model_base.html#a64780a3d2dac4d647171e8d664368292">ModelBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00012">12</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00048">48</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../d0/d4b/_debug_8h_source.html#l00013">DBG_LOG</a>.</p>
 
@@ -623,7 +686,9 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00159">159</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Sets matrix of mesh at index. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00209">209</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -648,7 +713,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00048">48</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00050">50</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 
 </div>
 </div>
@@ -673,7 +738,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00046">46</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00048">48</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 
 </div>
 </div>
@@ -697,9 +762,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00036">36</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00041">41</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/ded/_model_8h_source.html#l00029">amountOfMeshes()</a>, <a class="el" href="../../d5/dbf/_model_serialization_8cpp_source.html#l00598">_3DM::_3DM_IO::readModel()</a>, and <a class="el" href="../../d5/dbf/_model_serialization_8cpp_source.html#l00588">_3DM::_3DM_IO::writeModel()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/ded/_model_8h_source.html#l00034">amountOfMeshes()</a>, <a class="el" href="../../d5/dbf/_model_serialization_8cpp_source.html#l00598">_3DM::_3DM_IO::readModel()</a>, and <a class="el" href="../../d5/dbf/_model_serialization_8cpp_source.html#l00588">_3DM::_3DM_IO::writeModel()</a>.</p>
 
 </div>
 </div>
@@ -723,9 +788,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00045">45</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00047">47</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00002">Model()</a>, <a class="el" href="../../d5/dbf/_model_serialization_8cpp_source.html#l00598">_3DM::_3DM_IO::readModel()</a>, and <a class="el" href="../../d5/dbf/_model_serialization_8cpp_source.html#l00588">_3DM::_3DM_IO::writeModel()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00003">Model()</a>, <a class="el" href="../../d5/dbf/_model_serialization_8cpp_source.html#l00598">_3DM::_3DM_IO::readModel()</a>, and <a class="el" href="../../d5/dbf/_model_serialization_8cpp_source.html#l00588">_3DM::_3DM_IO::writeModel()</a>.</p>
 
 </div>
 </div>
@@ -749,7 +814,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00044">44</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00046">46</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d5/dbf/_model_serialization_8cpp_source.html#l00598">_3DM::_3DM_IO::readModel()</a>, and <a class="el" href="../../d5/dbf/_model_serialization_8cpp_source.html#l00588">_3DM::_3DM_IO::writeModel()</a>.</p>
 
@@ -765,7 +830,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../de/d02/namespace__3_d_m.html">_3DM</a></li><li class="navelem"><a class="el" href="../../d3/d96/class__3_d_m_1_1_model.html">Model</a></li>
-    <li class="footer">Generated on Thu Feb 6 2020 17:30:39 for LightShow_Boilerplate by
+    <li class="footer">Generated on Thu Feb 6 2020 23:06:01 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

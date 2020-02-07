@@ -15072,8 +15072,7 @@
       <Scope>_3DM</Scope>
     </TokenIdentifier>
     <Path>de/d02/namespace__3_d_m.html</Path>
-    <Anchor>a21fb40cb1d5797abac13be1543749170a6e74af02866e46cfa6821a926c369d62</Anchor>
-    <DeclaredIn>ModelTexture.h</DeclaredIn>
+    <Anchor>a21fb40cb1d5797abac13be1543749170a41178642cae095a6bdb909119b4d16e8</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -15083,8 +15082,7 @@
       <Scope>_3DM</Scope>
     </TokenIdentifier>
     <Path>de/d02/namespace__3_d_m.html</Path>
-    <Anchor>a21fb40cb1d5797abac13be1543749170aea94b1f5052b738b238e352a731beb03</Anchor>
-    <DeclaredIn>ModelTexture.h</DeclaredIn>
+    <Anchor>a21fb40cb1d5797abac13be1543749170a39b0044dd8789d333e7794f359406740</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -15094,8 +15092,7 @@
       <Scope>_3DM</Scope>
     </TokenIdentifier>
     <Path>de/d02/namespace__3_d_m.html</Path>
-    <Anchor>a21fb40cb1d5797abac13be1543749170a2c9345b46a64e509e272805130cbd17a</Anchor>
-    <DeclaredIn>ModelTexture.h</DeclaredIn>
+    <Anchor>a21fb40cb1d5797abac13be1543749170a4ab971a51f0335cbf8d9c2c65d379e99</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -15437,6 +15434,7 @@
       <Scope>_3DM::AnimatedModel</Scope>
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
+    <Abstract>The AnimatedModel controls the lifecycle of a 3D Animated Model. This includes init,...</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15470,6 +15468,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>ade6496851c7abc17a7eae17824df0f1b</Anchor>
+    <Abstract>Initializes the model. Should be called before rendering.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15481,6 +15480,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>aa88a72798d77207f4503ad3d287c4df9</Anchor>
+    <Abstract>Retrieves matrix of mesh at index.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15492,6 +15492,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a27131e36ed835b1101f35d82c196cbd5</Anchor>
+    <Abstract>Retrieves the index of a mesh via mesh name.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15503,6 +15504,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a1adb2397fbb788d3ef66aca851177d09</Anchor>
+    <Abstract>Retrieves animation index of Model via animations name.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15514,6 +15516,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a15e3f6d9ada2199c46552db6b876a6ac</Anchor>
+    <Abstract>Retrieves animation&apos;s channel index via channel&apos;s name.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15525,6 +15528,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>aa78868e4e769869535fb3edc1e76ea1d</Anchor>
+    <Abstract>Retrieves id of bone via bones name.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15536,6 +15540,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>aafce135c3a7a63ee01c6910682a5c001</Anchor>
+    <Abstract>Retrieves bone name via bone&apos;s id.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15547,6 +15552,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a481d0bfe9292cb9130614e4debf0c96a</Anchor>
+    <Abstract>Returns amount of animations for the animated model.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15558,6 +15564,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a2dba39fef451664c9b9f2f3d99619240</Anchor>
+    <Abstract>Returns the current transform of the bone.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15569,6 +15576,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>acd0123cec602ca301053cc815c8579ef</Anchor>
+    <Abstract>Returns the current transform of the bone, without bone&apos;s offset matrix.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15580,6 +15588,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a2b87b0274202564ca90e907ec4ba1eb5</Anchor>
+    <Abstract>Returns the current transform of the bone via bone name, without bone&apos;s offset matrix.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15591,6 +15600,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>ae545d3a3942d5e334f069616567a4639</Anchor>
+    <Abstract>Returns the amount of bones in the animated model.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15602,6 +15612,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a69c6dd8a0e12cdf4e11cde64cea757c4</Anchor>
+    <Abstract>Returns the amount of meshes in the animated model.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15613,6 +15624,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a774e41d8b93802e78dcf1f17d76d42c3</Anchor>
+    <Abstract>Retrieves vertices of mesh at index.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15624,6 +15636,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a57f30fb1443d89d32e69ccfe06e46b71</Anchor>
+    <Abstract>Retrieves indices of mesh at index.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15635,6 +15648,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a7ec57bbfdcb6626dd9778c695ffdf249</Anchor>
+    <Abstract>Sets matrix of mesh at index.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15646,6 +15660,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>afdf824236fe3e92e807cf61a5d1d6c91</Anchor>
+    <Abstract>Sets matrix of a bone at index.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15657,6 +15672,19 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a88c60bbcd98b07e474df4b1c5ceae50a</Anchor>
+    <Abstract>Sets the current animation clip to be ran.</Abstract>
+    <DeclaredIn>AnimatedModel.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>addTexture</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>_3DM::AnimatedModel</Scope>
+    </TokenIdentifier>
+    <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
+    <Anchor>a181bf7b54370961365e492825363ae1b</Anchor>
+    <Abstract>Used to add a texture manually to a mesh.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15668,6 +15696,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a70d2c1cbe61bcf3cbfc24846e0cf1701</Anchor>
+    <Abstract>Updates the animation a single frame.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15679,6 +15708,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>ad20a31053ed1d33622a02668ad034352</Anchor>
+    <Abstract>Renders all meshes in model.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15690,6 +15720,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a1f1e11fe0d293f67869df16723db79b6</Anchor>
+    <Abstract>Renders a mesh at index.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15701,6 +15732,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a3723ec7ed818ed4a2bb005d275274e60</Anchor>
+    <Abstract>Removes a channel via it&apos;s index.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15712,6 +15744,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>abc2cccaeb0829e707ddc67659aa9a49e</Anchor>
+    <Abstract>Add rotation to a channel.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15723,6 +15756,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>ad222415b8a1e6caff8cb919b6300e349</Anchor>
+    <Abstract>Add rotation to a channel.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15734,6 +15768,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>ac416da7a064ef22a3468de32655236ca</Anchor>
+    <Abstract>Overwrite rotation of a channel.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15745,6 +15780,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>aa4e2996680c382527e15677406f945a5</Anchor>
+    <Abstract>Overwrite rotation of a channel.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15756,6 +15792,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a5c44a6cf43e926a93d03cc9a88250fdf</Anchor>
+    <Abstract>Add scale to a channel.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15767,6 +15804,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a47399a3cd0dbed27b28cf12525c6d302</Anchor>
+    <Abstract>Overwrite scale of a channel.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15778,6 +15816,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>aa530bd840f5f586f82ce5fe4a99fd9ac</Anchor>
+    <Abstract>Add position to a channel.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15789,6 +15828,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a1eead90b58bb11db8c11a741c1765444</Anchor>
+    <Abstract>Overwrite position of a channel.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15800,6 +15840,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>aef119ff90702a1159084a55cebc3e194</Anchor>
+    <Abstract>Set&apos;s amount of time it takes to interpolate one animation to another.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15918,7 +15959,8 @@
       <Scope>_3DM::AnimatedModel</Scope>
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
-    <Anchor>a91c3931b7f4d3a45a0f7c3be66b10b93</Anchor>
+    <Anchor>abd42d2e0868320fb975653cf275d5b16</Anchor>
+    <Abstract>Returns interpolated keyframes at a given time.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15929,7 +15971,8 @@
       <Scope>_3DM::AnimatedModel</Scope>
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
-    <Anchor>abc47acf65c6b4250407c39d695ca73b9</Anchor>
+    <Anchor>adb670e76b7ca673a46f28937ac139ec7</Anchor>
+    <Abstract>Retrieves the nearest keyframe based on the current time.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15941,6 +15984,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a5749607cd20c8789c9dd967fe89a6f4e</Anchor>
+    <Abstract>Initializes the buffers for a mesh.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15952,6 +15996,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a45567581e2a85fd3e8358d43028ec8a7</Anchor>
+    <Abstract>Initializes the textures for a mesh.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15963,6 +16008,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a985a6d8bc17b99b9226c503e320c9115</Anchor>
+    <Abstract>Renders a mesh at index.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15974,6 +16020,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>adcc0410051d7d08485dacf79d2a12f4d</Anchor>
+    <Abstract>Initializes the bone buffers for a mesh.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15985,6 +16032,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a97c67d019f8ad48f816065aa424c28f6</Anchor>
+    <Abstract>This function will recursively update the bonetree according to the time given. it will also interpol...</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -15996,6 +16044,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a40ae934da5e2a122ada60e840c6e5618</Anchor>
+    <Abstract>This function will recursively blend the bonetree according to the time given. it will also interpola...</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -16007,6 +16056,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>ae55486c381d1549fff06f13558cd0cad</Anchor>
+    <Abstract>Bind&apos;s buffers before rendering.</Abstract>
     <DeclaredIn>AnimatedModel.h</DeclaredIn>
   </Token>
   <Token>
@@ -16029,6 +16079,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a3d83ef9ee70ed2d97b7b7bba53ff25f0</Anchor>
+    <Abstract>The animation of the model.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -16039,6 +16090,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>aa51dcdd4c16b9e524562c0dfcce3a95f</Anchor>
+    <Abstract>The meshes of the model.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -16049,6 +16101,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a5e489e25ad0ceb64fe2c70a5812cab31</Anchor>
+    <Abstract>The boneId&apos;s mapped to the bone name.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -16129,6 +16182,7 @@
     </TokenIdentifier>
     <Path>de/d92/class__3_d_m_1_1_animated_model.html</Path>
     <Anchor>a140297b48daae4cb35abb0377626b96a</Anchor>
+    <Abstract>Animation clips for the AnimatedModel.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -16208,6 +16262,7 @@
       <Scope>_3DM::AnimatedModel::InterpolatedFrame</Scope>
     </TokenIdentifier>
     <Path>db/d17/struct__3_d_m_1_1_animated_model_1_1_interpolated_frame.html</Path>
+    <Abstract>Used to interpolate two frames for smooth animation transitions.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -16608,6 +16663,7 @@
       <Scope>_3DM::Model</Scope>
     </TokenIdentifier>
     <Path>d3/d96/class__3_d_m_1_1_model.html</Path>
+    <Abstract>The Model controls the lifecycle of a 3D Model. This includes init, rendering, and freeing the data t...</Abstract>
     <DeclaredIn>Model.h</DeclaredIn>
   </Token>
   <Token>
@@ -16645,6 +16701,18 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>addTexture</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>_3DM::Model</Scope>
+    </TokenIdentifier>
+    <Path>d3/d96/class__3_d_m_1_1_model.html</Path>
+    <Anchor>a2ce24a7d9003748752457ae5a853e9e7</Anchor>
+    <Abstract>Used to add a texture manually to a mesh.</Abstract>
+    <DeclaredIn>Model.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>renderSingleMesh</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -16663,6 +16731,7 @@
     </TokenIdentifier>
     <Path>d3/d96/class__3_d_m_1_1_model.html</Path>
     <Anchor>ad895a6e294f946798dfc7193f7e0c798</Anchor>
+    <Abstract>Retrieves a mesh&apos;s index via string. Returns -1 on failure.</Abstract>
     <DeclaredIn>Model.h</DeclaredIn>
   </Token>
   <Token>
@@ -16674,6 +16743,7 @@
     </TokenIdentifier>
     <Path>d3/d96/class__3_d_m_1_1_model.html</Path>
     <Anchor>a1fceea0e40a60765d93afa286d9b42b8</Anchor>
+    <Abstract>Initializes the model. Should be called before rendering.</Abstract>
     <DeclaredIn>Model.h</DeclaredIn>
   </Token>
   <Token>
@@ -16685,6 +16755,18 @@
     </TokenIdentifier>
     <Path>d3/d96/class__3_d_m_1_1_model.html</Path>
     <Anchor>a66709a27e16c982edba405c5dd5f920b</Anchor>
+    <Abstract>Renders all meshes in model.</Abstract>
+    <DeclaredIn>Model.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>renderMesh</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>_3DM::Model</Scope>
+    </TokenIdentifier>
+    <Path>d3/d96/class__3_d_m_1_1_model.html</Path>
+    <Anchor>a3201f9fc54e6f0adbd0208e68e1579e0</Anchor>
     <DeclaredIn>Model.h</DeclaredIn>
   </Token>
   <Token>
@@ -16696,6 +16778,7 @@
     </TokenIdentifier>
     <Path>d3/d96/class__3_d_m_1_1_model.html</Path>
     <Anchor>a3e478ffc1c5cc012505f8c9be8f176ee</Anchor>
+    <Abstract>Retrieves matrix of mesh at index.</Abstract>
     <DeclaredIn>Model.h</DeclaredIn>
   </Token>
   <Token>
@@ -16707,6 +16790,7 @@
     </TokenIdentifier>
     <Path>d3/d96/class__3_d_m_1_1_model.html</Path>
     <Anchor>ad78a19794e30475e69a53dd336ef346c</Anchor>
+    <Abstract>Sets matrix of mesh at index.</Abstract>
     <DeclaredIn>Model.h</DeclaredIn>
   </Token>
   <Token>
@@ -16729,6 +16813,7 @@
     </TokenIdentifier>
     <Path>d3/d96/class__3_d_m_1_1_model.html</Path>
     <Anchor>a5590da7e2a2f29fdfb05bd97f03a10f4</Anchor>
+    <Abstract>Retrieves vertices of mesh at index.</Abstract>
     <DeclaredIn>Model.h</DeclaredIn>
   </Token>
   <Token>
@@ -16859,6 +16944,7 @@
     </TokenIdentifier>
     <Path>d3/d96/class__3_d_m_1_1_model.html</Path>
     <Anchor>ad96d7f1265a6893b7b47afb120343cea</Anchor>
+    <Abstract>Initializes the buffers for a mesh.</Abstract>
     <DeclaredIn>Model.h</DeclaredIn>
   </Token>
   <Token>
@@ -16870,17 +16956,7 @@
     </TokenIdentifier>
     <Path>d3/d96/class__3_d_m_1_1_model.html</Path>
     <Anchor>a4e709f9f65b099c0744e0fc21adeeb5d</Anchor>
-    <DeclaredIn>Model.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>renderMesh</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>_3DM::Model</Scope>
-    </TokenIdentifier>
-    <Path>d3/d96/class__3_d_m_1_1_model.html</Path>
-    <Anchor>a3201f9fc54e6f0adbd0208e68e1579e0</Anchor>
+    <Abstract>Initializes the textures for a mesh.</Abstract>
     <DeclaredIn>Model.h</DeclaredIn>
   </Token>
   <Token>
@@ -16991,7 +17067,7 @@
       <Scope>_3DM::ModelTexture</Scope>
     </TokenIdentifier>
     <Path>d6/d7a/struct__3_d_m_1_1_model_texture.html</Path>
-    <Anchor>a70ce9d26919c990e2a17286ae9022e8f</Anchor>
+    <Anchor>a6e1ea6d2cb3e67cc58e832baabd3a35d</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>

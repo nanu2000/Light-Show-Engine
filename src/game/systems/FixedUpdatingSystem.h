@@ -8,6 +8,7 @@
 #include "GameState.h"
 #include "GlobalInformation.h"
 #include "GuiButton.h"
+#include "MainSystemBase.h"
 #include "Messenger.h"
 #include "PlayerController.h"
 #include "PointLightShadowMap.h"
@@ -15,9 +16,8 @@
 #include "RenderTexture.h"
 #include "Scene.h"
 #include "Shader.h"
-#include "SystemBase.h"
 
-class FixedUpdatingSystem : public SystemBase {
+class FixedUpdatingSystem : public MainSystemBase {
 
 public:
     ~FixedUpdatingSystem() {}

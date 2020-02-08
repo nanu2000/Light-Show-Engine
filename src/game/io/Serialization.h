@@ -9,7 +9,7 @@
 //I AM ALSO EXPECTING THE SYSTEM TO READ IN LITTLE ENDIANESS.					//
 //////////////////////////////////////////////////////////////////////////////////
 
-namespace SL {
+namespace Serialization {
 
     //Typedefs
     typedef uint64_t EightBytes;
@@ -36,7 +36,7 @@ namespace SL {
         iStream.read(reinterpret_cast<char*>(&variableToReadInto), amountOfBytes);
 
         if (swapEndianness) {
-            SL::swapEndian(&variableToReadInto);
+            Serialization::swapEndian(&variableToReadInto);
         }
     }
 

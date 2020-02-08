@@ -3,10 +3,10 @@
 
 #include "SubSystems.h"
 
-class SystemBase {
+class MainSystemBase {
 
 public:
-    virtual ~SystemBase() {}
+    virtual ~MainSystemBase() {}
 
     virtual void initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& systems) = 0;
 

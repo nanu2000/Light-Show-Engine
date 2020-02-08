@@ -1,7 +1,6 @@
 #ifndef _INPUT_H
 #define _INPUT_H
 #include "GameInfo.h"
-#include "UniqueVectors.h"
 #include "glm/vec2.hpp"
 #include <SDL.h>
 
@@ -34,13 +33,13 @@ private:
 
     glm::ivec2 mousePosition = glm::ivec2(0, 0);
 
-    bool mouseArray[3] = {false, false, false};
+    bool mouseArray[3] = { false, false, false };
 
     bool hitOnce[3] = { false, false, false };
 
     bool pressed[3] = { false, false, false };
 
-    UniqueVec2<int> mouseLastPosition;
+    glm::ivec2 mouseLastPosition;
 };
 
 class NullInput : public Input {

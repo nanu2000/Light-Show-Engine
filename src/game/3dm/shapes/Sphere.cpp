@@ -1,6 +1,6 @@
-#include "SphereShape.h"
+#include "Sphere.h"
 
-void SphereShape::createSphere(int radius, int stacks, int slices) {
+void Sphere::createSphere(int radius, int stacks, int slices) {
     int ind = 0;
     int i, j;
     for (i = 0; i <= stacks; i++) {
@@ -37,7 +37,7 @@ void SphereShape::createSphere(int radius, int stacks, int slices) {
     initialized = true;
 }
 
-void SphereShape::drawSphere(Shader& shader) {
+void Sphere::drawSphere(Shader& shader) {
     DBG_LOG("rendering");
     GLuint transformLoc = Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::ModelMatrix);
     GLuint posAttrib    = Shaders::getAttribLocation(Shaders::AttribName::Position);
@@ -53,7 +53,7 @@ void SphereShape::drawSphere(Shader& shader) {
     glBindVertexArray(0);
 }
 
-SphereShape::~SphereShape() {
+Sphere::~Sphere() {
     if (!initialized) {
         return;
     }

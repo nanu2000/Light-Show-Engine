@@ -21,7 +21,7 @@ const Glyph* const TextMap::getGlyph(const char& key) {
 }
 
 void TextMap::createMap(const std::string& textDatLocation) {
-    isBigEndianness = SL::isBigEndian();
+    isBigEndianness = Serialization::isBigEndian();
 
     std::ifstream inputFileStream(textDatLocation.c_str(), std::ios::in | std::ios::binary);
 
@@ -34,11 +34,11 @@ void TextMap::createMap(const std::string& textDatLocation) {
     for (uint32_t i = 0; i < sizeOfMap; i++) {
         Glyph glyph;
 
-        SL::readBytes(glyph.x, 4, inputFileStream, isBigEndianness);
-        SL::readBytes(glyph.xMax, 4, inputFileStream, isBigEndianness);
-        SL::readBytes(glyph.y, 4, inputFileStream, isBigEndianness);
-        SL::readBytes(glyph.yMax, 4, inputFileStream, isBigEndianness);
-        SL::readBytes(glyph.character, 1, inputFileStream, isBigEndianness);
+        Serialization::readBytes(glyph.x, 4, inputFileStream, isBigEndianness);
+        Serialization::readBytes(glyph.xMax, 4, inputFileStream, isBigEndianness);
+        Serialization::readBytes(glyph.y, 4, inputFileStream, isBigEndianness);
+        Serialization::readBytes(glyph.yMax, 4, inputFileStream, isBigEndianness);
+        Serialization::readBytes(glyph.character, 1, inputFileStream, isBigEndianness);
 
         map[i] = glyph;
 

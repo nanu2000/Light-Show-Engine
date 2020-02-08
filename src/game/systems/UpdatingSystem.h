@@ -5,14 +5,14 @@
 #include "CollisionMesh.h"
 #include "GlobalInformation.h"
 #include "Locator.h"
+#include "MainSystemBase.h"
 #include "Messenger.h"
 #include "ParticleSystem.h"
 #include "PauseMenu.h"
 #include "Scene.h"
 #include "Settings.h"
-#include "SystemBase.h"
 #include "UserControls.h"
-class UpdatingSystem : public SystemBase {
+class UpdatingSystem : public MainSystemBase {
 
 public:
     ~UpdatingSystem() {}

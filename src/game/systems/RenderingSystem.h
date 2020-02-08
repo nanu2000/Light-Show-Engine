@@ -6,18 +6,18 @@
 #include "GuiButton.h"
 #include "GuiSprite.h"
 #include "GuiString.h"
+#include "MainSystemBase.h"
 #include "Model.h"
 #include "PointLightShadowMap.h"
 #include "Quad.h"
 #include "RenderTexture.h"
 #include "Scene.h"
 #include "Shader.h"
-#include "SystemBase.h"
 
 using _3DM::AnimatedModel;
 using _3DM::Model;
 
-class RenderingSystem : public SystemBase {
+class RenderingSystem : public MainSystemBase {
 
 public:
     ~RenderingSystem() {}

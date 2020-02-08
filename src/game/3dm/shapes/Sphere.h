@@ -8,11 +8,11 @@
 #include "glm/vec3.hpp"
 #include <vector>
 
-class SphereShape {
+class Sphere {
 public:
     void createSphere(int radius, int stacks, int slices);
     void drawSphere(Shader& shader);
-    ~SphereShape();
+    ~Sphere();
 
 private:
     std::vector<glm::vec3> vertices;

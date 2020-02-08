@@ -5,7 +5,6 @@
 #include "GameInfo.h"
 #include "HelpingHand.h"
 #include "Locator.h"
-#include "UniqueVectors.h"
 #include <glm/gtc/matrix_transform.hpp>
 
 class CameraSystem {

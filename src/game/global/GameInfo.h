@@ -32,8 +32,9 @@ static const char* GET_COLLISION_TAG_NAME(const COLLISION_TAGS& cTag) {
 const int8_t TAG_ENTITY_UNDEFINED = -1;
 //
 
-//deltaTime for physics calculations and accurate updating
 namespace PrivateGameInfo {
+    //!DeltaTime for physics calculations and accurate updating
+    //!Updated in Application
     extern float deltaTime;
 };
 

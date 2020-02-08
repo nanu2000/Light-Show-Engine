@@ -6,7 +6,7 @@
 #include <btBulletCollisionCommon.h>
 typedef btCollisionWorld::AllHitsRayResultCallback RayResultCallback;
 
-class RayCaster : public Component<RayCaster> {
+class RayCaster {
 
 public:
     RayCaster(const glm::vec3& from, const glm::vec3& to) {

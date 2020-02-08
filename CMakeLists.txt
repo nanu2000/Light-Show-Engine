@@ -39,15 +39,39 @@ elseif(CMAKE_BUILD_TYPE MATCHES MinSizeRel)
 endif()
 
 
-file(GLOB TESTS_FILES "tests/*.cpp")
+file(GLOB_RECURSE TESTS_FILES "tests/*.cpp")
 
-file(GLOB SOURCE_FILES_H "src/*.h")
+file(GLOB_RECURSE SOURCE_FILES_H "src/*.h")
 
-file(GLOB SOURCE_FILES_CPP "src/*.cpp")
+file(GLOB_RECURSE SOURCE_FILES_CPP "src/*.cpp")
 
-file(GLOB SOURCE_FILES "src/*.h" "src/*.cpp")
-
+file(GLOB_RECURSE SOURCE_FILES 
+    "src/*.h" 
+    "src/*.cpp")
+    
 target_sources(lightshow_bp-lib PRIVATE ${SOURCE_FILES_CPP} PUBLIC ${SOURCE_FILES_H})
+
+include_directories(lightshow_bp 
+    "src" 
+        "src/engine" 
+            "src/engine/main" 
+            "src/engine/locators" 
+            "src/engine/main"
+            "src/engine/physics"
+        "src/game"
+        "src/game/"
+            "src/game/3dm"
+                "src/game/3dm/shapes"
+            "src/game/collision"
+            "src/game/components"
+            "src/game/entities"
+            "src/game/global"
+            "src/game/gui"
+            "src/game/io"
+            "src/game/rendering"
+            "src/game/systems"
+                "src/game/systems/subsystems"
+)
 
 target_include_directories(lightshow_bp-lib PUBLIC src)             
 

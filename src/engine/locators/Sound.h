@@ -1,10 +1,10 @@
 #ifndef _SOUND_H
 #define _SOUND_H
-
-#include "DebugDrawer.h"
+#include "Debug.h"
 #include "HelpingHand.h" //included for clearing a vector of pointers.
 #include <SDL_mixer.h> //Included for audio
 #include <algorithm> //included for sorting
+#include <string>
 #include <vector> //included for the audio libraries
 
 /***************************************************************************************************************

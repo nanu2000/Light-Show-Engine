@@ -55,7 +55,7 @@ void Engine::Game::loadScene(int index) {
     //Allocate new scene and entities.
     scene        = new Scene();
     physicsWorld = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
-    physicsWorld->initializeDebugDraw();
+    physicsWorld->initialize();
 
     EntityVitals vitals = EntityVitals(&settings, scene, physicsWorld, &map);
 

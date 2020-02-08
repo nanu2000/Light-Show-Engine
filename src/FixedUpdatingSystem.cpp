@@ -127,11 +127,8 @@ void FixedUpdatingSystem::fixedUpdate(GameState& gameState, const Time& time, Po
             }
         }
 
-        if (DebuggingController* dbgCtrlr = currentScene->getComponent<DebuggingController>(entity.id)) {
-            Input& thisInput = InputLocator::getService();
-
-            dbgCtrlr->controlPhysicsDebugDraw(thisInput, *physicsWorld);
-        }
+        //Toggles if the debugging system should render the physics world's debugdrawer.
+        systems->debuggingSystem.controlPhysicsDebugDraw(InputLocator::getService(), *physicsWorld);
 
         if (_3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(entity.id)) {
             animatedModel->fixedUpdateAnimation();

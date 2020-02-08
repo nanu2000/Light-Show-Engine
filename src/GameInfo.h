@@ -70,9 +70,6 @@ namespace GameInfo {
     //Default Window Title
     const std::string WINDOW_TITLE = "Gonna get there!";
 
-    //For Debug Drawing
-    const glm::vec4 DEBUG_COLOR = glm::vec4(0.0f, 0.7f, 0.3f, 1.0f);
-
     //The default gravity used for physics worlds
     const glm::vec3 DEFAULT_GRAVITY = glm::vec3(0.0f, -9.81f, 0.0f);
 

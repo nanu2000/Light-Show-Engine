@@ -13,6 +13,10 @@ btVector3 hh::toBtVec3(const glm::vec3& v) {
     return btVector3(v.x, v.y, v.z);
 }
 
+btQuaternion hh::toBtQuat(const glm::quat& q) {
+    return btQuaternion(q.x, q.y, q.z, q.w);
+}
+
 glm::quat hh::toQuaternion(const glm::vec3& vec) {
     return glm::quat(glm::radians(vec));
 }

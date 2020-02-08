@@ -14,7 +14,7 @@ public:
         float speed = 1.0f;
 
         if (InputLocator::getService().getMouseButton(MOUSE_BUTTON::LeftButton)) {
-            speed = 20;
+            speed = 50;
         }
 
         currentRotation = currentRotation + GameInfo::fixedDeltaTime * speed;
@@ -36,26 +36,33 @@ public:
 
         float rotRadians = glm::radians(currentRotation);
 
-        glm::vec3 dir = hh::sphericalToCartisean(rotRadians, glm::radians(170.f), 1);
+        glm::vec3 dir = hh::sphericalToCartisean(rotRadians, glm::radians(180.f), 1);
 
         currentDirection = glm::vec3(dir.y, dir.x, dir.z);
 
         light.direction = currentDirection;
     }
 
-    void debugRender(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix) {
+    void debugRender(PhysicsWorld& physicsWorld) {
 
-        btVector3 linePos = btVector3(0, 10, 0);
-        float distance    = 5;
+        if (physicsWorld.isDebugDrawing()) {
 
-        // debugDrawer.drawLine(linePos, (btVector3(currentDirection.x, currentDirection.y, currentDirection.z) * distance) + linePos, btVector3(255, 255, 255));
+            btVector3 linePos = btVector3(0, 10, 0);
+            float distance    = 5;
 
-        //debugDrawer.render(projectionMatrix, viewMatrix);
+            glm::vec3 c  = glm::normalize(glm::cross(hh::toGlmVec3(linePos), currentDirection));
+            glm::vec3 c2 = glm::normalize(glm::cross(c, currentDirection));
+
+            physicsWorld.getDebugDrawer().drawLine(linePos, (btVector3(currentDirection.x, currentDirection.y, currentDirection.z) * distance) + linePos, btVector3(1, 1, 1));
+            physicsWorld.getDebugDrawer().drawLine(linePos, hh::toBtVec3(c) + linePos, btVector3(1, 1, 1), btVector3(0, 0, 0));
+            physicsWorld.getDebugDrawer().drawLine(linePos, hh::toBtVec3(c2) + linePos, btVector3(1, 1, 1), btVector3(0, 0, 0));
+
+            //could also do:
+            //physicsWorld.getDebugDrawer().drawTransform(btTransform);
+        }
     }
 
 private:
-    //DebugDrawer debugDrawer;
-
     glm::vec3 currentDirection;
 
     float currentRotation = 270;

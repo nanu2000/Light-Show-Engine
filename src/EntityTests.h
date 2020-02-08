@@ -3,7 +3,6 @@
 #include "BoneCollisionMesh.h"
 #include "Camera.h"
 #include "CollisionMesh.h"
-#include "DebuggingController.h"
 #include "DisplayStatistics.h"
 #include "EnemyController.h"
 #include "EntityTransform.h"
@@ -88,7 +87,6 @@ private:
     PauseMenu menu;
 
     Camera camera;
-    DebuggingController dbgController;
     UserControls userControls;
 };
 

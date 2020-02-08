@@ -16,13 +16,13 @@ public:
 
     ~PhysicsWorld();
 
+    void initialize();
+
     void fixedUpdate();
 
     void setDebugMode(btIDebugDraw::DebugDrawModes mode);
 
     void debugDraw(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix);
-
-    DebugDrawer* const getDebugDrawer() { return &debugDrawer; }
 
     void addRigidBody(const CollisionMesh& collisionMesh);
 
@@ -37,15 +37,19 @@ public:
         return shouldDebugDraw;
     }
 
-    void initializeDebugDraw();
+    Engine::DebugDrawer& getDebugDrawer() {
+        return debugDrawer;
+    }
 
 private:
+    void initializeDebugDraw();
+
     bool shouldDebugDraw = false;
 
     std::vector<btRigidBody*> rigidBodies;
     std::vector<btCollisionShape*> shapes;
 
-    DebugDrawer debugDrawer;
+    Engine::DebugDrawer debugDrawer;
     btBroadphaseInterface* broadphase                       = nullptr;
     btDefaultCollisionConfiguration* collisionConfiguration = nullptr;
     btCollisionDispatcher* dispatcher                       = nullptr;

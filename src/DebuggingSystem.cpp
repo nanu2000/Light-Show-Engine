@@ -1,6 +1,6 @@
-#include "DebuggingController.h"
+#include "DebuggingSystem.h"
 
-void DebuggingController::controlPhysicsDebugDraw(Input& inputHandler, PhysicsWorld& world) {
+void DebuggingSystem::controlPhysicsDebugDraw(Input& inputHandler, PhysicsWorld& world) {
     if (inputHandler.keyPressedOnce(PHYSICS_DRAW_TOGGLE)) {
         if (world.isDebugDrawing() == false) {
             DBG_LOG("Debug Draw Is Now On.\n");
@@ -12,7 +12,7 @@ void DebuggingController::controlPhysicsDebugDraw(Input& inputHandler, PhysicsWo
     }
 }
 
-void DebuggingController::executeDebugRendering(PhysicsWorld& world, const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix) {
+void DebuggingSystem::executeDebugRendering(PhysicsWorld& world, const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix) {
     if (world.isDebugDrawing()) {
         world.debugDraw(projectionMatrix, viewMatrix);
     }

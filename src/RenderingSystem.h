@@ -2,7 +2,6 @@
 #define RENDERING_SYSTEM_H
 
 #include "Camera.h"
-#include "DebuggingController.h"
 #include "DirectionalLightShadowMap.h"
 #include "GuiButton.h"
 #include "GuiSprite.h"

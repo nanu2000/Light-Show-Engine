@@ -183,13 +183,8 @@ void RenderingSystem::renderDebugging(Camera& currentCamera) {
         return;
     }
 
-    const std::vector<DebuggingController*> debugControllers = currentScene->getAllComponentsOfType<DebuggingController>();
-
-    for (unsigned int i = 0; i < debugControllers.size(); i++) {
-        debugControllers[i]->executeDebugRendering(*physicsWorld, *currentCamera.getViewMatrix(), *currentCamera.getProjectionMatrix());
-    }
-
-    //    systems->dayNightCycleSystem.debugRender(*currentCamera.getViewMatrix(), *currentCamera.getProjectionMatrix());
+    systems->dayNightCycleSystem.debugRender(*physicsWorld);
+    systems->debuggingSystem.executeDebugRendering(*physicsWorld, *currentCamera.getViewMatrix(), *currentCamera.getProjectionMatrix());
 }
 
 void RenderingSystem::renderModels(Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {

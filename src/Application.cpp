@@ -124,8 +124,6 @@ void Application::initializeGL() {
         DBG_LOG("engine init error (glew): %s (Application.cpp)\n", glewGetErrorString(err));
     }
 
-    glLineWidth(1.5f);
-
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
 

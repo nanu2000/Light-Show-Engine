@@ -44,7 +44,6 @@ void Player::initialize(EntityVitals& vitals) {
 
     vitals.scene->addComponent(id, menu);
     vitals.scene->addComponent(id, camera);
-    vitals.scene->addComponent(id, dbgController);
     vitals.scene->addComponent(id, textShader);
     vitals.scene->addComponent(id, userControls);
     vitals.scene->addComponent(id, statDisplayer);

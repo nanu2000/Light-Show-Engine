@@ -28,6 +28,10 @@ PhysicsWorld::~PhysicsWorld() {
     delete broadphase;
 }
 
+void PhysicsWorld::initialize() {
+    initializeDebugDraw();
+}
+
 void PhysicsWorld::fixedUpdate() {
 
     if (!thisWorld) {

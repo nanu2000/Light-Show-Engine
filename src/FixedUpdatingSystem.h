@@ -2,7 +2,6 @@
 #define FIXED_UPDATING_SYSTEM
 
 #include "Camera.h"
-#include "DebuggingController.h"
 #include "DirectionalLightShadowMap.h"
 #include "DisplayStatistics.h"
 #include "GUIResizingInfo.h"

@@ -4,6 +4,7 @@
 #include "BoneCollisionMeshSystem.h"
 #include "CameraSystem.h"
 #include "DayNightCycleSystem.h"
+#include "DebuggingSystem.h"
 #include "DisplayStatisticsSystem.h"
 #include "EnemyControllerSystem.h"
 #include "ParticleSystem.h"
@@ -26,8 +27,10 @@ struct SubSystems {
     CameraSystem cameraSystem;
     BoneCollisionMeshSystem boneCollisionMeshSystem;
 
-    DayNightCycleSystem dayNightCycleSystem; // -- causes memory leak on copy constructor because DebugDrawer is intertwined with PhysicsWorld.
+    DayNightCycleSystem dayNightCycleSystem;
     SkyBoxSystem skyBoxSystem;
+
+    DebuggingSystem debuggingSystem;
 
     DefaultParticleSystem defaultParticleSystem;
     FountainParticleSystem fountainParticleSystem;

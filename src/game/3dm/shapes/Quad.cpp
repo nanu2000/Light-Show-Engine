@@ -138,13 +138,17 @@ void Quad::render3D(const Shader& shader, GLint textureID, glm::mat4& modelMatri
 
 //Renders a 2D textured quad
 void Quad::render2D(const Shader& shader, GLint textureID) {
+    render2D(shader, textureID, GL_TEXTURE_2D);
+}
+
+void Quad::render2D(const Shader& shader, GLint textureID, GLint textureType) {
 
     if (!hasInit) {
         init();
     }
 
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, textureID);
+    glBindTexture(textureType, textureID);
     glUniform1i(Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::DiffuseTexture), 0);
 
     glBindVertexArray(quadVAO);

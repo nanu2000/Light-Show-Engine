@@ -20,6 +20,7 @@ public:
     void render3D(const Shader& shader, GLint textureID, glm::mat4& modelMatrix);
 
     void render2D(const Shader& shader, GLint textureID);
+    void render2D(const Shader& shader, GLint textureID, GLint textureType);
 
     ~Quad();
 

@@ -53,7 +53,7 @@ namespace Engine {
         //Todo: Components?
         PointLightShadowMap pointLightDepthMap;
         DirectionalLightShadowMap directionalLightDepthMap;
-        RenderTexture renderTexture;
+        RenderTextureMS renderTexture;
 
         //!The main system used for updating the game based on the Scene's components
         UpdatingSystem updatingSystem;

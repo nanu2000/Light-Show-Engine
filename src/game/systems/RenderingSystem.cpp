@@ -34,7 +34,7 @@ void RenderingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld&
         return false;
     });
 
-    screenShader = ShaderLocator::getService().getShader("screen", "assets/shaders/render-texture.vert", "assets/shaders/render-texture.frag", SHADER_TYPE::Default);
+    screenShader = ShaderLocator::getService().getShader("screen", "assets/shaders/render-texture.vert", "assets/shaders/render-texture-ms.frag", SHADER_TYPE::Default);
     depthShader  = ShaderLocator::getService().getShader("depthtest", "assets/shaders/depth.vert", "assets/shaders/depth.frag", SHADER_TYPE::Default);
 
     //Todo: move to a debugging component/system.
@@ -81,7 +81,7 @@ void RenderingSystem::initializeModels(Shader& shader, const int32_t& entity) {
     }
 }
 
-void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Time& currentTime, const RenderTexture& renderTexture) {
+void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Time& currentTime, const RenderTextureMS& renderTexture) {
 
     /******************************************|
     |*		The Current Rendering Order		  *|
@@ -150,6 +150,10 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         renderAll(*currentCamera, currentTime, pointLightDepthMap, directionalLightDepthMap);
 
+        glBlitFramebuffer(0, 0,
+                          renderTexture.getWidth(), renderTexture.getHeight(),
+                          0, 0, renderTexture.getWidth(), renderTexture.getHeight(),
+                          GL_COLOR_BUFFER_BIT, GL_NEAREST);
         //Todo: move this into a ui sys/component for debugging
         //Pretty much we render a neat little quad with the directional light's depth map in it for debugging purposes. This will be useful for finetuning shaders.
         depthShader.useProgram();
@@ -166,7 +170,7 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
         glClear(GL_COLOR_BUFFER_BIT);
 
         screenShader.useProgram();
-        screenQuad.render2D(screenShader, renderTexture.getTextureID());
+        screenQuad.render2D(screenShader, renderTexture.getTextureID(), GL_TEXTURE_2D_MULTISAMPLE);
     }
 }
 
@@ -183,6 +187,7 @@ void RenderingSystem::renderDebugging(Camera& currentCamera) {
         return;
     }
 
+    systems->playerControllerSystem.render(*physicsWorld);
     systems->dayNightCycleSystem.debugRender(*physicsWorld);
     systems->debuggingSystem.executeDebugRendering(*physicsWorld, *currentCamera.getViewMatrix(), *currentCamera.getProjectionMatrix());
 }

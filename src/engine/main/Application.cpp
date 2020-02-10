@@ -128,6 +128,7 @@ void Application::initializeGL() {
     glEnable(GL_BLEND);
 
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_MULTISAMPLE);
 
     //For back face culling
     glEnable(GL_CULL_FACE);

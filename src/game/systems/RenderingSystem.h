@@ -22,7 +22,7 @@ class RenderingSystem : public MainSystemBase {
 public:
     ~RenderingSystem() {}
     void initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& systems) override;
-    void render(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Time& currentTime, const RenderTexture& renderTexture);
+    void render(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Time& currentTime, const RenderTextureMS& renderTexture);
 
 private:
     void

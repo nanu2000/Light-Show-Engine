@@ -46,7 +46,7 @@ private:
     //Const Members
     ///////////////////////////////////////////////////////////////////////////////
     static const unsigned int MAX_AMOUNT_SLOPE_CALCULATIONS = 3;
-    static const unsigned int AMOUNT_OF_RAYS                = 4;
+    static const unsigned int AMOUNT_OF_RAYS                = 8;
 
     float clampingVelocity     = -5;
     float rayDistanceCorrector = -0.1f;

@@ -13,7 +13,7 @@ class PlayerControllerSystem {
 
 public:
     PlayerControllerSystem() {
-        assert(PlayerController::AMOUNT_OF_RAYS == 4);
+        assert(PlayerController::AMOUNT_OF_RAYS == 8);
     }
 
     void update(Transform& modelsTransform, PlayerController& playerController, Camera& camera, CollisionMesh& mesh);

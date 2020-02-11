@@ -62,7 +62,7 @@ void PlayerControllerSystem::handleRayHit(PlayerController& playerController, Co
     collisionMesh.setVelocity(
         btVector3(
             collisionMesh.getVelocitybt().x(),
-            PLR_CTRLR_NS::CLAMPING_VELOCITY,
+            playerController.clampingVelocity,
             collisionMesh.getVelocitybt().z()));
 
     playerController.lastTouchedPosition = glm::vec3(collisionMesh.getPosition().x, collisionMesh.getPosition().y + closest, collisionMesh.getPosition().z);
@@ -112,12 +112,12 @@ void PlayerControllerSystem::performJump(CollisionMesh& collisionMesh, float jum
 ControllerRayCollision PlayerControllerSystem::getLowestRayHitForAllRays(PlayerController& playerController) {
     ControllerRayCollision collisionInfo;
 
-    for (unsigned int i = 0; i < PLR_CTRLR_NS::AMOUNT_OF_RAYS; i++) {
-        if (PLR_CTRLR_NS::rayCast[i].hasHit()) {
-            int index = getLowestRayHitIndex(PLR_CTRLR_NS::rayCast[i], playerController);
+    for (unsigned int i = 0; i < PlayerController::AMOUNT_OF_RAYS; i++) {
+        if (playerController.rayCast[i].hasHit()) {
+            int index = getLowestRayHitIndex(playerController.rayCast[i], playerController);
 
             if (index != -1) {
-                float amount = PLR_CTRLR_NS::rayCast[i].getLength() - PLR_CTRLR_NS::rayCast[i].getHitFractionRaySpace(index);
+                float amount = playerController.rayCast[i].getLength() - playerController.rayCast[i].getHitFractionRaySpace(index);
 
                 if (amount > collisionInfo.lowestPointValue) {
                     collisionInfo.lowestPointIndex = index;
@@ -166,12 +166,12 @@ void PlayerControllerSystem::applyForces(CollisionMesh& collisionMesh, PlayerCon
 }
 
 void PlayerControllerSystem::executeRayTesting(PlayerController& playerController, CollisionMesh& collisionMesh, const Transform& meshTransform, PhysicsWorld& world) {
-    float rayDistance = playerController.colliderWidthAndDepth + PLR_CTRLR_NS::RAY_DISTANCE_CORRECTOR;
+    float rayDistance = playerController.colliderWidthAndDepth + playerController.rayDistanceCorrector;
 
-    PLR_CTRLR_NS::rayCast[0].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z - rayDistance), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z - rayDistance));
-    PLR_CTRLR_NS::rayCast[1].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z + rayDistance), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z + rayDistance));
-    PLR_CTRLR_NS::rayCast[2].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z + rayDistance), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z + rayDistance));
-    PLR_CTRLR_NS::rayCast[3].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z - rayDistance), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z - rayDistance));
+    playerController.rayCast[0].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z - rayDistance), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z - rayDistance));
+    playerController.rayCast[1].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z + rayDistance), glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z + rayDistance));
+    playerController.rayCast[2].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z + rayDistance), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z + rayDistance));
+    playerController.rayCast[3].rayTest(*world.getWorld(), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z - rayDistance), glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z - rayDistance));
 
     ControllerRayCollision collision = getLowestRayHitForAllRays(playerController);
 
@@ -179,9 +179,9 @@ void PlayerControllerSystem::executeRayTesting(PlayerController& playerControlle
 
         handleRayHit(playerController, collisionMesh, collision.lowestPointValue);
 
-        if (collision.lowestPointIndex < PLR_CTRLR_NS::rayCast[collision.rayIndex].size()) {
+        if (collision.lowestPointIndex < playerController.rayCast[collision.rayIndex].size()) {
 
-            playerController.rayNormal = hh::toGlmVec3(PLR_CTRLR_NS::rayCast[collision.rayIndex].getHitNormal(collision.lowestPointIndex));
+            playerController.rayNormal = hh::toGlmVec3(playerController.rayCast[collision.rayIndex].getHitNormal(collision.lowestPointIndex));
 
             playerController.currentSlopeIntensity = btVector3(0, 0, 0);
 
@@ -251,4 +251,16 @@ void PlayerControllerSystem::update(Transform& modelsTransform, PlayerController
     /////////////////Transform Model Orientation according to collision mesh and camera.
     applyNewRotation(camera.getForward(), playerController, modelsTransform);
     ///////////////////
+}
+
+void PlayerControllerSystem::debugRender(PhysicsWorld& w, PlayerController& p) {
+
+    if (!w.isDebugDrawing()) {
+        return;
+    }
+
+    for (int i = 0; i < PlayerController::AMOUNT_OF_RAYS; i++) {
+
+        w.getDebugDrawer().drawLine(p.rayCast[i].getRayFrom(), p.rayCast[i].getRayTo(), btVector3(0, 0, 0));
+    }
 }

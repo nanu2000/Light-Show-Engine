@@ -2,6 +2,7 @@
 #define PLAYER_CONTROLLER_H
 #include "Component.h"
 #include "GameInfo.h"
+#include "RayCaster.h"
 #include <SDL_keycode.h>
 #include <glm/geometric.hpp>
 
@@ -14,15 +15,15 @@ enum class PLAYER_ANIMATION_STATE : uint8_t {
 };
 
 namespace PLR_CTRLR_NS {
-struct SlopeIntensity {
-    SlopeIntensity(float gravity, float depth) {
-        slopeGravity = gravity;
-        slopeAmount  = depth;
-    }
+    struct SlopeIntensity {
+        SlopeIntensity(float gravity, float depth) {
+            slopeGravity = gravity;
+            slopeAmount  = depth;
+        }
 
-    float slopeGravity = 0;
-    float slopeAmount  = 0;
-};
+        float slopeGravity = 0;
+        float slopeAmount  = 0;
+    };
 }
 
 class PlayerController : public Component<PlayerController> {
@@ -45,6 +46,12 @@ private:
     //Const Members
     ///////////////////////////////////////////////////////////////////////////////
     static const unsigned int MAX_AMOUNT_SLOPE_CALCULATIONS = 3;
+    static const unsigned int AMOUNT_OF_RAYS                = 4;
+
+    float clampingVelocity     = -5;
+    float rayDistanceCorrector = -0.1f;
+
+    RayCaster rayCast[PlayerController::AMOUNT_OF_RAYS];
 
     PLR_CTRLR_NS::SlopeIntensity slopes[MAX_AMOUNT_SLOPE_CALCULATIONS] = {
         PLR_CTRLR_NS::SlopeIntensity(10, .2f), //Must be in incrementing order.

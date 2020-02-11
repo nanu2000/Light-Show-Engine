@@ -79,12 +79,12 @@ void PlayerTestObject::initialize(EntityVitals& vitals) {
 
     textShader = ShaderLocator::getService().getShader("ui", *vitals.currentSettings, "assets/shaders/gui-shader.vert", "assets/shaders/gui-shader.frag", SHADER_TYPE::GUI);
 
-    //bCollisionMesh.addCollider(model.getBoneID("head"), id, COLLISION_TAGS::Player);
-    //bCollisionMesh.addCollider(model.getBoneID("body"), id, COLLISION_TAGS::Player);
-    //bCollisionMesh.addCollider(model.getBoneID("arm.r"), id, COLLISION_TAGS::Player);
-    // bCollisionMesh.addCollider(model.getBoneID("arm.l"), id, COLLISION_TAGS::Player);
-    //bCollisionMesh.addCollider(model.getBoneID("leg.r"), id, COLLISION_TAGS::Player);
-    //bCollisionMesh.addCollider(model.getBoneID("leg.l"), id, COLLISION_TAGS::Player);
+    bCollisionMesh.addCollider(model.getBoneID("head"), id, COLLISION_TAGS::Player);
+    bCollisionMesh.addCollider(model.getBoneID("body"), id, COLLISION_TAGS::Player);
+    bCollisionMesh.addCollider(model.getBoneID("arm.r"), id, COLLISION_TAGS::Player);
+    bCollisionMesh.addCollider(model.getBoneID("arm.l"), id, COLLISION_TAGS::Player);
+    bCollisionMesh.addCollider(model.getBoneID("leg.r"), id, COLLISION_TAGS::Player);
+    bCollisionMesh.addCollider(model.getBoneID("leg.l"), id, COLLISION_TAGS::Player);
 
     collisionMesh.getRigidBody()->setInvInertiaDiagLocal(btVector3(0, 0, 0));
     collisionMesh.getRigidBody()->updateInertiaTensor();

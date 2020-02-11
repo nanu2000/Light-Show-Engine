@@ -7,25 +7,18 @@
 #include "ControllerRayCollision.h"
 #include "PhysicsWorld.h"
 #include "PlayerController.h"
-#include "RayCaster.h"
 #include "UserControls.h"
-
-namespace PLR_CTRLR_NS {
-const unsigned int AMOUNT_OF_RAYS  = 4;
-const float CLAMPING_VELOCITY      = -5;
-const float RAY_DISTANCE_CORRECTOR = -0.1f;
-static RayCaster rayCast[PLR_CTRLR_NS::AMOUNT_OF_RAYS];
-}
 
 class PlayerControllerSystem {
 
 public:
     PlayerControllerSystem() {
-        assert(PLR_CTRLR_NS::AMOUNT_OF_RAYS == 4);
+        assert(PlayerController::AMOUNT_OF_RAYS == 4);
     }
 
     void update(Transform& modelsTransform, PlayerController& playerController, Camera& camera, CollisionMesh& mesh);
     void fixedUpdate(Input& input, Transform& modelsTransform, CollisionMesh& mesh, PhysicsWorld& world, PlayerController& playerController, Camera& camera, const UserControls& userControls);
+    void debugRender(PhysicsWorld& w, PlayerController& p);
 
 private:
     void performJump(CollisionMesh& collisionMesh, float jumpVelocity);

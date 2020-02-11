@@ -57,13 +57,16 @@ public:
         length      = glm::distance(hh::toGlmVec3(rayFrom), hh::toGlmVec3(rayTo));
     }
 
-    float getHitFraction(int index) const {
+    inline float getHitFraction(int index) const {
         return rayCallback.m_hitFractions.at(index);
     }
 
-    float getLength() const { return length; }
+    inline btVector3 getRayFrom() const { return rayFrom; }
+    inline btVector3 getRayTo() const { return rayTo; }
 
-    float getHitFractionRaySpace(int index) const {
+    inline float getLength() const { return length; }
+
+    inline float getHitFractionRaySpace(int index) const {
         return rayCallback.m_hitFractions.at(index) * length;
     }
 

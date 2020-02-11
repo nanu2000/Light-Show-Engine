@@ -187,7 +187,11 @@ void RenderingSystem::renderDebugging(Camera& currentCamera) {
         return;
     }
 
-    systems->playerControllerSystem.render(*physicsWorld);
+    const std::vector<PlayerController*> plrctrs = currentScene->getAllComponentsOfType<PlayerController>();
+    for (unsigned int i = 0; i < plrctrs.size(); i++) {
+        systems->playerControllerSystem.debugRender(*physicsWorld, *plrctrs.at(i));
+    }
+
     systems->dayNightCycleSystem.debugRender(*physicsWorld);
     systems->debuggingSystem.executeDebugRendering(*physicsWorld, *currentCamera.getViewMatrix(), *currentCamera.getProjectionMatrix());
 }

@@ -61,6 +61,10 @@ public:
 
     void initialize(unsigned int w, unsigned int h, unsigned int samples);
 
+    inline int getCurrentMultisampleCount() const {
+        return currentMultisamples > 0 ? currentMultisamples : 1;
+    }
+
 private:
     //!used for resizing.
     int currentMultisamples = -1;

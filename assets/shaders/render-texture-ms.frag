@@ -5,6 +5,7 @@ struct Material {
 };
 
 uniform Material material;
+uniform int MultisampleCount;
 
 in vec2 textureCoords_o;
 
@@ -14,14 +15,12 @@ void main(){
     vec2 texSize = textureSize(material.texture_diffuse1);
     ivec2 texCoord = ivec2(textureCoords_o * texSize);
 
-    int samples = 4;
-
     vec4 color = vec4(0.0);
 
-    for (int i = 0; i < samples; i++)
+    for (int i = 0; i < MultisampleCount; i++)
         color += texelFetch(material.texture_diffuse1, texCoord, i);
 
-    color /= float(samples);
+    color /= float(MultisampleCount);
 
 
     FragColor = color;

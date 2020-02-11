@@ -68,14 +68,14 @@ void PlayerTestObject::initialize(EntityVitals& vitals) {
     model.setAnimationClip(0);
 
     collisionMesh.initialize(
-        btTransform(btQuaternion(btVector3(1, 0, 0), glm::radians(0.0f)), btVector3(0, 10, 0)),
-        btBoxShape(btVector3(.4f, 1.f, .4f)),
+        btTransform(btQuaternion(btVector3(1, 0, 0), glm::radians(0.0f)), btVector3(0, 20, 0)),
+        btCapsuleShape(.6f, 1.5f),
         1.f,
         CollisionTag(),
         false,
         btVector3(0, 0, 0),
         0.0f,
-        0.f);
+        0.1f);
 
     textShader = ShaderLocator::getService().getShader("ui", *vitals.currentSettings, "assets/shaders/gui-shader.vert", "assets/shaders/gui-shader.frag", SHADER_TYPE::GUI);
 

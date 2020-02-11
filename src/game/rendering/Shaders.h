@@ -75,11 +75,12 @@ namespace Shaders {
         MaterialSpecular   = 29,
         MaterialShininess  = 30,
         TimeMS             = 31,
-        UNIFORM_NAME_COUNT = 32
+        MultisampleCount   = 32,
+        UNIFORM_NAME_COUNT = 33
 
     };
 
-    static const char* UniformNames[32] = {
+    static const char* UniformNames[33] = {
         "material.texture_diffuse",
         "material.texture_specular",
         "material.texture_normals",
@@ -111,7 +112,8 @@ namespace Shaders {
         "material.ambient",
         "material.specular",
         "material.shininess",
-        "timeMS"
+        "timeMS",
+        "MultisampleCount"
     };
 
     enum class AttribName {

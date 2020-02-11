@@ -13,7 +13,7 @@ namespace Engine {
     //!Information used for the DebugDrawer.
     namespace DBG_DRAWER {
         static const unsigned int MAX_AMOUNT_DEBUG_LINES = 16382;
-        static const float DEBUG_LINE_WIDTH              = .5f;
+        static const float DEBUG_LINE_WIDTH              = .75f;
     }
 
     //!The DebugDrawer class is used to render Bullet3's collision boxes/points/etc..

@@ -170,6 +170,7 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
         glClear(GL_COLOR_BUFFER_BIT);
 
         screenShader.useProgram();
+        glUniform1i(Shaders::getUniformLocation(screenShader.getProgramID(), Shaders::UniformName::MultisampleCount), renderTexture.getCurrentMultisampleCount());
         screenQuad.render2D(screenShader, renderTexture.getTextureID(), GL_TEXTURE_2D_MULTISAMPLE);
     }
 }

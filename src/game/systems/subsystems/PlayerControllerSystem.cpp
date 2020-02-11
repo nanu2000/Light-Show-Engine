@@ -168,51 +168,27 @@ void PlayerControllerSystem::applyForces(CollisionMesh& collisionMesh, PlayerCon
 void PlayerControllerSystem::executeRayTesting(PlayerController& playerController, CollisionMesh& collisionMesh, const Transform& meshTransform, PhysicsWorld& world) {
     float rayDistance = playerController.colliderWidthAndDepth + playerController.rayDistanceCorrector;
 
-    playerController.rayCast[4].rayTest(
-        *world.getWorld(),
-        glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z - rayDistance),
-        glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z - rayDistance));
+    //We want to have an equal space per ray. The rays are drawn in a circle so we calculate the radians per space each ray should have.
+    float spacePerRays = glm::radians(360.f / PlayerController::AMOUNT_OF_RAYS);
+    float radius       = rayDistance;
 
-    playerController.rayCast[5].rayTest(
-        *world.getWorld(),
-        glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z + rayDistance),
-        glm::vec3(meshTransform.position.x - rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z + rayDistance));
+    /*
+    formula:
+    x = originX + cos(angle) * radius;
+    y = originY + sin(angle) * radius;
+    */
 
-    playerController.rayCast[6].rayTest(
-        *world.getWorld(),
-        glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z + rayDistance),
-        glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z + rayDistance));
+    for (unsigned int i = 0; i < PlayerController::AMOUNT_OF_RAYS; i++) {
+        glm::vec3 position = glm::vec3(
+            meshTransform.position.x + glm::cos(spacePerRays * (i + 1)) * radius,
+            meshTransform.position.y,
+            meshTransform.position.z + glm::sin(spacePerRays * (i + 1)) * radius);
 
-    playerController.rayCast[7].rayTest(
-        *world.getWorld(),
-        glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z - rayDistance),
-        glm::vec3(meshTransform.position.x + rayDistance, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z - rayDistance));
+        glm::vec3 from = glm::vec3(position.x, position.y + playerController.halfLengthOfRay, position.z);
+        glm::vec3 to   = glm::vec3(position.x, position.y - playerController.halfLengthOfRay, position.z);
 
-    //rotated
-    float space         = 1.5f;
-    float centerX       = rayDistance * space * glm::cos(glm::radians(90.f));
-    float centerZ       = rayDistance * space * glm::cos(glm::radians(90.f));
-    float rayDistSpaced = space * rayDistance;
-
-    playerController.rayCast[0].rayTest(
-        *world.getWorld(),
-        glm::vec3(meshTransform.position.x - rayDistSpaced, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z - centerZ),
-        glm::vec3(meshTransform.position.x - rayDistSpaced, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z - centerZ));
-
-    playerController.rayCast[1].rayTest(
-        *world.getWorld(),
-        glm::vec3(meshTransform.position.x + rayDistSpaced, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z + centerZ),
-        glm::vec3(meshTransform.position.x + rayDistSpaced, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z + centerZ));
-
-    playerController.rayCast[2].rayTest(
-        *world.getWorld(),
-        glm::vec3(meshTransform.position.x + centerX, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z + rayDistSpaced),
-        glm::vec3(meshTransform.position.x + centerX, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z + rayDistSpaced));
-
-    playerController.rayCast[3].rayTest(
-        *world.getWorld(),
-        glm::vec3(meshTransform.position.x + centerX, meshTransform.position.y + playerController.halfLengthOfRay, meshTransform.position.z - rayDistSpaced),
-        glm::vec3(meshTransform.position.x + centerX, meshTransform.position.y - playerController.halfLengthOfRay, meshTransform.position.z - rayDistSpaced));
+        playerController.rayCast[i].rayTest(*world.getWorld(), from, to);
+    }
 
     float amountAverage = 0;
     int itr             = 0;
@@ -231,7 +207,7 @@ void PlayerControllerSystem::executeRayTesting(PlayerController& playerControlle
 
     ControllerRayCollision collision = getLowestRayHitForAllRays(playerController);
 
-    static bool useAverage = false;
+    static bool useAverage = true;
     if (InputLocator::getService().keyPressedOnce(SDLK_5)) {
         useAverage = !useAverage;
         DBG_LOG("Using %s\n", useAverage ? "average" : "highest point");

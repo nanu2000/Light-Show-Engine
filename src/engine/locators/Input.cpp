@@ -1,7 +1,8 @@
 #include "Input.h"
 
-float Engine::InputData::TIME_BETWEEN_KEY_PRESS_RESET = .33f;
-
+//!If TIME_BETWEEN_KEY_PRESS_RESET is > TIME_UNTIL_CONTINIOUS_PRESS_RESET, there will be no repeating of key press until continious timer expires.
+//!This is most likely desired since currently TIME_BETWEEN_KEY_PRESS_RESET only works with update and not fixedUpdate.
+float Engine::InputData::TIME_BETWEEN_KEY_PRESS_RESET      = 2.f;
 float Engine::InputData::TIME_UNTIL_CONTINIOUS_PRESS_RESET = 1.f;
 
 bool Input::isMousePressedOnce(MOUSE_BUTTON ind) {
@@ -25,6 +26,14 @@ void Input::updateTimers(float dt) {
     //Loop through all of the currently pressed once keydata pointers
     for (unsigned int i = 0; i < currentPressedOnce.size(); i++) {
 
+        if (currentPressedOnce.at(i)->isPressed == false) {
+
+            currentPressedOnce.at(i)->timeUntilContinious = 0;
+            currentPressedOnce.at(i)->timeBetweenPress    = 0;
+            currentPressedOnce.erase(currentPressedOnce.begin() + i);
+            continue;
+        }
+
         //If this is true, then it is the first press.
         if (currentPressedOnce.at(i)->timeUntilContinious == 0 && currentPressedOnce.at(i)->timeBetweenPress == 0) {
             //Set to reset value and return true.
@@ -41,8 +50,6 @@ void Input::updateTimers(float dt) {
         currentPressedOnce.at(i)->timeUntilContinious -= dt;
         currentPressedOnce.at(i)->timeBetweenPress -= dt;
     }
-    //Clear pointer array for next update.
-    currentPressedOnce.clear();
 }
 
 void Input::handleEvents(SDL_Event& sdlEventSystem, SDL_EventType t) {
@@ -98,8 +105,6 @@ bool Input::isPressedOnce(KeyData& data) {
 
     } else {
 
-        data.timeUntilContinious = 0;
-        data.timeBetweenPress    = 0;
         return false;
     }
 

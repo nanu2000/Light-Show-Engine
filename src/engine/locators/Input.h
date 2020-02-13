@@ -31,14 +31,14 @@ public:
     virtual void updateTimers(float dt);
 
     //!Checks if the mouse is pressed and returns true if the timeBetweenPress is zero, if it's the first press, or if timeUntilContinious is 0.
-    //!NOTE: isPressedOnce function's timers only work properly in Update, not FixedUpdate.
+    //!NOTE: isPressedOnce function's timeBeetweenPress only works properly in Update, not FixedUpdate.
     virtual bool isMousePressedOnce(MOUSE_BUTTON);
 
     //!Checks if a mouse button is pressed.
     virtual bool isMouseButtonPressed(MOUSE_BUTTON);
 
     //!Checks if the key is pressed and returns true if the timeBetweenPress is zero, if it's the first press, or if timeUntilContinious is 0.
-    //!NOTE: isPressedOnce function's timers only work properly in Update, not FixedUpdate.
+    //!NOTE: isPressedOnce function's timeBeetweenPress only works properly in Update, not FixedUpdate.
     virtual bool isKeyPressedOnce(const SDL_Keycode& keycode);
 
     //!Checks if a key is pressed.
@@ -72,7 +72,7 @@ private:
     std::vector<KeyData*> currentPressedOnce;
 
     //!Checks if the KeyData d is pressed and returns true if the timeBetweenPress is zero, if it's the first press, or if timeUntilContinious is 0.
-    //!NOTE: isPressedOnce function's timers only work properly in Update, not FixedUpdate.
+    //!NOTE: isPressedOnce function's timeBeetweenPress only works properly in Update, not FixedUpdate.
     bool isPressedOnce(KeyData& data);
 
     KeyData keyData[SDL_NUM_SCANCODES];

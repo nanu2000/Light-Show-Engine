@@ -1,19 +1,48 @@
 #include "Input.h"
 
-bool Input::isMousePressedOnce(MOUSE_BUTTON ind, float dt) {
-    return isPressedOnce(mouseData[(int8_t)ind], dt);
+float Engine::InputData::TIME_BETWEEN_KEY_PRESS_RESET = .33f;
+
+float Engine::InputData::TIME_UNTIL_CONTINIOUS_PRESS_RESET = 1.f;
+
+bool Input::isMousePressedOnce(MOUSE_BUTTON ind) {
+    return isPressedOnce(mouseData[(int8_t)ind]);
 }
 
 bool Input::isKeyDown(const SDL_Keycode& keycode) {
     return keyData[SDL_GetScancodeFromKey(keycode)].isPressed;
 }
 
-bool Input::isKeyPressedOnce(const SDL_Keycode& keycode, float dt) {
-    return isPressedOnce(keyData[SDL_GetScancodeFromKey(keycode)], dt);
+bool Input::isKeyPressedOnce(const SDL_Keycode& keycode) {
+    return isPressedOnce(keyData[SDL_GetScancodeFromKey(keycode)]);
 }
 
 Input::Input() {
     SDL_PumpEvents();
+}
+
+void Input::updateTimers(float dt) {
+
+    //Loop through all of the currently pressed once keydata pointers
+    for (unsigned int i = 0; i < currentPressedOnce.size(); i++) {
+
+        //If this is true, then it is the first press.
+        if (currentPressedOnce.at(i)->timeUntilContinious == 0 && currentPressedOnce.at(i)->timeBetweenPress == 0) {
+            //Set to reset value and return true.
+            currentPressedOnce.at(i)->timeUntilContinious = Engine::InputData::TIME_UNTIL_CONTINIOUS_PRESS_RESET;
+            currentPressedOnce.at(i)->timeBetweenPress    = Engine::InputData::TIME_BETWEEN_KEY_PRESS_RESET;
+        }
+
+        //The time between press has expired so we reset it.
+        if (currentPressedOnce.at(i)->timeBetweenPress <= 0) {
+            currentPressedOnce.at(i)->timeBetweenPress = Engine::InputData::TIME_BETWEEN_KEY_PRESS_RESET;
+        }
+
+        //Subtract dt from timers.
+        currentPressedOnce.at(i)->timeUntilContinious -= dt;
+        currentPressedOnce.at(i)->timeBetweenPress -= dt;
+    }
+    //Clear pointer array for next update.
+    currentPressedOnce.clear();
 }
 
 void Input::handleEvents(SDL_Event& sdlEventSystem, SDL_EventType t) {
@@ -42,26 +71,28 @@ void Input::handleEvents(SDL_Event& sdlEventSystem, SDL_EventType t) {
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 }
 
-bool Input::isPressedOnce(KeyData& data, float dt) {
+bool Input::isPressedOnce(KeyData& data) {
 
     if (data.isPressed) {
+
+        //If the keydata is not in the timer vector add it.
+        if (std::find(currentPressedOnce.begin(), currentPressedOnce.end(), &data) == currentPressedOnce.end()) {
+            currentPressedOnce.push_back(&data);
+        }
+
         if (data.timeUntilContinious == 0 && data.timeBetweenPress == 0) {
-            //Set to reset value and return true
-            data.timeUntilContinious = data.timeUntilContiniousReset;
-            data.timeBetweenPress    = data.timeBetweenPressReset;
 
             //Return true on first input
             return true;
         }
 
-        data.timeUntilContinious -= dt;
         if (data.timeUntilContinious <= 0) {
+            //Key has been pressed longer than Engine::InputData::TIME_UNTIL_CONTINIOUS_PRESS_RESET, return true!
             return true;
         }
 
-        data.timeBetweenPress -= dt;
         if (data.timeBetweenPress <= 0) {
-            data.timeBetweenPress = data.timeBetweenPressReset;
+            //Time between press has hit zero!
             return true;
         }
 
@@ -88,7 +119,7 @@ bool Input::isMouseButtonPressed(MOUSE_BUTTON ind) {
 
 NullInput::NullInput() {
 }
-bool NullInput::isKeyPressedOnce(const SDL_Keycode& keycode, float dt) {
+bool NullInput::isKeyPressedOnce(const SDL_Keycode& keycode) {
     return false;
 }
 void NullInput::handleEvents(SDL_Event& sdlEventSystem, SDL_EventType t) {
@@ -101,7 +132,7 @@ void NullInput::handleEvents(SDL_Event& sdlEventSystem, SDL_EventType t) {
     }
 }
 
-bool NullInput::isMousePressedOnce(MOUSE_BUTTON index, float dt) {
+bool NullInput::isMousePressedOnce(MOUSE_BUTTON index) {
     return false;
 }
 

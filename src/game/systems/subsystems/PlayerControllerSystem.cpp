@@ -7,7 +7,7 @@ void PlayerControllerSystem::getPlayerInput(Input& input, CollisionMesh& collisi
 
     PLAYER_ANIMATION_STATE currentMovmentState = PLAYER_ANIMATION_STATE::Idle;
 
-    if (input.isKeyPressedOnce(userControls.getPlayerViewKey(), GameInfo::fixedDeltaTime)) {
+    if (input.isKeyPressedOnce(userControls.getPlayerViewKey())) {
         playerController.rotateAwayFromCamera = !playerController.rotateAwayFromCamera;
     }
 
@@ -208,7 +208,7 @@ void PlayerControllerSystem::executeRayTesting(PlayerController& playerControlle
     ControllerRayCollision collision = getLowestRayHitForAllRays(playerController);
 
     static bool useAverage = true;
-    if (InputLocator::getService().isKeyPressedOnce(SDLK_5, GameInfo::fixedDeltaTime)) {
+    if (InputLocator::getService().isKeyPressedOnce(SDLK_5)) {
         useAverage = !useAverage;
         DBG_LOG("Using %s\n", useAverage ? "average" : "highest point");
     }

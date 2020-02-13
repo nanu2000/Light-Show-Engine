@@ -186,7 +186,7 @@ void Application::update() {
             break;
         }
     }
-
+    inputService.updateTimers(GameInfo::getDeltaTime());
     thisGame.update();
 }
 

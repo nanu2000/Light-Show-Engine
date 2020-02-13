@@ -19,7 +19,7 @@ public:
             menu.str.setScale(glm::vec2(unit, unit));
         }
 
-        if (input.isKeyPressedOnce(userControls.getGuiControlPauseMenuKey(), GameInfo::getDeltaTime())) {
+        if (input.isKeyPressedOnce(userControls.getGuiControlPauseMenuKey())) {
             menu.isShowing = !menu.isShowing;
         }
 

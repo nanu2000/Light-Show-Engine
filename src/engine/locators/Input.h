@@ -3,25 +3,43 @@
 #include "GameInfo.h"
 #include "glm/vec2.hpp"
 #include <SDL.h>
+#include <vector>
 
+//!Mouse buttons
 enum class MOUSE_BUTTON : int8_t {
     LeftButton,
     RightButton,
     MiddleButton
 };
 
+namespace Engine {
+    namespace InputData {
+        //!Time it takes to trigger another press for isPressedOnce
+        extern float TIME_BETWEEN_KEY_PRESS_RESET;
+
+        //!Time it takes to trigger contious keypress for isPressedOnce
+        extern float TIME_UNTIL_CONTINIOUS_PRESS_RESET;
+    }
+}
+
 class Input {
 
 public:
     Input();
 
+    //!Updates timers for timeBetweenPress and timeBetweenPressReset. Should only be called in Application.cpp
+    virtual void updateTimers(float dt);
+
     //!Checks if the mouse is pressed and returns true if the timeBetweenPress is zero, if it's the first press, or if timeUntilContinious is 0.
-    virtual bool isMousePressedOnce(MOUSE_BUTTON, float dt);
+    //!NOTE: isPressedOnce function's timers only work properly in Update, not FixedUpdate.
+    virtual bool isMousePressedOnce(MOUSE_BUTTON);
+
     //!Checks if a mouse button is pressed.
     virtual bool isMouseButtonPressed(MOUSE_BUTTON);
 
     //!Checks if the key is pressed and returns true if the timeBetweenPress is zero, if it's the first press, or if timeUntilContinious is 0.
-    virtual bool isKeyPressedOnce(const SDL_Keycode& keycode, float dt);
+    //!NOTE: isPressedOnce function's timers only work properly in Update, not FixedUpdate.
+    virtual bool isKeyPressedOnce(const SDL_Keycode& keycode);
 
     //!Checks if a key is pressed.
     virtual bool isKeyDown(const SDL_Keycode& keycode);
@@ -43,18 +61,19 @@ public:
 private:
     //!Contains data for all of the keys.
     struct KeyData {
-        float timeUntilContinious      = 0.f; //one second until press is continious.
-        float timeUntilContiniousReset = 1.f;
-
-        float timeBetweenPress      = 0.f; //time between returning true if pressed on isPressedOnce
-        float timeBetweenPressReset = .33f;
+        float timeUntilContinious = 0.f;
+        float timeBetweenPress    = 0.f;
 
         bool isPressed = false;
         bool isKeyUp   = false; //for future.
     };
 
+    //!For updating the timers every update. Gets cleared every update
+    std::vector<KeyData*> currentPressedOnce;
+
     //!Checks if the KeyData d is pressed and returns true if the timeBetweenPress is zero, if it's the first press, or if timeUntilContinious is 0.
-    bool isPressedOnce(KeyData& data, float dt);
+    //!NOTE: isPressedOnce function's timers only work properly in Update, not FixedUpdate.
+    bool isPressedOnce(KeyData& data);
 
     KeyData keyData[SDL_NUM_SCANCODES];
     KeyData mouseData[3];
@@ -75,9 +94,11 @@ public:
 
     bool isMouseButtonPressed(MOUSE_BUTTON) override;
 
-    bool isKeyPressedOnce(const SDL_Keycode& keycode, float dt) override;
+    bool isKeyPressedOnce(const SDL_Keycode& keycode) override;
 
-    bool isMousePressedOnce(MOUSE_BUTTON, float dt) override;
+    bool isMousePressedOnce(MOUSE_BUTTON) override;
+
+    virtual void updateTimers(float dt) override {}
 
     inline virtual glm::ivec2 NullInput::getMouseDelta() const override {
         return glm::ivec2(0, 0);

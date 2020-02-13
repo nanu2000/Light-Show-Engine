@@ -64,7 +64,7 @@ void FixedUpdatingSystem::fixedUpdate(GameState& gameState, const Time& time, Po
         GameInfo::setMousePosition(GameInfo::getWindowWidth() / 2, GameInfo::getWindowHeight() / 2);
     }
 
-    if (InputLocator::getService().isKeyPressedOnce(SDLK_7, GameInfo::fixedDeltaTime)) {
+    if (InputLocator::getService().isKeyPressedOnce(SDLK_7)) {
 
         gameState.loadScene((gameState.getCurrentSceneIndex() + 1) % gameState.getSceneCount());
     }
@@ -102,6 +102,9 @@ void FixedUpdatingSystem::fixedUpdate(GameState& gameState, const Time& time, Po
             return false;
         });
 
+    //Toggles if the debugging system should render the physics world's debugdrawer.
+    systems->debuggingSystem.controlPhysicsDebugDraw(InputLocator::getService(), *physicsWorld);
+
     currentScene->loopEntities([&](const Scene::Entity& entity) {
         if (!entity.isActive) {
             return false;
@@ -126,9 +129,6 @@ void FixedUpdatingSystem::fixedUpdate(GameState& gameState, const Time& time, Po
                 break;
             }
         }
-
-        //Toggles if the debugging system should render the physics world's debugdrawer.
-        systems->debuggingSystem.controlPhysicsDebugDraw(InputLocator::getService(), *physicsWorld);
 
         if (_3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(entity.id)) {
             animatedModel->fixedUpdateAnimation();

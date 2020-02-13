@@ -13,7 +13,7 @@ public:
 
         float speed = 1.0f;
 
-        if (InputLocator::getService().getMouseButton(MOUSE_BUTTON::LeftButton)) {
+        if (InputLocator::getService().isMouseButtonPressed(MOUSE_BUTTON::LeftButton)) {
             speed = 50;
         }
 

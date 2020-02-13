@@ -27,7 +27,7 @@ public:
                     input.getMousePosition()))) {
             currentState = BUTTON_STATE::Hovering;
 
-            if (input.getMouseButton(MOUSE_BUTTON::LeftButton)) {
+            if (input.isMouseButtonPressed(MOUSE_BUTTON::LeftButton)) {
                 mouseButton  = MOUSE_BUTTON::LeftButton;
                 currentState = BUTTON_STATE::Pressed;
 
@@ -36,7 +36,7 @@ public:
                     setFirstClick = true;
                 }
 
-            } else if (input.getMouseButton(MOUSE_BUTTON::RightButton)) {
+            } else if (input.isMouseButtonPressed(MOUSE_BUTTON::RightButton)) {
                 mouseButton  = MOUSE_BUTTON::RightButton;
                 currentState = BUTTON_STATE::Pressed;
 

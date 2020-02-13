@@ -64,7 +64,7 @@ void FixedUpdatingSystem::fixedUpdate(GameState& gameState, const Time& time, Po
         GameInfo::setMousePosition(GameInfo::getWindowWidth() / 2, GameInfo::getWindowHeight() / 2);
     }
 
-    if (InputLocator::getService().keyPressedOnce(SDLK_7)) {
+    if (InputLocator::getService().isKeyPressedOnce(SDLK_7, GameInfo::fixedDeltaTime)) {
 
         gameState.loadScene((gameState.getCurrentSceneIndex() + 1) % gameState.getSceneCount());
     }

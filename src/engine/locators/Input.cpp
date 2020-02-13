@@ -1,19 +1,10 @@
 #include "Input.h"
 
-bool Input::mousePressedOnce(MOUSE_BUTTON ind) {
+bool Input::isMousePressedOnce(MOUSE_BUTTON ind) {
 
     int8_t index = (int8_t)ind;
 
-    hitOnce[index] = getMouseButton(ind) ? hitOnce[index] : false;
-
-    pressed[index] = false;
-
-    if (hitOnce[index] == false) {
-        if (getMouseButton(ind)) {
-            hitOnce[index] = true;
-            return true;
-        }
-    }
+    bool isPressed = isMouseButtonPressed(ind);
 
     return false;
 }
@@ -22,12 +13,39 @@ bool Input::isKeyDown(const SDL_Keycode& keycode) {
     return keys[SDL_GetScancodeFromKey(keycode)];
 }
 
-bool Input::keyPressedOnce(const SDL_Keycode& keycode) {
-    const SDL_Scancode& thisCode = SDL_GetScancodeFromKey(keycode);
-    if (keys[thisCode]) {
-        keys[thisCode] = false;
-        return true;
+bool Input::isKeyPressedOnce(const SDL_Keycode& keycode, float dt) {
+    SDL_Scancode scancode              = SDL_GetScancodeFromKey(keycode);
+    PressedOnceLogic& pressedOnceLogic = keysPressedOnce[scancode];
+    bool isKeyDown                     = keys[scancode];
+
+    if (isKeyDown) {
+        if (pressedOnceLogic.timeUntilContinious == 0 && pressedOnceLogic.timeBetweenPress == 0) {
+            //Set to reset value and return true
+            pressedOnceLogic.timeUntilContinious = pressedOnceLogic.timeUntilContiniousReset;
+            pressedOnceLogic.timeBetweenPress    = pressedOnceLogic.timeBetweenPressReset;
+
+            //Return true on first input
+            return true;
+        }
+
+        pressedOnceLogic.timeUntilContinious -= dt;
+        if (pressedOnceLogic.timeUntilContinious <= 0) {
+            return true;
+        }
+
+        pressedOnceLogic.timeBetweenPress -= dt;
+        if (pressedOnceLogic.timeBetweenPress <= 0) {
+            pressedOnceLogic.timeBetweenPress = pressedOnceLogic.timeBetweenPressReset;
+            return true;
+        }
+
+    } else {
+
+        pressedOnceLogic.timeUntilContinious = 0;
+        pressedOnceLogic.timeBetweenPress    = 0;
+        return false;
     }
+
     return false;
 }
 
@@ -65,11 +83,7 @@ void Input::handleEvents(SDL_Event& sdlEventSystem, SDL_EventType t) {
     }
 }
 
-glm::ivec2 Input::getMouseDelta() const {
-    return glm::vec2(mousePosition.x - GameInfo::getWindowWidth() / 2.f, mousePosition.y - GameInfo::getWindowHeight() / 2);
-}
-
-bool Input::getMouseButton(MOUSE_BUTTON ind) {
+bool Input::isMouseButtonPressed(MOUSE_BUTTON ind) {
     int8_t index = (int8_t)ind;
 
     if (index <= 2 && index >= 0) {
@@ -78,16 +92,11 @@ bool Input::getMouseButton(MOUSE_BUTTON ind) {
         return false;
     }
 }
-
-glm::ivec2 Input::getMousePosition() const {
-    return mousePosition;
-}
-
 //Below is the Null input class for the service provider
 
 NullInput::NullInput() {
 }
-bool NullInput::keyPressedOnce(const SDL_Keycode& keycode) {
+bool NullInput::isKeyPressedOnce(const SDL_Keycode& keycode, float dt) {
     return false;
 }
 void NullInput::handleEvents(SDL_Event& sdlEventSystem, SDL_EventType t) {
@@ -100,21 +109,14 @@ void NullInput::handleEvents(SDL_Event& sdlEventSystem, SDL_EventType t) {
     }
 }
 
-bool NullInput::mousePressedOnce(MOUSE_BUTTON index) {
+bool NullInput::isMousePressedOnce(MOUSE_BUTTON index) {
     return false;
-}
-
-glm::ivec2 NullInput::getMouseDelta() const {
-    return glm::ivec2(0, 0);
 }
 
 bool NullInput::isKeyDown(const SDL_Keycode& keycode) {
     return false;
 }
 
-bool NullInput::getMouseButton(MOUSE_BUTTON index) {
+bool NullInput::isMouseButtonPressed(MOUSE_BUTTON index) {
     return false;
-}
-glm::ivec2 NullInput::getMousePosition() const {
-    return glm::ivec2(0, 0);
 }

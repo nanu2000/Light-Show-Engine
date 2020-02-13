@@ -40,7 +40,7 @@ void UpdatingSystem::update() {
 
         if (Particles* particles = currentScene->getComponent<Particles>(entity)) {
 
-            if (InputLocator::getService().keyPressedOnce(SDLK_0)) {
+            if (InputLocator::getService().isKeyPressedOnce(SDLK_0, GameInfo::getDeltaTime())) {
                 particles->setParticleType(static_cast<PARTICLE_TYPE>((static_cast<int>(particles->getParticleType()) + 1) % static_cast<int>(PARTICLE_TYPE::Max)));
 
                 DBG_LOG("Type set to %i\n", static_cast<int>(particles->getParticleType()));

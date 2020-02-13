@@ -5,6 +5,9 @@
 float Engine::InputData::TIME_BETWEEN_KEY_PRESS_RESET      = 2.f;
 float Engine::InputData::TIME_UNTIL_CONTINIOUS_PRESS_RESET = 1.f;
 
+//Use the continious press functionality?
+bool Engine::InputData::NO_CONTINIOUS_PRESS = true;
+
 bool Input::isMousePressedOnce(MOUSE_BUTTON ind) {
     return isPressedOnce(mouseData[(int8_t)ind]);
 }
@@ -44,6 +47,12 @@ void Input::updateTimers(float dt) {
         //The time between press has expired so we reset it.
         if (currentPressedOnce.at(i)->timeBetweenPress <= 0) {
             currentPressedOnce.at(i)->timeBetweenPress = Engine::InputData::TIME_BETWEEN_KEY_PRESS_RESET;
+        }
+
+        //If we only want to get one key press with no timer to trigger a continious press or time between press
+        if (Engine::InputData::NO_CONTINIOUS_PRESS) {
+            //We never subtract from the timers so they never expire.
+            continue;
         }
 
         //Subtract dt from timers.

@@ -19,6 +19,9 @@ namespace Engine {
 
         //!Time it takes to trigger contious keypress for isPressedOnce
         extern float TIME_UNTIL_CONTINIOUS_PRESS_RESET;
+
+        //!Disable continious press
+        extern bool NO_CONTINIOUS_PRESS;
     }
 }
 

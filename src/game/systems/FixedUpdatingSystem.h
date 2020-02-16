@@ -26,7 +26,7 @@ public:
 
     void fixedUpdate(GameState& gameState, const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
 
-    void handleBackEndMessage(BackEndMessages msg, RenderTexture& renderTexture);
+    void handleBackEndMessage(BackEndMessages msg, RenderTextureBase& renderTexture);
 
 private:
     //! Updates GUI (Will be called even if the game is paused) will return true if the game is paused

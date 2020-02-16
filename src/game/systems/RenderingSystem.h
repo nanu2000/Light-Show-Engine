@@ -29,7 +29,7 @@ private:
     renderAll(Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
     void renderDebugging(Camera& currentCamera);
     void renderModels(Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
-    void renderOthers(Camera& currentCamera, Time& currentTime);
+    void renderOthers(Camera& currentCamera, Time& currentTime, DirectionalLightShadowMap& directionalLightDepthMap);
     void renderParticles(Particles& particles, Camera& currentCamera, Time& currentTime);
 
     void initializeLights(Shader& litShader);
@@ -45,12 +45,10 @@ private:
 
     void supplyParticleShaderUniforms(Shader& particleShader, Camera& currentCamera, Time& currentTime);
 
+    //! Used to render the scene to a quad.
     Quad screenQuad;
-    Shader screenShader;
 
-    //Todo: move to a debugging component/system.
-    glm::mat4 depthMatrix = glm::mat4(1.0f);
-    Quad depthQuad;
-    Shader depthShader;
+    //! The shader used for the screenQuad.
+    Shader screenShader;
 };
 #endif

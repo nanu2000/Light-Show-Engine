@@ -42,6 +42,12 @@ void Player::initialize(EntityVitals& vitals) {
 
     menu.initialize(*vitals.map, TextureLocator::getService().getTexture("assets/Fonts/CourierNew.png", GL_NEAREST));
 
+    //Matrix for shadow map debugging quad
+    glm::mat4 dirShadowDbgrm = glm::mat4(1.0) * glm::translate(glm::vec3(0.8f, 0.8f, 0.0f)) * glm::scale(glm::vec3(0.2, 0.2, 0.2));
+
+    dirShadowDbgr.initialize(dirShadowDbgrm);
+
+    vitals.scene->addComponent(id, dirShadowDbgr);
     vitals.scene->addComponent(id, menu);
     vitals.scene->addComponent(id, camera);
     vitals.scene->addComponent(id, textShader);

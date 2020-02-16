@@ -3,6 +3,7 @@
 #include "BoneCollisionMesh.h"
 #include "Camera.h"
 #include "CollisionMesh.h"
+#include "DirectionalShadowDebugger.h"
 #include "DisplayStatistics.h"
 #include "EnemyController.h"
 #include "EntityTransform.h"
@@ -75,6 +76,7 @@ private:
 };
 
 //! Test entity class
+//! The Player contains all of the necessary ui and controls to move and view the PlayerTestObject entity.
 class Player : public EntityWrapper {
 
 public:
@@ -85,7 +87,7 @@ private:
     DisplayStatistics statDisplayer;
     Shader textShader;
     PauseMenu menu;
-
+    DirectionalShadowDebugger dirShadowDbgr;
     Camera camera;
     UserControls userControls;
 };

@@ -1,5 +1,5 @@
 #include "RenderTexture.h"
-void RenderTexture::initialize(unsigned int w, unsigned int h) {
+void RenderTextureBase::initialize(unsigned int w, unsigned int h) {
 
     width  = w;
     height = h;
@@ -32,17 +32,17 @@ void RenderTexture::initialize(unsigned int w, unsigned int h) {
     initialized = true;
 }
 
-void RenderTexture::resize(unsigned int w, unsigned int h) {
+void RenderTextureBase::resize(unsigned int w, unsigned int h) {
     freeGLIds();
     initialize(w, h);
 }
 
-RenderTexture::~RenderTexture() {
+RenderTextureBase::~RenderTextureBase() {
     DBG_LOG("Freeing memory for render texture.\n");
     freeGLIds();
 }
 
-void RenderTexture::freeGLIds() {
+void RenderTextureBase::freeGLIds() {
     if (initialized) {
         glDeleteFramebuffers(1, &textureFBO);
         glDeleteTextures(1, &textureID);

@@ -8,8 +8,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-//!The RenderTexture class is used to create a texture that you can render to.
-class RenderTexture {
+//!The RenderTextureBase class is used to create a texture that you can render to. This is **not** a component
+class RenderTextureBase {
 
 public:
     inline GLint getTextureID() const { return textureID; }
@@ -24,7 +24,7 @@ public:
     //!Resizes the texture
     virtual void resize(unsigned int w, unsigned int h);
 
-    virtual ~RenderTexture();
+    virtual ~RenderTextureBase();
 
 protected:
     //!Frees openGL id's
@@ -41,8 +41,13 @@ protected:
     bool initialized = false;
 };
 
-//!The RenderTextureMS class is used to create a multisampled texture that you can render to.
-class RenderTextureMS : public RenderTexture {
+//!The RenderTexture class is used to create a texture that you can render to. This is a component.
+class RenderTexture : public RenderTextureBase, public Component<RenderTexture> {
+    virtual ~RenderTexture() {}
+};
+
+//!The RenderTextureMS class is used to create a multisampled texture that you can render to. This is a component.
+class RenderTextureMS : public RenderTextureBase, public Component<RenderTextureMS> {
 
 public:
     virtual ~RenderTextureMS() {}

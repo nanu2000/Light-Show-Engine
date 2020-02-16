@@ -35,13 +35,6 @@ void RenderingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld&
     });
 
     screenShader = ShaderLocator::getService().getShader("screen", "assets/shaders/render-texture.vert", "assets/shaders/render-texture-ms.frag", SHADER_TYPE::Default);
-    depthShader  = ShaderLocator::getService().getShader("depthtest", "assets/shaders/depth.vert", "assets/shaders/depth.frag", SHADER_TYPE::Default);
-
-    //Todo: move to a debugging component/system.
-    //Pretty much we render a neat little quad with the directional light's depth map in it for debugging purposes. This will be useful for finetuning shaders.
-    depthMatrix = glm::mat4(1.0);
-    depthMatrix *= glm::translate(glm::vec3(0.8f, 0.8f, 0.0f));
-    depthMatrix *= glm::scale(glm::vec3(0.2, 0.2, 0.2));
 }
 
 void RenderingSystem::initializeLights(Shader& litShader) {
@@ -150,15 +143,11 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         renderAll(*currentCamera, currentTime, pointLightDepthMap, directionalLightDepthMap);
 
+        //Multisample :)
         glBlitFramebuffer(0, 0,
                           renderTexture.getWidth(), renderTexture.getHeight(),
                           0, 0, renderTexture.getWidth(), renderTexture.getHeight(),
                           GL_COLOR_BUFFER_BIT, GL_NEAREST);
-        //Todo: move this into a ui sys/component for debugging
-        //Pretty much we render a neat little quad with the directional light's depth map in it for debugging purposes. This will be useful for finetuning shaders.
-        depthShader.useProgram();
-        glUniform3f(Shaders::getUniformLocation(depthShader.getProgramID(), Shaders::UniformName::ViewPosition), currentCamera->position.x, currentCamera->position.y, currentCamera->position.z);
-        depthQuad.render3D(depthShader, directionalLightDepthMap.getDepthMap(), depthMatrix);
     }
 
     //Render texture to quad.
@@ -179,7 +168,7 @@ void RenderingSystem::renderAll(Camera& currentCamera, Time& currentTime, PointL
 
     renderDebugging(currentCamera);
     renderModels(currentCamera, currentTime, pointLightDepthMap, directionalLightDepthMap);
-    renderOthers(currentCamera, currentTime);
+    renderOthers(currentCamera, currentTime, directionalLightDepthMap);
 }
 
 void RenderingSystem::renderDebugging(Camera& currentCamera) {
@@ -246,7 +235,7 @@ void RenderingSystem::renderModels(Camera& currentCamera, Time& currentTime, Poi
 }
 
 // Render Particles and GUI
-void RenderingSystem::renderOthers(Camera& currentCamera, Time& currentTime) {
+void RenderingSystem::renderOthers(Camera& currentCamera, Time& currentTime, DirectionalLightShadowMap& directionalLightDepthMap) {
 
     //Particles and UI aren't 3D so depth render tasks don't need their info.
     if (Shader::getShaderTask() != SHADER_TASK::Normal_Render_Task) {
@@ -300,6 +289,12 @@ void RenderingSystem::renderOthers(Camera& currentCamera, Time& currentTime) {
             shader->useProgram();
             systems->pauseMenuSystem.render(*shader, *menu);
         }
+    }
+
+    //Only one per scene
+    DirectionalShadowDebugger* dirShadowDbgr = currentScene->getFirstActiveComponentOfType<DirectionalShadowDebugger>();
+    if (dirShadowDbgr) {
+        systems->directionalShadowDebuggerSystem.render(*dirShadowDbgr, directionalLightDepthMap);
     }
 }
 

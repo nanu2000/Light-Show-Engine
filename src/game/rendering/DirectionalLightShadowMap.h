@@ -13,9 +13,9 @@ class DirectionalLightShadowMap {
 
 public:
     const glm::mat4* const getLightSpaceMatrix() { return &lightSpaceMatrix; }
-    GLint getDepthMapShader() { return depthMapShader.getProgramID(); }
-    GLint getDepthMap() { return depthMap; }
-    GLuint getFBO() { return depthMapFBO; }
+    GLint getDepthMapShader() const { return depthMapShader.getProgramID(); }
+    GLint getDepthMap() const { return depthMap; }
+    GLuint getFBO() const { return depthMapFBO; }
 
     unsigned int getDepthMapWidth() const { return DEPTH_MAP_WIDTH; }
     unsigned int getDepthMapHeight() const { return DEPTH_MAP_HEIGHT; }

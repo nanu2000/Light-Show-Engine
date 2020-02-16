@@ -5,6 +5,7 @@
 #include "CameraSystem.h"
 #include "DayNightCycleSystem.h"
 #include "DebuggingSystem.h"
+#include "DirectionalShadowDebuggerSystem.h"
 #include "DisplayStatisticsSystem.h"
 #include "EnemyControllerSystem.h"
 #include "ParticleSystem.h"
@@ -16,24 +17,18 @@
 struct SubSystems {
     PauseMenuSystem pauseMenuSystem;
     DisplayStatisticsSystem displayStatisticsSystem;
-
     GUIResizingInformation guiResizingInfo;
-
     PlayerControllerSystem playerControllerSystem;
     EnemyControllerSystem enemyControllerSystem;
-
     PlayerCameraHandlingSystem playerCameraHandlingSystem;
-
     CameraSystem cameraSystem;
     BoneCollisionMeshSystem boneCollisionMeshSystem;
-
     DayNightCycleSystem dayNightCycleSystem;
     SkyBoxSystem skyBoxSystem;
-
     DebuggingSystem debuggingSystem;
-
     DefaultParticleSystem defaultParticleSystem;
     FountainParticleSystem fountainParticleSystem;
+    DirectionalShadowDebuggerSystem directionalShadowDebuggerSystem;
 };
 
 #endif

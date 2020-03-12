@@ -96,11 +96,11 @@ cmake -G Ninja ..
 ninja
 ```
 
-Optional but I move the output files into lib where sdl is
+Optional but I move the output files into lib
 ```
 cd src
-mv libGameNetworkingSockets_s.a /usr/lib/x86_64-linux-gnu
-mv libGameNetworkingSockets.so /usr/lib/x86_64-linux-gnu
+mv libGameNetworkingSockets_s.a /usr/lib
+mv libGameNetworkingSockets.so /usr/lib
 ```
 
 #### With that, you should have a dev environment running on Microsoft Visual Studio capable of compiling and debugging for Windows, and Linux. 

@@ -55,7 +55,7 @@ public:
 
     void setTexture(const Texture& pTexture) { particleTexture = &pTexture; }
     //Used for wind direction & such
-    void Particles::setWorldSettings(const Settings& worldSettings) { currentWorldSettings = &worldSettings; }
+    void setWorldSettings(const Settings& worldSettings) { currentWorldSettings = &worldSettings; }
 
     //Particles per second must be less than or equal to the amount of particles allocated.
     void setParticlesPerSecond(unsigned int pps) { particlesPerSecond = pps; }

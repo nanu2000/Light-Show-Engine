@@ -85,7 +85,7 @@ void Application::initializeAudio() {
 void Application::initializeSDL() {
 
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) != 0) {
-        DBG_LOG("There was an issue initializing SDL.\n");
+        DBG_LOG("There was an issue initializing SDL. %s\n", SDL_GetError());
     }
 
     glewExperimental = GL_TRUE;

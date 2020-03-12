@@ -93,6 +93,7 @@ private:
 };
 
 //! Test entity class
+
 class PlayerTestObject : public EntityWrapper {
 
 public:
@@ -111,7 +112,6 @@ private:
     Shader shader;
     BoneCollisionMesh bCollisionMesh;
 };
-
 //! Test entity class
 class EnemyTestObject : public EntityWrapper {
 

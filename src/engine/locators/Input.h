@@ -3,6 +3,7 @@
 #include "GameInfo.h"
 #include "glm/vec2.hpp"
 #include <SDL.h>
+#include <algorithm>
 #include <vector>
 
 //!Mouse buttons
@@ -51,13 +52,13 @@ public:
     virtual void handleEvents(SDL_Event& sdlEventSystem, SDL_EventType t);
 
     //!Returns the mouse position relative to the top left of the screen.
-    inline virtual glm::ivec2 Input::getMousePosition() const {
+    inline virtual glm::ivec2 getMousePosition() const {
         return mousePosition;
     }
 
     //!Returns the mouse position relative to the center of the screen.
     //!To get the delta value, the mouse position is expected to be set to the window's center every FixedUpdate.
-    inline virtual glm::ivec2 Input::getMouseDelta() const {
+    inline virtual glm::ivec2 getMouseDelta() const {
         return glm::vec2(mousePosition.x - GameInfo::getWindowWidth() / 2.f, mousePosition.y - GameInfo::getWindowHeight() / 2);
     }
 
@@ -103,10 +104,10 @@ public:
 
     virtual void updateTimers(float dt) override {}
 
-    inline virtual glm::ivec2 NullInput::getMouseDelta() const override {
+    inline virtual glm::ivec2 getMouseDelta() const override {
         return glm::ivec2(0, 0);
     }
-    inline virtual glm::ivec2 NullInput::getMousePosition() const override {
+    inline virtual glm::ivec2 getMousePosition() const override {
         return glm::ivec2(0, 0);
     }
 };

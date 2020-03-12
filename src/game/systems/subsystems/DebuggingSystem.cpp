@@ -1,7 +1,7 @@
 #include "DebuggingSystem.h"
 
 void DebuggingSystem::controlPhysicsDebugDraw(Input& inputHandler, PhysicsWorld& world) {
-    if (inputHandler.isKeyPressedOnce(PHYSICS_DRAW_TOGGLE)) {
+    if (inputHandler.isKeyPressedOnce(SDLK_F1)) {
         if (world.isDebugDrawing() == false) {
             DBG_LOG("Debug Draw Is Now On.\n");
             world.setDebugDrawing(true);

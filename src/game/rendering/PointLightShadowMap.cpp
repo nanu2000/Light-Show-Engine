@@ -4,7 +4,7 @@ void PointLightShadowMap::initialize() {
 
     depthMapShader = ShaderLocator::getService().getShader("pointshadowmap",
                                                            "assets/shaders/point-light-depth-map.vert",
-                                                           "assets/Shaders/point-light-depth-map.frag",
+                                                           "assets/shaders/point-light-depth-map.frag",
                                                            SHADER_TYPE::Default,
                                                            "assets/shaders/point-light-depth-map.geom");
 

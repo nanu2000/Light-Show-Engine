@@ -7,22 +7,37 @@ Texture::Texture(std::string loc, GLuint txture, GLuint w, GLuint h, bool istran
     imageWidth    = w;
     isTransparent = istransparent;
 }
+
+Texture::Texture(const Texture& texture2) {
+#ifdef DEBUG
+    assert("Cannot copy Texture object due to destructor calling glDeleteTextures.");
+#endif // DEBUG
+}
+
 Texture::~Texture() {
     DBG_LOG("Freeing memory for texture.\n");
-    glDeleteTextures(1, &texture);
+    glDeleteTextures(1, &texture); //todo: possibly move to locator dtor?
 }
 
 CubeMap::CubeMap(const std::vector<std::string>& faces, GLuint txture) {
     location = faces;
     texture  = txture;
 }
+
+CubeMap::CubeMap(const CubeMap& cm) {
+#ifdef DEBUG
+    assert("Cannot copy CubeMap object due to destructor calling glDeleteTextures.");
+#endif // DEBUG
+}
+
 CubeMap::~CubeMap() {
     DBG_LOG("Freeing memory for cubemap.\n");
     glDeleteTextures(1, &texture);
 }
 
 //Fills Texture with data from filePath if it exists. if not it will use a checker pattern.
-Texture TextureHandler::parseTexture(std::string filePath, GLint filtering, bool repeatTexture) {
+//Returns pointer of newly created texture.
+Texture* TextureHandler::parseTexture(std::string filePath, GLint filtering, bool repeatTexture) {
 
     GLuint textureHandle;
     SDL_Surface* surface;
@@ -30,7 +45,7 @@ Texture TextureHandler::parseTexture(std::string filePath, GLint filtering, bool
     if ((surface = IMG_Load(filePath.c_str()))) {
 
         verifySurfaceDimensions(*surface);
-        GLenum textureFormat = getSurfaceFormat(*surface);
+        int textureFormat = getSurfaceFormat(*surface);
 
         glGenTextures(1, &textureHandle);
         glBindTexture(GL_TEXTURE_2D, textureHandle);
@@ -39,8 +54,8 @@ Texture TextureHandler::parseTexture(std::string filePath, GLint filtering, bool
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
         } else {
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
         }
 
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, filtering);
@@ -64,7 +79,7 @@ Texture TextureHandler::parseTexture(std::string filePath, GLint filtering, bool
 
         SDL_FreeSurface(surface);
 
-        return Texture(filePath, textureHandle, surface->w, surface->h, (textureFormat == GL_RGBA));
+        return new Texture(filePath, textureHandle, surface->w, surface->h, (textureFormat == GL_RGBA));
     }
 
     DBG_LOG("Image could not load properly, using null texture\n");
@@ -75,8 +90,8 @@ Texture TextureHandler::parseTexture(std::string filePath, GLint filtering, bool
     glGenTextures(1, &textureHandle);
     glBindTexture(GL_TEXTURE_2D, textureHandle);
 
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
@@ -86,7 +101,7 @@ Texture TextureHandler::parseTexture(std::string filePath, GLint filtering, bool
 
     glBindTexture(GL_TEXTURE_2D, 0);
 
-    return Texture(filePath, textureHandle, 3, 3, false);
+    return new Texture(filePath, textureHandle, 3, 3, false);
 }
 
 //Checks if the sdl surface is power of two. Only runs on debug
@@ -118,9 +133,8 @@ void TextureHandler::verifySurfaceDimensions(const SDL_Surface& surface) {
 }
 
 //Returns sdl_surface format. IE GL_RGB, GL_RGBA, etc...
-GLenum TextureHandler::getSurfaceFormat(const SDL_Surface& surface) {
+int TextureHandler::getSurfaceFormat(const SDL_Surface& surface) {
 
-    GLint textureFormat = GL_RGBA;
     // get number of bytes per pixel (for colors)
     int numberOfColors = surface.format->BytesPerPixel;
 
@@ -158,7 +172,7 @@ void TextureHandler::teximage2DFillerTexture(GLenum target) {
 
 //Add a new texture to the sorted texture library.
 Texture& TextureHandler::addNewTexture(std::string filePath, GLint filtering, bool repeatTexture) {
-    Texture* texture = new Texture(parseTexture(filePath, filtering, repeatTexture));
+    Texture* texture = parseTexture(filePath, filtering, repeatTexture);
 
     // Add texture to library
     textureLibrary.push_back(texture);
@@ -269,9 +283,7 @@ CubeMap& TextureHandler::getCubeMap(const std::string identifier, const std::vec
         }
     }
 
-    //For some reason unbinding the cubemap here will make the map appear black.
-    //glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
-
+    glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
     return *cubemap;
 }
 

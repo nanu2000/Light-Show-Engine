@@ -16,6 +16,7 @@ class Texture {
 public:
     Texture(std::string loc, GLuint txture, GLuint w, GLuint h, bool istransparent);
     ~Texture();
+    Texture(const Texture& texture2);
 
     inline bool checkTransparency() const { return isTransparent; }
     inline GLuint getWidth() const { return imageWidth; }
@@ -35,6 +36,7 @@ class CubeMap {
 public:
     CubeMap(const std::vector<std::string>& faces, GLuint txture);
     ~CubeMap();
+    CubeMap(const CubeMap& cm);
 
     inline GLuint getCubeMapData() const { return texture; }
     inline const std::vector<std::string> getTexturePaths() const {
@@ -62,13 +64,13 @@ public:
 
 private:
     //Fills Texture with data from filePath if it exists. if not it will use a checker pattern.
-    Texture parseTexture(std::string filePath, GLint filtering, bool repeatTexture);
+    Texture* parseTexture(std::string filePath, GLint filtering, bool repeatTexture);
 
     //Checks if the sdl surface is power of two. Only runs on debug
     void verifySurfaceDimensions(const SDL_Surface& surface);
 
     //Returns sdl_surface format. IE GL_RGB, GL_RGBA, etc...
-    GLenum getSurfaceFormat(const SDL_Surface& surface);
+    int getSurfaceFormat(const SDL_Surface& surface);
 
     //Generates filler image using glTexImage2D with fillerTexturePixels to create a texture to use.
     void teximage2DFillerTexture(GLenum target);

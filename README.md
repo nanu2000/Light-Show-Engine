@@ -1,7 +1,8 @@
 # Light-Show-Boilerplate
 LightShow is a 3D boilerplate created for my own projects with the purpose of flexibility, scalability, and simplicity.
+This project is meant to be used as a template for creating OpenGL applications. Specifically, games.
 
-This application uses two other projects for 3D model and font atlas file creation that are currently private.
+Two other projects are used for 3D model exporting and font atlas file creation. Both are currently private.
 
 ## Index
 * [Features](#features)
@@ -16,6 +17,7 @@ This application uses two other projects for 3D model and font atlas file creati
 
 ## Features
 * 3D skeletal Animation
+* Networking via GameNetworkingSockets
 * Directional and Omnidirectional Shadow Mapping
 * Physics, Collision, Callbacks and Triggers via Bullet3
 * Audio and Music Support

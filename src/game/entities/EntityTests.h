@@ -101,7 +101,7 @@ public:
     void initialize(EntityVitals& vitals);
 
 private:
-    _3DM::AnimatedModel model = _3DM::AnimatedModel("assets/Models/player/testplayer.3DMA");
+    _3DM::AnimatedModel model = _3DM::AnimatedModel("assets/models/player/testplayer.3DMA");
 
     Shader textShader;
 
@@ -120,7 +120,7 @@ public:
     void initialize(EntityVitals& vitals);
 
 private:
-    _3DM::AnimatedModel model = _3DM::AnimatedModel("assets/Models/player/testplayer.3DMA");
+    _3DM::AnimatedModel model = _3DM::AnimatedModel("assets/models/player/testplayer.3DMA");
 
     EntityTransform transform;
     GlobalInformation info;
@@ -138,7 +138,7 @@ public:
     void initialize(EntityVitals& vitals);
 
 private:
-    _3DM::Model model = _3DM::Model("assets/Models/cube.3DM");
+    _3DM::Model model = _3DM::Model("assets/models/cube.3DM");
     CollisionMesh collisionMesh;
     Material material;
     Shader shader;
@@ -151,8 +151,8 @@ public:
     void initialize(EntityVitals& vitals);
 
 private:
-    _3DM::Model model = _3DM::Model("assets/Models/testlevel.3DM");
-    _3DM::Model cm    = _3DM::Model("assets/Models/testlevel_cm.3DM");
+    _3DM::Model model = _3DM::Model("assets/models/scenes/test/testlevel.3DM");
+    _3DM::Model cm    = _3DM::Model("assets/models/scenes/test/testlevel-cm.3DM");
     CollisionMesh collisionMesh;
     Material floorMaterial;
     Shader shader;

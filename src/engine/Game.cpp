@@ -22,7 +22,7 @@ void Engine::Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMes
 
     initializeShaders();
 
-    map.createMap("assets/Fonts/CourierNew.FontDat");
+    map.createMap("assets/fonts/courier-new.FontDat");
 
     loadScene(0);
 }

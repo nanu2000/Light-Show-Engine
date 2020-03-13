@@ -8,7 +8,7 @@ void ParticleTest::initialize(EntityVitals& vitals) {
 
     int32_t id = vitals.scene->generateEntity();
 
-    particles.setTexture(TextureLocator::getService().getTexture("assets/Particles/fluffParticle.png"));
+    particles.setTexture(TextureLocator::getService().getTexture("assets/particles/fluff.png"));
 
     particles.setPosition(glm::vec3(42, 8, -30));
     particles.setParticlesPerSecond(1000);
@@ -38,9 +38,9 @@ void Player::initialize(EntityVitals& vitals) {
 
     textShader = ShaderLocator::getService().getShader("ui", *vitals.currentSettings, "assets/shaders/gui-shader.vert", "assets/shaders/gui-shader.frag", SHADER_TYPE::GUI);
 
-    statDisplayer.initialize(*vitals.map, TextureLocator::getService().getTexture("assets/Fonts/CourierNew.png", GL_NEAREST));
+    statDisplayer.initialize(*vitals.map, TextureLocator::getService().getTexture("assets/fonts/courier-new.png", GL_NEAREST));
 
-    menu.initialize(*vitals.map, TextureLocator::getService().getTexture("assets/Fonts/CourierNew.png", GL_NEAREST));
+    menu.initialize(*vitals.map, TextureLocator::getService().getTexture("assets/fonts/courier-new.png", GL_NEAREST));
 
     //Matrix for shadow map debugging quad
     glm::mat4 dirShadowDbgrm = glm::mat4(1.0) * glm::translate(glm::vec3(0.8f, 0.8f, 0.0f)) * glm::scale(glm::vec3(0.2, 0.2, 0.2));
@@ -123,6 +123,12 @@ void EnemyTestObject::initialize(EntityVitals& vitals) {
                                                    "assets/shaders/phong-diffuse-specular.frag",
                                                    SHADER_TYPE::Lit);
 
+    for (unsigned int i = 0; i < model.amountOfMeshes(); i++) {
+        model.addTexture(
+            TextureLocator::getService().getTexture("assets/models/player/gltftestimg.png"),
+            i,
+            _3DM::TextureType::Diffuse);
+    }
     material.shininess = 16.f;
 
     model.setAnimationClip(0);
@@ -177,6 +183,8 @@ void CubeTrigger::initialize(EntityVitals& vitals) {
         .1f);
 
     vitals.scene->addComponent(id, material);
+
+    //model.addTexture will not work on this model because there are no uv coords.
     vitals.scene->addComponent(id, model);
     vitals.scene->addComponent(id, shader);
     vitals.scene->addComponent(id, collisionMesh);
@@ -250,10 +258,11 @@ void LightTest::initialize(EntityVitals& vitals) {
         vitals.scene->addComponent(id, lights[i]);
     }
 
-    CubeMap& m = TextureLocator::getService().getCubeMap("skybox", std::vector<std::string> { "assets/Images/cubeMaps/skybox/right.png", "assets/Images/cubeMaps/skybox/left.png", "assets/Images/cubeMaps/skybox/top.png", "assets/Images/cubeMaps/skybox/bottom.png", "assets/Images/cubeMaps/skybox/front.png", "assets/Images/cubeMaps/skybox/back.png" });
+    CubeMap& m = TextureLocator::getService().getCubeMap("skybox", std::vector<std::string> { "assets/images/cubemaps/skybox/right.png", "assets/images/cubemaps/skybox/left.png", "assets/images/cubemaps/skybox/top.png", "assets/images/cubemaps/skybox/bottom.png", "assets/images/cubemaps/skybox/front.png", "assets/images/cubemaps/skybox/back.png" });
+
     skyBox.supplyMap(m);
 
-    skyBoxShader = ShaderLocator::getService().getShader("skybox", *vitals.currentSettings, "assets/shaders/sky-box.vert", "assets/shaders/sky-box.frag", SHADER_TYPE::Default);
+    skyBoxShader = ShaderLocator::getService().getShader("skybox", *vitals.currentSettings, "assets/shaders/skybox.vert", "assets/shaders/skybox.frag", SHADER_TYPE::Default);
 
     vitals.scene->addComponent(id, skyBoxShader);
     vitals.scene->addComponent(id, skyBox);

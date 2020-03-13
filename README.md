@@ -5,17 +5,17 @@ This application uses two other projects for 3D model and font atlas file creati
 
 ## Features
 * 3D skeletal Animation
-* Directional Shadow Mapping
-* Omnidirectional Shadow Mapping
-* Physics, Collision, Callbacks and Triggers
+* Directional and Omnidirectional Shadow Mapping
+* Physics, Collision, Callbacks and Triggers via Bullet3
 * Audio and Music Support
 * Text rendering
-* Phong shading
-* Point lights
-* Directional lights
+* Point and Directional lights
 * Particle Systems via Instanced Rendering
 * Bone Colliders (updates scale, position and rotation of a collision object according to a bone)
 * Entity Component System structure
+
+![LSBP-1](https://raw.githubusercontent.com/nanu2000/Light-Show-Boilerplate/master/docs/images/lsbp-1.png)
+![LSBP-2](https://raw.githubusercontent.com/nanu2000/Light-Show-Boilerplate/master/docs/images/lsbp-2.png)
 
 ## Getting Started
 
@@ -35,7 +35,7 @@ ex:
 ```populate_all.bat "C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\Common7\Tools\VsDevCmd.bat"```
 
 Protobuf should then be installed in C:\sdk\protobuf
-This WILL take awhile. 
+This WILL take a while. 
 
 * navigate to /lib/gamenetworksockets_build
 * run populate_all.bat and supply your version of VsDevCmd.bat as an arg. 
@@ -60,7 +60,11 @@ GameNetworkSockets should then be installed in /lib/gamenetworksockets_build Thi
           "--tty=${debugInfo.tty}"
 ],
 ```
-The export DISPLAY=:0; is a MUST or else you will get a segfault..
+The export DISPLAY=:0; is a MUST or else you will get a segfault. Additionally, if you are using a linux VM you may have to prepend
+```export MESA_GL_VERSION_OVERRIDE=3.3;``` to your pipeArgs after ```export DISPLAY=:0;```.
+
+Verify the configuration name in your launch.vs.json file matches your cmake executable name.
+
 #### Configure linux machine for development
 Install SDL2:
 ``` 
@@ -72,7 +76,7 @@ Install libssl:
 ```
 apt install libssl-dev
 ```
-Now if you're unlucky like me, you probably need to update libssl and apt-get wont do the job. This awesome q/a will show you how to update libssl from it's source: https://askubuntu.com/questions/1102803/how-to-upgrade-openssl-1-1-0-to-1-1-1-in-ubuntu-18-04
+You will most likely need to update libssl because apt-get wont do the job. This awesome q/a will show you how to update libssl from it's source: https://askubuntu.com/questions/1102803/how-to-upgrade-openssl-1-1-0-to-1-1-1-in-ubuntu-18-04
 
 Install protobuf:
 ```
@@ -107,16 +111,16 @@ mv libGameNetworkingSockets.so /usr/lib
 
 ### Building on Linux (standalone)
 I haven't tested building only on linux, however it should be easier to setup. Install everything mentioned [above](#configure-linux-machine-for-development)
-* Git clone --recursive
+then run:
+* git clone --recursive
 * run cmake
 * run make
 
-Should be something like that. You will probably have to provide certain variables in the CMake config to make this work.
+You will need to provide certain variables in the CMake config to make this work.
 
-## Debuging
+## Debuging Build System
 * Double check CMakeSettings like SDL2_DIR and GNS_LIB_DIR, they should both point to their library directories.
-* The populate_all scripts need to be supplied with VsDevCmd.bat. The path for VsDevCmd.bat differs on each version of visual studio.
-* Lots of trial and error. Building this first try with no errors seems unlikely.
+* In Windows, the populate_all scripts need to be supplied with VsDevCmd.bat. The path for VsDevCmd.bat differs on each version of visual studio.
 
 ## Built With
 * Bullet3

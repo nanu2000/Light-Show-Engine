@@ -1,6 +1,6 @@
 var class_day_night_cycle_system =
 [
-    [ "debugRender", "d0/d9a/class_day_night_cycle_system.html#a325958aa88f010856953ee1317c910cb", null ],
+    [ "debugRender", "d0/d9a/class_day_night_cycle_system.html#acf8ecb0e14442b2f0f49e46e8c08be10", null ],
     [ "fixedUpdate", "d0/d9a/class_day_night_cycle_system.html#a979c7f95e58d2f39665cefcbec453e8f", null ],
     [ "currentDirection", "d0/d9a/class_day_night_cycle_system.html#aad3c51116b640f0fc0abb8618c1ba85a", null ],
     [ "currentRotation", "d0/d9a/class_day_night_cycle_system.html#a037bc6d1ff407a677a4d419c1bab2fa7", null ],

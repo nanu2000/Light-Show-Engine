@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>LightShow_Boilerplate: src/Game.cpp Source File</title>
+<title>LightShow_Boilerplate: src/engine/Game.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('d7/db5/_game_8cpp_source.html','../../
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    initializeShaders();</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    map.createMap(<span class="stringliteral">&quot;assets/Fonts/CourierNew.FontDat&quot;</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    map.createMap(<span class="stringliteral">&quot;assets/fonts/courier-new.FontDat&quot;</span>);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    loadScene(0);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
@@ -129,93 +129,95 @@ $(document).ready(function(){initNavTree('d7/db5/_game_8cpp_source.html','../../
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    freeEntities();</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">//Allocate new scene and entities.</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    scene               = <span class="keyword">new</span> <a class="code" href="../../d6/db5/class_scene.html">Scene</a>();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    physicsWorld        = <span class="keyword">new</span> <a class="code" href="../../d5/d44/class_physics_world.html">PhysicsWorld</a>(<a class="code" href="../../d7/dd1/namespacehh.html#aa0102ec32d9d665ebdda89fa4c03c5b6">hh::toBtVec3</a>(<a class="code" href="../../d4/d58/namespace_game_info.html#a673ece59517ff41f70fd3c72f73ef681">GameInfo::DEFAULT_GRAVITY</a>));</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="../../db/dbe/class_entity_vitals.html">EntityVitals</a> vitals = <a class="code" href="../../db/dbe/class_entity_vitals.html">EntityVitals</a>(&amp;settings, scene, physicsWorld, &amp;map);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    scene        = <span class="keyword">new</span> <a class="code" href="../../d6/db5/class_scene.html">Scene</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    physicsWorld = <span class="keyword">new</span> <a class="code" href="../../d5/d44/class_physics_world.html">PhysicsWorld</a>(<a class="code" href="../../d7/dd1/namespacehh.html#aa0102ec32d9d665ebdda89fa4c03c5b6">hh::toBtVec3</a>(<a class="code" href="../../d4/d58/namespace_game_info.html#a673ece59517ff41f70fd3c72f73ef681">GameInfo::DEFAULT_GRAVITY</a>));</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    physicsWorld-&gt;initialize();</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="../../df/dae/_scenes_8h.html#a1e872f09cb44811bb724936b7f9969f7">scenes</a>.at(currentScene).size(); i++) {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="../../db/dbe/class_entity_vitals.html">EntityVitals</a> vitals = <a class="code" href="../../db/dbe/class_entity_vitals.html">EntityVitals</a>(&amp;settings, scene, physicsWorld, &amp;map);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <a class="code" href="../../d3/d43/class_entity_wrapper.html">EntityWrapper</a>* newEntity = <a class="code" href="../../d6/d4b/namespace_entities.html#a38322017cdf3b5b1146808731a156565">Entities::allocateEntity</a>(<a class="code" href="../../df/dae/_scenes_8h.html#a1e872f09cb44811bb724936b7f9969f7">scenes</a>.at(currentScene).at(i));</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="../../df/dae/_scenes_8h.html#a1e872f09cb44811bb724936b7f9969f7">scenes</a>.at(currentScene).size(); i++) {</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span> (newEntity == <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">continue</span>; <span class="comment">//Only add to scene if new entity is valid.</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        sceneEntities.push_back(newEntity);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">//Initialize new entities</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; sceneEntities.size(); i++) {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        sceneEntities.at(i)-&gt;initialize(vitals);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">//Add rigid bodies to physics world.</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    scene-&gt;performOperationsOnAllOfType&lt;<a class="code" href="../../d4/daa/class_collision_mesh.html">CollisionMesh</a>&gt;(</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        [&amp; world = *physicsWorld](<span class="keyword">const</span> <a class="code" href="../../d4/daa/class_collision_mesh.html">CollisionMesh</a>&amp; mesh) {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            world.addRigidBody(mesh);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        });</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    scene-&gt;performOperationsOnAllOfType&lt;<a class="code" href="../../d6/d9c/class_bone_collision_mesh.html">BoneCollisionMesh</a>&gt;(</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        [&amp; world = *physicsWorld](<a class="code" href="../../d6/d9c/class_bone_collision_mesh.html">BoneCollisionMesh</a>&amp; bmesh) {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            bmesh.iterateThroughColliders(</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                [&amp;](<a class="code" href="../../d4/daa/class_collision_mesh.html">CollisionMesh</a>&amp; mesh, int32_t <span class="keywordtype">id</span>) {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                    world.addRigidBody(mesh);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                });</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        });</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="comment">//Re-init systems.</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    fixedUpdatingSystem.initialize(*scene, settings, *physicsWorld, subSystems);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    updatingSystem.initialize(*scene, settings, *physicsWorld, subSystems);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    renderingSystem.initialize(*scene, settings, *physicsWorld, subSystems);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../d5/de3/class_engine_1_1_game.html#aa1b251ef70b421b274398706af155a76">   98</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/de3/class_engine_1_1_game.html#aa1b251ef70b421b274398706af155a76">Engine::Game::readBackendEventQueue</a>() {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="../../df/de2/_messages_8h.html#adf36f3b862459340da2c2cbc8927d69f">BackEndMessages</a> msg;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">while</span> (backEndMessages-&gt;getMessagesThenRemove(msg)) {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        fixedUpdatingSystem.handleBackEndMessage(msg, renderTexture);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="../../d5/de3/class_engine_1_1_game.html#a08315163522f7d4b45cddfae866f697b">  105</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/de3/class_engine_1_1_game.html#a08315163522f7d4b45cddfae866f697b">Engine::Game::fixedUpdate</a>() {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">if</span> (areVitalsNull()) {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    readBackendEventQueue();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="../../d3/d43/class_entity_wrapper.html">EntityWrapper</a>* newEntity = <a class="code" href="../../d6/d4b/namespace_entities.html#a38322017cdf3b5b1146808731a156565">Entities::allocateEntity</a>(<a class="code" href="../../df/dae/_scenes_8h.html#a1e872f09cb44811bb724936b7f9969f7">scenes</a>.at(currentScene).at(i));</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">if</span> (newEntity == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">continue</span>; <span class="comment">//Only add to scene if new entity is valid.</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        sceneEntities.push_back(newEntity);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">//Initialize new entities</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; sceneEntities.size(); i++) {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        sceneEntities.at(i)-&gt;initialize(vitals);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">//Add rigid bodies to physics world.</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    scene-&gt;performOperationsOnAllOfType&lt;<a class="code" href="../../d4/daa/class_collision_mesh.html">CollisionMesh</a>&gt;(</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        [&amp; world = *physicsWorld](<span class="keyword">const</span> <a class="code" href="../../d4/daa/class_collision_mesh.html">CollisionMesh</a>&amp; mesh) {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            world.addRigidBody(mesh);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        });</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    scene-&gt;performOperationsOnAllOfType&lt;<a class="code" href="../../d6/d9c/class_bone_collision_mesh.html">BoneCollisionMesh</a>&gt;(</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        [&amp; world = *physicsWorld](<a class="code" href="../../d6/d9c/class_bone_collision_mesh.html">BoneCollisionMesh</a>&amp; bmesh) {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            bmesh.iterateThroughColliders(</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                [&amp;](<a class="code" href="../../d4/daa/class_collision_mesh.html">CollisionMesh</a>&amp; mesh, int32_t <span class="keywordtype">id</span>) {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                    world.addRigidBody(mesh);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                });</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        });</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">//Re-init systems.</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    fixedUpdatingSystem.initialize(*scene, settings, *physicsWorld, subSystems);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    updatingSystem.initialize(*scene, settings, *physicsWorld, subSystems);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    renderingSystem.initialize(*scene, settings, *physicsWorld, subSystems);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="../../d5/de3/class_engine_1_1_game.html#aa1b251ef70b421b274398706af155a76">  100</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/de3/class_engine_1_1_game.html#aa1b251ef70b421b274398706af155a76">Engine::Game::readBackendEventQueue</a>() {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="../../df/de2/_messages_8h.html#adf36f3b862459340da2c2cbc8927d69f">BackEndMessages</a> msg;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">while</span> (backEndMessages-&gt;getMessagesThenRemove(msg)) {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        fixedUpdatingSystem.handleBackEndMessage(msg, renderTexture);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="../../d5/de3/class_engine_1_1_game.html#a08315163522f7d4b45cddfae866f697b">  107</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/de3/class_engine_1_1_game.html#a08315163522f7d4b45cddfae866f697b">Engine::Game::fixedUpdate</a>() {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">if</span> (areVitalsNull()) {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    fixedUpdatingSystem.fixedUpdate(gameState, *currentTime, pointLightDepthMap, directionalLightDepthMap);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="../../d5/de3/class_engine_1_1_game.html#a8e0bc2306fea083ed5d92fbbafa08978">  115</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/de3/class_engine_1_1_game.html#a8e0bc2306fea083ed5d92fbbafa08978">Engine::Game::update</a>() {</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    updatingSystem.update();</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;}</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="../../d5/de3/class_engine_1_1_game.html#aa22385cb710c60430ae282bc5bb86415">  119</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/de3/class_engine_1_1_game.html#aa22385cb710c60430ae282bc5bb86415">Engine::Game::render</a>() {</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">if</span> (areVitalsNull()) {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    renderingSystem.render(pointLightDepthMap, directionalLightDepthMap, *currentTime, renderTexture);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="../../d5/de3/class_engine_1_1_game.html#a108ab96b1ed4402964e422a5c51eea5a">  127</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/de3/class_engine_1_1_game.html#a108ab96b1ed4402964e422a5c51eea5a">Engine::Game::freeEntities</a>() {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    readBackendEventQueue();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    fixedUpdatingSystem.fixedUpdate(gameState, *currentTime, pointLightDepthMap, directionalLightDepthMap);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="../../d5/de3/class_engine_1_1_game.html#a8e0bc2306fea083ed5d92fbbafa08978">  117</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/de3/class_engine_1_1_game.html#a8e0bc2306fea083ed5d92fbbafa08978">Engine::Game::update</a>() {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    updatingSystem.update();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="../../d5/de3/class_engine_1_1_game.html#aa22385cb710c60430ae282bc5bb86415">  121</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/de3/class_engine_1_1_game.html#aa22385cb710c60430ae282bc5bb86415">Engine::Game::render</a>() {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">if</span> (areVitalsNull()) {</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    renderingSystem.render(pointLightDepthMap, directionalLightDepthMap, *currentTime, renderTexture);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; sceneEntities.size(); i++) {</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordflow">if</span> (sceneEntities.at(i) == <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        }</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keyword">delete</span> sceneEntities.at(i);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    }</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    sceneEntities.clear();</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="../../d5/de3/class_engine_1_1_game.html#af53c58be0bc3bacc0876e8ea5dfc5cf9">  138</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/de3/class_engine_1_1_game.html#af53c58be0bc3bacc0876e8ea5dfc5cf9">Engine::Game::uninitialize</a>() {</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keyword">delete</span> scene;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keyword">delete</span> physicsWorld;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    freeEntities();</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;}</div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="../../d5/de3/class_engine_1_1_game.html#a108ab96b1ed4402964e422a5c51eea5a">  129</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/de3/class_engine_1_1_game.html#a108ab96b1ed4402964e422a5c51eea5a">Engine::Game::freeEntities</a>() {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; sceneEntities.size(); i++) {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordflow">if</span> (sceneEntities.at(i) == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keyword">delete</span> sceneEntities.at(i);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    sceneEntities.clear();</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="../../d5/de3/class_engine_1_1_game.html#af53c58be0bc3bacc0876e8ea5dfc5cf9">  140</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/de3/class_engine_1_1_game.html#af53c58be0bc3bacc0876e8ea5dfc5cf9">Engine::Game::uninitialize</a>() {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keyword">delete</span> scene;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keyword">delete</span> physicsWorld;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    freeEntities();</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_entity_vitals_html"><div class="ttname"><a href="../../db/dbe/class_entity_vitals.html">EntityVitals</a></div><div class="ttdoc">Used to store vital information used to initialize entities.</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d03/_entity_tests_8h_source.html#l00027">EntityTests.h:27</a></div></div>
@@ -223,12 +225,12 @@ $(document).ready(function(){initNavTree('d7/db5/_game_8cpp_source.html','../../
 <div class="ttc" id="a_game_8h_html"><div class="ttname"><a href="../../d9/dcd/_game_8h.html">Game.h</a></div></div>
 <div class="ttc" id="aclass_shader_html_a4e1d061275e99fb2aa818d5c2372e863"><div class="ttname"><a href="../../d1/d51/class_shader.html#a4e1d061275e99fb2aa818d5c2372e863">Shader::setShaderTask</a></div><div class="ttdeci">static void setShaderTask(SHADER_TASK task)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d34/_shader_8h_source.html#l00030">Shader.h:30</a></div></div>
 <div class="ttc" id="aclass_engine_1_1_game_html_abe3a423ddcf7d9ea95e90a94047ec026"><div class="ttname"><a href="../../d5/de3/class_engine_1_1_game.html#abe3a423ddcf7d9ea95e90a94047ec026">Engine::Game::initialize</a></div><div class="ttdeci">void initialize(Time *time, Messenger&lt; BackEndMessages &gt; *backEndMessagingSystem)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db5/_game_8cpp_source.html#l00012">Game.cpp:12</a></div></div>
-<div class="ttc" id="anamespace_game_info_html_a673ece59517ff41f70fd3c72f73ef681"><div class="ttname"><a href="../../d4/d58/namespace_game_info.html#a673ece59517ff41f70fd3c72f73ef681">GameInfo::DEFAULT_GRAVITY</a></div><div class="ttdeci">const glm::vec3 DEFAULT_GRAVITY</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d50/_game_info_8h_source.html#l00077">GameInfo.h:77</a></div></div>
+<div class="ttc" id="anamespace_game_info_html_a673ece59517ff41f70fd3c72f73ef681"><div class="ttname"><a href="../../d4/d58/namespace_game_info.html#a673ece59517ff41f70fd3c72f73ef681">GameInfo::DEFAULT_GRAVITY</a></div><div class="ttdeci">const glm::vec3 DEFAULT_GRAVITY</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d50/_game_info_8h_source.html#l00075">GameInfo.h:75</a></div></div>
 <div class="ttc" id="a_debug_8h_html_a115b8cdc79239a202a0cd3855b4f1209"><div class="ttname"><a href="../../d0/d4b/_debug_8h.html#a115b8cdc79239a202a0cd3855b4f1209">DBG_LOG</a></div><div class="ttdeci">#define DBG_LOG(fmt,...)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d4b/_debug_8h_source.html#l00013">Debug.h:13</a></div></div>
 <div class="ttc" id="a_messages_8h_html_adf36f3b862459340da2c2cbc8927d69f"><div class="ttname"><a href="../../df/de2/_messages_8h.html#adf36f3b862459340da2c2cbc8927d69f">BackEndMessages</a></div><div class="ttdeci">BackEndMessages</div><div class="ttdef"><b>Definition:</b> <a href="../../df/de2/_messages_8h_source.html#l00004">Messages.h:4</a></div></div>
 <div class="ttc" id="aclass_time_html"><div class="ttname"><a href="../../d6/d2c/class_time.html">Time</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d8f/_l_time_8h_source.html#l00010">LTime.h:10</a></div></div>
 <div class="ttc" id="anamespace_game_info_html_a7cf2306eb3025a60a9e2da52eefba71e"><div class="ttname"><a href="../../d4/d58/namespace_game_info.html#a7cf2306eb3025a60a9e2da52eefba71e">GameInfo::getWindowWidth</a></div><div class="ttdeci">int getWindowWidth()</div><div class="ttdoc">Used to get the game windows width.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d42/_application_8cpp_source.html#l00010">Application.cpp:10</a></div></div>
-<div class="ttc" id="aclass_engine_1_1_game_html_af53c58be0bc3bacc0876e8ea5dfc5cf9"><div class="ttname"><a href="../../d5/de3/class_engine_1_1_game.html#af53c58be0bc3bacc0876e8ea5dfc5cf9">Engine::Game::uninitialize</a></div><div class="ttdeci">void uninitialize()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db5/_game_8cpp_source.html#l00138">Game.cpp:138</a></div></div>
+<div class="ttc" id="aclass_engine_1_1_game_html_af53c58be0bc3bacc0876e8ea5dfc5cf9"><div class="ttname"><a href="../../d5/de3/class_engine_1_1_game.html#af53c58be0bc3bacc0876e8ea5dfc5cf9">Engine::Game::uninitialize</a></div><div class="ttdeci">void uninitialize()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db5/_game_8cpp_source.html#l00140">Game.cpp:140</a></div></div>
 <div class="ttc" id="aclass_bone_collision_mesh_html"><div class="ttname"><a href="../../d6/d9c/class_bone_collision_mesh.html">BoneCollisionMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dbd/_bone_collision_mesh_8h_source.html#l00008">BoneCollisionMesh.h:8</a></div></div>
 <div class="ttc" id="aclass_physics_world_html"><div class="ttname"><a href="../../d5/d44/class_physics_world.html">PhysicsWorld</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d37/_physics_world_8h_source.html#l00010">PhysicsWorld.h:10</a></div></div>
 <div class="ttc" id="aclass_engine_1_1_game_html_a07d7699ef9f6bf728e2a2103104b62c2"><div class="ttname"><a href="../../d5/de3/class_engine_1_1_game.html#a07d7699ef9f6bf728e2a2103104b62c2">Engine::Game::backEndMessages</a></div><div class="ttdeci">Messenger&lt; BackEndMessages &gt; * backEndMessages</div><div class="ttdoc">Messenger to recieve messages from Application.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dcd/_game_8h_source.html#l00037">Game.h:37</a></div></div>
@@ -239,22 +241,22 @@ $(document).ready(function(){initNavTree('d7/db5/_game_8cpp_source.html','../../
 <div class="ttc" id="a_scenes_8h_html_a1e872f09cb44811bb724936b7f9969f7"><div class="ttname"><a href="../../df/dae/_scenes_8h.html#a1e872f09cb44811bb724936b7f9969f7">scenes</a></div><div class="ttdeci">static std::vector&lt; std::vector&lt; std::string &gt; &gt; scenes</div><div class="ttdoc">Soon to be moved into json.</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dae/_scenes_8h_source.html#l00003">Scenes.h:3</a></div></div>
 <div class="ttc" id="aclass_messenger_html"><div class="ttname"><a href="../../d6/dc9/class_messenger.html">Messenger&lt; BackEndMessages &gt;</a></div></div>
 <div class="ttc" id="anamespace_entities_html_a38322017cdf3b5b1146808731a156565"><div class="ttname"><a href="../../d6/d4b/namespace_entities.html#a38322017cdf3b5b1146808731a156565">Entities::allocateEntity</a></div><div class="ttdeci">static EntityWrapper * allocateEntity(const std::string &amp;str)</div><div class="ttdoc">Used to allocate a new entity via string registered with registerEntity. Does not control lifetime of...</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d03/_entity_tests_8h_source.html#l00170">EntityTests.h:170</a></div></div>
-<div class="ttc" id="aclass_engine_1_1_game_html_aa1b251ef70b421b274398706af155a76"><div class="ttname"><a href="../../d5/de3/class_engine_1_1_game.html#aa1b251ef70b421b274398706af155a76">Engine::Game::readBackendEventQueue</a></div><div class="ttdeci">void readBackendEventQueue()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db5/_game_8cpp_source.html#l00098">Game.cpp:98</a></div></div>
+<div class="ttc" id="aclass_engine_1_1_game_html_aa1b251ef70b421b274398706af155a76"><div class="ttname"><a href="../../d5/de3/class_engine_1_1_game.html#aa1b251ef70b421b274398706af155a76">Engine::Game::readBackendEventQueue</a></div><div class="ttdeci">void readBackendEventQueue()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db5/_game_8cpp_source.html#l00100">Game.cpp:100</a></div></div>
 <div class="ttc" id="anamespace_entities_html_a3801717aee8cb83ae0f8d169550cd211"><div class="ttname"><a href="../../d6/d4b/namespace_entities.html#a3801717aee8cb83ae0f8d169550cd211">Entities::registerEntities</a></div><div class="ttdeci">static void registerEntities()</div><div class="ttdoc">Registers all entities so they can be created with Entities::allocateEntity via string.</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d03/_entity_tests_8h_source.html#l00183">EntityTests.h:183</a></div></div>
 <div class="ttc" id="aclass_engine_1_1_game_html_a2dd6bce8b65f7c5f1607b224b03b9d4f"><div class="ttname"><a href="../../d5/de3/class_engine_1_1_game.html#a2dd6bce8b65f7c5f1607b224b03b9d4f">Engine::Game::initializeShaders</a></div><div class="ttdeci">void initializeShaders()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db5/_game_8cpp_source.html#l00030">Game.cpp:30</a></div></div>
-<div class="ttc" id="aclass_engine_1_1_game_html_aa22385cb710c60430ae282bc5bb86415"><div class="ttname"><a href="../../d5/de3/class_engine_1_1_game.html#aa22385cb710c60430ae282bc5bb86415">Engine::Game::render</a></div><div class="ttdeci">void render()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db5/_game_8cpp_source.html#l00119">Game.cpp:119</a></div></div>
-<div class="ttc" id="aclass_engine_1_1_game_html_a108ab96b1ed4402964e422a5c51eea5a"><div class="ttname"><a href="../../d5/de3/class_engine_1_1_game.html#a108ab96b1ed4402964e422a5c51eea5a">Engine::Game::freeEntities</a></div><div class="ttdeci">void freeEntities()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db5/_game_8cpp_source.html#l00127">Game.cpp:127</a></div></div>
+<div class="ttc" id="aclass_engine_1_1_game_html_aa22385cb710c60430ae282bc5bb86415"><div class="ttname"><a href="../../d5/de3/class_engine_1_1_game.html#aa22385cb710c60430ae282bc5bb86415">Engine::Game::render</a></div><div class="ttdeci">void render()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db5/_game_8cpp_source.html#l00121">Game.cpp:121</a></div></div>
+<div class="ttc" id="aclass_engine_1_1_game_html_a108ab96b1ed4402964e422a5c51eea5a"><div class="ttname"><a href="../../d5/de3/class_engine_1_1_game.html#a108ab96b1ed4402964e422a5c51eea5a">Engine::Game::freeEntities</a></div><div class="ttdeci">void freeEntities()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db5/_game_8cpp_source.html#l00129">Game.cpp:129</a></div></div>
 <div class="ttc" id="aclass_shader_html_aedb77a114862614f3fd1ee942e6e3c0e"><div class="ttname"><a href="../../d1/d51/class_shader.html#aedb77a114862614f3fd1ee942e6e3c0e">Shader::setShaderTaskShader</a></div><div class="ttdeci">static void setShaderTaskShader(SHADER_TASK task, const GLint &amp;id)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d34/_shader_8h_source.html#l00029">Shader.h:29</a></div></div>
 <div class="ttc" id="aclass_engine_1_1_game_html_ac47b510132f517f0edb159a8a6b2f92e"><div class="ttname"><a href="../../d5/de3/class_engine_1_1_game.html#ac47b510132f517f0edb159a8a6b2f92e">Engine::Game::loadScene</a></div><div class="ttdeci">void loadScene(int scene)</div><div class="ttdoc">Loads a scene by index- should be called in fixedUpdate.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db5/_game_8cpp_source.html#l00041">Game.cpp:41</a></div></div>
-<div class="ttc" id="aclass_engine_1_1_game_html_a08315163522f7d4b45cddfae866f697b"><div class="ttname"><a href="../../d5/de3/class_engine_1_1_game.html#a08315163522f7d4b45cddfae866f697b">Engine::Game::fixedUpdate</a></div><div class="ttdeci">void fixedUpdate()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db5/_game_8cpp_source.html#l00105">Game.cpp:105</a></div></div>
+<div class="ttc" id="aclass_engine_1_1_game_html_a08315163522f7d4b45cddfae866f697b"><div class="ttname"><a href="../../d5/de3/class_engine_1_1_game.html#a08315163522f7d4b45cddfae866f697b">Engine::Game::fixedUpdate</a></div><div class="ttdeci">void fixedUpdate()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db5/_game_8cpp_source.html#l00107">Game.cpp:107</a></div></div>
 <div class="ttc" id="aclass_engine_1_1_game_html_a477f4e0a9720bcb3c7f7741a0ccdbfda"><div class="ttname"><a href="../../d5/de3/class_engine_1_1_game.html#a477f4e0a9720bcb3c7f7741a0ccdbfda">Engine::Game::areVitalsNull</a></div><div class="ttdeci">bool areVitalsNull()</div><div class="ttdoc">Checks for null vitals.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db5/_game_8cpp_source.html#l00003">Game.cpp:3</a></div></div>
-<div class="ttc" id="aclass_engine_1_1_game_html_a8e0bc2306fea083ed5d92fbbafa08978"><div class="ttname"><a href="../../d5/de3/class_engine_1_1_game.html#a8e0bc2306fea083ed5d92fbbafa08978">Engine::Game::update</a></div><div class="ttdeci">void update()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db5/_game_8cpp_source.html#l00115">Game.cpp:115</a></div></div>
+<div class="ttc" id="aclass_engine_1_1_game_html_a8e0bc2306fea083ed5d92fbbafa08978"><div class="ttname"><a href="../../d5/de3/class_engine_1_1_game.html#a8e0bc2306fea083ed5d92fbbafa08978">Engine::Game::update</a></div><div class="ttdeci">void update()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db5/_game_8cpp_source.html#l00117">Game.cpp:117</a></div></div>
 <div class="ttc" id="aclass_engine_1_1_game_html_a16408e08a90558b66ce2a80e1d26aae6"><div class="ttname"><a href="../../d5/de3/class_engine_1_1_game.html#a16408e08a90558b66ce2a80e1d26aae6">Engine::Game::currentTime</a></div><div class="ttdeci">Time * currentTime</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dcd/_game_8h_source.html#l00038">Game.h:38</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../d7/db5/_game_8cpp.html">Game.cpp</a></li>
-    <li class="footer">Generated on Thu Feb 6 2020 23:05:59 for LightShow_Boilerplate by
+    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_2052808828190f934b76e979ee65af8a.html">engine</a></li><li class="navelem"><a class="el" href="../../d7/db5/_game_8cpp.html">Game.cpp</a></li>
+    <li class="footer">Generated on Thu Mar 12 2020 18:24:01 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

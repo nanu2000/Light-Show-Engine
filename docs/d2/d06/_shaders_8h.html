@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>LightShow_Boilerplate: src/Shaders.h File Reference</title>
+<title>LightShow_Boilerplate: src/game/rendering/Shaders.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -148,7 +148,8 @@ Enumerations</h2></td></tr>
 <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aac2467f63251f1bb6147ddc36213051bc">Shaders::UniformName::MaterialShininess</a> = 30, 
 <a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa7ccc8c0085f42ab56090a082252c8635">Shaders::UniformName::TimeMS</a> = 31, 
 <br />
-&#160;&#160;<a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa250bc8265bed808105ea700e6e2cd4f3">Shaders::UniformName::UNIFORM_NAME_COUNT</a> = 32
+&#160;&#160;<a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aafc3e5fc4ec9326f73e1877daf7d5e12b">Shaders::UniformName::MultisampleCount</a> = 32, 
+<a class="el" href="../../d7/da2/namespace_shaders.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa250bc8265bed808105ea700e6e2cd4f3">Shaders::UniformName::UNIFORM_NAME_COUNT</a> = 33
 <br />
  }</td></tr>
 <tr class="separator:a2abfa94e3c363b9fd1cc58dfa6e5d50a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,7 +164,8 @@ Enumerations</h2></td></tr>
 <a class="el" href="../../d7/da2/namespace_shaders.html#a3b915b2e9c580fc6208bb3b9741429a8a4ba56e3dd60c4452a47e4196225cd3bc">Shaders::AttribName::ParticleScale</a> = 6, 
 <a class="el" href="../../d7/da2/namespace_shaders.html#a3b915b2e9c580fc6208bb3b9741429a8a25e756fd0a40afb7c81a9c239d7e8785">Shaders::AttribName::ParticleColor</a> = 7, 
 <br />
-&#160;&#160;<a class="el" href="../../d7/da2/namespace_shaders.html#a3b915b2e9c580fc6208bb3b9741429a8a70c6331a5997ef20f4b563809026a5bb">Shaders::AttribName::AttribName_MAX</a> = 8
+&#160;&#160;<a class="el" href="../../d7/da2/namespace_shaders.html#a3b915b2e9c580fc6208bb3b9741429a8acb5feb1b7314637725a2e73bdc9f7295">Shaders::AttribName::Color</a> = 8, 
+<a class="el" href="../../d7/da2/namespace_shaders.html#a3b915b2e9c580fc6208bb3b9741429a8a70c6331a5997ef20f4b563809026a5bb">Shaders::AttribName::AttribName_MAX</a> = 9
 <br />
  }</td></tr>
 <tr class="separator:a3b915b2e9c580fc6208bb3b9741429a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -191,16 +193,16 @@ Variables</h2></td></tr>
 <tr class="separator:ac6d7991eb9e090601707c1129c992026"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a936f7ebf4c06d9a2dd17684d26d6c520"><td class="memItemLeft" align="right" valign="top">const unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/da2/namespace_shaders.html#a936f7ebf4c06d9a2dd17684d26d6c520">Shaders::DEPTH_MAP_LOCATION_DIRECTIONAL</a> = 7</td></tr>
 <tr class="separator:a936f7ebf4c06d9a2dd17684d26d6c520"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef1fb725960a5f27a3f83d55bd4bf9a5"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/da2/namespace_shaders.html#aef1fb725960a5f27a3f83d55bd4bf9a5">Shaders::UniformNames</a> [32]</td></tr>
-<tr class="separator:aef1fb725960a5f27a3f83d55bd4bf9a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa42283b009e9e23133fb95b260607262"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/da2/namespace_shaders.html#aa42283b009e9e23133fb95b260607262">Shaders::UniformNames</a> [33]</td></tr>
+<tr class="separator:aa42283b009e9e23133fb95b260607262"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../d2/d06/_shaders_8h.html">Shaders.h</a></li>
-    <li class="footer">Generated on Thu Feb 6 2020 23:06:00 for LightShow_Boilerplate by
+    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_1699be727a800b1d059c6f7f2b91d2ee.html">game</a></li><li class="navelem"><a class="el" href="../../dir_989a80891cb99f10dc32e2f15752cf43.html">rendering</a></li><li class="navelem"><a class="el" href="../../d2/d06/_shaders_8h.html">Shaders.h</a></li>
+    <li class="footer">Generated on Thu Mar 12 2020 18:24:02 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

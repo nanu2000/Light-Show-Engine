@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>LightShow_Boilerplate: src/GameInfo.h File Reference</title>
+<title>LightShow_Boilerplate: src/game/global/GameInfo.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -128,6 +128,7 @@ Variables</h2></td></tr>
 <tr class="memitem:afc2dbd6b34ce3ba0da2c780fa4d6fca8"><td class="memItemLeft" align="right" valign="top">const int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d50/_game_info_8h.html#afc2dbd6b34ce3ba0da2c780fa4d6fca8">TAG_ENTITY_UNDEFINED</a> = -1</td></tr>
 <tr class="separator:afc2dbd6b34ce3ba0da2c780fa4d6fca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab7a3bbfdb3af3149cb9ad7bf1ec1c46"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d22/namespace_private_game_info.html#aab7a3bbfdb3af3149cb9ad7bf1ec1c46">PrivateGameInfo::deltaTime</a> = 0.0f</td></tr>
+<tr class="memdesc:aab7a3bbfdb3af3149cb9ad7bf1ec1c46"><td class="mdescLeft">&#160;</td><td class="mdescRight">DeltaTime for physics calculations and accurate updating Updated in Application.  <a href="../../de/d22/namespace_private_game_info.html#aab7a3bbfdb3af3149cb9ad7bf1ec1c46">More...</a><br /></td></tr>
 <tr class="separator:aab7a3bbfdb3af3149cb9ad7bf1ec1c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad33ea07ee7bb6be27405fa000c211414"><td class="memItemLeft" align="right" valign="top">const glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d58/namespace_game_info.html#ad33ea07ee7bb6be27405fa000c211414">GameInfo::GLM_VEC3_ZERO</a> = glm::vec3(0, 0, 0)</td></tr>
 <tr class="separator:ad33ea07ee7bb6be27405fa000c211414"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,10 +144,8 @@ Variables</h2></td></tr>
 <tr class="separator:a2cf836c75c6e64f5fee901f74f0a7c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95d47c29c39af37d0037a2c0fe6e07f1"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d58/namespace_game_info.html#a95d47c29c39af37d0037a2c0fe6e07f1">GameInfo::PHYSICS_TIME_STEP</a> = fixedDeltaTime</td></tr>
 <tr class="separator:a95d47c29c39af37d0037a2c0fe6e07f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84e173e912102cfa77a4894831965ef2"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d58/namespace_game_info.html#a84e173e912102cfa77a4894831965ef2">GameInfo::WINDOW_TITLE</a> = &quot;Prototype #1 (Hopefully the last)&quot;</td></tr>
+<tr class="memitem:a84e173e912102cfa77a4894831965ef2"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d58/namespace_game_info.html#a84e173e912102cfa77a4894831965ef2">GameInfo::WINDOW_TITLE</a> = &quot;Gonna get there!&quot;</td></tr>
 <tr class="separator:a84e173e912102cfa77a4894831965ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f79e00a222bc6260e423249a5a05deb"><td class="memItemLeft" align="right" valign="top">const glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d58/namespace_game_info.html#a6f79e00a222bc6260e423249a5a05deb">GameInfo::DEBUG_COLOR</a> = glm::vec4(0.0f, 0.7f, 0.3f, 1.0f)</td></tr>
-<tr class="separator:a6f79e00a222bc6260e423249a5a05deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a673ece59517ff41f70fd3c72f73ef681"><td class="memItemLeft" align="right" valign="top">const glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d58/namespace_game_info.html#a673ece59517ff41f70fd3c72f73ef681">GameInfo::DEFAULT_GRAVITY</a> = glm::vec3(0.0f, -9.81f, 0.0f)</td></tr>
 <tr class="separator:a673ece59517ff41f70fd3c72f73ef681"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0592d26ea0f3b1e04bb0dd81d8342842"><td class="memItemLeft" align="right" valign="top">const unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d58/namespace_game_info.html#a0592d26ea0f3b1e04bb0dd81d8342842">GameInfo::START_WINDOW_WIDTH</a> = 800</td></tr>
@@ -218,7 +217,7 @@ Variables</h2></td></tr>
 
 <p class="reference">References <a class="el" href="../../de/d50/_game_info_8h_source.html#l00015">COLLISION_TAG_C_STR</a>, <a class="el" href="../../d0/d4b/_debug_8h_source.html#l00013">DBG_LOG</a>, and <a class="el" href="../../de/d50/_game_info_8h.html#af4cacc871b556d58b423003df79433fba1184d3c250489c4ae68d5184e78536c6">TAGS_MAX_SIZE</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d0/d56/_fixed_updating_system_8cpp_source.html#l00267">FixedUpdatingSystem::handleCollisionTrigger()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d0/d56/_fixed_updating_system_8cpp_source.html#l00263">FixedUpdatingSystem::handleCollisionTrigger()</a>.</p>
 
 </div>
 </div>
@@ -268,7 +267,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d50/_game_info_8h_source.html#l00032">32</a> of file <a class="el" href="../../de/d50/_game_info_8h_source.html">GameInfo.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d0/d56/_fixed_updating_system_8cpp_source.html#l00267">FixedUpdatingSystem::handleCollisionTrigger()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d0/d56/_fixed_updating_system_8cpp_source.html#l00263">FixedUpdatingSystem::handleCollisionTrigger()</a>.</p>
 
 </div>
 </div>
@@ -277,8 +276,8 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../de/d50/_game_info_8h.html">GameInfo.h</a></li>
-    <li class="footer">Generated on Thu Feb 6 2020 23:05:59 for LightShow_Boilerplate by
+    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_1699be727a800b1d059c6f7f2b91d2ee.html">game</a></li><li class="navelem"><a class="el" href="../../dir_ea91f20821427155bebd6a692e01ce3a.html">global</a></li><li class="navelem"><a class="el" href="../../de/d50/_game_info_8h.html">GameInfo.h</a></li>
+    <li class="footer">Generated on Thu Mar 12 2020 18:24:02 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

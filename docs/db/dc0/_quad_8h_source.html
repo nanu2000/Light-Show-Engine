@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>LightShow_Boilerplate: src/Quad.h Source File</title>
+<title>LightShow_Boilerplate: src/game/3dm/shapes/Quad.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -96,62 +96,63 @@ $(document).ready(function(){initNavTree('db/dc0/_quad_8h_source.html','../../')
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/df8/class_quad.html#a424c01ecd59971dc51e39bc19fbda551">render3D</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d51/class_shader.html">Shader</a>&amp; shader, GLint textureID, glm::mat4&amp; modelMatrix);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/df8/class_quad.html#ad5b31c8bb8ec0ed48b878a35b78df0e9">render2D</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d51/class_shader.html">Shader</a>&amp; shader, GLint textureID);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="../../d3/df8/class_quad.html#a5db77c0481b30c0b7c1014cc535284ad">~Quad</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/df8/class_quad.html#ab6f9562308559b344d2e0d1e1cf3a0cf">init</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d3/df8/class_quad.html#a4f7e9abdf10078f0db8221e0f7def6bb">   29</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../d3/df8/class_quad.html#a4f7e9abdf10078f0db8221e0f7def6bb">hasInit</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d3/df8/class_quad.html#a4e1a575823328a627c1e0e238374cc9e">   31</a></span>&#160;    GLuint <a class="code" href="../../d3/df8/class_quad.html#a4e1a575823328a627c1e0e238374cc9e">quadVAO</a>                    = 0;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d3/df8/class_quad.html#aae606aeea726563a0cbe855f0f82e52e">   32</a></span>&#160;    GLuint <a class="code" href="../../d3/df8/class_quad.html#aae606aeea726563a0cbe855f0f82e52e">quadVBO</a>                    = 0;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d3/df8/class_quad.html#aded2fdcd4f73b6136b89ce8060c4ddb9">   33</a></span>&#160;    std::vector&lt;GLfloat&gt; <a class="code" href="../../d3/df8/class_quad.html#aded2fdcd4f73b6136b89ce8060c4ddb9">quadVertices</a> = {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="comment">//top left</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        -1.0f, 1.0f,</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        0, 1,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">//bottom left</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        -1.0f, -1.0f,</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        0, 0,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">// top right</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        1.0f, 1.0f,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        1, 1,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">// bottom right</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        1.0f, -1.0f,</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        1, 0</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    };</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/df8/class_quad.html#ad5b31c8bb8ec0ed48b878a35b78df0e9">render2D</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d51/class_shader.html">Shader</a>&amp; shader, GLint textureID, GLint textureType);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="../../d3/df8/class_quad.html#a5db77c0481b30c0b7c1014cc535284ad">~Quad</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/df8/class_quad.html#ab6f9562308559b344d2e0d1e1cf3a0cf">init</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d3/df8/class_quad.html#a4f7e9abdf10078f0db8221e0f7def6bb">   30</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../d3/df8/class_quad.html#a4f7e9abdf10078f0db8221e0f7def6bb">hasInit</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d3/df8/class_quad.html#a4e1a575823328a627c1e0e238374cc9e">   32</a></span>&#160;    GLuint <a class="code" href="../../d3/df8/class_quad.html#a4e1a575823328a627c1e0e238374cc9e">quadVAO</a>                    = 0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d3/df8/class_quad.html#aae606aeea726563a0cbe855f0f82e52e">   33</a></span>&#160;    GLuint <a class="code" href="../../d3/df8/class_quad.html#aae606aeea726563a0cbe855f0f82e52e">quadVBO</a>                    = 0;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d3/df8/class_quad.html#aded2fdcd4f73b6136b89ce8060c4ddb9">   34</a></span>&#160;    std::vector&lt;GLfloat&gt; <a class="code" href="../../d3/df8/class_quad.html#aded2fdcd4f73b6136b89ce8060c4ddb9">quadVertices</a> = {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">//top left</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        -1.0f, 1.0f,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        0, 1,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">//bottom left</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        -1.0f, -1.0f,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        0, 0,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">// top right</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        1.0f, 1.0f,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        1, 1,</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">// bottom right</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        1.0f, -1.0f,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        1, 0</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    };</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_quad_html_ab6f9562308559b344d2e0d1e1cf3a0cf"><div class="ttname"><a href="../../d3/df8/class_quad.html#ab6f9562308559b344d2e0d1e1cf3a0cf">Quad::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d22/_quad_8cpp_source.html#l00003">Quad.cpp:3</a></div></div>
-<div class="ttc" id="aclass_quad_html_a4f7e9abdf10078f0db8221e0f7def6bb"><div class="ttname"><a href="../../d3/df8/class_quad.html#a4f7e9abdf10078f0db8221e0f7def6bb">Quad::hasInit</a></div><div class="ttdeci">bool hasInit</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc0/_quad_8h_source.html#l00029">Quad.h:29</a></div></div>
+<div class="ttc" id="aclass_quad_html_a4f7e9abdf10078f0db8221e0f7def6bb"><div class="ttname"><a href="../../d3/df8/class_quad.html#a4f7e9abdf10078f0db8221e0f7def6bb">Quad::hasInit</a></div><div class="ttdeci">bool hasInit</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc0/_quad_8h_source.html#l00030">Quad.h:30</a></div></div>
 <div class="ttc" id="aclass_texture_html"><div class="ttname"><a href="../../d2/d7f/class_texture.html">Texture</a></div><div class="ttdef"><b>Definition:</b> <a href="../../de/dbf/_texture_8h_source.html#l00015">Texture.h:15</a></div></div>
 <div class="ttc" id="a_shaders_8h_html"><div class="ttname"><a href="../../d2/d06/_shaders_8h.html">Shaders.h</a></div></div>
 <div class="ttc" id="a_shader_8h_html"><div class="ttname"><a href="../../d8/d34/_shader_8h.html">Shader.h</a></div></div>
-<div class="ttc" id="aclass_quad_html_a5db77c0481b30c0b7c1014cc535284ad"><div class="ttname"><a href="../../d3/df8/class_quad.html#a5db77c0481b30c0b7c1014cc535284ad">Quad::~Quad</a></div><div class="ttdeci">~Quad()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d22/_quad_8cpp_source.html#l00161">Quad.cpp:161</a></div></div>
-<div class="ttc" id="aclass_quad_html_aae606aeea726563a0cbe855f0f82e52e"><div class="ttname"><a href="../../d3/df8/class_quad.html#aae606aeea726563a0cbe855f0f82e52e">Quad::quadVBO</a></div><div class="ttdeci">GLuint quadVBO</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc0/_quad_8h_source.html#l00032">Quad.h:32</a></div></div>
-<div class="ttc" id="aclass_quad_html_aded2fdcd4f73b6136b89ce8060c4ddb9"><div class="ttname"><a href="../../d3/df8/class_quad.html#aded2fdcd4f73b6136b89ce8060c4ddb9">Quad::quadVertices</a></div><div class="ttdeci">std::vector&lt; GLfloat &gt; quadVertices</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc0/_quad_8h_source.html#l00033">Quad.h:33</a></div></div>
+<div class="ttc" id="aclass_quad_html_a5db77c0481b30c0b7c1014cc535284ad"><div class="ttname"><a href="../../d3/df8/class_quad.html#a5db77c0481b30c0b7c1014cc535284ad">Quad::~Quad</a></div><div class="ttdeci">~Quad()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d22/_quad_8cpp_source.html#l00165">Quad.cpp:165</a></div></div>
+<div class="ttc" id="aclass_quad_html_aae606aeea726563a0cbe855f0f82e52e"><div class="ttname"><a href="../../d3/df8/class_quad.html#aae606aeea726563a0cbe855f0f82e52e">Quad::quadVBO</a></div><div class="ttdeci">GLuint quadVBO</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc0/_quad_8h_source.html#l00033">Quad.h:33</a></div></div>
+<div class="ttc" id="aclass_quad_html_aded2fdcd4f73b6136b89ce8060c4ddb9"><div class="ttname"><a href="../../d3/df8/class_quad.html#aded2fdcd4f73b6136b89ce8060c4ddb9">Quad::quadVertices</a></div><div class="ttdeci">std::vector&lt; GLfloat &gt; quadVertices</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc0/_quad_8h_source.html#l00034">Quad.h:34</a></div></div>
 <div class="ttc" id="a_transform_8h_html"><div class="ttname"><a href="../../db/d56/_transform_8h.html">Transform.h</a></div></div>
 <div class="ttc" id="aclass_quad_html_ad5b31c8bb8ec0ed48b878a35b78df0e9"><div class="ttname"><a href="../../d3/df8/class_quad.html#ad5b31c8bb8ec0ed48b878a35b78df0e9">Quad::render2D</a></div><div class="ttdeci">void render2D(const Shader &amp;shader, GLint textureID)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d22/_quad_8cpp_source.html#l00140">Quad.cpp:140</a></div></div>
 <div class="ttc" id="a_texture_8h_html"><div class="ttname"><a href="../../de/dbf/_texture_8h.html">Texture.h</a></div></div>
 <div class="ttc" id="aclass_quad_html_a424c01ecd59971dc51e39bc19fbda551"><div class="ttname"><a href="../../d3/df8/class_quad.html#a424c01ecd59971dc51e39bc19fbda551">Quad::render3D</a></div><div class="ttdeci">void render3D(const Shader &amp;shader, const Texture &amp;texture, const glm::vec4 &amp;spriteOrientationInPixels, const glm::vec2 &amp;positionInPixels, const glm::vec2 &amp;scaleInPixels)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d22/_quad_8cpp_source.html#l00017">Quad.cpp:17</a></div></div>
-<div class="ttc" id="aclass_quad_html_a4e1a575823328a627c1e0e238374cc9e"><div class="ttname"><a href="../../d3/df8/class_quad.html#a4e1a575823328a627c1e0e238374cc9e">Quad::quadVAO</a></div><div class="ttdeci">GLuint quadVAO</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc0/_quad_8h_source.html#l00031">Quad.h:31</a></div></div>
+<div class="ttc" id="aclass_quad_html_a4e1a575823328a627c1e0e238374cc9e"><div class="ttname"><a href="../../d3/df8/class_quad.html#a4e1a575823328a627c1e0e238374cc9e">Quad::quadVAO</a></div><div class="ttdeci">GLuint quadVAO</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc0/_quad_8h_source.html#l00032">Quad.h:32</a></div></div>
 <div class="ttc" id="aclass_shader_html"><div class="ttname"><a href="../../d1/d51/class_shader.html">Shader</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d34/_shader_8h_source.html#l00019">Shader.h:19</a></div></div>
 <div class="ttc" id="aclass_quad_html"><div class="ttname"><a href="../../d3/df8/class_quad.html">Quad</a></div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc0/_quad_8h_source.html#l00011">Quad.h:11</a></div></div>
 <div class="ttc" id="a_game_info_8h_html"><div class="ttname"><a href="../../de/d50/_game_info_8h.html">GameInfo.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../db/dc0/_quad_8h.html">Quad.h</a></li>
-    <li class="footer">Generated on Thu Feb 6 2020 23:05:59 for LightShow_Boilerplate by
+    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_1699be727a800b1d059c6f7f2b91d2ee.html">game</a></li><li class="navelem"><a class="el" href="../../dir_d1b0978795960abe46c1156044e7286d.html">3dm</a></li><li class="navelem"><a class="el" href="../../dir_c120d2c500102c89fd3c647687fe59aa.html">shapes</a></li><li class="navelem"><a class="el" href="../../db/dc0/_quad_8h.html">Quad.h</a></li>
+    <li class="footer">Generated on Thu Mar 12 2020 18:24:01 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

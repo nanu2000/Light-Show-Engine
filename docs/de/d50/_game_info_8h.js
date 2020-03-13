@@ -14,7 +14,6 @@ var _game_info_8h =
     [ "terminateGame", "de/d50/_game_info_8h.html#aeddde82dcc07940ccb9368a5dedc54a4", null ],
     [ "BT_VEC3_ZERO", "de/d50/_game_info_8h.html#a57d45f9eef61361a27323729a5d448a7", null ],
     [ "COLLISION_TAG_C_STR", "de/d50/_game_info_8h.html#a880d663ce988c23918980588d2b6ca20", null ],
-    [ "DEBUG_COLOR", "de/d50/_game_info_8h.html#a6f79e00a222bc6260e423249a5a05deb", null ],
     [ "DEFAULT_GRAVITY", "de/d50/_game_info_8h.html#a673ece59517ff41f70fd3c72f73ef681", null ],
     [ "DEFAULT_MESSAGE_CAPACITY", "de/d50/_game_info_8h.html#a9924f2a3cff99c42159446036d89c57e", null ],
     [ "deltaTime", "de/d50/_game_info_8h.html#aab7a3bbfdb3af3149cb9ad7bf1ec1c46", null ],

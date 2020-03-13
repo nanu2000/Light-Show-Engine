@@ -11,6 +11,5 @@ var namespace__3_d_m =
     [ "Model", "d3/d96/class__3_d_m_1_1_model.html", "d3/d96/class__3_d_m_1_1_model" ],
     [ "ModelTexture", "d6/d7a/struct__3_d_m_1_1_model_texture.html", "d6/d7a/struct__3_d_m_1_1_model_texture" ],
     [ "QuatKey", "d0/d15/struct__3_d_m_1_1_quat_key.html", "d0/d15/struct__3_d_m_1_1_quat_key" ],
-    [ "UnidentifiedModel", "d3/dca/class__3_d_m_1_1_unidentified_model.html", "d3/dca/class__3_d_m_1_1_unidentified_model" ],
     [ "Vector3Key", "d4/d33/struct__3_d_m_1_1_vector3_key.html", "d4/d33/struct__3_d_m_1_1_vector3_key" ]
 ];

@@ -78,6 +78,9 @@ $(document).ready(function(){initNavTree('d1/d23/class_null_input.html','../../'
 </div><!--header-->
 <div class="contents">
 
+<p>Used for the <a class="el" href="../../dd/d9c/class_input_locator.html">InputLocator</a> if no services have been provided.  
+ <a href="../../d1/d23/class_null_input.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d2/d94/_input_8h_source.html">Input.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Inheritance diagram for NullInput:</div>
@@ -96,26 +99,37 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a974681c34f1753accf6370fec3314901"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d23/class_null_input.html#a974681c34f1753accf6370fec3314901">NullInput</a> ()</td></tr>
 <tr class="separator:a974681c34f1753accf6370fec3314901"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad10fab641ff61e87ec88e22eecc8f53a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d23/class_null_input.html#ad10fab641ff61e87ec88e22eecc8f53a">handleEvents</a> (SDL_Event &amp;sdlEventSystem, SDL_EventType t) override</td></tr>
+<tr class="memdesc:ad10fab641ff61e87ec88e22eecc8f53a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by <a class="el" href="../../d0/d42/_application_8cpp.html">Application.cpp</a> to handle SDL's new events.  <a href="../../d1/d23/class_null_input.html#ad10fab641ff61e87ec88e22eecc8f53a">More...</a><br /></td></tr>
 <tr class="separator:ad10fab641ff61e87ec88e22eecc8f53a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea4768c9f52c56cec69fb2f19a8ca795"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d23/class_null_input.html#aea4768c9f52c56cec69fb2f19a8ca795">isKeyDown</a> (const SDL_Keycode &amp;keycode) override</td></tr>
+<tr class="memdesc:aea4768c9f52c56cec69fb2f19a8ca795"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a key is pressed.  <a href="../../d1/d23/class_null_input.html#aea4768c9f52c56cec69fb2f19a8ca795">More...</a><br /></td></tr>
 <tr class="separator:aea4768c9f52c56cec69fb2f19a8ca795"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e03ffcfd8002c7baa70255ffa9246c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d23/class_null_input.html#a8e03ffcfd8002c7baa70255ffa9246c7">getMouseButton</a> (<a class="el" href="../../d2/d94/_input_8h.html#a3d2484fac070b8d8b0ea5ed1ff5b5d58">MOUSE_BUTTON</a>) override</td></tr>
-<tr class="separator:a8e03ffcfd8002c7baa70255ffa9246c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a77a608998584c5ba5cd85097528994"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d23/class_null_input.html#a5a77a608998584c5ba5cd85097528994">keyPressedOnce</a> (const SDL_Keycode &amp;keycode) override</td></tr>
-<tr class="separator:a5a77a608998584c5ba5cd85097528994"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a971796d36cf1d10201d05f9cae70e9bc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d23/class_null_input.html#a971796d36cf1d10201d05f9cae70e9bc">mousePressedOnce</a> (<a class="el" href="../../d2/d94/_input_8h.html#a3d2484fac070b8d8b0ea5ed1ff5b5d58">MOUSE_BUTTON</a>) override</td></tr>
-<tr class="separator:a971796d36cf1d10201d05f9cae70e9bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef6c8a0e0756696b89056f1d885a550e"><td class="memItemLeft" align="right" valign="top">virtual glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d23/class_null_input.html#aef6c8a0e0756696b89056f1d885a550e">getMouseDelta</a> () const override</td></tr>
-<tr class="separator:aef6c8a0e0756696b89056f1d885a550e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6516160c5ff04f7ff9ac4dfeb9a648fa"><td class="memItemLeft" align="right" valign="top">glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d23/class_null_input.html#a6516160c5ff04f7ff9ac4dfeb9a648fa">getMousePosition</a> () const override</td></tr>
-<tr class="separator:a6516160c5ff04f7ff9ac4dfeb9a648fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f2d2f5472be29c790e2471efce1a3a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d23/class_null_input.html#a7f2d2f5472be29c790e2471efce1a3a6">isMouseButtonPressed</a> (<a class="el" href="../../d2/d94/_input_8h.html#a3d2484fac070b8d8b0ea5ed1ff5b5d58">MOUSE_BUTTON</a>) override</td></tr>
+<tr class="memdesc:a7f2d2f5472be29c790e2471efce1a3a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a mouse button is pressed.  <a href="../../d1/d23/class_null_input.html#a7f2d2f5472be29c790e2471efce1a3a6">More...</a><br /></td></tr>
+<tr class="separator:a7f2d2f5472be29c790e2471efce1a3a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af145edebe53b4ddda1954e2a6c2bb631"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d23/class_null_input.html#af145edebe53b4ddda1954e2a6c2bb631">isKeyPressedOnce</a> (const SDL_Keycode &amp;keycode) override</td></tr>
+<tr class="memdesc:af145edebe53b4ddda1954e2a6c2bb631"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the key is pressed and returns true if the timeBetweenPress is zero, if it's the first press, or if timeUntilContinious is 0.  <a href="../../d1/d23/class_null_input.html#af145edebe53b4ddda1954e2a6c2bb631">More...</a><br /></td></tr>
+<tr class="separator:af145edebe53b4ddda1954e2a6c2bb631"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a347a2a3201ede69d598dba7601c93eed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d23/class_null_input.html#a347a2a3201ede69d598dba7601c93eed">isMousePressedOnce</a> (<a class="el" href="../../d2/d94/_input_8h.html#a3d2484fac070b8d8b0ea5ed1ff5b5d58">MOUSE_BUTTON</a>) override</td></tr>
+<tr class="memdesc:a347a2a3201ede69d598dba7601c93eed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the mouse is pressed and returns true if the timeBetweenPress is zero, if it's the first press, or if timeUntilContinious is 0.  <a href="../../d1/d23/class_null_input.html#a347a2a3201ede69d598dba7601c93eed">More...</a><br /></td></tr>
+<tr class="separator:a347a2a3201ede69d598dba7601c93eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85bd7ec39177d5974784978583025c83"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d23/class_null_input.html#a85bd7ec39177d5974784978583025c83">updateTimers</a> (float dt) override</td></tr>
+<tr class="memdesc:a85bd7ec39177d5974784978583025c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates timers for timeBetweenPress and timeBetweenPressReset. Should only be called in <a class="el" href="../../d0/d42/_application_8cpp.html">Application.cpp</a>.  <a href="../../d1/d23/class_null_input.html#a85bd7ec39177d5974784978583025c83">More...</a><br /></td></tr>
+<tr class="separator:a85bd7ec39177d5974784978583025c83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae63f54e8de85f84a728b9e8575249e47"><td class="memItemLeft" align="right" valign="top">virtual glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d23/class_null_input.html#ae63f54e8de85f84a728b9e8575249e47">getMouseDelta</a> () const override</td></tr>
+<tr class="memdesc:ae63f54e8de85f84a728b9e8575249e47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the mouse position relative to the center of the screen.  <a href="../../d1/d23/class_null_input.html#ae63f54e8de85f84a728b9e8575249e47">More...</a><br /></td></tr>
+<tr class="separator:ae63f54e8de85f84a728b9e8575249e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19730326bb2fbbbcb9481f1554bf723c"><td class="memItemLeft" align="right" valign="top">virtual glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d23/class_null_input.html#a19730326bb2fbbbcb9481f1554bf723c">getMousePosition</a> () const override</td></tr>
+<tr class="memdesc:a19730326bb2fbbbcb9481f1554bf723c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the mouse position relative to the top left of the screen.  <a href="../../d1/d23/class_null_input.html#a19730326bb2fbbbcb9481f1554bf723c">More...</a><br /></td></tr>
+<tr class="separator:a19730326bb2fbbbcb9481f1554bf723c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_input"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_input')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d4/d7b/class_input.html">Input</a></td></tr>
 <tr class="memitem:abae3f379d3f157cf42dc857309832dba inherit pub_methods_class_input"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7b/class_input.html#abae3f379d3f157cf42dc857309832dba">Input</a> ()</td></tr>
 <tr class="separator:abae3f379d3f157cf42dc857309832dba inherit pub_methods_class_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d2/d94/_input_8h_source.html#l00046">46</a> of file <a class="el" href="../../d2/d94/_input_8h_source.html">Input.h</a>.</p>
+<div class="textblock"><p>Used for the <a class="el" href="../../dd/d9c/class_input_locator.html">InputLocator</a> if no services have been provided. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d94/_input_8h_source.html#l00090">90</a> of file <a class="el" href="../../d2/d94/_input_8h_source.html">Input.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a974681c34f1753accf6370fec3314901"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a974681c34f1753accf6370fec3314901">&#9670;&nbsp;</a></span>NullInput()</h2>
@@ -132,13 +146,13 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d47/_input_8cpp_source.html#l00088">88</a> of file <a class="el" href="../../d7/d47/_input_8cpp_source.html">Input.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d47/_input_8cpp_source.html#l00134">134</a> of file <a class="el" href="../../d7/d47/_input_8cpp_source.html">Input.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8e03ffcfd8002c7baa70255ffa9246c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e03ffcfd8002c7baa70255ffa9246c7">&#9670;&nbsp;</a></span>getMouseButton()</h2>
+<a id="ae63f54e8de85f84a728b9e8575249e47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae63f54e8de85f84a728b9e8575249e47">&#9670;&nbsp;</a></span>getMouseDelta()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,37 +161,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool NullInput::getMouseButton </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d2/d94/_input_8h.html#a3d2484fac070b8d8b0ea5ed1ff5b5d58">MOUSE_BUTTON</a>&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="../../d4/d7b/class_input.html#a8e3bbc45ca89de6dc03cd870d0909345">Input</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d47/_input_8cpp_source.html#l00115">115</a> of file <a class="el" href="../../d7/d47/_input_8cpp_source.html">Input.cpp</a>.</p>
-
-</div>
-</div>
-<a id="aef6c8a0e0756696b89056f1d885a550e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef6c8a0e0756696b89056f1d885a550e">&#9670;&nbsp;</a></span>getMouseDelta()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">glm::ivec2 NullInput::getMouseDelta </td>
+          <td class="memname">virtual glm::ivec2 NullInput::getMouseDelta </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -185,19 +169,22 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="../../d4/d7b/class_input.html#a971adcc605a1101f162e2be7a5c16a5e">Input</a>.</p>
+<p>Returns the mouse position relative to the center of the screen. </p>
+<p>To get the delta value, the mouse position is expected to be set to the window's center every FixedUpdate. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d47/_input_8cpp_source.html#l00107">107</a> of file <a class="el" href="../../d7/d47/_input_8cpp_source.html">Input.cpp</a>.</p>
+<p>Reimplemented from <a class="el" href="../../d4/d7b/class_input.html#afb85287288b7747a8bb1e2ad61e89557">Input</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d94/_input_8h_source.html#l00107">107</a> of file <a class="el" href="../../d2/d94/_input_8h_source.html">Input.h</a>.</p>
 
 </div>
 </div>
-<a id="a6516160c5ff04f7ff9ac4dfeb9a648fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6516160c5ff04f7ff9ac4dfeb9a648fa">&#9670;&nbsp;</a></span>getMousePosition()</h2>
+<a id="a19730326bb2fbbbcb9481f1554bf723c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19730326bb2fbbbcb9481f1554bf723c">&#9670;&nbsp;</a></span>getMousePosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -206,7 +193,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">glm::ivec2 NullInput::getMousePosition </td>
+          <td class="memname">virtual glm::ivec2 NullInput::getMousePosition </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -214,14 +201,16 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="../../d4/d7b/class_input.html#aa10d2871226e0b497010dfca43fe278b">Input</a>.</p>
+<p>Returns the mouse position relative to the top left of the screen. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d47/_input_8cpp_source.html#l00118">118</a> of file <a class="el" href="../../d7/d47/_input_8cpp_source.html">Input.cpp</a>.</p>
+<p>Reimplemented from <a class="el" href="../../d4/d7b/class_input.html#af92e232f1dd0ef6f1a14a9816ab20b7c">Input</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d94/_input_8h_source.html#l00110">110</a> of file <a class="el" href="../../d2/d94/_input_8h_source.html">Input.h</a>.</p>
 
 </div>
 </div>
@@ -259,9 +248,11 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Called by <a class="el" href="../../d0/d42/_application_8cpp.html">Application.cpp</a> to handle SDL's new events. </p>
+
 <p>Reimplemented from <a class="el" href="../../d4/d7b/class_input.html#a3ef03fa6f1279b8040f4f9ec8a33d9d6">Input</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d47/_input_8cpp_source.html#l00093">93</a> of file <a class="el" href="../../d7/d47/_input_8cpp_source.html">Input.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d47/_input_8cpp_source.html#l00139">139</a> of file <a class="el" href="../../d7/d47/_input_8cpp_source.html">Input.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00005">GameInfo::terminateGame()</a>.</p>
 
@@ -291,14 +282,16 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Checks if a key is pressed. </p>
+
 <p>Reimplemented from <a class="el" href="../../d4/d7b/class_input.html#a2259a48cd4dfed4e95f1d7f82786679a">Input</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d47/_input_8cpp_source.html#l00111">111</a> of file <a class="el" href="../../d7/d47/_input_8cpp_source.html">Input.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d47/_input_8cpp_source.html#l00153">153</a> of file <a class="el" href="../../d7/d47/_input_8cpp_source.html">Input.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a5a77a608998584c5ba5cd85097528994"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a77a608998584c5ba5cd85097528994">&#9670;&nbsp;</a></span>keyPressedOnce()</h2>
+<a id="af145edebe53b4ddda1954e2a6c2bb631"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af145edebe53b4ddda1954e2a6c2bb631">&#9670;&nbsp;</a></span>isKeyPressedOnce()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -307,7 +300,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool NullInput::keyPressedOnce </td>
+          <td class="memname">bool NullInput::isKeyPressedOnce </td>
           <td>(</td>
           <td class="paramtype">const SDL_Keycode &amp;&#160;</td>
           <td class="paramname"><em>keycode</em></td><td>)</td>
@@ -321,14 +314,17 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="../../d4/d7b/class_input.html#a2aaf873636cedf13e51a424eb6ea802b">Input</a>.</p>
+<p>Checks if the key is pressed and returns true if the timeBetweenPress is zero, if it's the first press, or if timeUntilContinious is 0. </p>
+<p>NOTE: isPressedOnce function's timeBeetweenPress only works properly in Update, not FixedUpdate. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d47/_input_8cpp_source.html#l00090">90</a> of file <a class="el" href="../../d7/d47/_input_8cpp_source.html">Input.cpp</a>.</p>
+<p>Reimplemented from <a class="el" href="../../d4/d7b/class_input.html#a4c64cab3eea3c9af34c2e50d7d6e9d83">Input</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d47/_input_8cpp_source.html#l00136">136</a> of file <a class="el" href="../../d7/d47/_input_8cpp_source.html">Input.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a971796d36cf1d10201d05f9cae70e9bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a971796d36cf1d10201d05f9cae70e9bc">&#9670;&nbsp;</a></span>mousePressedOnce()</h2>
+<a id="a7f2d2f5472be29c790e2471efce1a3a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f2d2f5472be29c790e2471efce1a3a6">&#9670;&nbsp;</a></span>isMouseButtonPressed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -337,10 +333,10 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool NullInput::mousePressedOnce </td>
+          <td class="memname">bool NullInput::isMouseButtonPressed </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d2/d94/_input_8h.html#a3d2484fac070b8d8b0ea5ed1ff5b5d58">MOUSE_BUTTON</a>&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
+          <td class="paramname"><em>ind</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -351,15 +347,82 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="../../d4/d7b/class_input.html#a6445c902639e292faca482aff3724327">Input</a>.</p>
+<p>Checks if a mouse button is pressed. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d47/_input_8cpp_source.html#l00103">103</a> of file <a class="el" href="../../d7/d47/_input_8cpp_source.html">Input.cpp</a>.</p>
+<p>Reimplemented from <a class="el" href="../../d4/d7b/class_input.html#ae852f9825ce6a8d2811b485087e07c75">Input</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d47/_input_8cpp_source.html#l00157">157</a> of file <a class="el" href="../../d7/d47/_input_8cpp_source.html">Input.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a347a2a3201ede69d598dba7601c93eed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a347a2a3201ede69d598dba7601c93eed">&#9670;&nbsp;</a></span>isMousePressedOnce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NullInput::isMousePressedOnce </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d94/_input_8h.html#a3d2484fac070b8d8b0ea5ed1ff5b5d58">MOUSE_BUTTON</a>&#160;</td>
+          <td class="paramname"><em>ind</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the mouse is pressed and returns true if the timeBetweenPress is zero, if it's the first press, or if timeUntilContinious is 0. </p>
+<p>NOTE: isPressedOnce function's timeBeetweenPress only works properly in Update, not FixedUpdate. </p>
+
+<p>Reimplemented from <a class="el" href="../../d4/d7b/class_input.html#a4a03f0b8649bcae6746023634ec6e4c7">Input</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d47/_input_8cpp_source.html#l00149">149</a> of file <a class="el" href="../../d7/d47/_input_8cpp_source.html">Input.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a85bd7ec39177d5974784978583025c83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85bd7ec39177d5974784978583025c83">&#9670;&nbsp;</a></span>updateTimers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void NullInput::updateTimers </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates timers for timeBetweenPress and timeBetweenPressReset. Should only be called in <a class="el" href="../../d0/d42/_application_8cpp.html">Application.cpp</a>. </p>
+
+<p>Reimplemented from <a class="el" href="../../d4/d7b/class_input.html#a03248fbbb120e7168c136c64bc932612">Input</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d94/_input_8h_source.html#l00105">105</a> of file <a class="el" href="../../d2/d94/_input_8h_source.html">Input.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="../../d2/d94/_input_8h_source.html">Input.h</a></li>
-<li>src/<a class="el" href="../../d7/d47/_input_8cpp_source.html">Input.cpp</a></li>
+<li>src/engine/locators/<a class="el" href="../../d2/d94/_input_8h_source.html">Input.h</a></li>
+<li>src/engine/locators/<a class="el" href="../../d7/d47/_input_8cpp_source.html">Input.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -367,7 +430,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d1/d23/class_null_input.html">NullInput</a></li>
-    <li class="footer">Generated on Thu Feb 6 2020 23:06:00 for LightShow_Boilerplate by
+    <li class="footer">Generated on Thu Mar 12 2020 18:24:03 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

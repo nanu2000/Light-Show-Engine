@@ -18,6 +18,7 @@ var _helping_hand_8h =
     [ "signedRadiansBetweenVectors", "d7/d26/_helping_hand_8h.html#aa744e19f5c464bf275c30a824f81b06e", null ],
     [ "sphericalToCartisean", "d7/d26/_helping_hand_8h.html#ad58b31143e949894df4e3ca4eaa20550", null ],
     [ "swapVal", "d7/d26/_helping_hand_8h.html#a2e3a10a982e697caaecbe192184d35c1", null ],
+    [ "toBtQuat", "d7/d26/_helping_hand_8h.html#aa6fa1f9a58ae4b90867b401edea694e4", null ],
     [ "toBtVec3", "d7/d26/_helping_hand_8h.html#aa0102ec32d9d665ebdda89fa4c03c5b6", null ],
     [ "toGlmQuat", "d7/d26/_helping_hand_8h.html#ab959ffbb77b52e2f0b42582c23117eb4", null ],
     [ "toGlmVec3", "d7/d26/_helping_hand_8h.html#ad5fffa12ef6d4badda8b6db66b21f4fb", null ],

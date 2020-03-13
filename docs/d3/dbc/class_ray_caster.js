@@ -8,6 +8,8 @@ var class_ray_caster =
     [ "getHitFractionRaySpace", "d3/dbc/class_ray_caster.html#a43455e12a824e4945575324cfd7b2709", null ],
     [ "getHitNormal", "d3/dbc/class_ray_caster.html#ab40a61c642c4bd5e6c6931803c3269eb", null ],
     [ "getLength", "d3/dbc/class_ray_caster.html#a5edbf39fa4e279c529222aa22291f22d", null ],
+    [ "getRayFrom", "d3/dbc/class_ray_caster.html#a068a6f42bc1cc3d66cd5857ae76ba4f8", null ],
+    [ "getRayTo", "d3/dbc/class_ray_caster.html#aa3238277fd5f43bea49462684e139479", null ],
     [ "hasHit", "d3/dbc/class_ray_caster.html#afb0166f1cfefa01174cf50bd6f4a09a3", null ],
     [ "rayTest", "d3/dbc/class_ray_caster.html#abef1bda7c02b3cb13617706bf18faea9", null ],
     [ "rayTest", "d3/dbc/class_ray_caster.html#a0c0a15adc1ce054abf7f3ce192b6dd2b", null ],

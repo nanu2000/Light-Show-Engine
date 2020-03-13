@@ -2,14 +2,80 @@
 <Tokens version="1.0">
   <Token>
     <TokenIdentifier>
-      <Name>MAX_BONES</Name>
+      <Name>nextType</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>_3DM</Scope>
+      <Scope>Important</Scope>
     </TokenIdentifier>
-    <Path>de/d02/namespace__3_d_m.html</Path>
-    <Anchor>a5b6aca6be356d4df3049b97951afea3b</Anchor>
-    <DeclaredIn>3DM_Info.h</DeclaredIn>
+    <Path>d3/dd4/namespace_important.html</Path>
+    <Anchor>a80916e1d2e36eaa8949c00ec546e3be9</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>TIME_BETWEEN_KEY_PRESS_RESET</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::InputData</Scope>
+    </TokenIdentifier>
+    <Path>d4/dee/namespace_engine_1_1_input_data.html</Path>
+    <Anchor>a7fa145017c5cc883b3f6d863a2ba6911</Anchor>
+    <Abstract>Time it takes to trigger another press for isPressedOnce.</Abstract>
+    <DeclaredIn>Input.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>TIME_UNTIL_CONTINIOUS_PRESS_RESET</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::InputData</Scope>
+    </TokenIdentifier>
+    <Path>d4/dee/namespace_engine_1_1_input_data.html</Path>
+    <Anchor>ab0ebabe96557c3446b41a54e055e44ef</Anchor>
+    <Abstract>Time it takes to trigger contious keypress for isPressedOnce.</Abstract>
+    <DeclaredIn>Input.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>NO_CONTINIOUS_PRESS</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::InputData</Scope>
+    </TokenIdentifier>
+    <Path>d4/dee/namespace_engine_1_1_input_data.html</Path>
+    <Anchor>a76493d3f9c70ae43124c399d6b1341f1</Anchor>
+    <Abstract>Disable continious press.</Abstract>
+    <DeclaredIn>Input.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>LeftButton</Name>
+      <APILanguage>c</APILanguage>
+      <Type>econst</Type>
+    </TokenIdentifier>
+    <Path>d2/d94/_input_8h.html</Path>
+    <Anchor>a3d2484fac070b8d8b0ea5ed1ff5b5d58a2a81c1ce439d7652d7a61d55229c8043</Anchor>
+    <DeclaredIn>Input.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>RightButton</Name>
+      <APILanguage>c</APILanguage>
+      <Type>econst</Type>
+    </TokenIdentifier>
+    <Path>d2/d94/_input_8h.html</Path>
+    <Anchor>a3d2484fac070b8d8b0ea5ed1ff5b5d58a7e264b46aade8e083656f1f0897220f3</Anchor>
+    <DeclaredIn>Input.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>MiddleButton</Name>
+      <APILanguage>c</APILanguage>
+      <Type>econst</Type>
+    </TokenIdentifier>
+    <Path>d2/d94/_input_8h.html</Path>
+    <Anchor>a3d2484fac070b8d8b0ea5ed1ff5b5d58aa196f1ff95059e191270f3bb6ab4a266</Anchor>
+    <DeclaredIn>Input.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -70,6 +136,123 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>main</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>d5/d12/_main_8cpp.html</Path>
+    <Anchor>a0ddf1224851353fc92bfbff6f499fa97</Anchor>
+    <DeclaredIn>Main.cpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>NULL_MESSAGE</Name>
+      <APILanguage>c</APILanguage>
+      <Type>econst</Type>
+    </TokenIdentifier>
+    <Path>df/de2/_messages_8h.html</Path>
+    <Anchor>adf36f3b862459340da2c2cbc8927d69fabba60353fe62a4eed8c486b71c20f573</Anchor>
+    <DeclaredIn>Messages.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>REFRESH_CAMERA</Name>
+      <APILanguage>c</APILanguage>
+      <Type>econst</Type>
+    </TokenIdentifier>
+    <Path>df/de2/_messages_8h.html</Path>
+    <Anchor>adf36f3b862459340da2c2cbc8927d69fa804ccb0b716091a27c938fa4092b846e</Anchor>
+    <DeclaredIn>Messages.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>MESSAGES_END</Name>
+      <APILanguage>c</APILanguage>
+      <Type>econst</Type>
+    </TokenIdentifier>
+    <Path>df/de2/_messages_8h.html</Path>
+    <Anchor>adf36f3b862459340da2c2cbc8927d69fac2251c8045ae372214e0b5bd8a6ee9e3</Anchor>
+    <DeclaredIn>Messages.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>MAX_AMOUNT_DEBUG_LINES</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DBG_DRAWER</Scope>
+    </TokenIdentifier>
+    <Path>d1/da4/namespace_engine_1_1_d_b_g___d_r_a_w_e_r.html</Path>
+    <Anchor>a72b082b264959dc33be3a0f21dfbc458</Anchor>
+    <DeclaredIn>DebugDrawer.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>DEBUG_LINE_WIDTH</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DBG_DRAWER</Scope>
+    </TokenIdentifier>
+    <Path>d1/da4/namespace_engine_1_1_d_b_g___d_r_a_w_e_r.html</Path>
+    <Anchor>a2b7562e9b687fd55b0aa0c8a6b8a0f6e</Anchor>
+    <DeclaredIn>DebugDrawer.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>MAX_BONES</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>_3DM</Scope>
+    </TokenIdentifier>
+    <Path>de/d02/namespace__3_d_m.html</Path>
+    <Anchor>a5b6aca6be356d4df3049b97951afea3b</Anchor>
+    <DeclaredIn>3DM_Info.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Mat_4_ROW_COL_SIZE</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>_3DM</Scope>
+    </TokenIdentifier>
+    <Path>de/d02/namespace__3_d_m.html</Path>
+    <Anchor>a25091800f3311eea21c50b602ab9e487</Anchor>
+    <DeclaredIn>ModelSerialization.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>DEFAULT_SIZE_OF_VECTOR</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>_3DM</Scope>
+    </TokenIdentifier>
+    <Path>de/d02/namespace__3_d_m.html</Path>
+    <Anchor>a162c70280dfac9ac94c8fccd2d5d35e1</Anchor>
+    <DeclaredIn>ModelSerialization.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>_3DMA_Signature</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>_3DM</Scope>
+    </TokenIdentifier>
+    <Path>de/d02/namespace__3_d_m.html</Path>
+    <Anchor>a7ec44d7923c13eb6c64c736c724bc8d0</Anchor>
+    <DeclaredIn>ModelSerialization.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>_3DM_Signature</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>_3DM</Scope>
+    </TokenIdentifier>
+    <Path>de/d02/namespace__3_d_m.html</Path>
+    <Anchor>ab023d20cfc970e7fb8f000371d1fa680</Anchor>
+    <DeclaredIn>ModelSerialization.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>DEFAULT_BONE_COLLIDER_SCALE</Name>
       <APILanguage>c</APILanguage>
       <Type>data</Type>
@@ -80,56 +263,13 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>nextType</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>Important</Scope>
+      <Name>RayResultCallback</Name>
+      <APILanguage>c</APILanguage>
+      <Type>tdef</Type>
     </TokenIdentifier>
-    <Path>d3/dd4/namespace_important.html</Path>
-    <Anchor>a80916e1d2e36eaa8949c00ec546e3be9</Anchor>
-    <DeclaredIn>Component.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>DBG_CHECK</Name>
-      <APILanguage>unknown</APILanguage>
-      <Type>macro</Type>
-    </TokenIdentifier>
-    <Path>d0/d4b/_debug_8h.html</Path>
-    <Anchor>a5e8e120b87a5d151f19b7c827d4fff13</Anchor>
-    <Abstract>Prints if condition is false.</Abstract>
-    <DeclaredIn>Debug.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>DEBUG</Name>
-      <APILanguage>unknown</APILanguage>
-      <Type>macro</Type>
-    </TokenIdentifier>
-    <Path>d0/d4b/_debug_8h.html</Path>
-    <Anchor>ad72dbcf6d0153db1b8d8a58001feed83</Anchor>
-    <DeclaredIn>Debug.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>DBG_LOG</Name>
-      <APILanguage>unknown</APILanguage>
-      <Type>macro</Type>
-    </TokenIdentifier>
-    <Path>d0/d4b/_debug_8h.html</Path>
-    <Anchor>a115b8cdc79239a202a0cd3855b4f1209</Anchor>
-    <DeclaredIn>Debug.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>MAX_AMOUNT_DEBUG_LINES</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>DBG_DRAWER</Scope>
-    </TokenIdentifier>
-    <Path>d1/db9/namespace_d_b_g___d_r_a_w_e_r.html</Path>
-    <Anchor>aa65fb1d30df6984ee65e7813c8782a55</Anchor>
-    <DeclaredIn>DebugDrawer.h</DeclaredIn>
+    <Path>dc/de5/_ray_caster_8h.html</Path>
+    <Anchor>aae916dc4400d62ca947c2f100a1f36d2</Anchor>
+    <DeclaredIn>RayCaster.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -223,47 +363,63 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>AMOUNT_OF_RAYS</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>ENEMY_CTRLR_NS</Scope>
+      <Name>Default</Name>
+      <APILanguage>c</APILanguage>
+      <Type>econst</Type>
     </TokenIdentifier>
-    <Path>d4/d37/namespace_e_n_e_m_y___c_t_r_l_r___n_s.html</Path>
-    <Anchor>ab0d57e55289158f41922c1bc4d1bd317</Anchor>
-    <DeclaredIn>EnemyControllerSystem.h</DeclaredIn>
+    <Path>d0/db0/_particles_8h.html</Path>
+    <Anchor>ac736a3b691a4251e1a7e5a9fd4cad39ba7a1920d61156abc05a60135aefe8bc67</Anchor>
+    <DeclaredIn>Particles.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>CLAMPING_VELOCITY</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>ENEMY_CTRLR_NS</Scope>
+      <Name>Fountain</Name>
+      <APILanguage>c</APILanguage>
+      <Type>econst</Type>
     </TokenIdentifier>
-    <Path>d4/d37/namespace_e_n_e_m_y___c_t_r_l_r___n_s.html</Path>
-    <Anchor>af1967c9bd9f7f4aa4f1e988bb51f36f8</Anchor>
-    <DeclaredIn>EnemyControllerSystem.h</DeclaredIn>
+    <Path>d0/db0/_particles_8h.html</Path>
+    <Anchor>ac736a3b691a4251e1a7e5a9fd4cad39ba7941ce00c308ef62cd69af52664e9788</Anchor>
+    <DeclaredIn>Particles.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>RAY_DISTANCE_CORRECTOR</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>ENEMY_CTRLR_NS</Scope>
+      <Name>Max</Name>
+      <APILanguage>c</APILanguage>
+      <Type>econst</Type>
     </TokenIdentifier>
-    <Path>d4/d37/namespace_e_n_e_m_y___c_t_r_l_r___n_s.html</Path>
-    <Anchor>ae402cf8564d87136cce7748600b7ed48</Anchor>
-    <DeclaredIn>EnemyControllerSystem.h</DeclaredIn>
+    <Path>d0/db0/_particles_8h.html</Path>
+    <Anchor>ac736a3b691a4251e1a7e5a9fd4cad39ba6a061313d22e51e0f25b7cd4dc065233</Anchor>
+    <DeclaredIn>Particles.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>rayCast</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>ENEMY_CTRLR_NS</Scope>
+      <Name>All</Name>
+      <APILanguage>c</APILanguage>
+      <Type>econst</Type>
     </TokenIdentifier>
-    <Path>d4/d37/namespace_e_n_e_m_y___c_t_r_l_r___n_s.html</Path>
-    <Anchor>ade4c8adcfa4d9a09d892873591ac2269</Anchor>
-    <DeclaredIn>EnemyControllerSystem.h</DeclaredIn>
+    <Path>d9/dbc/_player_controller_8h.html</Path>
+    <Anchor>a8e286c00e9f80489caca0a2150ec7ea1ab1c94ca2fbc3e78fc30069c8d0f01680</Anchor>
+    <DeclaredIn>PlayerController.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Idle</Name>
+      <APILanguage>c</APILanguage>
+      <Type>econst</Type>
+    </TokenIdentifier>
+    <Path>d9/dbc/_player_controller_8h.html</Path>
+    <Anchor>a8e286c00e9f80489caca0a2150ec7ea1ae599161956d626eda4cb0a5ffb85271c</Anchor>
+    <DeclaredIn>PlayerController.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Walking</Name>
+      <APILanguage>c</APILanguage>
+      <Type>econst</Type>
+    </TokenIdentifier>
+    <Path>d9/dbc/_player_controller_8h.html</Path>
+    <Anchor>a8e286c00e9f80489caca0a2150ec7ea1adb6ea77c7cd8a86b17014c3b688fd1a1</Anchor>
+    <DeclaredIn>PlayerController.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -312,6 +468,48 @@
     <Anchor>a1b8c9385589a3e52c2d6dc8e0f930972</Anchor>
     <Abstract>Map of entity constructors.</Abstract>
     <DeclaredIn>EntityTests.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>scenes</Name>
+      <APILanguage>c</APILanguage>
+      <Type>data</Type>
+    </TokenIdentifier>
+    <Path>df/dae/_scenes_8h.html</Path>
+    <Anchor>a1e872f09cb44811bb724936b7f9969f7</Anchor>
+    <Abstract>Soon to be moved into json.</Abstract>
+    <DeclaredIn>Scenes.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>DBG_CHECK</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>d0/d4b/_debug_8h.html</Path>
+    <Anchor>a5e8e120b87a5d151f19b7c827d4fff13</Anchor>
+    <Abstract>Prints if condition is false.</Abstract>
+    <DeclaredIn>Debug.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>DEBUG</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>d0/d4b/_debug_8h.html</Path>
+    <Anchor>ad72dbcf6d0153db1b8d8a58001feed83</Anchor>
+    <DeclaredIn>Debug.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>DBG_LOG</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>d0/d4b/_debug_8h.html</Path>
+    <Anchor>a115b8cdc79239a202a0cd3855b4f1209</Anchor>
+    <DeclaredIn>Debug.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -410,6 +608,7 @@
     </TokenIdentifier>
     <Path>de/d22/namespace_private_game_info.html</Path>
     <Anchor>aab7a3bbfdb3af3149cb9ad7bf1ec1c46</Anchor>
+    <Abstract>DeltaTime for physics calculations and accurate updating Updated in Application.</Abstract>
     <DeclaredIn>GameInfo.h</DeclaredIn>
   </Token>
   <Token>
@@ -498,17 +697,6 @@
     </TokenIdentifier>
     <Path>d4/d58/namespace_game_info.html</Path>
     <Anchor>a84e173e912102cfa77a4894831965ef2</Anchor>
-    <DeclaredIn>GameInfo.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>DEBUG_COLOR</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>GameInfo</Scope>
-    </TokenIdentifier>
-    <Path>d4/d58/namespace_game_info.html</Path>
-    <Anchor>a6f79e00a222bc6260e423249a5a05deb</Anchor>
     <DeclaredIn>GameInfo.h</DeclaredIn>
   </Token>
   <Token>
@@ -608,56 +796,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>Hovering</Name>
-      <APILanguage>c</APILanguage>
-      <Type>econst</Type>
-    </TokenIdentifier>
-    <Path>d2/d74/_gui_button_8h.html</Path>
-    <Anchor>a8523f7a9e6b59b8df903f65961092ad5a0a6f55c33a9216693f82992a412317c3</Anchor>
-    <DeclaredIn>GuiButton.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>Pressed</Name>
-      <APILanguage>c</APILanguage>
-      <Type>econst</Type>
-    </TokenIdentifier>
-    <Path>d2/d74/_gui_button_8h.html</Path>
-    <Anchor>a8523f7a9e6b59b8df903f65961092ad5ad78a68f6a85421ae121c2cb5b73a1040</Anchor>
-    <DeclaredIn>GuiButton.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>Released</Name>
-      <APILanguage>c</APILanguage>
-      <Type>econst</Type>
-    </TokenIdentifier>
-    <Path>d2/d74/_gui_button_8h.html</Path>
-    <Anchor>a8523f7a9e6b59b8df903f65961092ad5aea1e34304a5d8ffa7c9b0ed8ede4ef1a</Anchor>
-    <DeclaredIn>GuiButton.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>FirstClick</Name>
-      <APILanguage>c</APILanguage>
-      <Type>econst</Type>
-    </TokenIdentifier>
-    <Path>d2/d74/_gui_button_8h.html</Path>
-    <Anchor>a8523f7a9e6b59b8df903f65961092ad5a26557fc94b8a51594aaa1d8384b834cb</Anchor>
-    <DeclaredIn>GuiButton.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>No_Feedback</Name>
-      <APILanguage>c</APILanguage>
-      <Type>econst</Type>
-    </TokenIdentifier>
-    <Path>d2/d74/_gui_button_8h.html</Path>
-    <Anchor>a8523f7a9e6b59b8df903f65961092ad5ad93ffe3c42630ba3fc4bf5fb086dc9c8</Anchor>
-    <DeclaredIn>GuiButton.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>getRandomRange</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
@@ -698,6 +836,17 @@
     </TokenIdentifier>
     <Path>d7/dd1/namespacehh.html</Path>
     <Anchor>aa0102ec32d9d665ebdda89fa4c03c5b6</Anchor>
+    <DeclaredIn>HelpingHand.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>toBtQuat</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>hh</Scope>
+    </TokenIdentifier>
+    <Path>d7/dd1/namespacehh.html</Path>
+    <Anchor>aa6fa1f9a58ae4b90867b401edea694e4</Anchor>
     <DeclaredIn>HelpingHand.h</DeclaredIn>
   </Token>
   <Token>
@@ -922,252 +1071,63 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>LeftButton</Name>
+      <Name>Hovering</Name>
       <APILanguage>c</APILanguage>
       <Type>econst</Type>
     </TokenIdentifier>
-    <Path>d2/d94/_input_8h.html</Path>
-    <Anchor>a3d2484fac070b8d8b0ea5ed1ff5b5d58a2a81c1ce439d7652d7a61d55229c8043</Anchor>
-    <DeclaredIn>Input.h</DeclaredIn>
+    <Path>d2/d74/_gui_button_8h.html</Path>
+    <Anchor>a8523f7a9e6b59b8df903f65961092ad5a0a6f55c33a9216693f82992a412317c3</Anchor>
+    <DeclaredIn>GuiButton.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>RightButton</Name>
+      <Name>Pressed</Name>
       <APILanguage>c</APILanguage>
       <Type>econst</Type>
     </TokenIdentifier>
-    <Path>d2/d94/_input_8h.html</Path>
-    <Anchor>a3d2484fac070b8d8b0ea5ed1ff5b5d58a7e264b46aade8e083656f1f0897220f3</Anchor>
-    <DeclaredIn>Input.h</DeclaredIn>
+    <Path>d2/d74/_gui_button_8h.html</Path>
+    <Anchor>a8523f7a9e6b59b8df903f65961092ad5ad78a68f6a85421ae121c2cb5b73a1040</Anchor>
+    <DeclaredIn>GuiButton.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>MiddleButton</Name>
+      <Name>Released</Name>
       <APILanguage>c</APILanguage>
       <Type>econst</Type>
     </TokenIdentifier>
-    <Path>d2/d94/_input_8h.html</Path>
-    <Anchor>a3d2484fac070b8d8b0ea5ed1ff5b5d58aa196f1ff95059e191270f3bb6ab4a266</Anchor>
-    <DeclaredIn>Input.h</DeclaredIn>
+    <Path>d2/d74/_gui_button_8h.html</Path>
+    <Anchor>a8523f7a9e6b59b8df903f65961092ad5aea1e34304a5d8ffa7c9b0ed8ede4ef1a</Anchor>
+    <DeclaredIn>GuiButton.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>main</Name>
-      <APILanguage>c</APILanguage>
-      <Type>func</Type>
-    </TokenIdentifier>
-    <Path>d5/d12/_main_8cpp.html</Path>
-    <Anchor>a0ddf1224851353fc92bfbff6f499fa97</Anchor>
-    <DeclaredIn>Main.cpp</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>NULL_MESSAGE</Name>
+      <Name>FirstClick</Name>
       <APILanguage>c</APILanguage>
       <Type>econst</Type>
     </TokenIdentifier>
-    <Path>df/de2/_messages_8h.html</Path>
-    <Anchor>adf36f3b862459340da2c2cbc8927d69fabba60353fe62a4eed8c486b71c20f573</Anchor>
-    <DeclaredIn>Messages.h</DeclaredIn>
+    <Path>d2/d74/_gui_button_8h.html</Path>
+    <Anchor>a8523f7a9e6b59b8df903f65961092ad5a26557fc94b8a51594aaa1d8384b834cb</Anchor>
+    <DeclaredIn>GuiButton.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>REFRESH_CAMERA</Name>
+      <Name>No_Feedback</Name>
       <APILanguage>c</APILanguage>
       <Type>econst</Type>
     </TokenIdentifier>
-    <Path>df/de2/_messages_8h.html</Path>
-    <Anchor>adf36f3b862459340da2c2cbc8927d69fa804ccb0b716091a27c938fa4092b846e</Anchor>
-    <DeclaredIn>Messages.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>MESSAGES_END</Name>
-      <APILanguage>c</APILanguage>
-      <Type>econst</Type>
-    </TokenIdentifier>
-    <Path>df/de2/_messages_8h.html</Path>
-    <Anchor>adf36f3b862459340da2c2cbc8927d69fac2251c8045ae372214e0b5bd8a6ee9e3</Anchor>
-    <DeclaredIn>Messages.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>Mat_4_ROW_COL_SIZE</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>_3DM</Scope>
-    </TokenIdentifier>
-    <Path>de/d02/namespace__3_d_m.html</Path>
-    <Anchor>a25091800f3311eea21c50b602ab9e487</Anchor>
-    <DeclaredIn>ModelSerialization.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>DEFAULT_SIZE_OF_VECTOR</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>_3DM</Scope>
-    </TokenIdentifier>
-    <Path>de/d02/namespace__3_d_m.html</Path>
-    <Anchor>a162c70280dfac9ac94c8fccd2d5d35e1</Anchor>
-    <DeclaredIn>ModelSerialization.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>_3DMA_Signature</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>_3DM</Scope>
-    </TokenIdentifier>
-    <Path>de/d02/namespace__3_d_m.html</Path>
-    <Anchor>a7ec44d7923c13eb6c64c736c724bc8d0</Anchor>
-    <DeclaredIn>ModelSerialization.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>_3DM_Signature</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>_3DM</Scope>
-    </TokenIdentifier>
-    <Path>de/d02/namespace__3_d_m.html</Path>
-    <Anchor>ab023d20cfc970e7fb8f000371d1fa680</Anchor>
-    <DeclaredIn>ModelSerialization.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>Default</Name>
-      <APILanguage>c</APILanguage>
-      <Type>econst</Type>
-    </TokenIdentifier>
-    <Path>d0/db0/_particles_8h.html</Path>
-    <Anchor>ac736a3b691a4251e1a7e5a9fd4cad39ba7a1920d61156abc05a60135aefe8bc67</Anchor>
-    <DeclaredIn>Particles.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>Fountain</Name>
-      <APILanguage>c</APILanguage>
-      <Type>econst</Type>
-    </TokenIdentifier>
-    <Path>d0/db0/_particles_8h.html</Path>
-    <Anchor>ac736a3b691a4251e1a7e5a9fd4cad39ba7941ce00c308ef62cd69af52664e9788</Anchor>
-    <DeclaredIn>Particles.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>Max</Name>
-      <APILanguage>c</APILanguage>
-      <Type>econst</Type>
-    </TokenIdentifier>
-    <Path>d0/db0/_particles_8h.html</Path>
-    <Anchor>ac736a3b691a4251e1a7e5a9fd4cad39ba6a061313d22e51e0f25b7cd4dc065233</Anchor>
-    <DeclaredIn>Particles.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>All</Name>
-      <APILanguage>c</APILanguage>
-      <Type>econst</Type>
-    </TokenIdentifier>
-    <Path>d9/dbc/_player_controller_8h.html</Path>
-    <Anchor>a8e286c00e9f80489caca0a2150ec7ea1ab1c94ca2fbc3e78fc30069c8d0f01680</Anchor>
-    <DeclaredIn>PlayerController.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>Idle</Name>
-      <APILanguage>c</APILanguage>
-      <Type>econst</Type>
-    </TokenIdentifier>
-    <Path>d9/dbc/_player_controller_8h.html</Path>
-    <Anchor>a8e286c00e9f80489caca0a2150ec7ea1ae599161956d626eda4cb0a5ffb85271c</Anchor>
-    <DeclaredIn>PlayerController.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>Walking</Name>
-      <APILanguage>c</APILanguage>
-      <Type>econst</Type>
-    </TokenIdentifier>
-    <Path>d9/dbc/_player_controller_8h.html</Path>
-    <Anchor>a8e286c00e9f80489caca0a2150ec7ea1adb6ea77c7cd8a86b17014c3b688fd1a1</Anchor>
-    <DeclaredIn>PlayerController.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>AMOUNT_OF_RAYS</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>PLR_CTRLR_NS</Scope>
-    </TokenIdentifier>
-    <Path>d6/dea/namespace_p_l_r___c_t_r_l_r___n_s.html</Path>
-    <Anchor>aece75386b72687f0ba56e78b7426472c</Anchor>
-    <DeclaredIn>PlayerControllerSystem.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>CLAMPING_VELOCITY</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>PLR_CTRLR_NS</Scope>
-    </TokenIdentifier>
-    <Path>d6/dea/namespace_p_l_r___c_t_r_l_r___n_s.html</Path>
-    <Anchor>a61a771bb688523f198c1a7b2d44af6cb</Anchor>
-    <DeclaredIn>PlayerControllerSystem.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>RAY_DISTANCE_CORRECTOR</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>PLR_CTRLR_NS</Scope>
-    </TokenIdentifier>
-    <Path>d6/dea/namespace_p_l_r___c_t_r_l_r___n_s.html</Path>
-    <Anchor>ac1e523d7a739fae80e964dfe0d70e9ff</Anchor>
-    <DeclaredIn>PlayerControllerSystem.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>rayCast</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>PLR_CTRLR_NS</Scope>
-    </TokenIdentifier>
-    <Path>d6/dea/namespace_p_l_r___c_t_r_l_r___n_s.html</Path>
-    <Anchor>a5da22739153ab850f0b3ea2348b3e61c</Anchor>
-    <DeclaredIn>PlayerControllerSystem.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>RayResultCallback</Name>
-      <APILanguage>c</APILanguage>
-      <Type>tdef</Type>
-    </TokenIdentifier>
-    <Path>dc/de5/_ray_caster_8h.html</Path>
-    <Anchor>aae916dc4400d62ca947c2f100a1f36d2</Anchor>
-    <DeclaredIn>RayCaster.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>scenes</Name>
-      <APILanguage>c</APILanguage>
-      <Type>data</Type>
-    </TokenIdentifier>
-    <Path>df/dae/_scenes_8h.html</Path>
-    <Anchor>a1e872f09cb44811bb724936b7f9969f7</Anchor>
-    <Abstract>Soon to be moved into json.</Abstract>
-    <DeclaredIn>Scenes.h</DeclaredIn>
+    <Path>d2/d74/_gui_button_8h.html</Path>
+    <Anchor>a8523f7a9e6b59b8df903f65961092ad5ad93ffe3c42630ba3fc4bf5fb086dc9c8</Anchor>
+    <DeclaredIn>GuiButton.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>EightBytes</Name>
       <APILanguage>cpp</APILanguage>
       <Type>tdef</Type>
-      <Scope>SL</Scope>
+      <Scope>Serialization</Scope>
     </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>a478e0144fbcf21d25ffd4059351c3734</Anchor>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>a1968eff3482b14deee2ea48861d964fc</Anchor>
     <DeclaredIn>Serialization.h</DeclaredIn>
   </Token>
   <Token>
@@ -1175,10 +1135,10 @@
       <Name>FourBytes</Name>
       <APILanguage>cpp</APILanguage>
       <Type>tdef</Type>
-      <Scope>SL</Scope>
+      <Scope>Serialization</Scope>
     </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>a3e93b8ee7c51cf8cb9899cb27bc65f70</Anchor>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>ad4b326dd7f953ffe07f6894769e747c2</Anchor>
     <DeclaredIn>Serialization.h</DeclaredIn>
   </Token>
   <Token>
@@ -1186,10 +1146,10 @@
       <Name>TwoBytes</Name>
       <APILanguage>cpp</APILanguage>
       <Type>tdef</Type>
-      <Scope>SL</Scope>
+      <Scope>Serialization</Scope>
     </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>a812d61eeae9a7d1ca9580217c0a4bba1</Anchor>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>a2b548be2b5efad5140c6b22699a05538</Anchor>
     <DeclaredIn>Serialization.h</DeclaredIn>
   </Token>
   <Token>
@@ -1197,10 +1157,10 @@
       <Name>Byte</Name>
       <APILanguage>cpp</APILanguage>
       <Type>tdef</Type>
-      <Scope>SL</Scope>
+      <Scope>Serialization</Scope>
     </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>a5a11804bc22641050d738004aa37cb5e</Anchor>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>a80c6a3a93aa863f2a4a51d400705cb8e</Anchor>
     <DeclaredIn>Serialization.h</DeclaredIn>
   </Token>
   <Token>
@@ -1208,10 +1168,10 @@
       <Name>swapEndian</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
-      <Scope>SL</Scope>
+      <Scope>Serialization</Scope>
     </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>aebfdfe445c38bfb5eed787b16283cf5e</Anchor>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>a20cda2a56f417170d989194f25999d08</Anchor>
     <DeclaredIn>Serialization.h</DeclaredIn>
   </Token>
   <Token>
@@ -1219,10 +1179,10 @@
       <Name>writeBytes</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
-      <Scope>SL</Scope>
+      <Scope>Serialization</Scope>
     </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>a5a64b921cdb4809672c2c9882f6cdbc7</Anchor>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>a60377a1dca29076179f3764661a3411e</Anchor>
     <DeclaredIn>Serialization.h</DeclaredIn>
   </Token>
   <Token>
@@ -1230,10 +1190,10 @@
       <Name>readBytes</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
-      <Scope>SL</Scope>
+      <Scope>Serialization</Scope>
     </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>addb3c1f99efa9625ddde4137a659306a</Anchor>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>a14e278fedc08c23366c0f63126124e85</Anchor>
     <DeclaredIn>Serialization.h</DeclaredIn>
   </Token>
   <Token>
@@ -1241,10 +1201,10 @@
       <Name>isBigEndian</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
-      <Scope>SL</Scope>
+      <Scope>Serialization</Scope>
     </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>acd198192c2f2a82dda867d588a4d60a1</Anchor>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>ad379881e368b1473e30333960de316d2</Anchor>
     <DeclaredIn>Serialization.h</DeclaredIn>
   </Token>
   <Token>
@@ -1252,10 +1212,10 @@
       <Name>writeBytes</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
-      <Scope>SL</Scope>
+      <Scope>Serialization</Scope>
     </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>acb418d7258aa7cfb750f7acbc13f2f8d</Anchor>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>aff7480a351e03d29ec2ac1717f67f8ce</Anchor>
     <DeclaredIn>Serialization.h</DeclaredIn>
   </Token>
   <Token>
@@ -1263,10 +1223,10 @@
       <Name>readBytes</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
-      <Scope>SL</Scope>
+      <Scope>Serialization</Scope>
     </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>a8d464593bcf2473ad66e4a1b9ce7f831</Anchor>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>a8ff115ad518ef42e2b30e82c456d063b</Anchor>
     <DeclaredIn>Serialization.h</DeclaredIn>
   </Token>
   <Token>
@@ -1274,10 +1234,10 @@
       <Name>SIZE_OF_FLOAT</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>SL</Scope>
+      <Scope>Serialization</Scope>
     </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>ab1be50b0176a69e03807510533c8103b</Anchor>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>a4903435aee5dd4af4e132a83547d121e</Anchor>
     <DeclaredIn>Serialization.h</DeclaredIn>
   </Token>
   <Token>
@@ -1387,8 +1347,52 @@
       <Scope>Shaders</Scope>
     </TokenIdentifier>
     <Path>d7/da2/namespace_shaders.html</Path>
-    <Anchor>aef1fb725960a5f27a3f83d55bd4bf9a5</Anchor>
+    <Anchor>aa42283b009e9e23133fb95b260607262</Anchor>
     <DeclaredIn>Shaders.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>AMOUNT_OF_RAYS</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>ENEMY_CTRLR_NS</Scope>
+    </TokenIdentifier>
+    <Path>d4/d37/namespace_e_n_e_m_y___c_t_r_l_r___n_s.html</Path>
+    <Anchor>ab0d57e55289158f41922c1bc4d1bd317</Anchor>
+    <DeclaredIn>EnemyControllerSystem.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>CLAMPING_VELOCITY</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>ENEMY_CTRLR_NS</Scope>
+    </TokenIdentifier>
+    <Path>d4/d37/namespace_e_n_e_m_y___c_t_r_l_r___n_s.html</Path>
+    <Anchor>af1967c9bd9f7f4aa4f1e988bb51f36f8</Anchor>
+    <DeclaredIn>EnemyControllerSystem.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>RAY_DISTANCE_CORRECTOR</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>ENEMY_CTRLR_NS</Scope>
+    </TokenIdentifier>
+    <Path>d4/d37/namespace_e_n_e_m_y___c_t_r_l_r___n_s.html</Path>
+    <Anchor>ae402cf8564d87136cce7748600b7ed48</Anchor>
+    <DeclaredIn>EnemyControllerSystem.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>rayCast</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>ENEMY_CTRLR_NS</Scope>
+    </TokenIdentifier>
+    <Path>d4/d37/namespace_e_n_e_m_y___c_t_r_l_r___n_s.html</Path>
+    <Anchor>ade4c8adcfa4d9a09d892873591ac2269</Anchor>
+    <DeclaredIn>EnemyControllerSystem.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -3211,6 +3215,17 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>CubeMap</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>CubeMap</Scope>
+    </TokenIdentifier>
+    <Path>d6/d1e/class_cube_map.html</Path>
+    <Anchor>af41c7ecc442b5c6e43483bc8d68a7dc9</Anchor>
+    <DeclaredIn>Texture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>getCubeMapData</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -3447,7 +3462,7 @@
       <Scope>DayNightCycleSystem</Scope>
     </TokenIdentifier>
     <Path>d0/d9a/class_day_night_cycle_system.html</Path>
-    <Anchor>a325958aa88f010856953ee1317c910cb</Anchor>
+    <Anchor>acf8ecb0e14442b2f0f49e46e8c08be10</Anchor>
     <DeclaredIn>DayNightCycleSystem.h</DeclaredIn>
   </Token>
   <Token>
@@ -3502,412 +3517,38 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>DebugDrawer</Name>
+      <Name>DebuggingSystem</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
-      <Scope>DebugDrawer</Scope>
+      <Scope>DebuggingSystem</Scope>
     </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <DeclaredIn>DebugDrawer.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>render</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>a475bfd0fc90b3ebda966d47e899da8ed</Anchor>
-    <DeclaredIn>DebugDrawer.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>initialize</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>a590663c66c9953dcebacbb399d749730</Anchor>
-    <DeclaredIn>DebugDrawer.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>DebugDrawer</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>a4e754d32f2b65f14bc8b94ce592a9f40</Anchor>
-    <DeclaredIn>DebugDrawer.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>~DebugDrawer</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>a68d4944b1591548756f29f185a383ad9</Anchor>
-    <DeclaredIn>DebugDrawer.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>drawLine</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>a6c794618022a91750d4d24840f744ae1</Anchor>
-    <DeclaredIn>DebugDrawer.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>drawContactPoint</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>abc65068c24c2ef6e3160727c7efa5503</Anchor>
-    <DeclaredIn>DebugDrawer.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>reportErrorWarning</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>ab6e73e542ff9edab9efde63b73e68227</Anchor>
-    <DeclaredIn>DebugDrawer.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>draw3dText</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>adc04772be26d75b640c251c7462dae98</Anchor>
-    <DeclaredIn>DebugDrawer.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>setDebugMode</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>a61ad63653eddf7549c2e748ae6022aa6</Anchor>
-    <DeclaredIn>DebugDrawer.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getDebugMode</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>a83fb856d09a12ee0f8d8a2a3cefaa075</Anchor>
-    <DeclaredIn>DebugDrawer.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>thisShader</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>ad779528b08329164e31c6bcd3f0c00ad</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>identitym</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>a656a2b0d2351eeb268eba282727ae02c</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>currentDebugMode</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>a32d269f378573a7de5f7645c1016bc46</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>currentMaxAmountOfVertices</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>a768b5a0315d73ace864fd39f7a163d03</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>currentAmountOfLines</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>ab881439c1c63fcc83a976aeec227f0a2</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>VAO</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>ace1761417982e843e8ff71dcd4cc4b15</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>vertID</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>a8d18b9ac331f02f9b82807e70150a084</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>positionAttribute</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>adb62cd13960039cdb9636369f0d80c8f</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>projectionLocation</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>a1b7e158a157c39d78eb37a74bdd97e89</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>viewLocation</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>a88d86bc0444692228e4ea3084b728235</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>initialized</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>DebugDrawer</Scope>
-    </TokenIdentifier>
-    <Path>d1/da2/class_debug_drawer.html</Path>
-    <Anchor>a187e582c2ec08cb9e6edfa12b833415b</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>DebuggingController</Name>
-      <APILanguage>c</APILanguage>
-      <Type>cl</Type>
-      <Scope>DebuggingController</Scope>
-    </TokenIdentifier>
-    <Path>d1/dee/class_debugging_controller.html</Path>
-    <DeclaredIn>DebuggingController.h</DeclaredIn>
+    <Path>dd/d79/class_debugging_system.html</Path>
+    <Abstract>Controls the PhysicsWorld DebugDrawer.</Abstract>
+    <DeclaredIn>DebuggingSystem.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>controlPhysicsDebugDraw</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>DebuggingController</Scope>
+      <Scope>DebuggingSystem</Scope>
     </TokenIdentifier>
-    <Path>d1/dee/class_debugging_controller.html</Path>
-    <Anchor>a1c6510b72176caf32ac44c7d81500c64</Anchor>
-    <DeclaredIn>DebuggingController.h</DeclaredIn>
+    <Path>dd/d79/class_debugging_system.html</Path>
+    <Anchor>a8f6735502d3bfcdf102fdbc7225ca807</Anchor>
+    <Abstract>Updates the DebugDrawer- such as toggling if it should be rendering or not. Should be called in Fixed...</Abstract>
+    <DeclaredIn>DebuggingSystem.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>executeDebugRendering</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>DebuggingController</Scope>
+      <Scope>DebuggingSystem</Scope>
     </TokenIdentifier>
-    <Path>d1/dee/class_debugging_controller.html</Path>
-    <Anchor>af5bb093ed69faabd1e1e42a5dacf47da</Anchor>
-    <DeclaredIn>DebuggingController.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>controlWireframeDebugDraw</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>DebuggingController</Scope>
-    </TokenIdentifier>
-    <Path>d1/dee/class_debugging_controller.html</Path>
-    <Anchor>a62da624d004f69bb6a162d29a7738ef6</Anchor>
-    <DeclaredIn>DebuggingController.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>~Component</Name>
-      <APILanguage>unknown</APILanguage>
-      <Type>instm</Type>
-      <Scope>Component&lt; DebuggingController &gt;</Scope>
-    </TokenIdentifier>
-    <Path>d2/d00/class_component.html</Path>
-    <Anchor>a2d2fd772fc1a945ab88556e95db62b9b</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getType</Name>
-      <APILanguage>unknown</APILanguage>
-      <Type>instm</Type>
-      <Scope>Component&lt; DebuggingController &gt;</Scope>
-    </TokenIdentifier>
-    <Path>d2/d00/class_component.html</Path>
-    <Anchor>a59e2048af36fcbc8bb57c9b3bc6ec35d</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>~ComponentInterface</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>ComponentInterface</Scope>
-    </TokenIdentifier>
-    <Path>d5/d79/class_component_interface.html</Path>
-    <Anchor>a3886256e350e41fe89687a5497308333</Anchor>
-    <DeclaredIn>Component.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getType</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>ComponentInterface</Scope>
-    </TokenIdentifier>
-    <Path>d5/d79/class_component_interface.html</Path>
-    <Anchor>a8d4f023c8e4b49da0906402fd0865dca</Anchor>
-    <DeclaredIn>Component.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getEntityID</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>ComponentInterface</Scope>
-    </TokenIdentifier>
-    <Path>d5/d79/class_component_interface.html</Path>
-    <Anchor>ad55486119519e96e617e082bf583b1d9</Anchor>
-    <DeclaredIn>Component.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>setEntityID</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>ComponentInterface</Scope>
-    </TokenIdentifier>
-    <Path>d5/d79/class_component_interface.html</Path>
-    <Anchor>a97c45011fff6d2329d6f5097ef02f220</Anchor>
-    <DeclaredIn>Component.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>isActive</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>ComponentInterface</Scope>
-    </TokenIdentifier>
-    <Path>d5/d79/class_component_interface.html</Path>
-    <Anchor>af9338dc59bb37e7fab8855fa7cf9f38e</Anchor>
-    <DeclaredIn>Component.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>setActive</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>ComponentInterface</Scope>
-    </TokenIdentifier>
-    <Path>d5/d79/class_component_interface.html</Path>
-    <Anchor>a0920edc465f3135478be2b49e1b7efd0</Anchor>
-    <DeclaredIn>Component.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>PHYSICS_DRAW_TOGGLE</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>DebuggingController</Scope>
-    </TokenIdentifier>
-    <Path>d1/dee/class_debugging_controller.html</Path>
-    <Anchor>a8544e472f794cce063f45e4fc28cf3b5</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>WIREFRAME_DRAW_TOGGLE</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>DebuggingController</Scope>
-    </TokenIdentifier>
-    <Path>d1/dee/class_debugging_controller.html</Path>
-    <Anchor>ac56a4a7ff1c4266425459ab0dc252ad9</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>type</Name>
-      <APILanguage>unknown</APILanguage>
-      <Type>data</Type>
-      <Scope>Component&lt; DebuggingController &gt;</Scope>
-    </TokenIdentifier>
-    <Path>d2/d00/class_component.html</Path>
-    <Anchor>a4e8fbccb18dbf4ae6372b4579f74b0ff</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>isDebugDrawOn</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>DebuggingController</Scope>
-    </TokenIdentifier>
-    <Path>d1/dee/class_debugging_controller.html</Path>
-    <Anchor>aa670972b2b44f1f6b8852e1a8957c1c7</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>isWireframeOn</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>DebuggingController</Scope>
-    </TokenIdentifier>
-    <Path>d1/dee/class_debugging_controller.html</Path>
-    <Anchor>aabc568aa0472092868cff4b3630c101e</Anchor>
+    <Path>dd/d79/class_debugging_system.html</Path>
+    <Anchor>a8fe5b660d8c17dc5742f28e577ef4d23</Anchor>
+    <Abstract>Renders the DebugDrawer if it is set to render. Should be called in RenderingSystem.</Abstract>
+    <DeclaredIn>DebuggingSystem.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -4149,7 +3790,7 @@
       <Scope>DirectionalLightShadowMap</Scope>
     </TokenIdentifier>
     <Path>dc/d22/class_directional_light_shadow_map.html</Path>
-    <Anchor>a7215d4fbf75ee37aecd032fea06babdc</Anchor>
+    <Anchor>a090dd61fc4ab16e2ccb5a8920b019cf5</Anchor>
     <DeclaredIn>DirectionalLightShadowMap.h</DeclaredIn>
   </Token>
   <Token>
@@ -4160,7 +3801,7 @@
       <Scope>DirectionalLightShadowMap</Scope>
     </TokenIdentifier>
     <Path>dc/d22/class_directional_light_shadow_map.html</Path>
-    <Anchor>aabacf708dc2f0d7933a0128375288e7b</Anchor>
+    <Anchor>a00956607d5a5a988811abf590ae2c0a8</Anchor>
     <DeclaredIn>DirectionalLightShadowMap.h</DeclaredIn>
   </Token>
   <Token>
@@ -4171,7 +3812,7 @@
       <Scope>DirectionalLightShadowMap</Scope>
     </TokenIdentifier>
     <Path>dc/d22/class_directional_light_shadow_map.html</Path>
-    <Anchor>aed799c41bbfacd01c8e5f2e7e964f891</Anchor>
+    <Anchor>a7f475ca2c1b5ebd8d50e9b1461cc06d9</Anchor>
     <DeclaredIn>DirectionalLightShadowMap.h</DeclaredIn>
   </Token>
   <Token>
@@ -4473,6 +4114,186 @@
     </TokenIdentifier>
     <Path>d2/dee/struct_directional_light_shadow_map_1_1_orthographic_bounds.html</Path>
     <Anchor>aea9e3fc408fa936f5f807495a92b6b48</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>DirectionalShadowDebugger</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>DirectionalShadowDebugger</Scope>
+    </TokenIdentifier>
+    <Path>d6/d0d/class_directional_shadow_debugger.html</Path>
+    <Abstract>Component to render a depthmap to a quad.</Abstract>
+    <DeclaredIn>DirectionalShadowDebugger.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>initialize</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>DirectionalShadowDebugger</Scope>
+    </TokenIdentifier>
+    <Path>d6/d0d/class_directional_shadow_debugger.html</Path>
+    <Anchor>af3970ee743d1140406749da0e78c0c19</Anchor>
+    <DeclaredIn>DirectionalShadowDebugger.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~Component</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>instm</Type>
+      <Scope>Component&lt; DirectionalShadowDebugger &gt;</Scope>
+    </TokenIdentifier>
+    <Path>d2/d00/class_component.html</Path>
+    <Anchor>a2d2fd772fc1a945ab88556e95db62b9b</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getType</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>instm</Type>
+      <Scope>Component&lt; DirectionalShadowDebugger &gt;</Scope>
+    </TokenIdentifier>
+    <Path>d2/d00/class_component.html</Path>
+    <Anchor>a59e2048af36fcbc8bb57c9b3bc6ec35d</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~ComponentInterface</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>ComponentInterface</Scope>
+    </TokenIdentifier>
+    <Path>d5/d79/class_component_interface.html</Path>
+    <Anchor>a3886256e350e41fe89687a5497308333</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getType</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>ComponentInterface</Scope>
+    </TokenIdentifier>
+    <Path>d5/d79/class_component_interface.html</Path>
+    <Anchor>a8d4f023c8e4b49da0906402fd0865dca</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getEntityID</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>ComponentInterface</Scope>
+    </TokenIdentifier>
+    <Path>d5/d79/class_component_interface.html</Path>
+    <Anchor>ad55486119519e96e617e082bf583b1d9</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setEntityID</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>ComponentInterface</Scope>
+    </TokenIdentifier>
+    <Path>d5/d79/class_component_interface.html</Path>
+    <Anchor>a97c45011fff6d2329d6f5097ef02f220</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>isActive</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>ComponentInterface</Scope>
+    </TokenIdentifier>
+    <Path>d5/d79/class_component_interface.html</Path>
+    <Anchor>af9338dc59bb37e7fab8855fa7cf9f38e</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setActive</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>ComponentInterface</Scope>
+    </TokenIdentifier>
+    <Path>d5/d79/class_component_interface.html</Path>
+    <Anchor>a0920edc465f3135478be2b49e1b7efd0</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>quadTransform</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>DirectionalShadowDebugger</Scope>
+    </TokenIdentifier>
+    <Path>d6/d0d/class_directional_shadow_debugger.html</Path>
+    <Anchor>a2b35a0da4fc938eac6ccd01904d5100b</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>depthShader</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>DirectionalShadowDebugger</Scope>
+    </TokenIdentifier>
+    <Path>d6/d0d/class_directional_shadow_debugger.html</Path>
+    <Anchor>af2bcbd478df9363bfe0ace6b039f2691</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>depthQuad</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>DirectionalShadowDebugger</Scope>
+    </TokenIdentifier>
+    <Path>d6/d0d/class_directional_shadow_debugger.html</Path>
+    <Anchor>a42e758b7313b2c39ec9796f131618d82</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>DirectionalShadowDebuggerSystem</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>ffunc</Type>
+      <Scope>DirectionalShadowDebugger</Scope>
+    </TokenIdentifier>
+    <Path>d6/d0d/class_directional_shadow_debugger.html</Path>
+    <Anchor>a2aaa82f9bd505ebc5c3d62ce93b014a7</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>type</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>data</Type>
+      <Scope>Component&lt; DirectionalShadowDebugger &gt;</Scope>
+    </TokenIdentifier>
+    <Path>d2/d00/class_component.html</Path>
+    <Anchor>a4e8fbccb18dbf4ae6372b4579f74b0ff</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>DirectionalShadowDebuggerSystem</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>DirectionalShadowDebuggerSystem</Scope>
+    </TokenIdentifier>
+    <Path>d2/d8c/class_directional_shadow_debugger_system.html</Path>
+    <Abstract>DirectionalShadowDebugger&apos;s system.</Abstract>
+    <DeclaredIn>DirectionalShadowDebuggerSystem.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>render</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>DirectionalShadowDebuggerSystem</Scope>
+    </TokenIdentifier>
+    <Path>d2/d8c/class_directional_shadow_debugger_system.html</Path>
+    <Anchor>aeef2d35356990a52e9c909c10afb102b</Anchor>
+    <DeclaredIn>DirectionalShadowDebuggerSystem.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -5572,64 +5393,64 @@
       <Scope>FixedUpdatingSystem</Scope>
     </TokenIdentifier>
     <Path>d3/de8/class_fixed_updating_system.html</Path>
-    <Anchor>a8f07c76b37a898f91221740f42c72598</Anchor>
+    <Anchor>a5dddc3eb8925208848d447a9d98d794b</Anchor>
     <Abstract>Called in Game.cpp.</Abstract>
     <DeclaredIn>FixedUpdatingSystem.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>~SystemBase</Name>
+      <Name>~MainSystemBase</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a1366847b8318d417e4b171d9f213aa82</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>aa30dfed6220981750f0748687de8d104</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>setScene</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a3dbbd982d22ba1ea145336ec89167cb1</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>aeabc492bd33a4ab472099eecb79bda3c</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>setCurrentSettings</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a5ea730140f3f0735ac0a0d0bf0eb5005</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a01a0d4f6f926c1e00dd4180c009f5a41</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>setPhysicsWorld</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>ab9b7038ba7182c75c87d5d4f73dcd0fc</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a4f934ed27ca4ce39729d93310047ea39</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>areVitalsNull</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a5a3dcc196a770866b9e51e406c4d2eea</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a49c5f15085ef2ad361658bfd0e180286</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -5696,40 +5517,40 @@
       <Name>systems</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>ad0de657662b8d951d7a090248ee50d2c</Anchor>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a0c78ce1677f7f0ffa9732de8e376abe7</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>physicsWorld</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a9c1525ee5bbba8d11c60f9cdbb15d15a</Anchor>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>aa51f79bbb6e997603ca9a83086ac7d62</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>currentSettings</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>aedd8e8d0ee8c8fbb6951927f99c485ff</Anchor>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a72e19f2eb87e54a049fbc7d3135db023</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>currentScene</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>ad2ce3c386e2c92f8f205a87760a6f0a1</Anchor>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a861483a8886f34875d60e8eb8b0931cb</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -7269,13 +7090,50 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>mousePressedOnce</Name>
+      <Name>updateTimers</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
       <Scope>Input</Scope>
     </TokenIdentifier>
     <Path>d4/d7b/class_input.html</Path>
-    <Anchor>a6445c902639e292faca482aff3724327</Anchor>
+    <Anchor>a03248fbbb120e7168c136c64bc932612</Anchor>
+    <Abstract>Updates timers for timeBetweenPress and timeBetweenPressReset. Should only be called in Application....</Abstract>
+    <DeclaredIn>Input.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>isMousePressedOnce</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Input</Scope>
+    </TokenIdentifier>
+    <Path>d4/d7b/class_input.html</Path>
+    <Anchor>a4a03f0b8649bcae6746023634ec6e4c7</Anchor>
+    <Abstract>Checks if the mouse is pressed and returns true if the timeBetweenPress is zero, if it&apos;s the first pr...</Abstract>
+    <DeclaredIn>Input.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>isMouseButtonPressed</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Input</Scope>
+    </TokenIdentifier>
+    <Path>d4/d7b/class_input.html</Path>
+    <Anchor>ae852f9825ce6a8d2811b485087e07c75</Anchor>
+    <Abstract>Checks if a mouse button is pressed.</Abstract>
+    <DeclaredIn>Input.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>isKeyPressedOnce</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Input</Scope>
+    </TokenIdentifier>
+    <Path>d4/d7b/class_input.html</Path>
+    <Anchor>a4c64cab3eea3c9af34c2e50d7d6e9d83</Anchor>
+    <Abstract>Checks if the key is pressed and returns true if the timeBetweenPress is zero, if it&apos;s the first pres...</Abstract>
     <DeclaredIn>Input.h</DeclaredIn>
   </Token>
   <Token>
@@ -7287,28 +7145,7 @@
     </TokenIdentifier>
     <Path>d4/d7b/class_input.html</Path>
     <Anchor>a2259a48cd4dfed4e95f1d7f82786679a</Anchor>
-    <DeclaredIn>Input.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>keyPressedOnce</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>Input</Scope>
-    </TokenIdentifier>
-    <Path>d4/d7b/class_input.html</Path>
-    <Anchor>a2aaf873636cedf13e51a424eb6ea802b</Anchor>
-    <DeclaredIn>Input.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getMouseButton</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>Input</Scope>
-    </TokenIdentifier>
-    <Path>d4/d7b/class_input.html</Path>
-    <Anchor>a8e3bbc45ca89de6dc03cd870d0909345</Anchor>
+    <Abstract>Checks if a key is pressed.</Abstract>
     <DeclaredIn>Input.h</DeclaredIn>
   </Token>
   <Token>
@@ -7320,6 +7157,7 @@
     </TokenIdentifier>
     <Path>d4/d7b/class_input.html</Path>
     <Anchor>a3ef03fa6f1279b8040f4f9ec8a33d9d6</Anchor>
+    <Abstract>Called by Application.cpp to handle SDL&apos;s new events.</Abstract>
     <DeclaredIn>Input.h</DeclaredIn>
   </Token>
   <Token>
@@ -7330,7 +7168,8 @@
       <Scope>Input</Scope>
     </TokenIdentifier>
     <Path>d4/d7b/class_input.html</Path>
-    <Anchor>aa10d2871226e0b497010dfca43fe278b</Anchor>
+    <Anchor>af92e232f1dd0ef6f1a14a9816ab20b7c</Anchor>
+    <Abstract>Returns the mouse position relative to the top left of the screen.</Abstract>
     <DeclaredIn>Input.h</DeclaredIn>
   </Token>
   <Token>
@@ -7341,18 +7180,52 @@
       <Scope>Input</Scope>
     </TokenIdentifier>
     <Path>d4/d7b/class_input.html</Path>
-    <Anchor>a971adcc605a1101f162e2be7a5c16a5e</Anchor>
+    <Anchor>afb85287288b7747a8bb1e2ad61e89557</Anchor>
+    <Abstract>Returns the mouse position relative to the center of the screen.</Abstract>
     <DeclaredIn>Input.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>keys</Name>
+      <Name>isPressedOnce</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Input</Scope>
+    </TokenIdentifier>
+    <Path>d4/d7b/class_input.html</Path>
+    <Anchor>a35a182a2d026f04620a3018d71c64f2c</Anchor>
+    <Abstract>Checks if the KeyData d is pressed and returns true if the timeBetweenPress is zero,...</Abstract>
+    <DeclaredIn>Input.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>currentPressedOnce</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
       <Scope>Input</Scope>
     </TokenIdentifier>
     <Path>d4/d7b/class_input.html</Path>
-    <Anchor>a0f479657026636e3447e0a2c03eef2b8</Anchor>
+    <Anchor>a032a9d91be6a4bb0db5d1fb2512411b3</Anchor>
+    <Abstract>For updating the timers every update. Gets cleared every update.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>keyData</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Input</Scope>
+    </TokenIdentifier>
+    <Path>d4/d7b/class_input.html</Path>
+    <Anchor>a9e40c9e5c17cf05e408c814fa057693b</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>mouseData</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Input</Scope>
+    </TokenIdentifier>
+    <Path>d4/d7b/class_input.html</Path>
+    <Anchor>ac4f7f3edbd540754bfa8bfbb5df2e364</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -7366,43 +7239,63 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>mouseArray</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>Input</Scope>
-    </TokenIdentifier>
-    <Path>d4/d7b/class_input.html</Path>
-    <Anchor>a2f6c43ab423a0abec3cc7afdf73f08a1</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>hitOnce</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>Input</Scope>
-    </TokenIdentifier>
-    <Path>d4/d7b/class_input.html</Path>
-    <Anchor>a8ae8bac82c52230ac53c6f61710e5531</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>pressed</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>Input</Scope>
-    </TokenIdentifier>
-    <Path>d4/d7b/class_input.html</Path>
-    <Anchor>a132d9d7e0e0d9abd03a7fa2ff0cdd2fa</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>mouseLastPosition</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
       <Scope>Input</Scope>
     </TokenIdentifier>
     <Path>d4/d7b/class_input.html</Path>
-    <Anchor>ac3224e46a17c74adfdf29e62c6d0c688</Anchor>
+    <Anchor>a8d9e50cf5d1590c87e124c63ed07e2d9</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Input::KeyData</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>Input::KeyData</Scope>
+    </TokenIdentifier>
+    <Path>de/d7d/struct_input_1_1_key_data.html</Path>
+    <Abstract>Contains data for all of the keys.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>timeUntilContinious</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Input::KeyData</Scope>
+    </TokenIdentifier>
+    <Path>de/d7d/struct_input_1_1_key_data.html</Path>
+    <Anchor>ac6a54a79f67c3f1dbd234e92eb7be931</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>timeBetweenPress</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Input::KeyData</Scope>
+    </TokenIdentifier>
+    <Path>de/d7d/struct_input_1_1_key_data.html</Path>
+    <Anchor>a6f9e124018d5b122ede3f9fae2c767a6</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>isPressed</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Input::KeyData</Scope>
+    </TokenIdentifier>
+    <Path>de/d7d/struct_input_1_1_key_data.html</Path>
+    <Anchor>abde085e3769bf9a540fc194f22d9913e</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>isKeyUp</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Input::KeyData</Scope>
+    </TokenIdentifier>
+    <Path>de/d7d/struct_input_1_1_key_data.html</Path>
+    <Anchor>ab9f3c5e90ecf3db6f9ef0cb8238dcc4d</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -7590,6 +7483,122 @@
     </TokenIdentifier>
     <Path>d2/d23/class_locator.html</Path>
     <Anchor>abb7de214b2fc2cc17f447786f62ffe72</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>MainSystemBase</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>MainSystemBase</Scope>
+    </TokenIdentifier>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~MainSystemBase</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>MainSystemBase</Scope>
+    </TokenIdentifier>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>aa30dfed6220981750f0748687de8d104</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>initialize</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>MainSystemBase</Scope>
+    </TokenIdentifier>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a7e99e06e2d44d5e860439896baba9c43</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setScene</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>MainSystemBase</Scope>
+    </TokenIdentifier>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>aeabc492bd33a4ab472099eecb79bda3c</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setCurrentSettings</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>MainSystemBase</Scope>
+    </TokenIdentifier>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a01a0d4f6f926c1e00dd4180c009f5a41</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setPhysicsWorld</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>MainSystemBase</Scope>
+    </TokenIdentifier>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a4f934ed27ca4ce39729d93310047ea39</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>areVitalsNull</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>MainSystemBase</Scope>
+    </TokenIdentifier>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a49c5f15085ef2ad361658bfd0e180286</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>systems</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>MainSystemBase</Scope>
+    </TokenIdentifier>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a0c78ce1677f7f0ffa9732de8e376abe7</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>physicsWorld</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>MainSystemBase</Scope>
+    </TokenIdentifier>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>aa51f79bbb6e997603ca9a83086ac7d62</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>currentSettings</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>MainSystemBase</Scope>
+    </TokenIdentifier>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a72e19f2eb87e54a049fbc7d3135db023</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>currentScene</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>MainSystemBase</Scope>
+    </TokenIdentifier>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a861483a8886f34875d60e8eb8b0931cb</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -8237,6 +8246,7 @@
       <Scope>NullInput</Scope>
     </TokenIdentifier>
     <Path>d1/d23/class_null_input.html</Path>
+    <Abstract>Used for the InputLocator if no services have been provided.</Abstract>
     <DeclaredIn>Input.h</DeclaredIn>
   </Token>
   <Token>
@@ -8259,6 +8269,7 @@
     </TokenIdentifier>
     <Path>d1/d23/class_null_input.html</Path>
     <Anchor>ad10fab641ff61e87ec88e22eecc8f53a</Anchor>
+    <Abstract>Called by Application.cpp to handle SDL&apos;s new events.</Abstract>
     <DeclaredIn>Input.h</DeclaredIn>
   </Token>
   <Token>
@@ -8270,39 +8281,55 @@
     </TokenIdentifier>
     <Path>d1/d23/class_null_input.html</Path>
     <Anchor>aea4768c9f52c56cec69fb2f19a8ca795</Anchor>
+    <Abstract>Checks if a key is pressed.</Abstract>
     <DeclaredIn>Input.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>getMouseButton</Name>
+      <Name>isMouseButtonPressed</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
       <Scope>NullInput</Scope>
     </TokenIdentifier>
     <Path>d1/d23/class_null_input.html</Path>
-    <Anchor>a8e03ffcfd8002c7baa70255ffa9246c7</Anchor>
+    <Anchor>a7f2d2f5472be29c790e2471efce1a3a6</Anchor>
+    <Abstract>Checks if a mouse button is pressed.</Abstract>
     <DeclaredIn>Input.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>keyPressedOnce</Name>
+      <Name>isKeyPressedOnce</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
       <Scope>NullInput</Scope>
     </TokenIdentifier>
     <Path>d1/d23/class_null_input.html</Path>
-    <Anchor>a5a77a608998584c5ba5cd85097528994</Anchor>
+    <Anchor>af145edebe53b4ddda1954e2a6c2bb631</Anchor>
+    <Abstract>Checks if the key is pressed and returns true if the timeBetweenPress is zero, if it&apos;s the first pres...</Abstract>
     <DeclaredIn>Input.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>mousePressedOnce</Name>
+      <Name>isMousePressedOnce</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
       <Scope>NullInput</Scope>
     </TokenIdentifier>
     <Path>d1/d23/class_null_input.html</Path>
-    <Anchor>a971796d36cf1d10201d05f9cae70e9bc</Anchor>
+    <Anchor>a347a2a3201ede69d598dba7601c93eed</Anchor>
+    <Abstract>Checks if the mouse is pressed and returns true if the timeBetweenPress is zero, if it&apos;s the first pr...</Abstract>
+    <DeclaredIn>Input.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>updateTimers</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>NullInput</Scope>
+    </TokenIdentifier>
+    <Path>d1/d23/class_null_input.html</Path>
+    <Anchor>a85bd7ec39177d5974784978583025c83</Anchor>
+    <Abstract>Updates timers for timeBetweenPress and timeBetweenPressReset. Should only be called in Application....</Abstract>
     <DeclaredIn>Input.h</DeclaredIn>
   </Token>
   <Token>
@@ -8313,7 +8340,8 @@
       <Scope>NullInput</Scope>
     </TokenIdentifier>
     <Path>d1/d23/class_null_input.html</Path>
-    <Anchor>aef6c8a0e0756696b89056f1d885a550e</Anchor>
+    <Anchor>ae63f54e8de85f84a728b9e8575249e47</Anchor>
+    <Abstract>Returns the mouse position relative to the center of the screen.</Abstract>
     <DeclaredIn>Input.h</DeclaredIn>
   </Token>
   <Token>
@@ -8324,7 +8352,8 @@
       <Scope>NullInput</Scope>
     </TokenIdentifier>
     <Path>d1/d23/class_null_input.html</Path>
-    <Anchor>a6516160c5ff04f7ff9ac4dfeb9a648fa</Anchor>
+    <Anchor>a19730326bb2fbbbcb9481f1554bf723c</Anchor>
+    <Abstract>Returns the mouse position relative to the top left of the screen.</Abstract>
     <DeclaredIn>Input.h</DeclaredIn>
   </Token>
   <Token>
@@ -9211,6 +9240,17 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>initialize</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>PhysicsWorld</Scope>
+    </TokenIdentifier>
+    <Path>d5/d44/class_physics_world.html</Path>
+    <Anchor>add1f79c10fddbc05eef6f6b22e8c8bd7</Anchor>
+    <DeclaredIn>PhysicsWorld.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>fixedUpdate</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -9240,28 +9280,6 @@
     </TokenIdentifier>
     <Path>d5/d44/class_physics_world.html</Path>
     <Anchor>a6175f46c5cfe345ebf309df5568ab016</Anchor>
-    <DeclaredIn>PhysicsWorld.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>initializeDebugDraw</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>PhysicsWorld</Scope>
-    </TokenIdentifier>
-    <Path>d5/d44/class_physics_world.html</Path>
-    <Anchor>a1f017ddfa5031919162435f953701e15</Anchor>
-    <DeclaredIn>PhysicsWorld.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getDebugDrawer</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>PhysicsWorld</Scope>
-    </TokenIdentifier>
-    <Path>d5/d44/class_physics_world.html</Path>
-    <Anchor>a095b760b9dc7f549779512efb6d06d55</Anchor>
     <DeclaredIn>PhysicsWorld.h</DeclaredIn>
   </Token>
   <Token>
@@ -9299,6 +9317,60 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>setDebugDrawing</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>PhysicsWorld</Scope>
+    </TokenIdentifier>
+    <Path>d5/d44/class_physics_world.html</Path>
+    <Anchor>acfd65007e1c55b4cb416b6ad4901fad7</Anchor>
+    <DeclaredIn>PhysicsWorld.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>isDebugDrawing</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>PhysicsWorld</Scope>
+    </TokenIdentifier>
+    <Path>d5/d44/class_physics_world.html</Path>
+    <Anchor>a0e36f7093a1c22e33b9ff0e7dc8c5335</Anchor>
+    <DeclaredIn>PhysicsWorld.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getDebugDrawer</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>PhysicsWorld</Scope>
+    </TokenIdentifier>
+    <Path>d5/d44/class_physics_world.html</Path>
+    <Anchor>aa593398570f871416f0c3653615684da</Anchor>
+    <DeclaredIn>PhysicsWorld.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>initializeDebugDraw</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>PhysicsWorld</Scope>
+    </TokenIdentifier>
+    <Path>d5/d44/class_physics_world.html</Path>
+    <Anchor>a1f017ddfa5031919162435f953701e15</Anchor>
+    <DeclaredIn>PhysicsWorld.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>shouldDebugDraw</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>PhysicsWorld</Scope>
+    </TokenIdentifier>
+    <Path>d5/d44/class_physics_world.html</Path>
+    <Anchor>a5b5fd4795d65d0eba8905925f18c4484</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>rigidBodies</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -9325,7 +9397,7 @@
       <Scope>PhysicsWorld</Scope>
     </TokenIdentifier>
     <Path>d5/d44/class_physics_world.html</Path>
-    <Anchor>aa3a2c4d3ea6e4c92ed7575d7c8ac2482</Anchor>
+    <Anchor>a998ebfa8d8479daf9b9d66cbad144e56</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -9385,7 +9457,7 @@
       <Scope>Player</Scope>
     </TokenIdentifier>
     <Path>d8/d53/class_player.html</Path>
-    <Abstract>Test entity class.</Abstract>
+    <Abstract>Test entity class The Player contains all of the necessary ui and controls to move and view the Playe...</Abstract>
     <DeclaredIn>EntityTests.h</DeclaredIn>
   </Token>
   <Token>
@@ -9450,6 +9522,16 @@
     </TokenIdentifier>
     <Path>d8/d53/class_player.html</Path>
     <Anchor>a5fd5d4ebc6ef44159dc87024ea96fcf7</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>dirShadowDbgr</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Player</Scope>
+    </TokenIdentifier>
+    <Path>d8/d53/class_player.html</Path>
+    <Anchor>a82d0d5d1d41e863ef653159a03a93df4</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -9826,6 +9908,36 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>clampingVelocity</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>PlayerController</Scope>
+    </TokenIdentifier>
+    <Path>dc/dde/class_player_controller.html</Path>
+    <Anchor>a9109f8d7f3efabbd23fce21df12b8a49</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>rayDistanceCorrector</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>PlayerController</Scope>
+    </TokenIdentifier>
+    <Path>dc/dde/class_player_controller.html</Path>
+    <Anchor>aa517c158c9417cf251e80f4d04bcd5be</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>rayCast</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>PlayerController</Scope>
+    </TokenIdentifier>
+    <Path>dc/dde/class_player_controller.html</Path>
+    <Anchor>a6e5529ae3f4aa7ea7ed313dddb947fac</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>slopes</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -10026,6 +10138,16 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>AMOUNT_OF_RAYS</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>PlayerController</Scope>
+    </TokenIdentifier>
+    <Path>dc/dde/class_player_controller.html</Path>
+    <Anchor>af12a66aa0218fdc5ea754fdb2f80a460</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>PlayerControllerSystem</Name>
       <APILanguage>cpp</APILanguage>
       <Type>ffunc</Type>
@@ -10052,6 +10174,7 @@
       <Scope>PlayerControllerSystem</Scope>
     </TokenIdentifier>
     <Path>d5/d50/class_player_controller_system.html</Path>
+    <Abstract>This is sort of a test system just to mess around when I want to take a break from other tasks.</Abstract>
     <DeclaredIn>PlayerControllerSystem.h</DeclaredIn>
   </Token>
   <Token>
@@ -10085,6 +10208,17 @@
     </TokenIdentifier>
     <Path>d5/d50/class_player_controller_system.html</Path>
     <Anchor>a9d234f18033f0a3fca95bbcd49c28deb</Anchor>
+    <DeclaredIn>PlayerControllerSystem.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>debugRender</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>PlayerControllerSystem</Scope>
+    </TokenIdentifier>
+    <Path>d5/d50/class_player_controller_system.html</Path>
+    <Anchor>ab4ce3f79510a2897a0fc199d611c6083</Anchor>
     <DeclaredIn>PlayerControllerSystem.h</DeclaredIn>
   </Token>
   <Token>
@@ -10901,6 +11035,17 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>render2D</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Quad</Scope>
+    </TokenIdentifier>
+    <Path>d3/df8/class_quad.html</Path>
+    <Anchor>a6bc90a7d8cc1525a096b9974007e517d</Anchor>
+    <DeclaredIn>Quad.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>~Quad</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -11094,6 +11239,28 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>getRayFrom</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RayCaster</Scope>
+    </TokenIdentifier>
+    <Path>d3/dbc/class_ray_caster.html</Path>
+    <Anchor>a068a6f42bc1cc3d66cd5857ae76ba4f8</Anchor>
+    <DeclaredIn>RayCaster.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getRayTo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RayCaster</Scope>
+    </TokenIdentifier>
+    <Path>d3/dbc/class_ray_caster.html</Path>
+    <Anchor>aa3238277fd5f43bea49462684e139479</Anchor>
+    <DeclaredIn>RayCaster.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>getLength</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -11149,92 +11316,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>~Component</Name>
-      <APILanguage>unknown</APILanguage>
-      <Type>instm</Type>
-      <Scope>Component&lt; RayCaster &gt;</Scope>
-    </TokenIdentifier>
-    <Path>d2/d00/class_component.html</Path>
-    <Anchor>a2d2fd772fc1a945ab88556e95db62b9b</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getType</Name>
-      <APILanguage>unknown</APILanguage>
-      <Type>instm</Type>
-      <Scope>Component&lt; RayCaster &gt;</Scope>
-    </TokenIdentifier>
-    <Path>d2/d00/class_component.html</Path>
-    <Anchor>a59e2048af36fcbc8bb57c9b3bc6ec35d</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>~ComponentInterface</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>ComponentInterface</Scope>
-    </TokenIdentifier>
-    <Path>d5/d79/class_component_interface.html</Path>
-    <Anchor>a3886256e350e41fe89687a5497308333</Anchor>
-    <DeclaredIn>Component.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getType</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>ComponentInterface</Scope>
-    </TokenIdentifier>
-    <Path>d5/d79/class_component_interface.html</Path>
-    <Anchor>a8d4f023c8e4b49da0906402fd0865dca</Anchor>
-    <DeclaredIn>Component.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getEntityID</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>ComponentInterface</Scope>
-    </TokenIdentifier>
-    <Path>d5/d79/class_component_interface.html</Path>
-    <Anchor>ad55486119519e96e617e082bf583b1d9</Anchor>
-    <DeclaredIn>Component.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>setEntityID</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>ComponentInterface</Scope>
-    </TokenIdentifier>
-    <Path>d5/d79/class_component_interface.html</Path>
-    <Anchor>a97c45011fff6d2329d6f5097ef02f220</Anchor>
-    <DeclaredIn>Component.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>isActive</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>ComponentInterface</Scope>
-    </TokenIdentifier>
-    <Path>d5/d79/class_component_interface.html</Path>
-    <Anchor>af9338dc59bb37e7fab8855fa7cf9f38e</Anchor>
-    <DeclaredIn>Component.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>setActive</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>ComponentInterface</Scope>
-    </TokenIdentifier>
-    <Path>d5/d79/class_component_interface.html</Path>
-    <Anchor>a0920edc465f3135478be2b49e1b7efd0</Anchor>
-    <DeclaredIn>Component.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>length</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -11272,16 +11353,6 @@
     </TokenIdentifier>
     <Path>d3/dbc/class_ray_caster.html</Path>
     <Anchor>a82e6b161b88569adb142e6b0176a2a53</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>type</Name>
-      <APILanguage>unknown</APILanguage>
-      <Type>data</Type>
-      <Scope>Component&lt; RayCaster &gt;</Scope>
-    </TokenIdentifier>
-    <Path>d2/d00/class_component.html</Path>
-    <Anchor>a4e8fbccb18dbf4ae6372b4579f74b0ff</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -11323,63 +11394,63 @@
       <Scope>RenderingSystem</Scope>
     </TokenIdentifier>
     <Path>d8/d31/class_rendering_system.html</Path>
-    <Anchor>ae6a25f6b28ebe40f08916d9eadc95ac2</Anchor>
+    <Anchor>ae19552a9d0be228226af970936c52f1d</Anchor>
     <DeclaredIn>RenderingSystem.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>~SystemBase</Name>
+      <Name>~MainSystemBase</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a1366847b8318d417e4b171d9f213aa82</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>aa30dfed6220981750f0748687de8d104</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>setScene</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a3dbbd982d22ba1ea145336ec89167cb1</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>aeabc492bd33a4ab472099eecb79bda3c</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>setCurrentSettings</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a5ea730140f3f0735ac0a0d0bf0eb5005</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a01a0d4f6f926c1e00dd4180c009f5a41</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>setPhysicsWorld</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>ab9b7038ba7182c75c87d5d4f73dcd0fc</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a4f934ed27ca4ce39729d93310047ea39</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>areVitalsNull</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a5a3dcc196a770866b9e51e406c4d2eea</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a49c5f15085ef2ad361658bfd0e180286</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -11422,7 +11493,7 @@
       <Scope>RenderingSystem</Scope>
     </TokenIdentifier>
     <Path>d8/d31/class_rendering_system.html</Path>
-    <Anchor>ad5115644b3d0a1df6446a610c683a31e</Anchor>
+    <Anchor>a93594796e7b1d148c4de46677fca2260</Anchor>
     <DeclaredIn>RenderingSystem.h</DeclaredIn>
   </Token>
   <Token>
@@ -11512,6 +11583,7 @@
     </TokenIdentifier>
     <Path>d8/d31/class_rendering_system.html</Path>
     <Anchor>a222c257b79f16a58d17dde83fef64faa</Anchor>
+    <Abstract>Used to render the scene to a quad.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -11522,76 +11594,47 @@
     </TokenIdentifier>
     <Path>d8/d31/class_rendering_system.html</Path>
     <Anchor>ae4200a013c359517b9bc1fe491ec3654</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>depthMatrix</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>RenderingSystem</Scope>
-    </TokenIdentifier>
-    <Path>d8/d31/class_rendering_system.html</Path>
-    <Anchor>a2dea5ac9f6494a3980c65b24e00672df</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>depthQuad</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>RenderingSystem</Scope>
-    </TokenIdentifier>
-    <Path>d8/d31/class_rendering_system.html</Path>
-    <Anchor>a556806f1db34103b7e0889cb61eb8907</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>depthShader</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>RenderingSystem</Scope>
-    </TokenIdentifier>
-    <Path>d8/d31/class_rendering_system.html</Path>
-    <Anchor>ad3b1130f0cdb75d516771ca328a2a1de</Anchor>
+    <Abstract>The shader used for the screenQuad.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>systems</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>ad0de657662b8d951d7a090248ee50d2c</Anchor>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a0c78ce1677f7f0ffa9732de8e376abe7</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>physicsWorld</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a9c1525ee5bbba8d11c60f9cdbb15d15a</Anchor>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>aa51f79bbb6e997603ca9a83086ac7d62</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>currentSettings</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>aedd8e8d0ee8c8fbb6951927f99c485ff</Anchor>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a72e19f2eb87e54a049fbc7d3135db023</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>currentScene</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>ad2ce3c386e2c92f8f205a87760a6f0a1</Anchor>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a861483a8886f34875d60e8eb8b0931cb</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -11601,72 +11644,7 @@
       <Scope>RenderTexture</Scope>
     </TokenIdentifier>
     <Path>dd/db8/class_render_texture.html</Path>
-    <DeclaredIn>RenderTexture.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getTextureID</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>RenderTexture</Scope>
-    </TokenIdentifier>
-    <Path>dd/db8/class_render_texture.html</Path>
-    <Anchor>a3aa303615b34a1bad3eb36225c4b8d85</Anchor>
-    <DeclaredIn>RenderTexture.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getFBO</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>RenderTexture</Scope>
-    </TokenIdentifier>
-    <Path>dd/db8/class_render_texture.html</Path>
-    <Anchor>a8adf0ccf6765bf2b89314c9eac8f2d3f</Anchor>
-    <DeclaredIn>RenderTexture.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getWidth</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>RenderTexture</Scope>
-    </TokenIdentifier>
-    <Path>dd/db8/class_render_texture.html</Path>
-    <Anchor>ac2dc6ba7ade58b6437c94f0deebb6992</Anchor>
-    <DeclaredIn>RenderTexture.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getHeight</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>RenderTexture</Scope>
-    </TokenIdentifier>
-    <Path>dd/db8/class_render_texture.html</Path>
-    <Anchor>ad11de0e09df831d6ee7521593c4e5036</Anchor>
-    <DeclaredIn>RenderTexture.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>initialize</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>RenderTexture</Scope>
-    </TokenIdentifier>
-    <Path>dd/db8/class_render_texture.html</Path>
-    <Anchor>afc74bdbbb35d6af7b9b4a1b77c6ae011</Anchor>
-    <DeclaredIn>RenderTexture.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>resize</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>RenderTexture</Scope>
-    </TokenIdentifier>
-    <Path>dd/db8/class_render_texture.html</Path>
-    <Anchor>abf24c86b77fa47a8c85093fa0a96a7d7</Anchor>
+    <Abstract>The RenderTexture class is used to create a texture that you can render to. This is a component.</Abstract>
     <DeclaredIn>RenderTexture.h</DeclaredIn>
   </Token>
   <Token>
@@ -11677,7 +11655,194 @@
       <Scope>RenderTexture</Scope>
     </TokenIdentifier>
     <Path>dd/db8/class_render_texture.html</Path>
-    <Anchor>a09968448696504585c6dd61203f2c5b9</Anchor>
+    <Anchor>a428b5e7e40f5bd8b121d71eef60a881a</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getTextureID</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a8975f0e7402db1442c53c5a7875ae609</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getFBO</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a44fde85ac91e5fd44f686d58c87fadb5</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getWidth</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a969a552715344a4a2bd350f97b7fe42c</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getHeight</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a8655dfa537b2c6b521a0977923e74466</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>initialize</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>ac2deb2eed80dd01309f427ed0cad9142</Anchor>
+    <Abstract>Initializes the texture.</Abstract>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>resize</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>ab4a330b60ce9b8b5ad64893cc27bbd98</Anchor>
+    <Abstract>Resizes the texture.</Abstract>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~RenderTextureBase</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a44129105a8356ee6ff091f8f1f24a9d2</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~Component</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>instm</Type>
+      <Scope>Component&lt; RenderTexture &gt;</Scope>
+    </TokenIdentifier>
+    <Path>d2/d00/class_component.html</Path>
+    <Anchor>a2d2fd772fc1a945ab88556e95db62b9b</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getType</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>instm</Type>
+      <Scope>Component&lt; RenderTexture &gt;</Scope>
+    </TokenIdentifier>
+    <Path>d2/d00/class_component.html</Path>
+    <Anchor>a59e2048af36fcbc8bb57c9b3bc6ec35d</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~ComponentInterface</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>ComponentInterface</Scope>
+    </TokenIdentifier>
+    <Path>d5/d79/class_component_interface.html</Path>
+    <Anchor>a3886256e350e41fe89687a5497308333</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getType</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>ComponentInterface</Scope>
+    </TokenIdentifier>
+    <Path>d5/d79/class_component_interface.html</Path>
+    <Anchor>a8d4f023c8e4b49da0906402fd0865dca</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getEntityID</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>ComponentInterface</Scope>
+    </TokenIdentifier>
+    <Path>d5/d79/class_component_interface.html</Path>
+    <Anchor>ad55486119519e96e617e082bf583b1d9</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setEntityID</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>ComponentInterface</Scope>
+    </TokenIdentifier>
+    <Path>d5/d79/class_component_interface.html</Path>
+    <Anchor>a97c45011fff6d2329d6f5097ef02f220</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>isActive</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>ComponentInterface</Scope>
+    </TokenIdentifier>
+    <Path>d5/d79/class_component_interface.html</Path>
+    <Anchor>af9338dc59bb37e7fab8855fa7cf9f38e</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setActive</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>ComponentInterface</Scope>
+    </TokenIdentifier>
+    <Path>d5/d79/class_component_interface.html</Path>
+    <Anchor>a0920edc465f3135478be2b49e1b7efd0</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>type</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>data</Type>
+      <Scope>Component&lt; RenderTexture &gt;</Scope>
+    </TokenIdentifier>
+    <Path>d2/d00/class_component.html</Path>
+    <Anchor>a4e8fbccb18dbf4ae6372b4579f74b0ff</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>freeGLIds</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>afed33a6ef7117afa415a64657727552c</Anchor>
+    <Abstract>Frees openGL id&apos;s.</Abstract>
     <DeclaredIn>RenderTexture.h</DeclaredIn>
   </Token>
   <Token>
@@ -11685,60 +11850,590 @@
       <Name>width</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>RenderTexture</Scope>
+      <Scope>RenderTextureBase</Scope>
     </TokenIdentifier>
-    <Path>dd/db8/class_render_texture.html</Path>
-    <Anchor>a896cee49a0efe20479d44bc06b098e63</Anchor>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>acb6e9d38bd1fa386c22618fcb00b4999</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>height</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>RenderTexture</Scope>
+      <Scope>RenderTextureBase</Scope>
     </TokenIdentifier>
-    <Path>dd/db8/class_render_texture.html</Path>
-    <Anchor>ab3949eefdfad027280674dba64004906</Anchor>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a5307e7f353e86ff8c481a932a66e3546</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>textureFBO</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>RenderTexture</Scope>
+      <Scope>RenderTextureBase</Scope>
     </TokenIdentifier>
-    <Path>dd/db8/class_render_texture.html</Path>
-    <Anchor>a7c5b949d338093829a8dfbf8310afe59</Anchor>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a75b86144b88a724618208b2154b58303</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>textureID</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>RenderTexture</Scope>
+      <Scope>RenderTextureBase</Scope>
     </TokenIdentifier>
-    <Path>dd/db8/class_render_texture.html</Path>
-    <Anchor>aed6e4c55d5c1a4f2eec7c7667dc3b296</Anchor>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>ac328d078d5cb17885e4437f7a0afd77a</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>textureRBO</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>RenderTexture</Scope>
+      <Scope>RenderTextureBase</Scope>
     </TokenIdentifier>
-    <Path>dd/db8/class_render_texture.html</Path>
-    <Anchor>ac62420815f9843c98200826c89331a99</Anchor>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>ac7dbee5b288d3c0a296f5b33de8666f4</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>status</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a3487b1b4609a1c62a5f82f1a1cd3856f</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>initialized</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>RenderTexture</Scope>
+      <Scope>RenderTextureBase</Scope>
     </TokenIdentifier>
-    <Path>dd/db8/class_render_texture.html</Path>
-    <Anchor>a3ac1ef71153df21a59d3d98eae8da6a8</Anchor>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a0493c0df8a277be7fefad73b9c6530b2</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>RenderTextureBase</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Abstract>The RenderTextureBase class is used to create a texture that you can render to. This is not a compone...</Abstract>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getTextureID</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a8975f0e7402db1442c53c5a7875ae609</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getFBO</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a44fde85ac91e5fd44f686d58c87fadb5</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getWidth</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a969a552715344a4a2bd350f97b7fe42c</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getHeight</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a8655dfa537b2c6b521a0977923e74466</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>initialize</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>ac2deb2eed80dd01309f427ed0cad9142</Anchor>
+    <Abstract>Initializes the texture.</Abstract>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>resize</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>ab4a330b60ce9b8b5ad64893cc27bbd98</Anchor>
+    <Abstract>Resizes the texture.</Abstract>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~RenderTextureBase</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a44129105a8356ee6ff091f8f1f24a9d2</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>freeGLIds</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>afed33a6ef7117afa415a64657727552c</Anchor>
+    <Abstract>Frees openGL id&apos;s.</Abstract>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>width</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>acb6e9d38bd1fa386c22618fcb00b4999</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>height</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a5307e7f353e86ff8c481a932a66e3546</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>textureFBO</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a75b86144b88a724618208b2154b58303</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>textureID</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>ac328d078d5cb17885e4437f7a0afd77a</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>textureRBO</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>ac7dbee5b288d3c0a296f5b33de8666f4</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>status</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a3487b1b4609a1c62a5f82f1a1cd3856f</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>initialized</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a0493c0df8a277be7fefad73b9c6530b2</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>RenderTextureMS</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>RenderTextureMS</Scope>
+    </TokenIdentifier>
+    <Path>d0/d25/class_render_texture_m_s.html</Path>
+    <Abstract>The RenderTextureMS class is used to create a multisampled texture that you can render to....</Abstract>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~RenderTextureMS</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureMS</Scope>
+    </TokenIdentifier>
+    <Path>d0/d25/class_render_texture_m_s.html</Path>
+    <Anchor>a4ebabbe8bf5e8ec2d3d356819bb32b6b</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>resize</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureMS</Scope>
+    </TokenIdentifier>
+    <Path>d0/d25/class_render_texture_m_s.html</Path>
+    <Anchor>afa68d84ecb9263f3a6051054e18eeba4</Anchor>
+    <Abstract>Resize the texture.</Abstract>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>resize</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureMS</Scope>
+    </TokenIdentifier>
+    <Path>d0/d25/class_render_texture_m_s.html</Path>
+    <Anchor>a67eaf05a25bf6fc790643a55f90ababa</Anchor>
+    <Abstract>Resize the texture and set the multisamples.</Abstract>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>initialize</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureMS</Scope>
+    </TokenIdentifier>
+    <Path>d0/d25/class_render_texture_m_s.html</Path>
+    <Anchor>ad8d0bba27221d6cfb62924d3f125038a</Anchor>
+    <Abstract>Initialize.</Abstract>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>initialize</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureMS</Scope>
+    </TokenIdentifier>
+    <Path>d0/d25/class_render_texture_m_s.html</Path>
+    <Anchor>a4d4c6dd1a31b7303b4a8313dd34cd267</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getCurrentMultisampleCount</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureMS</Scope>
+    </TokenIdentifier>
+    <Path>d0/d25/class_render_texture_m_s.html</Path>
+    <Anchor>aadb52d1ec2fc726538d9da81bcec791a</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getTextureID</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a8975f0e7402db1442c53c5a7875ae609</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getFBO</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a44fde85ac91e5fd44f686d58c87fadb5</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getWidth</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a969a552715344a4a2bd350f97b7fe42c</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getHeight</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a8655dfa537b2c6b521a0977923e74466</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~RenderTextureBase</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a44129105a8356ee6ff091f8f1f24a9d2</Anchor>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~Component</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>instm</Type>
+      <Scope>Component&lt; RenderTextureMS &gt;</Scope>
+    </TokenIdentifier>
+    <Path>d2/d00/class_component.html</Path>
+    <Anchor>a2d2fd772fc1a945ab88556e95db62b9b</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getType</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>instm</Type>
+      <Scope>Component&lt; RenderTextureMS &gt;</Scope>
+    </TokenIdentifier>
+    <Path>d2/d00/class_component.html</Path>
+    <Anchor>a59e2048af36fcbc8bb57c9b3bc6ec35d</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~ComponentInterface</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>ComponentInterface</Scope>
+    </TokenIdentifier>
+    <Path>d5/d79/class_component_interface.html</Path>
+    <Anchor>a3886256e350e41fe89687a5497308333</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getType</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>ComponentInterface</Scope>
+    </TokenIdentifier>
+    <Path>d5/d79/class_component_interface.html</Path>
+    <Anchor>a8d4f023c8e4b49da0906402fd0865dca</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getEntityID</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>ComponentInterface</Scope>
+    </TokenIdentifier>
+    <Path>d5/d79/class_component_interface.html</Path>
+    <Anchor>ad55486119519e96e617e082bf583b1d9</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setEntityID</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>ComponentInterface</Scope>
+    </TokenIdentifier>
+    <Path>d5/d79/class_component_interface.html</Path>
+    <Anchor>a97c45011fff6d2329d6f5097ef02f220</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>isActive</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>ComponentInterface</Scope>
+    </TokenIdentifier>
+    <Path>d5/d79/class_component_interface.html</Path>
+    <Anchor>af9338dc59bb37e7fab8855fa7cf9f38e</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setActive</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>ComponentInterface</Scope>
+    </TokenIdentifier>
+    <Path>d5/d79/class_component_interface.html</Path>
+    <Anchor>a0920edc465f3135478be2b49e1b7efd0</Anchor>
+    <DeclaredIn>Component.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getMaxMultisample</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>RenderTextureMS</Scope>
+    </TokenIdentifier>
+    <Path>d0/d25/class_render_texture_m_s.html</Path>
+    <Anchor>aeb48457f054a0553e90a132cb7f1a79d</Anchor>
+    <Abstract>Retrieves the max amount of multisamples the computer can handle if it hasn&apos;t already.</Abstract>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>initializeUnsafe</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureMS</Scope>
+    </TokenIdentifier>
+    <Path>d0/d25/class_render_texture_m_s.html</Path>
+    <Anchor>a224d0bb24e0ed3d5e976eabc57d5a8ad</Anchor>
+    <Abstract>Doesn&apos;t check if samples are supported. (prevents recursion in getMaxMultisample()).</Abstract>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>currentMultisamples</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>RenderTextureMS</Scope>
+    </TokenIdentifier>
+    <Path>d0/d25/class_render_texture_m_s.html</Path>
+    <Anchor>a41a33f1638985a639be78f43f6e60ec4</Anchor>
+    <Abstract>used for resizing.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>type</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>data</Type>
+      <Scope>Component&lt; RenderTextureMS &gt;</Scope>
+    </TokenIdentifier>
+    <Path>d2/d00/class_component.html</Path>
+    <Anchor>a4e8fbccb18dbf4ae6372b4579f74b0ff</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>freeGLIds</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>afed33a6ef7117afa415a64657727552c</Anchor>
+    <Abstract>Frees openGL id&apos;s.</Abstract>
+    <DeclaredIn>RenderTexture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>width</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>acb6e9d38bd1fa386c22618fcb00b4999</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>height</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a5307e7f353e86ff8c481a932a66e3546</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>textureFBO</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a75b86144b88a724618208b2154b58303</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>textureID</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>ac328d078d5cb17885e4437f7a0afd77a</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>textureRBO</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>ac7dbee5b288d3c0a296f5b33de8666f4</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>status</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a3487b1b4609a1c62a5f82f1a1cd3856f</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>initialized</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>RenderTextureBase</Scope>
+    </TokenIdentifier>
+    <Path>d9/d3e/class_render_texture_base.html</Path>
+    <Anchor>a0493c0df8a277be7fefad73b9c6530b2</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -13324,86 +14019,86 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>SphereShape</Name>
+      <Name>Sphere</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
-      <Scope>SphereShape</Scope>
+      <Scope>Sphere</Scope>
     </TokenIdentifier>
-    <Path>d6/d00/class_sphere_shape.html</Path>
-    <DeclaredIn>SphereShape.h</DeclaredIn>
+    <Path>d3/d62/class_sphere.html</Path>
+    <DeclaredIn>Sphere.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>createSphere</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>SphereShape</Scope>
+      <Scope>Sphere</Scope>
     </TokenIdentifier>
-    <Path>d6/d00/class_sphere_shape.html</Path>
-    <Anchor>aa54c7e21832dd435d8837e6cbef93ce3</Anchor>
-    <DeclaredIn>SphereShape.h</DeclaredIn>
+    <Path>d3/d62/class_sphere.html</Path>
+    <Anchor>ac680a6d847f9b3c3cdd729e80bc33728</Anchor>
+    <DeclaredIn>Sphere.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>drawSphere</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>SphereShape</Scope>
+      <Scope>Sphere</Scope>
     </TokenIdentifier>
-    <Path>d6/d00/class_sphere_shape.html</Path>
-    <Anchor>a12e0ec92a832a5a7c73ca489c96ef248</Anchor>
-    <DeclaredIn>SphereShape.h</DeclaredIn>
+    <Path>d3/d62/class_sphere.html</Path>
+    <Anchor>a9d474254ba6ef3f36c6f5181f0779b66</Anchor>
+    <DeclaredIn>Sphere.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>~SphereShape</Name>
+      <Name>~Sphere</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>SphereShape</Scope>
+      <Scope>Sphere</Scope>
     </TokenIdentifier>
-    <Path>d6/d00/class_sphere_shape.html</Path>
-    <Anchor>a95a8b395a3e62783ef7e39c91ed2ca6b</Anchor>
-    <DeclaredIn>SphereShape.h</DeclaredIn>
+    <Path>d3/d62/class_sphere.html</Path>
+    <Anchor>a569c071e50a3e11f678630ee1a17737e</Anchor>
+    <DeclaredIn>Sphere.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>vertices</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>SphereShape</Scope>
+      <Scope>Sphere</Scope>
     </TokenIdentifier>
-    <Path>d6/d00/class_sphere_shape.html</Path>
-    <Anchor>afe94ccd445b8331c5c5a217331f0ea3c</Anchor>
+    <Path>d3/d62/class_sphere.html</Path>
+    <Anchor>aa343a7d54e913e426758036b6fe50641</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>VAOID</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>SphereShape</Scope>
+      <Scope>Sphere</Scope>
     </TokenIdentifier>
-    <Path>d6/d00/class_sphere_shape.html</Path>
-    <Anchor>a00efb2a73f72c43c7e49231567b2d071</Anchor>
+    <Path>d3/d62/class_sphere.html</Path>
+    <Anchor>a15d507e803558cdac5e813e2f1fed189</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>vertID</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>SphereShape</Scope>
+      <Scope>Sphere</Scope>
     </TokenIdentifier>
-    <Path>d6/d00/class_sphere_shape.html</Path>
-    <Anchor>a189373a34e4abfba24bad74bff700b10</Anchor>
+    <Path>d3/d62/class_sphere.html</Path>
+    <Anchor>a5d016ec46c4752277c91090148365010</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>initialized</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>SphereShape</Scope>
+      <Scope>Sphere</Scope>
     </TokenIdentifier>
-    <Path>d6/d00/class_sphere_shape.html</Path>
-    <Anchor>a9bbdd8cc25c2abad7f34a70673e87e7a</Anchor>
+    <Path>d3/d62/class_sphere.html</Path>
+    <Anchor>aa19791fffbab9dd7736ef6ae13571156</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -13517,6 +14212,16 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>debuggingSystem</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>SubSystems</Scope>
+    </TokenIdentifier>
+    <Path>d7/db2/struct_sub_systems.html</Path>
+    <Anchor>a46e64dbecd648d661d1db0fe22b5eec9</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>defaultParticleSystem</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -13537,119 +14242,13 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>SystemBase</Name>
-      <APILanguage>c</APILanguage>
-      <Type>cl</Type>
-      <Scope>SystemBase</Scope>
-    </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>~SystemBase</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>SystemBase</Scope>
-    </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a1366847b8318d417e4b171d9f213aa82</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>initialize</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>SystemBase</Scope>
-    </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>af25258de01193cf75e821f0124614497</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>setScene</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>SystemBase</Scope>
-    </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a3dbbd982d22ba1ea145336ec89167cb1</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>setCurrentSettings</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>SystemBase</Scope>
-    </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a5ea730140f3f0735ac0a0d0bf0eb5005</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>setPhysicsWorld</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>SystemBase</Scope>
-    </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>ab9b7038ba7182c75c87d5d4f73dcd0fc</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>areVitalsNull</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>SystemBase</Scope>
-    </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a5a3dcc196a770866b9e51e406c4d2eea</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>systems</Name>
+      <Name>directionalShadowDebuggerSystem</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>SubSystems</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>ad0de657662b8d951d7a090248ee50d2c</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>physicsWorld</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>SystemBase</Scope>
-    </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a9c1525ee5bbba8d11c60f9cdbb15d15a</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>currentSettings</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>SystemBase</Scope>
-    </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>aedd8e8d0ee8c8fbb6951927f99c485ff</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>currentScene</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>SystemBase</Scope>
-    </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>ad2ce3c386e2c92f8f205a87760a6f0a1</Anchor>
+    <Path>d7/db2/struct_sub_systems.html</Path>
+    <Anchor>ab37e435433849d55420cc2faba53f43d</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -13754,6 +14353,17 @@
     </TokenIdentifier>
     <Path>d2/d7f/class_texture.html</Path>
     <Anchor>a09c4bcb7462f64c1d20fa69dba3cee8a</Anchor>
+    <DeclaredIn>Texture.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Texture</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Texture</Scope>
+    </TokenIdentifier>
+    <Path>d2/d7f/class_texture.html</Path>
+    <Anchor>a22d9e76c3b7c47a177f6c27fc41f9f8d</Anchor>
     <DeclaredIn>Texture.h</DeclaredIn>
   </Token>
   <Token>
@@ -13912,7 +14522,7 @@
       <Scope>TextureHandler</Scope>
     </TokenIdentifier>
     <Path>d7/d13/class_texture_handler.html</Path>
-    <Anchor>a11178629a8ef637496caabd5ddbae66d</Anchor>
+    <Anchor>a1beb52ec3962b65423f520c522f2f706</Anchor>
     <DeclaredIn>Texture.h</DeclaredIn>
   </Token>
   <Token>
@@ -13934,7 +14544,7 @@
       <Scope>TextureHandler</Scope>
     </TokenIdentifier>
     <Path>d7/d13/class_texture_handler.html</Path>
-    <Anchor>ac16e35d1c6ff692b412cec898f0eae42</Anchor>
+    <Anchor>a805eac1036840310b0e9d0d44fc04846</Anchor>
     <DeclaredIn>Texture.h</DeclaredIn>
   </Token>
   <Token>
@@ -14312,267 +14922,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>UniqueVec2</Name>
-      <APILanguage>c</APILanguage>
-      <Type>tmplt</Type>
-      <Scope>UniqueVec2</Scope>
-    </TokenIdentifier>
-    <Path>d8/dc0/class_unique_vec2.html</Path>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator+</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec2</Scope>
-    </TokenIdentifier>
-    <Path>d8/dc0/class_unique_vec2.html</Path>
-    <Anchor>a71380d98be2f55164b39152f6617cc27</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator-</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec2</Scope>
-    </TokenIdentifier>
-    <Path>d8/dc0/class_unique_vec2.html</Path>
-    <Anchor>ae89f3511620ff9d2ea0a8c3b3b682e78</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator*</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec2</Scope>
-    </TokenIdentifier>
-    <Path>d8/dc0/class_unique_vec2.html</Path>
-    <Anchor>a5b7371bd030e34770bd93cdfc6cbce10</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator*</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec2</Scope>
-    </TokenIdentifier>
-    <Path>d8/dc0/class_unique_vec2.html</Path>
-    <Anchor>a113ae28ff4480c5a25647842d557dc14</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>UniqueVec2</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec2</Scope>
-    </TokenIdentifier>
-    <Path>d8/dc0/class_unique_vec2.html</Path>
-    <Anchor>a0d48b7c5ddbeef024174255aa8e9e49f</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>UniqueVec2</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec2</Scope>
-    </TokenIdentifier>
-    <Path>d8/dc0/class_unique_vec2.html</Path>
-    <Anchor>a3997cb218786b5fb4e502bc51740aa2b</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>UniqueVec2</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec2</Scope>
-    </TokenIdentifier>
-    <Path>d8/dc0/class_unique_vec2.html</Path>
-    <Anchor>a17b98c1798f0e3cfc2c3c420ccfbe28f</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>UniqueVec3</Name>
-      <APILanguage>c</APILanguage>
-      <Type>tmplt</Type>
-      <Scope>UniqueVec3</Scope>
-    </TokenIdentifier>
-    <Path>d9/d35/class_unique_vec3.html</Path>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator+</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec3</Scope>
-    </TokenIdentifier>
-    <Path>d9/d35/class_unique_vec3.html</Path>
-    <Anchor>a6701e1de4571f52864826f96900e3533</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator-</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec3</Scope>
-    </TokenIdentifier>
-    <Path>d9/d35/class_unique_vec3.html</Path>
-    <Anchor>a6b069d136a46c0abdc213bad5e9a2190</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator*</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec3</Scope>
-    </TokenIdentifier>
-    <Path>d9/d35/class_unique_vec3.html</Path>
-    <Anchor>a72b15db4e4faaa0845202c0beea51c10</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator*</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec3</Scope>
-    </TokenIdentifier>
-    <Path>d9/d35/class_unique_vec3.html</Path>
-    <Anchor>a88cd5cb555ae2332fa50f9aa45bd5a93</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>UniqueVec3</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec3</Scope>
-    </TokenIdentifier>
-    <Path>d9/d35/class_unique_vec3.html</Path>
-    <Anchor>ad18e56d47ba851d0877b114f8b6fdde0</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>UniqueVec3</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec3</Scope>
-    </TokenIdentifier>
-    <Path>d9/d35/class_unique_vec3.html</Path>
-    <Anchor>a923ecfa1b8d67def73f8dbad0de645f4</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>UniqueVec3</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec3</Scope>
-    </TokenIdentifier>
-    <Path>d9/d35/class_unique_vec3.html</Path>
-    <Anchor>a873d7418aff34987bd954f05095116c1</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>UniqueVec4</Name>
-      <APILanguage>c</APILanguage>
-      <Type>tmplt</Type>
-      <Scope>UniqueVec4</Scope>
-    </TokenIdentifier>
-    <Path>d6/d04/class_unique_vec4.html</Path>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator+</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec4</Scope>
-    </TokenIdentifier>
-    <Path>d6/d04/class_unique_vec4.html</Path>
-    <Anchor>adc8e9bc088fc03caa09126a540ba758e</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator-</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec4</Scope>
-    </TokenIdentifier>
-    <Path>d6/d04/class_unique_vec4.html</Path>
-    <Anchor>a3f903e97976b973cd756b293b389e878</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator*</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec4</Scope>
-    </TokenIdentifier>
-    <Path>d6/d04/class_unique_vec4.html</Path>
-    <Anchor>add20994db36f7bf4780773ecf6995ae2</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator*</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec4</Scope>
-    </TokenIdentifier>
-    <Path>d6/d04/class_unique_vec4.html</Path>
-    <Anchor>a0ecb43d286b25f8f64b1528aa7f7d4b8</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>UniqueVec4</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec4</Scope>
-    </TokenIdentifier>
-    <Path>d6/d04/class_unique_vec4.html</Path>
-    <Anchor>ab6bfd11ec0754bbe461e8ff0597d35a2</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>UniqueVec4</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec4</Scope>
-    </TokenIdentifier>
-    <Path>d6/d04/class_unique_vec4.html</Path>
-    <Anchor>a8665983269e1502978129cebed9a5118</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>UniqueVec4</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>UniqueVec4</Scope>
-    </TokenIdentifier>
-    <Path>d6/d04/class_unique_vec4.html</Path>
-    <Anchor>a266999086f2036c4a5e7caf173e22a75</Anchor>
-    <DeclaredIn>UniqueVectors.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>UpdatingSystem</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -14616,98 +14965,98 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>~SystemBase</Name>
+      <Name>~MainSystemBase</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a1366847b8318d417e4b171d9f213aa82</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>aa30dfed6220981750f0748687de8d104</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>setScene</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a3dbbd982d22ba1ea145336ec89167cb1</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>aeabc492bd33a4ab472099eecb79bda3c</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>setCurrentSettings</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a5ea730140f3f0735ac0a0d0bf0eb5005</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a01a0d4f6f926c1e00dd4180c009f5a41</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>setPhysicsWorld</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>ab9b7038ba7182c75c87d5d4f73dcd0fc</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a4f934ed27ca4ce39729d93310047ea39</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>areVitalsNull</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a5a3dcc196a770866b9e51e406c4d2eea</Anchor>
-    <DeclaredIn>SystemBase.h</DeclaredIn>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a49c5f15085ef2ad361658bfd0e180286</Anchor>
+    <DeclaredIn>MainSystemBase.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>systems</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>ad0de657662b8d951d7a090248ee50d2c</Anchor>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a0c78ce1677f7f0ffa9732de8e376abe7</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>physicsWorld</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>a9c1525ee5bbba8d11c60f9cdbb15d15a</Anchor>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>aa51f79bbb6e997603ca9a83086ac7d62</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>currentSettings</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>aedd8e8d0ee8c8fbb6951927f99c485ff</Anchor>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a72e19f2eb87e54a049fbc7d3135db023</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
       <Name>currentScene</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
-      <Scope>SystemBase</Scope>
+      <Scope>MainSystemBase</Scope>
     </TokenIdentifier>
-    <Path>d2/d15/class_system_base.html</Path>
-    <Anchor>ad2ce3c386e2c92f8f205a87760a6f0a1</Anchor>
+    <Path>d1/d37/class_main_system_base.html</Path>
+    <Anchor>a861483a8886f34875d60e8eb8b0931cb</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -17143,60 +17492,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>_3DM::UnidentifiedModel</Name>
-      <APILanguage>c</APILanguage>
-      <Type>cl</Type>
-      <Scope>_3DM::UnidentifiedModel</Scope>
-    </TokenIdentifier>
-    <Path>d3/dca/class__3_d_m_1_1_unidentified_model.html</Path>
-    <DeclaredIn>UnidentifiedModel.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>initialize</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>_3DM::UnidentifiedModel</Scope>
-    </TokenIdentifier>
-    <Path>d3/dca/class__3_d_m_1_1_unidentified_model.html</Path>
-    <Anchor>a6f72259e8b253bd16866af1f63f0f4c3</Anchor>
-    <DeclaredIn>UnidentifiedModel.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>renderAll</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>_3DM::UnidentifiedModel</Scope>
-    </TokenIdentifier>
-    <Path>d3/dca/class__3_d_m_1_1_unidentified_model.html</Path>
-    <Anchor>a61b130b0ebdc42358ac1490596d21968</Anchor>
-    <DeclaredIn>UnidentifiedModel.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>renderSingleMesh</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>_3DM::UnidentifiedModel</Scope>
-    </TokenIdentifier>
-    <Path>d3/dca/class__3_d_m_1_1_unidentified_model.html</Path>
-    <Anchor>adcc1a2c1bc99552cd64c13795f1a2c08</Anchor>
-    <DeclaredIn>UnidentifiedModel.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getMeshIndex</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>_3DM::UnidentifiedModel</Scope>
-    </TokenIdentifier>
-    <Path>d3/dca/class__3_d_m_1_1_unidentified_model.html</Path>
-    <Anchor>a9f598b2f272ca63c3400e3a56c1e7bcd</Anchor>
-    <DeclaredIn>UnidentifiedModel.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>_3DM::Vector3Key</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -17246,26 +17541,6 @@
     </TokenIdentifier>
     <Path>d4/d33/struct__3_d_m_1_1_vector3_key.html</Path>
     <Anchor>a0a3ff9a9e091ac835a8c8dd5d27d4ab2</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>DBG_DRAWER</Name>
-      <APILanguage>c</APILanguage>
-      <Type>ns</Type>
-      <Scope>DBG_DRAWER</Scope>
-    </TokenIdentifier>
-    <Path>d1/db9/namespace_d_b_g___d_r_a_w_e_r.html</Path>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>MAX_AMOUNT_DEBUG_LINES</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>DBG_DRAWER</Scope>
-    </TokenIdentifier>
-    <Path>d1/db9/namespace_d_b_g___d_r_a_w_e_r.html</Path>
-    <Anchor>aa65fb1d30df6984ee65e7813c8782a55</Anchor>
-    <DeclaredIn>DebugDrawer.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -17655,6 +17930,308 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>Engine::DebugDrawer</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Abstract>The DebugDrawer class is used to render Bullet3&apos;s collision boxes/points/etc.</Abstract>
+    <DeclaredIn>DebugDrawer.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>DebugDrawer</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a413d656a2fb53c2f999d20efdbd95558</Anchor>
+    <DeclaredIn>DebugDrawer.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~DebugDrawer</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a792215528790e3f4c2f82aad0dade330</Anchor>
+    <DeclaredIn>DebugDrawer.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getDefaultColors</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a45255ffbefed26ec9a321ad52ec9b818</Anchor>
+    <Abstract>Sets the colors for debug rendering.</Abstract>
+    <DeclaredIn>DebugDrawer.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>initialize</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>abb47ba7e8d50a6a8426e2182803eb31c</Anchor>
+    <Abstract>Initializes everything.</Abstract>
+    <DeclaredIn>DebugDrawer.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>render</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a6aaf938eeecc19f8cbedfadcb2f706ad</Anchor>
+    <Abstract>Renders the lines added via drawLine.</Abstract>
+    <DeclaredIn>DebugDrawer.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>drawLine</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>ae186c7597637ba05cd7282621df3e5a7</Anchor>
+    <Abstract>Adds a line to the list of lines to draw next frame.</Abstract>
+    <DeclaredIn>DebugDrawer.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>drawLine</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a20d11ff84d1ddeeb58803347a697ce52</Anchor>
+    <Abstract>Adds a line to the list of lines to draw next frame.</Abstract>
+    <DeclaredIn>DebugDrawer.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>drawContactPoint</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>acbb8da3e8c2a7072425cb60c6a573b4d</Anchor>
+    <Abstract>Unimplemented.</Abstract>
+    <DeclaredIn>DebugDrawer.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>reportErrorWarning</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>ae54edea00823a731689e20b821cc3d30</Anchor>
+    <DeclaredIn>DebugDrawer.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>draw3dText</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a288b75d6ea533002aa5d5b6ae5180fc5</Anchor>
+    <Abstract>Unimplemented.</Abstract>
+    <DeclaredIn>DebugDrawer.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setDebugMode</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a365bc8576206f60242a7d41698e2ca42</Anchor>
+    <Abstract>Sets the debug draw mode.</Abstract>
+    <DeclaredIn>DebugDrawer.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getDebugMode</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a6624b6d7e9aa72370a20542180e2ef94</Anchor>
+    <Abstract>Gets the debug draw mode.</Abstract>
+    <DeclaredIn>DebugDrawer.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>thisShader</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a7667f27bca73de153530ca636ced0c69</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>identitym</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a601f4e22387c9e42264492246018b201</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>lineVertices</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a7ef09f97ae01894e3d809e93d1bec6e7</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>lineColors</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a3c980d8a453c25421c89c08d09805933</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>currentDebugMode</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a995ccfdf2cfc453ae499187adb52e726</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>currentMaxAmountOfVertices</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a2938b188c126de4d579f48e0c8faef90</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>currentAmountOfLines</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a1c9669c9e1479a50e6062b7b5fe41519</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>VAO</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>af24d42ad6256e57c6fb710513c4976c5</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>vertID</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>af851b18c6564c844a03a85c24b5c6795</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>colorID</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a01bd0886b4335a4a08c42f3e60de995e</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>positionAttribute</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>afe4af14902268b359aa6bbe857310b17</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>colorAttribute</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a4fd1ad14ee161a88aa17be5a83c79d6a</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>projectionLocation</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>ae1f9146c6e4e70a379d59a5c68ae04ed</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>viewLocation</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a9cb994d1902a61d6d72ea6fe7a377e69</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>initialized</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DebugDrawer</Scope>
+    </TokenIdentifier>
+    <Path>d0/de0/class_engine_1_1_debug_drawer.html</Path>
+    <Anchor>a7051c318c0ca5acc350d58fef65acafd</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>Engine::Game</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -17868,7 +18445,7 @@
       <Scope>Engine::Game</Scope>
     </TokenIdentifier>
     <Path>d5/de3/class_engine_1_1_game.html</Path>
-    <Anchor>a33bfb81a22bac23f88690145ac8f0215</Anchor>
+    <Anchor>a5711bf4c98cc023830b568a4c71b9bf4</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -17987,7 +18564,7 @@
       <Scope>Engine::Window</Scope>
     </TokenIdentifier>
     <Path>dd/d36/class_engine_1_1_window.html</Path>
-    <Anchor>a899c72211692a105ec29699f1f8f8599</Anchor>
+    <Anchor>a4c93af8d45f2458d6025135c43f8f3ee</Anchor>
     <DeclaredIn>Window.h</DeclaredIn>
   </Token>
   <Token>
@@ -18163,6 +18740,83 @@
     </TokenIdentifier>
     <Path>dd/d36/class_engine_1_1_window.html</Path>
     <Anchor>a6b3c23a2bb2b0668a7ffc185ed01d669</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Engine::DBG_DRAWER</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>Engine::DBG_DRAWER</Scope>
+    </TokenIdentifier>
+    <Path>d1/da4/namespace_engine_1_1_d_b_g___d_r_a_w_e_r.html</Path>
+    <Abstract>Information used for the DebugDrawer.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>MAX_AMOUNT_DEBUG_LINES</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DBG_DRAWER</Scope>
+    </TokenIdentifier>
+    <Path>d1/da4/namespace_engine_1_1_d_b_g___d_r_a_w_e_r.html</Path>
+    <Anchor>a72b082b264959dc33be3a0f21dfbc458</Anchor>
+    <DeclaredIn>DebugDrawer.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>DEBUG_LINE_WIDTH</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::DBG_DRAWER</Scope>
+    </TokenIdentifier>
+    <Path>d1/da4/namespace_engine_1_1_d_b_g___d_r_a_w_e_r.html</Path>
+    <Anchor>a2b7562e9b687fd55b0aa0c8a6b8a0f6e</Anchor>
+    <DeclaredIn>DebugDrawer.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Engine::InputData</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>Engine::InputData</Scope>
+    </TokenIdentifier>
+    <Path>d4/dee/namespace_engine_1_1_input_data.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>TIME_BETWEEN_KEY_PRESS_RESET</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::InputData</Scope>
+    </TokenIdentifier>
+    <Path>d4/dee/namespace_engine_1_1_input_data.html</Path>
+    <Anchor>a7fa145017c5cc883b3f6d863a2ba6911</Anchor>
+    <Abstract>Time it takes to trigger another press for isPressedOnce.</Abstract>
+    <DeclaredIn>Input.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>TIME_UNTIL_CONTINIOUS_PRESS_RESET</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::InputData</Scope>
+    </TokenIdentifier>
+    <Path>d4/dee/namespace_engine_1_1_input_data.html</Path>
+    <Anchor>ab0ebabe96557c3446b41a54e055e44ef</Anchor>
+    <Abstract>Time it takes to trigger contious keypress for isPressedOnce.</Abstract>
+    <DeclaredIn>Input.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>NO_CONTINIOUS_PRESS</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Engine::InputData</Scope>
+    </TokenIdentifier>
+    <Path>d4/dee/namespace_engine_1_1_input_data.html</Path>
+    <Anchor>a76493d3f9c70ae43124c399d6b1341f1</Anchor>
+    <Abstract>Disable continious press.</Abstract>
+    <DeclaredIn>Input.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -18379,17 +19033,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>DEBUG_COLOR</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>GameInfo</Scope>
-    </TokenIdentifier>
-    <Path>d4/d58/namespace_game_info.html</Path>
-    <Anchor>a6f79e00a222bc6260e423249a5a05deb</Anchor>
-    <DeclaredIn>GameInfo.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>DEFAULT_GRAVITY</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -18451,6 +19094,7 @@
       <Scope>hh</Scope>
     </TokenIdentifier>
     <Path>d7/dd1/namespacehh.html</Path>
+    <Abstract>hh stands for helping hand.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -18494,6 +19138,17 @@
     </TokenIdentifier>
     <Path>d7/dd1/namespacehh.html</Path>
     <Anchor>aa0102ec32d9d665ebdda89fa4c03c5b6</Anchor>
+    <DeclaredIn>HelpingHand.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>toBtQuat</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>hh</Scope>
+    </TokenIdentifier>
+    <Path>d7/dd1/namespacehh.html</Path>
+    <Anchor>aa6fa1f9a58ae4b90867b401edea694e4</Anchor>
     <DeclaredIn>HelpingHand.h</DeclaredIn>
   </Token>
   <Token>
@@ -18747,50 +19402,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>AMOUNT_OF_RAYS</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>PLR_CTRLR_NS</Scope>
-    </TokenIdentifier>
-    <Path>d6/dea/namespace_p_l_r___c_t_r_l_r___n_s.html</Path>
-    <Anchor>aece75386b72687f0ba56e78b7426472c</Anchor>
-    <DeclaredIn>PlayerControllerSystem.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>CLAMPING_VELOCITY</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>PLR_CTRLR_NS</Scope>
-    </TokenIdentifier>
-    <Path>d6/dea/namespace_p_l_r___c_t_r_l_r___n_s.html</Path>
-    <Anchor>a61a771bb688523f198c1a7b2d44af6cb</Anchor>
-    <DeclaredIn>PlayerControllerSystem.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>RAY_DISTANCE_CORRECTOR</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>PLR_CTRLR_NS</Scope>
-    </TokenIdentifier>
-    <Path>d6/dea/namespace_p_l_r___c_t_r_l_r___n_s.html</Path>
-    <Anchor>ac1e523d7a739fae80e964dfe0d70e9ff</Anchor>
-    <DeclaredIn>PlayerControllerSystem.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>rayCast</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>PLR_CTRLR_NS</Scope>
-    </TokenIdentifier>
-    <Path>d6/dea/namespace_p_l_r___c_t_r_l_r___n_s.html</Path>
-    <Anchor>a5da22739153ab850f0b3ea2348b3e61c</Anchor>
-    <DeclaredIn>PlayerControllerSystem.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>PLR_CTRLR_NS::SlopeIntensity</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -18848,7 +19459,138 @@
     </TokenIdentifier>
     <Path>de/d22/namespace_private_game_info.html</Path>
     <Anchor>aab7a3bbfdb3af3149cb9ad7bf1ec1c46</Anchor>
+    <Abstract>DeltaTime for physics calculations and accurate updating Updated in Application.</Abstract>
     <DeclaredIn>GameInfo.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Serialization</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>Serialization</Scope>
+    </TokenIdentifier>
+    <Path>d5/dad/namespace_serialization.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>EightBytes</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>Serialization</Scope>
+    </TokenIdentifier>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>a1968eff3482b14deee2ea48861d964fc</Anchor>
+    <DeclaredIn>Serialization.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FourBytes</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>Serialization</Scope>
+    </TokenIdentifier>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>ad4b326dd7f953ffe07f6894769e747c2</Anchor>
+    <DeclaredIn>Serialization.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>TwoBytes</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>Serialization</Scope>
+    </TokenIdentifier>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>a2b548be2b5efad5140c6b22699a05538</Anchor>
+    <DeclaredIn>Serialization.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Byte</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>Serialization</Scope>
+    </TokenIdentifier>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>a80c6a3a93aa863f2a4a51d400705cb8e</Anchor>
+    <DeclaredIn>Serialization.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>swapEndian</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>Serialization</Scope>
+    </TokenIdentifier>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>a20cda2a56f417170d989194f25999d08</Anchor>
+    <DeclaredIn>Serialization.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>writeBytes</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>Serialization</Scope>
+    </TokenIdentifier>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>a60377a1dca29076179f3764661a3411e</Anchor>
+    <DeclaredIn>Serialization.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>readBytes</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>Serialization</Scope>
+    </TokenIdentifier>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>a14e278fedc08c23366c0f63126124e85</Anchor>
+    <DeclaredIn>Serialization.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>isBigEndian</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>Serialization</Scope>
+    </TokenIdentifier>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>ad379881e368b1473e30333960de316d2</Anchor>
+    <DeclaredIn>Serialization.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>writeBytes</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>Serialization</Scope>
+    </TokenIdentifier>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>aff7480a351e03d29ec2ac1717f67f8ce</Anchor>
+    <DeclaredIn>Serialization.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>readBytes</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>Serialization</Scope>
+    </TokenIdentifier>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>a8ff115ad518ef42e2b30e82c456d063b</Anchor>
+    <DeclaredIn>Serialization.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>SIZE_OF_FLOAT</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Serialization</Scope>
+    </TokenIdentifier>
+    <Path>d5/dad/namespace_serialization.html</Path>
+    <Anchor>a4903435aee5dd4af4e132a83547d121e</Anchor>
+    <DeclaredIn>Serialization.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -18966,7 +19708,7 @@
       <Scope>Shaders</Scope>
     </TokenIdentifier>
     <Path>d7/da2/namespace_shaders.html</Path>
-    <Anchor>aef1fb725960a5f27a3f83d55bd4bf9a5</Anchor>
+    <Anchor>aa42283b009e9e23133fb95b260607262</Anchor>
     <DeclaredIn>Shaders.h</DeclaredIn>
   </Token>
   <Token>
@@ -19048,6 +19790,16 @@
     </TokenIdentifier>
     <Path>d7/da2/namespace_shaders.html</Path>
     <Anchor>a3b915b2e9c580fc6208bb3b9741429a8a25e756fd0a40afb7c81a9c239d7e8785</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Color</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>Shaders</Scope>
+    </TokenIdentifier>
+    <Path>d7/da2/namespace_shaders.html</Path>
+    <Anchor>a3b915b2e9c580fc6208bb3b9741429a8acb5feb1b7314637725a2e73bdc9f7295</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -19471,6 +20223,16 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>MultisampleCount</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>Shaders</Scope>
+    </TokenIdentifier>
+    <Path>d7/da2/namespace_shaders.html</Path>
+    <Anchor>a2abfa94e3c363b9fd1cc58dfa6e5d50aafc3e5fc4ec9326f73e1877daf7d5e12b</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>UNIFORM_NAME_COUNT</Name>
       <APILanguage>cpp</APILanguage>
       <Type>econst</Type>
@@ -19478,135 +20240,5 @@
     </TokenIdentifier>
     <Path>d7/da2/namespace_shaders.html</Path>
     <Anchor>a2abfa94e3c363b9fd1cc58dfa6e5d50aa250bc8265bed808105ea700e6e2cd4f3</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>SL</Name>
-      <APILanguage>c</APILanguage>
-      <Type>ns</Type>
-      <Scope>SL</Scope>
-    </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>EightBytes</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>tdef</Type>
-      <Scope>SL</Scope>
-    </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>a478e0144fbcf21d25ffd4059351c3734</Anchor>
-    <DeclaredIn>Serialization.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>FourBytes</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>tdef</Type>
-      <Scope>SL</Scope>
-    </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>a3e93b8ee7c51cf8cb9899cb27bc65f70</Anchor>
-    <DeclaredIn>Serialization.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>TwoBytes</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>tdef</Type>
-      <Scope>SL</Scope>
-    </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>a812d61eeae9a7d1ca9580217c0a4bba1</Anchor>
-    <DeclaredIn>Serialization.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>Byte</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>tdef</Type>
-      <Scope>SL</Scope>
-    </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>a5a11804bc22641050d738004aa37cb5e</Anchor>
-    <DeclaredIn>Serialization.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>swapEndian</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>SL</Scope>
-    </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>aebfdfe445c38bfb5eed787b16283cf5e</Anchor>
-    <DeclaredIn>Serialization.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>writeBytes</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>SL</Scope>
-    </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>a5a64b921cdb4809672c2c9882f6cdbc7</Anchor>
-    <DeclaredIn>Serialization.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>readBytes</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>SL</Scope>
-    </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>addb3c1f99efa9625ddde4137a659306a</Anchor>
-    <DeclaredIn>Serialization.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>isBigEndian</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>SL</Scope>
-    </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>acd198192c2f2a82dda867d588a4d60a1</Anchor>
-    <DeclaredIn>Serialization.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>writeBytes</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>SL</Scope>
-    </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>acb418d7258aa7cfb750f7acbc13f2f8d</Anchor>
-    <DeclaredIn>Serialization.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>readBytes</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>SL</Scope>
-    </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>a8d464593bcf2473ad66e4a1b9ce7f831</Anchor>
-    <DeclaredIn>Serialization.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>SIZE_OF_FLOAT</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>SL</Scope>
-    </TokenIdentifier>
-    <Path>d5/d71/namespace_s_l.html</Path>
-    <Anchor>ab1be50b0176a69e03807510533c8103b</Anchor>
-    <DeclaredIn>Serialization.h</DeclaredIn>
   </Token>
 </Tokens>

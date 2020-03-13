@@ -75,19 +75,20 @@ $(document).ready(function(){initNavTree('namespaces.html',''); initResizable();
 </div><!--header-->
 <div class="contents">
 <div class="textblock">Here is a list of all namespaces with brief descriptions:</div><div class="directory">
-<table class="directory">
+<div class="levels">[detail level <span onclick="javascript:toggleLevel(1);">1</span><span onclick="javascript:toggleLevel(2);">2</span>]</div><table class="directory">
 <tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="de/d02/namespace__3_d_m.html" target="_self">_3DM</a></td><td class="desc"></td></tr>
-<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d1/db9/namespace_d_b_g___d_r_a_w_e_r.html" target="_self">DBG_DRAWER</a></td><td class="desc"></td></tr>
-<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d4/d37/namespace_e_n_e_m_y___c_t_r_l_r___n_s.html" target="_self">ENEMY_CTRLR_NS</a></td><td class="desc"></td></tr>
-<tr id="row_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d1/db6/namespace_engine.html" target="_self">Engine</a></td><td class="desc">Contains the engine side of things </td></tr>
-<tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d6/d4b/namespace_entities.html" target="_self">Entities</a></td><td class="desc"></td></tr>
-<tr id="row_5_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d4/d58/namespace_game_info.html" target="_self">GameInfo</a></td><td class="desc">Contains the game's info such as Window settings and timestep </td></tr>
-<tr id="row_6_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d7/dd1/namespacehh.html" target="_self">hh</a></td><td class="desc"></td></tr>
-<tr id="row_7_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d3/dd4/namespace_important.html" target="_self">Important</a></td><td class="desc"></td></tr>
-<tr id="row_8_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d6/dea/namespace_p_l_r___c_t_r_l_r___n_s.html" target="_self">PLR_CTRLR_NS</a></td><td class="desc"></td></tr>
-<tr id="row_9_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="de/d22/namespace_private_game_info.html" target="_self">PrivateGameInfo</a></td><td class="desc"></td></tr>
+<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d4/d37/namespace_e_n_e_m_y___c_t_r_l_r___n_s.html" target="_self">ENEMY_CTRLR_NS</a></td><td class="desc"></td></tr>
+<tr id="row_2_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_2_" class="arrow" onclick="toggleFolder('2_')">&#9660;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d1/db6/namespace_engine.html" target="_self">Engine</a></td><td class="desc">Contains the engine side of things </td></tr>
+<tr id="row_2_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d1/da4/namespace_engine_1_1_d_b_g___d_r_a_w_e_r.html" target="_self">DBG_DRAWER</a></td><td class="desc">Information used for the <a class="el" href="d0/de0/class_engine_1_1_debug_drawer.html" title="The DebugDrawer class is used to render Bullet3&#39;s collision boxes/points/etc.">DebugDrawer</a> </td></tr>
+<tr id="row_2_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d4/dee/namespace_engine_1_1_input_data.html" target="_self">InputData</a></td><td class="desc"></td></tr>
+<tr id="row_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d6/d4b/namespace_entities.html" target="_self">Entities</a></td><td class="desc"></td></tr>
+<tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d4/d58/namespace_game_info.html" target="_self">GameInfo</a></td><td class="desc">Contains the game's info such as Window settings and timestep </td></tr>
+<tr id="row_5_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d7/dd1/namespacehh.html" target="_self">hh</a></td><td class="desc">Hh stands for helping hand </td></tr>
+<tr id="row_6_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d3/dd4/namespace_important.html" target="_self">Important</a></td><td class="desc"></td></tr>
+<tr id="row_7_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d6/dea/namespace_p_l_r___c_t_r_l_r___n_s.html" target="_self">PLR_CTRLR_NS</a></td><td class="desc"></td></tr>
+<tr id="row_8_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="de/d22/namespace_private_game_info.html" target="_self">PrivateGameInfo</a></td><td class="desc"></td></tr>
+<tr id="row_9_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d5/dad/namespace_serialization.html" target="_self">Serialization</a></td><td class="desc"></td></tr>
 <tr id="row_10_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d7/da2/namespace_shaders.html" target="_self">Shaders</a></td><td class="desc"></td></tr>
-<tr id="row_11_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="d5/d71/namespace_s_l.html" target="_self">SL</a></td><td class="desc"></td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->
@@ -95,7 +96,7 @@ $(document).ready(function(){initNavTree('namespaces.html',''); initResizable();
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Feb 6 2020 23:06:01 for LightShow_Boilerplate by
+    <li class="footer">Generated on Thu Mar 12 2020 18:24:04 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

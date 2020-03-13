@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>LightShow_Boilerplate: src/Sound.h Source File</title>
+<title>LightShow_Boilerplate: src/engine/locators/Sound.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -76,11 +76,11 @@ $(document).ready(function(){initNavTree('d5/db0/_sound_8h_source.html','../../'
 <div class="contents">
 <a href="../../d5/db0/_sound_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _SOUND_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _SOUND_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/da2/_debug_drawer_8h.html">DebugDrawer.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d26/_helping_hand_8h.html">HelpingHand.h</a>&quot;</span> <span class="comment">//included for clearing a vector of pointers.</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;SDL_mixer.h&gt;</span> <span class="comment">//Included for audio</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span> <span class="comment">//included for sorting</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d4b/_debug_8h.html">Debug.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d26/_helping_hand_8h.html">HelpingHand.h</a>&quot;</span> <span class="comment">//included for clearing a vector of pointers.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;SDL_mixer.h&gt;</span> <span class="comment">//Included for audio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span> <span class="comment">//included for sorting</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span> <span class="comment">//included for the audio libraries</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/***************************************************************************************************************</span></div>
@@ -208,8 +208,8 @@ $(document).ready(function(){initNavTree('d5/db0/_sound_8h_source.html','../../'
 <div class="ttc" id="aclass_sound_html_aa817e1f4cae84e736864439beb3b0ffe"><div class="ttname"><a href="../../d0/d9e/class_sound.html#aa817e1f4cae84e736864439beb3b0ffe">Sound::play</a></div><div class="ttdeci">void play() override</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d10/_sound_8cpp_source.html#l00026">Sound.cpp:26</a></div></div>
 <div class="ttc" id="aclass_sound_handler_html_ae1243553bf0cab44eaa0904b48843349"><div class="ttname"><a href="../../d1/d8c/class_sound_handler.html#ae1243553bf0cab44eaa0904b48843349">SoundHandler::soundLibrary</a></div><div class="ttdeci">std::vector&lt; Sound * &gt; soundLibrary</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/db0/_sound_8h_source.html#l00094">Sound.h:94</a></div></div>
 <div class="ttc" id="aclass_sound_html"><div class="ttname"><a href="../../d0/d9e/class_sound.html">Sound</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/db0/_sound_8h_source.html#l00029">Sound.h:29</a></div></div>
+<div class="ttc" id="a_debug_8h_html"><div class="ttname"><a href="../../d0/d4b/_debug_8h.html">Debug.h</a></div></div>
 <div class="ttc" id="aclass_sound_html_a0907389078bf740be2a5763366ad3376"><div class="ttname"><a href="../../d0/d9e/class_sound.html#a0907389078bf740be2a5763366ad3376">Sound::~Sound</a></div><div class="ttdeci">~Sound()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d10/_sound_8cpp_source.html#l00011">Sound.cpp:11</a></div></div>
-<div class="ttc" id="a_debug_drawer_8h_html"><div class="ttname"><a href="../../d3/da2/_debug_drawer_8h.html">DebugDrawer.h</a></div></div>
 <div class="ttc" id="aclass_music_html_a9974daac3a154f5a01f8c7b832e73b2c"><div class="ttname"><a href="../../db/d96/class_music.html#a9974daac3a154f5a01f8c7b832e73b2c">Music::FADE_SPEED</a></div><div class="ttdeci">const unsigned int FADE_SPEED</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/db0/_sound_8h_source.html#l00068">Sound.h:68</a></div></div>
 <div class="ttc" id="aclass_sound_html_aed961c6de8e74716c10119a11ffc1bf3"><div class="ttname"><a href="../../d0/d9e/class_sound.html#aed961c6de8e74716c10119a11ffc1bf3">Sound::initialize</a></div><div class="ttdeci">void initialize(const std::string &amp;location) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d10/_sound_8cpp_source.html#l00044">Sound.cpp:44</a></div></div>
 <div class="ttc" id="aclass_music_html_a4ae66210522ce88e30c4ac933ba2e8a4"><div class="ttname"><a href="../../db/d96/class_music.html#a4ae66210522ce88e30c4ac933ba2e8a4">Music::isNullSound</a></div><div class="ttdeci">bool isNullSound() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d10/_sound_8cpp_source.html#l00074">Sound.cpp:74</a></div></div>
@@ -245,8 +245,8 @@ $(document).ready(function(){initNavTree('d5/db0/_sound_8h_source.html','../../'
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../d5/db0/_sound_8h.html">Sound.h</a></li>
-    <li class="footer">Generated on Thu Feb 6 2020 23:05:59 for LightShow_Boilerplate by
+    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_2052808828190f934b76e979ee65af8a.html">engine</a></li><li class="navelem"><a class="el" href="../../dir_e0b39afe89996dcd66b9996615fec493.html">locators</a></li><li class="navelem"><a class="el" href="../../d5/db0/_sound_8h.html">Sound.h</a></li>
+    <li class="footer">Generated on Thu Mar 12 2020 18:24:01 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

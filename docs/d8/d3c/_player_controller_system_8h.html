@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>LightShow_Boilerplate: src/PlayerControllerSystem.h File Reference</title>
+<title>LightShow_Boilerplate: src/game/systems/subsystems/PlayerControllerSystem.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -71,9 +71,7 @@ $(document).ready(function(){initNavTree('d8/d3c/_player_controller_system_8h.ht
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
 <div class="title">PlayerControllerSystem.h File Reference</div>  </div>
 </div><!--header-->
@@ -84,7 +82,6 @@ $(document).ready(function(){initNavTree('d8/d3c/_player_controller_system_8h.ht
 <code>#include &quot;<a class="el" href="../../d0/d98/_controller_ray_collision_8h_source.html">ControllerRayCollision.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d7/d37/_physics_world_8h_source.html">PhysicsWorld.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dc/de5/_ray_caster_8h_source.html">RayCaster.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d4/df9/_user_controls_8h_source.html">UserControls.h</a>&quot;</code><br />
 </div>
 <p><a href="../../d8/d3c/_player_controller_system_8h_source.html">Go to the source code of this file.</a></p>
@@ -92,31 +89,16 @@ $(document).ready(function(){initNavTree('d8/d3c/_player_controller_system_8h.ht
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d50/class_player_controller_system.html">PlayerControllerSystem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is sort of a test system just to mess around when I want to take a break from other tasks.  <a href="../../d5/d50/class_player_controller_system.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:d6/dea/namespace_p_l_r___c_t_r_l_r___n_s"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dea/namespace_p_l_r___c_t_r_l_r___n_s.html">PLR_CTRLR_NS</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:aece75386b72687f0ba56e78b7426472c"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dea/namespace_p_l_r___c_t_r_l_r___n_s.html#aece75386b72687f0ba56e78b7426472c">PLR_CTRLR_NS::AMOUNT_OF_RAYS</a> = 4</td></tr>
-<tr class="separator:aece75386b72687f0ba56e78b7426472c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61a771bb688523f198c1a7b2d44af6cb"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dea/namespace_p_l_r___c_t_r_l_r___n_s.html#a61a771bb688523f198c1a7b2d44af6cb">PLR_CTRLR_NS::CLAMPING_VELOCITY</a> = -5</td></tr>
-<tr class="separator:a61a771bb688523f198c1a7b2d44af6cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1e523d7a739fae80e964dfe0d70e9ff"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dea/namespace_p_l_r___c_t_r_l_r___n_s.html#ac1e523d7a739fae80e964dfe0d70e9ff">PLR_CTRLR_NS::RAY_DISTANCE_CORRECTOR</a> = -0.1f</td></tr>
-<tr class="separator:ac1e523d7a739fae80e964dfe0d70e9ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5da22739153ab850f0b3ea2348b3e61c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d3/dbc/class_ray_caster.html">RayCaster</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dea/namespace_p_l_r___c_t_r_l_r___n_s.html#a5da22739153ab850f0b3ea2348b3e61c">PLR_CTRLR_NS::rayCast</a> [<a class="el" href="../../d6/dea/namespace_p_l_r___c_t_r_l_r___n_s.html#aece75386b72687f0ba56e78b7426472c">PLR_CTRLR_NS::AMOUNT_OF_RAYS</a>]</td></tr>
-<tr class="separator:a5da22739153ab850f0b3ea2348b3e61c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../d8/d3c/_player_controller_system_8h.html">PlayerControllerSystem.h</a></li>
-    <li class="footer">Generated on Thu Feb 6 2020 23:06:00 for LightShow_Boilerplate by
+    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_1699be727a800b1d059c6f7f2b91d2ee.html">game</a></li><li class="navelem"><a class="el" href="../../dir_46fb37fa78f646487908f22377b88dd8.html">systems</a></li><li class="navelem"><a class="el" href="../../dir_3dee9bebfe27df2508b29716d202d3ff.html">subsystems</a></li><li class="navelem"><a class="el" href="../../d8/d3c/_player_controller_system_8h.html">PlayerControllerSystem.h</a></li>
+    <li class="footer">Generated on Thu Mar 12 2020 18:24:02 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

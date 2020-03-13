@@ -9,6 +9,7 @@ var _shaders_8h =
       [ "ParticlePosition", "d2/d06/_shaders_8h.html#a3b915b2e9c580fc6208bb3b9741429a8a968774eb51a094c64fdc1be37ef3c507", null ],
       [ "ParticleScale", "d2/d06/_shaders_8h.html#a3b915b2e9c580fc6208bb3b9741429a8a4ba56e3dd60c4452a47e4196225cd3bc", null ],
       [ "ParticleColor", "d2/d06/_shaders_8h.html#a3b915b2e9c580fc6208bb3b9741429a8a25e756fd0a40afb7c81a9c239d7e8785", null ],
+      [ "Color", "d2/d06/_shaders_8h.html#a3b915b2e9c580fc6208bb3b9741429a8acb5feb1b7314637725a2e73bdc9f7295", null ],
       [ "AttribName_MAX", "d2/d06/_shaders_8h.html#a3b915b2e9c580fc6208bb3b9741429a8a70c6331a5997ef20f4b563809026a5bb", null ]
     ] ],
     [ "SHADER_TASK", "d2/d06/_shaders_8h.html#a52c30ab027a9e18153e77ff49c8f182c", [
@@ -57,6 +58,7 @@ var _shaders_8h =
       [ "MaterialSpecular", "d2/d06/_shaders_8h.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa91d836ac734966e8641ccb8fd8d358a1", null ],
       [ "MaterialShininess", "d2/d06/_shaders_8h.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aac2467f63251f1bb6147ddc36213051bc", null ],
       [ "TimeMS", "d2/d06/_shaders_8h.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa7ccc8c0085f42ab56090a082252c8635", null ],
+      [ "MultisampleCount", "d2/d06/_shaders_8h.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aafc3e5fc4ec9326f73e1877daf7d5e12b", null ],
       [ "UNIFORM_NAME_COUNT", "d2/d06/_shaders_8h.html#a2abfa94e3c363b9fd1cc58dfa6e5d50aa250bc8265bed808105ea700e6e2cd4f3", null ]
     ] ],
     [ "getAttribLocation", "d2/d06/_shaders_8h.html#a137768343963ec1e71572a39e29892e6", null ],
@@ -68,5 +70,5 @@ var _shaders_8h =
     [ "SHADOW_FILTERING_TAG", "d2/d06/_shaders_8h.html#abd65e6ca36d5c915b8832ee79b39af2a", null ],
     [ "SHADOW_INTENSITY_TAG", "d2/d06/_shaders_8h.html#a34d22165b688534aff1a7919d5e71bd6", null ],
     [ "TAG_END", "d2/d06/_shaders_8h.html#a7372472551046b26740b8ad4007dace9", null ],
-    [ "UniformNames", "d2/d06/_shaders_8h.html#aef1fb725960a5f27a3f83d55bd4bf9a5", null ]
+    [ "UniformNames", "d2/d06/_shaders_8h.html#aa42283b009e9e23133fb95b260607262", null ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>LightShow_Boilerplate: src/Window.cpp Source File</title>
+<title>LightShow_Boilerplate: src/engine/main/Window.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -75,95 +75,97 @@ $(document).ready(function(){initNavTree('d3/db8/_window_8cpp_source.html','../.
 </div><!--header-->
 <div class="contents">
 <a href="../../d3/db8/_window_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d42/_window_8h.html">Window.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno"><a class="line" href="../../dd/d36/class_engine_1_1_window.html#a899c72211692a105ec29699f1f8f8599">    2</a></span>&#160;<a class="code" href="../../dd/d36/class_engine_1_1_window.html#a3b1292c8f06176ebcea484f2ccb7c3d5">Engine::Window::Window</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> w, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> h) {</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    <a class="code" href="../../dd/d36/class_engine_1_1_window.html#ad2a56f7a2cfdadbbabd67559089a3f46">width</a>  = w;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <a class="code" href="../../dd/d36/class_engine_1_1_window.html#a6b3c23a2bb2b0668a7ffc185ed01d669">height</a> = h;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;}</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../dd/d36/class_engine_1_1_window.html#ac3f220a3b8863f93cb1689258d147dfb">    6</a></span>&#160;<a class="code" href="../../dd/d36/class_engine_1_1_window.html#ac3f220a3b8863f93cb1689258d147dfb">Engine::Window::~Window</a>() {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    SDL_GL_DeleteContext(glContext);</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    SDL_DestroyWindow(<a class="code" href="../../d1/db6/namespace_engine.html#ad018715c783dec7bb2b71e6d17f7bded">gameWindow</a>);</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;}</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../dd/d36/class_engine_1_1_window.html#a1d5f468763bccda7b583c76a4e5b9a4a">   10</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d36/class_engine_1_1_window.html#a1d5f468763bccda7b583c76a4e5b9a4a">Engine::Window::initialize</a>() {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="../../d1/db6/namespace_engine.html#ad018715c783dec7bb2b71e6d17f7bded">gameWindow</a> = SDL_CreateWindow <span class="comment">//create game window</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        (windowTitle.c_str(),</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;         SDL_WINDOWPOS_CENTERED, <span class="comment">//sets x position of window</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;         SDL_WINDOWPOS_CENTERED, <span class="comment">//sets y position of window</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;         width,</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;         height,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;         SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE); <span class="comment">//enables window to be used with opengl and to be resizable.</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    glViewport(0, 0, width, height); <span class="comment">//openGL camera viewport</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    glContext = SDL_GL_CreateContext(<a class="code" href="../../d1/db6/namespace_engine.html#ad018715c783dec7bb2b71e6d17f7bded">gameWindow</a>);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../dd/d36/class_engine_1_1_window.html#a646a803e57874702833c691b50b7186e">   25</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d36/class_engine_1_1_window.html#a646a803e57874702833c691b50b7186e">Engine::Window::handleEvents</a>(SDL_Event&amp; eventSystem, SDL_WindowEventID windowEvent, <a class="code" href="../../d6/dc9/class_messenger.html">Messenger&lt;BackEndMessages&gt;</a>&amp; msgr) {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">switch</span> (windowEvent) {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">case</span> SDL_WINDOWEVENT_MAXIMIZED: {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        glm::ivec2 current = getDeviceMaxScreenSize();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        resizeWindow(current.x, current.y, msgr);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="../../d0/d4b/_debug_8h.html#a115b8cdc79239a202a0cd3855b4f1209">DBG_LOG</a>(<span class="stringliteral">&quot;Maximizing Window\n&quot;</span>);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    } <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">case</span> SDL_WINDOWEVENT_RESIZED: {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        resizeWindow(eventSystem.window.data1, eventSystem.window.data2, msgr);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="../../d0/d4b/_debug_8h.html#a115b8cdc79239a202a0cd3855b4f1209">DBG_LOG</a>(<span class="stringliteral">&quot;Resizing Window\n&quot;</span>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    } <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../dd/d36/class_engine_1_1_window.html#af09c88c275d076ac136d48bfe1181c28">   42</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d36/class_engine_1_1_window.html#af09c88c275d076ac136d48bfe1181c28">Engine::Window::setWindowTitle</a>(<span class="keyword">const</span> std::string&amp; title) {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    windowTitle = title;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    SDL_SetWindowTitle(<a class="code" href="../../d1/db6/namespace_engine.html#ad018715c783dec7bb2b71e6d17f7bded">gameWindow</a>, windowTitle.c_str());</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../dd/d36/class_engine_1_1_window.html#a32185de04a4bcddf1f2ec2b34c73eb42">   47</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d36/class_engine_1_1_window.html#a32185de04a4bcddf1f2ec2b34c73eb42">Engine::Window::resizeWindow</a>(<span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h, <a class="code" href="../../d6/dc9/class_messenger.html">Messenger&lt;BackEndMessages&gt;</a>&amp; msgr) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    width  = w;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    height = h;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    SDL_SetWindowSize(<a class="code" href="../../d1/db6/namespace_engine.html#ad018715c783dec7bb2b71e6d17f7bded">gameWindow</a>, width, height);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    glViewport(0, 0, width, height);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    msgr.<a class="code" href="../../d6/dc9/class_messenger.html#ac983786a5d5f394365dd8c91f70811d0">addMessage</a>(<a class="code" href="../../df/de2/_messages_8h.html#adf36f3b862459340da2c2cbc8927d69fa804ccb0b716091a27c938fa4092b846e">BackEndMessages::REFRESH_CAMERA</a>);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../dd/d36/class_engine_1_1_window.html#ae5ad4f7a3e5ececf481914c902ce3102">   55</a></span>&#160;glm::ivec2 <a class="code" href="../../dd/d36/class_engine_1_1_window.html#ae5ad4f7a3e5ececf481914c902ce3102">Engine::Window::getDeviceMaxScreenSize</a>() {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    SDL_DisplayMode current;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">int</span> window = 0;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    window = SDL_GetCurrentDisplayMode(0, &amp;current);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span> (window != 0) {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <a class="code" href="../../d0/d4b/_debug_8h.html#a115b8cdc79239a202a0cd3855b4f1209">DBG_LOG</a>(<span class="stringliteral">&quot;THERE WAS AN ERROR READING THE CURRENT DEVICES SCREEN WIDTH AND HEIGHT. (Window.h getDeviceScreenSize())\n &quot;</span>);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">return</span> glm::ivec2(current.w, current.h);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> glm::ivec2(-1, -1);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00002"></a><span class="lineno"><a class="line" href="../../dd/d36/class_engine_1_1_window.html#a4c93af8d45f2458d6025135c43f8f3ee">    2</a></span>&#160;<a class="code" href="../../dd/d36/class_engine_1_1_window.html#a3b1292c8f06176ebcea484f2ccb7c3d5">Engine::Window::Window</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> w, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> h, <span class="keyword">const</span> std::string&amp; title) {</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    <a class="code" href="../../dd/d36/class_engine_1_1_window.html#a7b4f15dae4e945e0ae7b68a244a320f9">windowTitle</a> = title;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <a class="code" href="../../dd/d36/class_engine_1_1_window.html#ad2a56f7a2cfdadbbabd67559089a3f46">width</a>       = w;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <a class="code" href="../../dd/d36/class_engine_1_1_window.html#a6b3c23a2bb2b0668a7ffc185ed01d669">height</a>      = h;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;}</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../dd/d36/class_engine_1_1_window.html#ac3f220a3b8863f93cb1689258d147dfb">    7</a></span>&#160;<a class="code" href="../../dd/d36/class_engine_1_1_window.html#ac3f220a3b8863f93cb1689258d147dfb">Engine::Window::~Window</a>() {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    SDL_GL_DeleteContext(glContext);</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    SDL_DestroyWindow(<a class="code" href="../../d1/db6/namespace_engine.html#ad018715c783dec7bb2b71e6d17f7bded">gameWindow</a>);</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../dd/d36/class_engine_1_1_window.html#a1d5f468763bccda7b583c76a4e5b9a4a">   11</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d36/class_engine_1_1_window.html#a1d5f468763bccda7b583c76a4e5b9a4a">Engine::Window::initialize</a>() {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="../../d1/db6/namespace_engine.html#ad018715c783dec7bb2b71e6d17f7bded">gameWindow</a> = SDL_CreateWindow <span class="comment">//create game window</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        (windowTitle.c_str(),</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;         SDL_WINDOWPOS_CENTERED, <span class="comment">//sets x position of window</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;         SDL_WINDOWPOS_CENTERED, <span class="comment">//sets y position of window</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;         width,</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;         height,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;         SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE); <span class="comment">//enables window to be used with opengl and to be resizable.</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    glViewport(0, 0, width, height); <span class="comment">//openGL camera viewport</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    glContext = SDL_GL_CreateContext(<a class="code" href="../../d1/db6/namespace_engine.html#ad018715c783dec7bb2b71e6d17f7bded">gameWindow</a>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../dd/d36/class_engine_1_1_window.html#a646a803e57874702833c691b50b7186e">   26</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d36/class_engine_1_1_window.html#a646a803e57874702833c691b50b7186e">Engine::Window::handleEvents</a>(SDL_Event&amp; eventSystem, SDL_WindowEventID windowEvent, <a class="code" href="../../d6/dc9/class_messenger.html">Messenger&lt;BackEndMessages&gt;</a>&amp; msgr) {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">switch</span> (windowEvent) {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">case</span> SDL_WINDOWEVENT_MAXIMIZED: {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        glm::ivec2 current = getDeviceMaxScreenSize();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        resizeWindow(current.x, current.y, msgr);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="../../d0/d4b/_debug_8h.html#a115b8cdc79239a202a0cd3855b4f1209">DBG_LOG</a>(<span class="stringliteral">&quot;Maximizing Window\n&quot;</span>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    } <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">case</span> SDL_WINDOWEVENT_RESIZED: {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        resizeWindow(eventSystem.window.data1, eventSystem.window.data2, msgr);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="../../d0/d4b/_debug_8h.html#a115b8cdc79239a202a0cd3855b4f1209">DBG_LOG</a>(<span class="stringliteral">&quot;Resizing Window\n&quot;</span>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    } <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../dd/d36/class_engine_1_1_window.html#af09c88c275d076ac136d48bfe1181c28">   43</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d36/class_engine_1_1_window.html#af09c88c275d076ac136d48bfe1181c28">Engine::Window::setWindowTitle</a>(<span class="keyword">const</span> std::string&amp; title) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    windowTitle = title;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    SDL_SetWindowTitle(<a class="code" href="../../d1/db6/namespace_engine.html#ad018715c783dec7bb2b71e6d17f7bded">gameWindow</a>, windowTitle.c_str());</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../dd/d36/class_engine_1_1_window.html#a32185de04a4bcddf1f2ec2b34c73eb42">   48</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d36/class_engine_1_1_window.html#a32185de04a4bcddf1f2ec2b34c73eb42">Engine::Window::resizeWindow</a>(<span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h, <a class="code" href="../../d6/dc9/class_messenger.html">Messenger&lt;BackEndMessages&gt;</a>&amp; msgr) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    width  = w;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    height = h;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    SDL_SetWindowSize(<a class="code" href="../../d1/db6/namespace_engine.html#ad018715c783dec7bb2b71e6d17f7bded">gameWindow</a>, width, height);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    glViewport(0, 0, width, height);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    msgr.<a class="code" href="../../d6/dc9/class_messenger.html#ac983786a5d5f394365dd8c91f70811d0">addMessage</a>(<a class="code" href="../../df/de2/_messages_8h.html#adf36f3b862459340da2c2cbc8927d69fa804ccb0b716091a27c938fa4092b846e">BackEndMessages::REFRESH_CAMERA</a>);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../dd/d36/class_engine_1_1_window.html#ae5ad4f7a3e5ececf481914c902ce3102">   56</a></span>&#160;glm::ivec2 <a class="code" href="../../dd/d36/class_engine_1_1_window.html#ae5ad4f7a3e5ececf481914c902ce3102">Engine::Window::getDeviceMaxScreenSize</a>() {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    SDL_DisplayMode current;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">int</span> window = 0;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    window = SDL_GetCurrentDisplayMode(0, &amp;current);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">if</span> (window != 0) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="../../d0/d4b/_debug_8h.html#a115b8cdc79239a202a0cd3855b4f1209">DBG_LOG</a>(<span class="stringliteral">&quot;THERE WAS AN ERROR READING THE CURRENT DEVICES SCREEN WIDTH AND HEIGHT. (Window.h getDeviceScreenSize())\n &quot;</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">return</span> glm::ivec2(current.w, current.h);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">return</span> glm::ivec2(-1, -1);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_engine_1_1_window_html_a1d5f468763bccda7b583c76a4e5b9a4a"><div class="ttname"><a href="../../dd/d36/class_engine_1_1_window.html#a1d5f468763bccda7b583c76a4e5b9a4a">Engine::Window::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Creates window.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db8/_window_8cpp_source.html#l00010">Window.cpp:10</a></div></div>
+<div class="ttc" id="aclass_engine_1_1_window_html_a1d5f468763bccda7b583c76a4e5b9a4a"><div class="ttname"><a href="../../dd/d36/class_engine_1_1_window.html#a1d5f468763bccda7b583c76a4e5b9a4a">Engine::Window::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Creates window.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db8/_window_8cpp_source.html#l00011">Window.cpp:11</a></div></div>
 <div class="ttc" id="aclass_engine_1_1_window_html_a3b1292c8f06176ebcea484f2ccb7c3d5"><div class="ttname"><a href="../../dd/d36/class_engine_1_1_window.html#a3b1292c8f06176ebcea484f2ccb7c3d5">Engine::Window::Window</a></div><div class="ttdeci">Window()</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d42/_window_8h_source.html#l00016">Window.h:16</a></div></div>
 <div class="ttc" id="a_debug_8h_html_a115b8cdc79239a202a0cd3855b4f1209"><div class="ttname"><a href="../../d0/d4b/_debug_8h.html#a115b8cdc79239a202a0cd3855b4f1209">DBG_LOG</a></div><div class="ttdeci">#define DBG_LOG(fmt,...)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d4b/_debug_8h_source.html#l00013">Debug.h:13</a></div></div>
 <div class="ttc" id="anamespace_engine_html_ad018715c783dec7bb2b71e6d17f7bded"><div class="ttname"><a href="../../d1/db6/namespace_engine.html#ad018715c783dec7bb2b71e6d17f7bded">Engine::gameWindow</a></div><div class="ttdeci">Engine::Window gameWindow</div><div class="ttdoc">The window used for the game.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d42/_application_8cpp_source.html#l00024">Application.cpp:24</a></div></div>
-<div class="ttc" id="aclass_engine_1_1_window_html_ac3f220a3b8863f93cb1689258d147dfb"><div class="ttname"><a href="../../dd/d36/class_engine_1_1_window.html#ac3f220a3b8863f93cb1689258d147dfb">Engine::Window::~Window</a></div><div class="ttdeci">~Window()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db8/_window_8cpp_source.html#l00006">Window.cpp:6</a></div></div>
-<div class="ttc" id="aclass_engine_1_1_window_html_ae5ad4f7a3e5ececf481914c902ce3102"><div class="ttname"><a href="../../dd/d36/class_engine_1_1_window.html#ae5ad4f7a3e5ececf481914c902ce3102">Engine::Window::getDeviceMaxScreenSize</a></div><div class="ttdeci">glm::ivec2 getDeviceMaxScreenSize()</div><div class="ttdoc">Returns max screen size.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db8/_window_8cpp_source.html#l00055">Window.cpp:55</a></div></div>
+<div class="ttc" id="aclass_engine_1_1_window_html_ac3f220a3b8863f93cb1689258d147dfb"><div class="ttname"><a href="../../dd/d36/class_engine_1_1_window.html#ac3f220a3b8863f93cb1689258d147dfb">Engine::Window::~Window</a></div><div class="ttdeci">~Window()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db8/_window_8cpp_source.html#l00007">Window.cpp:7</a></div></div>
+<div class="ttc" id="aclass_engine_1_1_window_html_ae5ad4f7a3e5ececf481914c902ce3102"><div class="ttname"><a href="../../dd/d36/class_engine_1_1_window.html#ae5ad4f7a3e5ececf481914c902ce3102">Engine::Window::getDeviceMaxScreenSize</a></div><div class="ttdeci">glm::ivec2 getDeviceMaxScreenSize()</div><div class="ttdoc">Returns max screen size.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db8/_window_8cpp_source.html#l00056">Window.cpp:56</a></div></div>
 <div class="ttc" id="a_messages_8h_html_adf36f3b862459340da2c2cbc8927d69fa804ccb0b716091a27c938fa4092b846e"><div class="ttname"><a href="../../df/de2/_messages_8h.html#adf36f3b862459340da2c2cbc8927d69fa804ccb0b716091a27c938fa4092b846e">BackEndMessages::REFRESH_CAMERA</a></div><div class="ttdeci">@ REFRESH_CAMERA</div></div>
-<div class="ttc" id="aclass_engine_1_1_window_html_a646a803e57874702833c691b50b7186e"><div class="ttname"><a href="../../dd/d36/class_engine_1_1_window.html#a646a803e57874702833c691b50b7186e">Engine::Window::handleEvents</a></div><div class="ttdeci">void handleEvents(SDL_Event &amp;eventSystem, SDL_WindowEventID windowEvent, Messenger&lt; BackEndMessages &gt; &amp;msgr)</div><div class="ttdoc">Handles sdl events such as resizing.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db8/_window_8cpp_source.html#l00025">Window.cpp:25</a></div></div>
+<div class="ttc" id="aclass_engine_1_1_window_html_a7b4f15dae4e945e0ae7b68a244a320f9"><div class="ttname"><a href="../../dd/d36/class_engine_1_1_window.html#a7b4f15dae4e945e0ae7b68a244a320f9">Engine::Window::windowTitle</a></div><div class="ttdeci">std::string windowTitle</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d42/_window_8h_source.html#l00037">Window.h:37</a></div></div>
+<div class="ttc" id="aclass_engine_1_1_window_html_a646a803e57874702833c691b50b7186e"><div class="ttname"><a href="../../dd/d36/class_engine_1_1_window.html#a646a803e57874702833c691b50b7186e">Engine::Window::handleEvents</a></div><div class="ttdeci">void handleEvents(SDL_Event &amp;eventSystem, SDL_WindowEventID windowEvent, Messenger&lt; BackEndMessages &gt; &amp;msgr)</div><div class="ttdoc">Handles sdl events such as resizing.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db8/_window_8cpp_source.html#l00026">Window.cpp:26</a></div></div>
 <div class="ttc" id="aclass_engine_1_1_window_html_a6b3c23a2bb2b0668a7ffc185ed01d669"><div class="ttname"><a href="../../dd/d36/class_engine_1_1_window.html#a6b3c23a2bb2b0668a7ffc185ed01d669">Engine::Window::height</a></div><div class="ttdeci">unsigned int height</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d42/_window_8h_source.html#l00043">Window.h:43</a></div></div>
 <div class="ttc" id="aclass_messenger_html_ac983786a5d5f394365dd8c91f70811d0"><div class="ttname"><a href="../../d6/dc9/class_messenger.html#ac983786a5d5f394365dd8c91f70811d0">Messenger::addMessage</a></div><div class="ttdeci">void addMessage(const T &amp;message)</div><div class="ttdoc">Add a message to the queue.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d30/_messenger_8h_source.html#l00018">Messenger.h:18</a></div></div>
 <div class="ttc" id="aclass_messenger_html"><div class="ttname"><a href="../../d6/dc9/class_messenger.html">Messenger&lt; BackEndMessages &gt;</a></div></div>
 <div class="ttc" id="aclass_engine_1_1_window_html_ad2a56f7a2cfdadbbabd67559089a3f46"><div class="ttname"><a href="../../dd/d36/class_engine_1_1_window.html#ad2a56f7a2cfdadbbabd67559089a3f46">Engine::Window::width</a></div><div class="ttdeci">unsigned int width</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d42/_window_8h_source.html#l00042">Window.h:42</a></div></div>
 <div class="ttc" id="a_window_8h_html"><div class="ttname"><a href="../../de/d42/_window_8h.html">Window.h</a></div></div>
-<div class="ttc" id="aclass_engine_1_1_window_html_a32185de04a4bcddf1f2ec2b34c73eb42"><div class="ttname"><a href="../../dd/d36/class_engine_1_1_window.html#a32185de04a4bcddf1f2ec2b34c73eb42">Engine::Window::resizeWindow</a></div><div class="ttdeci">void resizeWindow(int w, int h, Messenger&lt; BackEndMessages &gt; &amp;msgr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db8/_window_8cpp_source.html#l00047">Window.cpp:47</a></div></div>
-<div class="ttc" id="aclass_engine_1_1_window_html_af09c88c275d076ac136d48bfe1181c28"><div class="ttname"><a href="../../dd/d36/class_engine_1_1_window.html#af09c88c275d076ac136d48bfe1181c28">Engine::Window::setWindowTitle</a></div><div class="ttdeci">void setWindowTitle(const std::string &amp;title)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db8/_window_8cpp_source.html#l00042">Window.cpp:42</a></div></div>
+<div class="ttc" id="aclass_engine_1_1_window_html_a32185de04a4bcddf1f2ec2b34c73eb42"><div class="ttname"><a href="../../dd/d36/class_engine_1_1_window.html#a32185de04a4bcddf1f2ec2b34c73eb42">Engine::Window::resizeWindow</a></div><div class="ttdeci">void resizeWindow(int w, int h, Messenger&lt; BackEndMessages &gt; &amp;msgr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db8/_window_8cpp_source.html#l00048">Window.cpp:48</a></div></div>
+<div class="ttc" id="aclass_engine_1_1_window_html_af09c88c275d076ac136d48bfe1181c28"><div class="ttname"><a href="../../dd/d36/class_engine_1_1_window.html#af09c88c275d076ac136d48bfe1181c28">Engine::Window::setWindowTitle</a></div><div class="ttdeci">void setWindowTitle(const std::string &amp;title)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db8/_window_8cpp_source.html#l00043">Window.cpp:43</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../d3/db8/_window_8cpp.html">Window.cpp</a></li>
-    <li class="footer">Generated on Thu Feb 6 2020 23:05:59 for LightShow_Boilerplate by
+    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_2052808828190f934b76e979ee65af8a.html">engine</a></li><li class="navelem"><a class="el" href="../../dir_ad088693941fd850abe988de33bc09e8.html">main</a></li><li class="navelem"><a class="el" href="../../d3/db8/_window_8cpp.html">Window.cpp</a></li>
+    <li class="footer">Generated on Thu Mar 12 2020 18:24:01 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

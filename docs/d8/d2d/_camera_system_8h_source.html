@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>LightShow_Boilerplate: src/CameraSystem.h Source File</title>
+<title>LightShow_Boilerplate: src/game/systems/subsystems/CameraSystem.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -81,20 +81,19 @@ $(document).ready(function(){initNavTree('d8/d2d/_camera_system_8h_source.html',
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d50/_game_info_8h.html">GameInfo.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d26/_helping_hand_8h.html">HelpingHand.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/dcf/_locator_8h.html">Locator.h</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/db9/_unique_vectors_8h.html">UniqueVectors.h</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;glm/gtc/matrix_transform.hpp&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d4/df8/class_camera_system.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/df8/class_camera_system.html">CameraSystem</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d4/df8/class_camera_system.html#a4a7557f88f628a55314d3529519a28aa">initializeCamera</a>(<a class="code" href="../../da/dbb/class_camera.html">Camera</a>&amp; camera);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d4/df8/class_camera_system.html#a9bb59c07839a3bf41290e49f367d8fd6">update</a>(<a class="code" href="../../da/dbb/class_camera.html">Camera</a>&amp; camera);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d4/df8/class_camera_system.html#a47d9e3f5277b873769028e15ccd4aa43">refreshCamera</a>(<a class="code" href="../../da/dbb/class_camera.html">Camera</a>&amp; camera);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;glm/gtc/matrix_transform.hpp&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../d4/df8/class_camera_system.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/df8/class_camera_system.html">CameraSystem</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d4/df8/class_camera_system.html#a4a7557f88f628a55314d3529519a28aa">initializeCamera</a>(<a class="code" href="../../da/dbb/class_camera.html">Camera</a>&amp; camera);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d4/df8/class_camera_system.html#a9bb59c07839a3bf41290e49f367d8fd6">update</a>(<a class="code" href="../../da/dbb/class_camera.html">Camera</a>&amp; camera);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d4/df8/class_camera_system.html#a47d9e3f5277b873769028e15ccd4aa43">refreshCamera</a>(<a class="code" href="../../da/dbb/class_camera.html">Camera</a>&amp; camera);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_component_8h_html"><div class="ttname"><a href="../../dc/d20/_component_8h.html">Component.h</a></div></div>
@@ -103,16 +102,15 @@ $(document).ready(function(){initNavTree('d8/d2d/_camera_system_8h_source.html',
 <div class="ttc" id="a_helping_hand_8h_html"><div class="ttname"><a href="../../d7/d26/_helping_hand_8h.html">HelpingHand.h</a></div></div>
 <div class="ttc" id="a_camera_8h_html"><div class="ttname"><a href="../../d5/d91/_camera_8h.html">Camera.h</a></div></div>
 <div class="ttc" id="aclass_camera_system_html_a4a7557f88f628a55314d3529519a28aa"><div class="ttname"><a href="../../d4/df8/class_camera_system.html#a4a7557f88f628a55314d3529519a28aa">CameraSystem::initializeCamera</a></div><div class="ttdeci">void initializeCamera(Camera &amp;camera)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d8a/_camera_system_8cpp_source.html#l00003">CameraSystem.cpp:3</a></div></div>
-<div class="ttc" id="aclass_camera_system_html"><div class="ttname"><a href="../../d4/df8/class_camera_system.html">CameraSystem</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d2d/_camera_system_8h_source.html#l00011">CameraSystem.h:11</a></div></div>
+<div class="ttc" id="aclass_camera_system_html"><div class="ttname"><a href="../../d4/df8/class_camera_system.html">CameraSystem</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d2d/_camera_system_8h_source.html#l00010">CameraSystem.h:10</a></div></div>
 <div class="ttc" id="aclass_camera_system_html_a47d9e3f5277b873769028e15ccd4aa43"><div class="ttname"><a href="../../d4/df8/class_camera_system.html#a47d9e3f5277b873769028e15ccd4aa43">CameraSystem::refreshCamera</a></div><div class="ttdeci">void refreshCamera(Camera &amp;camera)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d8a/_camera_system_8cpp_source.html#l00037">CameraSystem.cpp:37</a></div></div>
-<div class="ttc" id="aclass_camera_html"><div class="ttname"><a href="../../da/dbb/class_camera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d91/_camera_8h_source.html#l00011">Camera.h:11</a></div></div>
+<div class="ttc" id="aclass_camera_html"><div class="ttname"><a href="../../da/dbb/class_camera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d91/_camera_8h_source.html#l00010">Camera.h:10</a></div></div>
 <div class="ttc" id="a_game_info_8h_html"><div class="ttname"><a href="../../de/d50/_game_info_8h.html">GameInfo.h</a></div></div>
-<div class="ttc" id="a_unique_vectors_8h_html"><div class="ttname"><a href="../../d9/db9/_unique_vectors_8h.html">UniqueVectors.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../d8/d2d/_camera_system_8h.html">CameraSystem.h</a></li>
-    <li class="footer">Generated on Thu Feb 6 2020 23:05:59 for LightShow_Boilerplate by
+    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_1699be727a800b1d059c6f7f2b91d2ee.html">game</a></li><li class="navelem"><a class="el" href="../../dir_46fb37fa78f646487908f22377b88dd8.html">systems</a></li><li class="navelem"><a class="el" href="../../dir_3dee9bebfe27df2508b29716d202d3ff.html">subsystems</a></li><li class="navelem"><a class="el" href="../../d8/d2d/_camera_system_8h.html">CameraSystem.h</a></li>
+    <li class="footer">Generated on Thu Mar 12 2020 18:24:02 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

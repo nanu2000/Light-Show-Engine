@@ -134,6 +134,12 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a9109f8d7f3efabbd23fce21df12b8a49"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dde/class_player_controller.html#a9109f8d7f3efabbd23fce21df12b8a49">clampingVelocity</a> = -5</td></tr>
+<tr class="separator:a9109f8d7f3efabbd23fce21df12b8a49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa517c158c9417cf251e80f4d04bcd5be"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dde/class_player_controller.html#aa517c158c9417cf251e80f4d04bcd5be">rayDistanceCorrector</a> = -0.1f</td></tr>
+<tr class="separator:aa517c158c9417cf251e80f4d04bcd5be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e5529ae3f4aa7ea7ed313dddb947fac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/dbc/class_ray_caster.html">RayCaster</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dde/class_player_controller.html#a6e5529ae3f4aa7ea7ed313dddb947fac">rayCast</a> [<a class="el" href="../../dc/dde/class_player_controller.html#af12a66aa0218fdc5ea754fdb2f80a460">PlayerController::AMOUNT_OF_RAYS</a>]</td></tr>
+<tr class="separator:a6e5529ae3f4aa7ea7ed313dddb947fac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1501695cf17997e91bdeb36e6468212"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/de4/struct_p_l_r___c_t_r_l_r___n_s_1_1_slope_intensity.html">PLR_CTRLR_NS::SlopeIntensity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dde/class_player_controller.html#af1501695cf17997e91bdeb36e6468212">slopes</a> [<a class="el" href="../../dc/dde/class_player_controller.html#a2a67edece95a11d52c11d667cb75a455">MAX_AMOUNT_SLOPE_CALCULATIONS</a>]</td></tr>
 <tr class="separator:af1501695cf17997e91bdeb36e6468212"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7a3580316e419bd8587e17ddce6e887"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dde/class_player_controller.html#ad7a3580316e419bd8587e17ddce6e887">friction</a> = 2.0f</td></tr>
@@ -177,6 +183,8 @@ Private Attributes</h2></td></tr>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:a2a67edece95a11d52c11d667cb75a455"><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dde/class_player_controller.html#a2a67edece95a11d52c11d667cb75a455">MAX_AMOUNT_SLOPE_CALCULATIONS</a> = 3</td></tr>
 <tr class="separator:a2a67edece95a11d52c11d667cb75a455"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af12a66aa0218fdc5ea754fdb2f80a460"><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dde/class_player_controller.html#af12a66aa0218fdc5ea754fdb2f80a460">AMOUNT_OF_RAYS</a> = 10</td></tr>
+<tr class="separator:af12a66aa0218fdc5ea754fdb2f80a460"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -191,7 +199,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00028">28</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00029">29</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ada1c3f276ca91dcb8c60eb290a2fe152"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ada1c3f276ca91dcb8c60eb290a2fe152">&#9670;&nbsp;</a></span>PlayerController() <span class="overload">[1/2]</span></h2>
@@ -217,9 +225,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00034">34</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00035">35</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00079">offsetFromCollider</a>.</p>
+<p class="reference">References <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00086">offsetFromCollider</a>.</p>
 
 </div>
 </div>
@@ -246,7 +254,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00035">35</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00036">36</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 </div>
 </div>
@@ -277,7 +285,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/dc6/_player_controller_8cpp_source.html#l00015">15</a> of file <a class="el" href="../../d4/dc6/_player_controller_8cpp_source.html">PlayerController.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00074">isTouchingGround</a>, <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00062">jumpEnabledWithinMagnitude</a>, <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00076">jumping</a>, <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00078">lastTouchedPosition</a>, and <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00075">performJump</a>.</p>
+<p class="reference">References <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00081">isTouchingGround</a>, <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00069">jumpEnabledWithinMagnitude</a>, <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00083">jumping</a>, <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00085">lastTouchedPosition</a>, and <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00082">performJump</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00003">PlayerControllerSystem::getPlayerInput()</a>.</p>
 
@@ -306,9 +314,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00040">40</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00041">41</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00082">currentState</a>.</p>
+<p class="reference">References <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00089">currentState</a>.</p>
 
 </div>
 </div>
@@ -335,9 +343,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00041">41</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00042">42</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00082">currentState</a>.</p>
+<p class="reference">References <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00089">currentState</a>.</p>
 
 </div>
 </div>
@@ -366,7 +374,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/dc6/_player_controller_8cpp_source.html#l00003">3</a> of file <a class="el" href="../../d4/dc6/_player_controller_8cpp_source.html">PlayerController.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00056">damping</a>, <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00057">fallMovementDamping</a>, <a class="el" href="../../de/d50/_game_info_8h_source.html#l00060">GameInfo::fixedDeltaTime</a>, <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00055">friction</a>, <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00074">isTouchingGround</a>, and <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00076">jumping</a>.</p>
+<p class="reference">References <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00063">damping</a>, <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00064">fallMovementDamping</a>, <a class="el" href="../../de/d50/_game_info_8h_source.html#l00061">GameInfo::fixedDeltaTime</a>, <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00062">friction</a>, <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00081">isTouchingGround</a>, and <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00083">jumping</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00158">PlayerControllerSystem::applyForces()</a>.</p>
 
@@ -393,11 +401,63 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00085">85</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00092">92</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="af12a66aa0218fdc5ea754fdb2f80a460"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af12a66aa0218fdc5ea754fdb2f80a460">&#9670;&nbsp;</a></span>AMOUNT_OF_RAYS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int PlayerController::AMOUNT_OF_RAYS = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00049">49</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00297">PlayerControllerSystem::debugRender()</a>, <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00168">PlayerControllerSystem::executeRayTesting()</a>, and <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00112">PlayerControllerSystem::getLowestRayHitForAllRays()</a>.</p>
+
+</div>
+</div>
+<a id="a9109f8d7f3efabbd23fce21df12b8a49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9109f8d7f3efabbd23fce21df12b8a49">&#9670;&nbsp;</a></span>clampingVelocity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PlayerController::clampingVelocity = -5</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00051">51</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00061">PlayerControllerSystem::handleRayHit()</a>.</p>
+
+</div>
+</div>
 <a id="a786f56c9b1d983fda29f0387519d707e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a786f56c9b1d983fda29f0387519d707e">&#9670;&nbsp;</a></span>colliderWidthAndDepth</h2>
 
@@ -418,7 +478,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00063">63</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00070">70</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00168">PlayerControllerSystem::executeRayTesting()</a>.</p>
 
@@ -444,7 +504,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00081">81</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00088">88</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00168">PlayerControllerSystem::executeRayTesting()</a>, and <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00003">PlayerControllerSystem::getPlayerInput()</a>.</p>
 
@@ -470,9 +530,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00082">82</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00089">89</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00040">getAnimationState()</a>, <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00041">getAnimationStateUint()</a>, and <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00003">PlayerControllerSystem::getPlayerInput()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00041">getAnimationState()</a>, <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00042">getAnimationStateUint()</a>, and <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00003">PlayerControllerSystem::getPlayerInput()</a>.</p>
 
 </div>
 </div>
@@ -496,7 +556,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00056">56</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00063">63</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d4/dc6/_player_controller_8cpp_source.html#l00003">getResistance()</a>.</p>
 
@@ -522,7 +582,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00057">57</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00064">64</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d4/dc6/_player_controller_8cpp_source.html#l00003">getResistance()</a>.</p>
 
@@ -548,7 +608,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00055">55</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00062">62</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d4/dc6/_player_controller_8cpp_source.html#l00003">getResistance()</a>.</p>
 
@@ -574,7 +634,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00058">58</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00065">65</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00168">PlayerControllerSystem::executeRayTesting()</a>.</p>
 
@@ -600,7 +660,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00074">74</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00081">81</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d4/dc6/_player_controller_8cpp_source.html#l00015">canJump()</a>, <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00168">PlayerControllerSystem::executeRayTesting()</a>, <a class="el" href="../../d4/dc6/_player_controller_8cpp_source.html#l00003">getResistance()</a>, and <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00061">PlayerControllerSystem::handleRayHit()</a>.</p>
 
@@ -626,7 +686,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00062">62</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00069">69</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d4/dc6/_player_controller_8cpp_source.html#l00015">canJump()</a>.</p>
 
@@ -652,7 +712,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00076">76</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00083">83</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d4/dc6/_player_controller_8cpp_source.html#l00015">canJump()</a>, <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00003">PlayerControllerSystem::getPlayerInput()</a>, <a class="el" href="../../d4/dc6/_player_controller_8cpp_source.html#l00003">getResistance()</a>, <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00061">PlayerControllerSystem::handleRayHit()</a>, and <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00150">PlayerControllerSystem::performCommands()</a>.</p>
 
@@ -678,7 +738,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00061">61</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00068">68</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00150">PlayerControllerSystem::performCommands()</a>.</p>
 
@@ -704,7 +764,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00078">78</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00085">85</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d4/dc6/_player_controller_8cpp_source.html#l00015">canJump()</a>, and <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00061">PlayerControllerSystem::handleRayHit()</a>.</p>
 
@@ -730,7 +790,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00047">47</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00048">48</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00134">PlayerControllerSystem::getCurrentSlopeSpeedIndex()</a>.</p>
 
@@ -756,9 +816,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00079">79</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00086">86</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00203">PlayerControllerSystem::applyNewTransform()</a>, and <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00034">PlayerController()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00244">PlayerControllerSystem::applyNewTransform()</a>, and <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00035">PlayerController()</a>.</p>
 
 </div>
 </div>
@@ -782,7 +842,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00075">75</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00082">82</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d4/dc6/_player_controller_8cpp_source.html#l00015">canJump()</a>, <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00003">PlayerControllerSystem::getPlayerInput()</a>, and <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00150">PlayerControllerSystem::performCommands()</a>.</p>
 
@@ -808,9 +868,61 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00059">59</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00066">66</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00158">PlayerControllerSystem::applyForces()</a>.</p>
+
+</div>
+</div>
+<a id="a6e5529ae3f4aa7ea7ed313dddb947fac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e5529ae3f4aa7ea7ed313dddb947fac">&#9670;&nbsp;</a></span>rayCast</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/dbc/class_ray_caster.html">RayCaster</a> PlayerController::rayCast[<a class="el" href="../../dc/dde/class_player_controller.html#af12a66aa0218fdc5ea754fdb2f80a460">PlayerController::AMOUNT_OF_RAYS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00054">54</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00297">PlayerControllerSystem::debugRender()</a>, <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00168">PlayerControllerSystem::executeRayTesting()</a>, and <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00112">PlayerControllerSystem::getLowestRayHitForAllRays()</a>.</p>
+
+</div>
+</div>
+<a id="aa517c158c9417cf251e80f4d04bcd5be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa517c158c9417cf251e80f4d04bcd5be">&#9670;&nbsp;</a></span>rayDistanceCorrector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PlayerController::rayDistanceCorrector = -0.1f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00052">52</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00168">PlayerControllerSystem::executeRayTesting()</a>.</p>
 
 </div>
 </div>
@@ -834,7 +946,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00080">80</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00087">87</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00168">PlayerControllerSystem::executeRayTesting()</a>.</p>
 
@@ -860,9 +972,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00077">77</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00084">84</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00208">PlayerControllerSystem::applyNewRotation()</a>, and <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00003">PlayerControllerSystem::getPlayerInput()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00249">PlayerControllerSystem::applyNewRotation()</a>, and <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00003">PlayerControllerSystem::getPlayerInput()</a>.</p>
 
 </div>
 </div>
@@ -891,7 +1003,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line">        <a class="code" href="../../d0/de4/struct_p_l_r___c_t_r_l_r___n_s_1_1_slope_intensity.html">PLR_CTRLR_NS::SlopeIntensity</a>(80, .8f) </div>
 <div class="line">    }</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00049">49</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00056">56</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00168">PlayerControllerSystem::executeRayTesting()</a>, and <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00134">PlayerControllerSystem::getCurrentSlopeSpeedIndex()</a>.</p>
 
@@ -917,24 +1029,24 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00060">60</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/dbc/_player_controller_8h_source.html#l00067">67</a> of file <a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../df/d12/_player_controller_system_8cpp_source.html#l00003">PlayerControllerSystem::getPlayerInput()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a></li>
-<li>src/<a class="el" href="../../d4/dc6/_player_controller_8cpp_source.html">PlayerController.cpp</a></li>
+<li>src/game/components/<a class="el" href="../../d9/dbc/_player_controller_8h_source.html">PlayerController.h</a></li>
+<li>src/game/components/<a class="el" href="../../d4/dc6/_player_controller_8cpp_source.html">PlayerController.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astruct_p_l_r___c_t_r_l_r___n_s_1_1_slope_intensity_html"><div class="ttname"><a href="../../d0/de4/struct_p_l_r___c_t_r_l_r___n_s_1_1_slope_intensity.html">PLR_CTRLR_NS::SlopeIntensity</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dbc/_player_controller_8h_source.html#l00017">PlayerController.h:17</a></div></div>
+<div class="ttc" id="astruct_p_l_r___c_t_r_l_r___n_s_1_1_slope_intensity_html"><div class="ttname"><a href="../../d0/de4/struct_p_l_r___c_t_r_l_r___n_s_1_1_slope_intensity.html">PLR_CTRLR_NS::SlopeIntensity</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dbc/_player_controller_8h_source.html#l00018">PlayerController.h:18</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dc/dde/class_player_controller.html">PlayerController</a></li>
-    <li class="footer">Generated on Thu Feb 6 2020 23:06:00 for LightShow_Boilerplate by
+    <li class="footer">Generated on Thu Mar 12 2020 18:24:03 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

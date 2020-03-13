@@ -2,6 +2,7 @@ var class_texture =
 [
     [ "Texture", "d2/d7f/class_texture.html#ae2c93cf2e9ed41ed03e94f4ddde11227", null ],
     [ "~Texture", "d2/d7f/class_texture.html#a09c4bcb7462f64c1d20fa69dba3cee8a", null ],
+    [ "Texture", "d2/d7f/class_texture.html#a22d9e76c3b7c47a177f6c27fc41f9f8d", null ],
     [ "checkTransparency", "d2/d7f/class_texture.html#a2224526d1a3b0a44f5123a18030dc37a", null ],
     [ "getHeight", "d2/d7f/class_texture.html#a0eaebfd0e00f88d19a64ed05ea634539", null ],
     [ "getLocation", "d2/d7f/class_texture.html#a02af5c0c3dad7cce1dc8798653aacdd7", null ],

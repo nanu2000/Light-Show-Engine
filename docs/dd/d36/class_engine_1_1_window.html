@@ -87,8 +87,8 @@ $(document).ready(function(){initNavTree('dd/d36/class_engine_1_1_window.html','
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a899c72211692a105ec29699f1f8f8599"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d36/class_engine_1_1_window.html#a899c72211692a105ec29699f1f8f8599">Window</a> (unsigned int w, unsigned int h)</td></tr>
-<tr class="separator:a899c72211692a105ec29699f1f8f8599"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c93af8d45f2458d6025135c43f8f3ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d36/class_engine_1_1_window.html#a4c93af8d45f2458d6025135c43f8f3ee">Window</a> (unsigned int w, unsigned int h, const std::string &amp;title)</td></tr>
+<tr class="separator:a4c93af8d45f2458d6025135c43f8f3ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b1292c8f06176ebcea484f2ccb7c3d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d36/class_engine_1_1_window.html#a3b1292c8f06176ebcea484f2ccb7c3d5">Window</a> ()</td></tr>
 <tr class="separator:a3b1292c8f06176ebcea484f2ccb7c3d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3f220a3b8863f93cb1689258d147dfb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d36/class_engine_1_1_window.html#ac3f220a3b8863f93cb1689258d147dfb">~Window</a> ()</td></tr>
@@ -120,7 +120,7 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a7b4f15dae4e945e0ae7b68a244a320f9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d36/class_engine_1_1_window.html#a7b4f15dae4e945e0ae7b68a244a320f9">windowTitle</a> = <a class="el" href="../../d4/d58/namespace_game_info.html#a84e173e912102cfa77a4894831965ef2">GameInfo::WINDOW_TITLE</a></td></tr>
+<tr class="memitem:a7b4f15dae4e945e0ae7b68a244a320f9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d36/class_engine_1_1_window.html#a7b4f15dae4e945e0ae7b68a244a320f9">windowTitle</a> = &quot;&quot;</td></tr>
 <tr class="separator:a7b4f15dae4e945e0ae7b68a244a320f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ce5df5a50e7451c3945547fab0b4321"><td class="memItemLeft" align="right" valign="top">SDL_Window *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d36/class_engine_1_1_window.html#a3ce5df5a50e7451c3945547fab0b4321">gameWindow</a> = nullptr</td></tr>
 <tr class="separator:a3ce5df5a50e7451c3945547fab0b4321"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,8 +136,8 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d42/_window_8h_source.html#l00013">13</a> of file <a class="el" href="../../de/d42/_window_8h_source.html">Window.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a899c72211692a105ec29699f1f8f8599"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a899c72211692a105ec29699f1f8f8599">&#9670;&nbsp;</a></span>Window() <span class="overload">[1/2]</span></h2>
+<a id="a4c93af8d45f2458d6025135c43f8f3ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c93af8d45f2458d6025135c43f8f3ee">&#9670;&nbsp;</a></span>Window() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -152,7 +152,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>h</em>&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>title</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -164,7 +170,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/db8/_window_8cpp_source.html#l00002">2</a> of file <a class="el" href="../../d3/db8/_window_8cpp_source.html">Window.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../de/d42/_window_8h_source.html#l00043">height</a>, and <a class="el" href="../../de/d42/_window_8h_source.html#l00042">width</a>.</p>
+<p class="reference">References <a class="el" href="../../de/d42/_window_8h_source.html#l00043">height</a>, <a class="el" href="../../de/d42/_window_8h_source.html#l00042">width</a>, and <a class="el" href="../../de/d42/_window_8h_source.html#l00037">windowTitle</a>.</p>
 
 </div>
 </div>
@@ -210,7 +216,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/db8/_window_8cpp_source.html#l00006">6</a> of file <a class="el" href="../../d3/db8/_window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/db8/_window_8cpp_source.html#l00007">7</a> of file <a class="el" href="../../d3/db8/_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00024">Engine::gameWindow</a>.</p>
 
@@ -271,7 +277,7 @@ Private Attributes</h2></td></tr>
 
 <p>Returns max screen size. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/db8/_window_8cpp_source.html#l00055">55</a> of file <a class="el" href="../../d3/db8/_window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/db8/_window_8cpp_source.html#l00056">56</a> of file <a class="el" href="../../d3/db8/_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../d0/d4b/_debug_8h_source.html#l00013">DBG_LOG</a>.</p>
 
@@ -366,7 +372,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="../../de/d42/_window_8h_source.html#l00039">gameWindow</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00085">Engine::Application::initializeSDL()</a>, <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00170">Engine::Application::render()</a>, and <a class="el" href="../../d9/da3/_application_8h_source.html#l00025">Engine::setMousePosition()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00085">Engine::Application::initializeSDL()</a>, <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00169">Engine::Application::render()</a>, and <a class="el" href="../../d9/da3/_application_8h_source.html#l00025">Engine::setMousePosition()</a>.</p>
 
 </div>
 </div>
@@ -404,11 +410,11 @@ Private Attributes</h2></td></tr>
 
 <p>Handles sdl events such as resizing. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/db8/_window_8cpp_source.html#l00025">25</a> of file <a class="el" href="../../d3/db8/_window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/db8/_window_8cpp_source.html#l00026">26</a> of file <a class="el" href="../../d3/db8/_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../d0/d4b/_debug_8h_source.html#l00013">DBG_LOG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00177">Engine::Application::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00176">Engine::Application::update()</a>.</p>
 
 </div>
 </div>
@@ -429,7 +435,7 @@ Private Attributes</h2></td></tr>
 
 <p>Creates window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/db8/_window_8cpp_source.html#l00010">10</a> of file <a class="el" href="../../d3/db8/_window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/db8/_window_8cpp_source.html#l00011">11</a> of file <a class="el" href="../../d3/db8/_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00024">Engine::gameWindow</a>.</p>
 
@@ -477,7 +483,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/db8/_window_8cpp_source.html#l00047">47</a> of file <a class="el" href="../../d3/db8/_window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/db8/_window_8cpp_source.html#l00048">48</a> of file <a class="el" href="../../d3/db8/_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../d4/d30/_messenger_8h_source.html#l00018">Messenger&lt; T &gt;::addMessage()</a>, <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00024">Engine::gameWindow</a>, and <a class="el" href="../../df/de2/_messages_8h.html#adf36f3b862459340da2c2cbc8927d69fa804ccb0b716091a27c938fa4092b846e">REFRESH_CAMERA</a>.</p>
 
@@ -499,7 +505,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/db8/_window_8cpp_source.html#l00042">42</a> of file <a class="el" href="../../d3/db8/_window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/db8/_window_8cpp_source.html#l00043">43</a> of file <a class="el" href="../../d3/db8/_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../d0/d42/_application_8cpp_source.html#l00024">Engine::gameWindow</a>.</p>
 
@@ -618,7 +624,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Engine::Window::windowTitle = <a class="el" href="../../d4/d58/namespace_game_info.html#a84e173e912102cfa77a4894831965ef2">GameInfo::WINDOW_TITLE</a></td>
+          <td class="memname">std::string Engine::Window::windowTitle = &quot;&quot;</td>
         </tr>
       </table>
   </td>
@@ -630,13 +636,13 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d42/_window_8h_source.html#l00037">37</a> of file <a class="el" href="../../de/d42/_window_8h_source.html">Window.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../de/d42/_window_8h_source.html#l00029">getCurrentTitle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../de/d42/_window_8h_source.html#l00029">getCurrentTitle()</a>, and <a class="el" href="../../d3/db8/_window_8cpp_source.html#l00002">Window()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="../../de/d42/_window_8h_source.html">Window.h</a></li>
-<li>src/<a class="el" href="../../d3/db8/_window_8cpp_source.html">Window.cpp</a></li>
+<li>src/engine/main/<a class="el" href="../../de/d42/_window_8h_source.html">Window.h</a></li>
+<li>src/engine/main/<a class="el" href="../../d3/db8/_window_8cpp_source.html">Window.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -644,7 +650,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d1/db6/namespace_engine.html">Engine</a></li><li class="navelem"><a class="el" href="../../dd/d36/class_engine_1_1_window.html">Window</a></li>
-    <li class="footer">Generated on Thu Feb 6 2020 23:06:01 for LightShow_Boilerplate by
+    <li class="footer">Generated on Thu Mar 12 2020 18:24:03 for LightShow_Boilerplate by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

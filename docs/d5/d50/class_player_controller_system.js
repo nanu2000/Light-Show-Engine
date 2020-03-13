@@ -4,6 +4,7 @@ var class_player_controller_system =
     [ "applyForces", "d5/d50/class_player_controller_system.html#a4f3e2c164e2bc88b8179912eae184653", null ],
     [ "applyNewRotation", "d5/d50/class_player_controller_system.html#a9b0be7cb86a889e07b30d9fa68a7aaa7", null ],
     [ "applyNewTransform", "d5/d50/class_player_controller_system.html#a791c9e27b3bdb79b981a087516c19207", null ],
+    [ "debugRender", "d5/d50/class_player_controller_system.html#ab4ce3f79510a2897a0fc199d611c6083", null ],
     [ "executeRayTesting", "d5/d50/class_player_controller_system.html#a919d9d772a6059cf4213c42c584ffcf3", null ],
     [ "fixedUpdate", "d5/d50/class_player_controller_system.html#a9d234f18033f0a3fca95bbcd49c28deb", null ],
     [ "getCurrentSlopeSpeedIndex", "d5/d50/class_player_controller_system.html#a1a9ee3e7d38a5f5582d499a6af1aab21", null ],

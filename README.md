@@ -123,6 +123,9 @@ You will need to provide certain variables in the CMake config to make this work
 * Double check CMakeSettings like SDL2_DIR and GNS_LIB_DIR, they should both point to their library directories.
 * In Windows, the populate_all scripts need to be supplied with VsDevCmd.bat. The path for VsDevCmd.bat differs on each version of visual studio.
 
+## Documentation
+The documentation for this project is located [here](https://nanu2000.github.io/Light-Show-Boilerplate/index.html). (Special thanks to DoxyGen.)
+
 ## Built With
 * Bullet3
 * SDL2

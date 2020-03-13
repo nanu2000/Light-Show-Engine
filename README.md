@@ -10,7 +10,7 @@ This application uses two other projects for 3D model and font atlas file creati
     * [Windows 10 install for Visual Studio Cross Platform with Linux](#windows-10-install-for-visual-studio-cross-platform-with-linux)
         * [Configure linux machine for development](#configure-linux-machine-for-development)
     * [Building on Linux (standalone)](#building-on-linux-standalone)
-* [Debugging Build System](#debuging-build-system)
+* [Debugging Build System](#debugging-build-system)
 * [Documentation](#documentation)
 * [Built With](#built-with)
 

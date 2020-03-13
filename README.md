@@ -1,6 +1,5 @@
 # Light-Show-Boilerplate
-LightShow is a 3D boilerplate created for my own projects with the purpose of flexibility, scalability, and simplicity.
-This project is meant to be used as a template for creating OpenGL applications. Specifically, games.
+LightShow is a 3D boilerplate created for my own projects with the purpose of flexibility, scalability, and simplicity. LightShow is meant to be used as a template for creating OpenGL applications. Specifically, games.
 
 Two other projects are used for 3D model exporting and font atlas file creation. Both are currently private.
 

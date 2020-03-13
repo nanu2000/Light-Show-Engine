@@ -3,6 +3,17 @@ LightShow is a 3D boilerplate created for my own projects with the purpose of fl
 
 This application uses two other projects for 3D model and font atlas file creation that are currently private.
 
+## Index
+* [Features](#features)
+* [Images](#images)
+* [Getting Started](#getting-started)
+    * [Windows 10 install for Visual Studio Cross Platform with Linux](#windows-10-install-for-visual-studio-cross-platform-with-linux)
+        * [Configure linux machine for development](#configure-linux-machine-for-development)
+    * [Building on Linux (standalone)](#building-on-linux-standalone)
+* [Debugging Build System](#debuging-build-system)
+* [Documentation](#documentation)
+* [Built With](#built-with)
+
 ## Features
 * 3D skeletal Animation
 * Directional and Omnidirectional Shadow Mapping
@@ -119,7 +130,7 @@ then run:
 
 You will need to provide certain variables in the CMake config to make this work.
 
-## Debuging Build System
+## Debugging Build System
 * Double check CMakeSettings like SDL2_DIR and GNS_LIB_DIR, they should both point to their library directories.
 * In Windows, the populate_all scripts need to be supplied with VsDevCmd.bat. The path for VsDevCmd.bat differs on each version of visual studio.
 

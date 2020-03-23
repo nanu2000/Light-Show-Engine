@@ -14,9 +14,30 @@
 
 class Texture {
 public:
+    static void test() {}
+
     Texture(std::string loc, GLuint txture, GLuint w, GLuint h, bool istransparent);
+
     ~Texture();
-    Texture(const Texture& texture2);
+
+    //!Fixes issues with opengl deletetexture.
+    //!https://www.khronos.org/opengl/wiki/Common_Mistakes#RAII_and_hidden_destructor_calls
+    Texture(const Texture&) = delete;
+    Texture& operator=(const Texture&) = delete;
+
+    Texture(Texture&& other)
+        : texture(other.texture) {
+        other.texture = 0; //Use the "null" texture for the old object.
+    }
+
+    Texture& operator=(Texture&& other) {
+        //ALWAYS check for self-assignment.
+        if (this != &other) {
+            freeTexture();
+            //obj_ is now 0.
+            std::swap(texture, other.texture);
+        }
+    }
 
     inline bool checkTransparency() const { return isTransparent; }
     inline GLuint getWidth() const { return imageWidth; }
@@ -25,6 +46,12 @@ public:
     inline std::string getLocation() const { return location; }
 
 private:
+    void freeTexture() {
+        DBG_LOG("Freeing memory for texture.\n");
+        glDeleteTextures(1, &texture);
+        texture = 0;
+    }
+
     GLuint imageWidth  = 0;
     GLuint imageHeight = 0;
     GLuint texture     = 0;
@@ -36,7 +63,23 @@ class CubeMap {
 public:
     CubeMap(const std::vector<std::string>& faces, GLuint txture);
     ~CubeMap();
-    CubeMap(const CubeMap& cm);
+
+    CubeMap(const CubeMap&) = delete;
+    CubeMap& operator=(const CubeMap&) = delete;
+
+    CubeMap(CubeMap&& other)
+        : texture(other.texture) {
+        other.texture = 0; //Use the "null" texture for the old object.
+    }
+
+    CubeMap& operator=(CubeMap&& other) {
+        //ALWAYS check for self-assignment.
+        if (this != &other) {
+            freeTextures();
+            //obj_ is now 0.
+            std::swap(texture, other.texture);
+        }
+    }
 
     inline GLuint getCubeMapData() const { return texture; }
     inline const std::vector<std::string> getTexturePaths() const {
@@ -44,6 +87,12 @@ public:
     }
 
 private:
+    void freeTextures() {
+        DBG_LOG("Freeing memory for cubemap.\n");
+        glDeleteTextures(1, &texture);
+        texture = 0;
+    }
+
     std::vector<std::string> location;
     GLuint texture = 0;
 };
@@ -82,11 +131,11 @@ private:
 
     //Used as data for filepaths which could not find a valid texture to use.
     //These bytes are a simple checkered pattern.
-    const GLubyte fillerTexturePixels[27] = { 0, 0, 0, 255, 255, 255, 0, 0, 0,
+    GLubyte fillerTexturePixels[27] = { 0, 0, 0, 255, 255, 255, 0, 0, 0,
 
-                                              255, 255, 255, 0, 0, 0, 255, 255, 255,
+                                        255, 255, 255, 0, 0, 0, 255, 255, 255,
 
-                                              0, 0, 0, 255, 255, 255, 0, 0, 0 };
+                                        0, 0, 0, 255, 255, 255, 0, 0, 0 };
 
     //Contains all dynamically allocated pointers for textures
     std::vector<Texture*> textureLibrary;

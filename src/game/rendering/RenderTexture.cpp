@@ -47,6 +47,10 @@ void RenderTextureBase::freeGLIds() {
         glDeleteFramebuffers(1, &textureFBO);
         glDeleteTextures(1, &textureID);
         glDeleteRenderbuffers(1, &textureRBO);
+        textureFBO  = 0;
+        textureID   = 0;
+        textureRBO  = 0;
+        initialized = false;
     }
 }
 

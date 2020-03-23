@@ -12,6 +12,32 @@
 class RenderTextureBase {
 
 public:
+    RenderTextureBase() {}
+
+    RenderTextureBase(const RenderTextureBase&) = delete;
+    RenderTextureBase& operator=(const RenderTextureBase&) = delete;
+
+    RenderTextureBase(RenderTextureBase&& other) {
+        textureFBO        = other.textureFBO;
+        textureID         = other.textureID;
+        textureRBO        = other.textureRBO;
+        initialized       = other.initialized;
+        other.textureFBO  = 0;
+        other.textureRBO  = 0;
+        other.textureID   = 0;
+        other.initialized = false;
+    }
+
+    RenderTextureBase& operator=(RenderTextureBase&& other) {
+        if (this != &other) {
+            freeGLIds();
+            std::swap(textureFBO, other.textureFBO);
+            std::swap(textureID, other.textureID);
+            std::swap(textureRBO, other.textureRBO);
+            std::swap(initialized, other.initialized);
+        }
+    }
+
     inline GLint getTextureID() const { return textureID; }
     inline GLuint getFBO() const { return textureFBO; }
 
@@ -37,7 +63,7 @@ protected:
     GLuint textureID  = 0;
     GLuint textureRBO = 0;
 
-    GLenum status;
+    GLenum status    = 0;
     bool initialized = false;
 };
 
@@ -51,6 +77,33 @@ class RenderTextureMS : public RenderTextureBase, public Component<RenderTexture
 
 public:
     virtual ~RenderTextureMS() {}
+    RenderTextureMS() {}
+
+    RenderTextureMS(const RenderTextureMS&) = delete;
+    RenderTextureMS& operator=(const RenderTextureMS&) = delete;
+
+    RenderTextureMS(RenderTextureMS&& other) {
+
+        textureFBO  = other.textureFBO;
+        textureID   = other.textureID;
+        textureRBO  = other.textureRBO;
+        initialized = other.initialized;
+
+        other.textureFBO  = 0;
+        other.textureRBO  = 0;
+        other.textureID   = 0;
+        other.initialized = false;
+    }
+
+    RenderTextureMS& operator=(RenderTextureMS&& other) {
+        if (this != &other) {
+            freeGLIds();
+            std::swap(textureFBO, other.textureFBO);
+            std::swap(textureID, other.textureID);
+            std::swap(textureRBO, other.textureRBO);
+            std::swap(initialized, other.initialized);
+        }
+    }
 
     //!Retrieves the max amount of multisamples the computer can handle if it hasn't already.
     static int getMaxMultisample();

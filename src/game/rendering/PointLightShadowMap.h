@@ -13,7 +13,42 @@ public:
     PointLightShadowMap() {};
     ~PointLightShadowMap();
 
-    const float FOV = glm::radians(90.0f);
+    PointLightShadowMap(const PointLightShadowMap&) = delete;
+    PointLightShadowMap& operator=(const PointLightShadowMap&) = delete;
+
+    PointLightShadowMap(PointLightShadowMap&& other) {
+        initialized       = other.initialized;
+        depthCubeMap      = other.depthCubeMap;
+        depthMapFBO       = other.depthMapFBO;
+        depthMapFBO       = 0;
+        depthCubeMap      = 0;
+        other.initialized = false;
+    }
+
+    PointLightShadowMap& operator=(PointLightShadowMap&& other) {
+        if (this != &other) {
+            freeShadowMap();
+            std::swap(initialized, other.initialized);
+            std::swap(depthCubeMap, other.depthCubeMap);
+            std::swap(depthMapFBO, other.depthMapFBO);
+        }
+    }
+
+    void freeShadowMap() {
+        if (!initialized) {
+            return;
+        }
+
+        DBG_LOG("Freeing memory for Pointlight shadow map.\n");
+
+        glDeleteTextures(1, &depthCubeMap);
+        glDeleteFramebuffers(1, &depthMapFBO);
+        depthMapFBO  = 0;
+        depthCubeMap = 0;
+        initialized  = false;
+    }
+
+    float FOV = glm::radians(90.0f);
 
     GLuint getCubeMap() { return depthCubeMap; }
     GLint getDepthMapShader() { return depthMapShader.getProgramID(); }

@@ -8,15 +8,8 @@ Texture::Texture(std::string loc, GLuint txture, GLuint w, GLuint h, bool istran
     isTransparent = istransparent;
 }
 
-Texture::Texture(const Texture& texture2) {
-#ifdef DEBUG
-    assert("Cannot copy Texture object due to destructor calling glDeleteTextures.");
-#endif // DEBUG
-}
-
 Texture::~Texture() {
-    DBG_LOG("Freeing memory for texture.\n");
-    glDeleteTextures(1, &texture); //todo: possibly move to locator dtor?
+    freeTexture();
 }
 
 CubeMap::CubeMap(const std::vector<std::string>& faces, GLuint txture) {
@@ -24,15 +17,8 @@ CubeMap::CubeMap(const std::vector<std::string>& faces, GLuint txture) {
     texture  = txture;
 }
 
-CubeMap::CubeMap(const CubeMap& cm) {
-#ifdef DEBUG
-    assert("Cannot copy CubeMap object due to destructor calling glDeleteTextures.");
-#endif // DEBUG
-}
-
 CubeMap::~CubeMap() {
-    DBG_LOG("Freeing memory for cubemap.\n");
-    glDeleteTextures(1, &texture);
+    //freeTextures();
 }
 
 //Fills Texture with data from filePath if it exists. if not it will use a checker pattern.

@@ -42,10 +42,6 @@ public:
 private:
     glm::vec3 lastKnownTargetPosition = glm::vec3(0, 0, 0);
 
-    ///////////////////////////////////////////////////////////////////////////////
-    //Const Members
-    ///////////////////////////////////////////////////////////////////////////////
-
     float friction                   = 2.0f;
     float damping                    = 7.0f;
     float fallMovementDamping        = 2;

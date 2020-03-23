@@ -204,6 +204,16 @@ void FloorObject::initialize(EntityVitals& vitals) {
                                                    "assets/shaders/floor-shader.frag",
                                                    SHADER_TYPE::Lit);
 
+    model.addTexture(
+        TextureLocator::getService().getTexture("assets/models/scenes/test/FloorTexture.png"),
+        0,
+        _3DM::TextureType::Diffuse);
+
+    model.addTexture(
+        TextureLocator::getService().getTexture("assets/models/scenes/test/StairsTexture.png"),
+        1,
+        _3DM::TextureType::Diffuse);
+
     floorMaterial.shininess = 128.f;
 
     collisionMesh.initializeModelShape(

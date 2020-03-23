@@ -134,7 +134,6 @@ message("${SDL2_INCLUDE_DIRS}")
 find_package(SDL2_mixer REQUIRED)
 include_directories(SYSTEM ${SDL_MIXER_INCLUDE_DIR})
 target_include_directories(lightshow_bp-lib PUBLIC ${SDL_MIXER_INCLUDE_DIR})
-# string(STRIP "${SDL_MIXER_LIBRARY}" SDL_MIXER_LIBRARY)
 target_link_libraries(lightshow_bp PRIVATE ${SDL_MIXER_LIBRARY})
 target_link_libraries(lightshow_bp-lib PRIVATE ${SDL_MIXER_LIBRARY})
 
@@ -142,18 +141,24 @@ target_link_libraries(lightshow_bp-lib PRIVATE ${SDL_MIXER_LIBRARY})
 find_package(SDL2_image REQUIRED)
 include_directories(SYSTEM ${SDL2IMAGE_INCLUDE_DIRS})
 target_include_directories(lightshow_bp-lib PUBLIC ${SDL2IMAGE_INCLUDE_DIRS})
-# string(STRIP "${SDL_MIXER_LIBRARY}" SDL_MIXER_LIBRARY)
 target_link_libraries(lightshow_bp PRIVATE ${SDL2IMAGE_LIBRARIES})
 target_link_libraries(lightshow_bp-lib PRIVATE ${SDL2IMAGE_LIBRARIES})
 
-# glew
+# Lua
+find_package(Lua53 REQUIRED)
+include_directories(SYSTEM ${LUA_INCLUDE_DIR})
+target_include_directories(lightshow_bp-lib PUBLIC ${LUA_INCLUDE_DIR})
+target_link_libraries(lightshow_bp PRIVATE ${LUA_LIBRARIES})
+target_link_libraries(lightshow_bp-lib PRIVATE ${LUA_LIBRARIES})
+
+# GLEW
 add_definitions(-DGLEW_STATIC)
 add_subdirectory(lib/glew EXCLUDE_FROM_ALL)
 target_link_libraries(lightshow_bp PRIVATE libglew_static)
 target_include_directories(lightshow_bp-lib PUBLIC lib/glew/include)
 target_link_libraries(lightshow_bp-lib PRIVATE libglew_static)
 
-# glm
+# GLM
 add_subdirectory(lib/glm EXCLUDE_FROM_ALL)
 target_link_libraries(lightshow_bp PRIVATE glm)
 target_include_directories(lightshow_bp-lib PUBLIC lib/glm)
@@ -165,7 +170,7 @@ target_include_directories(lightshow_bp-lib PUBLIC ${GNS_INCLUDE_DIRS})
 target_link_libraries(lightshow_bp PRIVATE ${GNS_LIBRARIES})
 target_link_libraries(lightshow_bp-lib PRIVATE ${GNS_LIBRARIES})
 
-# bullet
+# Bullet
 include_directories(SYSTEM lib/bullet/src)
 target_include_directories(lightshow_bp-lib PUBLIC lib/bullet/src)
 target_link_libraries(lightshow_bp PRIVATE BulletDynamics)
@@ -176,14 +181,16 @@ target_link_libraries(lightshow_bp-lib PRIVATE BulletCollision)
 target_link_libraries(lightshow_bp-lib PRIVATE LinearMath)
 # BulletDynamics.lib;BulletCollision.lib;
 
-#some Bullet specific definitions need to be used, to be compatible
+# Some Bullet specific definitions need to be used, to be compatible
 if (USE_DOUBLE_PRECISION)
-add_definitions( -DBT_USE_DOUBLE_PRECISION)
-set( BULLET_DOUBLE_DEF "-DBT_USE_DOUBLE_PRECISION")
+    add_definitions( -DBT_USE_DOUBLE_PRECISION)
+    set( BULLET_DOUBLE_DEF "-DBT_USE_DOUBLE_PRECISION")
 endif (USE_DOUBLE_PRECISION)
 
 add_subdirectory(lib/bullet EXCLUDE_FROM_ALL)
 
+
+# Asset copying
 file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
 
 if(WIN32)
@@ -213,6 +220,13 @@ if(WIN32)
         TARGET lightshow_bp POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory 
             "${SDL_MIXER_LIBRARY_PATH}"
+            $<TARGET_FILE_DIR:lightshow_bp>
+    )
+    
+    add_custom_command(
+        TARGET lightshow_bp POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory 
+            "${LUA_LIBRARIES_PATH}"
             $<TARGET_FILE_DIR:lightshow_bp>
     )
 

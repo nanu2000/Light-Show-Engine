@@ -60,19 +60,19 @@ namespace Engine {
         SDL_Event sdlEventSystem;
 
         //!Audio Rate.(frequency) 22050 for LQ sound (faster) 44100 for HQ sound
-        const unsigned int AUDIO_RATE = 44100;
+        unsigned int AUDIO_RATE = 44100;
 
         //!Audio Channel	2 for sterio, 1 for mono
-        const unsigned int AUDIO_CHANNEL = 1;
+        unsigned int AUDIO_CHANNEL = 1;
 
         //!Audio Bufffer (chunk size) Bytes used per output sample
-        const unsigned int AUDIO_BUFFER = 256;
+        unsigned int AUDIO_BUFFER = 256;
 
         //!Audio Format signed 8-bit samples, in system byte order. Same as AUDIO_S16SYS
-        const unsigned short AUDIO_FORMAT = AUDIO_U8;
+        unsigned short AUDIO_FORMAT = AUDIO_U8;
 
         //!The default color of the screen.
-        const glm::vec4 SCREEN_COLOR = glm::vec4(.8f, .9f, .95f, 1.f);
+        glm::vec4 SCREEN_COLOR = glm::vec4(.8f, .9f, .95f, 1.f);
 
         //For the InputLocator
         Input inputService;

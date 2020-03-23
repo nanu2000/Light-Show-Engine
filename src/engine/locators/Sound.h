@@ -63,7 +63,7 @@ public:
     void initialize(const std::string& location) override;
 
 private:
-    const unsigned int FADE_SPEED = 2000;
+    unsigned int FADE_SPEED = 2000;
 
     Mix_Music* soundClip = nullptr;
 };
@@ -111,8 +111,8 @@ private:
 
     std::vector<Music*> musicLibrary;
 
-    const unsigned int FADE_SPEED = 2000;
-    Music* currentlyPlaying       = nullptr;
+    unsigned int FADE_SPEED = 2000;
+    Music* currentlyPlaying = nullptr;
 };
 
 #endif //_SOUND_H

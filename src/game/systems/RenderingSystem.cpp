@@ -87,7 +87,6 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
         DBG_LOG("Vitals are null (RenderingSystem.cpp)\n");
         return;
     }
-
     Camera* currentCamera = currentScene->getFirstActiveComponentOfType<Camera>();
 
     if (!currentCamera) {

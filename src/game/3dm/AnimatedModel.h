@@ -24,6 +24,43 @@ namespace _3DM {
         AnimatedModel(const std::string& path);
         ~AnimatedModel();
 
+        friend void swap(_3DM::AnimatedModel& first, _3DM::AnimatedModel& second) // nothrow
+        {
+            std::swap(first.modelsAnimation, second.modelsAnimation);
+            std::swap(first.meshes, second.meshes);
+            std::swap(first.boneIDMap, second.boneIDMap);
+            std::swap(first.currentAnimationClip, second.currentAnimationClip);
+            std::swap(first.lastAnimationClip, second.lastAnimationClip);
+            std::swap(first.timeSinceAnimationStarted, second.timeSinceAnimationStarted);
+            std::swap(first.blendingTime, second.blendingTime);
+            std::swap(first.currentBlendingTime, second.currentBlendingTime);
+            std::swap(first.blendingLastFrameTime, second.blendingLastFrameTime);
+            std::swap(first.blendinglastAnimationClip, second.blendinglastAnimationClip);
+            std::swap(first.animationClips, second.animationClips);
+            std::swap(first.rootPath, second.rootPath);
+            std::swap(first.modelLoaded, second.modelLoaded);
+            std::swap(first.initialized, second.initialized);
+        }
+
+        AnimatedModel(AnimatedModel&& other) noexcept
+            : AnimatedModel() {
+
+            if (other.initialized == true) {
+                DBG_LOG("!!Cannot copy AnimatedModel after initialization due to destructor calling glDelete functions.!!");
+            }
+            swap(*this, other);
+        }
+
+        AnimatedModel& operator=(AnimatedModel other) {
+
+            if (other.initialized == true) {
+                DBG_LOG("!!Cannot assign AnimatedModel after initialization due to destructor calling glDelete functions.!!");
+            }
+
+            swap(*this, other);
+            return *this;
+        }
+
         //!Initializes the model. Should be called before rendering.
         void initialize(Shader& shader);
 

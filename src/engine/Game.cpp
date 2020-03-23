@@ -124,6 +124,7 @@ void Engine::Game::render() {
     }
 
     renderingSystem.render(pointLightDepthMap, directionalLightDepthMap, *currentTime, renderTexture);
+    renderTexture = std::move(renderTexture);
 }
 
 void Engine::Game::freeEntities() {

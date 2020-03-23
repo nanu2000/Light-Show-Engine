@@ -17,11 +17,9 @@ public:
     RenderTextureBase(const RenderTextureBase&) = delete;
     RenderTextureBase& operator=(const RenderTextureBase&) = delete;
 
-    RenderTextureBase(RenderTextureBase&& other) {
-        textureFBO        = other.textureFBO;
-        textureID         = other.textureID;
-        textureRBO        = other.textureRBO;
-        initialized       = other.initialized;
+    RenderTextureBase(RenderTextureBase&& other) noexcept
+        : RenderTextureBase() {
+        swap(*this, other);
         other.textureFBO  = 0;
         other.textureRBO  = 0;
         other.textureID   = 0;
@@ -31,11 +29,9 @@ public:
     RenderTextureBase& operator=(RenderTextureBase&& other) {
         if (this != &other) {
             freeGLIds();
-            std::swap(textureFBO, other.textureFBO);
-            std::swap(textureID, other.textureID);
-            std::swap(textureRBO, other.textureRBO);
-            std::swap(initialized, other.initialized);
+            swap(*this, other);
         }
+        return *this;
     }
 
     inline GLint getTextureID() const { return textureID; }
@@ -65,6 +61,16 @@ protected:
 
     GLenum status    = 0;
     bool initialized = false;
+
+    friend void swap(RenderTextureBase& first, RenderTextureBase& second) {
+        std::swap(first.width, second.width);
+        std::swap(first.height, second.height);
+        std::swap(first.textureFBO, second.textureFBO);
+        std::swap(first.textureID, second.textureID);
+        std::swap(first.textureRBO, second.textureRBO);
+        std::swap(first.status, second.status);
+        std::swap(first.initialized, second.initialized);
+    }
 };
 
 //!The RenderTexture class is used to create a texture that you can render to. This is a component.
@@ -77,32 +83,33 @@ class RenderTextureMS : public RenderTextureBase, public Component<RenderTexture
 
 public:
     virtual ~RenderTextureMS() {}
+
     RenderTextureMS() {}
 
     RenderTextureMS(const RenderTextureMS&) = delete;
     RenderTextureMS& operator=(const RenderTextureMS&) = delete;
 
-    RenderTextureMS(RenderTextureMS&& other) {
+    RenderTextureMS(RenderTextureMS&& other) noexcept
+        : RenderTextureMS() {
 
-        textureFBO  = other.textureFBO;
-        textureID   = other.textureID;
-        textureRBO  = other.textureRBO;
-        initialized = other.initialized;
+        //Call parent swap
+        swap(*this, other);
+
+        //swap derived variables
+        std::swap(this->currentMultisamples, other.currentMultisamples);
 
         other.textureFBO  = 0;
         other.textureRBO  = 0;
         other.textureID   = 0;
         other.initialized = false;
     }
-
     RenderTextureMS& operator=(RenderTextureMS&& other) {
         if (this != &other) {
             freeGLIds();
-            std::swap(textureFBO, other.textureFBO);
-            std::swap(textureID, other.textureID);
-            std::swap(textureRBO, other.textureRBO);
-            std::swap(initialized, other.initialized);
+            swap(*this, other);
+            std::swap(this->currentMultisamples, other.currentMultisamples);
         }
+        return *this;
     }
 
     //!Retrieves the max amount of multisamples the computer can handle if it hasn't already.

@@ -22,6 +22,34 @@ namespace _3DM {
         Model() {}
         ~Model();
 
+        friend void swap(_3DM::Model& first, _3DM::Model& second) // nothrow
+        {
+            std::swap(first.rootPath, second.rootPath);
+            std::swap(first.modelLoaded, second.modelLoaded);
+            std::swap(first.initialized, second.initialized);
+            std::swap(first.meshes, second.meshes);
+        }
+
+        Model(Model&& other) noexcept
+            : Model() {
+
+            if (other.initialized == true) {
+
+                DBG_LOG("!!Cannot copy Model after initialization due to destructor calling glDelete functions.!!");
+            }
+            swap(*this, other);
+        }
+
+        Model& operator=(Model other) {
+
+            if (other.initialized == true) {
+                DBG_LOG("!!Cannot assign Model after initialization due to destructor calling glDelete functions.!!");
+            }
+
+            swap(*this, other);
+            return *this;
+        }
+
         //! Used to add a texture manually to a mesh.
         void addTexture(const Texture& texture, int meshIndex, const _3DM::TextureType& type);
         void renderSingleMesh(unsigned int index, Shader& shader);

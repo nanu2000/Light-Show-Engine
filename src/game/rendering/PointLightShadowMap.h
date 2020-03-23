@@ -13,25 +13,41 @@ public:
     PointLightShadowMap() {};
     ~PointLightShadowMap();
 
+    friend void swap(PointLightShadowMap& first, PointLightShadowMap& second) {
+        std::swap(first.FOV, second.FOV);
+        std::swap(first.shadowTransforms, second.shadowTransforms);
+        std::swap(first.DEPTH_MAP_WIDTH, second.DEPTH_MAP_WIDTH);
+        std::swap(first.DEPTH_MAP_HEIGHT, second.DEPTH_MAP_HEIGHT);
+        std::swap(first.lightSupplied, second.lightSupplied);
+        std::swap(first.nearPlane, second.nearPlane);
+        std::swap(first.farPlane, second.farPlane);
+        std::swap(first.aspect, second.aspect);
+        std::swap(first.depthMapFBO, second.depthMapFBO);
+        std::swap(first.depthCubeMap, second.depthCubeMap);
+        std::swap(first.depthMapShader, second.depthMapShader);
+        std::swap(first.lightPosition, second.lightPosition);
+        std::swap(first.shadowProjection, second.shadowProjection);
+        std::swap(first.initialized, second.initialized);
+    }
+
     PointLightShadowMap(const PointLightShadowMap&) = delete;
     PointLightShadowMap& operator=(const PointLightShadowMap&) = delete;
 
-    PointLightShadowMap(PointLightShadowMap&& other) {
-        initialized       = other.initialized;
-        depthCubeMap      = other.depthCubeMap;
-        depthMapFBO       = other.depthMapFBO;
-        depthMapFBO       = 0;
-        depthCubeMap      = 0;
-        other.initialized = false;
+    PointLightShadowMap(PointLightShadowMap&& other) noexcept
+        : PointLightShadowMap() {
+        swap(*this, other);
+
+        other.depthMapFBO  = 0;
+        other.depthCubeMap = 0;
+        other.initialized  = false;
     }
 
-    PointLightShadowMap& operator=(PointLightShadowMap&& other) {
+    PointLightShadowMap& operator=(PointLightShadowMap&& other) noexcept {
         if (this != &other) {
             freeShadowMap();
-            std::swap(initialized, other.initialized);
-            std::swap(depthCubeMap, other.depthCubeMap);
-            std::swap(depthMapFBO, other.depthMapFBO);
+            swap(*this, other);
         }
+        return *this;
     }
 
     void freeShadowMap() {

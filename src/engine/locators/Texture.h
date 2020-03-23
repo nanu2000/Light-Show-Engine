@@ -14,8 +14,6 @@
 
 class Texture {
 public:
-    static void test() {}
-
     Texture(std::string loc, GLuint txture, GLuint w, GLuint h, bool istransparent);
 
     ~Texture();
@@ -25,17 +23,17 @@ public:
     Texture(const Texture&) = delete;
     Texture& operator=(const Texture&) = delete;
 
-    Texture(Texture&& other)
-        : texture(other.texture) {
+    Texture(Texture&& other) noexcept
+        : Texture() {
+        swap(*this, other);
         other.texture = 0; //Use the "null" texture for the old object.
     }
 
-    Texture& operator=(Texture&& other) {
+    Texture& operator=(Texture&& other) noexcept {
         //ALWAYS check for self-assignment.
         if (this != &other) {
             freeTexture();
-            //obj_ is now 0.
-            std::swap(texture, other.texture);
+            swap(*this, other);
         }
     }
 
@@ -46,6 +44,15 @@ public:
     inline std::string getLocation() const { return location; }
 
 private:
+    Texture() {}
+    friend void swap(Texture& first, Texture& second) {
+        std::swap(first.imageWidth, second.imageWidth);
+        std::swap(first.imageHeight, second.imageHeight);
+        std::swap(first.texture, second.texture);
+        std::swap(first.isTransparent, second.isTransparent);
+        std::swap(first.location, second.location);
+    }
+
     void freeTexture() {
         DBG_LOG("Freeing memory for texture.\n");
         glDeleteTextures(1, &texture);
@@ -68,7 +75,8 @@ public:
     CubeMap& operator=(const CubeMap&) = delete;
 
     CubeMap(CubeMap&& other)
-        : texture(other.texture) {
+        : CubeMap() {
+        swap(*this, other);
         other.texture = 0; //Use the "null" texture for the old object.
     }
 
@@ -76,8 +84,7 @@ public:
         //ALWAYS check for self-assignment.
         if (this != &other) {
             freeTextures();
-            //obj_ is now 0.
-            std::swap(texture, other.texture);
+            swap(*this, other);
         }
     }
 
@@ -87,6 +94,12 @@ public:
     }
 
 private:
+    CubeMap() {}
+    friend void swap(CubeMap& first, CubeMap& second) {
+        std::swap(first.texture, second.texture);
+        std::swap(first.location, second.location);
+    }
+
     void freeTextures() {
         DBG_LOG("Freeing memory for cubemap.\n");
         glDeleteTextures(1, &texture);

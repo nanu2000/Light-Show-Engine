@@ -27,26 +27,37 @@ public:
     ~DirectionalLightShadowMap();
     DirectionalLightShadowMap() {}
 
+    friend void swap(DirectionalLightShadowMap& first, DirectionalLightShadowMap& second) {
+        std::swap(first.initialized, second.initialized);
+        std::swap(first.depthMap, second.depthMap);
+        std::swap(first.depthMapFBO, second.depthMapFBO);
+        std::swap(first.DEPTH_MAP_WIDTH, second.DEPTH_MAP_WIDTH);
+        std::swap(first.DEPTH_MAP_HEIGHT, second.DEPTH_MAP_HEIGHT);
+        std::swap(first.securityAdditiveForDirection, second.securityAdditiveForDirection);
+        std::swap(first.bounds, second.bounds);
+        std::swap(first.lightDirection, second.lightDirection);
+        std::swap(first.lightSupplied, second.lightSupplied);
+        std::swap(first.lightSpaceMatrix, second.lightSpaceMatrix);
+        std::swap(first.depthMapShader, second.depthMapShader);
+    }
+
     //!Fixes issues with opengl deletetexture and copy.
     //!https://www.khronos.org/opengl/wiki/Common_Mistakes#RAII_and_hidden_destructor_calls
     DirectionalLightShadowMap(const DirectionalLightShadowMap&) = delete;
     DirectionalLightShadowMap& operator=(const DirectionalLightShadowMap&) = delete;
 
-    DirectionalLightShadowMap(DirectionalLightShadowMap&& other) {
-        initialized       = other.initialized;
-        depthMap          = other.depthMap;
-        depthMapFBO       = other.depthMapFBO;
-        depthMapFBO       = 0;
-        depthMap          = 0;
+    DirectionalLightShadowMap(DirectionalLightShadowMap&& other) noexcept
+        : DirectionalLightShadowMap() {
+        swap(*this, other);
+        other.depthMapFBO = 0;
+        other.depthMap    = 0;
         other.initialized = false;
     }
 
-    DirectionalLightShadowMap& operator=(DirectionalLightShadowMap&& other) {
+    DirectionalLightShadowMap& operator=(DirectionalLightShadowMap&& other) noexcept {
         if (this != &other) {
             freeShadowMap();
-            std::swap(initialized, other.initialized);
-            std::swap(depthMap, other.depthMap);
-            std::swap(depthMapFBO, other.depthMapFBO);
+            swap(*this, other);
         }
     }
 

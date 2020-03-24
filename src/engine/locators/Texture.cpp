@@ -9,7 +9,9 @@ Texture::Texture(std::string loc, GLuint txture, GLuint w, GLuint h, bool istran
 }
 
 Texture::~Texture() {
-    freeTexture();
+    DBG_LOG("Freeing memory for texture.\n");
+    glDeleteTextures(1, &texture);
+    texture = 0;
 }
 
 CubeMap::CubeMap(const std::vector<std::string>& faces, GLuint txture) {
@@ -18,7 +20,9 @@ CubeMap::CubeMap(const std::vector<std::string>& faces, GLuint txture) {
 }
 
 CubeMap::~CubeMap() {
-    //freeTextures();
+    DBG_LOG("Freeing memory for cubemap.\n");
+    glDeleteTextures(1, &texture);
+    texture = 0;
 }
 
 //Fills Texture with data from filePath if it exists. if not it will use a checker pattern.

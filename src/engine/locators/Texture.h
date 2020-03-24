@@ -14,28 +14,16 @@
 
 class Texture {
 public:
+    //!On destruction the txture will be deleted using glDeleteTextures
     Texture(std::string loc, GLuint txture, GLuint w, GLuint h, bool istransparent);
-
     ~Texture();
 
-    //!Fixes issues with opengl deletetexture.
+    //!Fixes issues with opengl deleteTexture.
     //!https://www.khronos.org/opengl/wiki/Common_Mistakes#RAII_and_hidden_destructor_calls
     Texture(const Texture&) = delete;
+    Texture(Texture&&)      = delete;
     Texture& operator=(const Texture&) = delete;
-
-    Texture(Texture&& other) noexcept
-        : Texture() {
-        swap(*this, other);
-        other.texture = 0; //Use the "null" texture for the old object.
-    }
-
-    Texture& operator=(Texture&& other) noexcept {
-        //ALWAYS check for self-assignment.
-        if (this != &other) {
-            freeTexture();
-            swap(*this, other);
-        }
-    }
+    Texture& operator=(Texture&&) = delete;
 
     inline bool checkTransparency() const { return isTransparent; }
     inline GLuint getWidth() const { return imageWidth; }
@@ -44,21 +32,6 @@ public:
     inline std::string getLocation() const { return location; }
 
 private:
-    Texture() {}
-    friend void swap(Texture& first, Texture& second) {
-        std::swap(first.imageWidth, second.imageWidth);
-        std::swap(first.imageHeight, second.imageHeight);
-        std::swap(first.texture, second.texture);
-        std::swap(first.isTransparent, second.isTransparent);
-        std::swap(first.location, second.location);
-    }
-
-    void freeTexture() {
-        DBG_LOG("Freeing memory for texture.\n");
-        glDeleteTextures(1, &texture);
-        texture = 0;
-    }
-
     GLuint imageWidth  = 0;
     GLuint imageHeight = 0;
     GLuint texture     = 0;
@@ -68,25 +41,14 @@ private:
 
 class CubeMap {
 public:
+    //!On destruction the txture will be deleted using glDeleteTextures
     CubeMap(const std::vector<std::string>& faces, GLuint txture);
     ~CubeMap();
 
-    CubeMap(const CubeMap&) = delete;
+    CubeMap(const CubeMap&)  = delete;
+    CubeMap(CubeMap&& other) = delete;
     CubeMap& operator=(const CubeMap&) = delete;
-
-    CubeMap(CubeMap&& other)
-        : CubeMap() {
-        swap(*this, other);
-        other.texture = 0; //Use the "null" texture for the old object.
-    }
-
-    CubeMap& operator=(CubeMap&& other) {
-        //ALWAYS check for self-assignment.
-        if (this != &other) {
-            freeTextures();
-            swap(*this, other);
-        }
-    }
+    CubeMap& operator=(CubeMap&& other) = delete;
 
     inline GLuint getCubeMapData() const { return texture; }
     inline const std::vector<std::string> getTexturePaths() const {
@@ -94,18 +56,6 @@ public:
     }
 
 private:
-    CubeMap() {}
-    friend void swap(CubeMap& first, CubeMap& second) {
-        std::swap(first.texture, second.texture);
-        std::swap(first.location, second.location);
-    }
-
-    void freeTextures() {
-        DBG_LOG("Freeing memory for cubemap.\n");
-        glDeleteTextures(1, &texture);
-        texture = 0;
-    }
-
     std::vector<std::string> location;
     GLuint texture = 0;
 };

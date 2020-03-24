@@ -38,12 +38,12 @@ void RenderTextureBase::resize(unsigned int w, unsigned int h) {
 }
 
 RenderTextureBase::~RenderTextureBase() {
-    DBG_LOG("Freeing memory for render texture.\n");
     freeGLIds();
 }
 
 void RenderTextureBase::freeGLIds() {
     if (initialized) {
+        DBG_LOG("Freeing memory for render texture.\n");
         glDeleteFramebuffers(1, &textureFBO);
         glDeleteTextures(1, &textureID);
         glDeleteRenderbuffers(1, &textureRBO);

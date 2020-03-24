@@ -62,5 +62,14 @@ void DirectionalLightShadowMap::updateDepthMapResolution() {
 }
 
 DirectionalLightShadowMap::~DirectionalLightShadowMap() {
-    freeShadowMap();
+    if (!initialized) {
+        return;
+    }
+    DBG_LOG("Freeing memory for Directional light depth map.\n");
+
+    glDeleteFramebuffers(1, &depthMapFBO);
+    glDeleteTextures(1, &depthMap);
+    depthMapFBO = 0;
+    depthMap    = 0;
+    initialized = false;
 }

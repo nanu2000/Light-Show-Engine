@@ -12,27 +12,13 @@
 class RenderTextureBase {
 
 public:
+    //!Keep in mind that the destructor will call glDelete on openGL objects generated if properly initialized.
     RenderTextureBase() {}
 
-    RenderTextureBase(const RenderTextureBase&) = delete;
     RenderTextureBase& operator=(const RenderTextureBase&) = delete;
-
-    RenderTextureBase(RenderTextureBase&& other) noexcept
-        : RenderTextureBase() {
-        swap(*this, other);
-        other.textureFBO  = 0;
-        other.textureRBO  = 0;
-        other.textureID   = 0;
-        other.initialized = false;
-    }
-
-    RenderTextureBase& operator=(RenderTextureBase&& other) {
-        if (this != &other) {
-            freeGLIds();
-            swap(*this, other);
-        }
-        return *this;
-    }
+    RenderTextureBase& operator=(RenderTextureBase&&) = delete;
+    RenderTextureBase(const RenderTextureBase&)       = delete;
+    RenderTextureBase(RenderTextureBase&&)            = delete;
 
     inline GLint getTextureID() const { return textureID; }
     inline GLuint getFBO() const { return textureFBO; }
@@ -61,21 +47,16 @@ protected:
 
     GLenum status    = 0;
     bool initialized = false;
-
-    friend void swap(RenderTextureBase& first, RenderTextureBase& second) {
-        std::swap(first.width, second.width);
-        std::swap(first.height, second.height);
-        std::swap(first.textureFBO, second.textureFBO);
-        std::swap(first.textureID, second.textureID);
-        std::swap(first.textureRBO, second.textureRBO);
-        std::swap(first.status, second.status);
-        std::swap(first.initialized, second.initialized);
-    }
 };
 
 //!The RenderTexture class is used to create a texture that you can render to. This is a component.
 class RenderTexture : public RenderTextureBase, public Component<RenderTexture> {
     virtual ~RenderTexture() {}
+
+    RenderTexture& operator=(const RenderTexture&) = delete;
+    RenderTexture& operator=(RenderTexture&&) = delete;
+    RenderTexture(const RenderTexture&)       = delete;
+    RenderTexture(RenderTexture&&)            = delete;
 };
 
 //!The RenderTextureMS class is used to create a multisampled texture that you can render to. This is a component.
@@ -84,33 +65,13 @@ class RenderTextureMS : public RenderTextureBase, public Component<RenderTexture
 public:
     virtual ~RenderTextureMS() {}
 
+    //!Keep in mind that the destructor will call glDelete on openGL objects generated if properly initialized.
     RenderTextureMS() {}
 
-    RenderTextureMS(const RenderTextureMS&) = delete;
     RenderTextureMS& operator=(const RenderTextureMS&) = delete;
-
-    RenderTextureMS(RenderTextureMS&& other) noexcept
-        : RenderTextureMS() {
-
-        //Call parent swap
-        swap(*this, other);
-
-        //swap derived variables
-        std::swap(this->currentMultisamples, other.currentMultisamples);
-
-        other.textureFBO  = 0;
-        other.textureRBO  = 0;
-        other.textureID   = 0;
-        other.initialized = false;
-    }
-    RenderTextureMS& operator=(RenderTextureMS&& other) {
-        if (this != &other) {
-            freeGLIds();
-            swap(*this, other);
-            std::swap(this->currentMultisamples, other.currentMultisamples);
-        }
-        return *this;
-    }
+    RenderTextureMS& operator=(RenderTextureMS&&) = delete;
+    RenderTextureMS(const RenderTextureMS&)       = delete;
+    RenderTextureMS(RenderTextureMS&&)            = delete;
 
     //!Retrieves the max amount of multisamples the computer can handle if it hasn't already.
     static int getMaxMultisample();

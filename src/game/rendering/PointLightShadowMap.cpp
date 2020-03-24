@@ -39,7 +39,17 @@ void PointLightShadowMap::initialize() {
 }
 
 PointLightShadowMap::~PointLightShadowMap() {
-    freeShadowMap();
+    if (!initialized) {
+        return;
+    }
+
+    DBG_LOG("Freeing memory for Pointlight shadow map.\n");
+
+    glDeleteTextures(1, &depthCubeMap);
+    glDeleteFramebuffers(1, &depthMapFBO);
+    depthMapFBO  = 0;
+    depthCubeMap = 0;
+    initialized  = false;
 }
 
 glm::mat4 PointLightShadowMap::getShadowTransformation(const glm::vec3& eye, const glm::vec3& up) {

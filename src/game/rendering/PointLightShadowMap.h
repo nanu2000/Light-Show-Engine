@@ -10,59 +10,14 @@
 
 class PointLightShadowMap {
 public:
+    //!Keep in mind that the destructor will call glDelete on FBO's and textures generated if the shadow map was properly initialized.
     PointLightShadowMap() {};
     ~PointLightShadowMap();
 
-    friend void swap(PointLightShadowMap& first, PointLightShadowMap& second) {
-        std::swap(first.FOV, second.FOV);
-        std::swap(first.shadowTransforms, second.shadowTransforms);
-        std::swap(first.DEPTH_MAP_WIDTH, second.DEPTH_MAP_WIDTH);
-        std::swap(first.DEPTH_MAP_HEIGHT, second.DEPTH_MAP_HEIGHT);
-        std::swap(first.lightSupplied, second.lightSupplied);
-        std::swap(first.nearPlane, second.nearPlane);
-        std::swap(first.farPlane, second.farPlane);
-        std::swap(first.aspect, second.aspect);
-        std::swap(first.depthMapFBO, second.depthMapFBO);
-        std::swap(first.depthCubeMap, second.depthCubeMap);
-        std::swap(first.depthMapShader, second.depthMapShader);
-        std::swap(first.lightPosition, second.lightPosition);
-        std::swap(first.shadowProjection, second.shadowProjection);
-        std::swap(first.initialized, second.initialized);
-    }
-
     PointLightShadowMap(const PointLightShadowMap&) = delete;
+    PointLightShadowMap(PointLightShadowMap&&)      = delete;
     PointLightShadowMap& operator=(const PointLightShadowMap&) = delete;
-
-    PointLightShadowMap(PointLightShadowMap&& other) noexcept
-        : PointLightShadowMap() {
-        swap(*this, other);
-
-        other.depthMapFBO  = 0;
-        other.depthCubeMap = 0;
-        other.initialized  = false;
-    }
-
-    PointLightShadowMap& operator=(PointLightShadowMap&& other) noexcept {
-        if (this != &other) {
-            freeShadowMap();
-            swap(*this, other);
-        }
-        return *this;
-    }
-
-    void freeShadowMap() {
-        if (!initialized) {
-            return;
-        }
-
-        DBG_LOG("Freeing memory for Pointlight shadow map.\n");
-
-        glDeleteTextures(1, &depthCubeMap);
-        glDeleteFramebuffers(1, &depthMapFBO);
-        depthMapFBO  = 0;
-        depthCubeMap = 0;
-        initialized  = false;
-    }
+    PointLightShadowMap& operator=(PointLightShadowMap&&) = delete;
 
     float FOV = glm::radians(90.0f);
 

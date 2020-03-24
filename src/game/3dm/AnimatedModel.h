@@ -21,27 +21,34 @@ namespace _3DM {
     class AnimatedModel : public Component<AnimatedModel>, public ModelBase {
 
     public:
+        //!Keep in mind that the destructor will call glDelete on openGL objects if the Model was properly initialized.
         AnimatedModel(const std::string& path);
         ~AnimatedModel();
 
         friend void swap(_3DM::AnimatedModel& first, _3DM::AnimatedModel& second) // nothrow
         {
-            std::swap(first.modelsAnimation, second.modelsAnimation);
-            std::swap(first.meshes, second.meshes);
-            std::swap(first.boneIDMap, second.boneIDMap);
-            std::swap(first.currentAnimationClip, second.currentAnimationClip);
-            std::swap(first.lastAnimationClip, second.lastAnimationClip);
-            std::swap(first.timeSinceAnimationStarted, second.timeSinceAnimationStarted);
-            std::swap(first.blendingTime, second.blendingTime);
-            std::swap(first.currentBlendingTime, second.currentBlendingTime);
-            std::swap(first.blendingLastFrameTime, second.blendingLastFrameTime);
-            std::swap(first.blendinglastAnimationClip, second.blendinglastAnimationClip);
-            std::swap(first.animationClips, second.animationClips);
-            std::swap(first.rootPath, second.rootPath);
-            std::swap(first.modelLoaded, second.modelLoaded);
-            std::swap(first.initialized, second.initialized);
+            using std::swap;
+            swap(first.modelsAnimation, second.modelsAnimation);
+            swap(first.meshes, second.meshes);
+            swap(first.boneIDMap, second.boneIDMap);
+            swap(first.currentAnimationClip, second.currentAnimationClip);
+            swap(first.lastAnimationClip, second.lastAnimationClip);
+            swap(first.timeSinceAnimationStarted, second.timeSinceAnimationStarted);
+            swap(first.blendingTime, second.blendingTime);
+            swap(first.currentBlendingTime, second.currentBlendingTime);
+            swap(first.blendingLastFrameTime, second.blendingLastFrameTime);
+            swap(first.blendinglastAnimationClip, second.blendinglastAnimationClip);
+            swap(first.animationClips, second.animationClips);
+            swap(first.rootPath, second.rootPath);
+            swap(first.modelLoaded, second.modelLoaded);
+            swap(first.initialized, second.initialized);
+
+            //ModelBase
+            swap(first.animatedModel, second.animatedModel);
+            swap(first.transform, second.transform);
         }
 
+        AnimatedModel(const AnimatedModel&) = delete;
         AnimatedModel(AnimatedModel&& other) noexcept
             : AnimatedModel() {
 

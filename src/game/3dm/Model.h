@@ -18,18 +18,24 @@ namespace _3DM {
     //!The Model controls the lifecycle of a 3D Model. This includes init, rendering, and freeing the data to render the Model.
     class Model : public Component<Model>, public ModelBase {
     public:
+        //!Keep in mind that the destructor will call glDelete on openGL objects if the Model was properly initialized.
         Model(const std::string& path);
-        Model() {}
         ~Model();
 
         friend void swap(_3DM::Model& first, _3DM::Model& second) // nothrow
         {
-            std::swap(first.rootPath, second.rootPath);
-            std::swap(first.modelLoaded, second.modelLoaded);
-            std::swap(first.initialized, second.initialized);
-            std::swap(first.meshes, second.meshes);
+            using std::swap;
+            swap(first.rootPath, second.rootPath);
+            swap(first.modelLoaded, second.modelLoaded);
+            swap(first.initialized, second.initialized);
+            swap(first.meshes, second.meshes);
+
+            //ModelBase
+            swap(first.animatedModel, second.animatedModel);
+            swap(first.transform, second.transform);
         }
 
+        Model(const Model&) = delete;
         Model(Model&& other) noexcept
             : Model() {
 
@@ -66,6 +72,7 @@ namespace _3DM {
         std::vector<uint32_t>* getMeshIndices(unsigned int index);
 
     private:
+        Model() {}
         std::vector<Mesh> meshes;
 
         void initializeBuffers(_3DM::Mesh& mesh, Shader& shader);

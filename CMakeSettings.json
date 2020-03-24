@@ -27,7 +27,7 @@
         },
         {
           "name": "GNS_LIB_DIR",
-          "value": "/usr/lib/x86_64-linux-gnu",
+          "value": "/usr/lib",
           "type": "PATH"
         },
         {
@@ -189,6 +189,11 @@
           "name": "CMAKE_C_FLAGS",
           "value": "",
           "type": "STRING"
+        },
+        {
+          "name": "Lua53_DIR",
+          "value": "./",
+          "type": "PATH"
         }
       ]
     },
@@ -891,7 +896,7 @@
         },
         {
           "name": "GNS_LIB_DIR",
-          "value": "$home/Desktop/GameNetworkingSockets/build/src",
+          "value": "/usr/lib",
           "type": "PATH"
         },
         {
@@ -1002,6 +1007,11 @@
         {
           "name": "SDL_IMAGE_LIB_DIR",
           "value": "/usr/lib/x86_64-linux-gnu",
+          "type": "PATH"
+        },
+        {
+          "name": "Lua53_DIR",
+          "value": "./",
           "type": "PATH"
         }
       ]

@@ -2,6 +2,8 @@ set(LUA_INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}/include/lua")
 
 if(UNIX AND NOT APPLE)
 
+    set(LUA_LIBRARIES "${CMAKE_CURRENT_LIST_DIR}/lib/lua/x64/liblua53.a")
+    set(LUA_LIBRARIES_PATH "${CMAKE_CURRENT_LIST_DIR}/lib/lua/x64")
 
 else()
 

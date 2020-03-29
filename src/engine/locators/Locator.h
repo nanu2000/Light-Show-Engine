@@ -1,12 +1,12 @@
 #ifndef LOCATOR_H
 #define LOCATOR_H
 #include "Input.h"
+#include "Lua.h"
 #include "Shader.h"
 #include "Sound.h"
 #include "Texture.h"
-/*************************************************************************************************
-It is assumed that U and T are related by inheritance (U inherits T, or they both are the same.) *
-**************************************************************************************************/
+
+//!It is assumed that U and T are related by inheritance (U inherits T, or they both are the same.)
 template <class T, class U>
 class Locator {
 
@@ -46,6 +46,7 @@ class NullInput;
 class SoundHandler;
 class MusicHandler;
 class ShaderHandler;
+class LuaHandler;
 
 class TextureLocator : public Locator<TextureHandler, TextureHandler> {};
 class InputLocator : public Locator<Input, NullInput> {};
@@ -53,4 +54,5 @@ class SoundLocator : public Locator<SoundHandler, SoundHandler> {};
 /*Remember, that if I use the music service and play a song then change the service without stopping the song, the locator will not be able to stop that song.*/
 class MusicLocator : public Locator<MusicHandler, MusicHandler> {};
 class ShaderLocator : public Locator<ShaderHandler, ShaderHandler> {};
+class LuaLocator : public Locator<LuaHandler, LuaHandler> {};
 #endif

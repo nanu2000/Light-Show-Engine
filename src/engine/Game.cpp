@@ -109,6 +109,10 @@ void Engine::Game::fixedUpdate() {
         return;
     }
 
+    if (InputLocator::getService().isKeyPressedOnce(SDLK_F5)) {
+        LuaLocator::getService().recompile();
+    }
+
     readBackendEventQueue();
 
     fixedUpdatingSystem.fixedUpdate(gameState, *currentTime, pointLightDepthMap, directionalLightDepthMap);

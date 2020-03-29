@@ -7,6 +7,8 @@ void UpdatingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld& 
     systems         = &ssystems;
     physicsWorld    = &world;
     currentSettings = &settings;
+
+    systems->dayNightCycleSystem.initialize();
 }
 
 void UpdatingSystem::update() {

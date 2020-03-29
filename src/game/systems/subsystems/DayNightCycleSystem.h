@@ -9,15 +9,34 @@
 class DayNightCycleSystem {
 
 public:
-    void fixedUpdate(DirectionalLight& light, const Time& time) {
+    //TODO: where should init be called from???
+    void initialize() {
+        luaOnInit();
+    }
 
-        float speed = 1.0f;
+    void luaOnInit() {
+        if (LuaLocator::getService().canUseFunction("day_night_cycle_init")) {
+            sol::function day_night_cycle_init = LuaLocator::getService().getFunction("day_night_cycle_init");
+            sol::table t                       = day_night_cycle_init();
+
+            speed     = t["speed"];
+            fastSpeed = t["fast_speed"];
+
+            nightLightDiffuse = glm::vec3(t["night_light_diffuse"]["x"], t["night_light_diffuse"]["y"], t["night_light_diffuse"]["z"]);
+            dayLightDiffuse   = glm::vec3(t["day_light_diffuse"]["x"], t["day_light_diffuse"]["y"], t["day_light_diffuse"]["z"]);
+        }
+    }
+
+    void fixedUpdate(DirectionalLight& light, const Time& time) {
+        luaOnInit();
+
+        float currentSpeed = speed;
 
         if (InputLocator::getService().isMouseButtonPressed(MOUSE_BUTTON::LeftButton)) {
-            speed = 50;
+            currentSpeed = fastSpeed;
         }
 
-        currentRotation = currentRotation + GameInfo::fixedDeltaTime * speed;
+        currentRotation = currentRotation + GameInfo::fixedDeltaTime * currentSpeed;
         currentRotation = glm::mod(currentRotation, 360.f);
 
         if (currentRotation >= 90 && currentRotation < 270) {
@@ -66,8 +85,10 @@ private:
     glm::vec3 currentDirection;
 
     float currentRotation = 270;
+    bool sunDown          = false;
 
-    bool sunDown = false;
+    float speed     = 1;
+    float fastSpeed = 50;
 
     glm::vec3 nightLightDiffuse = glm::vec3(.1f, .13f, .16f);
     glm::vec3 dayLightDiffuse   = glm::vec3(.7f, .73f, .74f);

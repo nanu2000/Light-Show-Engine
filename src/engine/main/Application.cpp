@@ -143,12 +143,11 @@ void Application::initializeGL() {
 void Application::initialize() {
 
     initializeSDL(); //initialize SDL2
-
     initializeAudio(); //initialize SDL_mixer
-
     initializeGL(); //initialize opengl
 
-    currentTime.initialize();
+    luaService.initialize(); //initialize Lua
+    currentTime.initialize(); //initialize Time
 
     std::srand(SDL_GetTicks()); //Set random seed
 
@@ -157,6 +156,7 @@ void Application::initialize() {
     SoundLocator ::provide(soundService);
     TextureLocator ::provide(textureService);
     ShaderLocator ::provide(shaderService);
+    LuaLocator ::provide(luaService);
 
     thisGame.initialize(&currentTime, &backEndMessagingSystem);
 }

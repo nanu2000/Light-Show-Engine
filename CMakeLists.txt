@@ -4,7 +4,7 @@
 
 # Projects Settings
 cmake_minimum_required (VERSION 3.1)
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project (lightshow_bp_project)
@@ -50,6 +50,7 @@ file(GLOB_RECURSE SOURCE_FILES
 target_sources(lightshow_bp-lib PRIVATE ${SOURCE_FILES_CPP} PUBLIC ${SOURCE_FILES_H})
 
 include_directories(lightshow_bp 
+    "include/sol2/single/include"
     "src" 
         "src/engine" 
             "src/engine/main" 
@@ -71,7 +72,8 @@ include_directories(lightshow_bp
                 "src/game/systems/subsystems"
 )
 
-target_include_directories(lightshow_bp-lib PUBLIC src)             
+target_include_directories(lightshow_bp-lib PUBLIC src)
+target_include_directories(lightshow_bp-lib PUBLIC include/sol2/single/include)
 
 if(USE_DEBUG_TOOLS)
     add_executable(lightshow_bp ${SOURCE_FILES})

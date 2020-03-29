@@ -89,6 +89,9 @@ namespace Engine {
         //For the ShaderLocator
         ShaderHandler shaderService;
 
+        //For the LuaLocator
+        LuaHandler luaService;
+
         //!Manages time
         Time currentTime;
 

@@ -19,16 +19,6 @@ set itemBorder=-----------------------------------------------------
 
 
 timeout /t 1 > NUL
-echo|set /p="."
-timeout /t 1 > NUL
-echo|set /p="."
-timeout /t 1 > NUL
-echo|set /p="."
-timeout /t 1 > NUL
-echo|set /p="."
-timeout /t 1 > NUL
-echo|set /p="."
-timeout /t 1 > NUL
 
 cls
 

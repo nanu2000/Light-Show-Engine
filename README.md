@@ -147,6 +147,8 @@ The documentation for this project is located [here](https://nanu2000.github.io/
 * GLM
 * GLew
 * GameNetworkingSockets
+* Lua
+* Sol2
 
 ## 
 [Top](#light-show-boilerplate)

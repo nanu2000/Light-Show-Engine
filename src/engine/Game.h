@@ -35,7 +35,11 @@ namespace Engine {
     private:
         //!Messenger to recieve messages from Application.
         Messenger<BackEndMessages>* backEndMessages = nullptr;
-        Time* currentTime                           = nullptr;
+
+        //!Messenger to send messages to the systems.
+        Messenger<SystemMessages> systemMessages;
+
+        Time* currentTime = nullptr;
 
         //!Used to provide Game info to UpdatingSystem, FixedUpdatingSystem, and RenderingSystem without exposing the Game
         GameState gameState = GameState(*this);
@@ -44,7 +48,12 @@ namespace Engine {
         bool areVitalsNull();
 
         void initializeShaders();
+
+        //TODO: Combine with readSystemsEventQueue?
+        //Provides fixedUpdatingSystem with backend events such as camera refresh.
         void readBackendEventQueue();
+        //Provides updating system with events such as RecompileLua
+        void readSystemsEventQueue();
 
         void freeEntities();
 

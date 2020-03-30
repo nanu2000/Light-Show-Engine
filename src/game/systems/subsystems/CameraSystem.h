@@ -5,9 +5,10 @@
 #include "GameInfo.h"
 #include "HelpingHand.h"
 #include "Locator.h"
+#include "SystemBase.h"
 #include <glm/gtc/matrix_transform.hpp>
 
-class CameraSystem {
+class CameraSystem : public SystemBase {
 
 public:
     void initializeCamera(Camera& camera);

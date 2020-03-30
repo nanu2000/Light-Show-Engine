@@ -2,9 +2,10 @@
 #define PARTICLE_SYSTEM_H
 
 #include "Particles.h"
+#include "SystemBase.h"
 
 //The base particle system.
-class DefaultParticleSystem {
+class DefaultParticleSystem : public SystemBase {
 
 public:
     virtual void renderParticles(Shader& shader, Particles& particles);

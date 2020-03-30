@@ -3,8 +3,9 @@
 #define DISPLAY_STATISTICS_SYSTEM_H
 
 #include "DisplayStatistics.h"
+#include "SystemBase.h"
 
-class DisplayStatisticsSystem {
+class DisplayStatisticsSystem : public SystemBase {
 
 public:
     void fixedUpdate(DisplayStatistics& ds, const Time& time, GUIResizingInformation& guiInfo) {

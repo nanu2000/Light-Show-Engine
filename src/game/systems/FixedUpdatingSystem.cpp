@@ -16,7 +16,7 @@ void FixedUpdatingSystem::initialize(Scene& scene, Settings& settings, PhysicsWo
 }
 
 //! Called in Game.cpp
-void FixedUpdatingSystem::handleBackEndMessage(BackEndMessages msg, RenderTextureBase& renderTexture) {
+void FixedUpdatingSystem::recieveBackEndMessage(BackEndMessages msg, RenderTextureBase& renderTexture) {
 
     switch (msg) {
 

@@ -15,6 +15,11 @@
 #include "SkyBoxSystem.h"
 
 struct SubSystems {
+
+    std::vector<SystemBase*> getAllSubSystems() {
+        return systems;
+    }
+
     PauseMenuSystem pauseMenuSystem;
     DisplayStatisticsSystem displayStatisticsSystem;
     GUIResizingInformation guiResizingInfo;
@@ -29,6 +34,24 @@ struct SubSystems {
     DefaultParticleSystem defaultParticleSystem;
     FountainParticleSystem fountainParticleSystem;
     DirectionalShadowDebuggerSystem directionalShadowDebuggerSystem;
+
+private:
+    std::vector<SystemBase*> systems {
+        &pauseMenuSystem,
+        &displayStatisticsSystem,
+        &guiResizingInfo,
+        &playerControllerSystem,
+        &enemyControllerSystem,
+        &playerCameraHandlingSystem,
+        &cameraSystem,
+        &boneCollisionMeshSystem,
+        &dayNightCycleSystem,
+        &skyBoxSystem,
+        &debuggingSystem,
+        &defaultParticleSystem,
+        &fountainParticleSystem,
+        &directionalShadowDebuggerSystem
+    };
 };
 
 #endif

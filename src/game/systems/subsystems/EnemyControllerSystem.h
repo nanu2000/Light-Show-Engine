@@ -10,15 +10,16 @@
 #include "GlobalInformation.h"
 #include "PhysicsWorld.h"
 #include "RayCaster.h"
+#include "SystemBase.h"
 
 namespace ENEMY_CTRLR_NS {
-const unsigned int AMOUNT_OF_RAYS  = 4;
-const float CLAMPING_VELOCITY      = -5;
-const float RAY_DISTANCE_CORRECTOR = -0.1f;
-static RayCaster rayCast[ENEMY_CTRLR_NS::AMOUNT_OF_RAYS];
+    const unsigned int AMOUNT_OF_RAYS  = 4;
+    const float CLAMPING_VELOCITY      = -5;
+    const float RAY_DISTANCE_CORRECTOR = -0.1f;
+    static RayCaster rayCast[ENEMY_CTRLR_NS::AMOUNT_OF_RAYS];
 }
 
-class EnemyControllerSystem {
+class EnemyControllerSystem : public SystemBase {
 
 public:
     EnemyControllerSystem() {

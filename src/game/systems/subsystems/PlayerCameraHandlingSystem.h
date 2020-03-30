@@ -4,8 +4,9 @@
 #include "Camera.h"
 #include "HelpingHand.h"
 #include "PlayerCameraHandler.h"
+#include "SystemBase.h"
 
-class PlayerCameraHandlingSystem {
+class PlayerCameraHandlingSystem : public SystemBase {
 
 public:
     void setThirdPersonCameraTargetPosition(PlayerCameraHandler& playerController, const Transform& modelsTransform, Camera& camera) {

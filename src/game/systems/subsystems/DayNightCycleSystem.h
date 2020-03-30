@@ -6,29 +6,32 @@
 #include "LTime.h"
 #include "Lights.h"
 #include "PhysicsWorld.h"
-class DayNightCycleSystem {
+#include "SystemBase.h"
+
+class DayNightCycleSystem : public SystemBase {
 
 public:
-    //TODO: where should init be called from???
-    void initialize() {
-        luaOnInit();
-    }
+    virtual void recieveMessage(const SystemMessages& msg) override {
 
-    void luaOnInit() {
-        if (LuaLocator::getService().canUseFunction("day_night_cycle_init")) {
-            sol::function day_night_cycle_init = LuaLocator::getService().getFunction("day_night_cycle_init");
-            sol::table t                       = day_night_cycle_init();
+        if (msg == SystemMessages::LUA_COMPILED) {
+            if (LuaLocator::getService().canUseFunction("day_night_cycle_init")) {
+                sol::function day_night_cycle_init = LuaLocator::getService().getFunction("day_night_cycle_init");
+                sol::table t                       = day_night_cycle_init();
 
-            speed     = t["speed"];
-            fastSpeed = t["fast_speed"];
+                speed     = t["speed"];
+                fastSpeed = t["fast_speed"];
 
-            nightLightDiffuse = glm::vec3(t["night_light_diffuse"]["x"], t["night_light_diffuse"]["y"], t["night_light_diffuse"]["z"]);
-            dayLightDiffuse   = glm::vec3(t["day_light_diffuse"]["x"], t["day_light_diffuse"]["y"], t["day_light_diffuse"]["z"]);
+                nightLightDiffuse = glm::vec3(t["night_light_diffuse"]["x"], t["night_light_diffuse"]["y"], t["night_light_diffuse"]["z"]);
+                dayLightDiffuse   = glm::vec3(t["day_light_diffuse"]["x"], t["day_light_diffuse"]["y"], t["day_light_diffuse"]["z"]);
+            }
         }
     }
 
+    //TODO: where should init be called from???
+    void initialize() {
+    }
+
     void fixedUpdate(DirectionalLight& light, const Time& time) {
-        luaOnInit();
 
         float currentSpeed = speed;
 

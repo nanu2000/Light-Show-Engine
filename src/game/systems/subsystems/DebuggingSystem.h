@@ -3,9 +3,10 @@
 
 #include "Input.h"
 #include "PhysicsWorld.h"
+#include "SystemBase.h"
 
 //!Controls the PhysicsWorld DebugDrawer.
-class DebuggingSystem {
+class DebuggingSystem : public SystemBase {
 public:
     //!Updates the DebugDrawer- such as toggling if it should be rendering or not. Should be called in FixedUpdatingSystem
     void controlPhysicsDebugDraw(Input& inputHandler, PhysicsWorld& world);

@@ -19,6 +19,8 @@ public:
 
     void initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& systems) override;
 
+    void recieveSystemMessage(const SystemMessages& msg);
+
     //Called from Game.cpp
     void update();
 

@@ -2,9 +2,10 @@
 #define DIRECTIONAL_SHADOW_DEBUGGER_SYSTEM_H
 #include "DirectionalLightShadowMap.h"
 #include "DirectionalShadowDebugger.h"
+#include "SystemBase.h"
 
 //!DirectionalShadowDebugger's system
-class DirectionalShadowDebuggerSystem {
+class DirectionalShadowDebuggerSystem : public SystemBase {
 public:
     void render(DirectionalShadowDebugger& dbgr, const DirectionalLightShadowMap& shadowMap) {
 

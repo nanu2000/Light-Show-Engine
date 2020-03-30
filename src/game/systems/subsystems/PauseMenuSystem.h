@@ -3,9 +3,10 @@
 
 #include "GUIResizingInfo.h"
 #include "PauseMenu.h"
+#include "SystemBase.h"
 #include "UserControls.h"
 
-class PauseMenuSystem {
+class PauseMenuSystem : public SystemBase {
 public:
     void update(Input& input, PauseMenu& menu, GUIResizingInformation& guiInfo, const UserControls& userControls) {
 

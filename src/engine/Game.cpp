@@ -100,7 +100,14 @@ void Engine::Game::loadScene(int index) {
 void Engine::Game::readBackendEventQueue() {
     BackEndMessages msg;
     while (backEndMessages->getMessagesThenRemove(msg)) {
-        fixedUpdatingSystem.handleBackEndMessage(msg, renderTexture);
+        fixedUpdatingSystem.recieveBackEndMessage(msg, renderTexture);
+    }
+}
+
+void Engine::Game::readSystemsEventQueue() {
+    SystemMessages msg;
+    while (systemMessages.getMessagesThenRemove(msg)) {
+        updatingSystem.recieveSystemMessage(msg);
     }
 }
 
@@ -109,16 +116,21 @@ void Engine::Game::fixedUpdate() {
         return;
     }
 
-    if (InputLocator::getService().isKeyPressedOnce(SDLK_F5)) {
-        LuaLocator::getService().recompile();
-    }
-
     readBackendEventQueue();
 
     fixedUpdatingSystem.fixedUpdate(gameState, *currentTime, pointLightDepthMap, directionalLightDepthMap);
 }
 
 void Engine::Game::update() {
+
+    //!Todo: Move- Needs messenger defined in game
+    if (InputLocator::getService().isKeyPressedOnce(SDLK_F5)) {
+        LuaLocator::getService().recompile();
+        systemMessages.addMessage(SystemMessages::LUA_COMPILED);
+    }
+
+    readSystemsEventQueue();
+
     updatingSystem.update();
 }
 

@@ -11,6 +11,18 @@ void UpdatingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld& 
     systems->dayNightCycleSystem.initialize();
 }
 
+void UpdatingSystem::recieveSystemMessage(const SystemMessages& msg) {
+
+    if (!systems) {
+        return;
+    }
+
+    std::vector<SystemBase*> s = systems->getAllSubSystems();
+    for (unsigned int i = 0; i < s.size(); i++) {
+        s.at(i)->recieveMessage(msg);
+    }
+}
+
 void UpdatingSystem::update() {
 
     bool isPauseMenuShowing = false;

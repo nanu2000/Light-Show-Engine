@@ -1,8 +1,9 @@
 #ifndef GUI_RESIZING_INFO
 #define GUI_RESIZING_INFO
 #include "GameInfo.h"
+#include "SystemBase.h"
 
-class GUIResizingInformation {
+class GUIResizingInformation : public SystemBase {
 
 public:
     int getTopScreenPosition() const { return GameInfo::getWindowHeight(); }

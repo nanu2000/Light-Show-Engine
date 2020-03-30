@@ -2,8 +2,9 @@
 #define SKY_BOX_SYSTEM_H
 
 #include "SkyBox.h"
+#include "SystemBase.h"
 
-class SkyBoxSystem {
+class SkyBoxSystem : public SystemBase {
 public:
     void init(SkyBox& skybox) { skybox.getCube()->create(); }
     void render(SkyBox& skybox, Camera& camera, Shader& shader) {

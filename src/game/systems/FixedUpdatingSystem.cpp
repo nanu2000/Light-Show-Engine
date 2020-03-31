@@ -6,38 +6,6 @@ void FixedUpdatingSystem::initialize(Scene& scene, Settings& settings, PhysicsWo
     currentSettings = &settings;
     physicsWorld    = &world;
     systems         = &ssystems;
-
-    if (Camera* camera = currentScene->getFirstActiveComponentOfType<Camera>()) {
-        systems->cameraSystem.initializeCamera(*camera);
-    }
-
-    systems->guiResizingInfo.updateInformation();
-    //    systems->dayNightCycleSystem.initialize();
-}
-
-//! Called in Game.cpp
-void FixedUpdatingSystem::recieveBackEndMessage(BackEndMessages msg, RenderTextureBase& renderTexture) {
-
-    switch (msg) {
-
-    case BackEndMessages::REFRESH_CAMERA:
-
-        if (Camera* camera = currentScene->getFirstActiveComponentOfType<Camera>()) {
-            systems->cameraSystem.refreshCamera(*camera);
-            DBG_LOG("Camera Refreshed Succesfully\n");
-        }
-
-        systems->guiResizingInfo.updateInformation();
-        renderTexture.resize(GameInfo::getWindowWidth(), GameInfo::getWindowHeight());
-
-        break;
-
-    case BackEndMessages::NULL_MESSAGE:
-    case BackEndMessages::MESSAGES_END:
-    default:
-        DBG_LOG("NULL or Unknown Message Passed as Argument (FixedUpdatingSystem::handleBackEndMsg)\n");
-        break;
-    }
 }
 
 //! Called in Game.cpp

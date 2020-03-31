@@ -8,10 +8,15 @@ void UpdatingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld& 
     physicsWorld    = &world;
     currentSettings = &settings;
 
-    systems->dayNightCycleSystem.initialize();
+    //Right now I'm only using 1 dir light
+    DirectionalLight* directionalLight = currentScene->getFirstActiveComponentOfType<DirectionalLight>();
+
+    if (directionalLight) {
+        systems->dayNightCycleSystem.initialize(*directionalLight);
+    }
 }
 
-void UpdatingSystem::recieveSystemMessage(const SystemMessages& msg) {
+void UpdatingSystem::recieveSystemMessage(const BackEndMessages& msg, RenderTextureBase& renderTexture) {
 
     if (!systems) {
         return;
@@ -19,7 +24,16 @@ void UpdatingSystem::recieveSystemMessage(const SystemMessages& msg) {
 
     std::vector<SystemBase*> s = systems->getAllSubSystems();
     for (unsigned int i = 0; i < s.size(); i++) {
-        s.at(i)->recieveMessage(msg);
+        s.at(i)->recieveMessage(msg, *currentScene);
+    }
+
+    //!TODO: Move to system for message recieving.
+    switch (msg) {
+    case BackEndMessages::REFRESH_CAMERA:
+        renderTexture.resize(GameInfo::getWindowWidth(), GameInfo::getWindowHeight());
+        break;
+    default:
+        break;
     }
 }
 

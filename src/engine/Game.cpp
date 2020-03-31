@@ -91,6 +91,20 @@ void Engine::Game::loadScene(int index) {
             return false;
         });
 
+    //Lua is initialized before Game::Initialize, so we can safely send LUA_COMPILED to all subsystems.
+    //This will replace all default variables in systems/components before they are initialized.
+    backEndMessages->addMessage(BackEndMessages::LUA_COMPILED);
+
+    //Send messages to subsystems such as LUA_COMPILED
+    //Ran before initializing systems due to lua replacing default C++ variables.
+    BackEndMessages msg;
+    while (backEndMessages->getMessagesThenRemove(msg)) {
+        std::vector<SystemBase*> s = subSystems.getAllSubSystems();
+        for (unsigned int i = 0; i < s.size(); i++) {
+            s.at(i)->recieveMessage(msg, *scene);
+        }
+    }
+
     //Re-init systems.
     fixedUpdatingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
     updatingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
@@ -100,14 +114,7 @@ void Engine::Game::loadScene(int index) {
 void Engine::Game::readBackendEventQueue() {
     BackEndMessages msg;
     while (backEndMessages->getMessagesThenRemove(msg)) {
-        fixedUpdatingSystem.recieveBackEndMessage(msg, renderTexture);
-    }
-}
-
-void Engine::Game::readSystemsEventQueue() {
-    SystemMessages msg;
-    while (systemMessages.getMessagesThenRemove(msg)) {
-        updatingSystem.recieveSystemMessage(msg);
+        updatingSystem.recieveSystemMessage(msg, renderTexture);
     }
 }
 
@@ -115,8 +122,6 @@ void Engine::Game::fixedUpdate() {
     if (areVitalsNull()) {
         return;
     }
-
-    readBackendEventQueue();
 
     fixedUpdatingSystem.fixedUpdate(gameState, *currentTime, pointLightDepthMap, directionalLightDepthMap);
 }
@@ -126,11 +131,10 @@ void Engine::Game::update() {
     //!Todo: Move- Needs messenger defined in game
     if (InputLocator::getService().isKeyPressedOnce(SDLK_F5)) {
         LuaLocator::getService().recompile();
-        systemMessages.addMessage(SystemMessages::LUA_COMPILED);
+        backEndMessages->addMessage(BackEndMessages::LUA_COMPILED);
     }
 
-    readSystemsEventQueue();
-
+    readBackendEventQueue();
     updatingSystem.update();
 }
 

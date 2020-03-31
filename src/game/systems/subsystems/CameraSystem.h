@@ -5,12 +5,16 @@
 #include "GameInfo.h"
 #include "HelpingHand.h"
 #include "Locator.h"
+#include "Scene.h"
 #include "SystemBase.h"
 #include <glm/gtc/matrix_transform.hpp>
 
 class CameraSystem : public SystemBase {
 
 public:
+    //!Used to recieve message to refresh the camera
+    virtual void recieveMessage(const BackEndMessages& msg, Scene& currentScene) override;
+
     void initializeCamera(Camera& camera);
 
     void update(Camera& camera);

@@ -26,9 +26,6 @@ public:
 
     void fixedUpdate(GameState& gameState, const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
 
-    //Todo: Look into moving to update system.
-    void recieveBackEndMessage(BackEndMessages msg, RenderTextureBase& renderTexture);
-
 private:
     //! Updates GUI (Will be called even if the game is paused) will return true if the game is paused
     bool updateGUI(const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);

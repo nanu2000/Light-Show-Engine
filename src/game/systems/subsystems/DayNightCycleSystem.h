@@ -11,9 +11,9 @@
 class DayNightCycleSystem : public SystemBase {
 
 public:
-    virtual void recieveMessage(const SystemMessages& msg) override {
+    virtual void recieveMessage(const BackEndMessages& msg, Scene& currentScene) override {
 
-        if (msg == SystemMessages::LUA_COMPILED) {
+        if (msg == BackEndMessages::LUA_COMPILED) {
             if (LuaLocator::getService().canUseFunction("day_night_cycle_init")) {
                 sol::function day_night_cycle_init = LuaLocator::getService().getFunction("day_night_cycle_init");
                 sol::table t                       = day_night_cycle_init();
@@ -28,7 +28,10 @@ public:
     }
 
     //TODO: where should init be called from???
-    void initialize() {
+    void initialize(DirectionalLight& light) {
+
+        //Lua updates the color, but the light doesn't update until full rotation.
+        light.diffuse = dayLightDiffuse;
     }
 
     void fixedUpdate(DirectionalLight& light, const Time& time) {

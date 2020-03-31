@@ -6,6 +6,13 @@
 class GUIResizingInformation : public SystemBase {
 
 public:
+    virtual void recieveMessage(const BackEndMessages& msg, Scene& currentScene) override {
+
+        if (msg == BackEndMessages::REFRESH_CAMERA) {
+            updateInformation();
+        }
+    }
+
     int getTopScreenPosition() const { return GameInfo::getWindowHeight(); }
     int getBottomScreenPosition() const { return -GameInfo::getWindowHeight(); }
     int getLeftScreenPosition() const { return -GameInfo::getWindowWidth(); }
@@ -14,12 +21,12 @@ public:
     float getWidthUnit() const { return widthByWidth; }
     float getHeightUnit() const { return heightByHeight; }
 
+private:
     void updateInformation() {
         widthByWidth   = (float)GameInfo::getWindowWidth() / (float)GameInfo::START_WINDOW_WIDTH;
         heightByHeight = (float)GameInfo::getWindowHeight() / (float)GameInfo::START_WINDOW_HEIGHT;
     }
 
-private:
     float widthByWidth   = 0;
     float heightByHeight = 0;
 };

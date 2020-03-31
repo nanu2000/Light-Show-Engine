@@ -9,6 +9,7 @@
 #include "Messenger.h"
 #include "ParticleSystem.h"
 #include "PauseMenu.h"
+#include "RenderTexture.h"
 #include "Scene.h"
 #include "Settings.h"
 #include "UserControls.h"
@@ -19,7 +20,7 @@ public:
 
     void initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& systems) override;
 
-    void recieveSystemMessage(const SystemMessages& msg);
+    void recieveSystemMessage(const BackEndMessages& msg, RenderTextureBase& renderTexture);
 
     //Called from Game.cpp
     void update();

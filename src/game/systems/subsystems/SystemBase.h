@@ -1,15 +1,9 @@
 #ifndef SYSTEM_BASE_H
 #define SYSTEM_BASE_H
-
-enum class SystemMessages : int {
-    NULL_MESSAGE = -1,
-    LUA_COMPILED,
-    MESSAGES_END
-};
-
+#include "Messages.h"
 class SystemBase {
 public:
-    virtual void recieveMessage(const SystemMessages& msg) {}
+    virtual void recieveMessage(const BackEndMessages& msg, Scene& currentScene) {}
 };
 
 #endif

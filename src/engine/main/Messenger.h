@@ -17,10 +17,12 @@ public:
     //!Add a message to the queue
     void addMessage(const T& message) {
         if (numberOfCurrentMessages >= GameInfo::DEFAULT_MESSAGE_CAPACITY) {
-            DBG_LOG("Current messages at capacity (Messenger.h)");
-            messageList.at(numberOfCurrentMessages) = message;
-        } else {
+            DBG_LOG("Current messages at capacity (Messenger.h)\n");
+            messageList.erase(messageList.begin());
             messageList.push_back(message);
+            return;
+        } else {
+            messageList.at(numberOfCurrentMessages) = message;
         }
         numberOfCurrentMessages++;
     }
@@ -32,7 +34,7 @@ public:
             numberOfCurrentMessages--;
             return true;
         } else {
-            msg = static_cast<T>(-1);
+            //msg = static_cast<T>(-1);
             return false;
         }
     }

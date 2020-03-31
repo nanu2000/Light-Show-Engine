@@ -1,5 +1,15 @@
 #include "CameraSystem.h"
 
+void CameraSystem::recieveMessage(const BackEndMessages& msg, Scene& currentScene) {
+    if (msg != BackEndMessages::REFRESH_CAMERA) {
+        return;
+    }
+
+    if (Camera* camera = currentScene.getFirstActiveComponentOfType<Camera>()) {
+        initializeCamera(*camera);
+    }
+}
+
 void CameraSystem::initializeCamera(Camera& camera) {
     refreshCamera(camera);
 }

@@ -21,29 +21,29 @@ class RenderingSystem : public MainSystemBase {
 
 public:
     ~RenderingSystem() {}
-    void initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& systems) override;
-    void render(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Time& currentTime, const RenderTextureMS& renderTexture);
+    void initialize(Scene& scene, Engine::SystemVitals& systemVitals, SubSystems& ssystems) override;
+    void render(Engine::SystemVitals& systemVitals);
 
 private:
     void
-    renderAll(Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
-    void renderDebugging(Camera& currentCamera);
-    void renderModels(Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
-    void renderOthers(Camera& currentCamera, Time& currentTime, DirectionalLightShadowMap& directionalLightDepthMap);
-    void renderParticles(Particles& particles, Camera& currentCamera, Time& currentTime);
+    renderAll(Camera& currentCamera, Engine::SystemVitals& sv);
+    void renderDebugging(Camera& currentCamera, Engine::SystemVitals& sv);
+    void renderModels(Camera& currentCamera, Engine::SystemVitals& sv);
+    void renderOthers(Camera& currentCamera, Engine::SystemVitals& sv);
+    void renderParticles(Particles& particles, Camera& currentCamera, Engine::SystemVitals& sv);
 
-    void initializeLights(Shader& litShader);
+    void initializeLights(Shader& litShader, Engine::SystemVitals& sv);
     void initializeModels(Shader& shader, const int32_t& entity);
 
     //!Prepares and retrieves the first shader found in scene that is associated with entity.
     //!*Does use program.
-    Shader* prepareShader(const int32_t& entity, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Camera& currentCamera, Time& currentTime);
+    Shader* prepareShader(const int32_t& entity, Camera& currentCamera, Engine::SystemVitals& sv);
 
-    void supplyLitShaderUniforms(Shader& shader, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Camera& currentCamera, Time& currentTime);
+    void supplyLitShaderUniforms(Shader& shader, Camera& currentCamera, Engine::SystemVitals& sv);
 
-    void supplyDefaultShaderUniforms(Shader& shader, Camera& currentCamera, Time& currentTime);
+    void supplyDefaultShaderUniforms(Shader& shader, Camera& currentCamera, Engine::SystemVitals& sv);
 
-    void supplyParticleShaderUniforms(Shader& particleShader, Camera& currentCamera, Time& currentTime);
+    void supplyParticleShaderUniforms(Shader& particleShader, Camera& currentCamera, Engine::SystemVitals& sv);
 
     //! Used to render the scene to a quad.
     Quad screenQuad;

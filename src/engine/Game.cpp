@@ -9,12 +9,14 @@ bool Engine::Game::areVitalsNull() {
     return false;
 }
 
-void Engine::Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSystem) {
+void Engine::Game::initialize(Time& time, Messenger<BackEndMessages>& backEndMessagingSystem) {
 
     Entities::registerEntities();
 
-    currentTime     = time;
-    backEndMessages = backEndMessagingSystem;
+    currentTime     = &time;
+    backEndMessages = &backEndMessagingSystem;
+
+    systemVitals = new SystemVitals(*currentTime, *physicsWorld, gameState);
 
     if (areVitalsNull()) {
         return;
@@ -22,20 +24,17 @@ void Engine::Game::initialize(Time* time, Messenger<BackEndMessages>* backEndMes
 
     initializeShaders();
 
-    map.createMap("assets/fonts/courier-new.FontDat");
+    systemVitals->initializeTextMaps();
 
     loadScene(0);
 }
 
 void Engine::Game::initializeShaders() {
 
-    directionalLightDepthMap.initialize();
-    pointLightDepthMap.initialize();
-    renderTexture.initialize(GameInfo::getWindowWidth(), GameInfo::getWindowHeight());
+    systemVitals->initializeDepthMaps();
 
+    //Start game with normal shader draw call..
     Shader::setShaderTask(SHADER_TASK::Normal_Render_Task);
-    Shader::setShaderTaskShader(SHADER_TASK::Directional_Depth_Task, directionalLightDepthMap.getDepthMapShader());
-    Shader::setShaderTaskShader(SHADER_TASK::Omnidirectional_Depth_Task, pointLightDepthMap.getDepthMapShader());
 }
 
 void Engine::Game::loadScene(int index) {
@@ -47,6 +46,7 @@ void Engine::Game::loadScene(int index) {
 
     currentScene = index;
 
+    //Todo: Possibly move this logic to SystemVitals
     //Free old scene and entities.
     delete scene;
     delete physicsWorld;
@@ -57,7 +57,11 @@ void Engine::Game::loadScene(int index) {
     physicsWorld = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
     physicsWorld->initialize();
 
-    EntityVitals vitals = EntityVitals(&settings, scene, physicsWorld, &map);
+    //Provide new references to SystemVitals.
+    systemVitals->resupply(*currentTime, *physicsWorld, gameState);
+
+    //TODO: replace EntityVitals with SystemVitals.
+    EntityVitals vitals = EntityVitals(&systemVitals->getSettings(), scene, physicsWorld, &systemVitals->getTextMap());
 
     for (unsigned int i = 0; i < scenes.at(currentScene).size(); i++) {
 
@@ -97,24 +101,51 @@ void Engine::Game::loadScene(int index) {
 
     //Send messages to subsystems such as LUA_COMPILED
     //Ran before initializing systems due to lua replacing default C++ variables.
+    //TODO: remove after adding init function to systembase.
+
+    std::vector<SystemBase*> subSystemsAsBase = subSystems.getAllSubSystems();
+
     BackEndMessages msg;
     while (backEndMessages->getMessagesThenRemove(msg)) {
-        std::vector<SystemBase*> s = subSystems.getAllSubSystems();
-        for (unsigned int i = 0; i < s.size(); i++) {
-            s.at(i)->recieveMessage(msg, *scene);
+        for (unsigned int i = 0; i < subSystemsAsBase.size(); i++) {
+            subSystemsAsBase.at(i)->recieveMessage(msg, *scene, *systemVitals);
         }
     }
 
     //Re-init systems.
-    fixedUpdatingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
-    updatingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
-    renderingSystem.initialize(*scene, settings, *physicsWorld, subSystems);
+    fixedUpdatingSystem.initialize(*scene, *systemVitals, subSystems);
+    updatingSystem.initialize(*scene, *systemVitals, subSystems);
+    renderingSystem.initialize(*scene, *systemVitals, subSystems);
+
+    for (unsigned int i = 0; i < subSystemsAsBase.size(); i++) {
+        subSystemsAsBase.at(i)->initialize(*scene, *systemVitals);
+    }
+
+    /*
+    TODO: Add system base initializing for subsystems.
+    Camera and daynight init should be added into initializing hook
+    Provide scene and container holding:
+    pointLightDepthMap
+    directionalLightDepthMap
+    currentTime
+    gameState
+    renderTexture.
+
+    Provide the stame container to:
+    fixedUpdatingSystem.fixedUpdate,
+    updatingSystem.update
+    renderingSystem.render
+    to lessen function args required.
+
+
+
+    */
 }
 
 void Engine::Game::readBackendEventQueue() {
     BackEndMessages msg;
     while (backEndMessages->getMessagesThenRemove(msg)) {
-        updatingSystem.recieveSystemMessage(msg, renderTexture);
+        updatingSystem.recieveSystemMessage(msg, *systemVitals);
     }
 }
 
@@ -123,7 +154,7 @@ void Engine::Game::fixedUpdate() {
         return;
     }
 
-    fixedUpdatingSystem.fixedUpdate(gameState, *currentTime, pointLightDepthMap, directionalLightDepthMap);
+    fixedUpdatingSystem.fixedUpdate(*systemVitals);
 }
 
 void Engine::Game::update() {
@@ -143,7 +174,7 @@ void Engine::Game::render() {
         return;
     }
 
-    renderingSystem.render(pointLightDepthMap, directionalLightDepthMap, *currentTime, renderTexture);
+    renderingSystem.render(*systemVitals);
 }
 
 void Engine::Game::freeEntities() {
@@ -160,5 +191,6 @@ void Engine::Game::freeEntities() {
 void Engine::Game::uninitialize() {
     delete scene;
     delete physicsWorld;
+    delete systemVitals;
     freeEntities();
 }

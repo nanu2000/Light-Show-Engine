@@ -105,8 +105,6 @@ void Application::initializeSDL() {
 
     SDL_SetWindowMinimumSize(gameWindow.getWindow(), GameInfo::MIN_WINDOW_WIDTH, GameInfo::MIN_WINDOW_HEIGHT);
 
-    backEndMessagingSystem.addMessage(BackEndMessages::REFRESH_CAMERA);
-
     GameInfo::setMousePosition(GameInfo::getWindowWidth() / 2, GameInfo::getWindowHeight() / 2);
 }
 
@@ -160,7 +158,7 @@ void Application::initialize() {
     ShaderLocator ::provide(shaderService);
     LuaLocator ::provide(luaService);
 
-    thisGame.initialize(&currentTime, &backEndMessagingSystem);
+    thisGame.initialize(currentTime, backEndMessagingSystem);
 }
 
 void Application::fixedUpdate() {

@@ -1,22 +1,13 @@
 #include "UpdatingSystem.h"
 
-void UpdatingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& ssystems) {
+void UpdatingSystem::initialize(Scene& scene, Engine::SystemVitals& sv, SubSystems& ssystems) {
 
-    //Vitals
-    currentScene    = &scene;
-    systems         = &ssystems;
-    physicsWorld    = &world;
-    currentSettings = &settings;
-
-    //Right now I'm only using 1 dir light
-    DirectionalLight* directionalLight = currentScene->getFirstActiveComponentOfType<DirectionalLight>();
-
-    if (directionalLight) {
-        systems->dayNightCycleSystem.initialize(*directionalLight);
-    }
+    currentScene = &scene;
+    systemVitals = &sv;
+    systems      = &ssystems;
 }
 
-void UpdatingSystem::recieveSystemMessage(const BackEndMessages& msg, RenderTextureBase& renderTexture) {
+void UpdatingSystem::recieveSystemMessage(const BackEndMessages& msg, Engine::SystemVitals& systemVitals) {
 
     if (!systems) {
         return;
@@ -24,13 +15,13 @@ void UpdatingSystem::recieveSystemMessage(const BackEndMessages& msg, RenderText
 
     std::vector<SystemBase*> s = systems->getAllSubSystems();
     for (unsigned int i = 0; i < s.size(); i++) {
-        s.at(i)->recieveMessage(msg, *currentScene);
+        s.at(i)->recieveMessage(msg, *currentScene, systemVitals);
     }
 
-    //!TODO: Move to system for message recieving.
+    //!TODO: Move to some sort of system.
     switch (msg) {
     case BackEndMessages::REFRESH_CAMERA:
-        renderTexture.resize(GameInfo::getWindowWidth(), GameInfo::getWindowHeight());
+        systemVitals.getRenderTexture().resize(GameInfo::getWindowWidth(), GameInfo::getWindowHeight());
         break;
     default:
         break;

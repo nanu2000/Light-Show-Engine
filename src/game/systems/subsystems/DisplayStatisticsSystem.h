@@ -8,6 +8,7 @@
 class DisplayStatisticsSystem : public SystemBase {
 
 public:
+    //TODO: Passing System GUIResizingInformation to a System? What is this?!
     void fixedUpdate(DisplayStatistics& ds, const Time& time, GUIResizingInformation& guiInfo) {
 
         float unit = guiInfo.getWidthUnit();

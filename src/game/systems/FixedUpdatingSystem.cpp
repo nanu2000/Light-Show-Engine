@@ -1,21 +1,26 @@
 #include "FixedUpdatingSystem.h"
 
 //! Called in Game.cpp
-void FixedUpdatingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& ssystems) {
-    currentScene    = &scene;
-    currentSettings = &settings;
-    physicsWorld    = &world;
-    systems         = &ssystems;
+void FixedUpdatingSystem::initialize(Scene& scene, Engine::SystemVitals& sv, SubSystems& ssystems) {
+    currentScene = &scene;
+    systemVitals = &sv;
+    systems      = &ssystems;
 }
 
 //! Called in Game.cpp
-void FixedUpdatingSystem::fixedUpdate(GameState& gameState, const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
+void FixedUpdatingSystem::fixedUpdate(Engine::SystemVitals& sv) {
 
     if (areVitalsNull()) {
         return;
     }
 
-    bool isPauseMenuShowing = updateGUI(time, pointLightDepthMap, directionalLightDepthMap);
+    PointLightShadowMap& pointShadowMap             = sv.getPointShadowMap();
+    DirectionalLightShadowMap& directionalShadowMap = sv.getDirectionalShadowMap();
+    Time& currentTime                               = sv.getTime();
+    PhysicsWorld& physicsWorld                      = sv.getPhysicsWorld();
+    GameState& gameState                            = sv.getGameState();
+
+    bool isPauseMenuShowing = updateGUI(currentTime, sv);
 
     if (isPauseMenuShowing) {
 
@@ -25,7 +30,7 @@ void FixedUpdatingSystem::fixedUpdate(GameState& gameState, const Time& time, Po
     } else {
 
         //Update Physics
-        physicsWorld->fixedUpdate();
+        physicsWorld.fixedUpdate();
 
         SDL_ShowCursor(SDL_DISABLE);
 
@@ -40,14 +45,14 @@ void FixedUpdatingSystem::fixedUpdate(GameState& gameState, const Time& time, Po
     //Run day night cycle
     currentScene->performOperationsOnAllOfType<DirectionalLight>(
         [&](DirectionalLight& light) {
-            systems->dayNightCycleSystem.fixedUpdate(light, time);
+            systems->dayNightCycleSystem.fixedUpdate(light, currentTime);
             return false;
         });
 
     //Update collision for meshes
     currentScene->performOperationsOnAllOfType<CollisionMesh>(
         [&](CollisionMesh& mesh) {
-            updateCollision(mesh.getEntityID(), mesh);
+            updateCollision(mesh.getEntityID(), mesh, sv);
             //update triggers
             updateCollisionTriggers(*mesh.getTag());
             return false;
@@ -71,7 +76,7 @@ void FixedUpdatingSystem::fixedUpdate(GameState& gameState, const Time& time, Po
         });
 
     //Toggles if the debugging system should render the physics world's debugdrawer.
-    systems->debuggingSystem.controlPhysicsDebugDraw(InputLocator::getService(), *physicsWorld);
+    systems->debuggingSystem.controlPhysicsDebugDraw(InputLocator::getService(), physicsWorld);
 
     currentScene->loopEntities([&](const Scene::Entity& entity) {
         if (!entity.isActive) {
@@ -82,7 +87,7 @@ void FixedUpdatingSystem::fixedUpdate(GameState& gameState, const Time& time, Po
 
             if (camera->isActive()) {
                 //only needs to update fixed- saves memory & barely makes a difference.
-                updateShadowMaps(pointLightDepthMap, directionalLightDepthMap, *camera);
+                updateShadowMaps(*camera, sv);
             }
         }
 
@@ -108,9 +113,11 @@ void FixedUpdatingSystem::fixedUpdate(GameState& gameState, const Time& time, Po
 
 //!Updates GUI.
 //!returns true if the pause menu is showing.
-bool FixedUpdatingSystem::updateGUI(const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
+bool FixedUpdatingSystem::updateGUI(const Time& time, Engine::SystemVitals& sv) {
 
-    bool isPauseMenuShowing = false;
+    PointLightShadowMap& pointLightDepthMap             = sv.getPointShadowMap();
+    DirectionalLightShadowMap& directionalLightDepthMap = sv.getDirectionalShadowMap();
+    bool isPauseMenuShowing                             = false;
 
     if (UserControls* userControls = currentScene->getFirstActiveComponentOfType<UserControls>()) {
         if (PauseMenu* menu = currentScene->getFirstActiveComponentOfType<PauseMenu>()) {
@@ -135,7 +142,10 @@ bool FixedUpdatingSystem::updateGUI(const Time& time, PointLightShadowMap& point
 }
 
 //!Provides info for the shadow maps such as the lights' positions
-void FixedUpdatingSystem::updateShadowMaps(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Camera& currentCamera) {
+void FixedUpdatingSystem::updateShadowMaps(Camera& currentCamera, Engine::SystemVitals& sv) {
+
+    PointLightShadowMap& pointLightDepthMap             = sv.getPointShadowMap();
+    DirectionalLightShadowMap& directionalLightDepthMap = sv.getDirectionalShadowMap();
 
     //Assume no shadows are active
     pointLightDepthMap.setShadowActive(false);
@@ -165,7 +175,9 @@ void FixedUpdatingSystem::updateShadowMaps(PointLightShadowMap& pointLightDepthM
 }
 
 //!Set transforms of models to collision transforms
-void FixedUpdatingSystem::updateCollision(const int32_t entity, CollisionMesh& collisionMesh) {
+void FixedUpdatingSystem::updateCollision(const int32_t entity, CollisionMesh& collisionMesh, Engine::SystemVitals& sv) {
+
+    PhysicsWorld& physicsWorld = sv.getPhysicsWorld();
 
     _3DM::AnimatedModel* animatedModel = currentScene->getComponent<_3DM::AnimatedModel>(entity);
     UserControls* userControls         = currentScene->getFirstActiveComponentOfType<UserControls>();
@@ -182,7 +194,7 @@ void FixedUpdatingSystem::updateCollision(const int32_t entity, CollisionMesh& c
 
             if (Camera* camera = currentScene->getFirstActiveComponentOfType<Camera>()) {
 
-                systems->playerControllerSystem.fixedUpdate(InputLocator::getService(), animatedModel->transform, collisionMesh, *physicsWorld, *controller, *camera, *userControls);
+                systems->playerControllerSystem.fixedUpdate(InputLocator::getService(), animatedModel->transform, collisionMesh, physicsWorld, *controller, *camera, *userControls);
 
                 animatedModel->setAnimationClip(controller->getAnimationStateUint());
 
@@ -205,7 +217,7 @@ void FixedUpdatingSystem::updateCollision(const int32_t entity, CollisionMesh& c
 
             if (globalInfo && et) {
 
-                systems->enemyControllerSystem.update(InputLocator::getService(), *et, collisionMesh, *physicsWorld, *globalInfo, *eController);
+                systems->enemyControllerSystem.update(InputLocator::getService(), *et, collisionMesh, physicsWorld, *globalInfo, *eController);
 
                 animatedModel->transform = et->transform;
                 animatedModel->setAnimationClip(eController->getAnimationStateUint());

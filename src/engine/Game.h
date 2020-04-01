@@ -6,6 +6,7 @@
 #include "Messenger.h"
 #include "RenderingSystem.h"
 #include "Scenes.h"
+#include "SystemVitals.h"
 #include "UpdatingSystem.h"
 
 namespace Engine {
@@ -14,7 +15,7 @@ namespace Engine {
     class Game {
 
     public:
-        void initialize(Time* time, Messenger<BackEndMessages>* backEndMessagingSystem);
+        void initialize(Time& time, Messenger<BackEndMessages>& backEndMessagingSystem);
 
         void fixedUpdate();
         void render();
@@ -36,11 +37,6 @@ namespace Engine {
         //!Messenger to recieve messages from Application.
         Messenger<BackEndMessages>* backEndMessages = nullptr;
 
-        Time* currentTime = nullptr;
-
-        //!Used to provide Game info to UpdatingSystem, FixedUpdatingSystem, and RenderingSystem without exposing the Game
-        GameState gameState = GameState(*this);
-
         //!Checks for null vitals
         bool areVitalsNull();
 
@@ -51,12 +47,19 @@ namespace Engine {
 
         void freeEntities();
 
-        Settings settings = Settings(GameInfo::DEFAULT_GRAVITY, glm::vec3(-20, 0, 10));
+        //!Current scene
+        Scene* scene = new Scene();
 
-        //Todo: Components?
-        PointLightShadowMap pointLightDepthMap;
-        DirectionalLightShadowMap directionalLightDepthMap;
-        RenderTextureMS renderTexture;
+        //!Used to provide Game info to UpdatingSystem, FixedUpdatingSystem, and RenderingSystem without exposing the Game
+        GameState gameState = GameState(*this);
+
+        Time* currentTime = nullptr;
+
+        //!Current PhysicsWorld used along with the Scene
+        PhysicsWorld* physicsWorld = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
+
+        //!Used to wrap important objects that need to be provided to the systems.
+        SystemVitals* systemVitals = nullptr;
 
         //!The main system used for updating the game based on the Scene's components
         UpdatingSystem updatingSystem;
@@ -70,20 +73,10 @@ namespace Engine {
         //!Small systems that are used inside of the UpdatingSystem, FixedUpdatingSystem, and RenderingSystem.
         SubSystems subSystems;
 
-        //!Current scene
-        Scene* scene = new Scene();
-
-        //!Current PhysicsWorld used along with the Scene
-        PhysicsWorld* physicsWorld = new PhysicsWorld(hh::toBtVec3(GameInfo::DEFAULT_GRAVITY));
-
         std::vector<EntityWrapper*> sceneEntities;
 
         //!The current scene index
         int currentScene = 0;
-
-        //Todo: Move to component?
-        //!Font atlas to be used in the game.
-        TextMap map;
     };
 }
 #endif

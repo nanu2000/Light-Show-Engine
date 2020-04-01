@@ -11,7 +11,7 @@
 class DayNightCycleSystem : public SystemBase {
 
 public:
-    virtual void recieveMessage(const BackEndMessages& msg, Scene& currentScene) override {
+    virtual void recieveMessage(const BackEndMessages& msg, Scene& currentScene, Engine::SystemVitals& systemVitals) override {
 
         if (msg == BackEndMessages::LUA_COMPILED) {
             if (LuaLocator::getService().canUseFunction("day_night_cycle_init")) {
@@ -27,11 +27,13 @@ public:
         }
     }
 
-    //TODO: where should init be called from???
-    void initialize(DirectionalLight& light) {
+    void initialize(Scene& currentScene, Engine::SystemVitals& systemVitals) override {
 
-        //Lua updates the color, but the light doesn't update until full rotation.
-        light.diffuse = dayLightDiffuse;
+        //Right now I'm only using 1 dir light
+        if (DirectionalLight* light = currentScene.getFirstActiveComponentOfType<DirectionalLight>()) {
+            //Lua updates the color, but the light doesn't update until full rotation.
+            light->diffuse = dayLightDiffuse;
+        }
     }
 
     void fixedUpdate(DirectionalLight& light, const Time& time) {

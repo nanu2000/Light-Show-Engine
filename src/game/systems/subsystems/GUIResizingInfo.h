@@ -6,7 +6,12 @@
 class GUIResizingInformation : public SystemBase {
 
 public:
-    virtual void recieveMessage(const BackEndMessages& msg, Scene& currentScene) override {
+    virtual void initialize(Scene& currentScene, Engine::SystemVitals& systemVitals) override {
+
+        updateInformation();
+    }
+
+    virtual void recieveMessage(const BackEndMessages& msg, Scene& currentScene, Engine::SystemVitals& systemVitals) override {
 
         if (msg == BackEndMessages::REFRESH_CAMERA) {
             updateInformation();

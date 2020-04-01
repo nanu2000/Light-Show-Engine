@@ -12,10 +12,11 @@
 class CameraSystem : public SystemBase {
 
 public:
-    //!Used to recieve message to refresh the camera
-    virtual void recieveMessage(const BackEndMessages& msg, Scene& currentScene) override;
+    //!Initialize the camera
+    virtual void initialize(Scene& currentScene, Engine::SystemVitals& systemVitals) override;
 
-    void initializeCamera(Camera& camera);
+    //!Used to recieve message to refresh the camera
+    virtual void recieveMessage(const BackEndMessages& msg, Scene& currentScene, Engine::SystemVitals& systemVitals) override;
 
     void update(Camera& camera);
 

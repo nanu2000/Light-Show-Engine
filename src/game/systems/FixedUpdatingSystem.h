@@ -22,19 +22,19 @@ class FixedUpdatingSystem : public MainSystemBase {
 public:
     ~FixedUpdatingSystem() {}
 
-    void initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& systems) override;
+    void initialize(Scene& scene, Engine::SystemVitals& systemVitals, SubSystems& ssystems) override;
 
-    void fixedUpdate(GameState& gameState, const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
+    void fixedUpdate(Engine::SystemVitals& systemVitals);
 
 private:
     //! Updates GUI (Will be called even if the game is paused) will return true if the game is paused
-    bool updateGUI(const Time& time, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap);
+    bool updateGUI(const Time& time, Engine::SystemVitals& systemVitals);
 
     //! Updates the shadow maps and sets the current shadows light position.
-    void updateShadowMaps(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Camera& currentCamera);
+    void updateShadowMaps(Camera& currentCamera, Engine::SystemVitals& systemVitals);
 
     //! Updates any collision logic if necessery.
-    void updateCollision(const int32_t entity, CollisionMesh& collisionMesh);
+    void updateCollision(const int32_t entity, CollisionMesh& collisionMesh, Engine::SystemVitals& systemVitals);
 
     //! checks to see if an entity is colliding with another entity.
     void updateCollisionTriggers(const CollisionTag& thisTag);

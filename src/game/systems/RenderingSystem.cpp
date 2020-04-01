@@ -1,11 +1,9 @@
 #include "RenderingSystem.h"
 
-void RenderingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld& world, SubSystems& ssystems) {
-
-    currentScene    = &scene;
-    currentSettings = &settings;
-    physicsWorld    = &world;
-    systems         = &ssystems;
+void RenderingSystem::initialize(Scene& scene, Engine::SystemVitals& sv, SubSystems& ssystems) {
+    currentScene = &scene;
+    systemVitals = &sv;
+    systems      = &ssystems;
 
     currentScene->loopEntities([&](const Scene::Entity& entity) {
         if (SkyBox* skyBox = currentScene->getComponent<SkyBox>(entity.id)) {
@@ -15,7 +13,7 @@ void RenderingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld&
 
             if (shader->getShaderType() == SHADER_TYPE::Lit) {
 
-                initializeLights(*shader);
+                initializeLights(*shader, sv);
                 initializeModels(*shader, entity.id);
 
                 if (Material* mat = currentScene->getComponent<Material>(entity.id)) {
@@ -37,7 +35,9 @@ void RenderingSystem::initialize(Scene& scene, Settings& settings, PhysicsWorld&
     screenShader = ShaderLocator::getService().getShader("screen", "assets/shaders/render-texture.vert", "assets/shaders/render-texture-ms.frag", SHADER_TYPE::Default);
 }
 
-void RenderingSystem::initializeLights(Shader& litShader) {
+void RenderingSystem::initializeLights(Shader& litShader, Engine::SystemVitals& sv) {
+
+    Settings& currentSettings = sv.getSettings();
 
     const std::vector<PointLight*> pointLights = currentScene->getAllComponentsOfType<PointLight>();
 
@@ -55,8 +55,8 @@ void RenderingSystem::initializeLights(Shader& litShader) {
 
     for (unsigned int i = 0; i < pointLights.size(); i++) {
         if (pointLights[i]->isActive()) {
-            if (pointIndex < currentSettings->getLightsPerEntity()) {
-                litShader.setPointLight(*currentSettings, *pointLights[i], pointIndex);
+            if (pointIndex < currentSettings.getLightsPerEntity()) {
+                litShader.setPointLight(currentSettings, *pointLights[i], pointIndex);
                 pointIndex++;
             } else {
                 break;
@@ -74,7 +74,7 @@ void RenderingSystem::initializeModels(Shader& shader, const int32_t& entity) {
     }
 }
 
-void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap, Time& currentTime, const RenderTextureMS& renderTexture) {
+void RenderingSystem::render(Engine::SystemVitals& sv) {
 
     /******************************************|
     |*		The Current Rendering Order		  *|
@@ -82,6 +82,13 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
     |*First, render All Opaque Objects.		  *|
     |*Last, Render All GUI Objects.			  *|
     |******************************************/
+
+    PointLightShadowMap& pointShadowMap             = sv.getPointShadowMap();
+    DirectionalLightShadowMap& directionalShadowMap = sv.getDirectionalShadowMap();
+    Time& currentTime                               = sv.getTime();
+    PhysicsWorld& physics                           = sv.getPhysicsWorld();
+    GameState& gameState                            = sv.getGameState();
+    RenderTextureMS& renderTexture                  = sv.getRenderTexture();
 
     if (areVitalsNull()) {
         DBG_LOG("Vitals are null (RenderingSystem.cpp)\n");
@@ -101,34 +108,34 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
             continue;
         }
 
-        initializeLights(*shaders.at(i));
+        initializeLights(*shaders.at(i), sv);
     }
 
     glEnable(GL_DEPTH_TEST);
     //If the point light depth map is active, render to it.
-    if (pointLightDepthMap.isActive()) {
+    if (pointShadowMap.isActive()) {
 
         //Uses shader for depth when getProgramID is called.
         Shader::setShaderTask(SHADER_TASK::Omnidirectional_Depth_Task);
 
-        glViewport(0, 0, pointLightDepthMap.getDepthMapWidth(), pointLightDepthMap.getDepthMapHeight());
+        glViewport(0, 0, pointShadowMap.getDepthMapWidth(), pointShadowMap.getDepthMapHeight());
 
-        glBindFramebuffer(GL_FRAMEBUFFER, pointLightDepthMap.getFBO());
+        glBindFramebuffer(GL_FRAMEBUFFER, pointShadowMap.getFBO());
         glClear(GL_DEPTH_BUFFER_BIT);
-        renderAll(*currentCamera, currentTime, pointLightDepthMap, directionalLightDepthMap);
+        renderAll(*currentCamera, sv);
     }
 
     //If the directional light depth map is active, render to it.
-    if (directionalLightDepthMap.isActive()) {
+    if (directionalShadowMap.isActive()) {
 
         //Uses shader for depth when getProgramID is called.
         Shader::setShaderTask(SHADER_TASK::Directional_Depth_Task);
 
-        glViewport(0, 0, directionalLightDepthMap.getDepthMapWidth(), directionalLightDepthMap.getDepthMapHeight());
+        glViewport(0, 0, directionalShadowMap.getDepthMapWidth(), directionalShadowMap.getDepthMapHeight());
 
-        glBindFramebuffer(GL_FRAMEBUFFER, directionalLightDepthMap.getFBO());
+        glBindFramebuffer(GL_FRAMEBUFFER, directionalShadowMap.getFBO());
         glClear(GL_DEPTH_BUFFER_BIT);
-        renderAll(*currentCamera, currentTime, pointLightDepthMap, directionalLightDepthMap);
+        renderAll(*currentCamera, sv);
     }
 
     //Use normal shaders
@@ -140,7 +147,7 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
 
         glBindFramebuffer(GL_FRAMEBUFFER, renderTexture.getFBO());
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        renderAll(*currentCamera, currentTime, pointLightDepthMap, directionalLightDepthMap);
+        renderAll(*currentCamera, sv);
 
         //Multisample :)
         glBlitFramebuffer(0, 0,
@@ -163,14 +170,16 @@ void RenderingSystem::render(PointLightShadowMap& pointLightDepthMap, Directiona
     }
 }
 
-void RenderingSystem::renderAll(Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
+void RenderingSystem::renderAll(Camera& currentCamera, Engine::SystemVitals& sv) {
 
-    renderDebugging(currentCamera);
-    renderModels(currentCamera, currentTime, pointLightDepthMap, directionalLightDepthMap);
-    renderOthers(currentCamera, currentTime, directionalLightDepthMap);
+    renderDebugging(currentCamera, sv);
+    renderModels(currentCamera, sv);
+    renderOthers(currentCamera, sv);
 }
 
-void RenderingSystem::renderDebugging(Camera& currentCamera) {
+void RenderingSystem::renderDebugging(Camera& currentCamera, Engine::SystemVitals& sv) {
+    PhysicsWorld& physicsWorld = sv.getPhysicsWorld();
+
     // Execute debug drawing if enabled
     if (Shader::getShaderTask() != SHADER_TASK::Normal_Render_Task) {
         return;
@@ -178,14 +187,14 @@ void RenderingSystem::renderDebugging(Camera& currentCamera) {
 
     const std::vector<PlayerController*> plrctrs = currentScene->getAllComponentsOfType<PlayerController>();
     for (unsigned int i = 0; i < plrctrs.size(); i++) {
-        systems->playerControllerSystem.debugRender(*physicsWorld, *plrctrs.at(i));
+        systems->playerControllerSystem.debugRender(physicsWorld, *plrctrs.at(i));
     }
 
-    systems->dayNightCycleSystem.debugRender(*physicsWorld);
-    systems->debuggingSystem.executeDebugRendering(*physicsWorld, *currentCamera.getViewMatrix(), *currentCamera.getProjectionMatrix());
+    systems->dayNightCycleSystem.debugRender(physicsWorld);
+    systems->debuggingSystem.executeDebugRendering(physicsWorld, *currentCamera.getViewMatrix(), *currentCamera.getProjectionMatrix());
 }
 
-void RenderingSystem::renderModels(Camera& currentCamera, Time& currentTime, PointLightShadowMap& pointLightDepthMap, DirectionalLightShadowMap& directionalLightDepthMap) {
+void RenderingSystem::renderModels(Camera& currentCamera, Engine::SystemVitals& sv) {
 
     currentScene->loopEntities([&](const Scene::Entity& entity) {
         if (!entity.isActive) {
@@ -212,7 +221,7 @@ void RenderingSystem::renderModels(Camera& currentCamera, Time& currentTime, Poi
             if (shdr->getShaderType() == SHADER_TYPE::Lit) {
 
                 shdr->useProgram();
-                supplyLitShaderUniforms(*shdr, pointLightDepthMap, directionalLightDepthMap, currentCamera, currentTime);
+                supplyLitShaderUniforms(*shdr, currentCamera, sv);
                 glUniform1i(Shaders::getUniformLocation(shdr->getProgramID(), Shaders::UniformName::IsModelAnimated), isAnimated);
 
                 modelToRender->renderAll(*shdr);
@@ -221,7 +230,7 @@ void RenderingSystem::renderModels(Camera& currentCamera, Time& currentTime, Poi
             if (shdr->getShaderType() == SHADER_TYPE::Default) {
 
                 shdr->useProgram();
-                supplyDefaultShaderUniforms(*shdr, currentCamera, currentTime);
+                supplyDefaultShaderUniforms(*shdr, currentCamera, sv);
 
                 glUniform1i(Shaders::getUniformLocation(shdr->getProgramID(), Shaders::UniformName::IsModelAnimated), isAnimated);
 
@@ -234,7 +243,7 @@ void RenderingSystem::renderModels(Camera& currentCamera, Time& currentTime, Poi
 }
 
 // Render Particles and GUI
-void RenderingSystem::renderOthers(Camera& currentCamera, Time& currentTime, DirectionalLightShadowMap& directionalLightDepthMap) {
+void RenderingSystem::renderOthers(Camera& currentCamera, Engine::SystemVitals& sv) {
 
     //Particles and UI aren't 3D so depth render tasks don't need their info.
     if (Shader::getShaderTask() != SHADER_TASK::Normal_Render_Task) {
@@ -256,14 +265,14 @@ void RenderingSystem::renderOthers(Camera& currentCamera, Time& currentTime, Dir
         }
 
         shdr->useProgram();
-        supplyDefaultShaderUniforms(*shdr, currentCamera, currentTime);
+        supplyDefaultShaderUniforms(*shdr, currentCamera, sv);
         systems->skyBoxSystem.render(*skyBox, currentCamera, *shdr);
 
         return false;
     });
 
     for (unsigned int i = 0; i < particles.size(); i++) {
-        renderParticles(*particles[i], currentCamera, currentTime);
+        renderParticles(*particles[i], currentCamera, sv);
     }
 
     //Only one per scene
@@ -293,15 +302,16 @@ void RenderingSystem::renderOthers(Camera& currentCamera, Time& currentTime, Dir
     //Only one per scene
     DirectionalShadowDebugger* dirShadowDbgr = currentScene->getFirstActiveComponentOfType<DirectionalShadowDebugger>();
     if (dirShadowDbgr) {
+        DirectionalLightShadowMap& directionalLightDepthMap = sv.getDirectionalShadowMap();
         systems->directionalShadowDebuggerSystem.render(*dirShadowDbgr, directionalLightDepthMap);
     }
 }
 
-void RenderingSystem::renderParticles(Particles& particles, Camera& currentCamera, Time& currentTime) {
+void RenderingSystem::renderParticles(Particles& particles, Camera& currentCamera, Engine::SystemVitals& sv) {
     if (Shader* thisShader = currentScene->getComponent<Shader>(particles.getEntityID())) {
         // Check to see if the shader is a particle shader
         if (thisShader->getShaderType() == SHADER_TYPE::Particle) {
-            supplyParticleShaderUniforms(*thisShader, currentCamera, currentTime);
+            supplyParticleShaderUniforms(*thisShader, currentCamera, sv);
 
             switch (particles.getParticleType()) {
             case PARTICLE_TYPE::Default:
@@ -316,11 +326,7 @@ void RenderingSystem::renderParticles(Particles& particles, Camera& currentCamer
     }
 }
 
-Shader* RenderingSystem::prepareShader(const int32_t& entity,
-                                       PointLightShadowMap& pointLightDepthMap,
-                                       DirectionalLightShadowMap& directionalLightDepthMap,
-                                       Camera& currentCamera,
-                                       Time& currentTime) {
+Shader* RenderingSystem::prepareShader(const int32_t& entity, Camera& currentCamera, Engine::SystemVitals& sv) {
     Shader* thisShader;
 
     if (thisShader = currentScene->getComponent<Shader>(entity)) {
@@ -328,7 +334,7 @@ Shader* RenderingSystem::prepareShader(const int32_t& entity,
         if (thisShader->getShaderType() == SHADER_TYPE::Default) {
             if (currentScene->isEntityActive(entity)) {
                 thisShader->useProgram();
-                supplyDefaultShaderUniforms(*thisShader, currentCamera, currentTime);
+                supplyDefaultShaderUniforms(*thisShader, currentCamera, sv);
                 return thisShader;
             }
         }
@@ -336,11 +342,7 @@ Shader* RenderingSystem::prepareShader(const int32_t& entity,
         if (thisShader->getShaderType() == SHADER_TYPE::Lit) {
             if (currentScene->isEntityActive(entity)) {
                 thisShader->useProgram();
-                supplyLitShaderUniforms(*thisShader,
-                                        pointLightDepthMap,
-                                        directionalLightDepthMap,
-                                        currentCamera,
-                                        currentTime);
+                supplyLitShaderUniforms(*thisShader, currentCamera, sv);
                 return thisShader;
             }
         }
@@ -349,7 +351,7 @@ Shader* RenderingSystem::prepareShader(const int32_t& entity,
     return nullptr;
 }
 
-void RenderingSystem::supplyDefaultShaderUniforms(Shader& shader, Camera& currentCamera, Time& currentTime) {
+void RenderingSystem::supplyDefaultShaderUniforms(Shader& shader, Camera& currentCamera, Engine::SystemVitals& sv) {
 
     const GLint& programID = shader.getProgramID();
 
@@ -359,13 +361,12 @@ void RenderingSystem::supplyDefaultShaderUniforms(Shader& shader, Camera& curren
     glUniform3f(Shaders::getUniformLocation(programID, Shaders::UniformName::ViewPosition), currentCamera.position.x, currentCamera.position.y, currentCamera.position.z);
 }
 
-void RenderingSystem::supplyLitShaderUniforms(Shader& shader,
-                                              PointLightShadowMap& pointLightDepthMap,
-                                              DirectionalLightShadowMap& directionalLightDepthMap,
-                                              Camera& currentCamera,
-                                              Time& currentTime) {
+void RenderingSystem::supplyLitShaderUniforms(Shader& shader, Camera& currentCamera, Engine::SystemVitals& sv) {
 
-    supplyDefaultShaderUniforms(shader, currentCamera, currentTime);
+    PointLightShadowMap& pointLightDepthMap             = sv.getPointShadowMap();
+    DirectionalLightShadowMap& directionalLightDepthMap = sv.getDirectionalShadowMap();
+
+    supplyDefaultShaderUniforms(shader, currentCamera, sv);
 
     glActiveTexture(GL_TEXTURE0 + Shaders::DEPTH_MAP_LOCATION_OMNIDIRECTIONAL);
     glUniform1i(Shaders::getUniformLocation(shader.getProgramID(), Shaders::UniformName::PointShadowMap), Shaders::DEPTH_MAP_LOCATION_OMNIDIRECTIONAL);
@@ -389,7 +390,7 @@ void RenderingSystem::supplyLitShaderUniforms(Shader& shader,
     glBindTexture(GL_TEXTURE_2D, directionalLightDepthMap.getDepthMap());
 }
 
-void RenderingSystem::supplyParticleShaderUniforms(Shader& particleShader, Camera& currentCamera, Time& currentTime) {
+void RenderingSystem::supplyParticleShaderUniforms(Shader& particleShader, Camera& currentCamera, Engine::SystemVitals& sv) {
     particleShader.useProgram();
 
     const GLint& programID = particleShader.getProgramID();

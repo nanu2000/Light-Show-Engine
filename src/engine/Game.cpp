@@ -37,7 +37,7 @@ void Engine::Game::initializeShaders() {
     Shader::setShaderTask(SHADER_TASK::Normal_Render_Task);
 }
 
-void Engine::Game::loadScene(int index) {
+void Engine::Game::loadScene(unsigned int index) {
 
     if (index >= scenes.size()) {
         DBG_LOG("Cannot load scene, index out of bounds\n");
@@ -117,29 +117,10 @@ void Engine::Game::loadScene(int index) {
     updatingSystem.initialize(*scene, *systemVitals, subSystems);
     renderingSystem.initialize(*scene, *systemVitals, subSystems);
 
+    //initialize subsystems
     for (unsigned int i = 0; i < subSystemsAsBase.size(); i++) {
         subSystemsAsBase.at(i)->initialize(*scene, *systemVitals);
     }
-
-    /*
-    TODO: Add system base initializing for subsystems.
-    Camera and daynight init should be added into initializing hook
-    Provide scene and container holding:
-    pointLightDepthMap
-    directionalLightDepthMap
-    currentTime
-    gameState
-    renderTexture.
-
-    Provide the stame container to:
-    fixedUpdatingSystem.fixedUpdate,
-    updatingSystem.update
-    renderingSystem.render
-    to lessen function args required.
-
-
-
-    */
 }
 
 void Engine::Game::readBackendEventQueue() {

@@ -24,7 +24,7 @@ namespace Engine {
         void uninitialize();
 
         //!Loads a scene by index- should be called in fixedUpdate.
-        void loadScene(int scene);
+        void loadScene(unsigned int scene);
 
         inline int getCurrentSceneIndex() const {
             return currentScene;

@@ -8,6 +8,7 @@
 #include "PhysicsWorld.h"
 #include "SystemBase.h"
 
+//TODO: move variables to a component.
 class DayNightCycleSystem : public SystemBase {
 
 public:
@@ -15,14 +16,29 @@ public:
 
         if (msg == BackEndMessages::LUA_COMPILED) {
             if (LuaLocator::getService().canUseFunction("day_night_cycle_init")) {
-                sol::function day_night_cycle_init = LuaLocator::getService().getFunction("day_night_cycle_init");
-                sol::table t                       = day_night_cycle_init();
 
-                speed     = t["speed"];
-                fastSpeed = t["fast_speed"];
+                try {
+                    sol::function f = LuaLocator::getService().getFunction("day_night_cycle_init");
 
-                nightLightDiffuse = glm::vec3(t["night_light_diffuse"]["x"], t["night_light_diffuse"]["y"], t["night_light_diffuse"]["z"]);
-                dayLightDiffuse   = glm::vec3(t["day_light_diffuse"]["x"], t["day_light_diffuse"]["y"], t["day_light_diffuse"]["z"]);
+                    sol::table t = f();
+
+                    speed             = t["speed"];
+                    fastSpeed         = t["fast_speed"];
+                    nightLightDiffuse = t["night_light_diffuse"];
+                    dayLightDiffuse   = t["day_light_diffuse"];
+
+                    //Could do something like this instead of updating light in init- it feels messy to me so I'm not going to.
+                    //if (DirectionalLight* light = currentScene.getFirstActiveComponentOfType<DirectionalLight>()) {
+                    //    if (sunDown) {
+                    //        light->diffuse = dayLightDiffuse;
+                    //    } else {
+
+                    //        light->diffuse = nightLightDiffuse;
+                    //    }
+                    //}
+
+                } catch (const std::exception&) {
+                }
             }
         }
     }
@@ -31,7 +47,7 @@ public:
 
         //Right now I'm only using 1 dir light
         if (DirectionalLight* light = currentScene.getFirstActiveComponentOfType<DirectionalLight>()) {
-            //Lua updates the color, but the light doesn't update until full rotation.
+            //Lua updates the color, but the light doesn't update until full rotation. Thats why we set it here.
             light->diffuse = dayLightDiffuse;
         }
     }

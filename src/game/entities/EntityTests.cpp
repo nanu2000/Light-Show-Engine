@@ -12,7 +12,7 @@ void ParticleTest::initialize(EntityVitals& vitals) {
 
     particles.setPosition(glm::vec3(42, 8, -30));
     particles.setParticlesPerSecond(1000);
-    particles.setDefaultStartScale(.1);
+    particles.setDefaultStartScale(.1f);
     particles.setWeight(1);
     particles.setDefaultLifeTime(2);
     particles.setDefaultColor(glm::vec4(.4, .6, 1, .4));

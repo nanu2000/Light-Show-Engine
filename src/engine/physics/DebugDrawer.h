@@ -2,6 +2,9 @@
 #ifndef DEBUG_DRAWER_H
 #define DEBUG_DRAWER_H
 
+#pragma warning(push)
+#pragma warning(disable : 4305)
+
 #include "GameInfo.h"
 #include "Locator.h"
 #include <LinearMath/btIDebugDraw.h>
@@ -87,4 +90,7 @@ namespace Engine {
         bool initialized         = false;
     };
 }
+
+#pragma warning(pop)
+
 #endif

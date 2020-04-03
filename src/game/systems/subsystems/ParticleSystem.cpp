@@ -70,7 +70,7 @@ void DefaultParticleSystem::fixedUpdateParticles(Particles& particles) {
         }
         particles.newparticles = 0;
     }
-    if (particles.renderingSize > particles.particles.size()) {
+    if (particles.renderingSize > static_cast<int>(particles.particles.size())) {
         DBG_LOG("DefaultParticleSystem::fixedUpdateParticles renderingSize overflow.\n");
         particles.renderingSize = particles.particles.size();
     }
@@ -138,5 +138,5 @@ void FountainParticleSystem::performParticleCalculations(Particle& particle, Par
     if (particle.color.a < 0) {
         particle.color.a = 0;
     }
-    particle.size += dt * .4;
+    particle.size += dt * .4f;
 }

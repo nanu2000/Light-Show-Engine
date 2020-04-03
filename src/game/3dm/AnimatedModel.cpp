@@ -227,7 +227,7 @@ void _3DM::AnimatedModel::setBoneMatrix(const glm::mat4& transformation, unsigne
     }
 }
 
-void _3DM::AnimatedModel::addTexture(const Texture& texture, int meshIndex, const _3DM::TextureType& type) {
+void _3DM::AnimatedModel::addTexture(const Texture& texture, unsigned int meshIndex, const _3DM::TextureType& type) {
     if (meshIndex >= meshes.size()) {
         DBG_LOG("This index goes out of bounds (_3DM::AnimatedModel::addTexture)\n");
         return;

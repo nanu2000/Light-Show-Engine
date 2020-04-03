@@ -13,7 +13,7 @@ public:
 
     bool areVitalsNull() {
         if (!currentScene || !systemVitals || !systems) {
-            DBG_LOG("Please Initialize Before Executing System!\n");
+            DBG_LOG("Please Initialize Before Executing System! MainSystemBase::areVitalsNull\n");
             return true;
         }
         return false;

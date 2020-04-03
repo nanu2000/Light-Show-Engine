@@ -10,7 +10,7 @@ _3DM::Model::Model(const std::string& path) {
     }
 }
 
-void _3DM::Model::addTexture(const Texture& texture, int meshIndex, const _3DM::TextureType& type) {
+void _3DM::Model::addTexture(const Texture& texture, unsigned int meshIndex, const _3DM::TextureType& type) {
     if (meshIndex >= meshes.size()) {
         DBG_LOG("This index goes out of bounds (_3DM::Model::addTexture)\n");
         return;

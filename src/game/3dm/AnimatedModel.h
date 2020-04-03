@@ -123,7 +123,7 @@ namespace _3DM {
         void setAnimationClip(unsigned int clip);
 
         //!Used to add a texture manually to a mesh.
-        void addTexture(const Texture& texture, int meshIndex, const _3DM::TextureType& type);
+        void addTexture(const Texture& texture, unsigned int meshIndex, const _3DM::TextureType& type);
 
         //!Updates the animation a single frame.
         void fixedUpdateAnimation();

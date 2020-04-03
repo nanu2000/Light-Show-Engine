@@ -73,9 +73,7 @@ Texture* TextureHandler::parseTexture(std::string filePath, GLint filtering, boo
     }
 
     DBG_LOG("Image could not load properly, using null texture\n");
-    DBG_LOG("The location of the non functioning texture is ");
-    DBG_LOG(filePath.c_str());
-    DBG_LOG("\n");
+    DBG_LOG("The location of the non functioning texture is %s\n", filePath.c_str());
 
     glGenTextures(1, &textureHandle);
     glBindTexture(GL_TEXTURE_2D, textureHandle);

@@ -57,7 +57,7 @@ namespace _3DM {
         }
 
         //! Used to add a texture manually to a mesh.
-        void addTexture(const Texture& texture, int meshIndex, const _3DM::TextureType& type);
+        void addTexture(const Texture& texture, unsigned int meshIndex, const _3DM::TextureType& type);
         void renderSingleMesh(unsigned int index, Shader& shader);
         int getMeshIndex(const std::string& MeshName) const;
         void initialize(Shader& shader);

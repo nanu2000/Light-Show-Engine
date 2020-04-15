@@ -5,7 +5,6 @@
 #include "GameState.h"
 #include "Messenger.h"
 #include "RenderingSystem.h"
-#include "Scenes.h"
 #include "SystemVitals.h"
 #include "UpdatingSystem.h"
 
@@ -34,6 +33,28 @@ namespace Engine {
         }
 
     private:
+        void retrieveScenes() {
+
+            if (LuaLocator::getService().canUseFunction("get_scenes")) {
+
+                try {
+                    sol::function f = LuaLocator::getService().getFunction("get_scenes");
+
+                    sol::table t = f();
+
+                    t.for_each([&](sol::object const& k, sol::table const& v) {
+                        std::vector<std::string> scene;
+                        v.for_each([&](sol::object const& key, sol::object const& value) {
+                            scene.push_back(value.as<std::string>());
+                        });
+                        scenes.push_back(scene);
+                    });
+
+                } catch (const std::exception&) {
+                }
+            }
+        }
+
         //!Messenger to recieve messages from Application.
         Messenger<BackEndMessages>* backEndMessages = nullptr;
 
@@ -77,6 +98,15 @@ namespace Engine {
 
         //!The current scene index
         int currentScene = 0;
+
+        std::vector<std::vector<std::string>> scenes = {
+            { "Player",
+              "LightTest",
+              "PlayerTestObject",
+              "EnemyTestObject",
+              "FloorObject",
+              "ParticleTest" }
+        };
     };
 }
 #endif

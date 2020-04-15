@@ -11,6 +11,8 @@ bool Engine::Game::areVitalsNull() {
 
 void Engine::Game::initialize(Time& time, Messenger<BackEndMessages>& backEndMessagingSystem) {
 
+    retrieveScenes();
+
     Entities::registerEntities();
 
     currentTime     = &time;

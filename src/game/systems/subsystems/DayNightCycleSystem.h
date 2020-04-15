@@ -28,14 +28,13 @@ public:
                     dayLightDiffuse   = t["day_light_diffuse"];
 
                     //Could do something like this instead of updating light in init- it feels messy to me so I'm not going to.
-                    //if (DirectionalLight* light = currentScene.getFirstActiveComponentOfType<DirectionalLight>()) {
-                    //    if (sunDown) {
-                    //        light->diffuse = dayLightDiffuse;
-                    //    } else {
-
-                    //        light->diffuse = nightLightDiffuse;
-                    //    }
-                    //}
+                    if (DirectionalLight* light = currentScene.getFirstActiveComponentOfType<DirectionalLight>()) {
+                        if (sunDown) {
+                            light->diffuse = nightLightDiffuse;
+                        } else {
+                            light->diffuse = dayLightDiffuse;
+                        }
+                    }
 
                 } catch (const std::exception&) {
                 }

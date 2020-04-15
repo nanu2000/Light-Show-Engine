@@ -58,7 +58,13 @@ public:
         //Before script_file is when we would add c++ objects/functions to the script.
         bindGLM();
 
-        state.open_libraries(sol::lib::base, sol::lib::package, sol::lib::math, sol::lib::io);
+        state.open_libraries(sol::lib::base,
+                             sol::lib::package,
+                             sol::lib::string,
+                             sol::lib::os,
+                             sol::lib::math,
+                             sol::lib::table,
+                             sol::lib::io);
 
         try {
             state.script_file(LUA_HANDLER::LUA_MAIN_ENTRY_FILE);

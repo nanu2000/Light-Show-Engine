@@ -18,6 +18,7 @@ int GameInfo::getWindowHeight() {
 
 //!Used to set the mouse position.
 void GameInfo::setMousePosition(int xPos, int yPos) {
+
     Engine::setMousePosition(xPos, yPos);
 }
 
@@ -100,6 +101,7 @@ void Application::initializeSDL() {
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+    SDL_SetRelativeMouseMode(SDL_TRUE);
 
     gameWindow.initialize();
 
@@ -177,16 +179,17 @@ void Application::update() {
 
     SDL_PumpEvents();
 
+    inputService.preEvents();
     while (SDL_PollEvent(&sdlEventSystem)) {
-        inputService.handleEvents(sdlEventSystem, static_cast<SDL_EventType>(sdlEventSystem.type));
+        inputService.handleEvent(sdlEventSystem, static_cast<SDL_EventType>(sdlEventSystem.type));
 
         switch (static_cast<SDL_EventType>(sdlEventSystem.type)) {
         case SDL_EventType::SDL_WINDOWEVENT:
-            gameWindow.handleEvents(sdlEventSystem, static_cast<SDL_WindowEventID>(sdlEventSystem.window.event), backEndMessagingSystem);
+            gameWindow.handleEvent(sdlEventSystem, static_cast<SDL_WindowEventID>(sdlEventSystem.window.event), backEndMessagingSystem);
             break;
         }
     }
-    inputService.updateTimers(GameInfo::getDeltaTime());
+    inputService.postEvents(GameInfo::getDeltaTime());
     thisGame.update();
 }
 

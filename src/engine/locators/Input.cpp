@@ -24,7 +24,7 @@ Input::Input() {
     SDL_PumpEvents();
 }
 
-void Input::updateTimers(float dt) {
+void Input::postEvents(float dt) {
 
     //Loop through all of the currently pressed once keydata pointers
     for (unsigned int i = 0; i < currentPressedOnce.size(); i++) {
@@ -60,10 +60,19 @@ void Input::updateTimers(float dt) {
         currentPressedOnce.at(i)->timeBetweenPress -= dt;
     }
 }
+void Input::preEvents() {
 
-void Input::handleEvents(SDL_Event& sdlEventSystem, SDL_EventType t) {
+    mouseDelta.x = 0;
+    mouseDelta.y = 0;
+    SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
+}
+void Input::handleEvent(SDL_Event& sdlEventSystem, SDL_EventType t) {
 
     switch (t) {
+    case SDL_MOUSEMOTION:
+        mouseDelta.x = sdlEventSystem.motion.xrel;
+        mouseDelta.y = sdlEventSystem.motion.yrel;
+        break;
     case SDL_KEYDOWN:
         keyData[sdlEventSystem.key.keysym.scancode].isPressed = true;
         break;
@@ -83,8 +92,6 @@ void Input::handleEvents(SDL_Event& sdlEventSystem, SDL_EventType t) {
     default:
         break;
     }
-
-    SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 }
 
 bool Input::isPressedOnce(KeyData& data) {
@@ -136,7 +143,7 @@ NullInput::NullInput() {
 bool NullInput::isKeyPressedOnce(const SDL_Keycode& keycode) {
     return false;
 }
-void NullInput::handleEvents(SDL_Event& sdlEventSystem, SDL_EventType t) {
+void NullInput::handleEvent(SDL_Event& sdlEventSystem, SDL_EventType t) {
     if (t == SDL_QUIT) {
         /**********************|
 		|We exit the game Here |

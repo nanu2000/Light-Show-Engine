@@ -32,14 +32,14 @@ void PhysicsWorld::initialize() {
     initializeDebugDraw();
 }
 
-void PhysicsWorld::fixedUpdate() {
+void PhysicsWorld::update() {
 
     if (!thisWorld) {
         DBG_LOG("The Physics World Has Not Been Initialized, Please Initialize Before Updating. (PhysicsWorld.cpp update())\n");
         return;
     }
 
-    thisWorld->stepSimulation(GameInfo::fixedDeltaTime, GameInfo::PHYSICS_MAX_SUBSTEPS, GameInfo::PHYSICS_TIME_STEP);
+    thisWorld->stepSimulation(GameInfo::getDeltaTime(), GameInfo::PHYSICS_MAX_SUBSTEPS, GameInfo::PHYSICS_TIME_STEP);
 
     for (int i = 0; i < thisWorld->getDispatcher()->getNumManifolds(); i++) {
         btPersistentManifold* contactManifold = thisWorld->getDispatcher()->getManifoldByIndexInternal(i);

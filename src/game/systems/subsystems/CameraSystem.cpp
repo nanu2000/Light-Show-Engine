@@ -19,8 +19,8 @@ void CameraSystem::update(Camera& camera) {
 
     float dt = GameInfo::getDeltaTime();
 
-    camera.rotation.y += InputLocator::getService().getMouseDelta().x * dt * camera.speed;
-    camera.rotation.z -= InputLocator::getService().getMouseDelta().y * dt * camera.speed;
+    camera.rotation.y = camera.rotation.y + (float)InputLocator::getService().getMouseDelta().x * dt * camera.speed;
+    camera.rotation.z = camera.rotation.z - (float)InputLocator::getService().getMouseDelta().y * dt * camera.speed;
 
     float cameraMaxPitch = 70.0f;
 

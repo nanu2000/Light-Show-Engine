@@ -149,7 +149,7 @@ void Engine::Game::update() {
     }
 
     readBackendEventQueue();
-    updatingSystem.update();
+    updatingSystem.update(*systemVitals);
 }
 
 void Engine::Game::render() {

@@ -24,17 +24,7 @@ void FixedUpdatingSystem::fixedUpdate(Engine::SystemVitals& sv) {
 
     if (isPauseMenuShowing) {
 
-        SDL_ShowCursor(SDL_ENABLE);
         return; //stop updating.
-
-    } else {
-
-        //Update Physics
-        physicsWorld.fixedUpdate();
-
-        SDL_ShowCursor(SDL_DISABLE);
-
-        GameInfo::setMousePosition(GameInfo::getWindowWidth() / 2, GameInfo::getWindowHeight() / 2);
     }
 
     if (InputLocator::getService().isKeyPressedOnce(SDLK_7)) {

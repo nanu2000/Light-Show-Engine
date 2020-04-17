@@ -18,7 +18,7 @@ public:
 
     void initialize();
 
-    void fixedUpdate();
+    void update();
 
     void setDebugMode(btIDebugDraw::DebugDrawModes mode);
 

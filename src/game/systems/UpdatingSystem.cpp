@@ -28,9 +28,13 @@ void UpdatingSystem::recieveSystemMessage(const BackEndMessages& msg, Engine::Sy
     }
 }
 
-void UpdatingSystem::update() {
+void UpdatingSystem::update(Engine::SystemVitals& sv) {
 
     bool isPauseMenuShowing = false;
+
+    PhysicsWorld& physicsWorld = sv.getPhysicsWorld();
+
+    sv.getPhysicsWorld().getWorld()->stepSimulation(GameInfo::getDeltaTime(), 1, GameInfo::fixedDeltaTime);
 
     if (UserControls* userControls = currentScene->getFirstActiveComponentOfType<UserControls>()) {
         if (PauseMenu* menu = currentScene->getFirstActiveComponentOfType<PauseMenu>()) {
@@ -41,7 +45,15 @@ void UpdatingSystem::update() {
     }
 
     if (isPauseMenuShowing) {
-        return;
+        SDL_SetRelativeMouseMode(SDL_FALSE);
+        SDL_ShowCursor(SDL_ENABLE);
+        return; //stop updating.
+
+    } else {
+
+        SDL_ShowCursor(SDL_DISABLE);
+        SDL_SetRelativeMouseMode(SDL_TRUE);
+        physicsWorld.update();
     }
 
     const std::vector<Scene::Entity>& entities = *currentScene->getAllEntities();
@@ -74,24 +86,25 @@ void UpdatingSystem::update() {
                 break;
             }
         }
-
-        if (camera) {
-
-            systems->cameraSystem.update(*camera);
-        }
         if (camera && animatedModel) {
-
-            if (PlayerCameraHandler* playerCameraHandler = currentScene->getComponent<PlayerCameraHandler>(entity)) {
-                systems->playerCameraHandlingSystem.setThirdPersonCameraTargetPosition(*playerCameraHandler, animatedModel->transform, *camera);
-            }
 
             if (PlayerController* controller = currentScene->getComponent<PlayerController>(entity)) {
 
                 if (CollisionMesh* cmesh = currentScene->getComponent<CollisionMesh>(entity)) {
+                    UserControls* userControls = currentScene->getFirstActiveComponentOfType<UserControls>();
 
-                    systems->playerControllerSystem.update(animatedModel->transform, *controller, *camera, *cmesh);
+                    systems->playerControllerSystem.update(animatedModel->transform, *controller, *camera, *cmesh, sv.getPhysicsWorld());
                 }
             }
+
+            if (PlayerCameraHandler* playerCameraHandler = currentScene->getComponent<PlayerCameraHandler>(entity)) {
+                systems->playerCameraHandlingSystem.setThirdPersonCameraTargetPosition(*playerCameraHandler, animatedModel->transform, *camera);
+            }
+        }
+
+        if (camera) {
+
+            systems->cameraSystem.update(*camera);
         }
     }
 }

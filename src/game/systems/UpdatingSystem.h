@@ -23,7 +23,7 @@ public:
     void recieveSystemMessage(const BackEndMessages& msg, Engine::SystemVitals& systemVitals);
 
     //Called from Game.cpp
-    void update();
+    void update(Engine::SystemVitals& sv);
 
 private:
 };

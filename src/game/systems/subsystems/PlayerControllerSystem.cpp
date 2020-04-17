@@ -59,15 +59,24 @@ void PlayerControllerSystem::getPlayerInput(Input& input, CollisionMesh& collisi
 }
 
 void PlayerControllerSystem::handleRayHit(PlayerController& playerController, CollisionMesh& collisionMesh, float closest) {
+
     collisionMesh.setVelocity(
         btVector3(
             collisionMesh.getVelocitybt().x(),
-            playerController.clampingVelocity,
+            0,
             collisionMesh.getVelocitybt().z()));
 
     playerController.lastTouchedPosition = glm::vec3(collisionMesh.getPosition().x, collisionMesh.getPosition().y + closest, collisionMesh.getPosition().z);
 
-    collisionMesh.translate(btVector3(0, closest, 0));
+    btTransform initialTransform;
+
+    initialTransform.setOrigin(hh::toBtVec3(collisionMesh.getPosition() + glm::vec3(0, closest, 0)));
+    initialTransform.setRotation(hh::toBtQuat(collisionMesh.getRotation()));
+
+    collisionMesh.getRigidBody()->setWorldTransform(initialTransform);
+    collisionMesh.getMotionState()->setWorldTransform(initialTransform);
+
+    collisionMesh.getRigidBody()->setGravity(btVector3(0, 0, 0));
 
     playerController.isTouchingGround = true;
     playerController.jumping          = false;
@@ -156,7 +165,7 @@ void PlayerControllerSystem::performCommands(CollisionMesh& collisionMesh, Playe
 }
 
 void PlayerControllerSystem::applyForces(CollisionMesh& collisionMesh, PlayerController& playerController) {
-    collisionMesh.applyCentralImpulse(btVector3(0, playerController.playerGravityImpulse, 0));
+    //collisionMesh.applyCentralImpulse(btVector3(0, playerController.playerGravityImpulse, 0));
 
     collisionMesh.addVelocity(
         glm::vec3(
@@ -244,17 +253,23 @@ void PlayerControllerSystem::executeRayTesting(PlayerController& playerControlle
 void PlayerControllerSystem::applyNewTransform(CollisionMesh& mesh, const glm::vec3& cameraForward, const PlayerController& playerController, Transform& currentTransform) {
 
     currentTransform.position = mesh.getPosition() + playerController.offsetFromCollider;
+    btTransform trans;
+    btDefaultMotionState* myMotionState = (btDefaultMotionState*)mesh.getRigidBody()->getMotionState();
+    trans                               = myMotionState->m_graphicsWorldTrans;
+
+    currentTransform.position = hh::toGlmVec3(trans.getOrigin()) + playerController.offsetFromCollider;
 }
 
 void PlayerControllerSystem::applyNewRotation(const glm::vec3& cameraForward, const PlayerController& playerController, Transform& currentTransform) {
     if (playerController.rotateAwayFromCamera == false) {
 
-        currentTransform.rotation
-            = glm::quat(
-                glm::vec3(
-                    hh::signedRadiansBetweenVectors(glm::vec3(cameraForward.x, 0, cameraForward.z), glm::vec3(1, 0, 0)),
-                    0,
-                    glm::radians(-90.f)));
+        glm::quat newRotation = glm::quat(
+            glm::vec3(
+                hh::signedRadiansBetweenVectors(glm::vec3(cameraForward.x, 0, cameraForward.z), glm::vec3(1.f, 0, 0)),
+                0,
+                glm::radians(-90.f)));
+
+        currentTransform.rotation = glm::slerp(currentTransform.rotation, newRotation, GameInfo::getDeltaTime() * 20.f);
     }
 }
 
@@ -263,7 +278,6 @@ void PlayerControllerSystem::fixedUpdate(Input& input, Transform& modelsTransfor
     mesh.activateRigidBody(true);
 
     //Perform Calculations
-    executeRayTesting(playerController, mesh, mesh.getTransformation(), world);
     ///////////////////////
 
     ////////////////Perform Actions
@@ -277,11 +291,15 @@ void PlayerControllerSystem::fixedUpdate(Input& input, Transform& modelsTransfor
     /////////////////
 
     /////////////////Transform Model Orientation according to collision mesh and camera.
-    applyNewTransform(mesh, camera.getForward(), playerController, modelsTransform);
+    // applyNewRotation(camera.getForward(), playerController, modelsTransform);
+    ///////////////////
+
+    /////////////////Transform Model Orientation according to collision mesh and camera.
+    //applyNewTransform(mesh, camera.getForward(), playerController, modelsTransform);
     ///////////////////
 }
 
-void PlayerControllerSystem::update(Transform& modelsTransform, PlayerController& playerController, Camera& camera, CollisionMesh& mesh) {
+void PlayerControllerSystem::update(Transform& modelsTransform, PlayerController& playerController, Camera& camera, CollisionMesh& mesh, PhysicsWorld& world) {
 
     //Normally we would update model position here, however doing this:
     //btTransform b;
@@ -289,9 +307,12 @@ void PlayerControllerSystem::update(Transform& modelsTransform, PlayerController
     //modelsTransform.position = hh::toGlmVec3(b.getOrigin()) + playerController.offsetFromCollider;
     //will result in lag. https://gamedev.stackexchange.com/questions/140865/graphical-mesh-lags-behind-collision-shape-in-bulletphysics-debug-drawing
 
+    executeRayTesting(playerController, mesh, mesh.getTransformation(), world);
     /////////////////Transform Model Orientation according to collision mesh and camera.
     applyNewRotation(camera.getForward(), playerController, modelsTransform);
     ///////////////////
+
+    applyNewTransform(mesh, camera.getForward(), playerController, modelsTransform);
 }
 
 void PlayerControllerSystem::debugRender(PhysicsWorld& w, PlayerController& p) {

@@ -48,7 +48,7 @@ private:
     static const unsigned int MAX_AMOUNT_SLOPE_CALCULATIONS = 3;
     static const unsigned int AMOUNT_OF_RAYS                = 10;
 
-    float clampingVelocity     = -5;
+    float clampingVelocity     = 0;
     float rayDistanceCorrector = -0.1f;
 
     RayCaster rayCast[PlayerController::AMOUNT_OF_RAYS];

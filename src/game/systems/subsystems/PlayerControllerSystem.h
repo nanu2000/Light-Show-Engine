@@ -16,7 +16,7 @@ class PlayerControllerSystem : public SystemBase {
 public:
     PlayerControllerSystem() {}
 
-    void update(Transform& modelsTransform, PlayerController& playerController, Camera& camera, CollisionMesh& mesh);
+    void update(Transform& modelsTransform, PlayerController& playerController, Camera& camera, CollisionMesh& mesh, PhysicsWorld& world);
     void fixedUpdate(Input& input, Transform& modelsTransform, CollisionMesh& mesh, PhysicsWorld& world, PlayerController& playerController, Camera& camera, const UserControls& userControls);
     void debugRender(PhysicsWorld& w, PlayerController& p);
 

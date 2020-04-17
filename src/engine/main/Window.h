@@ -20,7 +20,7 @@ namespace Engine {
         void initialize();
 
         //!Handles sdl events such as resizing
-        void handleEvents(SDL_Event& eventSystem, SDL_WindowEventID windowEvent, Messenger<BackEndMessages>& msgr);
+        void handleEvent(SDL_Event& eventSystem, SDL_WindowEventID windowEvent, Messenger<BackEndMessages>& msgr);
 
         void setWindowTitle(const std::string& title);
 

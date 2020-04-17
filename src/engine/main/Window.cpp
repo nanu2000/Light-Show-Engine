@@ -23,7 +23,7 @@ void Engine::Window::initialize() {
     glContext = SDL_GL_CreateContext(gameWindow);
 }
 
-void Engine::Window::handleEvents(SDL_Event& eventSystem, SDL_WindowEventID windowEvent, Messenger<BackEndMessages>& msgr) {
+void Engine::Window::handleEvent(SDL_Event& eventSystem, SDL_WindowEventID windowEvent, Messenger<BackEndMessages>& msgr) {
 
     switch (windowEvent) {
 

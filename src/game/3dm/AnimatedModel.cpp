@@ -550,7 +550,7 @@ void _3DM::AnimatedModel::renderMesh(unsigned int index, Shader& shader) {
     glm::mat4 transformation = meshes.at(index).mesh.baseModelMatrix;
 
     transformation = glm::translate(transformation, transform.position);
-    transformation = glm::rotate(transformation, glm::angle(transform.rotation), glm::axis(transform.rotation));
+    transformation = transformation * glm::mat4_cast(transform.rotation);
     transformation = glm::scale(transformation, transform.scale);
 
     glBindVertexArray(meshes.at(index).mesh.vertexArrayObject); //Bind VAO

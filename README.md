@@ -29,7 +29,7 @@ Two other projects are used for 3D model exporting and font atlas file creation.
 ## Images)
 ![LSBP-1](https://raw.githubusercontent.com/nanu2000/Light-Show-Boilerplate/master/docs/images/example.gif)
 ![LSBP-2](https://raw.githubusercontent.com/nanu2000/Light-Show-Boilerplate/master/docs/images/lsbp-1.png)
-![LSBP-3](https://raw.githubusercontent.com/nanu2000/Light-Show-Boilerplate/master/docs/images/lsbp-2.png
+![LSBP-3](https://raw.githubusercontent.com/nanu2000/Light-Show-Boilerplate/master/docs/images/lsbp-2.png)
 
 ## Getting Started
 

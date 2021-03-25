@@ -26,7 +26,7 @@ Two other projects are used for 3D model exporting and font atlas file creation.
 * Bone Colliders (updates scale, position and rotation of a collision object according to a bone)
 * Entity Component System structure
 
-## Images)
+## Images
 ![LSBP-1](https://raw.githubusercontent.com/nanu2000/Light-Show-Boilerplate/master/docs/images/example.gif)
 ![LSBP-2](https://raw.githubusercontent.com/nanu2000/Light-Show-Boilerplate/master/docs/images/lsbp-1.png)
 ![LSBP-3](https://raw.githubusercontent.com/nanu2000/Light-Show-Boilerplate/master/docs/images/lsbp-2.png)
